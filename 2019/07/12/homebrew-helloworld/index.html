@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Homebrew】macOS必裝的套件管理工具 | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言Homebrew是一個用Ruby寫的軟體管理工具，有點像在Linux上的apt，可以用來快速安裝程式(formula)跟APP，但是…它並沒有包含版本的管理功能，如果自己手動移除掉某些東西，它是不知道的，所以千萬不要把它當成git用啊。它有很多在macOS上的好東東可以安裝，各位可以去看看喲。">
+<meta name="keywords" content="homebrew,macos,mas-cli">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Homebrew】macOS必裝的套件管理工具">
+<meta property="og:url" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言Homebrew是一個用Ruby寫的軟體管理工具，有點像在Linux上的apt，可以用來快速安裝程式(formula)跟APP，但是…它並沒有包含版本的管理功能，如果自己手動移除掉某些東西，它是不知道的，所以千萬不要把它當成git用啊。它有很多在macOS上的好東東可以安裝，各位可以去看看喲。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/Homebrew.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/rubyVersion.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/homebrewVersion.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_01.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_02.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_03.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_04.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_05.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_06.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_07.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_08.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_09.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_10.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brew_11.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_01.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_02.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_03.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_04.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_05.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_06.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_07.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_08.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_09.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewcask_10.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewtap_01.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/brewtap_02.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/mas_01.jpg">
+<meta property="og:updated_time" content="2020-04-13T14:08:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Homebrew】macOS必裝的套件管理工具">
+<meta name="twitter:description" content="前言Homebrew是一個用Ruby寫的軟體管理工具，有點像在Linux上的apt，可以用來快速安裝程式(formula)跟APP，但是…它並沒有包含版本的管理功能，如果自己手動移除掉某些東西，它是不知道的，所以千萬不要把它當成git用啊。它有很多在macOS上的好東東可以安裝，各位可以去看看喲。">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/07/12/homebrew-helloworld/Homebrew.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-homebrew-helloworld" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/12/homebrew-helloworld/" class="article-date">
+      <time datetime="2019-07-12T06:06:11.000Z" itemprop="datePublished">2019-07-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Homebrew】macOS必裝的套件管理工具
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/homebrew/">homebrew</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/macos/">macos</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mas-cli/">mas-cli</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><a href="https://brew.sh" target="_blank" rel="noopener">Homebrew</a>是一個用<a href="https://www.ruby-lang.org/" target="_blank" rel="noopener">Ruby</a>寫的<a href="http://blog.itist.tw/2017/04/install-mac-apps-with-homebrew-cask-on-macos.html" target="_blank" rel="noopener">軟體管理工具</a>，有點像在Linux上的<a href="https://zh.wikipedia.org/wiki/APT" target="_blank" rel="noopener">apt</a>，可以用來<a href="http://mt116.blogspot.com/2017/11/homebrew.html" target="_blank" rel="noopener">快速安裝程式(formula)跟APP</a>，但是…它並沒有包含版本的管理功能，如果自己手動移除掉某些東西，它是不知道的，所以千萬不要把它當成<a href="https://zh.wikipedia.org/wiki/Git" target="_blank" rel="noopener">git</a>用啊。它有很多在macOS上的<a href="https://formulae.brew.sh/formula/" target="_blank" rel="noopener">好東東</a>可以安裝，各位可以去看看喲。<br><a id="more"></a><br><img src="/2019/07/12/homebrew-helloworld/Homebrew.jpg" alt></p>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><h4 id="安裝Ruby"><a href="#安裝Ruby" class="headerlink" title="安裝Ruby"></a>安裝Ruby</h4><ul>
+<li>因為它是由<a href="https://www.ruby-lang.org/" target="_blank" rel="noopener">Ruby</a>寫的，所以要確定有沒有安裝它，不過基本上一定有啦，macOS內建就有了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby -v</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/rubyVersion.jpg" alt></p>
+<h4 id="安裝homebrew"><a href="#安裝homebrew" class="headerlink" title="安裝homebrew"></a>安裝homebrew</h4><ul>
+<li>將<a href="https://brew.sh/index_zh-tw.html" target="_blank" rel="noopener">homebrew官網</a>的那一行貼上就可以安裝了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/homebrewVersion.jpg" alt></p>
+<h4 id="移除homebrew"><a href="#移除homebrew" class="headerlink" title="移除homebrew"></a>移除homebrew</h4><ul>
+<li>當然有安裝就有移除啦，這個就…不說明了，因為我不想移除它<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)</span>"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="brew指令"><a href="#brew指令" class="headerlink" title="brew指令"></a>brew指令</h3><h4 id="安裝軟體"><a href="#安裝軟體" class="headerlink" title="安裝軟體"></a>安裝軟體</h4><ul>
+<li>比如說我們要安裝<a href="https://zh.wikipedia.org/wiki/Wget" target="_blank" rel="noopener">wget</a>這個下載程式，當然也可以一次安裝很多個<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew install wget               <span class="comment"># 一次裝一個</span></span><br><span class="line">brew install wget ffmpeg ruby   <span class="comment"># 一次裝很多個</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_01.jpg" alt></p>
+<h4 id="移除軟體"><a href="#移除軟體" class="headerlink" title="移除軟體"></a>移除軟體</h4><ul>
+<li>就移除剛才安裝的wget吧，從上面的提示可以看到，所有的軟體都是安裝在『/usr/local/Cellar』之下<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew remove wget</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_02.jpg" alt></p>
+<h4 id="到底裝了什麼？"><a href="#到底裝了什麼？" class="headerlink" title="到底裝了什麼？"></a>到底裝了什麼？</h4><ul>
+<li>日子一久，其實自己裝了什麼也不知道，可以利用下面的指令去做查詢 (其實有一些是安裝某些軟體時，順便安裝上去的)<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew list</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_03.jpg" alt></p>
+<h4 id="更新程式"><a href="#更新程式" class="headerlink" title="更新程式"></a>更新程式</h4><ul>
+<li>這裡是以<a href="https://ffmpeg.org/" target="_blank" rel="noopener">ffmpeg</a>當例子，當然也可以一次更新全部的程式<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew upgrade ffmpeg     <span class="comment"># 更新單一程式</span></span><br><span class="line">brew upgrade            <span class="comment"># 更新全部程式</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_04.jpg" alt></p>
+<h4 id="搜尋程式"><a href="#搜尋程式" class="headerlink" title="搜尋程式"></a>搜尋程式</h4><ul>
+<li>因為並不是每個程式在homebrew上都有，所以可以先查詢一下，這邊是以<a href="https://www.mongodb.com/" target="_blank" rel="noopener">mongodb</a>當例子，它會把有包含關鍵字的都列出來<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search mongodb</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_05.jpg" alt></p>
+<h4 id="版本升級"><a href="#版本升級" class="headerlink" title="版本升級"></a>版本升級</h4><ul>
+<li>homebrew自己本身也是有版本號的，當然也可以升級<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_06.jpg" alt></p>
+<h4 id="清除暫存檔"><a href="#清除暫存檔" class="headerlink" title="清除暫存檔"></a>清除暫存檔</h4><ul>
+<li>當然安裝久了，自然暫存檔、舊的程式也就越來越多了，就給它清理一下吧<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cleanup</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_07.jpg" alt></p>
+<h4 id="健康檢查"><a href="#健康檢查" class="headerlink" title="健康檢查"></a>健康檢查</h4><ul>
+<li>如果有什麼問題的話，也可以請醫生檢查一下<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew doctor</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_08.jpg" alt></p>
+<h4 id="檢查過期的程式"><a href="#檢查過期的程式" class="headerlink" title="檢查過期的程式"></a>檢查過期的程式</h4><ul>
+<li>用這個指令可以檢查有沒有過期的程式<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew outdated</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_09.jpg" alt></p>
+<h4 id="Help"><a href="#Help" class="headerlink" title="Help"></a>Help</h4><ul>
+<li>最後呢，如果還想了解<a href="https://docs.brew.sh" target="_blank" rel="noopener">其它的指令</a>的話，可以使用help去觀看<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_10.jpg" alt></p>
+<h4 id="連到所屬的官網"><a href="#連到所屬的官網" class="headerlink" title="連到所屬的官網"></a>連到所屬的官網</h4><ul>
+<li>這個指令可以開啟該官網的網頁<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew home ffmpeg</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brew_11.jpg" alt></p>
+<h3 id="brew-cask指令"><a href="#brew-cask指令" class="headerlink" title="brew-cask指令"></a>brew-cask指令</h3><h4 id="安裝APP"><a href="#安裝APP" class="headerlink" title="安裝APP"></a>安裝APP</h4><ul>
+<li>比如說我們要安裝<a href="https://macromates.com/" target="_blank" rel="noopener">textmate</a>這支APP，當然也可以一次安裝很多個，在上面可以清楚發現，安裝好的APP都會移到『Applications - 應用程式』的資料夾內<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">brew cask install textmate                  <span class="comment"># 一次裝一個</span></span><br><span class="line">brew cask install textmate iina sequel-pro  <span class="comment"># 一次裝很多個</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_01.jpg" alt></p>
+<h4 id="移除APP"><a href="#移除APP" class="headerlink" title="移除APP"></a>移除APP</h4><ul>
+<li>就除安裝<a href="https://macromates.com/" target="_blank" rel="noopener">textmate</a>這支APP吧，當然在『Applications - 應用程式』的它就不見了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask remove textmate</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_02.jpg" alt></p>
+<h4 id="檢查過期的APP"><a href="#檢查過期的APP" class="headerlink" title="檢查過期的APP"></a>檢查過期的APP</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask outdated</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_03.jpg" alt></p>
+<h4 id="重新安裝-更新"><a href="#重新安裝-更新" class="headerlink" title="重新安裝(更新)"></a>重新安裝(更新)</h4><ul>
+<li>在這裡以<a href="https://hluk.github.io/CopyQ/" target="_blank" rel="noopener">CopyQ</a>做為例子，在這裡可以發現，相關的記錄都會在『/usr/local/Caskroom/』之內<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask reinsatall copyq</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_04.jpg" alt></p>
+<h4 id="搜尋APP"><a href="#搜尋APP" class="headerlink" title="搜尋APP"></a>搜尋APP</h4><ul>
+<li>當然，它也可以去搜尋相關的APP，比如說：adobe系列，不過現在整合在『brew search』中了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew search adobe</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_05.jpg" alt></p>
+<h4 id="一次更新所有的APP"><a href="#一次更新所有的APP" class="headerlink" title="一次更新所有的APP"></a>一次更新所有的APP</h4><ul>
+<li>在這裡跟brew不一樣的是，這個指令只能更新『全部』<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask upgrade</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_06.jpg" alt></p>
+<h4 id="安裝過的App列表"><a href="#安裝過的App列表" class="headerlink" title="安裝過的App列表"></a>安裝過的App列表</h4><ul>
+<li>這個指令可以看到有安裝過的App列表<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask list</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_07.jpg" alt></p>
+<h4 id="連到所屬的官網-1"><a href="#連到所屬的官網-1" class="headerlink" title="連到所屬的官網"></a>連到所屬的官網</h4><ul>
+<li>這個指令可以開啟該官網的網頁，這裡以<a href="https://github.com/sindresorhus/quick-look-plugins" target="_blank" rel="noopener">qlmarkdown</a>為例<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask home qlmarkdown</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_08.jpg" alt></p>
+<h4 id="備份APP"><a href="#備份APP" class="headerlink" title="備份APP"></a>備份APP</h4><ul>
+<li>這個就是比較特殊的功能了，怕舊版不好用的人，可以備份一下，以免不時之需，可以看得出來，都會下載在『~/Library/Caches/Homebrew/downloads』這裡<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask fetch copyq</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_09.jpg" alt></p>
+<h4 id="Help-1"><a href="#Help-1" class="headerlink" title="Help"></a>Help</h4><ul>
+<li>最後呢，如果還想了解<a href="https://docs.brew.sh" target="_blank" rel="noopener">其它的指令</a>的話，可以使用help去觀看<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask <span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewcask_10.jpg" alt></p>
+<h3 id="brew-tap指令"><a href="#brew-tap指令" class="headerlink" title="brew-tap指令"></a>brew-tap指令</h3><h4 id="資料來源"><a href="#資料來源" class="headerlink" title="資料來源"></a>資料來源</h4><ul>
+<li>觀看資料的來源<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew tap</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewtap_01.jpg" alt></p>
+<h4 id="新增來源"><a href="#新增來源" class="headerlink" title="新增來源"></a>新增來源</h4><ul>
+<li>可以新增一些新的第三方來源，用來安裝新的東東，比如說：字型，search font*之後，一下就跑了很多字型出來了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew tap caskroom/fonts</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/brewtap_02.jpg" alt></p>
+<h3 id="mas-cli"><a href="#mas-cli" class="headerlink" title="mas-cli"></a>mas-cli</h3><ul>
+<li>如果要安裝、下載AppStore上的App要怎麼辦呢？有辦法的，就是安裝<a href="https://github.com/mas-cli/mas" target="_blank" rel="noopener">mas-cli</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mas</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="安裝過的列表"><a href="#安裝過的列表" class="headerlink" title="安裝過的列表"></a>安裝過的列表</h4><ul>
+<li>列出目前所有從 Mac App Store 安裝的 App<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mas list</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/homebrew-helloworld/mas_01.jpg" alt></p>
+<h4 id="安裝APP-1"><a href="#安裝APP-1" class="headerlink" title="安裝APP"></a>安裝APP</h4><ul>
+<li>它是以<a href="https://free.com.tw/mas-cli-macos-install-app/" target="_blank" rel="noopener">「App編號」</a>的方式來安裝的，所以它也可以安裝舊的<a href="https://free.com.tw/mas-cli-macos-install-app/" target="_blank" rel="noopener">masOS</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mas install 1246284741</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="查詢可升級"><a href="#查詢可升級" class="headerlink" title="查詢可升級"></a>查詢可升級</h4><ul>
+<li>查詢目前可升級的 App<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mas outdated</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="App升級"><a href="#App升級" class="headerlink" title="App升級"></a>App升級</h4><ul>
+<li>將所有舊版的 App 升級<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mas upgrade</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="搜尋名稱"><a href="#搜尋名稱" class="headerlink" title="搜尋名稱"></a>搜尋名稱</h4><ul>
+<li>搜尋名稱有「關鍵字」的 App。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mas search <span class="string">"high sierra"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>其實這個東西真的是超好用的，尤其是在重新安裝系統的時候，一次就給它裝完了</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年07月12日 - 14時06分</p>
+        <p><span>最後更新:</span>2020年04月13日 - 22時08分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/07/12/homebrew-helloworld/" title="【Homebrew】macOS必裝的套件管理工具">https://william-weng.github.io/2019/07/12/homebrew-helloworld/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/07/12/homebrew-helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/07/18/android-kotlin-helloworld/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Kotlin 1.3】Android程式初體驗 - Kotlin篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/12/unity3d-helloworld/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Unity 3D 2019】向電玩產業踏出成功的第一步</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝"><span class="toc-number">2.</span> <span class="toc-text">安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝Ruby"><span class="toc-number">2.1.</span> <span class="toc-text">安裝Ruby</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝homebrew"><span class="toc-number">2.2.</span> <span class="toc-text">安裝homebrew</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移除homebrew"><span class="toc-number">2.3.</span> <span class="toc-text">移除homebrew</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew指令"><span class="toc-number">3.</span> <span class="toc-text">brew指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝軟體"><span class="toc-number">3.1.</span> <span class="toc-text">安裝軟體</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移除軟體"><span class="toc-number">3.2.</span> <span class="toc-text">移除軟體</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#到底裝了什麼？"><span class="toc-number">3.3.</span> <span class="toc-text">到底裝了什麼？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新程式"><span class="toc-number">3.4.</span> <span class="toc-text">更新程式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜尋程式"><span class="toc-number">3.5.</span> <span class="toc-text">搜尋程式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#版本升級"><span class="toc-number">3.6.</span> <span class="toc-text">版本升級</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#清除暫存檔"><span class="toc-number">3.7.</span> <span class="toc-text">清除暫存檔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#健康檢查"><span class="toc-number">3.8.</span> <span class="toc-text">健康檢查</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#檢查過期的程式"><span class="toc-number">3.9.</span> <span class="toc-text">檢查過期的程式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Help"><span class="toc-number">3.10.</span> <span class="toc-text">Help</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#連到所屬的官網"><span class="toc-number">3.11.</span> <span class="toc-text">連到所屬的官網</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-cask指令"><span class="toc-number">4.</span> <span class="toc-text">brew-cask指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝APP"><span class="toc-number">4.1.</span> <span class="toc-text">安裝APP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移除APP"><span class="toc-number">4.2.</span> <span class="toc-text">移除APP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#檢查過期的APP"><span class="toc-number">4.3.</span> <span class="toc-text">檢查過期的APP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重新安裝-更新"><span class="toc-number">4.4.</span> <span class="toc-text">重新安裝(更新)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜尋APP"><span class="toc-number">4.5.</span> <span class="toc-text">搜尋APP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一次更新所有的APP"><span class="toc-number">4.6.</span> <span class="toc-text">一次更新所有的APP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝過的App列表"><span class="toc-number">4.7.</span> <span class="toc-text">安裝過的App列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#連到所屬的官網-1"><span class="toc-number">4.8.</span> <span class="toc-text">連到所屬的官網</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#備份APP"><span class="toc-number">4.9.</span> <span class="toc-text">備份APP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Help-1"><span class="toc-number">4.10.</span> <span class="toc-text">Help</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#brew-tap指令"><span class="toc-number">5.</span> <span class="toc-text">brew-tap指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#資料來源"><span class="toc-number">5.1.</span> <span class="toc-text">資料來源</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新增來源"><span class="toc-number">5.2.</span> <span class="toc-text">新增來源</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mas-cli"><span class="toc-number">6.</span> <span class="toc-text">mas-cli</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝過的列表"><span class="toc-number">6.1.</span> <span class="toc-text">安裝過的列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝APP-1"><span class="toc-number">6.2.</span> <span class="toc-text">安裝APP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查詢可升級"><span class="toc-number">6.3.</span> <span class="toc-text">查詢可升級</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#App升級"><span class="toc-number">6.4.</span> <span class="toc-text">App升級</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜尋名稱"><span class="toc-number">6.5.</span> <span class="toc-text">搜尋名稱</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">7.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/07/18/android-kotlin-helloworld/" title="上一篇: 【Kotlin 1.3】Android程式初體驗 - Kotlin篇">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/07/12/unity3d-helloworld/" title="下一篇: 【Unity 3D 2019】向電玩產業踏出成功的第一步">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

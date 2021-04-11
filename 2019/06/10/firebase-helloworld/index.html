@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Firebase】不用錢的NoSQL資料庫？ | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言相信大家都有聽過firebase的大名吧？它已經是APP開發者最愛的BaaS - 後端服務平臺之一，自從Google買下它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的GCM - Google Cloud Messaging轉成FCM - Firebase Cloud Messaging，還有將Fabric關閉等…，總總的跡象都表示Google的決心。其實市面上另">
+<meta name="keywords" content="firebase,database,nosql,xcode,swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Firebase】不用錢的NoSQL資料庫？">
+<meta property="og:url" content="https://william-weng.github.io/2019/06/10/firebase-helloworld/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言相信大家都有聽過firebase的大名吧？它已經是APP開發者最愛的BaaS - 後端服務平臺之一，自從Google買下它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的GCM - Google Cloud Messaging轉成FCM - Firebase Cloud Messaging，還有將Fabric關閉等…，總總的跡象都表示Google的決心。其實市面上另">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/10/firebase-helloworld/Firebase.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/10/firebase-helloworld/Realtime_1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/10/firebase-helloworld/Realtime_2.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/10/firebase-helloworld/Realtime_3.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/10/firebase-helloworld/Realtime_4.jpg">
+<meta property="og:updated_time" content="2019-09-15T04:36:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Firebase】不用錢的NoSQL資料庫？">
+<meta name="twitter:description" content="前言相信大家都有聽過firebase的大名吧？它已經是APP開發者最愛的BaaS - 後端服務平臺之一，自從Google買下它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的GCM - Google Cloud Messaging轉成FCM - Firebase Cloud Messaging，還有將Fabric關閉等…，總總的跡象都表示Google的決心。其實市面上另">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/06/10/firebase-helloworld/Firebase.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-firebase-helloworld" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/10/firebase-helloworld/" class="article-date">
+      <time datetime="2019-06-10T03:25:36.000Z" itemprop="datePublished">2019-06-10</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Firebase】不用錢的NoSQL資料庫？
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firebase/">firebase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nosql/">nosql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>相信大家都有聽過<a href="https://en.wikipedia.org/wiki/Firebase" target="_blank" rel="noopener">firebase</a>的大名吧？它已經是APP開發者最愛的<a href="https://baike.baidu.com/item/BaaS/271609" target="_blank" rel="noopener">BaaS - 後端服務平臺</a>之一，自從Google<a href="https://www.ithome.com.tw/news/91771" target="_blank" rel="noopener">買下</a>它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的<a href="https://kknews.cc/zh-tw/tech/blrm8n9.html" target="_blank" rel="noopener">GCM - Google Cloud Messaging</a>轉成<a href="https://firebase.google.com/docs/cloud-messaging/" target="_blank" rel="noopener">FCM - Firebase Cloud Messaging</a>，還有將<a href="https://www.inside.com.tw/article/8296-google-bought-twitters-fabbric" target="_blank" rel="noopener">Fabric</a>關閉等…，總總的跡象都表示Google的決心。其實市面上另外還有一套叫<a href="http://parseplatform.org/" target="_blank" rel="noopener">Parse.com</a>的資料庫，是由<a href="https://www.ithome.com.tw/voice/95454" target="_blank" rel="noopener">Facebook買下</a>，不過由於不賺錢就<a href="https://panx.asia/archives/39160" target="_blank" rel="noopener">關閉跟開源了</a>。以下的Code只會寫出比較重要的部分，如果要完整的Code的話，請去github下載，感謝。<br><a id="more"></a></p>
+<p><img src="/2019/06/10/firebase-helloworld/Firebase.jpg" alt></p>
+<h3 id="Realtime-Database"><a href="#Realtime-Database" class="headerlink" title="Realtime Database"></a>Realtime Database</h3><h4 id="建立Realtime資料庫"><a href="#建立Realtime資料庫" class="headerlink" title="建立Realtime資料庫"></a>建立Realtime資料庫</h4><ul>
+<li>首先要有個<a href="https://support.google.com/mail/answer/56256?hl=zh-Hant" target="_blank" rel="noopener">gmail帳號</a>用來登入<a href="https://console.firebase.google.com/?hl=zh-TW" target="_blank" rel="noopener">firebase console</a>，接下來就是按影片施工，保證成功。<video width="100%" controls><br>  <source src="/2019/06/10/firebase-helloworld/Realtime_1.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="資料結構"><a href="#資料結構" class="headerlink" title="資料結構"></a>資料結構</h4><ul>
+<li>其實它的資料庫就是一個大的<a href="https://zh.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON檔</a>，大家可以先在<a href="https://jsoneditoronline.org/" target="_blank" rel="noopener">JSON Editor Online</a>上輸入資料比較方便，雖然JSON上有Array([value])跟Object({key: value})兩種結構存在，但在Firebase上看起來是把Array也變成了有key的object了，所以直接在上面輸入時，也要輸入0跟1才可以。大家也可以試試匯入匯出的功能。<br><img src="/2019/06/10/firebase-helloworld/Realtime_1.jpg" alt></li>
+<li>另外在資料庫的網址後面加上『/.json』的話可以直接看到完整的json資料<br><img src="/2019/06/10/firebase-helloworld/Realtime_2.jpg" alt></li>
+</ul>
+<h4 id="將Firebase新增至iOS應用程式"><a href="#將Firebase新增至iOS應用程式" class="headerlink" title="將Firebase新增至iOS應用程式"></a>將Firebase新增至iOS應用程式</h4><ul>
+<li>這裡會使用<a href="https://www.appcoda.com.tw/firebase/" target="_blank" rel="noopener">Xcode 10 + Firebase Framework</a>來做測試，<a href="https://medium.com/@mikru168/ios-透過-cocaopod-來管理第三方的套件-ba783ced09f6" target="_blank" rel="noopener">用CocoaPods的安裝過程</a>就不多做說明了，主要是將AppID給Firebase資料庫知道，然後經過處理之後，會發一個『GoogleService-Info.plist』下來，將它放在iOS的專案之內，以下是新增的影片，可以參考看看，在註冊的過程中也有詳細的提示。<video width="100%" controls><br>  <source src="/2019/06/10/firebase-helloworld/Realtime_2.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="安裝Framework"><a href="#安裝Framework" class="headerlink" title="安裝Framework"></a>安裝Framework</h4><ul>
+<li>再來就是安裝<a href="https://firebase.google.com/docs/ios/setup?hl=zh-cn" target="_blank" rel="noopener">Firebase/Database套件</a>，因為我們要使用Database嘛，安裝完成後就如圖所示，但是『GoogleService-Info.plist』一定要在第一層，不然Firebase就不能動了。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod <span class="string">'Firebase/Database'</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/06/10/firebase-helloworld/Realtime_3.jpg" alt></p>
+<h4 id="使用測試"><a href="#使用測試" class="headerlink" title="使用測試"></a>使用測試</h4><ul>
+<li>這裡主要是看看能不能動作，如果有印出資料的話，就可以進行下一步的動作。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> FirebaseDatabase</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">var</span> myTableView: <span class="type">UITableView!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">let</span> database = <span class="type">Database</span>.database().reference()    </span><br><span class="line">        database.observeSingleEvent(of: .value) &#123; (value) <span class="keyword">in</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">"value = \(value)"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/06/10/firebase-helloworld/Realtime_4.jpg" alt></p>
+<h3 id="Realtime-Database-CRUD"><a href="#Realtime-Database-CRUD" class="headerlink" title="Realtime Database CRUD"></a>Realtime Database CRUD</h3><h4 id="讀取資料"><a href="#讀取資料" class="headerlink" title="讀取資料"></a>讀取資料</h4><p>Realtime Database<a href="https://firebase.google.com/docs/database/ios/read-and-write" target="_blank" rel="noopener">讀取資料</a>的方式，可分為單次跟及時更新的，單次的話就是當下只讀取一次資料，而及時的話就是資料有<a href="https://firebase.google.com/docs/reference/ios/firebasedatabase/api/reference/Enums/FIRDataEventType" target="_blank" rel="noopener">更動 - FIRDataEventType</a>的時候就會再去讀取一次。大家可以直接去資料庫改改值據，就能體會其中的差異了。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> FirebaseDatabase</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FIRDatabase</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">let</span> shard = <span class="type">FIRDatabase</span>()</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">let</span> database = <span class="type">Database</span>.database().reference()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">override</span> <span class="keyword">init</span>() &#123; <span class="keyword">super</span>.<span class="keyword">init</span>() &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取值 (單次 / 及時)</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">childValueFor</span><span class="params">(type: RealtimeDatabaseType, withPath path: String, result: @escaping <span class="params">(<span class="params">(<span class="keyword">Any</span>?)</span></span></span></span> -&gt; <span class="type">Void</span>)) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> type &#123;</span><br><span class="line">        <span class="keyword">case</span> .single: childValueForSingle(withPath: path) &#123; (value) <span class="keyword">in</span> result(value) &#125;</span><br><span class="line">        <span class="keyword">case</span> .realtime: childValueForRealtime(withPath: path) &#123; (value) <span class="keyword">in</span> result(value) &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取值 (單次)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">childValueForSingle</span><span class="params">(withPath path: String, result: @escaping <span class="params">(<span class="params">(<span class="keyword">Any</span>?)</span></span></span></span> -&gt; <span class="type">Void</span>)) &#123;</span><br><span class="line">        </span><br><span class="line">        database.child(path).observeSingleEvent(of: .value, with: &#123; (snapshot) <span class="keyword">in</span></span><br><span class="line">            result(snapshot.value)</span><br><span class="line">        &#125;, withCancel: &#123; (error) <span class="keyword">in</span></span><br><span class="line">            result(<span class="literal">nil</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取值 (及時)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">childValueForRealtime</span><span class="params">(withPath path: String, result: @escaping <span class="params">(<span class="params">(<span class="keyword">Any</span>?)</span></span></span></span> -&gt; <span class="type">Void</span>)) &#123;</span><br><span class="line">        </span><br><span class="line">        database.child(path).observe(.value, with: &#123; (snapshot) <span class="keyword">in</span></span><br><span class="line">            result(snapshot.value)</span><br><span class="line">        &#125;, withCancel: &#123; (error) <span class="keyword">in</span></span><br><span class="line">            result(<span class="literal">nil</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<video width="100%" controls><br>    <source src="/2019/06/10/firebase-helloworld/Realtime_3.mp4" type="video/mp4"><br></video>
+
+<h4 id="設定資料"><a href="#設定資料" class="headerlink" title="設定資料"></a>設定資料</h4><ul>
+<li>firebase設定資料的方法也滿簡單的，不過要注意的是，一經設定之後，原資料都會『不見』喲，整個會被刪掉，很可怕的，如果原來沒有這個值也會自動補上去。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 設定數據</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">setChildValue</span><span class="params">(withPath path: String, values: [String: <span class="keyword">Any</span>], result: @escaping <span class="params">(<span class="params">(<span class="keyword">Any</span>?)</span></span></span></span> -&gt; <span class="type">Void</span>)) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> isOK = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        database.child(path).setValue(values) &#123; (error, database) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span> &#123; result(!isOK); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(isOK)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="更新資料"><a href="#更新資料" class="headerlink" title="更新資料"></a>更新資料</h4><ul>
+<li>firebase更新資料的方法跟設定資料差不多，如果原來沒有這個值也會自動補上去，但是一經設定之後，只會更新原有的資料。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 更新數據</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">updateChildValue</span><span class="params">(withPath path: String, values: [String: <span class="keyword">Any</span>], result: @escaping <span class="params">(<span class="params">(<span class="keyword">Any</span>?)</span></span></span></span> -&gt; <span class="type">Void</span>)) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> isOK = <span class="literal">true</span></span><br><span class="line">        </span><br><span class="line">        database.child(path).updateChildValues(values) &#123; (error, database) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> error != <span class="literal">nil</span> &#123; result(!isOK); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(isOK)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/06/10/firebase-helloworld/Realtime_4.mp4" type="video/mp4"><br></video>
+
+<h4 id="查詢資料"><a href="#查詢資料" class="headerlink" title="查詢資料"></a>查詢資料</h4><ul>
+<li>firebase<a href="https://firebase.google.com/docs/firestore/query-data/get-data" target="_blank" rel="noopener">查詢數據</a>的功能其實滿強大的，本來還以為使用上跟SQL一樣複雜，不過其實還滿單純的。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 查詢數據</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">queryChildValue</span><span class="params">(withPath path: String, byKey key: String, value: Int, result: @escaping <span class="params">(<span class="params">(<span class="keyword">Any</span>?)</span></span></span></span> -&gt; <span class="type">Void</span>)) &#123;</span><br><span class="line">        </span><br><span class="line">        database.child(path).queryOrdered(byChild: key).queryEqual(toValue: value).observe(.value, with: &#123; (snapshot) <span class="keyword">in</span></span><br><span class="line">            result(snapshot.value)</span><br><span class="line">        &#125;, withCancel: &#123; error <span class="keyword">in</span></span><br><span class="line">            result(<span class="literal">nil</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/06/10/firebase-helloworld/Realtime_5.mp4" type="video/mp4"><br></video>
+
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="https://github.com/William-Weng/Swift-5/tree/master/Firebase_HelloWorld" target="_blank" rel="noopener">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>Firebase對前端打字工來說，無非是一個快速上手的好工具，建議大家可以多多學學。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年06月10日 - 11時25分</p>
+        <p><span>最後更新:</span>2019年09月15日 - 12時36分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/06/10/firebase-helloworld/" title="【Firebase】不用錢的NoSQL資料庫？">https://william-weng.github.io/2019/06/10/firebase-helloworld/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/06/10/firebase-helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/06/14/firebase-money-money/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Firebase】庫存APP (上傳、下載文字 / 圖片)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/02/firealpaca-helloworld/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【FireAlpaca 2.1】免費的Photoshop？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Realtime-Database"><span class="toc-number">2.</span> <span class="toc-text">Realtime Database</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#建立Realtime資料庫"><span class="toc-number">2.1.</span> <span class="toc-text">建立Realtime資料庫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#資料結構"><span class="toc-number">2.2.</span> <span class="toc-text">資料結構</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#將Firebase新增至iOS應用程式"><span class="toc-number">2.3.</span> <span class="toc-text">將Firebase新增至iOS應用程式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝Framework"><span class="toc-number">2.4.</span> <span class="toc-text">安裝Framework</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用測試"><span class="toc-number">2.5.</span> <span class="toc-text">使用測試</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Realtime-Database-CRUD"><span class="toc-number">3.</span> <span class="toc-text">Realtime Database CRUD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#讀取資料"><span class="toc-number">3.1.</span> <span class="toc-text">讀取資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#設定資料"><span class="toc-number">3.2.</span> <span class="toc-text">設定資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新資料"><span class="toc-number">3.3.</span> <span class="toc-text">更新資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查詢資料"><span class="toc-number">3.4.</span> <span class="toc-text">查詢資料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">4.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">5.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/06/14/firebase-money-money/" title="上一篇: 【Firebase】庫存APP (上傳、下載文字 / 圖片)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/06/02/firealpaca-helloworld/" title="下一篇: 【FireAlpaca 2.1】免費的Photoshop？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

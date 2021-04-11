@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Vue.js 2.6】Vue.js的初體驗 | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言Vue (讀音 /vjuː/，類似於 view)是一套用於構建用戶界面的漸進式框架，它是由尤雨溪開發的。Vue與其它大型框架(Angular、React )不同的是，Vue被設計為可以自底向上逐層應用。Vue的核心庫只關注視圖層，不僅易於上手，還便於與第三方庫或既有項目整合。另一方面，當與現代化的工具鏈以及各種支持類庫結合使用時，Vue也完全能夠為複雜的單頁應用提供驅動。至於為什麼會去選擇VU">
+<meta name="keywords" content="javascript,html,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Vue.js 2.6】Vue.js的初體驗">
+<meta property="og:url" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言Vue (讀音 /vjuː/，類似於 view)是一套用於構建用戶界面的漸進式框架，它是由尤雨溪開發的。Vue與其它大型框架(Angular、React )不同的是，Vue被設計為可以自底向上逐層應用。Vue的核心庫只關注視圖層，不僅易於上手，還便於與第三方庫或既有項目整合。另一方面，當與現代化的工具鏈以及各種支持類庫結合使用時，Vue也完全能夠為複雜的單頁應用提供驅動。至於為什麼會去選擇VU">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/Vuejs.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/1-1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/1-2.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/1-2-1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/1-3.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/1-4.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/1-4-1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/2-1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/2-1-1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/2-1-2.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/2-1-3.jpg">
+<meta property="og:updated_time" content="2020-04-09T00:14:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Vue.js 2.6】Vue.js的初體驗">
+<meta name="twitter:description" content="前言Vue (讀音 /vjuː/，類似於 view)是一套用於構建用戶界面的漸進式框架，它是由尤雨溪開發的。Vue與其它大型框架(Angular、React )不同的是，Vue被設計為可以自底向上逐層應用。Vue的核心庫只關注視圖層，不僅易於上手，還便於與第三方庫或既有項目整合。另一方面，當與現代化的工具鏈以及各種支持類庫結合使用時，Vue也完全能夠為複雜的單頁應用提供驅動。至於為什麼會去選擇VU">
+<meta name="twitter:image" content="https://william-weng.github.io/2020/04/03/vuejs-hello-world/Vuejs.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-vuejs-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/04/03/vuejs-hello-world/" class="article-date">
+      <time datetime="2020-04-03T10:49:42.000Z" itemprop="datePublished">2020-04-03</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Vue.js 2.6】Vue.js的初體驗
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><a href="https://vuejs.org/" target="_blank" rel="noopener">Vue (讀音 /vjuː/，類似於 view)</a>是一套用於構建用戶界面的<a href="https://ithelp.ithome.com.tw/articles/10216661" target="_blank" rel="noopener">漸進式框架</a>，它是由<a href="https://baike.baidu.com/item/尤雨溪/2281470" target="_blank" rel="noopener">尤雨溪</a>開發的。Vue與其它大型框架(<a href="https://angular.io/" target="_blank" rel="noopener">Angular</a>、<a href="https://zh-hant.reactjs.org/" target="_blank" rel="noopener">React</a> )不同的是，Vue被設計為可以<a href="https://player.youku.com/embed/XMzMwMTYyODMyNA==" target="_blank" rel="noopener">自底向上逐層應用</a>。Vue的核心庫只關<a href="https://cn.vuejs.org/v2/guide/" target="_blank" rel="noopener">注視圖層</a>，不僅<a href="https://kuro.tw/" target="_blank" rel="noopener">易於上手</a>，還便於與第三方庫或既有項目整合。另一方面，當與現代化的工具鏈以及各種支持類庫結合使用時，Vue也完全能夠為複雜的單頁應用提供驅動。至於為什麼會去<a href="https://jsnwork.kiiuo.com/archives/2611/vue-vue-component-組件教學-使用-v-bind、v-for、x-template/" target="_blank" rel="noopener">選擇VUE</a>呢？其一是它很輕量，其二是因為我的英文很弱啊。<br><a id="more"></a></p>
+<p><img src="/2020/04/03/vuejs-hello-world/Vuejs.jpg" alt></p>
+<h3 id="Vue-js的初體驗"><a href="#Vue-js的初體驗" class="headerlink" title="Vue.js的初體驗"></a>Vue.js的初體驗</h3><h4 id="資料連動-v-model"><a href="#資料連動-v-model" class="headerlink" title="資料連動 (v-model)"></a>資料連動 (v-model)</h4><ul>
+<li>Vue.js是<a href="https://medium.com/@rayshih771012/functional-reactive-programming-70be6bd8726b" target="_blank" rel="noopener">Reactive</a>的，資料跟畫面綁定後，我們只要關心資料的變化，下面就是一個很簡單的例子。<br><img src="/2020/04/03/vuejs-hello-world/1-1.jpg" alt><video width="50%" controls><source src="/2020/04/03/vuejs-hello-world/1-1.mp4" type="video/mp4"></video>
+
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">'en'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'UTF-8'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'viewport'</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1.0'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://unpkg.com/vue'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>VUE.js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'app'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123; value &#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">v-model</span>=<span class="string">'value'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        el: <span class="string">'#app'</span>,</span></span><br><span class="line">        data: &#123;</span><br><span class="line"><span class="javascript">            value: <span class="string">'我很愛VUE，VUE也愛我。'</span></span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="迴圈-v-for"><a href="#迴圈-v-for" class="headerlink" title="迴圈 (v-for)"></a>迴圈 (v-for)</h4><ul>
+<li>個人以為程式最大的功能的就是做大量「重複」的事，所以<a href="https://cythilya.github.io/2017/04/27/vue-list-rendering/" target="_blank" rel="noopener">迴圈</a>的功能當然是一定要有的<br><img src="/2020/04/03/vuejs-hello-world/1-2.jpg" alt><br><img src="/2020/04/03/vuejs-hello-world/1-2-1.jpg" alt></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">'en'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'UTF-8'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'viewport'</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1.0'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://unpkg.com/vue'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>VUE.js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'app'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">'product in products'</span>&gt;</span></span><br><span class="line">            &#123;&#123; product &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">'#app'</span>,</span></span><br><span class="line">    data: &#123;</span><br><span class="line">        products: [</span><br><span class="line"><span class="javascript">        <span class="string">'MacBook Pro 16吋 DDR4 1024GB'</span>,</span></span><br><span class="line"><span class="javascript">        <span class="string">'Switch + 動物森友會'</span>,</span></span><br><span class="line"><span class="javascript">        <span class="string">'PS5 + FF7 Remark'</span>,</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="從Web取得資料-API"><a href="#從Web取得資料-API" class="headerlink" title="從Web取得資料 (API)"></a>從Web取得資料 (API)</h4><ul>
+<li>這裡利用<a href="https://data.taipei/#/dataset/detail?id=ac589468-529b-4636-a9b2-ab57ae41cbcb" target="_blank" rel="noopener">臺北市資料大平臺</a>的API在建立時取得「臺北市學習型機構」的名稱<br><img src="/2020/04/03/vuejs-hello-world/1-3.jpg" alt></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">'en'</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'UTF-8'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'viewport'</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1.0'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://unpkg.com/vue'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>VUE.js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'app'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">v-for</span>=<span class="string">'agency in agencies'</span>&gt;</span></span><br><span class="line">                &#123;&#123; agency.o_tlc_agency_name &#125;&#125;</span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">            el: <span class="string">'#app'</span>,</span></span><br><span class="line">            data: &#123;</span><br><span class="line">                agencies: [],</span><br><span class="line">            &#125;,</span><br><span class="line">            created () &#123;</span><br><span class="line"><span class="javascript">                fetch(<span class="string">'https://data.taipei/opendata/datalist/apiAccess?scope=resourceAquire&amp;rid=24c9f8fe-88db-4a6e-895c-498fbc94df94&amp;limit=3'</span>)</span></span><br><span class="line"><span class="javascript">                    .then(<span class="function"><span class="params">response</span> =&gt;</span>  &#123; <span class="keyword">return</span> response.json() &#125;)</span></span><br><span class="line"><span class="javascript">                    .then(<span class="function"><span class="params">json</span> =&gt;</span> &#123; <span class="keyword">this</span>.agencies = json.result.results &#125;)</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="可重複用組件-Component"><a href="#可重複用組件-Component" class="headerlink" title="可重複用組件 (Component)"></a>可重複用組件 (Component)</h4><ul>
+<li>可以生成可重複用的<a href="https://cythilya.github.io/2017/05/11/vue-component-intro/" target="_blank" rel="noopener">組件 - Component</a><br><img src="/2020/04/03/vuejs-hello-world/1-4.jpg" alt><br><img src="/2020/04/03/vuejs-hello-world/1-4-1.jpg" alt></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">'en'</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'UTF-8'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'viewport'</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1.0'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://unpkg.com/vue'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>VUE.js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'app'</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">prompt-component</span>&gt;</span><span class="tag">&lt;/<span class="name">prompt-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">prompt-component</span>&gt;</span><span class="tag">&lt;/<span class="name">prompt-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">prompt-component</span>&gt;</span><span class="tag">&lt;/<span class="name">prompt-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        Vue.component(<span class="string">'prompt-component'</span>, &#123;</span></span><br><span class="line"><span class="xml">            template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; message &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"sayHi"</span>&gt;</span>Say Hi!<span class="tag">&lt;/<span class="name">button</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>',</span></span><br><span class="line"><span class="javascript">            data: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">return</span> &#123; <span class="attr">message</span>: <span class="string">'Hello World!'</span> &#125;&#125;,</span></span><br><span class="line"><span class="javascript">            methods: &#123; <span class="attr">sayHi</span>: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; alert(<span class="string">'Hi'</span>) &#125;&#125;</span></span><br><span class="line">        &#125;)</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">        el: <span class="string">'#app'</span>,</span></span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Vue-js的生命週期"><a href="#Vue-js的生命週期" class="headerlink" title="Vue.js的生命週期"></a>Vue.js的生命週期</h3><h4 id="生命週期流程圖"><a href="#生命週期流程圖" class="headerlink" title="生命週期流程圖"></a>生命週期流程圖</h4><ul>
+<li>這個就不用多做說明了吧，<a href="https://vuejs.org/v2/guide/instance.html" target="_blank" rel="noopener">看圖</a>說故事，大家可以試試就知道了。這裡比較要注意的是，如果要呼叫Vue裡面的function，要加上「$字號」，所以在變數命名的時候要注意一下。</li>
+</ul>
+<p><img src="/2020/04/03/vuejs-hello-world/2-1.jpg" alt></p>
+<video width="50%" controls><source src="/2020/04/03/vuejs-hello-world/2-1.mp4" type="video/mp4"></video>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">'en'</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'UTF-8'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">'viewport'</span> <span class="attr">content</span>=<span class="string">'width=device-width, initial-scale=1.0'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'https://unpkg.com/vue'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>VUE.js<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        body &#123;</span><br><span class="line">            font-size: 1.5em</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #app &#123;</span><br><span class="line">            margin-bottom: 1em</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; count &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"updateEvent"</span>&gt;</span>Update<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"del"</span>&gt;</span>Del<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">            el: <span class="string">'#app'</span>,</span></span><br><span class="line">            data: &#123; count: 0, &#125;,</span><br><span class="line">            methods: &#123;</span><br><span class="line"><span class="javascript">                updateEvent: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; <span class="keyword">this</span>.count += <span class="number">1</span> &#125;,</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            beforeCreate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'元件實體剛被建立，屬性計算之前'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'beforeCreate - this.count: '</span>, <span class="keyword">this</span>.count)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'beforeCreate - this.$el: '</span>, <span class="keyword">this</span>.$el)</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            created: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'元件實體已建立，屬性已綁定，但 DOM 還沒生成'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'created - this.count: '</span>, <span class="keyword">this</span>.count)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'created - this.$el: '</span>, <span class="keyword">this</span>.$el)</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            beforeMount: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'模板 (template) 編譯或掛載至 HTML 之前'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'beforeMount - this.$el: '</span>, <span class="keyword">this</span>.$el)</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            mounted: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'模板 (template) 編譯或掛載至 HTML 之後'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'mounted - this.$el: '</span>, <span class="keyword">this</span>.$el)</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            beforeUpdate: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'元件被更新之前'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'beforeUpdate: '</span>, <span class="keyword">this</span>.$el.querySelector(<span class="string">'h1'</span>).innerText, <span class="keyword">this</span>.count)</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            updated: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'元件被更新之後'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'updated: '</span>, <span class="keyword">this</span>.$el.querySelector(<span class="string">'h1'</span>).innerText, <span class="keyword">this</span>.count)</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            beforeDestroy: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'移除 vue instance 之前'</span>);</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'beforeDestroy'</span>);</span></span><br><span class="line">            &#125;,</span><br><span class="line"><span class="javascript">            destroyed: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'移除 vue instance 之後'</span>)</span></span><br><span class="line"><span class="javascript">                <span class="built_in">console</span>.log(<span class="string">'destroyed'</span>)</span></span><br><span class="line">            &#125;,</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'del'</span>).addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line">            app.$destroy()</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="beforeCreate-init-？"><a href="#beforeCreate-init-？" class="headerlink" title="beforeCreate() - init()？"></a>beforeCreate() - init()？</h4><ul>
+<li>顧名思義就是「在建立之前 - new之前」，在這裡「變數跟DOM」都是「拿不到的」，所以呢在這裡基本上就是告訴你開始建立實體。</li>
+</ul>
+<h4 id="created-viewDidLoad-？"><a href="#created-viewDidLoad-？" class="headerlink" title="created() - viewDidLoad()？"></a>created() - viewDidLoad()？</h4><ul>
+<li>在這個階段就可以「拿到數值」了，但是「DOM還未生成」，不過想想這樣設計也對，DOM一出來就可以馬上把值放進去了，在這裡很適合用來「初始化數值」。</li>
+</ul>
+<h4 id="beforeMount-viewWillAppear-？"><a href="#beforeMount-viewWillAppear-？" class="headerlink" title="beforeMount() - viewWillAppear()？"></a>beforeMount() - viewWillAppear()？</h4><ul>
+<li>在這個時候DOM就跑出來了，但是…值還沒有被換掉，要改變長相就趕快。<br><img src="/2020/04/03/vuejs-hello-world/2-1-1.jpg" alt></li>
+</ul>
+<h4 id="mounted-viewDidAppear-？"><a href="#mounted-viewDidAppear-？" class="headerlink" title="mounted() - viewDidAppear()？"></a>mounted() - viewDidAppear()？</h4><ul>
+<li>這時候值就放入DOM之中了，可以看見被換掉了。</li>
+</ul>
+<h4 id="beforeUpdate-willSet-？"><a href="#beforeUpdate-willSet-？" class="headerlink" title="beforeUpdate() - willSet()？"></a>beforeUpdate() - willSet()？</h4><ul>
+<li>看文字就可以知道，就是在「更新之前」的階段，數值已經計算好了，但是還沒有放到DOM中，在這裡可以「裝飾」一下數值。<br><img src="/2020/04/03/vuejs-hello-world/2-1-2.jpg" alt></li>
+</ul>
+<h4 id="updated-didSet-？"><a href="#updated-didSet-？" class="headerlink" title="updated() - didSet()？"></a>updated() - didSet()？</h4><ul>
+<li>這裡就是把數值放到DOM中了。</li>
+</ul>
+<h4 id="beforeDestroy"><a href="#beforeDestroy" class="headerlink" title="beforeDestroy()"></a>beforeDestroy()</h4><ul>
+<li>這個就是要消失之前可以，趕快把要記錄的數值記一記。<br><img src="/2020/04/03/vuejs-hello-world/2-1-3.jpg" alt></li>
+</ul>
+<h4 id="destroyed-deinit-？"><a href="#destroyed-deinit-？" class="headerlink" title="destroyed() - deinit()？"></a>destroyed() - deinit()？</h4><ul>
+<li>正式消失，不過正常不會手動去執行它啦。</li>
+</ul>
+<h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>果然是隔行如隔山啊，寫起來超沒效率的，不過比起以前一個一個慢慢Key的原生寫法好太多了，加油。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2020年04月03日 - 18時49分</p>
+        <p><span>最後更新:</span>2020年04月09日 - 08時14分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2020/04/03/vuejs-hello-world/" title="【Vue.js 2.6】Vue.js的初體驗">https://william-weng.github.io/2020/04/03/vuejs-hello-world/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2020/04/03/vuejs-hello-world/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2020/12/29/vue3_helloworld/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/12/android-recyclerview/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Android 6.0】RecyclerView - 高效能的ListView</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js的初體驗"><span class="toc-number">2.</span> <span class="toc-text">Vue.js的初體驗</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#資料連動-v-model"><span class="toc-number">2.1.</span> <span class="toc-text">資料連動 (v-model)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#迴圈-v-for"><span class="toc-number">2.2.</span> <span class="toc-text">迴圈 (v-for)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#從Web取得資料-API"><span class="toc-number">2.3.</span> <span class="toc-text">從Web取得資料 (API)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#可重複用組件-Component"><span class="toc-number">2.4.</span> <span class="toc-text">可重複用組件 (Component)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js的生命週期"><span class="toc-number">3.</span> <span class="toc-text">Vue.js的生命週期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#生命週期流程圖"><span class="toc-number">3.1.</span> <span class="toc-text">生命週期流程圖</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#beforeCreate-init-？"><span class="toc-number">3.2.</span> <span class="toc-text">beforeCreate() - init()？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#created-viewDidLoad-？"><span class="toc-number">3.3.</span> <span class="toc-text">created() - viewDidLoad()？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#beforeMount-viewWillAppear-？"><span class="toc-number">3.4.</span> <span class="toc-text">beforeMount() - viewWillAppear()？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mounted-viewDidAppear-？"><span class="toc-number">3.5.</span> <span class="toc-text">mounted() - viewDidAppear()？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#beforeUpdate-willSet-？"><span class="toc-number">3.6.</span> <span class="toc-text">beforeUpdate() - willSet()？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#updated-didSet-？"><span class="toc-number">3.7.</span> <span class="toc-text">updated() - didSet()？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#beforeDestroy"><span class="toc-number">3.8.</span> <span class="toc-text">beforeDestroy()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#destroyed-deinit-？"><span class="toc-number">3.9.</span> <span class="toc-text">destroyed() - deinit()？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">4.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/12/29/vue3_helloworld/" title="上一篇: 【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/01/12/android-recyclerview/" title="下一篇: 【Android 6.0】RecyclerView - 高效能的ListView">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

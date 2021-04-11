@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？ | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言在前面幾篇的介紹之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入Prefab的使用，用來預製(Prefabricated)來複製大量重複使用的模板，另外還加上「鍵盤 / 按鈕」的使用，讓我們繼續看下去吧。">
+<meta name="keywords" content="game,unity,c#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？">
+<meta property="og:url" content="https://william-weng.github.io/2019/10/13/unity3d-cat-escape/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言在前面幾篇的介紹之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入Prefab的使用，用來預製(Prefabricated)來複製大量重複使用的模板，另外還加上「鍵盤 / 按鈕」的使用，讓我們繼續看下去吧。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/10/13/unity3d-cat-escape/Unity3D.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/10/13/unity3d-cat-escape/Conflict.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/10/13/unity3d-cat-escape/Anchor.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/10/13/unity3d-cat-escape/OnClick.jpg">
+<meta property="og:updated_time" content="2019-10-20T04:38:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？">
+<meta name="twitter:description" content="前言在前面幾篇的介紹之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入Prefab的使用，用來預製(Prefabricated)來複製大量重複使用的模板，另外還加上「鍵盤 / 按鈕」的使用，讓我們繼續看下去吧。">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/10/13/unity3d-cat-escape/Unity3D.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-unity3d-cat-escape" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/10/13/unity3d-cat-escape/" class="article-date">
+      <time datetime="2019-10-13T13:45:56.000Z" itemprop="datePublished">2019-10-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/game/">game</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在<a href="/tags/unity/">前面幾篇的介紹</a>之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入<a href="https://kendevlog.wordpress.com/2017/09/24/unity學習筆記6-prefab-使用須知/" target="_blank" rel="noopener">Prefab</a>的使用，用來<a href="https://medium.com/@chrislin1015/unity手札-prefab簡單說-3327c57f4901" target="_blank" rel="noopener">預製(Prefabricated)</a>來複製大量<a href="http://gn02214231.pixnet.net/blog/post/197880271-gameobject-與-prefab-的區別與建立" target="_blank" rel="noopener">重複使用</a>的模板，另外還加上「<a href="https://docs.unity3d.com/ScriptReference/KeyCode.html" target="_blank" rel="noopener">鍵盤</a> / <a href="http://a032332852.pixnet.net/blog/post/278566585-unity-ugui-button基礎用法" target="_blank" rel="noopener">按鈕</a>」的使用，讓我們繼續看下去吧。<br><a id="more"></a></p>
+<p><img src="/2019/10/13/unity3d-cat-escape/Unity3D.jpg" alt></p>
+<h3 id="做一個長這樣子的Game吧"><a href="#做一個長這樣子的Game吧" class="headerlink" title="做一個長這樣子的Game吧"></a>做一個長這樣子的Game吧</h3><video width="100%" controls><br>    <source src="/2019/10/13/unity3d-cat-escape/CatEscape.mp4" type="video/mp4"><br></video>
+
+<h3 id="遊戲製作"><a href="#遊戲製作" class="headerlink" title="遊戲製作"></a>遊戲製作</h3><h4 id="放入素材"><a href="#放入素材" class="headerlink" title="放入素材"></a>放入素材</h4><ul>
+<li>新增一個<a href="/2019/10/06/unity3d-roulette/">「2D專案」</a>後，將遊戲中所需要的圖片拉到專案中，相對的位置調整好，在這裡比較要注意的是，物件是有「先後順序」關係的，所以有時候在畫面上看不到，可以去調<a href="https://dev.twsiyuan.com/2018/05/unity-rendering-order.html" target="_blank" rel="noopener">Order in layer</a>的大小，數字越大的越前面(越晚畫)。<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/1.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="使用鍵盤移動Player"><a href="#使用鍵盤移動Player" class="headerlink" title="使用鍵盤移動Player"></a>使用鍵盤移動Player</h4><ul>
+<li>在這裡新增一個PlayController.cs的Script，利用鍵盤上的「<a href="https://docs.unity3d.com/ScriptReference/KeyCode.html" target="_blank" rel="noopener">左 / 右鍵</a>」來讓Player左右移動，此時箭頭還是不會動的。<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/2.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayController</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> moveSpeed = <span class="number">3.0f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span> &#123; MovePlayerWithKey(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 利用鍵盤左右鍵來移動Player</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">MovePlayerWithKey</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.LeftArrow)) &#123; MovePlayerWithSpeed(-moveSpeed); &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.RightArrow)) &#123; MovePlayerWithSpeed(moveSpeed); &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移動Player (速度)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">MovePlayerWithSpeed</span>(<span class="params"><span class="keyword">float</span> speed</span>)</span> &#123;</span><br><span class="line">        transform.Translate(speed, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="箭頭落下"><a href="#箭頭落下" class="headerlink" title="箭頭落下"></a>箭頭落下</h4><ul>
+<li>在這裡新增一個ArrowController.cs的Script，讓箭頭能落下，然後超出了畫面就<a href="http://www.victsao.com/blog/97-unity/428-unity-script-destroy" target="_blank" rel="noopener">消失 - Destroy()</a>。<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/3.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ArrowController</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> dropSpeed = <span class="number">-0.1f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> boundPositionY = <span class="number">-5.0f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span> &#123; DropArrow(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 讓箭頭往下掉落 (超過畫面就消失)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">DropArrow</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        transform.Translate(<span class="number">0</span>, dropSpeed, <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span> (transform.position.y &lt; boundPositionY) &#123; ArrowDestory(); &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 箭頭消失</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ArrowDestory</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        Destroy(gameObject);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Prefab"><a href="#Prefab" class="headerlink" title="Prefab"></a>Prefab</h4><ul>
+<li>到這裡就是今天的重頭戲啦 - <a href="https://docs.unity3d.com/Manual/CreatingPrefabs.html" target="_blank" rel="noopener">Prefab</a>，其實做法很簡法，只要將做好的元件拉到專案內就可以了，然後就可以看到一個跟原來長的一模一樣，但是是灰色背景的元件，然後把原來的Delete掉，使用<a href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html" target="_blank" rel="noopener">Instantiate()</a>產生元件，讓它<a href="https://home.gamer.com.tw/creationDetail.php?sn=2275726" target="_blank" rel="noopener">定時</a>的被Clone。<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/4.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ArrowGenerator</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> GameObject arrowPrefab;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">int</span> minRandomX = <span class="number">-6</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">int</span> maxRandomX = <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> height = <span class="number">7.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> spanTime = <span class="number">1.0f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">float</span> deltaTime;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span> &#123; ArrowMaker(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 產生箭頭 (定時產生)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ArrowMaker</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">        deltaTime += Time.deltaTime;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (deltaTime &gt; spanTime) &#123;</span><br><span class="line"></span><br><span class="line">            deltaTime = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">            GameObject arrowObject = Instantiate(arrowPrefab) <span class="keyword">as</span> GameObject;</span><br><span class="line">            arrowObject.transform.position = RandomVector3(minRandomX, maxRandomX);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 產生不同的位置</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> Vector3 <span class="title">RandomVector3</span>(<span class="params"><span class="keyword">int</span> min, <span class="keyword">int</span> max</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">int</span> randomX = Random.Range(min, max);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Vector3(randomX, height, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="物體碰撞"><a href="#物體碰撞" class="headerlink" title="物體碰撞"></a>物體碰撞</h4><ul>
+<li>在這裡要先找到「誰跟誰」碰撞？怎麼樣才算「碰撞」？先簡單利用兩個物件的距離來當成碰撞與否的判斷依據。<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/5.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<p><img src="/2019/10/13/unity3d-cat-escape/Conflict.jpg" alt="Conflict"><br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ArrowController</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> playerRadius = <span class="number">1.0f</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> arrowRadius = <span class="number">0.5f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">string</span> playIdentity = <span class="string">"player"</span>;</span><br><span class="line"></span><br><span class="line">    GameObject playerObject;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span> &#123; playerObject = FindGameObjectWithIdentity(playIdentity); &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span> &#123; ConflictTesting(); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 利用物件的名字找到該物件</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> GameObject <span class="title">FindGameObjectWithIdentity</span>(<span class="params"><span class="keyword">string</span> identity</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> GameObject.Find(identity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 測試箭頭跟玩家撞到時的反應 (兩者的距離 &lt; 兩者的半徑和 =&gt; 箭頭消失 / 損血)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ConflictTesting</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">        Vector2 arrowPosition = transform.position;</span><br><span class="line">        Vector2 playerPosition = playerObject.transform.position;</span><br><span class="line">        Vector2 directionVector = arrowPosition - playerPosition;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">float</span> direction = directionVector.magnitude;</span><br><span class="line">        <span class="keyword">float</span> conflictRadius = arrowRadius + playerRadius;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (direction &lt; conflictRadius) &#123;</span><br><span class="line">            ArrowDestory();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="加入血量環"><a href="#加入血量環" class="headerlink" title="加入血量環"></a>加入血量環</h4><ul>
+<li>這裡我們幫助主角加入血量的計算，首先增加一個「UI -&gt; Image」，然後把血量的圖示加進去。比較要注意的是，要將「<a href="blog.fourdesire.com/2018/07/03/成為-ugui-的排版大師-一次精通-recttransform/">錨點 - Anchor</a>」改在右上角，如此一來畫面縮小的話，血量圖也不會跑出到畫面之外。再來就是要將「<a href="https://read01.com/zh-tw/Jmm8KQ.html#.XaOoqSV-VTY" target="_blank" rel="noopener">Image Type</a>」調整成「Filled / Radial 360 / Top」，然後再改變「Fill Amount」試試看，血量圖是不是會變化了呢？<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/6.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<p><img src="/2019/10/13/unity3d-cat-escape/Anchor.jpg" alt="Anchor"></p>
+<h4 id="讓血量環動起來"><a href="#讓血量環動起來" class="headerlink" title="讓血量環動起來"></a>讓血量環動起來</h4><ul>
+<li>接下來我們要做損血的動作了，不然不會損血就不好玩了呀。我們新增一個「導演 - GameDirector」，遊戲中的動作都要由它來處理，讓Code的職權分得更清楚。重點是「DecreaseHp()」這個函數要公開給大家使用 (有點像一般在寫Util公用函式的感覺)，去調整「<a href="https://blog.csdn.net/cyf649669121/article/details/84027684" target="_blank" rel="noopener">fillAmount</a>」的值。<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/7.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">GameDirector</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">string</span> hpGaugeIdentity = <span class="string">"hpGauge"</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> decreaseHpRate = <span class="number">0.1f</span>;</span><br><span class="line"></span><br><span class="line">    GameObject hpGauge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span> &#123; hpGauge = FindGameObjectWithIdentity(hpGaugeIdentity); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 利用物件的名字找到該物件</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> GameObject <span class="title">FindGameObjectWithIdentity</span>(<span class="params"><span class="keyword">string</span> identity</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> GameObject.Find(identity);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 損血的處理 (公開的函式)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">DecreaseHp</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        hpGauge.GetComponent&lt;Image&gt;().fillAmount -= decreaseHpRate;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ArrowController</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 測試箭頭跟玩家撞到時的反應 (兩者的距離 &lt; 兩者的半徑和 =&gt; 箭頭消失 / 損血)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">ConflictTesting</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (direction &lt; conflictRadius) &#123;</span><br><span class="line">            ArrowDestory();</span><br><span class="line">            NoticeDecreaseHp();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通知GameDirector要損血了</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">NoticeDecreaseHp</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        GameObject gameDirector = FindGameObjectWithIdentity(gameDirectorIdentity);</span><br><span class="line">        gameDirector.GetComponent&lt;GameDirector&gt;().DecreaseHp();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="產生左右按鈕"><a href="#產生左右按鈕" class="headerlink" title="產生左右按鈕"></a>產生左右按鈕</h4><ul>
+<li>因為在手機上並沒有「左右鍵」，所以在這裡做個「<a href="https://home.gamer.com.tw/creationDetail.php?sn=3443731" target="_blank" rel="noopener">UI -&gt; Button</a>」，讓手機也能玩。<video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/8.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="讓左右按鈕產生動作"><a href="#讓左右按鈕產生動作" class="headerlink" title="讓左右按鈕產生動作"></a>讓左右按鈕產生動作</h4><ul>
+<li><video width="100%" controls><br>  <source src="/2019/10/13/unity3d-cat-escape/9.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<p><img src="/2019/10/13/unity3d-cat-escape/OnClick.jpg" alt="OnClick"></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PlayController</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">readonly</span> <span class="keyword">float</span> moveSpeed = <span class="number">3.0f</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 利用右按鍵來移動Player (公開的函式)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MovePlayerWithRightButton</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        MovePlayerWithSpeed(-moveSpeed);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 利用左按鍵來移動Player (公開的函式)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MovePlayerWithLeftButton</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        MovePlayerWithSpeed(moveSpeed);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 移動Player (速度)</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">MovePlayerWithSpeed</span>(<span class="params"><span class="keyword">float</span> speed</span>)</span> &#123;</span><br><span class="line">        transform.Translate(speed, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="https://github.com/William-Weng/Unity3D/tree/master/CatEscape" target="_blank" rel="noopener">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>終於完成了，做遊戲真是是寫程式的大全，什麼細節都要先考慮到，難怪薪水比較高？個人還在慢慢的學習中，希望能出個小品遊戲上架。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年10月13日 - 21時45分</p>
+        <p><span>最後更新:</span>2019年10月20日 - 12時38分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/10/13/unity3d-cat-escape/" title="【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？">https://william-weng.github.io/2019/10/13/unity3d-cat-escape/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/10/13/unity3d-cat-escape/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/10/20/unity3d-climb-cloud/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/11/unity3d-swipe-car/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Unity 3D 2019】做一個有聲音的小遊戲吧</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#做一個長這樣子的Game吧"><span class="toc-number">2.</span> <span class="toc-text">做一個長這樣子的Game吧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遊戲製作"><span class="toc-number">3.</span> <span class="toc-text">遊戲製作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#放入素材"><span class="toc-number">3.1.</span> <span class="toc-text">放入素材</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用鍵盤移動Player"><span class="toc-number">3.2.</span> <span class="toc-text">使用鍵盤移動Player</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#箭頭落下"><span class="toc-number">3.3.</span> <span class="toc-text">箭頭落下</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Prefab"><span class="toc-number">3.4.</span> <span class="toc-text">Prefab</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#物體碰撞"><span class="toc-number">3.5.</span> <span class="toc-text">物體碰撞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加入血量環"><span class="toc-number">3.6.</span> <span class="toc-text">加入血量環</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#讓血量環動起來"><span class="toc-number">3.7.</span> <span class="toc-text">讓血量環動起來</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#產生左右按鈕"><span class="toc-number">3.8.</span> <span class="toc-text">產生左右按鈕</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#讓左右按鈕產生動作"><span class="toc-number">3.9.</span> <span class="toc-text">讓左右按鈕產生動作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">4.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">5.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/10/20/unity3d-climb-cloud/" title="上一篇: 【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/10/11/unity3d-swipe-car/" title="下一篇: 【Unity 3D 2019】做一個有聲音的小遊戲吧">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

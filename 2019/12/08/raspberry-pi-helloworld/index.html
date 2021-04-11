@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Raspberry-Pi】Raspberry-Pi 4 的安裝過程 | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言相信大家都有聽過樹莓派 - Raspberry Pi的大名，它是基於Linux的單晶片電腦，由英國樹莓派基金會開發，目的是以低價硬體及自由軟體促進學校的基本電腦科學教育。到目前為止，已經出到第四代了，相較於二、三代來說，效能大增，已經可以拿來當一臺簡單的文書上網機了，4G-DDR4 + 4K-HDMI雙輸出，而且才15W，這讓有第三代的我有想買下去的衝動。接下來，我們就一步步的記錄安裝的過程吧">
+<meta name="keywords" content="linux,raspberry-pi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Raspberry-Pi】Raspberry-Pi 4 的安裝過程">
+<meta property="og:url" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言相信大家都有聽過樹莓派 - Raspberry Pi的大名，它是基於Linux的單晶片電腦，由英國樹莓派基金會開發，目的是以低價硬體及自由軟體促進學校的基本電腦科學教育。到目前為止，已經出到第四代了，相較於二、三代來說，效能大增，已經可以拿來當一臺簡單的文書上網機了，4G-DDR4 + 4K-HDMI雙輸出，而且才15W，這讓有第三代的我有想買下去的衝動。接下來，我們就一步步的記錄安裝的過程吧">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/RaspberryPI.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/otherOS.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/raspbian.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/windowsCopy.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/macOSCopy.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/ok.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/wifi.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/update.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/upgrade.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/liu.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/scrot.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/exfat.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/p7zip-full.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/back.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/size.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/etcher.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/ssh.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/login_windows.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/login_macOS.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/rdp.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/rdp_win_1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/rdp_win_2.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/rdp_win_3.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/rdp_macOS.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/vsftpd_1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/vsftpd_2.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/vsftpd_3.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/dhcpcd_1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/dhcpcd_2.jpg">
+<meta property="og:updated_time" content="2019-12-15T22:48:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Raspberry-Pi】Raspberry-Pi 4 的安裝過程">
+<meta name="twitter:description" content="前言相信大家都有聽過樹莓派 - Raspberry Pi的大名，它是基於Linux的單晶片電腦，由英國樹莓派基金會開發，目的是以低價硬體及自由軟體促進學校的基本電腦科學教育。到目前為止，已經出到第四代了，相較於二、三代來說，效能大增，已經可以拿來當一臺簡單的文書上網機了，4G-DDR4 + 4K-HDMI雙輸出，而且才15W，這讓有第三代的我有想買下去的衝動。接下來，我們就一步步的記錄安裝的過程吧">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/RaspberryPI.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-raspberry-pi-helloworld" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/12/08/raspberry-pi-helloworld/" class="article-date">
+      <time datetime="2019-12-08T01:30:48.000Z" itemprop="datePublished">2019-12-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Raspberry-Pi】Raspberry-Pi 4 的安裝過程
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/raspberry-pi/">raspberry-pi</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>相信大家都有聽過<a href="https://zh.wikipedia.org/wiki/树莓派" target="_blank" rel="noopener">樹莓派 - Raspberry Pi</a>的大名，它是基於<a href="https://zh.wikipedia.org/wiki/Linux" target="_blank" rel="noopener">Linux</a>的<a href="https://zh.wikipedia.org/wiki/单片机" target="_blank" rel="noopener">單晶片</a>電腦，由英國樹莓派基金會開發，目的是以低價硬體及自由軟體促進學校的基本電腦科學教育。到目前為止，已經出到<a href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/" target="_blank" rel="noopener">第四代</a>了，相較於二、三代來說，<a href="https://makerpro.cc/2019/06/raspberry-pi-4-is-released/" target="_blank" rel="noopener">效能</a>大增，已經可以拿來當一臺簡單的文書上網機了，4G-DDR4 + 4K-HDMI雙輸出，而且才15W，這讓有第三代的我有想買下去的衝動。接下來，我們就一步步的記錄安裝的過程吧，也學學Linux強大的指令功能。<br><a id="more"></a></p>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/RaspberryPI.jpg" alt></p>
+<h3 id="樹莓派安裝"><a href="#樹莓派安裝" class="headerlink" title="樹莓派安裝"></a>樹莓派安裝</h3><h4 id="樹莓派第三方系統"><a href="#樹莓派第三方系統" class="headerlink" title="樹莓派第三方系統"></a>樹莓派第三方系統</h4><ul>
+<li>其實樹莓派可以<a href="https://www.raspberrypi.org/downloads/" target="_blank" rel="noopener">安裝的第三方系統</a>有很多，不過這裡還是<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">下載Raspbian桌面版</a>來安裝。</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/otherOS.jpg" alt></p>
+<h4 id="下載Raspbian"><a href="#下載Raspbian" class="headerlink" title="下載Raspbian"></a>下載Raspbian</h4><ul>
+<li>這裡我們選擇<a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener">Raspbian桌面版</a>的映像檔來安裝。<br><img src="/2019/12/08/raspberry-pi-helloworld/raspbian.jpg" alt></li>
+</ul>
+<h4 id="Windows安裝"><a href="#Windows安裝" class="headerlink" title="Windows安裝"></a>Windows安裝</h4><ul>
+<li>在Windows的話，我們使用<a href="https://hddguru.com/software/HDD-Raw-Copy-Tool/" target="_blank" rel="noopener">HDD Raw Copy Tool</a>這套工具來安裝，將映像檔寫到SD卡上。<br><img src="/2019/12/08/raspberry-pi-helloworld/windowsCopy.jpg" alt></li>
+</ul>
+<h4 id="macOS安裝"><a href="#macOS安裝" class="headerlink" title="macOS安裝"></a>macOS安裝</h4><ul>
+<li>在macOS的話，我們使用<a href="https://blog.gtwang.org/linux/dd-command-examples/" target="_blank" rel="noopener">dd指令</a>來安裝，也是將映像檔寫到SD卡上。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 利用dd指令將img檔copy到sd卡上，其中bs的值為一次寫入的區塊大小</span></span><br><span class="line">sudo dd <span class="keyword">if</span>=2019-09-26-raspbian-buster.img of=/dev/rdisk2 bs=4m</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用dd指令跟pv指令將img檔copy到sd卡上，並且顯示進度，其中pv的值為img檔的大小</span></span><br><span class="line">sudo dd <span class="keyword">if</span>=2019-09-26-raspbian-buster.img | pv -s 4G | sudo dd of=/dev/rdisk2 bs=4m</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/macOSCopy.jpg" alt></p>
+<h4 id="開機測試"><a href="#開機測試" class="headerlink" title="開機測試"></a>開機測試</h4><ul>
+<li>燒錄完成後就安裝在樹莓派4上試試，有開機看到畫面的話就OK了。<br><img src="/2019/12/08/raspberry-pi-helloworld/ok.jpg" alt></li>
+</ul>
+<h3 id="樹莓派設定"><a href="#樹莓派設定" class="headerlink" title="樹莓派設定"></a>樹莓派設定</h3><h4 id="網路設定"><a href="#網路設定" class="headerlink" title="網路設定"></a>網路設定</h4><ul>
+<li>基本上使用「有線網路」或「WIFI」上網都可以，但沒有網路的話什麼都很難做了，所以第一件事情就是要先能上網。<br><img src="/2019/12/08/raspberry-pi-helloworld/wifi.jpg" alt></li>
+</ul>
+<h4 id="軟體清單更新"><a href="#軟體清單更新" class="headerlink" title="軟體清單更新"></a>軟體清單更新</h4><ul>
+<li>使用apt指令來「更新」軟體清單。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/update.jpg" alt></p>
+<h4 id="軟體更新"><a href="#軟體更新" class="headerlink" title="軟體更新"></a>軟體更新</h4><ul>
+<li>使用apt指令跟據軟體清單來「更新」軟體。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/upgrade.jpg" alt></p>
+<h4 id="設定地區、語系"><a href="#設定地區、語系" class="headerlink" title="設定地區、語系"></a>設定地區、語系</h4><ul>
+<li>設定地區、語系之後，再使用下面的指令去做安裝的動作，重開機後，就會變成中文版的。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="1280" controls><br>    <source src="/2019/12/08/raspberry-pi-helloworld/location.mp4" type="video/mp4"><br></video>
+
+<h3 id="軟體安裝"><a href="#軟體安裝" class="headerlink" title="軟體安裝"></a>軟體安裝</h3><h4 id="安裝中文輸入法"><a href="#安裝中文輸入法" class="headerlink" title="安裝中文輸入法"></a>安裝中文輸入法</h4><ul>
+<li>這裡使用的是<a href="https://zh.wikipedia.org/wiki/Fcitx" target="_blank" rel="noopener">fcitx - 小企鵝輸入法</a>，因為安裝完中文語系之後就會有了，所以我們可以新增其它的輸入法。主要個人是使用<a href="https://boshiamy.com/" target="_blank" rel="noopener">嘸蝦米</a>的，<a href="https://www.ubuntu-tw.org/modules/newbb/viewtopic.php?topic_id=53570&amp;forum=8" target="_blank" rel="noopener">其它的</a>輸入法安裝就自行參考吧。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fcitx-table-boshiamy</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/liu.jpg" alt></p>
+<h4 id="安裝擷圖及錄影工具"><a href="#安裝擷圖及錄影工具" class="headerlink" title="安裝擷圖及錄影工具"></a>安裝擷圖及錄影工具</h4><ul>
+<li>雖然說上網找答案是件滿正常的事情，但是紀錄也是很重要的。<a href="https://phab.enlightenment.org/diffusion/ESVN/browse/trunk/misc/scrot;35502" target="_blank" rel="noopener">Scrot</a>是一套CLI的擷圖工具，簡單好用。而<a href="https://www.maartenbaert.be/simplescreenrecorder/" target="_blank" rel="noopener">SimpleScreenRecorder</a>是一套簡單的GUI錄影工具，簡單易學。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install scrot</span><br><span class="line">sudo apt install simplescreenrecorder</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/scrot.jpg" alt></p>
+<h4 id="安裝exfat及ntfs支援工具"><a href="#安裝exfat及ntfs支援工具" class="headerlink" title="安裝exfat及ntfs支援工具"></a>安裝exfat及ntfs支援工具</h4><ul>
+<li>安裝exfat及ntfs支援工具，不然就不能讀到USB的資料了。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install exfat-fuse</span><br><span class="line">sudo apt install ntfs-3g</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/exfat.jpg" alt></p>
+<h4 id="安裝7zip壓縮支援"><a href="#安裝7zip壓縮支援" class="headerlink" title="安裝7zip壓縮支援"></a>安裝7zip壓縮支援</h4><ul>
+<li>因為本身是使用7z壓縮的常客，所以就加上對它的支援<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install p7zip-full</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/p7zip-full.jpg" alt></p>
+<h3 id="備份及還原"><a href="#備份及還原" class="headerlink" title="備份及還原"></a>備份及還原</h3><h4 id="備份"><a href="#備份" class="headerlink" title="備份"></a>備份</h4><ul>
+<li>利用dd指令做備份，將SD卡整張卡Copy成image檔，其中16G是SD卡的大小<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 利用dd指令將sd卡備份成檔案，其中bs的值為一次寫入的區塊大小</span></span><br><span class="line">sudo dd <span class="keyword">if</span>=/dev/disk2 of=back.img bs=4m</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用dd指令跟pv指令將sd卡備份成檔案，並且顯示進度，其中pv的值為sd卡的大小</span></span><br><span class="line">sudo dd <span class="keyword">if</span>=/dev/disk2 | pv -s 16G | sudo dd of=back.img bs=4m</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/back.jpg" alt></p>
+<h4 id="縮小備份檔"><a href="#縮小備份檔" class="headerlink" title="縮小備份檔"></a>縮小備份檔</h4><ul>
+<li>由上面可以知道備份是備份一整張的sd卡，那為什麼下載image的時候解開也才不到4G呢？因為其實也才安裝不到4G，其它都是空白的。利用<a href="https://github.com/Drewsif/PiShrink" target="_blank" rel="noopener">熱心人士</a>寫好的<a href="pishrink.sh.7z">pishrink.sh</a>來縮小image檔。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pishrink.sh image.img</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/size.jpg" alt></p>
+<h4 id="還原備份"><a href="#還原備份" class="headerlink" title="還原備份"></a>還原備份</h4><ul>
+<li>縮小過的備份可以利用<a href="https://www.balena.io/etcher/" target="_blank" rel="noopener">balenaEtcher</a>來做還原的動作。<br><img src="/2019/12/08/raspberry-pi-helloworld/etcher.jpg" alt></li>
+</ul>
+<h3 id="遠端處理"><a href="#遠端處理" class="headerlink" title="遠端處理"></a>遠端處理</h3><h4 id="SSH遠端登入"><a href="#SSH遠端登入" class="headerlink" title="SSH遠端登入"></a>SSH遠端登入</h4><ul>
+<li>首先，打開<a href="https://zh.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener">ssh協定</a>，然後設定使用者(pi)的登入密碼，再利用<a href="https://www.opencli.com/linux/ip-command" target="_blank" rel="noopener">ifconfig / ip</a>去查尋區網的IP。然後在macOS端的使用<a href="https://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/" target="_blank" rel="noopener">ssh</a>指令後，輸入使用者(pi)的登入密碼就可以完成登入。Windows也可以使用ssh登入。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br><span class="line">ip a</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="1280" controls><br>    <source src="/2019/12/08/raspberry-pi-helloworld/ssh.mp4" type="video/mp4"><br></video>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh pi@192.168.0.8</span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/ssh.jpg" alt></p>
+<h4 id="共享資料夾"><a href="#共享資料夾" class="headerlink" title="共享資料夾"></a>共享資料夾</h4><ul>
+<li>安裝<a href="https://zh.wikipedia.org/wiki/Samba" target="_blank" rel="noopener">Samba協定</a>，讓Windows也能讀得到樹莓派上的資料夾。在安裝的過程中，密碼要記錄下來，不然就登不進去了，而分享的資料夾位置是自己可以決定的，不一定要在桌面上。最後設定smb.conf檔，再重新啟動smbd.service就完成了。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install samba -y</span><br><span class="line">mkdir Share</span><br><span class="line">sudo geany /etc/samba/samba.conf</span><br><span class="line">sudo systemctl restart smbd.service</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[PiShare]</span><br><span class="line">   comment = Share Fold</span><br><span class="line">   path = /home/pi/Desktop/Share</span><br><span class="line">   browseable = yes</span><br><span class="line">   writeable = yes</span><br><span class="line">   create mask = 0740</span><br><span class="line">   directory mask = 0750</span><br><span class="line">   guest ok = yes</span><br><span class="line">   public = no</span><br></pre></td></tr></table></figure>
+<video width="1280" controls><br>    <source src="/2019/12/08/raspberry-pi-helloworld/samba.mp4" type="video/mp4"><br></video>
+
+<h4 id="Windows登入共享資料夾"><a href="#Windows登入共享資料夾" class="headerlink" title="Windows登入共享資料夾"></a>Windows登入共享資料夾</h4><ul>
+<li>Windows登入就打「\192.168.0.8\PiShare」就可以了。<br><img src="/2019/12/08/raspberry-pi-helloworld/login_windows.jpg" alt></li>
+</ul>
+<h4 id="macOS登入共享資料夾"><a href="#macOS登入共享資料夾" class="headerlink" title="macOS登入共享資料夾"></a>macOS登入共享資料夾</h4><ul>
+<li>macOS登入就打「smb://192.168.0.8/PiShare」就可以了。<br><img src="/2019/12/08/raspberry-pi-helloworld/login_macOS.jpg" alt></li>
+</ul>
+<h4 id="遠端桌面"><a href="#遠端桌面" class="headerlink" title="遠端桌面"></a>遠端桌面</h4><ul>
+<li>在樹莓派端安裝<a href="http://xrdp.org/" target="_blank" rel="noopener">xrdp</a>跟<a href="https://www.tightvnc.com/licensing-tvnserver.php" target="_blank" rel="noopener">tightvncserver</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install xrdp -y</span><br><span class="line">sudo apt install tightvncserver -y</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/rdp.jpg" alt></p>
+<h4 id="Windows登入遠端桌面"><a href="#Windows登入遠端桌面" class="headerlink" title="Windows登入遠端桌面"></a>Windows登入遠端桌面</h4><ul>
+<li>使用Windows本身的<a href="https://iqmore.tw/windows-10-remote-desktop-protocol-rdp" target="_blank" rel="noopener">遠端桌面連線</a>就可以了。<br><img src="/2019/12/08/raspberry-pi-helloworld/rdp_win_1.jpg" alt><br><img src="/2019/12/08/raspberry-pi-helloworld/rdp_win_2.jpg" alt><br><img src="/2019/12/08/raspberry-pi-helloworld/rdp_win_3.jpg" alt></li>
+</ul>
+<h4 id="macOS登入遠端桌面"><a href="#macOS登入遠端桌面" class="headerlink" title="macOS登入遠端桌面"></a>macOS登入遠端桌面</h4><ul>
+<li>使用Microsoft的<a href="https://apps.apple.com/tw/app/microsoft-remote-desktop-10/id1295203466?mt=12" target="_blank" rel="noopener">Microsoft-Remote-Desktop</a>就可以了。<br><img src="/2019/12/08/raspberry-pi-helloworld/rdp_macOS.jpg" alt></li>
+</ul>
+<h4 id="FTP-伺服器"><a href="#FTP-伺服器" class="headerlink" title="FTP 伺服器"></a>FTP 伺服器</h4><ul>
+<li><a href="http://linux.vbird.org/linux_server/0410vsftpd.php" target="_blank" rel="noopener">FTP (File Transfer Protocol)</a>， 可說是最古老的協定之一了，主要是用來進行檔案的傳輸，尤其是<a href="http://www.wkb.idv.tw/study/centos/c07.htm" target="_blank" rel="noopener">大型檔案</a>的傳輸使用FTP更是方便。在這裡使用的是<a href="https://security.appspot.com/vsftpd.html" target="_blank" rel="noopener">vsftpd</a>，主要的設定都在<a href="https://blog.xuite.net/tolarku/blog/62756003-VSFTP+安裝及設定" target="_blank" rel="noopener">vsftpd.conf</a>內。最後在Client端利用<a href="https://filezilla-project.org/" target="_blank" rel="noopener">filezilla</a>這個FTP傳輸軟體就可以登入使用了。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vsftpd</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/vsftpd_1.jpg" alt><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo geany /etc/vsftpd.conf</span><br><span class="line">sudo service vsftpd restart</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">local_enable=YES</span><br><span class="line">write_enable=YES</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/vsftpd_2.jpg" alt><br><img src="/2019/12/08/raspberry-pi-helloworld/vsftpd_3.jpg" alt></p>
+<h4 id="設定固定IP"><a href="#設定固定IP" class="headerlink" title="設定固定IP"></a>設定固定IP</h4><ul>
+<li>前面的軟體安裝完成雖然都可以正常動作，但是只要樹莓派重新開機的話，IP就會因為<a href="https://zh.wikipedia.org/wiki/动态主机设置协议" target="_blank" rel="noopener">DHCP</a>而改變，所以設定完<a href="http://yehnan.blogspot.com/2016/05/raspberry-piipdhcpcd.html" target="_blank" rel="noopener">dhcpcd.conf</a>就固定了，當然如果要知道網卡的名字，可以利用<a href="https://www.opencli.com/linux/ip-command" target="_blank" rel="noopener">ip</a>這個指令來達成。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip a</span><br><span class="line">sudo geany /etc/dhcpcd.conf</span><br><span class="line">sudo service vsftpd restart</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/dhcpcd_1.jpg" alt><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 有線網卡 - eth0</span></span><br><span class="line">interface eth0</span><br><span class="line">static ip_address=192.168.0.87/24</span><br><span class="line">static routers=192.168.0.1</span><br><span class="line">static domain_name_server=192.168.0.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 無線網卡 - wlan0</span></span><br><span class="line">interface wlan0</span><br><span class="line">static ip_address=192.168.0.87/24</span><br><span class="line">static routers=192.168.0.1</span><br><span class="line">static domain_name_server=192.168.0.1</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/12/08/raspberry-pi-helloworld/dhcpcd_2.jpg" alt></p>
+<h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>其實自從改用同為unix系統的macOS之後，發現使用指令做事情其實滿方便的，安裝軟體也很方便，但是還是要懂得去使用才行，慢慢學習中，都快變成白頭翁了啦。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年12月08日 - 09時30分</p>
+        <p><span>最後更新:</span>2019年12月16日 - 06時48分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/12/08/raspberry-pi-helloworld/" title="【Raspberry-Pi】Raspberry-Pi 4 的安裝過程">https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/12/08/raspberry-pi-helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2020/01/05/ffmpeg-helloworld/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【FFmpeg】開源且功能強大的影音處理框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/30/firebase-hosting/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Firebase】一個能即時更新的網頁 - Hosting</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#樹莓派安裝"><span class="toc-number">2.</span> <span class="toc-text">樹莓派安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#樹莓派第三方系統"><span class="toc-number">2.1.</span> <span class="toc-text">樹莓派第三方系統</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#下載Raspbian"><span class="toc-number">2.2.</span> <span class="toc-text">下載Raspbian</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows安裝"><span class="toc-number">2.3.</span> <span class="toc-text">Windows安裝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#macOS安裝"><span class="toc-number">2.4.</span> <span class="toc-text">macOS安裝</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#開機測試"><span class="toc-number">2.5.</span> <span class="toc-text">開機測試</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#樹莓派設定"><span class="toc-number">3.</span> <span class="toc-text">樹莓派設定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#網路設定"><span class="toc-number">3.1.</span> <span class="toc-text">網路設定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#軟體清單更新"><span class="toc-number">3.2.</span> <span class="toc-text">軟體清單更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#軟體更新"><span class="toc-number">3.3.</span> <span class="toc-text">軟體更新</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#設定地區、語系"><span class="toc-number">3.4.</span> <span class="toc-text">設定地區、語系</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#軟體安裝"><span class="toc-number">4.</span> <span class="toc-text">軟體安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝中文輸入法"><span class="toc-number">4.1.</span> <span class="toc-text">安裝中文輸入法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝擷圖及錄影工具"><span class="toc-number">4.2.</span> <span class="toc-text">安裝擷圖及錄影工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝exfat及ntfs支援工具"><span class="toc-number">4.3.</span> <span class="toc-text">安裝exfat及ntfs支援工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝7zip壓縮支援"><span class="toc-number">4.4.</span> <span class="toc-text">安裝7zip壓縮支援</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#備份及還原"><span class="toc-number">5.</span> <span class="toc-text">備份及還原</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#備份"><span class="toc-number">5.1.</span> <span class="toc-text">備份</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#縮小備份檔"><span class="toc-number">5.2.</span> <span class="toc-text">縮小備份檔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#還原備份"><span class="toc-number">5.3.</span> <span class="toc-text">還原備份</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遠端處理"><span class="toc-number">6.</span> <span class="toc-text">遠端處理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SSH遠端登入"><span class="toc-number">6.1.</span> <span class="toc-text">SSH遠端登入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#共享資料夾"><span class="toc-number">6.2.</span> <span class="toc-text">共享資料夾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows登入共享資料夾"><span class="toc-number">6.3.</span> <span class="toc-text">Windows登入共享資料夾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#macOS登入共享資料夾"><span class="toc-number">6.4.</span> <span class="toc-text">macOS登入共享資料夾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#遠端桌面"><span class="toc-number">6.5.</span> <span class="toc-text">遠端桌面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Windows登入遠端桌面"><span class="toc-number">6.6.</span> <span class="toc-text">Windows登入遠端桌面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#macOS登入遠端桌面"><span class="toc-number">6.7.</span> <span class="toc-text">macOS登入遠端桌面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FTP-伺服器"><span class="toc-number">6.8.</span> <span class="toc-text">FTP 伺服器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#設定固定IP"><span class="toc-number">6.9.</span> <span class="toc-text">設定固定IP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">7.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2020/01/05/ffmpeg-helloworld/" title="上一篇: 【FFmpeg】開源且功能強大的影音處理框架">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/11/30/firebase-hosting/" title="下一篇: 【Firebase】一個能即時更新的網頁 - Hosting">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

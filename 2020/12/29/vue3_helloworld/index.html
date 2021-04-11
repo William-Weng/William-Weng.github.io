@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來 | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言Vue3正式版終於出現了啊，因為一開始是去學Kuro大大的Vue2.6的課程，剛好是3.0的前一版，本來滿擔心會不會差很多，但是實際使用上好像也還好，其實是我只會皮毛而己。這應該是今年的最後一篇文章了，先預祝大家新年快樂，2021大發財。現在，讓我們來做做一個簡單的購物車APP吧，Let’s go。">
+<meta name="keywords" content="javascript,html,vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來">
+<meta property="og:url" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言Vue3正式版終於出現了啊，因為一開始是去學Kuro大大的Vue2.6的課程，剛好是3.0的前一版，本來滿擔心會不會差很多，但是實際使用上好像也還好，其實是我只會皮毛而己。這應該是今年的最後一篇文章了，先預祝大家新年快樂，2021大發財。現在，讓我們來做做一個簡單的購物車APP吧，Let’s go。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/Vuejs.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/1-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/1-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/2-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/2-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/2-3.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/3-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/3-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/4-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/4-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/4-3.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/5-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/5-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/5-3.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/6-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/6-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/7-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/7-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/8-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/8-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/8-3.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/9-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/9-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/10-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/10-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/11-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/11-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/11-3.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/11-4.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/12-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/12-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/12-3.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/13-1.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/13-2.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/13-3.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a01.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a02.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a03.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a04.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a05.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a06.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a07.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a08.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a09.png">
+<meta property="og:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/a10.png">
+<meta property="og:updated_time" content="2020-12-30T21:56:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來">
+<meta name="twitter:description" content="前言Vue3正式版終於出現了啊，因為一開始是去學Kuro大大的Vue2.6的課程，剛好是3.0的前一版，本來滿擔心會不會差很多，但是實際使用上好像也還好，其實是我只會皮毛而己。這應該是今年的最後一篇文章了，先預祝大家新年快樂，2021大發財。現在，讓我們來做做一個簡單的購物車APP吧，Let’s go。">
+<meta name="twitter:image" content="https://william-weng.github.io/2020/12/29/vue3_helloworld/Vuejs.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-vue3_helloworld" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2020/12/29/vue3_helloworld/" class="article-date">
+      <time datetime="2020-12-28T22:49:00.000Z" itemprop="datePublished">2020-12-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vue/">vue</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><a href="https://vue3js.cn/" target="_blank" rel="noopener">Vue3正式版</a>終於出現了啊，因為一開始是去學<a href="https://www.books.com.tw/products/0010832387" target="_blank" rel="noopener">Kuro大大</a>的Vue2.6的課程，剛好是<a href="https://blog.darkthread.net/blog/vue-3-release/" target="_blank" rel="noopener">3.0</a>的前一版，本來滿擔心會不會差很多，但是實際使用上好像也還好，其實是我只會皮毛而己。<br>這應該是今年的最後一篇文章了，先預祝大家<a href="https://www.youtube.com/watch?v=K32qgWlEIP8" target="_blank" rel="noopener">新年快樂</a>，2021大發財。現在，讓我們來做做一個簡單的<a href="https://www.vuemastery.com/" target="_blank" rel="noopener">購物車APP吧</a>，Let’s go。<br><a id="more"></a></p>
+<p><img src="/2020/12/29/vue3_helloworld/Vuejs.jpg" alt></p>
+<h3 id="首先我們想做一個這樣子的頁面"><a href="#首先我們想做一個這樣子的頁面" class="headerlink" title="首先我們想做一個這樣子的頁面"></a>首先我們想做一個這樣子的頁面</h3><video width="100%" controls><source src="/2020/12/29/vue3_helloworld/finish.mp4" type="video/mp4"></video>
+
+<h3 id="第一步-基本設定"><a href="#第一步-基本設定" class="headerlink" title="第一步 - 基本設定"></a>第一步 - 基本設定</h3><h4 id="先將相關的CSS跟圖片載入，資料夾的結構加下所示"><a href="#先將相關的CSS跟圖片載入，資料夾的結構加下所示" class="headerlink" title="先將相關的CSS跟圖片載入，資料夾的結構加下所示"></a>先將相關的CSS跟圖片載入，資料夾的結構加下所示</h4><p><img src="/2020/12/29/vue3_helloworld/1-1.png" alt></p>
+<h4 id="建立index-html-index-js"><a href="#建立index-html-index-js" class="headerlink" title="建立index.html + index.js"></a>建立index.html + index.js</h4><ul>
+<li>載入styles.css，跟加入vue.global.js (目前加入的是v3.0.3)</li>
+<li>注意順序不要放錯<br><img src="/2020/12/29/vue3_helloworld/1-2.png" alt></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--index.html--&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"./assets/css/styles.css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/vue@3.0.3/dist/vue.global.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Apple iPad Air 2020<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"main"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"nav-bar"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"cart"</span>&gt;</span>購物數量<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"product-display"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"product-container"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"product-image"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"product-info"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./index.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> mountedApp = myApp.mount(<span class="string">"#main"</span>)</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> myApp = Vue.createApp(&#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods: &#123;&#125;,</span><br><span class="line">    computed: &#123;&#125;,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="第二步-變數"><a href="#第二步-變數" class="headerlink" title="第二步 - 變數"></a>第二步 - 變數</h3><h4 id="加入變數"><a href="#加入變數" class="headerlink" title="加入變數"></a>加入變數</h4><ul>
+<li>在index.js中的data()中，加入cart變數</li>
+<li>變數的語法是 &#123;&#123; 變數 &#125;&#125;<br><img src="/2020/12/29/vue3_helloworld/2-1.png" alt></li>
+</ul>
+<h4 id="改變數值"><a href="#改變數值" class="headerlink" title="改變數值"></a>改變數值</h4><ul>
+<li>在Browser的主控台上試著去改變cart數值，畫面上也會跟著改變</li>
+<li>這個方法改善了以往數值改變後，還去寫js去更新畫面上的顯示<br><img src="/2020/12/29/vue3_helloworld/2-2.png" alt><br><img src="/2020/12/29/vue3_helloworld/2-3.png" alt></li>
+</ul>
+<h3 id="第三步-圖片"><a href="#第三步-圖片" class="headerlink" title="第三步 - 圖片"></a>第三步 - 圖片</h3><h4 id="加入圖片"><a href="#加入圖片" class="headerlink" title="加入圖片"></a>加入圖片</h4><ul>
+<li>改變&lt;img&gt;的src位置</li>
+<li>這個是使用「v-bind:src」屬性做「單向綁定」，簡寫為「:src」</li>
+<li>在這裡可以看到，這個「v-」開頭的屬性是Vue自訂的屬性，也維持跟html類似的名字</li>
+<li>再次執行index.html，看看圖片有沒有正常出現<br><img src="/2020/12/29/vue3_helloworld/3-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/3-2.png" alt></li>
+</ul>
+<h3 id="第四步-顯示-隱藏"><a href="#第四步-顯示-隱藏" class="headerlink" title="第四步 - 顯示 / 隱藏"></a>第四步 - 顯示 / 隱藏</h3><h4 id="加入圖片-1"><a href="#加入圖片-1" class="headerlink" title="加入圖片"></a>加入圖片</h4><ul>
+<li>加入inventory，設定庫存大小</li>
+<li>利用「v-show」來顯示 / 隱藏該Tag</li>
+<li>利用主控台來改變「inventory」的值，看看有什麼變化<br><img src="/2020/12/29/vue3_helloworld/4-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/4-2.png" alt><br><img src="/2020/12/29/vue3_helloworld/4-3.png" alt></li>
+</ul>
+<h3 id="第五步-判斷式"><a href="#第五步-判斷式" class="headerlink" title="第五步 - 判斷式"></a>第五步 - 判斷式</h3><h4 id="if-else-if-else"><a href="#if-else-if-else" class="headerlink" title="if else-if else"></a>if else-if else</h4><ul>
+<li>利用「if else」來決定有沒有現貨</li>
+<li>利用主控台來改變「inventory」的值，看看有什麼變化</li>
+<li>「if else」跟「v-show」不一樣的地方是，它真的是「不見了」<br><img src="/2020/12/29/vue3_helloworld/5-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/5-2.png" alt><br><img src="/2020/12/29/vue3_helloworld/5-3.png" alt></li>
+</ul>
+<h3 id="第六步-迴圈"><a href="#第六步-迴圈" class="headerlink" title="第六步 - 迴圈"></a>第六步 - 迴圈</h3><h4 id="for-in"><a href="#for-in" class="headerlink" title="for in"></a>for in</h4><ul>
+<li>在data()中加上details的Array值</li>
+<li>利用「v-for」來決定顯示Array的值<br><img src="/2020/12/29/vue3_helloworld/6-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/6-2.png" alt></li>
+</ul>
+<h3 id="第七步-滑鼠點擊"><a href="#第七步-滑鼠點擊" class="headerlink" title="第七步 - 滑鼠點擊"></a>第七步 - 滑鼠點擊</h3><h4 id="click"><a href="#click" class="headerlink" title="@click"></a>@click</h4><ul>
+<li>在畫面上加入一個Button，用途是點一下，右上角的購物數量會加1</li>
+<li>利用「inStock」來切換「:class」，改變顯示的樣式</li>
+<li>在index.js中的「methods」加入一個function，利用「this.cart」來取得變數值</li>
+<li>再利用「v-on:click / @click」來加入按鍵的動作，也就是js上的onClick的事件功能<br><img src="/2020/12/29/vue3_helloworld/7-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/7-2.png" alt></li>
+</ul>
+<h3 id="第八步-滑鼠滑過"><a href="#第八步-滑鼠滑過" class="headerlink" title="第八步 - 滑鼠滑過"></a>第八步 - 滑鼠滑過</h3><h4 id="mouseover"><a href="#mouseover" class="headerlink" title="@mouseover"></a>@mouseover</h4><ul>
+<li>再利用「v-on:mouseover / @mouseover」來加入滑鼠滑過的事件的動作<br><img src="/2020/12/29/vue3_helloworld/8-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/8-2.png" alt><h3 id="computed"><a href="#computed" class="headerlink" title="computed"></a>computed</h3></li>
+<li>這裡要比較注意的是varinats的Array物件，利用selectedIndex來切換在畫面上的圖片，而不是用url</li>
+<li>所以在滑過圓形的div時，是讓selectedIndex記錄Array的index</li>
+<li>當selectedIndex「變化時」，會去觸發在「computed」中有使用到「selectedIndex」的function</li>
+<li>也就是說，當值有變化時，會去「computed」裡尋找，有點像「監聽」的味道<br><img src="/2020/12/29/vue3_helloworld/8-3.png" alt></li>
+</ul>
+<h3 id="第九步"><a href="#第九步" class="headerlink" title="第九步"></a>第九步</h3><h4 id="「標題」與「庫存」"><a href="#「標題」與「庫存」" class="headerlink" title="「標題」與「庫存」"></a>「標題」與「庫存」</h4><ul>
+<li>再進一步利用「selectedIndex」來改變 「標題」與「庫存」的數值</li>
+<li>這邊要注意的是「不可以同名」，不然會有錯誤產生<br><img src="/2020/12/29/vue3_helloworld/9-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/9-2.png" alt></li>
+</ul>
+<h3 id="第十步-可重複使用的元件1"><a href="#第十步-可重複使用的元件1" class="headerlink" title="第十步 - 可重複使用的元件1"></a>第十步 - 可重複使用的元件1</h3><h4 id="productDisplayTag-js"><a href="#productDisplayTag-js" class="headerlink" title="productDisplayTag.js"></a>productDisplayTag.js</h4><ul>
+<li>這裡利用「component()」來產生可以重複使用的元件，html語法會加在「template」之中</li>
+<li>第一個參數是自定義「html tag」的名稱，因為在html中沒有分大小寫，所以在取名字的時候要注意</li>
+<li>當然「productDisplayTag.js」也要加在「index.html」裡面，不過這裡只是測試一下而己<br><img src="/2020/12/29/vue3_helloworld/10-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/10-2.png" alt></li>
+</ul>
+<h3 id="第十一步-可重複使用的元件2"><a href="#第十一步-可重複使用的元件2" class="headerlink" title="第十一步 - 可重複使用的元件2"></a>第十一步 - 可重複使用的元件2</h3><h4 id="大搬家"><a href="#大搬家" class="headerlink" title="大搬家"></a>大搬家</h4><ul>
+<li>接著把「index.js」內的東西，搬到「productDisplayTag.js」內</li>
+<li>這裡要介紹一個VSCode的套件叫做「<a href="https://marketplace.visualstudio.com/items?itemName=Tobermory.es6-string-html" target="_blank" rel="noopener">es6-string-html</a>」，它能把template內的「純文字」變成「html有顏色的文字」</li>
+<li>到這裡會發現「」讀不到值了，要怎麼辦呢？請接著看下去<br><img src="/2020/12/29/vue3_helloworld/11-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/11-2.png" alt><br><img src="/2020/12/29/vue3_helloworld/11-3.png" alt><br><img src="/2020/12/29/vue3_helloworld/11-4.png" alt></li>
+</ul>
+<h3 id="第十二步-自定義動作"><a href="#第十二步-自定義動作" class="headerlink" title="第十二步 - 自定義動作"></a>第十二步 - 自定義動作</h3><h4 id="this-emit"><a href="#this-emit" class="headerlink" title="this.$emit()"></a>this.$emit()</h4><ul>
+<li>這是一個很重要的功能，因為「變數」有時候會在其它的地方，而不在同一個檔案裡面，要怎麼辦呢？</li>
+<li>使用this.$emit(&lt;動作名稱&gt;)，主動「發射」產生動作，然後去執行「另一個function」<br><img src="/2020/12/29/vue3_helloworld/12-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/12-2.png" alt><br><img src="/2020/12/29/vue3_helloworld/12-3.png" alt></li>
+</ul>
+<h3 id="第十三步-自定義屬性"><a href="#第十三步-自定義屬性" class="headerlink" title="第十三步 - 自定義屬性"></a>第十三步 - 自定義屬性</h3><h4 id="this-emit-1"><a href="#this-emit-1" class="headerlink" title="this.$emit()"></a>this.$emit()</h4><ul>
+<li>這是另一個很重要的功能，因為自定義「html tag」，沒有辦法「直接」加上「&#123;&#123; &lt;變數&gt; &#125;&#125;」去使用 (當然還是有辦法的)</li>
+<li>所以新增一個「props」的物件，去「增加」在該tag上的atttibute，設定它的類型，去接收「isPremium」這個變數值<br><img src="/2020/12/29/vue3_helloworld/13-1.png" alt><br><img src="/2020/12/29/vue3_helloworld/13-2.png" alt><h4 id="變數？函數？屬性？"><a href="#變數？函數？屬性？" class="headerlink" title="變數？函數？屬性？"></a>變數？函數？屬性？</h4></li>
+<li>這裡新增一個function，利用自定義的「attribute」，來設定價格</li>
+<li>在這裡可以發現，屬性 / 函數也可以當變數用，所以之前為什麼明明是函數，但不能同名的原因就在這裡，html真的是亂啊<br><img src="/2020/12/29/vue3_helloworld/13-3.png" alt></li>
+</ul>
+<h3 id="同場加映-雙向綁定"><a href="#同場加映-雙向綁定" class="headerlink" title="同場加映 - 雙向綁定"></a>同場加映 - 雙向綁定</h3><video width="50%" controls><source src="/2020/12/29/vue3_helloworld/finish2.mp4" type="video/mp4"></video>
+
+<h4 id="首先將兩個component加入到html之中"><a href="#首先將兩個component加入到html之中" class="headerlink" title="首先將兩個component加入到html之中"></a>首先將兩個component加入到html之中</h4><ul>
+<li>試試看畫面正不正常<br><img src="/2020/12/29/vue3_helloworld/a01.png" alt><br><img src="/2020/12/29/vue3_helloworld/a02.png" alt></li>
+</ul>
+<h4 id="雙向綁定"><a href="#雙向綁定" class="headerlink" title="雙向綁定"></a>雙向綁定</h4><ul>
+<li>加入三個變數，然後將這三個變數與輸入框「雙向綁定 - v-model」，當然目前完全不會有變化<br><img src="/2020/12/29/vue3_helloworld/a03.png" alt></li>
+</ul>
+<h4 id="Submit-送出"><a href="#Submit-送出" class="headerlink" title="Submit - 送出"></a>Submit - 送出</h4><ul>
+<li>接下來處理按下「input送出鍵」的功能 (@submit-prevent)<br><img src="/2020/12/29/vue3_helloworld/a04.png" alt><br><img src="/2020/12/29/vue3_helloworld/a05.png" alt></li>
+</ul>
+<h4 id="新增評論"><a href="#新增評論" class="headerlink" title="新增評論"></a>新增評論</h4><ul>
+<li>這裡會新增一個reviews的array來記錄評論，利用「$emit」去執行</li>
+<li>這裡可以看到，我們在輸入框，並沒有做「存值」的動作，但是值卻存起來了，因為「雙向綁定 - v-model」的關係，兩邊是連動的<br><img src="/2020/12/29/vue3_helloworld/a06.png" alt><br><img src="/2020/12/29/vue3_helloworld/a07.png" alt></li>
+</ul>
+<h4 id="顯示評論"><a href="#顯示評論" class="headerlink" title="顯示評論"></a>顯示評論</h4><ul>
+<li>這裡利用props + v-for顯示資料，到這裡就完成了<br><img src="/2020/12/29/vue3_helloworld/a08.png" alt><br><img src="/2020/12/29/vue3_helloworld/a09.png" alt></li>
+</ul>
+<h4 id="生命週期"><a href="#生命週期" class="headerlink" title="生命週期"></a>生命週期</h4><ul>
+<li>因為v3.0開始就把生命週期放在setup()裡面了，然後要加上第一行才可以用，我想應該是為了省資源吧？<br><img src="/2020/12/29/vue3_helloworld/a10.png" alt></li>
+</ul>
+<h3 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h3><ul>
+<li>這裡的東西都是我亂看亂想的，先求有，才求好，慢慢來吧，前端的東西真的變化太快了啦…T.T，おわり</li>
+</ul>
+<h3 id="Code在這-範例程式碼下載-git-同場加映在這-範例程式碼下載-git"><a href="#Code在這-範例程式碼下載-git-同場加映在這-範例程式碼下載-git" class="headerlink" title="Code在這 / 範例程式碼下載 - git / 同場加映在這 / 範例程式碼下載 - git"></a><a href="https://github.com/William-Weng/Vue3.js/tree/main/HelloWorld" target="_blank" rel="noopener">Code在這</a> / <a href="/2020/12/29/vue3_helloworld/Vue3_Demo.7z">範例程式碼下載 - git</a> / <a href="https://github.com/William-Weng/Vue3.js/tree/main/Form" target="_blank" rel="noopener">同場加映在這</a> / <a href="/2020/12/29/vue3_helloworld/Code-git.7z">範例程式碼下載 - git</a></h3><ul>
+<li>真的沒想到，<a href="https://developer.mozilla.org/zh-TW/docs/Glossary/SPA" target="_blank" rel="noopener">才一頁</a>的畫面就有這麼多的東西要學，PM再多畫幾頁，不就加班加到吐？果然隔行如隔山啊，還是去做做<a href="https://zh.wikipedia.org/zh-tw/单页应用" target="_blank" rel="noopener">SPA</a>吧…William心の俳句</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2020年12月29日 - 06時49分</p>
+        <p><span>最後更新:</span>2020年12月31日 - 05時56分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2020/12/29/vue3_helloworld/" title="【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來">https://william-weng.github.io/2020/12/29/vue3_helloworld/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2020/12/29/vue3_helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2021/02/14/grails_helloworld/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/04/03/vuejs-hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Vue.js 2.6】Vue.js的初體驗</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#首先我們想做一個這樣子的頁面"><span class="toc-number">2.</span> <span class="toc-text">首先我們想做一個這樣子的頁面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步-基本設定"><span class="toc-number">3.</span> <span class="toc-text">第一步 - 基本設定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#先將相關的CSS跟圖片載入，資料夾的結構加下所示"><span class="toc-number">3.1.</span> <span class="toc-text">先將相關的CSS跟圖片載入，資料夾的結構加下所示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#建立index-html-index-js"><span class="toc-number">3.2.</span> <span class="toc-text">建立index.html + index.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步-變數"><span class="toc-number">4.</span> <span class="toc-text">第二步 - 變數</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加入變數"><span class="toc-number">4.1.</span> <span class="toc-text">加入變數</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#改變數值"><span class="toc-number">4.2.</span> <span class="toc-text">改變數值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步-圖片"><span class="toc-number">5.</span> <span class="toc-text">第三步 - 圖片</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加入圖片"><span class="toc-number">5.1.</span> <span class="toc-text">加入圖片</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步-顯示-隱藏"><span class="toc-number">6.</span> <span class="toc-text">第四步 - 顯示 / 隱藏</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#加入圖片-1"><span class="toc-number">6.1.</span> <span class="toc-text">加入圖片</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第五步-判斷式"><span class="toc-number">7.</span> <span class="toc-text">第五步 - 判斷式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#if-else-if-else"><span class="toc-number">7.1.</span> <span class="toc-text">if else-if else</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第六步-迴圈"><span class="toc-number">8.</span> <span class="toc-text">第六步 - 迴圈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#for-in"><span class="toc-number">8.1.</span> <span class="toc-text">for in</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第七步-滑鼠點擊"><span class="toc-number">9.</span> <span class="toc-text">第七步 - 滑鼠點擊</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#click"><span class="toc-number">9.1.</span> <span class="toc-text">@click</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第八步-滑鼠滑過"><span class="toc-number">10.</span> <span class="toc-text">第八步 - 滑鼠滑過</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mouseover"><span class="toc-number">10.1.</span> <span class="toc-text">@mouseover</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#computed"><span class="toc-number">11.</span> <span class="toc-text">computed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第九步"><span class="toc-number">12.</span> <span class="toc-text">第九步</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#「標題」與「庫存」"><span class="toc-number">12.1.</span> <span class="toc-text">「標題」與「庫存」</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十步-可重複使用的元件1"><span class="toc-number">13.</span> <span class="toc-text">第十步 - 可重複使用的元件1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#productDisplayTag-js"><span class="toc-number">13.1.</span> <span class="toc-text">productDisplayTag.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十一步-可重複使用的元件2"><span class="toc-number">14.</span> <span class="toc-text">第十一步 - 可重複使用的元件2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#大搬家"><span class="toc-number">14.1.</span> <span class="toc-text">大搬家</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十二步-自定義動作"><span class="toc-number">15.</span> <span class="toc-text">第十二步 - 自定義動作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#this-emit"><span class="toc-number">15.1.</span> <span class="toc-text">this.$emit()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第十三步-自定義屬性"><span class="toc-number">16.</span> <span class="toc-text">第十三步 - 自定義屬性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#this-emit-1"><span class="toc-number">16.1.</span> <span class="toc-text">this.$emit()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#變數？函數？屬性？"><span class="toc-number">16.2.</span> <span class="toc-text">變數？函數？屬性？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#同場加映-雙向綁定"><span class="toc-number">17.</span> <span class="toc-text">同場加映 - 雙向綁定</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先將兩個component加入到html之中"><span class="toc-number">17.1.</span> <span class="toc-text">首先將兩個component加入到html之中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#雙向綁定"><span class="toc-number">17.2.</span> <span class="toc-text">雙向綁定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Submit-送出"><span class="toc-number">17.3.</span> <span class="toc-text">Submit - 送出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新增評論"><span class="toc-number">17.4.</span> <span class="toc-text">新增評論</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#顯示評論"><span class="toc-number">17.5.</span> <span class="toc-text">顯示評論</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生命週期"><span class="toc-number">17.6.</span> <span class="toc-text">生命週期</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#總結"><span class="toc-number">18.</span> <span class="toc-text">總結</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Code在這-範例程式碼下載-git-同場加映在這-範例程式碼下載-git"><span class="toc-number">19.</span> <span class="toc-text">Code在這 / 範例程式碼下載 - git / 同場加映在這 / 範例程式碼下載 - git</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2021/02/14/grails_helloworld/" title="上一篇: 【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2020/04/03/vuejs-hello-world/" title="下一篇: 【Vue.js 2.6】Vue.js的初體驗">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

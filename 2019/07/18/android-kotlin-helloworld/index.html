@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Kotlin 1.3】Android程式初體驗 - Kotlin篇 | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言話說，全世界的手機系統應該都被Android跟iOS佔光光了吧，不過最近又跑出來了一個鴻蒙系統，也許未來有可能成為第三大的手機系統吧？至於為什麼要學安卓呢？因為之前有在學一點點的Flutter，發現還是要兩個平臺都要了解一些些，才知道Flutter到底在做什麼？加上本來就是兩個不同的系統，在設定上一定有所差異，加上聽說Kotlin跟Swift很相像，所以就來學學看了。因為本身對iOS比較熟一點">
+<meta name="keywords" content="android,kotlin,android studio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Kotlin 1.3】Android程式初體驗 - Kotlin篇">
+<meta property="og:url" content="https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言話說，全世界的手機系統應該都被Android跟iOS佔光光了吧，不過最近又跑出來了一個鴻蒙系統，也許未來有可能成為第三大的手機系統吧？至於為什麼要學安卓呢？因為之前有在學一點點的Flutter，發現還是要兩個平臺都要了解一些些，才知道Flutter到底在做什麼？加上本來就是兩個不同的系統，在設定上一定有所差異，加上聽說Kotlin跟Swift很相像，所以就來學學看了。因為本身對iOS比較熟一點">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/AndroidStudio.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/Pic_01.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/Pic_02.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/Pic_03.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/Pic_04.jpg">
+<meta property="og:updated_time" content="2019-10-01T21:48:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Kotlin 1.3】Android程式初體驗 - Kotlin篇">
+<meta name="twitter:description" content="前言話說，全世界的手機系統應該都被Android跟iOS佔光光了吧，不過最近又跑出來了一個鴻蒙系統，也許未來有可能成為第三大的手機系統吧？至於為什麼要學安卓呢？因為之前有在學一點點的Flutter，發現還是要兩個平臺都要了解一些些，才知道Flutter到底在做什麼？加上本來就是兩個不同的系統，在設定上一定有所差異，加上聽說Kotlin跟Swift很相像，所以就來學學看了。因為本身對iOS比較熟一點">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/AndroidStudio.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-android-kotlin-helloworld" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/18/android-kotlin-helloworld/" class="article-date">
+      <time datetime="2019-07-18T02:17:41.000Z" itemprop="datePublished">2019-07-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Kotlin 1.3】Android程式初體驗 - Kotlin篇
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-studio/">android studio</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kotlin/">kotlin</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>話說，全世界的手機系統應該都被<a href="https://zh.wikipedia.org/wiki/Android" target="_blank" rel="noopener">Android</a>跟<a href="https://zh.wikipedia.org/wiki/IOS" target="_blank" rel="noopener">iOS</a><a href="https://www.kocpc.com.tw/archives/184192" target="_blank" rel="noopener">佔光光</a>了吧，不過最近又跑出來了一個<a href="https://technews.tw/2019/07/15/huawei-say-the-android-is-the-first-choice/" target="_blank" rel="noopener">鴻蒙系統</a>，也許未來有可能成為第三大的手機系統吧？至於為什麼要學安卓呢？因為之前有在學一點點的Flutter，發現還是要兩個平臺都要了解一些些，才知道Flutter到底在做什麼？加上本來就是兩個不同的系統，在設定上一定有所差異，加上聽說<a href="https://zh.wikipedia.org/wiki/Kotlin" target="_blank" rel="noopener">Kotlin</a>跟<a href="https://zh.wikipedia.org/wiki/Swift_(程式語言&rpar;" target="_blank" rel="noopener">Swift</a>很相像，所以就來學學看了。因為本身對iOS比較熟一點，所以後面會以iOS的名詞來做不專業的說明。話不多說，這裡就用跟<a href="https://www.jetbrains.com/" target="_blank" rel="noopener">JetBrains</a>合作的<a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio</a>，其實<a href="https://kotlinlang.org/" target="_blank" rel="noopener">Kotlin</a>也是JetBrains出品的。<a href="https://developer.android.com/studio/install?hl=zh-cn" target="_blank" rel="noopener">安裝的過程</a>就不多做說明了，現在馬上就來試試看吧。<br><a id="more"></a><br><img src="/2019/07/18/android-kotlin-helloworld/AndroidStudio.jpg" alt></p>
+<h3 id="做一個長這樣的APP"><a href="#做一個長這樣的APP" class="headerlink" title="做一個長這樣的APP"></a>做一個長這樣的APP</h3><video width="480" controls><br>    <source src="/2019/07/18/android-kotlin-helloworld/Vedio_00.mp4" type="video/mp4"><br></video>
+
+<h3 id="IDE環境"><a href="#IDE環境" class="headerlink" title="IDE環境"></a>IDE環境</h3><h4 id="新增Android專案"><a href="#新增Android專案" class="headerlink" title="新增Android專案"></a>新增Android專案</h4><ul>
+<li>可以選擇專案一開始的樣子，一般都是會選「Empty Activity」，其中「Activity」就有點像iOS的「ViewControler」，然後可以選擇語言，這裡我們當然是選「Kotlin」，最小API版本就選Anroid 5.0 (API 21)<video width="100%" controls><br>  <source src="/2019/07/18/android-kotlin-helloworld/Vedio_01.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="編譯環境"><a href="#編譯環境" class="headerlink" title="編譯環境"></a>編譯環境</h4><ul>
+<li>這個就不多說了，有圖有真象<br><img src="/2019/07/18/android-kotlin-helloworld/Pic_01.jpg" alt><h4 id="新增Android手機模擬器"><a href="#新增Android手機模擬器" class="headerlink" title="新增Android手機模擬器"></a>新增Android手機模擬器</h4></li>
+<li>這個就跟Xcode在新增模擬器的方法就不太一樣了，因為Android手機的廠商太多了，所以Android手機模擬器可以有很高度的<a href="https://litotom.com/2017/03/09/android-effective-02-env-5/" target="_blank" rel="noopener">客制化</a>，這裡就不多做說明，不過在選擇x86_Image_API的時候要記得下載該image檔，才能做新增。另外值得一提的是，iOS模擬器是直接以<a href="https://william-weng.github.io/2019/05/06/ios-framework-merge/">x86-CPU</a>去做的，但是Android模擬器是真的以<a href="http://jdev.tw/blog/16/把vmware丟掉-free的x86模擬器-qemu" target="_blank" rel="noopener">Qemu</a>去模擬手機硬體的。<video width="100%" controls><br>  <source src="/2019/07/18/android-kotlin-helloworld/Vedio_02.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="執行Android程式"><a href="#執行Android程式" class="headerlink" title="執行Android程式"></a>執行Android程式</h4><ul>
+<li>在這裡可以選擇實機或模擬器來執行<video width="100%" controls><br>  <source src="/2019/07/18/android-kotlin-helloworld/Vedio_03.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h3 id="APP的第一頁"><a href="#APP的第一頁" class="headerlink" title="APP的第一頁"></a>APP的第一頁</h3><h4 id="建立資源檔"><a href="#建立資源檔" class="headerlink" title="建立資源檔"></a>建立資源檔</h4><ul>
+<li>在「res/values/strings.xml」的內容內，都是可以重複利用的文字，有點像iOS的plist檔，其中「app_name」就是APP的名字<br><img src="/2019/07/18/android-kotlin-helloworld/Pic_02.jpg" alt><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"app_name"</span>&gt;</span>Android_HelloWorld<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"select_box"</span>&gt;</span>請選擇其中一個<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"input_name"</span>&gt;</span>請輸入玩家姓名<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"select_scissors"</span>&gt;</span>剪刀<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"select_rock"</span>&gt;</span>石頭<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"select_paper"</span>&gt;</span>布<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"start_game"</span>&gt;</span>猜拳<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"label_name"</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"label_winner"</span>&gt;</span>勝利者<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"label_me"</span>&gt;</span>我方出拳<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"label_pc"</span>&gt;</span>電腦出拳<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"title_activity_sub"</span>&gt;</span>SubActivity<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nextPage"</span>&gt;</span>下一頁<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"nextPageTitle"</span>&gt;</span>第二頁<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span> <span class="attr">name</span>=<span class="string">"goBackButton"</span>&gt;</span>回上一頁<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="畫面程式組合"><a href="#畫面程式組合" class="headerlink" title="畫面程式組合"></a>畫面程式組合</h4><ul>
+<li>一般檔案的長相基本上是「OOxx.kt + xx_oo.xml」為一組頁面，在iOS中就是像「OO.swift + OO.xib」的組合，在目前的Android寫法，還沒有像Storyboard的方式出現。在這裡使用的是<a href="https://developer.android.com/reference/android/support/constraint/ConstraintLayout" target="_blank" rel="noopener">「ConstraintLayout」</a>，Layout產生的方式跟iOS的不太一樣，其中主要說明的是「android:id=”@+id/?????”」的這個屬性，它就是這個元件的代號，可以把它想成是HTML的id，是個<a href="https://medium.com/@small2883/html的id-class屬性介紹-css-的-class-和-id-兩者有何差異-25ce5315ece" target="_blank" rel="noopener">唯一值識別碼</a>，另外「android:text=”@string/?????”」的”@string”就是引用「res/values/strings.xml」內的文字mapping，只要改strings.xml，這裡的內容也會跟著改變。<br><img src="/2019/07/18/android-kotlin-helloworld/Pic_03.jpg" alt></li>
+</ul>
+<h4 id="第一頁的長相"><a href="#第一頁的長相" class="headerlink" title="第一頁的長相"></a>第一頁的長相</h4><ul>
+<li>在這裡雖然跟可以用拉的去放元件，但總覺得沒有Xcode的好用，也許直接key比較快？先求有再求好吧。<br><video width="100%" controls><br>  <source src="/2019/07/18/android-kotlin-helloworld/Vedio_04.mp4" type="video/mp4"><br></video><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.constraint.ConstraintLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span> <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span> <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span> <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/select_box"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/select_box"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"8dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@+id/input_name"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/input_name"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:inputType</span>=<span class="string">"textPersonName"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:ems</span>=<span class="string">"10"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"8dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:hint</span>=<span class="string">"@string/input_name"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RadioGroup</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/radioGroup"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@+id/select_box"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"8dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RadioButton</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:id</span>=<span class="string">"@+id/select_scissors"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:text</span>=<span class="string">"@string/select_scissors"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:checked</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RadioButton</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:id</span>=<span class="string">"@+id/select_rock"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:text</span>=<span class="string">"@string/select_rock"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">RadioButton</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:id</span>=<span class="string">"@+id/select_paper"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:text</span>=<span class="string">"@string/select_paper"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">                <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">RadioGroup</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/start_game"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/start_game"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"8dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@+id/radioGroup"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/label_name"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/label_name"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@+id/start_game"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/label_winner"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/label_winner"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@+id/start_game"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toEndOf</span>=<span class="string">"@+id/label_name"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/label_me"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/label_me"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@+id/start_game"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toEndOf</span>=<span class="string">"@+id/label_winner"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/label_pc"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/label_pc"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginTop</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"16dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintTop_toBottomOf</span>=<span class="string">"@+id/start_game"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toEndOf</span>=<span class="string">"@+id/label_me"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:id</span>=<span class="string">"@+id/nextPage"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:text</span>=<span class="string">"@string/nextPage"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginBottom</span>=<span class="string">"24dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginEnd</span>=<span class="string">"8dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:layout_marginStart</span>=<span class="string">"8dp"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintEnd_toEndOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">            <span class="attr">app:layout_constraintStart_toStartOf</span>=<span class="string">"parent"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.constraint.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="onCreate"><a href="#onCreate" class="headerlink" title="onCreate()"></a>onCreate()</h4><ul>
+<li>onCreate()可以類比成iOS的viewDidLoad()，是程式的進入點，只執行一次，細節可以參考一下<a href="https://developer.android.com/guide/components/activities.html?hl=zh-TW" target="_blank" rel="noopener">Android的生命週期</a>，其中比較重要的是「setContentView(R.layout.main_activity)」就是載入「main_activity.xml」畫面檔到這個「Activity」內使用。另外EditText?這個「?」就表示它是「可以」是null值的意思，跟Swift的表示法相當。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">var</span> inputName: EditText? = <span class="literal">null</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCreate</span><span class="params">(savedInstanceState: <span class="type">Bundle</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState)</span><br><span class="line">        setContentView(R.layout.main_activity) </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="R-java"><a href="#R-java" class="headerlink" title="R.java"></a>R.java</h4><ul>
+<li><a href="https://developer.android.com/reference/android/R" target="_blank" rel="noopener">R.java</a>是一個很重要的檔，在「res」底下的檔案全部都會「自動編譯」在裡面，可以看看裡面都是些int值，代表的是各個資源檔的唯一ID值，利用「R.OO.XX」之類的程式，就可以讀取這些資源了，這個真的滿好用的，點點點就寫完了，但沒事別亂動它。在iOS也有學它的framework，叫做<a href="https://github.com/mac-cain13/R.swift" target="_blank" rel="noopener">「R.swift」</a>。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* AUTO-GENERATED FILE. DO NOT MODIFY.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * This class was automatically generated by the</span></span><br><span class="line"><span class="comment"> * aapt tool from the resource data it found. It</span></span><br><span class="line"><span class="comment"> * should not be modified by hand.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.example.android_helloworld;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">R</span> </span>&#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">anim</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> abc_fade_in=<span class="number">0x7f010000</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> abc_fade_out=<span class="number">0x7f010001</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> abc_grow_fade_in_from_bottom=<span class="number">0x7f010002</span>;</span><br><span class="line">    ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="findViewById"><a href="#findViewById" class="headerlink" title="findViewById()"></a>findViewById()</h4><ul>
+<li>這個動作好像是一定會有的？利用<a href="https://developer.android.com/reference/android/app/Activity.html" target="_blank" rel="noopener">findViewById()</a>去讓該元件初始化，然後進行接下來的操作。不過要一個一個寫<a href="https://www.cnblogs.com/figozhg/p/6185155.html" target="_blank" rel="noopener">好麻煩</a>啊，為什麼不用類似<a href="https://antonioleiva.com/kotlin-android-extensions/" target="_blank" rel="noopener">R.java</a>的寫法呢？或者像<a href="http://www.demojameson.com/2017/05/22/best-way-to-find-view-by-id/" target="_blank" rel="noopener">@IBOutlet</a>用拉的呢？XD<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 初始化設定元件</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">initElements</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        inputName = findViewById(R.id.input_name)</span><br><span class="line">        radioGroup = findViewById(R.id.radioGroup)</span><br><span class="line">        startGame = findViewById(R.id.start_game)</span><br><span class="line">        nextPage = findViewById(R.id.nextPage)</span><br><span class="line"></span><br><span class="line">        labelName = findViewById&lt;TextView&gt;(R.id.label_name)</span><br><span class="line">        labelMe = findViewById&lt;TextView&gt;(R.id.label_me)</span><br><span class="line">        labelWinner = findViewById&lt;TextView&gt;(R.id.label_winner)</span><br><span class="line">        labelPC = findViewById&lt;TextView&gt;(R.id.label_pc)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="setOnClickListener"><a href="#setOnClickListener" class="headerlink" title="setOnClickListener()"></a>setOnClickListener()</h4><ul>
+<li>利用<a href="https://developer.android.com/reference/android/view/View.OnClickListener" target="_blank" rel="noopener">setOnClickListener()</a>設定按鍵按下的反應，在iOS應該類似叫.addTarget()。另外要說明的是「?:」這個運算子，它有點像Swift的 「guard let else」。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 設定猜拳按鈕按下的動作 (沒有寫名字就跳提示)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">setButtonListener</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> startGame = startGame ?: <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">val</span> nextPage = nextPage ?: <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        startGame.setOnClickListener &#123; moraResult() &#125;</span><br><span class="line">        nextPage.setOnClickListener &#123; nextPage() &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="intent"><a href="#intent" class="headerlink" title="intent"></a>intent</h4><ul>
+<li><a href="https://developer.android.com/guide/components/intents-filters?hl=zh-tw" target="_blank" rel="noopener">intent</a>在這裡的功能就是「跳到下一頁」，順便把「把包<a href="https://xnfood.com.tw/android-intent-bundle/" target="_blank" rel="noopener">Bundle</a>內的東西」一起帶過去，它比較像iOS的Segue，startActivityForResult()在iOS比較像present()。然後有回傳值的函式是長這樣，「fun bundleMaker(): Bundle」<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 跳到下一頁 (帶值)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">nextPage</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> bundle = bundleMaker()</span><br><span class="line">        <span class="keyword">val</span> intent = Intent(<span class="keyword">this</span>, SubActivity::<span class="class"><span class="keyword">class</span>.<span class="title">java</span>)</span></span><br><span class="line"></span><br><span class="line">        bundle.putString(<span class="string">"Winner"</span>, labelWinner?.text.toString())</span><br><span class="line">        bundle.putString(<span class="string">"UserName"</span>, inputName?.text.toString())</span><br><span class="line">        intent.putExtras(bundle)</span><br><span class="line"></span><br><span class="line">        startActivityForResult(intent, <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 產生要帶去下一頁的值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">bundleMaker</span><span class="params">()</span></span>: Bundle &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> bundle = Bundle()</span><br><span class="line"></span><br><span class="line">        bundle.putString(<span class="string">"Winner"</span>, labelWinner?.text.toString())</span><br><span class="line">        bundle.putString(<span class="string">"UserName"</span>, inputName?.text.toString())</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> bundle</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Kotlin的Switch-case"><a href="#Kotlin的Switch-case" class="headerlink" title="Kotlin的Switch case"></a>Kotlin的Switch case</h4><ul>
+<li>Kotlin的Switch case叫做<a href="https://www.kotlincn.net/docs/reference/control-flow.html" target="_blank" rel="noopener">when</a>，功能很強大，除了有「Switch case」的功能之外，還可以有「if-else if」的能力，真是太厲害了啊。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/// 我方出拳的結果 (勾選值)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">moraResultForMe</span><span class="params">()</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> selectScissors = findViewById&lt;RadioButton&gt;(R.id.select_scissors)</span><br><span class="line">        <span class="keyword">val</span> selectRock = findViewById&lt;RadioButton&gt;(R.id.select_rock)</span><br><span class="line">        <span class="keyword">val</span> selectPaper = findViewById&lt;RadioButton&gt;(R.id.select_paper)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> answer = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">when</span> &#123;</span><br><span class="line">            selectScissors.isChecked -&gt; answer = <span class="number">0</span></span><br><span class="line">            selectRock.isChecked -&gt; answer = <span class="number">1</span></span><br><span class="line">            selectPaper.isChecked -&gt; answer = <span class="number">2</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> answer</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="onActivityResult"><a href="#onActivityResult" class="headerlink" title="onActivityResult()"></a>onActivityResult()</h4><ul>
+<li><a href="https://developer.android.com/training/basics/intents/result?hl=zh-tw" target="_blank" rel="noopener">onActivityResult()</a>的功能就是從上一頁回到這一頁會發生的事，可以帶值回來，有點像iOS的<a href="https://medium.com/彼得潘的-swift-ios-app-開發教室/簡易說明xcode中的資料傳遞-unwind-segue-c95547a7318" target="_blank" rel="noopener">Unwind Segue</a>。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onActivityResult</span><span class="params">(requestCode: <span class="type">Int</span>, resultCode: <span class="type">Int</span>, <span class="keyword">data</span>: <span class="type">Intent</span>?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.onActivityResult(requestCode, resultCode, <span class="keyword">data</span>)</span><br><span class="line">        getReturnValueForNextPage(requestCode, resultCode, <span class="keyword">data</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="APP的第二頁"><a href="#APP的第二頁" class="headerlink" title="APP的第二頁"></a>APP的第二頁</h3><h4 id="新增第二頁"><a href="#新增第二頁" class="headerlink" title="新增第二頁"></a>新增第二頁</h4><ul>
+<li>新增第二頁，也就是加上一個新的Activity，在iOS中就是加上一個新的ViewController，比較要注意的是，除了會產生「OOxx.kt + xx_oo.xml」的組合之外，還會在<a href="https://developer.android.com/guide/topics/manifest/manifest-intro" target="_blank" rel="noopener">「AndroidManifest.xml」</a>中加上「&lt;activity android:name=”.OOXXActivity”&gt;&lt;/activity&gt;」，用來表示這一頁是有被Build的，如果沒有加的話，就會讀不到這頁了喲。AndroidManifest.xml這個檔非常的重要，有空大家可以去查一查喲。<br><img src="/2019/07/18/android-kotlin-helloworld/Pic_04.jpg" alt><br><video width="100%" controls><br>  <source src="/2019/07/18/android-kotlin-helloworld/Vedio_06.mp4" type="video/mp4"><br></video><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">manifest</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span> <span class="attr">package</span>=<span class="string">"com.example.android_helloworld"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">application</span></span></span><br><span class="line"><span class="tag">            <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_launcher"</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">android:roundIcon</span>=<span class="string">"@mipmap/ic_launcher_round"</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">android:supportsRtl</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">	    <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".SubActivity"</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">activity</span> <span class="attr">android:name</span>=<span class="string">".MainActivity"</span>&gt;</span></span><br><span class="line">		    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">			    <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span>/&gt;</span></span><br><span class="line">			    <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span>/&gt;</span></span><br><span class="line">		    <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></span><br><span class="line">	    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">application</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">manifest</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="取得上一頁傳來的值"><a href="#取得上一頁傳來的值" class="headerlink" title="取得上一頁傳來的值"></a>取得上一頁傳來的值</h4><ul>
+<li>這裡呢，也是利用intent (iOS: Segue)來取得數值包(extras)，另外<a href="https://medium.com/@louis383/簡介-kotlin-run-let-with-also-和-apply-f83860207a0c" target="_blank" rel="noopener">「let」</a>的功能就自己看一下囉。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 取得上一頁傳過來的數值</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">getValueForPreviousPage</span><span class="params">()</span></span>: String? &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> title: String? = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line">        intent?.extras.let &#123;</span><br><span class="line">            title = it?.getString(<span class="string">"Winner"</span>, <span class="string">"什麼都沒有"</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> title</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="setResult"><a href="#setResult" class="headerlink" title="setResult()"></a>setResult()</h4><ul>
+<li>把值傳到上一頁也是利用intent帶值回去，然後利用<a href="https://litotom.com/2017/06/04/ch5-7-activity-result/" target="_blank" rel="noopener">setResult()</a>把值傳回去，然後在上一頁的「onActivityResult()」就會收到了喲。<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubActivity</span> : <span class="type">AppCompatActivity</span></span>() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 回傳數值到上一頁</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">fun</span> <span class="title">returnValueForPreviousPage</span><span class="params">(subValue: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">val</span> bundle = Bundle()</span><br><span class="line">        <span class="keyword">val</span> intent = Intent()</span><br><span class="line"></span><br><span class="line">        bundle.putString(<span class="string">"SubValue"</span>, subValue)</span><br><span class="line">        intent.putExtras(bundle)</span><br><span class="line"></span><br><span class="line">        setResult(Activity.RESULT_OK, intent)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="https://github.com/William-Weng/Kotlin-1/tree/master/Android_HelloWorld" target="_blank" rel="noopener">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>其實Kotlin的語法雖然跟Swift有點像，應該說Swift有去參考Kotlin吧？但是還是有滿大的差別的，還是要先看看<a href="https://www.kotlincn.net/docs/reference/basic-syntax.html" target="_blank" rel="noopener">kotlin語法</a>才是，它是<a href="http://www.codedata.com.tw/kotlin/kt01/" target="_blank" rel="noopener">另一種JVM程式語言</a>，也許將來它會越來越強大呢？其實我也是一知半解的，騙吃騙吃啦。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年07月18日 - 10時17分</p>
+        <p><span>最後更新:</span>2019年10月02日 - 05時48分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/07/18/android-kotlin-helloworld/" title="【Kotlin 1.3】Android程式初體驗 - Kotlin篇">https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/07/18/android-kotlin-helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/07/19/android-kotlin-findviewbyid/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Kotlin 1.3】findViewById()的四種方式
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/12/homebrew-helloworld/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Homebrew】macOS必裝的套件管理工具</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#做一個長這樣的APP"><span class="toc-number">2.</span> <span class="toc-text">做一個長這樣的APP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IDE環境"><span class="toc-number">3.</span> <span class="toc-text">IDE環境</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新增Android專案"><span class="toc-number">3.1.</span> <span class="toc-text">新增Android專案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#編譯環境"><span class="toc-number">3.2.</span> <span class="toc-text">編譯環境</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新增Android手機模擬器"><span class="toc-number">3.3.</span> <span class="toc-text">新增Android手機模擬器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#執行Android程式"><span class="toc-number">3.4.</span> <span class="toc-text">執行Android程式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APP的第一頁"><span class="toc-number">4.</span> <span class="toc-text">APP的第一頁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#建立資源檔"><span class="toc-number">4.1.</span> <span class="toc-text">建立資源檔</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#畫面程式組合"><span class="toc-number">4.2.</span> <span class="toc-text">畫面程式組合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第一頁的長相"><span class="toc-number">4.3.</span> <span class="toc-text">第一頁的長相</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onCreate"><span class="toc-number">4.4.</span> <span class="toc-text">onCreate()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#R-java"><span class="toc-number">4.5.</span> <span class="toc-text">R.java</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#findViewById"><span class="toc-number">4.6.</span> <span class="toc-text">findViewById()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setOnClickListener"><span class="toc-number">4.7.</span> <span class="toc-text">setOnClickListener()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#intent"><span class="toc-number">4.8.</span> <span class="toc-text">intent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Kotlin的Switch-case"><span class="toc-number">4.9.</span> <span class="toc-text">Kotlin的Switch case</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#onActivityResult"><span class="toc-number">4.10.</span> <span class="toc-text">onActivityResult()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#APP的第二頁"><span class="toc-number">5.</span> <span class="toc-text">APP的第二頁</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新增第二頁"><span class="toc-number">5.1.</span> <span class="toc-text">新增第二頁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取得上一頁傳來的值"><span class="toc-number">5.2.</span> <span class="toc-text">取得上一頁傳來的值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#setResult"><span class="toc-number">5.3.</span> <span class="toc-text">setResult()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">6.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">7.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/07/19/android-kotlin-findviewbyid/" title="上一篇: 【Kotlin 1.3】findViewById()的四種方式">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/07/12/homebrew-helloworld/" title="下一篇: 【Homebrew】macOS必裝的套件管理工具">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

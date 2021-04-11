@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Firebase】好好用的Functions功能，自己做WebAPI | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言相信大家多少都有聽過Firebase是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個Functoins的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的Framework - onCall()，但個人是要把它做成HTTP的形式 - onR">
+<meta name="keywords" content="javascript,firebase,api">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Firebase】好好用的Functions功能，自己做WebAPI">
+<meta property="og:url" content="https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言相信大家多少都有聽過Firebase是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個Functoins的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的Framework - onCall()，但個人是要把它做成HTTP的形式 - onR">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/Firebase.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/Functions_1.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/Functions_2.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/Functions_3.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/Functions_4.jpg">
+<meta property="og:updated_time" content="2019-10-11T07:33:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Firebase】好好用的Functions功能，自己做WebAPI">
+<meta name="twitter:description" content="前言相信大家多少都有聽過Firebase是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個Functoins的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的Framework - onCall()，但個人是要把它做成HTTP的形式 - onR">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/Firebase.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-firebase-functions-helloworld" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/09/15/firebase-functions-helloworld/" class="article-date">
+      <time datetime="2019-09-15T04:34:13.000Z" itemprop="datePublished">2019-09-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Firebase】好好用的Functions功能，自己做WebAPI
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firebase/">firebase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>相信大家多少都有聽過<a href="https://en.wikipedia.org/wiki/Firebase" target="_blank" rel="noopener">Firebase</a>是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個<a href="https://firebase.google.com/docs/functions" target="_blank" rel="noopener">Functoins</a>的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的<a href="https://firebase.google.com/docs/functions/callable" target="_blank" rel="noopener">Framework - onCall()</a>，但個人是要把它做成<a href="https://firebase.google.com/docs/functions/http-events" target="_blank" rel="noopener">HTTP的形式 - onRequest()</a>，為什麼呢？一方面是因為並不是每一個語言都有Firebase的支援，另一方面是比較容易看到輸出的結果。現在我們就來試試看吧。<br><a id="more"></a></p>
+<p><img src="/2019/09/15/firebase-functions-helloworld/Firebase.jpg" alt></p>
+<h3 id="安裝過程"><a href="#安裝過程" class="headerlink" title="安裝過程"></a>安裝過程</h3><h4 id="Functions在哪裡？"><a href="#Functions在哪裡？" class="headerlink" title="Functions在哪裡？"></a>Functions在哪裡？</h4><ul>
+<li>首先，我們先來看看Functions到底在哪裡呢？登入<a href="https://console.firebase.google.com/?hl=zh-TW" target="_blank" rel="noopener">firebase console</a>後，就可以看到了喲。<video width="100%" controls><br>  <source src="/2019/09/15/firebase-functions-helloworld/Functions_1.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="安裝Functions"><a href="#安裝Functions" class="headerlink" title="安裝Functions"></a>安裝Functions</h4><ul>
+<li>首先要要安裝<a href="https://william-weng.github.io/2019/05/05/ubuntu-nodejs/">nodejs</a>，然後安裝<a href="https://zh.wikipedia.org/wiki/命令行界面" target="_blank" rel="noopener">Firebase CLI</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br><span class="line">npm install -g firebase-tools</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/09/15/firebase-functions-helloworld/Functions_1.jpg" alt></p>
+<h4 id="登入CLI"><a href="#登入CLI" class="headerlink" title="登入CLI"></a>登入CLI</h4><ul>
+<li>當然要有個<a href="https://support.google.com/mail/answer/56256?hl=zh-Hant" target="_blank" rel="noopener">gmail帳號</a>用來登入<a href="https://firebase.google.com/docs/cli" target="_blank" rel="noopener">Firebase Functions CLI</a>，接下來就是按影片施工，保證成功。<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firebase login</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_2.mp4" type="video/mp4"><br></video>
+
+<h4 id="建立新專案"><a href="#建立新專案" class="headerlink" title="建立新專案"></a>建立新專案</h4><ul>
+<li>利用CLI建立一個新專案，但記得一定要login，不然是沒有辦法產生的。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firebase init</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_3.mp4" type="video/mp4"><br></video>
+
+<h3 id="功能實作"><a href="#功能實作" class="headerlink" title="功能實作"></a>功能實作</h3><h4 id="Helloworld"><a href="#Helloworld" class="headerlink" title="Helloworld"></a>Helloworld</h4><ul>
+<li>主要的code都是放在index.js上面，它是functions的進入點。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="keyword">const</span> functions = <span class="built_in">require</span>(<span class="string">'firebase-functions'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// helloWorld() =&gt; 印出中文字</span></span><br><span class="line">exports.helloWorld = functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">    response.send(<span class="string">"哈囉你好嗎，衷心感謝，珍重再見，期待再相逢"</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firebase deploy</span><br></pre></td></tr></table></figure>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_4.mp4" type="video/mp4"><br></video>
+
+<h4 id="部署程式"><a href="#部署程式" class="headerlink" title="部署程式"></a>部署程式</h4><ul>
+<li>將程式上傳到firebase上的時候，不一定要一次上傳全部，也可以一次上傳某幾個，比較要注意的是，如果使用<a href="https://blog.hellojcc.tw/2016/01/08/module-exports-vs-exports-in-node-js/" target="_blank" rel="noopener">「module.exports」</a>建立多個function，而不是用「exports」建立單一個function的話，只有「module.exports」才有反應，就看看大家習慣哪一種了。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> functions = <span class="built_in">require</span>(<span class="string">'firebase-functions'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// helloWorld() =&gt; 印出中文字</span></span><br><span class="line">exports.helloWorld = functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">    response.send(<span class="string">"哈囉你好嗎，衷心感謝，珍重再見，期待再相逢"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">exports.helloWorld2 = functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">    response.send(<span class="string">"哈囉你好嗎，衷心感謝，珍重再見，期待再相逢"</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// module.exports</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    helloWorld3: functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        response.send(<span class="string">"哈囉你好嗎，衷心感謝，珍重再見，期待再相逢"</span>)</span><br><span class="line">    &#125;),</span><br><span class="line">    helloWorld4: functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        response.send(<span class="string">"哈囉你好嗎，衷心感謝，珍重再見，期待再相逢"</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firebase deploy                                             <span class="comment"># 全部上傳</span></span><br><span class="line">firebase deploy --only <span class="built_in">functions</span>:&lt;functionA&gt;,&lt;functionB&gt;    <span class="comment"># 上傳某幾個Function</span></span><br></pre></td></tr></table></figure>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_5.mp4" type="video/mp4"><br></video>
+
+<h4 id="匯入資料"><a href="#匯入資料" class="headerlink" title="匯入資料"></a>匯入資料</h4><ul>
+<li>這個資料主要是來由於<a href="https://www.books.com.tw/" target="_blank" rel="noopener">博客來</a>的書籍資料來當成DEMO<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"eBook"</span>: &#123;</span><br><span class="line">    <span class="attr">"9789861365404"</span>: &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"勇氣圖鑑：受挫、失敗都是成長的養分"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"https://www.books.com.tw/products/0010831766"</span>,</span><br><span class="line">      <span class="attr">"prices"</span>: [<span class="number">320</span>, <span class="number">253</span>, <span class="number">202</span>],</span><br><span class="line">      <span class="attr">"order"</span>: <span class="number">1</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"9789578640856"</span>: &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"不插電 小學生基礎程式邏輯訓練繪本全套四冊"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"https://www.books.com.tw/products/0010818767"</span>,</span><br><span class="line">      <span class="attr">"prices"</span>: [<span class="number">1440</span>, <span class="number">1080</span>],</span><br><span class="line">      <span class="attr">"order"</span>: <span class="number">3</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"9789869744560"</span>: &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"關於工作的9大謊言"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"https://www.books.com.tw/products/0010832091"</span>,</span><br><span class="line">      <span class="attr">"prices"</span>: [<span class="number">420</span>, <span class="number">332</span>],</span><br><span class="line">      <span class="attr">"order"</span>: <span class="number">2</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"9789570853551"</span>: &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"全圖解！AI知識一本通：用故事讓你三小時輕鬆搞懂人工智慧"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"https://www.books.com.tw/products/0010830584"</span>,</span><br><span class="line">      <span class="attr">"prices"</span>: [<span class="number">280</span>, <span class="number">221</span>],</span><br><span class="line">      <span class="attr">"order"</span>: <span class="number">4</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">"9789863774938"</span>: &#123;</span><br><span class="line">      <span class="attr">"name"</span>: <span class="string">"星座決定我愛你：用占星和塔羅幫你找到真命天子or女"</span>,</span><br><span class="line">      <span class="attr">"url"</span>: <span class="string">"https://www.books.com.tw/products/0010825318"</span>,</span><br><span class="line">      <span class="attr">"prices"</span>: [<span class="number">320</span>, <span class="number">253</span>, <span class="number">177</span>],</span><br><span class="line">      <span class="attr">"order"</span>: <span class="number">5</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_6.mp4" type="video/mp4"><br></video>
+
+<h3 id="讀取資料-Select"><a href="#讀取資料-Select" class="headerlink" title="讀取資料 (Select)"></a>讀取資料 (Select)</h3><h4 id="根據路徑讀取資料"><a href="#根據路徑讀取資料" class="headerlink" title="根據路徑讀取資料"></a>根據路徑讀取資料</h4><ul>
+<li>讀取Firebase上的資料，主要是要<a href="https://www.npmjs.com/package/firebase-admin" target="_blank" rel="noopener">require(“firebase-admin”)</a>，利用<a href="https://firebase.google.com/docs/reference/admin" target="_blank" rel="noopener">admin</a>來讀取Firebase上的資料。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> functions = <span class="built_in">require</span>(<span class="string">'firebase-functions'</span>);</span><br><span class="line"><span class="keyword">const</span> admin = <span class="built_in">require</span>(<span class="string">"firebase-admin"</span>)</span><br><span class="line"></span><br><span class="line">admin.initializeApp()</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 輸出的Function名稱</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    helloWorld: functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> string = getHelloWorld()</span><br><span class="line">        response.send(string)</span><br><span class="line">    &#125;),</span><br><span class="line">    bookList: functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        getBookList(<span class="string">'eBook'</span>, (snapshot) =&gt; &#123;</span><br><span class="line">            response.send(snapshot)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="comment">/// helloWorld() =&gt; 印出中文字</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getHelloWorld</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="string">"哈囉你好嗎，衷心感謝，珍重再見，期待再相逢"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得全部的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBookList</span>(<span class="params">path, callback</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> readType = <span class="string">'value'</span></span><br><span class="line"></span><br><span class="line">    admin.database().ref(path).once(readType, (snapshot) =&gt; &#123;</span><br><span class="line">        callback(snapshot)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_7.mp4" type="video/mp4"><br></video>
+
+<h4 id="讀取排序後的資料"><a href="#讀取排序後的資料" class="headerlink" title="讀取排序後的資料"></a>讀取排序後的資料</h4><ul>
+<li>這裡主要是利用<a href="https://www.firebase.com/docs/web/quickstart.html" target="_blank" rel="noopener">「orderByChild()」</a>來排序資料內的順序，此外要注意的是，因為是「排序過的」資料，所以要轉成<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank" rel="noopener">「Array」</a>才能得到正確的資料。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> functions = <span class="built_in">require</span>(<span class="string">'firebase-functions'</span>);</span><br><span class="line"><span class="keyword">const</span> admin = <span class="built_in">require</span>(<span class="string">"firebase-admin"</span>)</span><br><span class="line"></span><br><span class="line">admin.initializeApp()</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    bookListOrderByChild: functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        getBookListOrderByChild(<span class="string">'eBook'</span>, request, (snapshot) =&gt; &#123; response.send(snapshot) &#125;)</span><br><span class="line">    &#125;),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得全部的書籍資訊 =&gt; Array  (https://&lt;host&gt;/bookListOrderByChild?child=name)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBookListOrderByChild</span>(<span class="params">path, request, callback</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    _getBookListOrderByChild(path, request, (snapshot) =&gt; &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> items = []</span><br><span class="line"></span><br><span class="line">        snapshot.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">            items.push(item)</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">        callback(items)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得全部的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getBookListOrderByChild</span>(<span class="params">path, request, callback</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> readType = <span class="string">'value'</span></span><br><span class="line">    <span class="keyword">let</span> child = request.query.child</span><br><span class="line"></span><br><span class="line">    admin.database().ref(path).orderByChild(child).once(readType, (snapshot) =&gt; &#123;</span><br><span class="line">        callback(snapshot)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_8.mp4" type="video/mp4"><br></video>
+
+<h4 id="讀取範圍內的資料"><a href="#讀取範圍內的資料" class="headerlink" title="讀取範圍內的資料"></a>讀取範圍內的資料</h4><ul>
+<li>在這裡是將「排序過」的資料做範圍的截取，然後加了一欄叫做「order」用它來排序，它主要是利用<a href="https://firebase.google.com/docs/reference/js/firebase.database.Query.html" target="_blank" rel="noopener">「startAt() / endAt()」</a>，可以去有效篩選部分的資料。在這裡大家可以在上一個例子中發現，排完序之後，key(ISBN)值就不見了，因為變成有順序的<a href>Array</a>，而不是無順序的<a href="https://www.w3resource.com/JSON/structures.php" target="_blank" rel="noopener">Object / Dictionary</a>，所以在這裡我們再把key加進去裡面。<br><img src="/2019/09/15/firebase-functions-helloworld/Functions_2.jpg" alt><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    bookListOrderByKeyOfRange: functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        getBookListOrderByKeyOfRange(<span class="string">'eBook'</span>, request, (array) =&gt; &#123; response.send(array) &#125;)</span><br><span class="line">    &#125;),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得該範圍內的書籍資訊 =&gt; Array (https://&lt;host&gt;/bookListOrderByKeyOfRange?child=order&amp;start=2&amp;end=4)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBookListOrderByKeyOfRange</span>(<span class="params">path, request, callback</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    _getBookListOrderByKeyOfRange(path, request, (snapshot) =&gt; &#123;</span><br><span class="line">        <span class="keyword">let</span> items = snapshotToArray(snapshot)</span><br><span class="line">        callback(items)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得該範圍內的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getBookListOrderByKeyOfRange</span>(<span class="params">path, request, callback</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> readType = <span class="string">'value'</span></span><br><span class="line">    <span class="keyword">let</span> child = request.query.child</span><br><span class="line">    <span class="keyword">let</span> start = <span class="built_in">parseInt</span>(request.query.start)</span><br><span class="line">    <span class="keyword">let</span> end = <span class="built_in">parseInt</span>(request.query.end)</span><br><span class="line"></span><br><span class="line">    admin.database().ref(path).orderByChild(child).startAt(start).endAt(end).once(readType, (snapshot) =&gt; &#123;</span><br><span class="line">        callback(snapshot)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 將snapshot =&gt; Array</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">snapshotToArray</span>(<span class="params">snapshot</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> items = []</span><br><span class="line">    <span class="keyword">let</span> dict = snapshot.val()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> dict) &#123;</span><br><span class="line">        <span class="keyword">let</span> _item = dict[key]</span><br><span class="line">        _item[<span class="string">'identify'</span>] = key <span class="comment">// _item.identify = key</span></span><br><span class="line">        items.push(_item)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> items</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="TypeScript的版本"><a href="#TypeScript的版本" class="headerlink" title="TypeScript的版本"></a>TypeScript的版本</h4><ul>
+<li>其實TypeScript也沒有想像中的難學，不過在JavaScript亂寫都會對的情形就不太會存在了。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> functions <span class="keyword">from</span> <span class="string">'firebase-functions'</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> admin <span class="keyword">from</span> <span class="string">'firebase-admin'</span></span><br><span class="line"></span><br><span class="line">admin.initializeApp()</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> eventType: admin.database.EventType = <span class="string">'value'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    tsHelloWorld: helloWorld(),</span><br><span class="line">    tsBookList: bookList(),</span><br><span class="line">    tsBookListOrderByChild: bookListOrderByChild(),</span><br><span class="line">    tsBookListOrderByKeyOfRange: bookListOrderByKeyOfRange(),</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 主程式</span></span><br><span class="line"><span class="comment">/// 印出中文字 (https://&lt;host&gt;/tsHelloWorld)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">helloWorld</span>(<span class="params"></span>): <span class="title">functions</span>.<span class="title">HttpsFunction</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        response.send(getHelloWorld())</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得全部的書籍資訊 (https://&lt;host&gt;/tsBookList)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bookList</span>(<span class="params"></span>): <span class="title">functions</span>.<span class="title">HttpsFunction</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        getBookList(<span class="string">'eBook'</span>, (snapshot) =&gt; &#123; response.send(snapshot) &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得排序後的書籍資訊 (https://&lt;host&gt;/tsBookListOrderByChild?child=name)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bookListOrderByChild</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        getBookListOrderByChild(<span class="string">'eBook'</span>, request, (snapshot) =&gt; &#123; response.send(snapshot) &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得排序後在範圍內的書籍資訊 (https://&lt;host&gt;/tsBookListOrderByKeyOfRange?child=order&amp;start=2&amp;end=4)</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bookListOrderByKeyOfRange</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> functions.https.onRequest(<span class="function">(<span class="params">request, response</span>) =&gt;</span> &#123;</span><br><span class="line">        getBookListOrderByKeyOfRange(<span class="string">'eBook'</span>, request, (snapshot) =&gt; &#123; response.send(snapshot) &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="comment">/// 取得中文字</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getHelloWorld</span>(<span class="params"></span>): <span class="title">Object</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (&#123; <span class="attr">helloWorld</span>: <span class="string">"哈囉你好嗎，衷心感謝，珍重再見，期待再相逢"</span> &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得全部的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBookList</span>(<span class="params">path: string, callback: (snapshot: admin.database.DataSnapshot</span>) =&gt; <span class="title">void</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    admin.database().ref(path).once(eventType).then(<span class="function">(<span class="params">snapshot</span>) =&gt;</span> &#123;</span><br><span class="line">        callback(snapshot)</span><br><span class="line">    &#125;).catch(<span class="function">(<span class="params">reason</span>) =&gt;</span></span><br><span class="line">        <span class="built_in">console</span>.log(reason)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得全部的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBookListOrderByChild</span>(<span class="params">path: string, request: functions.https.Request, callback: (snapshot: any[]</span>) =&gt; <span class="title">void</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    _getBookListOrderByChild(path, request, (snapshot) =&gt; &#123;</span><br><span class="line">        callback(snapshotToArray(snapshot))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得該範圍內的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getBookListOrderByKeyOfRange</span>(<span class="params">path: string, request: functions.https.Request, callback: (snapshot: any[]</span>) =&gt; <span class="title">void</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    _getBookListOrderByKeyOfRange(path, request, (snapshot) =&gt; &#123;</span><br><span class="line">        callback(snapshotToArray(snapshot))</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得全部的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getBookListOrderByChild</span>(<span class="params">path: string, request: functions.https.Request, callback: (snapshot: admin.database.DataSnapshot</span>) =&gt; <span class="title">void</span>) </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> child = request.query.child <span class="keyword">as</span> string</span><br><span class="line"></span><br><span class="line">    admin.database().ref(path).orderByChild(child).once(eventType).then(<span class="function">(<span class="params">snapshot</span>) =&gt;</span> &#123;</span><br><span class="line">        callback(snapshot)</span><br><span class="line">    &#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span></span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 根據子Key排序後，取得該範圍內的書籍資訊</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_getBookListOrderByKeyOfRange</span>(<span class="params">path: string, request: functions.https.Request, callback: (snapshot: admin.database.DataSnapshot</span>) =&gt; <span class="title">void</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> parameter = &#123;</span><br><span class="line">        child: request.query.child <span class="keyword">as</span> string,</span><br><span class="line">        start: <span class="built_in">parseInt</span>(request.query.start),</span><br><span class="line">        end: <span class="built_in">parseInt</span>(request.query.end),</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    admin.database().ref(path).orderByChild(parameter.child).startAt(parameter.start).endAt(parameter.end).once(eventType).then(<span class="function">(<span class="params">snapshot</span>) =&gt;</span> &#123;</span><br><span class="line">        callback(snapshot)</span><br><span class="line">    &#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span></span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 將snapshot =&gt; Array</span></span><br><span class="line">function snapshotToArray(snapshot: admin.database.DataSnapshot): any[] &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">const</span> items: any[] = []</span><br><span class="line"></span><br><span class="line">    snapshot.forEach(<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">const</span> dict = item.val()</span><br><span class="line">        dict.identify = item.key</span><br><span class="line">        items.push(dict)</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> items</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="console-log"><a href="#console-log" class="headerlink" title="console.log()"></a>console.log()</h4><ul>
+<li>大家有沒有發現到，萬一有錯的時候要怎麼debug呢？最基本的<a href="https://medium.com/devgorilla/the-console-object-provides-access-to-the-browsers-debugging-console-354eda9d2d50" target="_blank" rel="noopener">console.log()</a>怎麼印不出來呢？其實可以利用「firebase functios」的記錄來看，或者是使用CLI的方式也是可以的。另外不知道有沒有發現，code裡面都沒有「分號;」結尾，這是為什麼呢？大家可以看看<a href="http://eddychang.me/js-semicolon/" target="_blank" rel="noopener">這篇文章</a>就能理解了。<br><img src="/2019/09/15/firebase-functions-helloworld/Functions_3.jpg" alt><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">firebase <span class="built_in">functions</span>:<span class="built_in">log</span>                                  <span class="comment"># 列出全部的log</span></span><br><span class="line">firebase <span class="built_in">functions</span>:<span class="built_in">log</span> --only &lt;function1&gt;,&lt;function2&gt;   <span class="comment"># 列出部分的log</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="100%" controls><br>    <source src="/2019/09/15/firebase-functions-helloworld/Functions_9.mp4" type="video/mp4"><br></video>
+
+<h4 id="網頁前端的console-log"><a href="#網頁前端的console-log" class="headerlink" title="網頁前端的console.log()"></a>網頁前端的console.log()</h4><ul>
+<li>到現在我才知道，console.log()有這麼多的功能，趕快記起來。<br><img src="/2019/09/15/firebase-functions-helloworld/Functions_4.jpg" alt><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* MARK: - 一般 */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'我是中文字'</span>)                 <span class="comment">// 列印中文字</span></span><br><span class="line"><span class="built_in">console</span>.log(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'Willam'</span> &#125;)  <span class="comment">// 列印Object</span></span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">'我是info'</span>)                 <span class="comment">// 訊息列印</span></span><br><span class="line"><span class="built_in">console</span>.error(<span class="string">'我是error'</span>)               <span class="comment">// 錯誤列印</span></span><br><span class="line"><span class="comment">// console.clear()                      // 清除log</span></span><br><span class="line"><span class="comment">// console.trace()                      // 追踨軌跡</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* MARK: - 群組 */</span></span><br><span class="line"><span class="built_in">console</span>.group(<span class="string">'Group'</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'user: William'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.group(<span class="string">'Group A'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'book: JS Book'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ISBN: 978777555777'</span>)</span><br><span class="line">    <span class="built_in">console</span>.groupEnd()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.group(<span class="string">'Group B'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'book: JS Book'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'ISBN: 978777555777'</span>)</span><br><span class="line">    <span class="built_in">console</span>.groupEnd()</span><br><span class="line"><span class="built_in">console</span>.groupEnd()</span><br><span class="line"></span><br><span class="line"><span class="comment">/* MARK: - 表格 */</span></span><br><span class="line"><span class="built_in">console</span>.table(&#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">'Willam'</span> &#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* MARK: - 時間差 */</span></span><br><span class="line"><span class="built_in">console</span>.time()</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> index = <span class="number">0</span>; index &lt; <span class="number">100000</span>; index++) &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.timeEnd()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="/2019/09/15/firebase-functions-helloworld/demo.7z">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>Firebase Functions是一個做API滿友好的工具，又結合了Firebase Database，加上它也能夠有推播的功能、Hosting的網頁功能，等於是前後台全包了，Google真的是太可怕了呀。其實<a href="https://www.ithome.com.tw/news/91771" target="_blank" rel="noopener">Firebase</a>是用買的呀。另外呢，還發現了一個<a href="https://oranwind.org/-iot-studio/" target="_blank" rel="noopener">好用的字型 - fira code</a>，大家也可以試用看看，尤其在寫<a href="https://zh.wikipedia.org/wiki/JavaScript" target="_blank" rel="noopener">JavaScript</a>特別的明顯好用呢。此外，真心覺得JavaScript真的好寫難debug，寫錯了要到Run的時候才會發現，看來也許要用<a href="https://zh.wikipedia.org/zh-tw/TypeScript" target="_blank" rel="noopener">TypeScript</a>的版本來寫寫看了，最近滿流行的，真的覺得<a href="https://zh.wikipedia.org/wiki/強弱型別" target="_blank" rel="noopener">強型別 - Strong Type</a>的語言還是比較適合我呀。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年09月15日 - 12時34分</p>
+        <p><span>最後更新:</span>2019年10月11日 - 15時33分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/09/15/firebase-functions-helloworld/" title="【Firebase】好好用的Functions功能，自己做WebAPI">https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/09/15/firebase-functions-helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/10/06/unity3d-roulette/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/21/ios-uicollectionview-demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Swift 5】UICollectionView也能變桌布？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝過程"><span class="toc-number">2.</span> <span class="toc-text">安裝過程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Functions在哪裡？"><span class="toc-number">2.1.</span> <span class="toc-text">Functions在哪裡？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#安裝Functions"><span class="toc-number">2.2.</span> <span class="toc-text">安裝Functions</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#登入CLI"><span class="toc-number">2.3.</span> <span class="toc-text">登入CLI</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#建立新專案"><span class="toc-number">2.4.</span> <span class="toc-text">建立新專案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#功能實作"><span class="toc-number">3.</span> <span class="toc-text">功能實作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Helloworld"><span class="toc-number">3.1.</span> <span class="toc-text">Helloworld</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#部署程式"><span class="toc-number">3.2.</span> <span class="toc-text">部署程式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#匯入資料"><span class="toc-number">3.3.</span> <span class="toc-text">匯入資料</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讀取資料-Select"><span class="toc-number">4.</span> <span class="toc-text">讀取資料 (Select)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#根據路徑讀取資料"><span class="toc-number">4.1.</span> <span class="toc-text">根據路徑讀取資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#讀取排序後的資料"><span class="toc-number">4.2.</span> <span class="toc-text">讀取排序後的資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#讀取範圍內的資料"><span class="toc-number">4.3.</span> <span class="toc-text">讀取範圍內的資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#TypeScript的版本"><span class="toc-number">4.4.</span> <span class="toc-text">TypeScript的版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#console-log"><span class="toc-number">4.5.</span> <span class="toc-text">console.log()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#網頁前端的console-log"><span class="toc-number">4.6.</span> <span class="toc-text">網頁前端的console.log()</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">5.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">6.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/10/06/unity3d-roulette/" title="上一篇: 【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/08/21/ios-uicollectionview-demo/" title="下一篇: 【Swift 5】UICollectionView也能變桌布？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Unity 3D 2019】向電玩產業踏出成功的第一步 | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言相信Unity遊戲引擎的大名各位一定耳熟能詳吧，它可以在多平臺產出遊戲，除了桌面系統Windows / macOS / Linux之外，在手機系統上Android / iOS / BlackBerry也可以，甚至在遊戲主機系統上XBox系列 / PS系列 / 3DS / Switch，連WebGL / Steam都支援，真的是包山包海啊，只要有遊戲的地方它通通都能產出，真的是太強了。這裡有以U">
+<meta name="keywords" content="game,unity,c#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Unity 3D 2019】向電玩產業踏出成功的第一步">
+<meta property="og:url" content="https://william-weng.github.io/2019/07/12/unity3d-helloworld/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言相信Unity遊戲引擎的大名各位一定耳熟能詳吧，它可以在多平臺產出遊戲，除了桌面系統Windows / macOS / Linux之外，在手機系統上Android / iOS / BlackBerry也可以，甚至在遊戲主機系統上XBox系列 / PS系列 / 3DS / Switch，連WebGL / Steam都支援，真的是包山包海啊，只要有遊戲的地方它通通都能產出，真的是太強了。這裡有以U">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/unity3d-helloworld/Unity3D.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/unity3d-helloworld/license.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/unity3d-helloworld/unity_01.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/unity3d-helloworld/unity_02.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/07/12/unity3d-helloworld/unity_03.jpg">
+<meta property="og:updated_time" content="2019-10-06T08:36:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Unity 3D 2019】向電玩產業踏出成功的第一步">
+<meta name="twitter:description" content="前言相信Unity遊戲引擎的大名各位一定耳熟能詳吧，它可以在多平臺產出遊戲，除了桌面系統Windows / macOS / Linux之外，在手機系統上Android / iOS / BlackBerry也可以，甚至在遊戲主機系統上XBox系列 / PS系列 / 3DS / Switch，連WebGL / Steam都支援，真的是包山包海啊，只要有遊戲的地方它通通都能產出，真的是太強了。這裡有以U">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/07/12/unity3d-helloworld/Unity3D.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-unity3d-helloworld" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/07/12/unity3d-helloworld/" class="article-date">
+      <time datetime="2019-07-12T02:31:42.000Z" itemprop="datePublished">2019-07-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Unity 3D 2019】向電玩產業踏出成功的第一步
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c/">c#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/game/">game</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/unity/">unity</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>相信<a href="https://zh.wikipedia.org/wiki/Unity_(游戏引擎&rpar;" target="_blank" rel="noopener">Unity遊戲引擎</a>的大名各位一定耳熟能詳吧，它可以在多平臺產出遊戲，除了桌面系統<a href="https://zh.wikipedia.org/wiki/Microsoft_Windows" target="_blank" rel="noopener">Windows</a> / <a href="https://zh.wikipedia.org/wiki/MacOS" target="_blank" rel="noopener">macOS</a> / <a href="https://zh.wikipedia.org/wiki/Linux" target="_blank" rel="noopener">Linux</a>之外，在手機系統上<a href="https://zh.wikipedia.org/wiki/Android" target="_blank" rel="noopener">Android</a> / <a href="https://zh.wikipedia.org/wiki/IOS" target="_blank" rel="noopener">iOS</a> / <a href="https://zh.wikipedia.org/wiki/黑莓公司" target="_blank" rel="noopener">BlackBerry</a>也可以，甚至在遊戲主機系統上<a href="https://zh.wikipedia.org/wiki/Xbox" target="_blank" rel="noopener">XBox系列</a> / <a href="https://zh.wikipedia.org/wiki/PlayStation_4" target="_blank" rel="noopener">PS系列</a> / <a href="https://zh.wikipedia.org/wiki/任天堂3DS" target="_blank" rel="noopener">3DS</a> / <a href="https://zh.wikipedia.org/wiki/任天堂Switch" target="_blank" rel="noopener">Switch</a>，連<a href="https://zh.wikipedia.org/wiki/WebGL" target="_blank" rel="noopener">WebGL</a> / <a href="https://store.steampowered.com/" target="_blank" rel="noopener">Steam</a>都支援，真的是包山包海啊，只要有遊戲的地方它通通都能產出，真的是太強了。這裡有以Unity開發的<a href="https://en.wikipedia.org/wiki/List_of_Unity_games" target="_blank" rel="noopener">遊戲列表</a>，比較知名的有<a href="https://en.wikipedia.org/wiki/Final_Fantasy_IX" target="_blank" rel="noopener">Final Fantasy IX - 太空戰士9</a>、<a href="https://en.wikipedia.org/wiki/Pokémon_Go" target="_blank" rel="noopener">Pokémon Go - 寶可夢Go</a>、<a href="https://en.wikipedia.org/wiki/Angry_Birds_2" target="_blank" rel="noopener">Angry Birds 2 - 憤怒鳥2</a>、<a href="https://zh.wikipedia.org/wiki/仙劍奇俠傳六" target="_blank" rel="noopener">仙劍奇俠傳六</a>、<a href="https://zh.wikipedia.org/wiki/軒轅劍陸_鳳凌長空千載雲" target="_blank" rel="noopener">軒轅劍6</a>、<a href="https://en.wikipedia.org/wiki/Hearthstone" target="_blank" rel="noopener">Hearthstone - 爐石戰記</a>等…，過去說Unity無法做大型的遊戲，相信以現在的科技而言，<a href="https://zh.wikipedia.org/wiki/中央处理器" target="_blank" rel="noopener">CPU</a> / <a href="https://zh.wikipedia.org/wiki/圖形處理器" target="_blank" rel="noopener">GPU</a>的效能都越來要強大，連手機都有<a href="https://www.eprice.com.tw/mobile/intro/c01-p5912-asus-rog-phone-zs600kl-8gb_128gb/" target="_blank" rel="noopener">電競版</a>的，還有出<a href="https://world.taobao.com/product/手機散熱器.htm" target="_blank" rel="noopener">散熱片</a>，天啊…多來幾個核電廠吧(誤)。除了Unity之外，還有比較常見的像<a href="https://zh.wikipedia.org/wiki/Cocos2d" target="_blank" rel="noopener">Cocos2D</a>這個專門做2D遊戲的引擎，<a href="https://zh.wikipedia.org/wiki/虚幻引擎" target="_blank" rel="noopener">Unreal Engine - 虛幻引擎</a>，<a href="https://love2d.org" target="_blank" rel="noopener">LÖVE</a>等…，這裡也有其它<a href="https://zh.wikipedia.org/wiki/游戏引擎列表" target="_blank" rel="noopener">遊戲引擎列表</a>，大家有空可以看看。<br><a id="more"></a></p>
+<p><img src="/2019/07/12/unity3d-helloworld/Unity3D.jpg" alt></p>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><h4 id="下載Unity-Hub"><a href="#下載Unity-Hub" class="headerlink" title="下載Unity Hub"></a>下載Unity Hub</h4><ul>
+<li>從<a href="https://unity.com/" target="_blank" rel="noopener">官網</a>下載個人版的UnityHub安裝導引檔，當然它也是有付費版的，功能也比較完整<br><video width="100%" controls><br>  <source src="/2019/07/12/unity3d-helloworld/download.mp4" type="video/mp4"><br></video><h4 id="開始安裝"><a href="#開始安裝" class="headerlink" title="開始安裝"></a>開始安裝</h4></li>
+<li>使用UnityHub安裝導引檔安裝，在這裡可以選擇Unity的版本與要安裝的套件，比較需要注意的是它必須要有一個Unity的帳號才可以使用<video width="100%" controls><br>  <source src="/2019/07/12/unity3d-helloworld/install.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><h4 id="主要語言-C-num"><a href="#主要語言-C-num" class="headerlink" title="主要語言 - C&num;"></a>主要語言 - C&num;</h4><ul>
+<li>Unity現在主要的語言是<a href="https://zh.wikipedia.org/wiki/C♯" target="_blank" rel="noopener">C#</a>，之前本來還有它自己的JavaScript可以使用，但後來因為相容性不佳就全面轉成<a href="https://docs.microsoft.com/zh-tw/dotnet/csharp/language-reference/" target="_blank" rel="noopener">C#</a>了</li>
+</ul>
+<h4 id="開啟授權"><a href="#開啟授權" class="headerlink" title="開啟授權"></a>開啟授權</h4><ul>
+<li>Unity的<a href="https://store.unity.com/" target="_blank" rel="noopener">授權</a>方式主要有分成三類 - 個人版、加強版、專業版，其中「個人版」是在個人使用或營收在每年10萬美元以下的公司可以免費使用，在這裡我們就選擇個人版的授權。<br><img src="/2019/07/12/unity3d-helloworld/license.jpg" alt><video width="100%" controls><br>  <source src="/2019/07/12/unity3d-helloworld/license.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h3 id="建立新專案"><a href="#建立新專案" class="headerlink" title="建立新專案"></a>建立新專案</h3><h4 id="Unity-Hub"><a href="#Unity-Hub" class="headerlink" title="Unity Hub"></a>Unity Hub</h4><ul>
+<li>使用Unity Hub建立新專案，現在的UI做得很方便，就跟著下面的影片做做看吧。<video width="100%" controls><br>  <source src="/2019/07/12/unity3d-helloworld/create_new_project.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<p><img src="/2019/07/12/unity3d-helloworld/unity_01.jpg" alt></p>
+<h4 id="建立新物件"><a href="#建立新物件" class="headerlink" title="建立新物件"></a>建立新物件</h4><ul>
+<li>利用左上角的「create」或用滑鼠右鍵叫出選單，選擇「3D Object -&gt; Cube」後，該物件就會出現在中間的畫面上，然後按下執行就可以動作了。各位就跟著下面的影片試試看吧。對了，還是買支好用一點的滑鼠吧，用滑鼠比較方便。<video width="100%" controls><br>  <source src="/2019/07/12/unity3d-helloworld/start.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="專案打包"><a href="#專案打包" class="headerlink" title="專案打包"></a>專案打包</h4><ul>
+<li>Unity支援的平臺相當的多，應該說是「90%以上的主流平臺」它都包了，有「電腦 / 手機 / 遊戲機」，在選單裡都可以見到，真的是太厲害了。如果要切換平臺的話，記得要按「Switch Platform」喲。<video width="100%" controls><br>  <source src="/2019/07/12/unity3d-helloworld/build.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="加入素材"><a href="#加入素材" class="headerlink" title="加入素材"></a>加入素材</h4><ul>
+<li>在這裡，我們就幫物件加上顏色或圖片，然後打光，大家可以發現，當把圖片拉到物件上的時候，會多出一個「materials」的資料夾。大家一起看圖說故事吧。<video width="100%" controls><br>  <source src="/2019/07/12/unity3d-helloworld/material.mp4" type="video/mp4"><br></video>
+
+</li>
+</ul>
+<h4 id="加入動畫"><a href="#加入動畫" class="headerlink" title="加入動畫"></a>加入動畫</h4><ul>
+<li>在這裡我們就要寫一點點簡單的Code了，關於<a href="https://docs.microsoft.com/zh-tw/dotnet/csharp/" target="_blank" rel="noopener">C#的語法</a>跟<a href="https://docs.unity3d.com/Manual/" target="_blank" rel="noopener">Unity的說明</a>有附官方連結可以參考一下。說不多話，這裡我們就讓物件旋轉吧。不得不說一下，MicroSoft的IDE真的很好用，果然是做軟體出身的公司。檔案拉到物件的方式有兩種，如下圖所示。<br><img src="/2019/07/12/unity3d-helloworld/unity_02.jpg" alt><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CubeRotate</span> : <span class="title">MonoBehaviour</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">float</span> RotateSpeed;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>(<span class="params"></span>)</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="comment"><span class="doctag">///</span> 讓物件定時旋轉</span></span><br><span class="line">        transform.Rotate(<span class="number">0</span>, <span class="number">0</span>, RotateSpeed);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2019/07/12/unity3d-helloworld/unity_03.jpg" alt></p>
+<video width="100%" controls><br>    <source src="/2019/07/12/unity3d-helloworld/run.mp4" type="video/mp4"><br></video>
+
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="https://github.com/William-Weng/Unity3D/tree/master/Unity_HelloWorld" target="_blank" rel="noopener">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>真心覺得，做遊戲真的不是一天兩天的事，除了要會寫Code之外，音樂、美術、劇情等…，都相當的重要，萬事起頭難，有了第一步之後，再慢慢的走下去，邁向成功之路。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年07月12日 - 10時31分</p>
+        <p><span>最後更新:</span>2019年10月06日 - 16時36分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/07/12/unity3d-helloworld/" title="【Unity 3D 2019】向電玩產業踏出成功的第一步">https://william-weng.github.io/2019/07/12/unity3d-helloworld/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/07/12/unity3d-helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/07/12/homebrew-helloworld/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Homebrew】macOS必裝的套件管理工具
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/07/05/javascript-regex-demo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Javascript】利用正規表示式來過濾字串</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝"><span class="toc-number">2.</span> <span class="toc-text">安裝</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下載Unity-Hub"><span class="toc-number">2.1.</span> <span class="toc-text">下載Unity Hub</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#開始安裝"><span class="toc-number">2.2.</span> <span class="toc-text">開始安裝</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本使用"><span class="toc-number">3.</span> <span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#主要語言-C-num"><span class="toc-number">3.1.</span> <span class="toc-text">主要語言 - C#</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#開啟授權"><span class="toc-number">3.2.</span> <span class="toc-text">開啟授權</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建立新專案"><span class="toc-number">4.</span> <span class="toc-text">建立新專案</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Unity-Hub"><span class="toc-number">4.1.</span> <span class="toc-text">Unity Hub</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#建立新物件"><span class="toc-number">4.2.</span> <span class="toc-text">建立新物件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#專案打包"><span class="toc-number">4.3.</span> <span class="toc-text">專案打包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加入素材"><span class="toc-number">4.4.</span> <span class="toc-text">加入素材</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加入動畫"><span class="toc-number">4.5.</span> <span class="toc-text">加入動畫</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">5.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">6.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/07/12/homebrew-helloworld/" title="上一篇: 【Homebrew】macOS必裝的套件管理工具">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/07/05/javascript-regex-demo/" title="下一篇: 【Javascript】利用正規表示式來過濾字串">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

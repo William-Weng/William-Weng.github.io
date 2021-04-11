@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Firebase】庫存APP (上傳、下載文字 / 圖片) | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言在之前的firebase初體驗之後，對於它的Realtime功能相當的感興趣，所以想來做一個會發大財的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - Result，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在">
+<meta name="keywords" content="firebase,database,nosql,xcode,swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Firebase】庫存APP (上傳、下載文字 &#x2F; 圖片)">
+<meta property="og:url" content="https://william-weng.github.io/2019/06/14/firebase-money-money/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言在之前的firebase初體驗之後，對於它的Realtime功能相當的感興趣，所以想來做一個會發大財的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - Result，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/14/firebase-money-money/Firebase.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/14/firebase-money-money/JSON.png">
+<meta property="og:image" content="https://william-weng.github.io/2019/06/14/firebase-money-money/Storage.jpg">
+<meta property="og:updated_time" content="2019-06-19T08:06:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Firebase】庫存APP (上傳、下載文字 &#x2F; 圖片)">
+<meta name="twitter:description" content="前言在之前的firebase初體驗之後，對於它的Realtime功能相當的感興趣，所以想來做一個會發大財的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - Result，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/06/14/firebase-money-money/Firebase.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-firebase-money-money" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/06/14/firebase-money-money/" class="article-date">
+      <time datetime="2019-06-14T07:13:45.000Z" itemprop="datePublished">2019-06-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Firebase】庫存APP (上傳、下載文字 / 圖片)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/database/">database</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/firebase/">firebase</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nosql/">nosql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在之前的<a href="../../10/firebase-helloworld">firebase初體驗</a>之後，對於它的<a href="http://jasonchiucc.github.io/2016/07/20/firebase-tutorial-realtime-database/" target="_blank" rel="noopener">Realtime功能</a>相當的感興趣，所以想來做一個會<a href="https://www.chinatimes.com/realtimenews/20180919002114-260407?chdtv" target="_blank" rel="noopener">發大財</a>的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - <a href="https://www.hackingwithswift.com/articles/161/how-to-use-result-in-swift" target="_blank" rel="noopener">Result</a>，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在這裡只會說明firebase的使用，關於畫面的部分就不多做說明了。<br><a id="more"></a></p>
+<p><img src="/2019/06/14/firebase-money-money/Firebase.jpg" alt></p>
+<h3 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h3><h4 id="資料庫的長相"><a href="#資料庫的長相" class="headerlink" title="資料庫的長相"></a>資料庫的長相</h4><ul>
+<li>就一個很簡單的書籍列表，資料都是從<a href="https://www.books.com.tw/" target="_blank" rel="noopener">博客來</a>Copy來的，主要要注意的地方是，是以<a href="https://zh.wikipedia.org/wiki/国际标准书号" target="_blank" rel="noopener">ISBN</a>來當唯一的Key值，方便管理。<br><img src="/2019/06/14/firebase-money-money/JSON.png" alt><h4 id="完成後的長相"><a href="#完成後的長相" class="headerlink" title="完成後的長相"></a>完成後的長相</h4></li>
+<li>主要是利用掃瞄Barcode來實現這個功能，當然一定是利用別人<a href="https://github.com/yannickl/QRCodeReader.swift" target="_blank" rel="noopener">寫好的 - QRCodeReader.swift</a>功能直接來使用囉。</li>
+</ul>
+<video width="50%" controls><br>    <source src="/2019/06/14/firebase-money-money/Money.mp4" type="video/mp4"><br></video>
+
+<h3 id="Firebase小工具"><a href="#Firebase小工具" class="headerlink" title="Firebase小工具"></a>Firebase小工具</h3><h4 id="取值小工具"><a href="#取值小工具" class="headerlink" title="取值小工具"></a>取值小工具</h4><ul>
+<li>有鑑於之前的經驗(坑？)，決定再把API進化一下，在只要使用一個function就可以選擇要不要及時去做更新，另外在使用realtime的時候會回傳一個UInt的值，可以用來關閉它。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取值 (單次 / 及時) =&gt; 回傳realtime的handle代號</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">childValueFor</span><span class="params">(type: RealtimeDatabaseType, path: String, result: @escaping <span class="params">(Result&lt;<span class="keyword">Any</span>?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">UInt?</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> type &#123;</span><br><span class="line">        <span class="keyword">case</span> .single:</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">let</span> handleNumber = childValueForSingle(withPath: path) &#123; (_result) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">switch</span>(_result) &#123;</span><br><span class="line">                <span class="keyword">case</span> .failure(<span class="keyword">let</span> error): result(.failure(error))</span><br><span class="line">                <span class="keyword">case</span> .success(<span class="keyword">let</span> value): result(.success(value))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> handleNumber</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">case</span> .realtime:</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">let</span> handleNumber = childValueForRealtime(withPath: path) &#123; (_result) <span class="keyword">in</span></span><br><span class="line">                <span class="keyword">switch</span>(_result) &#123;</span><br><span class="line">                <span class="keyword">case</span> .failure(<span class="keyword">let</span> error): result(.failure(error))</span><br><span class="line">                <span class="keyword">case</span> .success(<span class="keyword">let</span> value): result(.success(value))</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> handleNumber</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 移除Realtime的Handle</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">removeObserver</span><span class="params">(withHandle handleNumber: UInt?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> handleNumber = handleNumber <span class="keyword">else</span> &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">        reference.removeObserver(withHandle: handleNumber)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取值 (單次)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">childValueForSingle</span><span class="params">(withPath path: String, result: @escaping <span class="params">(Result&lt;<span class="keyword">Any</span>?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">UInt?</span> &#123;</span><br><span class="line">        </span><br><span class="line">        reference.child(path).queryOrdered(byChild: <span class="string">"\(BookField.ISBN)"</span>).observeSingleEvent(of: .value, with: &#123; (snapshot) <span class="keyword">in</span></span><br><span class="line">            result(.success(snapshot.value))</span><br><span class="line">        &#125;, withCancel: &#123; (error) <span class="keyword">in</span></span><br><span class="line">            result(.failure(error))</span><br><span class="line">        &#125;)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取值 (及時) =&gt; 回傳realtime的handle代號</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">childValueForRealtime</span><span class="params">(withPath path: String, result: @escaping <span class="params">(Result&lt;<span class="keyword">Any</span>?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">UInt?</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> handleNumber = reference.child(path).queryOrderedByKey().observe(.value, with: &#123; (snapshot) <span class="keyword">in</span></span><br><span class="line">            result(.success(snapshot.value))</span><br><span class="line">        &#125;, withCancel: &#123; (error) <span class="keyword">in</span></span><br><span class="line">            result(.failure(error))</span><br><span class="line">        &#125;)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> handleNumber</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="更新數據"><a href="#更新數據" class="headerlink" title="更新數據"></a>更新數據</h4><ul>
+<li>在<a href="https://firebase.google.com/docs/database/ios/read-and-write" target="_blank" rel="noopener">更新數據</a>方面，有更新單一數值，跟多組數值的方式。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 更新數據 (單個)</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">setChildValue</span><span class="params">(<span class="number">_</span> value: <span class="keyword">Any</span>?, forKey key: String, path: String, result: @escaping <span class="params">(Result&lt;Bool, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        reference.child(path).child(key).setValue(value) &#123; (error, database) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123; result(.failure(error)); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(.success(<span class="literal">true</span>))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 更新數據 (多個)</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">updateChildValues</span><span class="params">(withPath path: String, values: [String: <span class="keyword">Any</span>], result: @escaping <span class="params">(Result&lt;Bool, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        reference.child(path).updateChildValues(values) &#123; (error, database) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123; result(.failure(error)); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(.success(<span class="literal">true</span>))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="搜尋數據"><a href="#搜尋數據" class="headerlink" title="搜尋數據"></a>搜尋數據</h4><ul>
+<li>在這裡主要是搜尋單一值，在使用前一定要<a href="https://firebase.google.com/docs/firestore/query-data/order-limit-data" target="_blank" rel="noopener">先排序</a>才能使用喲。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 搜尋數據</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">queryChildValue</span><span class="params">(<span class="number">_</span> value: <span class="keyword">Any</span>?, withPath path: String, forKey key: String, result: @escaping <span class="params">(Result&lt;<span class="keyword">Any</span>?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        reference.child(path).queryOrdered(byChild: key).queryEqual(toValue: value).observeSingleEvent(of: .value, with: &#123; (snapshot) <span class="keyword">in</span></span><br><span class="line">            result(.success(snapshot.value))</span><br><span class="line">        &#125;, withCancel: &#123; (error) <span class="keyword">in</span></span><br><span class="line">            result(.failure(error))</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="移除數據"><a href="#移除數據" class="headerlink" title="移除數據"></a>移除數據</h4><ul>
+<li><a href="https://firebase.google.com/docs/reference/android/com/google/firebase/database/DatabaseReference" target="_blank" rel="noopener">移除數據</a>就很單純啦。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRDatabase</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 移除資料</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">removeChildValue</span><span class="params">(withPath path: String, forKey key: String, result: @escaping <span class="params">(Result&lt;Bool, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        reference.child(path).child(key).removeValue &#123; (error, database) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123; result(.failure(error)); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(.success(<span class="literal">true</span>))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="頁面功能"><a href="#頁面功能" class="headerlink" title="頁面功能"></a>頁面功能</h3><h4 id="庫存功能"><a href="#庫存功能" class="headerlink" title="庫存功能"></a>庫存功能</h4><ul>
+<li>主要就是及時去取得資料，跟移除單一資料。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// MARK: - 小工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">StockViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取得firebase上的數值 (回傳handle代號)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">bookInfomation</span><span class="params">(withType type: RealtimeDatabaseType, result: @escaping <span class="params">(Result&lt;<span class="keyword">Any</span>?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">UInt?</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> handleNumber = <span class="type">FIRDatabase</span>.shared.childValueFor(type: type, path: <span class="string">"\(BookField.BarCode.realPath())"</span>) &#123; (_result) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">switch</span>(_result) &#123;</span><br><span class="line">            <span class="keyword">case</span> .failure(<span class="keyword">let</span> error): result(.failure(error))</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> value): result(.success(value))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> handleNumber</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 移除書籍</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">removeBook</span><span class="params">(withPath path: String, forKey key: String, result: @escaping <span class="params">(Result&lt;Bool, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">FIRDatabase</span>.shared.removeChildValue(withPath: path, forKey: key) &#123; (_result) <span class="keyword">in</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">switch</span> (_result) &#123;</span><br><span class="line">            <span class="keyword">case</span> .failure(<span class="keyword">let</span> error): result(.failure(error))</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> isOK): result(.success(isOK))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="新增、修改功能"><a href="#新增、修改功能" class="headerlink" title="新增、修改功能"></a>新增、修改功能</h4><ul>
+<li>這裡主要的功能都是利用ISBN的值去取得資料來做為準則，然後因為有很多相似的功能，所以這四頁都是同一個頁面。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 小工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">ProductActionViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 加入新書</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">appendBook</span><span class="params">(<span class="number">_</span> sender: UIBarButtonItem)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> _isbn = isbnTextField.text,</span><br><span class="line">              <span class="keyword">let</span> _count = countTextField.text,</span><br><span class="line">              <span class="keyword">let</span> title = titleTextField.text,</span><br><span class="line">              <span class="keyword">let</span> isbn = <span class="type">Int</span>(_isbn),</span><br><span class="line">              <span class="keyword">let</span> <span class="built_in">count</span> = <span class="type">Int</span>(_count),</span><br><span class="line">              <span class="keyword">let</span> timestamp = <span class="type">Optional</span>.some(<span class="type">Int</span>(<span class="type">Date</span>().timeIntervalSince1970))</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">FIRDatabase</span>.shared.queryChildValue(isbn, withPath: <span class="string">"\(BookField.BarCode.realPath())"</span>, forKey: <span class="string">"\(BookField.ISBN)"</span>) &#123; (_result) <span class="keyword">in</span></span><br><span class="line">            </span><br><span class="line">            <span class="type">KRProgressHUD</span>.show()</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">switch</span> (_result) &#123;</span><br><span class="line">            <span class="keyword">case</span> .failure(<span class="keyword">let</span> error):</span><br><span class="line">                <span class="type">KRProgressHUD</span>.showError(withMessage: error.localizedDescription)</span><br><span class="line">                </span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> value):</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">let</span> isOK = <span class="keyword">self</span>.checkValue(value, withType: <span class="keyword">self</span>.tabBarType)</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span> (!isOK) &#123; <span class="keyword">return</span> &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">let</span> product = <span class="type">Book</span>(isbn: isbn, title: title, url: <span class="literal">nil</span>, icon: <span class="literal">nil</span>, <span class="built_in">count</span>: <span class="built_in">count</span>, timestamp: timestamp).dictionary() <span class="keyword">as</span> [<span class="type">String</span>: <span class="type">Any</span>]</span><br><span class="line">                <span class="keyword">let</span> realPath = <span class="type">BookField</span>.<span class="type">BarCode</span>.realPath(withBarCode: isbn)</span><br><span class="line">                </span><br><span class="line">                <span class="type">FIRDatabase</span>.shared.updateChildValues(withPath: realPath, values: product) &#123; (result) <span class="keyword">in</span></span><br><span class="line">                    <span class="keyword">switch</span> (result) &#123;</span><br><span class="line">                    <span class="keyword">case</span> .failure(<span class="keyword">let</span> error): <span class="type">KRProgressHUD</span>.showError(withMessage: error.localizedDescription)</span><br><span class="line">                    <span class="keyword">case</span> .success(<span class="number">_</span>): <span class="type">KRProgressHUD</span>.showSuccess()</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 更新書本數量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">updateBookCount</span><span class="params">(<span class="number">_</span> <span class="built_in">count</span>: String?, barCode: String?, type: TabBarType)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> _count = <span class="built_in">count</span>,</span><br><span class="line">              <span class="keyword">let</span> _barCode = barCode,</span><br><span class="line">              <span class="keyword">let</span> <span class="built_in">count</span> = <span class="type">Int</span>(_count),</span><br><span class="line">              <span class="keyword">let</span> barCode = <span class="type">Int</span>(_barCode)</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> path = <span class="string">"\(BookField.BarCode.realPath(withBarCode: barCode))"</span></span><br><span class="line">        <span class="keyword">var</span> saveCount = <span class="number">0</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> type &#123;</span><br><span class="line">        <span class="keyword">case</span> .plus: saveCount = (originalCount ?? <span class="number">0</span>) + <span class="built_in">count</span></span><br><span class="line">        <span class="keyword">case</span> .minus: saveCount = (originalCount ?? <span class="number">0</span>) - <span class="built_in">count</span></span><br><span class="line">        <span class="keyword">case</span> .cart, .fix, .stock: <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="type">FIRDatabase</span>.shared.setChildValue(saveCount, forKey: <span class="string">"\(BookField.Count)"</span>, path: path) &#123; (result) <span class="keyword">in</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">switch</span> (result) &#123;</span><br><span class="line">            <span class="keyword">case</span> .failure(<span class="keyword">let</span> error):</span><br><span class="line">                <span class="type">KRProgressHUD</span>.showError(withMessage: error.localizedDescription)</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> isOK):</span><br><span class="line">                <span class="keyword">if</span> (isOK) &#123; <span class="type">KRProgressHUD</span>.showSuccess() &#125;</span><br><span class="line">                <span class="type">KRProgressHUD</span>.showError()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取得firebase上的數值 (回傳handle代號)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">bookInfomation</span><span class="params">(withType type: RealtimeDatabaseType, barCode: Int ,result: @escaping <span class="params">(Result&lt;<span class="keyword">Any</span>?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">UInt?</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> path = <span class="string">"\(BookField.BarCode.realPath(withBarCode: barCode))"</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> handleNumber = <span class="type">FIRDatabase</span>.shared.childValueFor(type: type, path: path) &#123; (_result) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">switch</span>(_result) &#123;</span><br><span class="line">            <span class="keyword">case</span> .failure(<span class="keyword">let</span> error): result(.failure(error))</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> value): result(.success(value))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> handleNumber</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Cloud-Storage小工具"><a href="#Cloud-Storage小工具" class="headerlink" title="Cloud Storage小工具"></a>Cloud Storage小工具</h3><h4 id="資料結構"><a href="#資料結構" class="headerlink" title="資料結構"></a>資料結構</h4><ul>
+<li>其實就跟一般的資料夾一樣，而在規則方面就要去看看文件說明了<br><img src="/2019/06/14/firebase-money-money/Storage.jpg" alt></li>
+</ul>
+<h4 id="程式說明"><a href="#程式說明" class="headerlink" title="程式說明"></a>程式說明</h4><ul>
+<li>簡單的上傳就是以Data去做處理，而下載的方法有分直接下載跟使用網址二種<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - Storage工具</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FIRStorage</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 圖片類型</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">ImageType</span>: <span class="title">String</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> metadata: <span class="type">String</span> &#123; <span class="keyword">return</span> getMetadata() &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">case</span> jpeg = <span class="string">".jpg"</span></span><br><span class="line">        <span class="keyword">case</span> png = <span class="string">".png"</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// 取得Metadata</span></span><br><span class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">getMetadata</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .jpeg: <span class="keyword">return</span> <span class="string">"image/jpeg"</span></span><br><span class="line">            <span class="keyword">case</span> .png: <span class="keyword">return</span> <span class="string">"image/png"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">let</span> shared = <span class="type">FIRStorage</span>()</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">let</span> imageFolder = <span class="string">"Books"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> reference = <span class="type">Storage</span>.storage().reference()</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">let</span> maxSize: <span class="type">Int64</span> = <span class="number">1024</span> * <span class="number">1024</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">override</span> <span class="keyword">init</span>() &#123; <span class="keyword">super</span>.<span class="keyword">init</span>() &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRStorage</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 下載圖片 (記憶體)</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">imageWithName</span><span class="params">(<span class="number">_</span> name: String, forFolder fold: String, result: @escaping <span class="params">(Result&lt;<span class="keyword">Any</span>?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        reference.child(fold).child(name).getData(maxSize: maxSize) &#123; (data, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123; result(.failure(error)); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(.success(data))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 下載圖片 (網址)</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">downloadImageWithName</span><span class="params">(<span class="number">_</span> name: String, forFolder fold: String, result: @escaping <span class="params">(Result&lt;URL?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        reference.child(fold).child(name).downloadURL &#123; (url, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123; result(.failure(error)); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(.success(url))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 上傳圖片</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">uploadImageWithName</span><span class="params">(<span class="number">_</span> name: String, forFolder fold: String, image: UIImage?, type: ImageType, result: @escaping <span class="params">(Result&lt;StorageMetadata?, Error&gt;)</span></span></span> -&gt; <span class="type">Void</span>) -&gt; <span class="type">StorageUploadTask?</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> image = image,</span><br><span class="line">              <span class="keyword">let</span> imageData = imageData(image, withType: type),</span><br><span class="line">              <span class="keyword">let</span> metadata = <span class="type">Optional</span>.some(<span class="type">StorageMetadata</span>()),</span><br><span class="line">              <span class="keyword">let</span> nameWithType = <span class="type">Optional</span>.some(name + type.rawValue)</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        metadata.contentType = type.metadata</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> task = reference.child(fold).child(nameWithType).putData(imageData, metadata: metadata) &#123; (metadata, error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123; result(.failure(error)); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(.success(metadata))</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> task</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 刪除圖片</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">removeImage</span><span class="params">(withName name: String, forFolder fold: String, result: @escaping <span class="params">(Bool)</span></span></span> -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line">        reference.child(fold).child(name).delete &#123; (error) <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> <span class="number">_</span> = error &#123; result(<span class="literal">false</span>); <span class="keyword">return</span> &#125;</span><br><span class="line">            result(<span class="literal">true</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - 主工具</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">FIRStorage</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 圖片壓縮 -&gt; Data</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">imageData</span><span class="params">(<span class="number">_</span> image: UIImage, withType type: ImageType)</span></span> -&gt; <span class="type">Data?</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> type &#123;</span><br><span class="line">        <span class="keyword">case</span> .jpeg: <span class="keyword">return</span> image.jpegData(compressionQuality: <span class="number">0.5</span>)</span><br><span class="line">        <span class="keyword">case</span> .png: <span class="keyword">return</span> image.pngData()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="https://github.com/William-Weng/Swift-5/tree/master/FirebaseQuery" target="_blank" rel="noopener">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>其實做了這支APP也花了好幾天的時間在做，但主要的精神是在於firebase的使用，所以寫起來在文字上不是著墨很多，主要都集中在Code上。另外有發現一些錯誤，比如說會回傳兩次值？然後不會排序？然後沒有上傳圖片的功能？相信這些問題在下一次都會有相當程度的解決方法才是，共勉之。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年06月14日 - 15時13分</p>
+        <p><span>最後更新:</span>2019年06月19日 - 16時06分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/06/14/firebase-money-money/" title="【Firebase】庫存APP (上傳、下載文字 / 圖片)">https://william-weng.github.io/2019/06/14/firebase-money-money/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/06/14/firebase-money-money/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/06/20/firebase-order/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Firebase】它要怎麼排序呢？(補充)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/10/firebase-helloworld/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Firebase】不用錢的NoSQL資料庫？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事前準備"><span class="toc-number">2.</span> <span class="toc-text">事前準備</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#資料庫的長相"><span class="toc-number">2.1.</span> <span class="toc-text">資料庫的長相</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#完成後的長相"><span class="toc-number">2.2.</span> <span class="toc-text">完成後的長相</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Firebase小工具"><span class="toc-number">3.</span> <span class="toc-text">Firebase小工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#取值小工具"><span class="toc-number">3.1.</span> <span class="toc-text">取值小工具</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#更新數據"><span class="toc-number">3.2.</span> <span class="toc-text">更新數據</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#搜尋數據"><span class="toc-number">3.3.</span> <span class="toc-text">搜尋數據</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移除數據"><span class="toc-number">3.4.</span> <span class="toc-text">移除數據</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#頁面功能"><span class="toc-number">4.</span> <span class="toc-text">頁面功能</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#庫存功能"><span class="toc-number">4.1.</span> <span class="toc-text">庫存功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新增、修改功能"><span class="toc-number">4.2.</span> <span class="toc-text">新增、修改功能</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cloud-Storage小工具"><span class="toc-number">5.</span> <span class="toc-text">Cloud Storage小工具</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#資料結構"><span class="toc-number">5.1.</span> <span class="toc-text">資料結構</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#程式說明"><span class="toc-number">5.2.</span> <span class="toc-text">程式說明</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">6.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">7.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/06/20/firebase-order/" title="上一篇: 【Firebase】它要怎麼排序呢？(補充)">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/06/10/firebase-helloworld/" title="下一篇: 【Firebase】不用錢的NoSQL資料庫？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>

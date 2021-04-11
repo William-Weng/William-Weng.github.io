@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Flutter 1.5】製作一個簡單的名片列表APP | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言主要這一篇文章是要做一個比較完整的案例，個人一直覺得『挫折感才是成功的捷徑』，一直做『對的』事情很難成長的，唯有『挫折感』才能讓人記憶深刻，像我的好人卡已經打破櫻木花道50+的記錄了，真是めでたしめでたし啊，等我要推出好人撲克牌的時候，再麻煩大家再來抖內，集資一下吧。話不多說，大家一起來從做中學吧，以下只會將部分的Code貼上解說。">
+<meta name="keywords" content="flutter,dart,listview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Flutter 1.5】製作一個簡單的名片列表APP">
+<meta property="og:url" content="https://william-weng.github.io/2019/05/23/flutter-listview/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言主要這一篇文章是要做一個比較完整的案例，個人一直覺得『挫折感才是成功的捷徑』，一直做『對的』事情很難成長的，唯有『挫折感』才能讓人記憶深刻，像我的好人卡已經打破櫻木花道50+的記錄了，真是めでたしめでたし啊，等我要推出好人撲克牌的時候，再麻煩大家再來抖內，集資一下吧。話不多說，大家一起來從做中學吧，以下只會將部分的Code貼上解說。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/Flutter.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/App_01.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/App_02.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/App_03.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/App_04.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/App_05.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/App_06.jpg">
+<meta property="og:updated_time" content="2019-07-30T03:31:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Flutter 1.5】製作一個簡單的名片列表APP">
+<meta name="twitter:description" content="前言主要這一篇文章是要做一個比較完整的案例，個人一直覺得『挫折感才是成功的捷徑』，一直做『對的』事情很難成長的，唯有『挫折感』才能讓人記憶深刻，像我的好人卡已經打破櫻木花道50+的記錄了，真是めでたしめでたし啊，等我要推出好人撲克牌的時候，再麻煩大家再來抖內，集資一下吧。話不多說，大家一起來從做中學吧，以下只會將部分的Code貼上解說。">
+<meta name="twitter:image" content="https://william-weng.github.io/2019/05/23/flutter-listview/Flutter.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 15.71px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.86px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 10px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 15.71px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 17.14px;">dart</a> <a href="/tags/database/" style="font-size: 18.57px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 17.14px;">firebase</a> <a href="/tags/flutter/" style="font-size: 20px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.43px;">framework</a> <a href="/tags/game/" style="font-size: 17.14px;">game</a> <a href="/tags/github/" style="font-size: 11.43px;">github</a> <a href="/tags/grails/" style="font-size: 10px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 10px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.43px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.86px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 20px;">install</a> <a href="/tags/ios/" style="font-size: 11.43px;">ios</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/javascript/" style="font-size: 17.14px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.86px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.43px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.43px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.86px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 14.29px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/tools/" style="font-size: 11.43px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.43px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 15.71px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.86px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.57px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-flutter-listview" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/05/23/flutter-listview/" class="article-date">
+      <time datetime="2019-05-23T04:31:53.000Z" itemprop="datePublished">2019-05-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Flutter 1.5】製作一個簡單的名片列表APP
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dart/">dart</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/flutter/">flutter</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/listview/">listview</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>主要這一篇文章是要做一個比較<a href="https://www.appcoda.com.tw/flutter-basics/" target="_blank" rel="noopener">完整的案例</a>，個人一直覺得『挫折感才是成功的捷徑』，一直做『對的』事情很難成長的，唯有『挫折感』才能讓人記憶深刻，像我的<a href="https://www.cheers.com.tw/article/article.action?id=5068196&amp;eturec=1" target="_blank" rel="noopener">好人卡</a>已經打破<a href="https://kknews.cc/zh-tw/comic/5g6eoy2.html" target="_blank" rel="noopener">櫻木花道</a>50+的記錄了，真是<a href="https://zh.moegirl.org/zh-tw/可喜可贺" target="_blank" rel="noopener">めでたしめでたし</a>啊，等我要推出好人撲克牌的時候，再麻煩大家再來<a href="https://tw.dictionary.search.yahoo.com/search?p=donate" target="_blank" rel="noopener">抖內</a>，集資一下吧。話不多說，大家一起來從做中學吧，以下只會將部分的Code貼上解說。<br><a id="more"></a><br><img src="/2019/05/23/flutter-listview/Flutter.jpg" alt></p>
+<h3 id="架構"><a href="#架構" class="headerlink" title="架構"></a>架構</h3><h4 id="畫面架構"><a href="#畫面架構" class="headerlink" title="畫面架構"></a>畫面架構</h4><ul>
+<li>在圖上可以看到一共有三個畫面，一個是登入的畫面，一個是清單列表，一個是介紹的內容，很符合一般APP的長相。<br><img src="/2019/05/23/flutter-listview/App_01.jpg" alt><h4 id="檔案架構"><a href="#檔案架構" class="headerlink" title="檔案架構"></a>檔案架構</h4></li>
+<li>如圖上所示，畫面放在『libs/widgets』內，有關資料的長相就放在『libs/models』中，而『libs/helpers』則是放一些公用程式，資源檔 (圖片、影音、文件…)都放在『assets』之中。<br><img src="/2019/05/23/flutter-listview/App_02.jpg" alt><h4 id="常數"><a href="#常數" class="headerlink" title="常數"></a>常數</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Constants.dart</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'package:flutter/material.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 文字</span></span><br><span class="line"><span class="keyword">const</span> appTitle = <span class="string">"MyTableViewApp"</span>;</span><br><span class="line"><span class="keyword">const</span> pinCodeHintText = <span class="string">"Pin Code"</span>;</span><br><span class="line"><span class="keyword">const</span> loginButtonText = <span class="string">"Login"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 常數</span></span><br><span class="line"><span class="keyword">const</span> bigRadius = <span class="number">66.0</span>;</span><br><span class="line"><span class="keyword">const</span> buttonHeight = <span class="number">24.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 顏色</span></span><br><span class="line">Color appDarkGreyColor = Color.fromRGBO(<span class="number">58</span>, <span class="number">66</span>, <span class="number">86</span>, <span class="number">1.0</span>);</span><br><span class="line">Color appGreyColor = Color.fromRGBO(<span class="number">64</span>, <span class="number">75</span>, <span class="number">96</span>, <span class="number">.9</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 圖片</span></span><br><span class="line">Image appLogo = Image.asset(<span class="string">'assets/images/flutter-logo-round.jpg'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 頁面Tag</span></span><br><span class="line"><span class="keyword">const</span> loginPageTag = <span class="string">'Login Page'</span>;</span><br><span class="line"><span class="keyword">const</span> homePageTag = <span class="string">'Home Page'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="主程式"><a href="#主程式" class="headerlink" title="主程式"></a>主程式</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> main() =&gt; runApp(MyTableViewApp());</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyTableViewApp</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>&#123;</span><br><span class="line">  <span class="keyword">final</span> routes = &lt;<span class="built_in">String</span>, WidgetBuilder&gt;&#123;</span><br><span class="line">    loginPageTag: (context) =&gt; LoginPage(),</span><br><span class="line">    homePageTag: (context) =&gt; HomePage(),</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    <span class="keyword">return</span> MaterialApp(</span><br><span class="line">      title: appTitle,</span><br><span class="line">      theme: ThemeData(primaryColor: appDarkGreyColor,),</span><br><span class="line">      home: LoginPage(),</span><br><span class="line">      routes: routes,</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="登入畫面"><a href="#登入畫面" class="headerlink" title="登入畫面"></a>登入畫面</h3><ul>
+<li>在登入畫面中主要的內容有三塊，一是<a href="https://juejin.im/post/5c00a971f265da61776bb1c6" target="_blank" rel="noopener">圓角圖片框 - CircleAvatar</a>，再來是<a href="https://blog.csdn.net/u011272795/article/details/82528432" target="_blank" rel="noopener">輸入框 - TextFormField</a>，而後是<a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/85004313" target="_blank" rel="noopener">凸起按鈕 - RaisedButton</a><br><img src="/2019/05/23/flutter-listview/App_03.jpg" alt></li>
+</ul>
+<h4 id="新增檔案"><a href="#新增檔案" class="headerlink" title="新增檔案"></a>新增檔案</h4><ul>
+<li>首先，我們先開啟一個LoginPage.dart檔案，當做登入頁面寫Code的地方，</li>
+</ul>
+<h4 id="Logo圖示"><a href="#Logo圖示" class="headerlink" title="Logo圖示"></a>Logo圖示</h4><p><img src="/2019/05/23/flutter-listview/App_04.jpg" alt><br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 產生logo圖示</span></span><br><span class="line">CircleAvatar _appLogoMaker() &#123;</span><br><span class="line">  <span class="keyword">var</span> circleAvatar = CircleAvatar(</span><br><span class="line">    backgroundColor: Colors.transparent,</span><br><span class="line">    radius: bigRadius,</span><br><span class="line">    child: appLogo,</span><br><span class="line">  );</span><br><span class="line">  <span class="keyword">return</span> circleAvatar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h5 id="取得圖片"><a href="#取得圖片" class="headerlink" title="取得圖片"></a>取得圖片</h5><ul>
+<li>不得不說flutter在取得<a href="https://juejin.im/post/5c10871ae51d451402773231" target="_blank" rel="noopener">網路圖片</a>上很簡單，<a href="https://github.com/onevcat/Kingfisher" target="_blank" rel="noopener">iOS</a>或<a href="https://square.github.io/picasso/" target="_blank" rel="noopener">Android</a>要取得網路上的圖片一般都需要安裝套件，或者是寫一堆Code，但是flutter內建的<a href="https://juejin.im/post/5c00a971f265da61776bb1c6" target="_blank" rel="noopener">Image Class</a>一行就OK了。<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 從本機內取得</span></span><br><span class="line">Image localImage = Image.asset(<span class="string">'assets/images/flutter-logo-round.jpg'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 從網路上取得 (緩存)</span></span><br><span class="line">Image networkImage = Image.network(<span class="string">'https://cdn-images-1.medium.com/max/1600/1*TFZQzyVAHLVXI_wNreokGA.jpg'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="製作圖片圓角"><a href="#製作圖片圓角" class="headerlink" title="製作圖片圓角"></a>製作圖片圓角</h5><ul>
+<li>在這裡可以使用<a href="https://juejin.im/post/5b519fb05188251b1b448ec5" target="_blank" rel="noopener">CircleAvatar</a>來製作圓角，圖的大小就由radius屬性來決定。<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CircleAvatar(radius: <span class="number">25.0</span>,);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="產生輸入框"><a href="#產生輸入框" class="headerlink" title="產生輸入框"></a>產生輸入框</h4><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 產生輸入框</span></span><br><span class="line">TextFormField _appPinCodeMaker() &#123;</span><br><span class="line">  <span class="keyword">var</span> textFormField = TextFormField(</span><br><span class="line">    controller: _pinCodeController, </span><br><span class="line">    keyboardType: TextInputType.phone,</span><br><span class="line">    maxLength: <span class="number">4</span>,</span><br><span class="line">    minLines: <span class="number">1</span>,</span><br><span class="line">    autofocus: <span class="keyword">true</span>,</span><br><span class="line">    decoration: InputDecoration(</span><br><span class="line">      hintText: pinCodeHintText,</span><br><span class="line">      contentPadding: EdgeInsets.fromLTRB(<span class="number">20.0</span>, <span class="number">10.0</span>, <span class="number">20.0</span>, <span class="number">10.0</span>),</span><br><span class="line">      border: OutlineInputBorder(borderRadius: BorderRadius.circular(<span class="number">32.0</span>),),</span><br><span class="line">      hintStyle: TextStyle(color: Colors.white,)</span><br><span class="line">    ),</span><br><span class="line">    style: TextStyle(color: Colors.white),</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> textFormField;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h5><ul>
+<li><a href="https://flutter.dev/docs/cookbook/forms/text-field-changes" target="_blank" rel="noopener">controller</a>這個屬性是用來看看是誰來控制它 (取得文字)</li>
+</ul>
+<h5 id="鍵盤的樣式"><a href="#鍵盤的樣式" class="headerlink" title="鍵盤的樣式"></a>鍵盤的樣式</h5><ul>
+<li><a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/88204031" target="_blank" rel="noopener">keyboardType</a>是用來設定鍵盤的<a href="https://zhuanlan.zhihu.com/p/52375848" target="_blank" rel="noopener">樣式</a></li>
+</ul>
+<h5 id="字數及行數"><a href="#字數及行數" class="headerlink" title="字數及行數"></a>字數及行數</h5><ul>
+<li><a href="https://blog.csdn.net/u011272795/article/details/82528432" target="_blank" rel="noopener">maxLength / minLines</a>是用來設定輸入的字數及最小行數</li>
+</ul>
+<h4 id="產生按鈕"><a href="#產生按鈕" class="headerlink" title="產生按鈕"></a>產生按鈕</h4><ul>
+<li>其中比較重要的就是，按下去會有什麼反應 - <a href="https://zhuanlan.zhihu.com/p/38500192" target="_blank" rel="noopener">RaisedButton</a>的<a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/85004313" target="_blank" rel="noopener">onPressed</a>屬性，利用<a href="https://juejin.im/post/5c7e4a02e51d4541bd34b40e" target="_blank" rel="noopener">Navigator</a>跳到下一頁去<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 產生按鈕</span></span><br><span class="line">RaisedButton _raisedButtonMaker(BuildContext context) &#123;</span><br><span class="line">  <span class="keyword">var</span> raisedButton = RaisedButton(</span><br><span class="line">    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(<span class="number">24</span>)),</span><br><span class="line">    padding: EdgeInsets.all(<span class="number">12</span>),</span><br><span class="line">    color: appDarkGreyColor,</span><br><span class="line">    onPressed: () &#123; Navigator.of(context).pushNamed(homePageTag); &#125;,</span><br><span class="line">    child: _buttonTextMaker(),</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> raisedButton;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="Widget合體"><a href="#Widget合體" class="headerlink" title="Widget合體"></a>Widget合體</h4><ul>
+<li>最後利用<a href="https://medium.com/flutter-community/flutter-listview-and-scrollphysics-a-detailed-look-7f0912df2754" target="_blank" rel="noopener">ListView - Android也是叫ListView</a>來組合Widget，其中<a href="https://juejin.im/post/5b52784ef265da0f521defa2" target="_blank" rel="noopener">SizedBox</a>就是空白的框，再把整個外框架構用<a href="https://book.flutterchina.club/chapter5/material_scaffold.html" target="_blank" rel="noopener">Scaffold</a>包起來輸出。<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 整體架構</span></span><br><span class="line">Scaffold appScaffold(BuildContext context) &#123;</span><br><span class="line">  <span class="keyword">final</span> logo = _appLogoMaker();</span><br><span class="line">  <span class="keyword">final</span> pinCode = _appPinCodeMaker();</span><br><span class="line">  <span class="keyword">final</span> loginButton = _appLoginButtonMaker(context);</span><br><span class="line"></span><br><span class="line">  Scaffold scaffold = Scaffold(</span><br><span class="line">    backgroundColor: appDarkGreyColor,</span><br><span class="line">    body: Center(</span><br><span class="line">      child: ListView(</span><br><span class="line">        shrinkWrap: <span class="keyword">true</span>,</span><br><span class="line">        padding: EdgeInsets.only(left: <span class="number">24.0</span>, right: <span class="number">24.0</span>),</span><br><span class="line">        children: &lt;Widget&gt;[</span><br><span class="line">          logo,</span><br><span class="line">          SizedBox(height: bigRadius,),</span><br><span class="line">          pinCode,</span><br><span class="line">          SizedBox(height: buttonHeight,),</span><br><span class="line">          loginButton</span><br><span class="line">        ],</span><br><span class="line">      ),</span><br><span class="line">    ),</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> scaffold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="人員清單"><a href="#人員清單" class="headerlink" title="人員清單"></a>人員清單</h3><p><img src="/2019/05/23/flutter-listview/App_05.jpg" alt></p>
+<h4 id="Card的組成"><a href="#Card的組成" class="headerlink" title="Card的組成"></a>Card的組成</h4><ul>
+<li>這裡就不再細部作介紹了，相信大家能看到這裡，就已經是Layout界的高高手了<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 取得大頭照</span></span><br><span class="line">CircleAvatar _getRecordPhoto(Record record) &#123;</span><br><span class="line">  CircleAvatar circleAvatar = CircleAvatar(</span><br><span class="line">    radius: <span class="number">32</span>,</span><br><span class="line">    backgroundImage: NetworkImage(record.photo),</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> circleAvatar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得內容文字 (介紹)</span></span><br><span class="line">RichText _getRecordRichText(Record record) &#123;</span><br><span class="line">  RichText richText = RichText(</span><br><span class="line">    text: TextSpan(</span><br><span class="line">    text: record.address,</span><br><span class="line">    style: TextStyle(color: Colors.white),</span><br><span class="line">  ),</span><br><span class="line">    maxLines: <span class="number">3</span>,</span><br><span class="line">    softWrap: <span class="keyword">true</span>,</span><br><span class="line">  );</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> richText;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得內容文字 (姓名)</span></span><br><span class="line">Text _getRecordText(Record record) &#123;</span><br><span class="line">  Text text = Text(</span><br><span class="line">    record.name, </span><br><span class="line">    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),</span><br><span class="line">  );</span><br><span class="line">    </span><br><span class="line">  <span class="keyword">return</span> text;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 取得箭頭圖示</span></span><br><span class="line">Icon _getArrowIcon() &#123;</span><br><span class="line">  Icon icon = Icon(Icons.keyboard_arrow_right, color: Colors.white, size: <span class="number">30.0</span>);</span><br><span class="line">  <span class="keyword">return</span> icon;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="資料的取得"><a href="#資料的取得" class="headerlink" title="資料的取得"></a>資料的取得</h4><ul>
+<li>相信大家可以看到上面的程式都有一個變數叫『Record record』，其實它就是去讀取『records.json』的資料來使用 (雖然一般都是去讀取網路上的資料)，主要的處理都是在『models』資料夾之內<h5 id="資料模型"><a href="#資料模型" class="headerlink" title="資料模型"></a>資料模型</h5></li>
+<li>Record.dart跟RecordList.dart就是存資料的樣子，裡面比較重要的就是<a href="https://juejin.im/post/5adaf9b76fb9a07aa9254c54" target="_blank" rel="noopener">factory關鍵字</a>，聽名字就知道它是一個工廠方法，利用fromJson()來將<a href="https://zh.wikipedia.org/wiki/JSON" target="_blank" rel="noopener">JSON字串</a>轉成Class，這個動作就叫做<a href="https://zh.wikipedia.org/wiki/序列化" target="_blank" rel="noopener">反序列化</a><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Record.dart</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Record</span> </span>&#123;</span><br><span class="line">  <span class="built_in">String</span> name;</span><br><span class="line">  <span class="built_in">String</span> address;</span><br><span class="line">  <span class="built_in">String</span> contact;</span><br><span class="line">  <span class="built_in">String</span> photo;</span><br><span class="line">  <span class="built_in">String</span> url;</span><br><span class="line"></span><br><span class="line">  Record(&#123;<span class="keyword">this</span>.name, <span class="keyword">this</span>.address, <span class="keyword">this</span>.contact, <span class="keyword">this</span>.photo, <span class="keyword">this</span>.url&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">factory</span> Record.fromJson(<span class="built_in">Map</span>&lt;<span class="built_in">String</span>, <span class="built_in">dynamic</span>&gt; json) &#123;</span><br><span class="line">    <span class="keyword">var</span> record = Record(</span><br><span class="line">        name: json[<span class="string">'name'</span>],</span><br><span class="line">        address: json[<span class="string">'address'</span>],</span><br><span class="line">        contact: json[<span class="string">'contact'</span>],</span><br><span class="line">        photo: json[<span class="string">'photo'</span>],</span><br><span class="line">        url: json[<span class="string">'url'</span>]);</span><br><span class="line">    <span class="keyword">return</span> record;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// RecordList.dart</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'Record.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RecordList</span> </span>&#123;</span><br><span class="line">  <span class="built_in">List</span>&lt;Record&gt; records = <span class="built_in">List</span>();</span><br><span class="line"></span><br><span class="line">  RecordList(&#123;<span class="keyword">this</span>.records&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">factory</span> RecordList.fromJson(<span class="built_in">List</span>&lt;<span class="built_in">dynamic</span>&gt; parsedJson) &#123;</span><br><span class="line">    <span class="built_in">List</span>&lt;Record&gt; records = <span class="built_in">List</span>&lt;Record&gt;();</span><br><span class="line">    records = parsedJson.map((i) =&gt; Record.fromJson(i)).toList();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> RecordList(</span><br><span class="line">      records: records,</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="取得資料"><a href="#取得資料" class="headerlink" title="取得資料"></a>取得資料</h5><ul>
+<li>利用<a href="https://juejin.im/post/5ad33bcaf265da238d512840" target="_blank" rel="noopener">async / await</a>來取得網路上的資料(非同步)，再使用<a href="https://zhuanlan.zhihu.com/p/34190963" target="_blank" rel="noopener">setState()</a>來改變畫面上的樣子(重畫)，這個動作是<a href="https://zhuanlan.zhihu.com/p/37880161" target="_blank" rel="noopener">StatefulWidget</a>才會有的，故名思義，它就是會改變的Widget，當然也有不會改變的<a href="https://lizhaoxuan.github.io/2019/01/02/Flutter-你还在滥用StatefulWidget吗/" target="_blank" rel="noopener">StatelessWidget</a>，我想應該是為了效能才有這兩者的分別才是。<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 取得資料</span></span><br><span class="line"><span class="keyword">void</span> _getRecords() <span class="keyword">async</span> &#123;</span><br><span class="line">  RecordList records = <span class="keyword">await</span> RecordService().loadRecords();</span><br><span class="line"></span><br><span class="line">  setState(() &#123;</span><br><span class="line">    <span class="keyword">for</span> (Record record <span class="keyword">in</span> records.records) &#123;</span><br><span class="line">      <span class="keyword">this</span>._records.records.add(record);</span><br><span class="line">      <span class="keyword">this</span>._filteredRecords.records.add(record);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="產生搜尋列"><a href="#產生搜尋列" class="headerlink" title="產生搜尋列"></a>產生搜尋列</h5><ul>
+<li>其實它就是在AppBar上加上一個TextField輸入文字，來進行搜尋<br><img src="/2019/05/23/flutter-listview/App_06.jpg" alt><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 搜尋功能</span></span><br><span class="line"><span class="keyword">void</span> _searchPressed() &#123;</span><br><span class="line">  setState(() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._searchIcon.icon != Icons.search) &#123; _closeSerachBar(); <span class="keyword">return</span>; &#125;</span><br><span class="line">    _openSerachBar();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 把SearchBar打開</span></span><br><span class="line"><span class="keyword">void</span> _openSerachBar() &#123;</span><br><span class="line">  <span class="keyword">this</span>._searchIcon = Icon(Icons.close);</span><br><span class="line">  <span class="keyword">this</span>._appBarTitle = TextField(</span><br><span class="line">    controller: _filterTextEditingController,</span><br><span class="line">    style: TextStyle(color: Colors.white),</span><br><span class="line">    decoration: InputDecoration(</span><br><span class="line">      prefixIcon: Icon(Icons.search, color: Colors.white),</span><br><span class="line">      fillColor: Colors.white,</span><br><span class="line">      hintText: <span class="string">'Search by name'</span>,</span><br><span class="line">      hintStyle: TextStyle(color: Colors.white),</span><br><span class="line">    ),</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/// 把SearchBar關掉</span></span><br><span class="line"><span class="keyword">void</span> _closeSerachBar() &#123;</span><br><span class="line">  <span class="keyword">this</span>._searchIcon = Icon(Icons.search);</span><br><span class="line">  <span class="keyword">this</span>._appBarTitle = Text(appTitle);</span><br><span class="line">  _filterTextEditingController.clear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="過濾資料"><a href="#過濾資料" class="headerlink" title="過濾資料"></a>過濾資料</h5><ul>
+<li>就是先把文字轉成小寫再去做文字的比對<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 過濾資料 (轉小寫比較)</span></span><br><span class="line"><span class="keyword">void</span> _filterRecords() &#123;</span><br><span class="line">  <span class="keyword">if</span> (_searchText.isNotEmpty) &#123;</span><br><span class="line">    _filteredRecords.records = <span class="built_in">List</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; _records.records.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span> (_records.records[i].name.toLowerCase().contains(_searchText.toLowerCase()) || _records.records[i].address.toLowerCase().contains(_searchText.toLowerCase())) &#123;</span><br><span class="line">          _filteredRecords.records.add(_records.records[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="內文頁"><a href="#內文頁" class="headerlink" title="內文頁"></a>內文頁</h3><ul>
+<li>這頁的畫面跟上頁用的widget差不多，就不再多說了，這頁最主要的功能是安裝<a href="../../14/flutter-dart-packages/">第三方套件 - url_launcher</a>來開啟網頁，而安裝設定的位置則是在<a href="https://dart.dev/tools/pub/pubspec" target="_blank" rel="noopener">pubspec.yaml</a>上<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pubspec.yaml</span></span><br><span class="line"><span class="attr">name:</span> <span class="string">flutter_uitableview</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">A</span> <span class="string">new</span> <span class="string">Flutter</span> <span class="string">project.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">version:</span> <span class="number">1.0</span><span class="number">.0</span><span class="string">+1</span></span><br><span class="line"></span><br><span class="line"><span class="attr">environment:</span></span><br><span class="line">  <span class="attr">sdk:</span> <span class="string">"&gt;=2.1.0 &lt;3.0.0"</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dependencies:</span></span><br><span class="line">  <span class="attr">flutter:</span></span><br><span class="line">    <span class="attr">sdk:</span> <span class="string">flutter</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">cupertino_icons:</span> <span class="string">^0.1.2</span></span><br><span class="line">  <span class="attr">url_launcher:</span> <span class="string">^5.0.2</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dev_dependencies:</span></span><br><span class="line">  <span class="attr">flutter_test:</span></span><br><span class="line">    <span class="attr">sdk:</span> <span class="string">flutter</span></span><br><span class="line"></span><br><span class="line"><span class="attr">flutter:</span></span><br><span class="line">  <span class="attr">uses-material-design:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">assets:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">assets/images/flutter-logo-round.jpg</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">assets/data/records.json</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'package:url_launcher/url_launcher.dart'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">URLLauncher</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/// 開啟網頁</span></span><br><span class="line">  <span class="keyword">void</span> launchURL(<span class="built_in">String</span> url) <span class="keyword">async</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">await</span> canLaunch(url)) &#123;</span><br><span class="line">      <span class="keyword">await</span> launch(url);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="string">'Could not launch <span class="subst">$url</span>'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="結果"><a href="#結果" class="headerlink" title="結果"></a>結果</h3><video width="50%" controls><br>    <source src="/2019/05/23/flutter-listview/Demo.mp4" type="video/mp4"><br></video>
+
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="https://github.com/William-Weng/Flutter/tree/master/flutter_uitableview" target="_blank" rel="noopener">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>因為個人也是個初學者，Code雖然Key得出來，也能夠Run，但是對內容其實不是很瞭解，還是要多多學習才是。</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2019年05月23日 - 12時31分</p>
+        <p><span>最後更新:</span>2019年07月30日 - 11時31分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2019/05/23/flutter-listview/" title="【Flutter 1.5】製作一個簡單的名片列表APP">https://william-weng.github.io/2019/05/23/flutter-listview/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2019/05/23/flutter-listview/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/05/25/ios-proximity-magic/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          【Swift 5】手機也能變撲克牌魔術？
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/05/15/linux-bash-script/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【Bash Shell Script】強大的命令提示字元？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#架構"><span class="toc-number">2.</span> <span class="toc-text">架構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#畫面架構"><span class="toc-number">2.1.</span> <span class="toc-text">畫面架構</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#檔案架構"><span class="toc-number">2.2.</span> <span class="toc-text">檔案架構</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#常數"><span class="toc-number">2.3.</span> <span class="toc-text">常數</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#主程式"><span class="toc-number">2.4.</span> <span class="toc-text">主程式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登入畫面"><span class="toc-number">3.</span> <span class="toc-text">登入畫面</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新增檔案"><span class="toc-number">3.1.</span> <span class="toc-text">新增檔案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Logo圖示"><span class="toc-number">3.2.</span> <span class="toc-text">Logo圖示</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#取得圖片"><span class="toc-number">3.2.1.</span> <span class="toc-text">取得圖片</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#製作圖片圓角"><span class="toc-number">3.2.2.</span> <span class="toc-text">製作圖片圓角</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#產生輸入框"><span class="toc-number">3.3.</span> <span class="toc-text">產生輸入框</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#控制器"><span class="toc-number">3.3.1.</span> <span class="toc-text">控制器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#鍵盤的樣式"><span class="toc-number">3.3.2.</span> <span class="toc-text">鍵盤的樣式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#字數及行數"><span class="toc-number">3.3.3.</span> <span class="toc-text">字數及行數</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#產生按鈕"><span class="toc-number">3.4.</span> <span class="toc-text">產生按鈕</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Widget合體"><span class="toc-number">3.5.</span> <span class="toc-text">Widget合體</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#人員清單"><span class="toc-number">4.</span> <span class="toc-text">人員清單</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Card的組成"><span class="toc-number">4.1.</span> <span class="toc-text">Card的組成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#資料的取得"><span class="toc-number">4.2.</span> <span class="toc-text">資料的取得</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#資料模型"><span class="toc-number">4.2.1.</span> <span class="toc-text">資料模型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#取得資料"><span class="toc-number">4.2.2.</span> <span class="toc-text">取得資料</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#產生搜尋列"><span class="toc-number">4.2.3.</span> <span class="toc-text">產生搜尋列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#過濾資料"><span class="toc-number">4.2.4.</span> <span class="toc-text">過濾資料</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#內文頁"><span class="toc-number">5.</span> <span class="toc-text">內文頁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#結果"><span class="toc-number">6.</span> <span class="toc-text">結果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">7.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">8.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2019/05/25/ios-proximity-magic/" title="上一篇: 【Swift 5】手機也能變撲克牌魔術？">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/05/15/linux-bash-script/" title="下一篇: 【Bash Shell Script】強大的命令提示字元？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
