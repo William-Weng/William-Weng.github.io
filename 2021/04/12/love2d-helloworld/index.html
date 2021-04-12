@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://william-weng.github.io/2021/04/12/love2d-helloworld/distribution/3.png">
 <meta property="og:image" content="https://william-weng.github.io/2021/04/12/love2d-helloworld/distribution/4.png">
 <meta property="og:image" content="https://william-weng.github.io/2021/04/12/love2d-helloworld/distribution/5.png">
-<meta property="og:updated_time" content="2021-04-12T23:03:35.631Z">
+<meta property="og:updated_time" content="2021-04-12T23:11:57.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">
 <meta name="twitter:description" content="前言LÖVE是一個免費多平臺的2D遊戲引擎，主體是以Lua這種手稿語言，它的語法相當簡潔，它是以C++編寫，支援多平臺輸出 - Windows / macOS / Linux / iOS / Android，在官網有介紹幾個上架的遊戲 - iOS / Android + Windows / macOS / Linux，好像都是可愛的小遊戲…XD，至於為什麼會想學這個呢？因為Unity3D太過強大，">
@@ -256,7 +256,7 @@
 </table>
 <h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><ul>
 <li><a href="https://love2d.org/" target="_blank" rel="noopener">官網</a>的設計，是不是有<a href="https://zh.wikipedia.org/zh-tw/LOVE♥LOVE%3F" target="_blank" rel="noopener">LoveLove</a>的感覺啊？XD</li>
-<li>上面有<a href="https://github.com/love2d/love" target="_blank" rel="noopener">各平臺</a>的版本，大家就自行<a href="https://love2d.org/forums/" target="_blank" rel="noopener">下載</a>吧</li>
+<li>上面有<a href="https://github.com/love2d/love" target="_blank" rel="noopener">各平臺</a>的<a href="https://medium.com/swlh/run-x86-terminal-apps-like-homebrew-on-your-new-m1-mac-73bdc9b0f343" target="_blank" rel="noopener">版本</a>，大家就自行<a href="https://love2d.org/forums/" target="_blank" rel="noopener">下載</a>吧</li>
 <li>個人是用<a href="https://formulae.brew.sh/cask/love" target="_blank" rel="noopener">Homebrew</a>安裝的，<a href="https://love2d.org/wiki/Main_Page" target="_blank" rel="noopener">安裝</a>完後可以執行一下<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew inatall --cask love</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -316,6 +316,7 @@
 <h4 id="繪出準心及標靶"><a href="#繪出準心及標靶" class="headerlink" title="繪出準心及標靶"></a>繪出準心及標靶</h4><video width="50%" controls><source src="/2021/04/12/love2d-helloworld/game/3.mp4" type="video/mp4"></video>
 
 <ul>
+<li>這裡有一個game.isOver的變數，用來記錄遊戲是否結束的狀態</li>
 <li>主要是準心要跟著滑鼠的位置做移動<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 畫準心 =&gt; 跟著滑鼠移動，一定要最後畫，不然會不見</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawCrosshairs</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">local</span> position, size = _getMousePosition(), _getImageSize(sprite.crosshairs)</span><br><span class="line">    _draw(sprite.crosshairs, position.x - size.width / <span class="number">2</span>, position.y - size.height / <span class="number">2</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- 畫標靶</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawTarget</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> game.isOver <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">local</span> size = _getImageSize(sprite.target)</span><br><span class="line">        _draw(sprite.target, target.x - size.width / <span class="number">2</span>, target.y - size.height / <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -356,7 +357,7 @@
         <p><span>本文標題:</span><a href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></p>
         <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
         <p><span>發布時間:</span>2021年04月12日 - 05時41分</p>
-        <p><span>最後更新:</span>2021年04月13日 - 07時03分</p>
+        <p><span>最後更新:</span>2021年04月13日 - 07時11分</p>
         <p>
             <span>原始連結:</span><a class="post-url" href="/2021/04/12/love2d-helloworld/" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">https://william-weng.github.io/2021/04/12/love2d-helloworld/</a>
             <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2021/04/12/love2d-helloworld/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
