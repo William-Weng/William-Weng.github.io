@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>【Swift 5】我到底身在何方？我到底去到何處？ | William是個打字工</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言因為呢，個人不務正業太久了，又加上新冠肺炎疫情的緣故，這來寫寫這個有關定位 / 語系的文章。無論你身在何方 無論你去到何處，我都要定位的到你啦，怎麼有點恐怖情人的感覺…XD，主要是在工作上有用到，用來判斷該給什麼語系的資料，所以想寫個定位懶人包以後可以用，這次的文章比較多Code，話不多說，就讓我們繼續看下去。">
+<meta name="keywords" content="xcode,swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Swift 5】我到底身在何方？我到底去到何處？">
+<meta property="og:url" content="https://william-weng.github.io/2021/05/31/ios-my-location/index.html">
+<meta property="og:site_name" content="William是個打字工">
+<meta property="og:description" content="前言因為呢，個人不務正業太久了，又加上新冠肺炎疫情的緣故，這來寫寫這個有關定位 / 語系的文章。無論你身在何方 無論你去到何處，我都要定位的到你啦，怎麼有點恐怖情人的感覺…XD，主要是在工作上有用到，用來判斷該給什麼語系的資料，所以想寫個定位懶人包以後可以用，這次的文章比較多Code，話不多說，就讓我們繼續看下去。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://william-weng.github.io/2021/05/31/ios-my-location/Xcode.jpg">
+<meta property="og:image" content="https://william-weng.github.io/2021/05/31/ios-my-location/regionCode.PNG">
+<meta property="og:image" content="https://william-weng.github.io/2021/05/31/ios-my-location/preferredLanguage.PNG">
+<meta property="og:image" content="https://william-weng.github.io/2021/05/31/ios-my-location/locationManager.PNG">
+<meta property="og:updated_time" content="2021-05-31T07:22:34.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Swift 5】我到底身在何方？我到底去到何處？">
+<meta name="twitter:description" content="前言因為呢，個人不務正業太久了，又加上新冠肺炎疫情的緣故，這來寫寫這個有關定位 / 語系的文章。無論你身在何方 無論你去到何處，我都要定位的到你啦，怎麼有點恐怖情人的感覺…XD，主要是在工作上有用到，用來判斷該給什麼語系的資料，所以想寫個定位懶人包以後可以用，這次的文章比較多Code，話不多說，就讓我們繼續看下去。">
+<meta name="twitter:image" content="https://william-weng.github.io/2021/05/31/ios-my-location/Xcode.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="William是個打字工" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+      <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/img/head.jpg" class="js-avatar">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">William-Weng</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">這個也不會、那個也不會</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>選單</li>
+                        <li>標籤</li>
+                        
+                        
+                        <!-- <li>關於我</li> -->
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/3rd/" style="font-size: 10px;">3rd</a> <a href="/tags/android/" style="font-size: 14.44px;">android</a> <a href="/tags/android-studio/" style="font-size: 12.22px;">android studio</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/apollo/" style="font-size: 10px;">apollo</a> <a href="/tags/ar/" style="font-size: 10px;">ar</a> <a href="/tags/audio/" style="font-size: 10px;">audio</a> <a href="/tags/backend/" style="font-size: 11.11px;">backend</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/button/" style="font-size: 10px;">button</a> <a href="/tags/c/" style="font-size: 14.44px;">c#</a> <a href="/tags/cheatsheet/" style="font-size: 10px;">cheatsheet</a> <a href="/tags/dart/" style="font-size: 15.56px;">dart</a> <a href="/tags/database/" style="font-size: 16.67px;">database</a> <a href="/tags/debug/" style="font-size: 10px;">debug</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/firealpaca/" style="font-size: 10px;">firealpaca</a> <a href="/tags/firebase/" style="font-size: 15.56px;">firebase</a> <a href="/tags/flutter/" style="font-size: 17.78px;">flutter</a> <a href="/tags/framework/" style="font-size: 11.11px;">framework</a> <a href="/tags/game/" style="font-size: 15.56px;">game</a> <a href="/tags/github/" style="font-size: 11.11px;">github</a> <a href="/tags/grails/" style="font-size: 11.11px;">grails</a> <a href="/tags/graphql/" style="font-size: 10px;">graphql</a> <a href="/tags/groovy/" style="font-size: 11.11px;">groovy</a> <a href="/tags/heroku/" style="font-size: 11.11px;">heroku</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/homebrew/" style="font-size: 10px;">homebrew</a> <a href="/tags/hotkey/" style="font-size: 10px;">hotkey</a> <a href="/tags/html/" style="font-size: 12.22px;">html</a> <a href="/tags/image/" style="font-size: 10px;">image</a> <a href="/tags/install/" style="font-size: 17.78px;">install</a> <a href="/tags/ios/" style="font-size: 11.11px;">ios</a> <a href="/tags/java/" style="font-size: 11.11px;">java</a> <a href="/tags/javascript/" style="font-size: 15.56px;">javascript</a> <a href="/tags/koa2/" style="font-size: 10px;">koa2</a> <a href="/tags/kotlin/" style="font-size: 12.22px;">kotlin</a> <a href="/tags/layout/" style="font-size: 10px;">layout</a> <a href="/tags/linux/" style="font-size: 11.11px;">linux</a> <a href="/tags/listview/" style="font-size: 10px;">listview</a> <a href="/tags/love2d/" style="font-size: 10px;">love2d</a> <a href="/tags/lua/" style="font-size: 10px;">lua</a> <a href="/tags/macos/" style="font-size: 11.11px;">macos</a> <a href="/tags/magic/" style="font-size: 10px;">magic</a> <a href="/tags/mariadb/" style="font-size: 10px;">mariadb</a> <a href="/tags/mas-cli/" style="font-size: 10px;">mas-cli</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nativescript/" style="font-size: 10px;">nativescript</a> <a href="/tags/nodejs/" style="font-size: 12.22px;">nodejs</a> <a href="/tags/nosql/" style="font-size: 13.33px;">nosql</a> <a href="/tags/photoshop/" style="font-size: 10px;">photoshop</a> <a href="/tags/raspberry-pi/" style="font-size: 10px;">raspberry-pi</a> <a href="/tags/rdbms/" style="font-size: 10px;">rdbms</a> <a href="/tags/regex/" style="font-size: 10px;">regex</a> <a href="/tags/script/" style="font-size: 10px;">script</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/swift/" style="font-size: 20px;">swift</a> <a href="/tags/swiftui/" style="font-size: 10px;">swiftui</a> <a href="/tags/tools/" style="font-size: 11.11px;">tools</a> <a href="/tags/typescript/" style="font-size: 10px;">typescript</a> <a href="/tags/ubuntu/" style="font-size: 11.11px;">ubuntu</a> <a href="/tags/ui/" style="font-size: 10px;">ui</a> <a href="/tags/unity/" style="font-size: 14.44px;">unity</a> <a href="/tags/video/" style="font-size: 10px;">video</a> <a href="/tags/virtualbox/" style="font-size: 10px;">virtualbox</a> <a href="/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/tags/vue/" style="font-size: 12.22px;">vue</a> <a href="/tags/webapp/" style="font-size: 10px;">webapp</a> <a href="/tags/xcode/" style="font-size: 18.89px;">xcode</a> <a href="/tags/yaml/" style="font-size: 10px;">yaml</a>
+                    </div>
+                </section>
+                
+                
+                
+
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">喜歡看動畫、寫程式的地球人</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">William-Weng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/img/head.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">William-Weng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">這個也不會、那個也不會</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="mail" target="_blank" href="mailto:linuxice0609@gmail.com" title="mail">mail</a>
+                    
+                        <a class="github" target="_blank" href="https://github.com/William-Weng" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-ios-my-location" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2021/05/31/ios-my-location/" class="article-date">
+      <time datetime="2021-05-31T04:10:27.000Z" itemprop="datePublished">2021-05-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【Swift 5】我到底身在何方？我到底去到何處？
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift/">swift</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/xcode/">xcode</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>因為呢，個人<a href="https://www.youtube.com/watch?v=uS_F4nw1fvA" target="_blank" rel="noopener">不務正業</a>太久了，又加上<a href="https://zh.wikipedia.org/zh-tw/2019冠状病毒病疫情" target="_blank" rel="noopener">新冠肺炎疫情</a>的緣故，這來寫寫這個有關<a href="https://itisjoe.gitbooks.io/swiftgo/content/apps/taipeitravel/map.html" target="_blank" rel="noopener">定位 / 語系</a>的文章。<a href="https://www.youtube.com/watch?v=FMLu34WxjXw" target="_blank" rel="noopener">無論你身在何方 無論你去到何處</a>，我都要<a href="https://www.youtube.com/watch?v=kaLTJZXqEjY" target="_blank" rel="noopener">定位</a>的到你啦，怎麼有點<a href="https://www.harpersbazaar.com/tw/culture/theatreandbooks/g33802288/love-relationship-book-2020/" target="_blank" rel="noopener">恐怖情人</a>的感覺…XD，主要是在工作上有用到，用來判斷該給什麼語系的資料，所以想寫個<a href="https://relab.cc/blog/懶人包" target="_blank" rel="noopener">定位懶人包</a>以後可以用，這次的文章比較多Code，話不多說，就讓我們<a href="https://www.youtube.com/watch?v=obLrRjGNa5g" target="_blank" rel="noopener">繼續看下去</a>。<br><a id="more"></a></p>
+<p><img src="/2021/05/31/ios-my-location/Xcode.jpg" alt></p>
+<h3 id="作業環境"><a href="#作業環境" class="headerlink" title="作業環境"></a>作業環境</h3><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Apple M1</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>Big Sur 11.4</td>
+</tr>
+<tr>
+<td>Xcode</td>
+<td>12.5</td>
+</tr>
+</tbody>
+</table>
+<h3 id="完成的結果"><a href="#完成的結果" class="headerlink" title="完成的結果"></a>完成的結果</h3><video width="20%" controls><source src="/2021/05/31/ios-my-location/result.mp4" type="video/mp4"></video>
+
+<h3 id="設得資訊"><a href="#設得資訊" class="headerlink" title="設得資訊"></a>設得資訊</h3><h4 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h4><ul>
+<li>這裡先準備一些常數，主要是要取得手機的<a href="https://developer.apple.com/documentation/foundation/locale/2293371-regioncode" target="_blank" rel="noopener">地區</a> / <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html" target="_blank" rel="noopener">語系</a> / <a href="https://zh.wikipedia.org/wiki/SIM卡" target="_blank" rel="noopener">SIM</a> / <a href="https://zh.wikipedia.org/zh-tw/全球定位系统" target="_blank" rel="noopener">GPS定位</a>的資訊，應該沒有其它可以說明所在地的資訊了吧？<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 自定義的Print</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">func</span> <span class="title">wwPrint</span>&lt;T&gt;<span class="params">(<span class="number">_</span> msg: T, file: String = #file, method: String = #function, line: Int = #line)</span></span> &#123;</span><br><span class="line">    #<span class="keyword">if</span> <span class="type">DEBUG</span></span><br><span class="line">        <span class="type">Swift</span>.<span class="built_in">print</span>(<span class="string">"🚩 \((file as NSString).lastPathComponent)：\(line) - \(method) \n\t ✅ \(msg)"</span>)</span><br><span class="line">    #endif</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - Utility (單例)</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Utility</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> shared = <span class="type">Utility</span>()</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">override</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - typealias</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Utility</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定位位置 =&gt; [GPS / SIM卡 / 首選語言 / 區域]</span></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">LocationCountryCode</span> = (<span class="type">GPS</span>: <span class="type">String?</span>, <span class="type">SIMs</span>: [<span class="type">String</span>], preferredLanguage: <span class="type">String?</span>, region: <span class="type">String?</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 語言資訊 =&gt; [語系-分支-地區]</span></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">LanguageInfomation</span> = (code: <span class="type">String</span>.<span class="type">SubSequence?</span>, script: <span class="type">String</span>.<span class="type">SubSequence?</span>, region: <span class="type">String</span>.<span class="type">SubSequence?</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 定位的相關資訊</span></span><br><span class="line">    <span class="keyword">typealias</span> <span class="type">LocationInfomation</span> = (location: <span class="type">CLLocation?</span>, isAvailable: <span class="type">Bool</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - Collection (override class function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Collection</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// [為Array加上安全取值特性 =&gt; nil](https://stackoverflow.com/questions/25329186/safe-bounds-checked-array-lookup-in-swift-through-optional-bindings)</span></span><br><span class="line">    <span class="keyword">subscript</span>(safe index: <span class="type">Index</span>) -&gt; <span class="type">Element?</span> &#123; <span class="keyword">return</span> <span class="built_in">indices</span>.<span class="built_in">contains</span>(index) ? <span class="keyword">self</span>[index] : <span class="literal">nil</span> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="取得裝置區域"><a href="#取得裝置區域" class="headerlink" title="取得裝置區域"></a>取得裝置區域</h4><ul>
+<li>取得裝置區域，也就是在『設定 -&gt; 一般 -&gt; <a href="https://support.apple.com/zh-tw/guide/iphone/iphce20717a3/ios" target="_blank" rel="noopener">語言與地區</a> -&gt; 地區』的資訊，目前是取得『TW』這個文字。地區代碼的標準是<a href="https://zh.wikipedia.org/wiki/ISO_3166-1" target="_blank" rel="noopener">ISO 3166-1</a>。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 我到底身在何方？我到底去到何處？</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()        </span><br><span class="line">        wwPrint(<span class="type">Locale</span>._currentRegionCode())    <span class="comment">// Optional("TW")</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - Locale (static function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Locale</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取得裝置區域</span></span><br><span class="line">    <span class="comment">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 地區 (TW)</span></span><br><span class="line">    <span class="comment">/// - Returns: 區域辨識碼</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_currentRegionCode</span><span class="params">()</span></span> -&gt; <span class="type">String?</span> &#123; <span class="keyword">return</span> <span class="type">Locale</span>.current.regionCode &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2021/05/31/ios-my-location/regionCode.PNG" alt></p>
+<h4 id="取得裝置語系"><a href="#取得裝置語系" class="headerlink" title="取得裝置語系"></a>取得裝置語系</h4><ul>
+<li>語系，也就是在『設定 -&gt; 一般 -&gt; <a href="https://support.apple.com/zh-tw/guide/iphone/iphce20717a3/ios" target="_blank" rel="noopener">語言與地區</a> -&gt; <a href="https://jasonlingoogle.blogspot.com/2017/08/iphone-app.html" target="_blank" rel="noopener">偏好語言的順序</a>』的資訊，其實也就是iPhone使用的語言，目前是取得『ja-TW』這個文字。要注意的是，語系的地區不一定跟<br>區域是一樣的。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 我到底身在何方？我到底去到何處？</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        wwPrint(<span class="type">Locale</span>._preferredLanguageInfomation())  <span class="comment">// Optional((code: Optional("ja"), script: nil, region: Optional("TW")))</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - Locale (static function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Locale</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取得裝置區域</span></span><br><span class="line">    <span class="comment">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 地區 (TW)</span></span><br><span class="line">    <span class="comment">/// - Returns: 區域辨識碼</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_currentRegionCode</span><span class="params">()</span></span> -&gt; <span class="type">String?</span> &#123; <span class="keyword">return</span> <span class="type">Locale</span>.current.regionCode &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取得首選語系 (第一個語系)</span></span><br><span class="line">    <span class="comment">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 偏好的語言順序 (zh-Hant-TW / [語系-分支-地區])</span></span><br><span class="line">    <span class="comment">/// - Returns: [語系辨識碼](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_preferredLanguage</span><span class="params">()</span></span> -&gt; <span class="type">String?</span> &#123;</span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> language = <span class="type">Locale</span>.preferredLanguages.first <span class="keyword">else</span> &#123; <span class="keyword">return</span> <span class="literal">nil</span> &#125;</span><br><span class="line">        <span class="keyword">return</span> language</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 把完整的語系編碼分類</span></span><br><span class="line">    <span class="comment">/// - zh-Hant-TW =&gt; [語系-分支-地區]</span></span><br><span class="line">    <span class="comment">/// - Parameter language: 完整的語系文字</span></span><br><span class="line">    <span class="comment">/// - Returns: Utility.LanguageInfomation?</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_preferredLanguageInfomation</span><span class="params">(<span class="number">_</span> language: String? = Locale.preferredLanguages.first)</span></span> -&gt; <span class="type">Utility</span>.<span class="type">LanguageInfomation?</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> preferredLanguage = language,</span><br><span class="line">              <span class="keyword">let</span> languageInfos = <span class="type">Optional</span>.some(preferredLanguage.<span class="built_in">split</span>(separator: <span class="string">"-"</span>)),</span><br><span class="line">              languageInfos.<span class="built_in">count</span> &gt; <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nil</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> info: <span class="type">Utility</span>.<span class="type">LanguageInfomation</span> = (<span class="literal">nil</span>, <span class="literal">nil</span>, <span class="literal">nil</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> languageInfos.<span class="built_in">count</span> &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>: info.code = languageInfos.first</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>: info.code = languageInfos.first; info.region = languageInfos.last</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>: info.code = languageInfos.first; info.region = languageInfos.last; info.script = languageInfos[safe: <span class="number">1</span>]</span><br><span class="line">        <span class="keyword">default</span>: <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> info</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2021/05/31/ios-my-location/preferredLanguage.PNG" alt></p>
+<h4 id="取得SIM卡供應商的國籍碼"><a href="#取得SIM卡供應商的國籍碼" class="headerlink" title="取得SIM卡供應商的國籍碼"></a>取得SIM卡供應商的國籍碼</h4><ul>
+<li>取得<a href="https://stackoverflow.com/questions/18798398/how-to-get-the-users-country-calling-code-in-ios" target="_blank" rel="noopener">SIM卡供應商的國籍碼</a>，因為在iOS 12之後有<a href="https://support.apple.com/zh-tw/HT209044" target="_blank" rel="noopener">雙SIM卡</a>的手機出現，所以會是個Array。利用<a href="https://developer.apple.com/documentation/coretelephony" target="_blank" rel="noopener">CoreTelephony Framework</a>所提供的功能來取得。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 我到底身在何方？我到底去到何處？</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        wwPrint(<span class="type">UIDevice</span>._isoCountryCodes())    <span class="comment">// ["TW", "TW"]</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - UIDevice (static function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">UIDevice</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// [SIM卡供應商的國籍碼](https://stackoverflow.com/questions/18798398/how-to-get-the-users-country-calling-code-in-ios)</span></span><br><span class="line">    <span class="comment">/// - iOS 12之後有雙SIM卡 =&gt; [ISO 3166-1](https://zh.wikipedia.org/wiki/ISO_3166-1)</span></span><br><span class="line">    <span class="comment">/// - Returns: [String]</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_isoCountryCodes</span><span class="params">()</span></span> -&gt; [<span class="type">String</span>] &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> codeArray = [<span class="type">String</span>]()</span><br><span class="line">                    </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> info = <span class="type">CTTelephonyNetworkInfo</span>().serviceSubscriberCellularProviders &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="number">_</span>, value) <span class="keyword">in</span> info &#123; <span class="keyword">if</span> <span class="keyword">let</span> code = value.isoCountryCode &#123; codeArray.append(code.uppercased()) &#125; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> codeArray</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="整合一下"><a href="#整合一下" class="headerlink" title="整合一下"></a>整合一下</h4><ul>
+<li>接下來，把這些功能整合成一個function。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - CLLocationManager (static function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">CLLocationManager</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取得該裝置的國家地域碼 (不包含GPS定位)</span></span><br><span class="line">    <span class="comment">/// - Returns: LocationCountryCode</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_locationCountryCode</span><span class="params">()</span></span> -&gt; <span class="type">Utility</span>.<span class="type">LocationCountryCode</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> code = <span class="type">Utility</span>.<span class="type">LocationCountryCode</span>(<span class="type">GPS</span>: <span class="literal">nil</span>, <span class="type">SIMs</span>: [], preferredLanguage: <span class="literal">nil</span>, region: <span class="literal">nil</span>)</span><br><span class="line">        </span><br><span class="line">        code.<span class="type">SIMs</span> = <span class="type">UIDevice</span>._isoCountryCodes()</span><br><span class="line">        code.region = <span class="type">Locale</span>._currentRegionCode()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">let</span> codeWithLanguage = <span class="type">Locale</span>._preferredLanguageInfomation()?.region &#123; code.preferredLanguage = <span class="type">String</span>(codeWithLanguage) &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> code</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="手機定位"><a href="#手機定位" class="headerlink" title="手機定位"></a>手機定位</h3><h4 id="定位權限"><a href="#定位權限" class="headerlink" title="定位權限"></a>定位權限</h4><ul>
+<li>主要就是利用<a href="https://developer.apple.com/documentation/corelocation/" target="_blank" rel="noopener">CoreLocation Framework</a>來做處理。在<a href="https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/從程式讀取-info-plist-的內容-比方-version-api-key-77744bc6b0ea" target="_blank" rel="noopener">info.plist</a>中，加入<a href="https://wigl.github.io/2015/08/28/ios_location_introduction/" target="_blank" rel="noopener">NSLocationWhenInUseUsageDescription</a>權限設定，來開啟定位的使用。</li>
+<li>同時也加上<a href="https://ithelp.ithome.com.tw/articles/10197686" target="_blank" rel="noopener">CLLocationManagerDelegate</a><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSLocationWhenInUseUsageDescription</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - Utility (單例)</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Utility</span>: <span class="title">NSObject</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">let</span> shared = <span class="type">Utility</span>()</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">lazy</span> <span class="keyword">var</span> locationManager = &#123; <span class="type">CLLocationManager</span>._build(delegate: <span class="keyword">self</span>) &#125;()</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">override</span> <span class="keyword">init</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - CLLocationManagerDelegate</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Utility</span>: <span class="title">CLLocationManagerDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didUpdateLocations locations: [CLLocation])</span></span> &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)</span></span> &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?)</span></span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - CLLocationManager (static function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">CLLocationManager</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 定位授權Manager產生器</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - delegate: CLLocationManagerDelegate</span></span><br><span class="line">    <span class="comment">///   - desiredAccuracy: 定位的精度</span></span><br><span class="line">    <span class="comment">///   - distanceFilter: 過濾的距離</span></span><br><span class="line">    <span class="comment">/// - Returns: CLLocationManager</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_build</span><span class="params">(delegate: CLLocationManagerDelegate?, desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBest, distanceFilter: CLLocationDistance = <span class="number">1</span>)</span></span> -&gt; <span class="type">CLLocationManager</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> locationManager = <span class="type">CLLocationManager</span>()</span><br><span class="line"></span><br><span class="line">        locationManager.delegate = delegate</span><br><span class="line">        locationManager.desiredAccuracy = desiredAccuracy</span><br><span class="line">        locationManager.distanceFilter = distanceFilter</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> locationManager</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Notification"><a href="#Notification" class="headerlink" title="Notification"></a>Notification</h4><ul>
+<li>因為它並不是一定馬上可以取到的值，所以這裡利用<a href="https://www.appcoda.com.tw/notificationcenter/" target="_blank" rel="noopener">NotificationCenter</a>來傳送數值。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - Notification (static function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Notification</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// String =&gt; Notification.Name</span></span><br><span class="line">    <span class="comment">/// - Parameter name: key的名字</span></span><br><span class="line">    <span class="comment">/// - Returns: Notification.Name</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_name</span><span class="params">(<span class="number">_</span> name: String)</span></span> -&gt; <span class="type">Notification</span>.<span class="type">Name</span> &#123; <span class="keyword">return</span> <span class="type">Notification</span>.<span class="type">Name</span>(rawValue: name) &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// NotificationName =&gt; Notification.Name</span></span><br><span class="line">    <span class="comment">/// - Parameter name: key的名字 (enum)</span></span><br><span class="line">    <span class="comment">/// - Returns: Notification.Name</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">func</span> <span class="title">_name</span><span class="params">(<span class="number">_</span> name: Utility.NotificationName)</span></span> -&gt; <span class="type">Notification</span>.<span class="type">Name</span> &#123; <span class="keyword">return</span> name.value &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - NotificationCenter (class function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">NotificationCenter</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 註冊通知</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - name: 要註冊的Notification名稱</span></span><br><span class="line">    <span class="comment">///   - queue: 執行的序列</span></span><br><span class="line">    <span class="comment">///   - object: 接收的資料</span></span><br><span class="line">    <span class="comment">///   - handler: 監聽到後要執行的動作</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">_register</span><span class="params">(name: Notification.Name, queue: OperationQueue = .main, object: <span class="keyword">Any</span>? = <span class="literal">nil</span>, handler: @escaping <span class="params">(<span class="params">(Notification)</span></span></span></span> -&gt; <span class="type">Void</span>)) &#123;</span><br><span class="line">        <span class="keyword">self</span>.addObserver(forName: name, object: object, queue: queue) &#123; (notification) <span class="keyword">in</span> handler(notification) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 發射通知</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - name: 要發射的Notification名稱</span></span><br><span class="line">    <span class="comment">///   - object: 要傳送的資料</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">_post</span><span class="params">(name: Notification.Name, object: <span class="keyword">Any</span>? = <span class="literal">nil</span>)</span></span> &#123; <span class="keyword">self</span>.post(name: name, object: object) &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/// 移除通知</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - observer: 要移除的位置</span></span><br><span class="line">    <span class="comment">///   - name: 要移除的Notification名稱</span></span><br><span class="line">    <span class="comment">///   - object: 接收的資料</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">_remove</span><span class="params">(observer: <span class="keyword">Any</span>, name: Notification.Name, object: <span class="keyword">Any</span>? = <span class="literal">nil</span>)</span></span> &#123; <span class="keyword">self</span>.removeObserver(observer, name: name, object: object) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="啟用定位服務"><a href="#啟用定位服務" class="headerlink" title="啟用定位服務"></a>啟用定位服務</h4><ul>
+<li>在這裡就可以試看看定位功能是不是可以正常使用？<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 我到底身在何方？我到底去到何處？</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(<span class="number">_</span> animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">        </span><br><span class="line">        <span class="type">Utility</span>.shared.locationManager._locationServicesAuthorizationStatus &#123;</span><br><span class="line">            wwPrint(<span class="string">"alwaysHandler"</span>)</span><br><span class="line">        &#125; whenInUseHandler: &#123;</span><br><span class="line">            wwPrint(<span class="string">"whenInUseHandler"</span>)</span><br><span class="line">        &#125; deniedHandler: &#123;</span><br><span class="line">            wwPrint(<span class="string">"deniedHandler"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - CLLocationManager (class function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">CLLocationManager</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">/// 定位授權的各種狀態處理</span></span><br><span class="line">    <span class="comment">/// - requestWhenInUseAuthorization() =&gt; 詢問是否要開啟定位授權的提示視窗</span></span><br><span class="line">    <span class="comment">/// - info.plist =&gt; NSLocationAlwaysAndWhenInUseUsageDescription</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - alwaysHandler: 選擇always後的動作</span></span><br><span class="line">    <span class="comment">///   - whenInUseHandler: 選擇whenInUse後的動作</span></span><br><span class="line">    <span class="comment">///   - deniedHandler: 選擇denied後的動作</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">_locationServicesAuthorizationStatus</span><span class="params">(alwaysHandler: @escaping <span class="params">()</span></span></span> -&gt; <span class="type">Void</span>, whenInUseHandler: @escaping () -&gt; <span class="type">Void</span>, deniedHandler: @escaping () -&gt; <span class="type">Void</span>) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> authorizationStatus = <span class="type">CLLocationManager</span>.authorizationStatus()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> authorizationStatus &#123;</span><br><span class="line">        <span class="keyword">case</span> .notDetermined: requestWhenInUseAuthorization()</span><br><span class="line">        <span class="keyword">case</span> .authorizedWhenInUse: whenInUseHandler()</span><br><span class="line">        <span class="keyword">case</span> .authorizedAlways: alwaysHandler()</span><br><span class="line">        <span class="keyword">case</span> .denied: deniedHandler()</span><br><span class="line">        <span class="keyword">case</span> .restricted: deniedHandler()</span><br><span class="line">        @unknown <span class="keyword">default</span>: <span class="built_in">fatalError</span>()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="/2021/05/31/ios-my-location/locationManager.PNG" alt></p>
+<h4 id="定位協定"><a href="#定位協定" class="headerlink" title="定位協定"></a>定位協定</h4><ul>
+<li>利用CLLocationManagerDelegate來取得相關的值，進而做處理。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - enum</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Utility</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 自訂錯誤</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">MyError</span>: <span class="title">Error</span>, <span class="title">LocalizedError</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> errorDescription: <span class="type">String</span> &#123; errorMessage() &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">case</span> notGeocodeLocation</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// 顯示錯誤說明</span></span><br><span class="line">        <span class="comment">/// - Returns: String</span></span><br><span class="line">        <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">errorMessage</span><span class="params">()</span></span> -&gt; <span class="type">String</span> &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> .notGeocodeLocation: <span class="keyword">return</span> <span class="string">"地理編碼錯誤"</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// NotificationName</span></span><br><span class="line">    <span class="class"><span class="keyword">enum</span> <span class="title">NotificationName</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// 顯示真實的值</span></span><br><span class="line">        <span class="keyword">var</span> value: <span class="type">Notification</span>.<span class="type">Name</span> &#123; <span class="keyword">return</span> notificationName() &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 定位服務 (自定義)</span></span><br><span class="line">        <span class="keyword">case</span> _locationServices</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/// 顯示真實的值 =&gt; Notification.Name</span></span><br><span class="line">        <span class="function"><span class="keyword">func</span> <span class="title">notificationName</span><span class="params">()</span></span> -&gt; <span class="type">Notification</span>.<span class="type">Name</span> &#123;</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">switch</span> <span class="keyword">self</span> &#123;</span><br><span class="line">            <span class="keyword">case</span> ._locationServices: <span class="keyword">return</span> <span class="type">Notification</span>._name(<span class="string">"_locationServices"</span>)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// MARK: - CLLocationManagerDelegate</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Utility</span>: <span class="title">CLLocationManagerDelegate</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didUpdateLocations locations: [CLLocation])</span></span> &#123; countryCode(with: manager, locations: locations) &#125;</span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)</span></span> &#123; locationManagerStatus(manager, status: status) &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">locationManager</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?)</span></span> &#123;</span><br><span class="line">        <span class="keyword">let</span> code = <span class="type">CLLocationManager</span>._locationCountryCode()</span><br><span class="line">        <span class="type">NotificationCenter</span>.<span class="keyword">default</span>._post(name: <span class="type">Notification</span>._name(._locationServices), object: code)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="定位權限的狀態處理"><a href="#定位權限的狀態處理" class="headerlink" title="定位權限的狀態處理"></a>定位權限的狀態處理</h4><ul>
+<li>LocationManager的<a href="https://www.jianshu.com/p/1631cf76615d" target="_blank" rel="noopener">狀態處理</a>，當權限許可時，就可以更新位置，不然就停下來。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 定位相關 (CLLocationManager)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Utility</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// LocationManager狀態處理</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - manager: CLLocationManager</span></span><br><span class="line">    <span class="comment">///   - status: CLAuthorizationStatus</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">locationManagerStatus</span><span class="params">(<span class="number">_</span> manager: CLLocationManager, status: CLAuthorizationStatus)</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">switch</span> status &#123;</span><br><span class="line">        <span class="keyword">case</span> .authorizedAlways: manager.startUpdatingLocation()</span><br><span class="line">        <span class="keyword">case</span> .authorizedWhenInUse: manager.startUpdatingLocation()</span><br><span class="line">        <span class="keyword">case</span> .notDetermined: manager.stopUpdatingLocation()</span><br><span class="line">        <span class="keyword">case</span> .denied: manager.stopUpdatingLocation()</span><br><span class="line">        <span class="keyword">case</span> .restricted: manager.stopUpdatingLocation()</span><br><span class="line">        @unknown <span class="keyword">default</span>: <span class="built_in">fatalError</span>()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="取得有效的位置資訊"><a href="#取得有效的位置資訊" class="headerlink" title="取得有效的位置資訊"></a>取得有效的位置資訊</h4><ul>
+<li>manager._locationInfomation()：取得有效的位置資訊。</li>
+<li>_placemark()：將坐標(25.04216003, 121.52873230) =&gt; CLPlacemark (地址)。</li>
+<li>_locationCountryCode：取得該裝置的國家地域碼 (不包含GPS定位)。</li>
+<li>最後再利用<a href="http://andy02172001.blogspot.com/2017/07/swiftnotificationcenterobserver.html" target="_blank" rel="noopener">NotificationCenter</a>把自定義的<a href="https://medium.com/@tuzaiz/使用類似notification-name的方法處理userdefaults與其他當作key的字串-87bccfb8c95e" target="_blank" rel="noopener">NotificationName</a>發送出去。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 定位相關 (CLLocationManager)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">Utility</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 取得該裝置的國家地域碼</span></span><br><span class="line">    <span class="comment">/// - Notification._name(._locationServices)</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - manager: CLLocationManager</span></span><br><span class="line">    <span class="comment">///   - locations: [CLLocation]</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">func</span> <span class="title">countryCode</span><span class="params">(with manager: CLLocationManager, locations: [CLLocation])</span></span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">var</span> code = <span class="type">CLLocationManager</span>._locationCountryCode()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> manager._locationInfomation(with: locations).isAvailable,</span><br><span class="line">              <span class="keyword">let</span> location = manager._locationInfomation(with: locations).location</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="type">NotificationCenter</span>.<span class="keyword">default</span>._post(name: <span class="type">Notification</span>._name(._locationServices), object: code); <span class="keyword">return</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location.coordinate._placemark &#123; (result) <span class="keyword">in</span></span><br><span class="line">                        </span><br><span class="line">            <span class="keyword">switch</span> result &#123;</span><br><span class="line">            <span class="keyword">case</span> .failure(<span class="number">_</span>): <span class="type">NotificationCenter</span>.<span class="keyword">default</span>._post(name: <span class="type">Notification</span>._name(._locationServices), object: code)</span><br><span class="line">            <span class="keyword">case</span> .success(<span class="keyword">let</span> placemark):</span><br><span class="line">                manager.stopUpdatingLocation()</span><br><span class="line">                code.<span class="type">GPS</span> = placemark.isoCountryCode</span><br><span class="line">                <span class="type">NotificationCenter</span>.<span class="keyword">default</span>._post(name: <span class="type">Notification</span>._name(._locationServices), object: code)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - CLLocationManager (class function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">CLLocationManager</span> </span>&#123;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">/// 處理位置的相關資料</span></span><br><span class="line">    <span class="comment">/// - 最後一筆的有效位置 &gt; 0</span></span><br><span class="line">    <span class="comment">/// - Parameter locations: 取到的位置們</span></span><br><span class="line">    <span class="comment">/// - Returns: Utility.LocationInfomation</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">_locationInfomation</span><span class="params">(with locations: [CLLocation])</span></span> -&gt; <span class="type">Utility</span>.<span class="type">LocationInfomation</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> location = locations.last,</span><br><span class="line">              <span class="keyword">let</span> isAvailable = <span class="type">Optional</span>.some(location.horizontalAccuracy &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="literal">nil</span>, <span class="literal">false</span>)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (location, isAvailable)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - CLLocationCoordinate2D (class function)</span></span><br><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">CLLocationCoordinate2D</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/// 將坐標(25.04216003, 121.52873230) =&gt; CLPlacemark (地址)</span></span><br><span class="line">    <span class="comment">/// - Parameters:</span></span><br><span class="line">    <span class="comment">///   - preferredLocale: 傳回的資料語系區域</span></span><br><span class="line">    <span class="comment">///   - result: Result&lt;CLPlacemark, Error&gt;</span></span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">_placemark</span><span class="params">(preferredLocale: Locale = Locale<span class="params">(identifier: <span class="string">"zh_TW"</span>)</span></span></span>, result: @escaping (<span class="type">Result</span>&lt;<span class="type">CLPlacemark</span>, <span class="type">Error</span>&gt;) -&gt; <span class="type">Void</span>)  &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> location = <span class="type">CLLocation</span>(latitude: latitude, longitude: longitude)</span><br><span class="line">        <span class="keyword">let</span> geocoder = <span class="type">CLGeocoder</span>()</span><br><span class="line"></span><br><span class="line">        geocoder.reverseGeocodeLocation(location, preferredLocale: preferredLocale) &#123; placemarks, error <span class="keyword">in</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> error = error &#123; result(.failure(error)); <span class="keyword">return</span> &#125;</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">let</span> placemark = placemarks?.first &#123; result(.success(placemark)); <span class="keyword">return</span> &#125;</span><br><span class="line">            </span><br><span class="line">            result(.failure(<span class="type">Utility</span>.<span class="type">MyError</span>.notGeocodeLocation))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
+<li>雖然寫起來有點複雜，但使用起來卻是超簡單的。</li>
+<li>先註冊Notification，然後就可以用了。<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// MARK: - 我到底身在何方？我到底去到何處？</span></span><br><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewController</span>: <span class="title">UIViewController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@IBOutlet</span> <span class="keyword">weak</span> <span class="keyword">var</span> resultLabel: <span class="type">UILabel!</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidLoad</span><span class="params">()</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">let</span> notificationName = <span class="type">Notification</span>._name(._locationServices)</span><br><span class="line">        </span><br><span class="line">        <span class="type">NotificationCenter</span>.<span class="keyword">default</span>._register(name: notificationName) &#123; notification <span class="keyword">in</span></span><br><span class="line">            <span class="keyword">self</span>.resultLabel.text = notification.object.debugDescription</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">func</span> <span class="title">viewDidAppear</span><span class="params">(<span class="number">_</span> animated: Bool)</span></span> &#123;</span><br><span class="line">        <span class="keyword">super</span>.viewDidAppear(animated)</span><br><span class="line">        </span><br><span class="line">        <span class="type">Utility</span>.shared.locationManager._locationServicesAuthorizationStatus &#123;</span><br><span class="line">            wwPrint(<span class="string">"alwaysHandler"</span>)</span><br><span class="line">        &#125; whenInUseHandler: &#123;</span><br><span class="line">            wwPrint(<span class="string">"whenInUseHandler"</span>)</span><br><span class="line">        &#125; deniedHandler: &#123;</span><br><span class="line">            <span class="keyword">self</span>.resultLabel.text = <span class="string">"\(CLLocationManager._locationCountryCode())"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<video width="20%" controls><source src="/2021/05/31/ios-my-location/result.mp4" type="video/mp4"></video>
+
+<h3 id="範例程式碼下載"><a href="#範例程式碼下載" class="headerlink" title="範例程式碼下載"></a><a href="https://github.com/William-Weng/Swift-5/tree/master/MyLocation" target="_blank" rel="noopener">範例程式碼下載</a></h3><h3 id="後記"><a href="#後記" class="headerlink" title="後記"></a>後記</h3><ul>
+<li>原本還以為應該滿簡單的，不過使用起來還滿不錯用的，雖然寫起來滿複雜，但至少在使用上，能很靈活的去排定結果的前後順序，維護上應該也滿容易的。</li>
+<li>寫註解也是滿累的，不過我可是個<a href="https://horofriend88.com/" target="_blank" rel="noopener">有良心</a>的iOS打字工啊…XD</li>
+</ul>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文標題:</span><a href="/2021/05/31/ios-my-location/">【Swift 5】我到底身在何方？我到底去到何處？</a></p>
+        <p><span>文章作者:</span><a href="/" title="訪問 William-Weng 的個人Blog">William-Weng</a></p>
+        <p><span>發布時間:</span>2021年05月31日 - 12時10分</p>
+        <p><span>最後更新:</span>2021年05月31日 - 15時22分</p>
+        <p>
+            <span>原始連結:</span><a class="post-url" href="/2021/05/31/ios-my-location/" title="【Swift 5】我到底身在何方？我到底去到何處？">https://william-weng.github.io/2021/05/31/ios-my-location/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://william-weng.github.io/2021/05/31/ios-my-location/　　作者: William-Weng" title="點擊複制文章連結"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>許可協議:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/tw/" title="台灣 (CC BY-NC-SA 3.0 TW)" target = "_blank">"姓名標示-非商業性-相同方式分享 3.0 台灣"</a> 轉載請保留原文連結及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/27/swiftui-first/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【SwiftUI 2.0】它好用嗎？能吃嗎？</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目錄</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作業環境"><span class="toc-number">2.</span> <span class="toc-text">作業環境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#完成的結果"><span class="toc-number">3.</span> <span class="toc-text">完成的結果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#設得資訊"><span class="toc-number">4.</span> <span class="toc-text">設得資訊</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#事前準備"><span class="toc-number">4.1.</span> <span class="toc-text">事前準備</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取得裝置區域"><span class="toc-number">4.2.</span> <span class="toc-text">取得裝置區域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取得裝置語系"><span class="toc-number">4.3.</span> <span class="toc-text">取得裝置語系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取得SIM卡供應商的國籍碼"><span class="toc-number">4.4.</span> <span class="toc-text">取得SIM卡供應商的國籍碼</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#整合一下"><span class="toc-number">4.5.</span> <span class="toc-text">整合一下</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#手機定位"><span class="toc-number">5.</span> <span class="toc-text">手機定位</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定位權限"><span class="toc-number">5.1.</span> <span class="toc-text">定位權限</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Notification"><span class="toc-number">5.2.</span> <span class="toc-text">Notification</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#啟用定位服務"><span class="toc-number">5.3.</span> <span class="toc-text">啟用定位服務</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定位協定"><span class="toc-number">5.4.</span> <span class="toc-text">定位協定</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#定位權限的狀態處理"><span class="toc-number">5.5.</span> <span class="toc-text">定位權限的狀態處理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#取得有效的位置資訊"><span class="toc-number">5.6.</span> <span class="toc-text">取得有效的位置資訊</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用方法"><span class="toc-number">6.</span> <span class="toc-text">使用方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#範例程式碼下載"><span class="toc-number">7.</span> <span class="toc-text">範例程式碼下載</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#後記"><span class="toc-number">8.</span> <span class="toc-text">後記</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隱藏目錄"  title="點擊按鈕隱藏或者顯示文章目錄">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隱藏目錄";
+    var valueShow = "顯示目錄";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2021/05/27/swiftui-first/" title="下一篇: 【SwiftUI 2.0】它好用嗎？能吃嗎？">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2021/05/31/ios-my-location/">【Swift 5】我到底身在何方？我到底去到何處？</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/05/27/swiftui-first/">【SwiftUI 2.0】它好用嗎？能吃嗎？</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/17/grails-sql/">【Grails 4.0】Grails - 使用MYSQL來存取資料啦</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/04/12/love2d-helloworld/">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a></li><li class="post-list-item"><a class="post-list-link" href="/2021/02/14/grails_helloworld/">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/12/29/vue3_helloworld/">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/04/03/vuejs-hello-world/">【Vue.js 2.6】Vue.js的初體驗</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/12/android-recyclerview/">【Android 6.0】RecyclerView - 高效能的ListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2020/01/05/ffmpeg-helloworld/">【FFmpeg】開源且功能強大的影音處理框架</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/12/08/raspberry-pi-helloworld/">【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/11/30/firebase-hosting/">【Firebase】一個能即時更新的網頁 - Hosting</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/20/unity3d-climb-cloud/">【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/13/unity3d-cat-escape/">【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/11/unity3d-swipe-car/">【Unity 3D 2019】做一個有聲音的小遊戲吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/10/06/unity3d-roulette/">【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/09/15/firebase-functions-helloworld/">【Firebase】好好用的Functions功能，自己做WebAPI</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/21/ios-uicollectionview-demo/">【Swift 5】UICollectionView也能變桌布？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/08/11/arjs-qrcode-demo/">【AR.js】利用A-Frame.js來做個生日小卡片吧</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/30/ios-graphic-lock/">【Swift 5】iPhone也能夠有圖形解鎖？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/23/nativescript-helloworld/">【NativeScript 6】NativeScript + Vue.js = iOS + Android?</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/19/android-kotlin-findviewbyid/">【Kotlin 1.3】findViewById()的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/18/android-kotlin-helloworld/">【Kotlin 1.3】Android程式初體驗 - Kotlin篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/homebrew-helloworld/">【Homebrew】macOS必裝的套件管理工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/12/unity3d-helloworld/">【Unity 3D 2019】向電玩產業踏出成功的第一步</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/07/05/javascript-regex-demo/">【Javascript】利用正規表示式來過濾字串</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/24/heroku-helloworld/">【Heroku】跟github結合的的雲端平臺 - Nodejs篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/20/firebase-order/">【Firebase】它要怎麼排序呢？(補充)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/14/firebase-money-money/">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/10/firebase-helloworld/">【Firebase】不用錢的NoSQL資料庫？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/06/02/firealpaca-helloworld/">【FireAlpaca 2.1】免費的Photoshop？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/25/ios-proximity-magic/">【Swift 5】手機也能變撲克牌魔術？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/23/flutter-listview/">【Flutter 1.5】製作一個簡單的名片列表APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/15/linux-bash-script/">【Bash Shell Script】強大的命令提示字元？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-dart-packages/">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-floating-button/">【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/14/flutter-webdev-helloworld/">【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/flutter-layout-container/">【Flutter 1.2】手機的畫面佈局 (Container篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/13/graphql-helloworld/">【GraphQL】Apollo Server初體驗 (Nodejs篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/12/mongoDB-install/">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/08/macOS-hotkey/">【macOS 10.14】常用的macOS的快速鍵</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/flutter-ui-debug/">【Flutter 1.2】Flutter UI Debug工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/07/mariadb-helloworld/">【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/typescript-helloworld/">【TypeScript 3.2】強類型的JavaScript - TypeScript</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-merge/">【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/06/ios-framework-swift/">【Xcode 10】如何build出可重複利用的framework (純Swift編)</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/github-blog-hexo/">【免費的Blog】github.io + hexo</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/05/ubuntu-nodejs/">【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/04/vscode-install-mac/">【佛心的編譯器】Visual Studio Code</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/05/03/flutter-studio/">【Flutter UI 線上好工具】FlutterStudio.app</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/28/flutter-install/">【Flutter 1.2】Flutter的安裝過程</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2021 William-Weng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >人員到訪數: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本頁閱讀量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
