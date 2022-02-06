@@ -1,0 +1,3174 @@
+
+<!DOCTYPE html>
+<html lang="en" data-figures="" class="page">
+  <head>
+<title>【Grails 4.0】Grails - 使用MySQL來存取資料啦 | William-Weng</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta property="og:locale" content="en" />
+
+<meta property="og:type" content="article">
+<meta name="description" content="因為最近把換成M1版的Mac mini了，什麼都沒有裝，所以先來記錄一下，Java類的APP安裝過程，也來記錄一下SQL的相關使用過程，讀取資料是身為後臺最重要的一環嘛。話說SDKMAN 5.10.0跟IntelliJ IDEA 2020.3.1也開始支援M1了，真的是可喜可賀啊…">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="【Grails 4.0】Grails - 使用MySQL來存取資料啦" />
+<meta property="og:url" content="https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" />
+<meta property="og:title" content="【Grails 4.0】Grails - 使用MySQL來存取資料啦" />
+<meta property="og:description" content="因為最近把換成M1版的Mac mini了，什麼都沒有裝，所以先來記錄一下，Java類的APP安裝過程，也來記錄一下SQL的相關使用過程，讀取資料是身為後臺最重要的一環嘛。話說SDKMAN 5.10.0跟IntelliJ IDEA 2020.3.1也開始支援M1了，真的是可喜可賀啊…" />
+<meta property="og:image" content="https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/images/thumbnail/Grails.png" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://WilliamWeng0609.github.io/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://WilliamWeng0609.github.io/icons/favicon-32x32.png">
+<link rel="manifest" href="https://WilliamWeng0609.github.io/icons/site.webmanifest">
+
+<link rel="canonical" href="https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/">
+
+    
+
+    
+    
+    <link rel="preload" href="https://WilliamWeng0609.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
+    <link rel="preload" href="https://WilliamWeng0609.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
+    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" type="text/css" href="https://WilliamWeng0609.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
+    
+  </head>
+  
+  
+    
+  <body data-code="100" data-lines="true" id="documentTop">
+
+<header class="nav_header" >
+  <nav class="nav"><a href='https://WilliamWeng0609.github.io/' class="nav_brand nav_item" title="William-Weng">William-Weng
+  <div class="nav_close">
+    <div><svg class="icon">
+  <use xlink:href="#open-menu"></use>
+</svg><svg class="icon">
+  <use xlink:href="#closeme"></use>
+</svg></div>
+  </div>
+</a>
+
+    <div class='nav_body nav_body_left'>
+      
+      
+      
+        
+
+      
+<div class='follow'>
+<div class="color_mode">
+  <input type="checkbox" class="color_choice" id="mode">
+</div>
+
+</div>
+
+    </div>
+  </nav>
+</header>
+
+    <main>
+  
+<div class="grid-inverse wrap content">
+  <article class="post_content">
+    <h1 class="post_title">【Grails 4.0】Grails - 使用MySQL來存取資料啦</h1>
+  <div class="post_meta">
+    <span><svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg></span>
+    <span class="post_date">
+      Apr 17, 2021</span>
+    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://WilliamWeng0609.github.io/tags/grails' title="grails" class="post_tag button button_translucent">grails
+        </a><a href='https://WilliamWeng0609.github.io/tags/java' title="java" class="post_tag button button_translucent">java
+        </a><a href='https://WilliamWeng0609.github.io/tags/groovy' title="groovy" class="post_tag button button_translucent">groovy
+        </a><a href='https://WilliamWeng0609.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Grails%204.0%e3%80%91Grails%20-%20%e4%bd%bf%e7%94%a8MySQL%e4%be%86%e5%ad%98%e5%8f%96%e8%b3%87%e6%96%99%e5%95%a6&url=https%3a%2f%2fWilliamWeng0609.github.io%2f2021%2f04%2fgrails-4.0grails-%25E4%25BD%25BF%25E7%2594%25A8mysql%25E4%25BE%2586%25E5%25AD%2598%25E5%258F%2596%25E8%25B3%2587%25E6%2596%2599%25E5%2595%25A6%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliamWeng0609.github.io%2f2021%2f04%2fgrails-4.0grails-%25E4%25BD%25BF%25E7%2594%25A8mysql%25E4%25BE%2586%25E5%25AD%2598%25E5%258F%2596%25E8%25B3%2587%25E6%2596%2599%25E5%2595%25A6%2f&t=%e3%80%90Grails%204.0%e3%80%91Grails%20-%20%e4%bd%bf%e7%94%a8MySQL%e4%be%86%e5%ad%98%e5%8f%96%e8%b3%87%e6%96%99%e5%95%a6" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+    </a>
+    <a href="https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+    </a>
+  </div>
+  </span>
+  </div>
+
+
+
+
+    
+    <div class="post_body"><p>因為最近把換成<a href="https://www.apple.com/tw/shop/buy-mac/mac-mini">M1版的Mac mini</a>了，什麼都沒有裝，所以先來記錄一下，<a href="https://min.news/zh-tw/technique/43eaeb958e2693896f2f6fd200e2fd3e.html">Java類</a>的APP安裝過程，也來記錄一下<a href="https://www.1keydata.com/tw/sql/sql-syntax.html">SQL</a>的相關使用過程，<a href="https://zh.wikipedia.org/zh-tw/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">讀取資料</a>是身為後臺最重要的一環嘛。話說<a href="https://itnext.io/how-to-install-x86-and-arm-jdks-on-the-mac-m1-apple-silicon-using-sdkman-872a5adc050d">SDKMAN 5.10.0</a>跟<a href="https://www.ithome.com.tw/news/142050">IntelliJ IDEA 2020.3.1</a>也開始支援<a href="https://www.mdeditor.tw/pl/gzgi/zh-tw">M1</a>了，真的是<a href="https://www.google.com/search?q=%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86">可喜可賀</a>啊…</p>
+<h3 id="作業環境">作業環境</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU</td>
+<td>Apple M1</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>Big Sur 11.2.3</td>
+</tr>
+<tr>
+<td>SDKMAN</td>
+<td>5.11 ARM64</td>
+</tr>
+<tr>
+<td>Homebrew</td>
+<td>3.1.3 ARM64</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>8.0.282-zulu ARM64</td>
+</tr>
+<tr>
+<td>IntelliJ IDEA</td>
+<td>2021.1 ARM64</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>8.0.23 x86_64</td>
+</tr>
+<tr>
+<td>Grails</td>
+<td>4.0.10</td>
+</tr>
+</tbody>
+</table>
+<h3 id="環境安裝">環境安裝</h3>
+<h4 id="查看macos的cpu版本">查看macOS的CPU版本</h4>
+<ul>
+<li>續上集, <a href="/2021/02/14/grails_helloworld/">使用SDKMAN安裝環境</a>，首先可以使用<a href="https://man.linuxde.net/arch">arch</a>這個命令來<a href="https://www.kocpc.com.tw/archives/356272">查看</a>跟<a href="https://tree.rocks/react-native-appl-m1-cpu-with-cocoapods-e13256357c9b">設定</a>，當然，因為目前的<a href="https://www.kocpc.com.tw/archives/357653">macOS 11</a>有<a href="https://www.kocpc.com.tw/archives/372356">Rosetta2 編譯器</a>的關係，才能做切換的動作，記要把<a href="https://sdkman.io/usage">SDKMAN</a>的支援Rosetta2的功能關掉，以獲得最好的原生支援，當然使用指令也可以，在APP上去做關閉也是可以的。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">arch -x86_64 zsh    <span style="color:#75715e"># 執行i386的環境 =&gt; zsh (Rosetta2)</span>
+arch -ARM64 zsh     <span style="color:#75715e"># 執行ARM64的環境 =&gt; zsh</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/0.png" alt="" loading="lazy" decoding="async" width="265" height="592"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo code .sdkman/etc/config        <span style="color:#75715e"># 設定SDKMan的設定檔 =&gt; VSCode</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sdkman_rosetta2_compatible<span style="color:#f92672">=</span>false    <span style="color:#75715e"># 把支援Rosetta2的功能關掉</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/1.png" alt="" loading="lazy" decoding="async" width="1051" height="359"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="安裝java-for-m1">安裝Java for M1</h4>
+<ul>
+<li><a href="https://itnext.io/how-to-install-x86-and-arm-jdks-on-the-mac-m1-apple-silicon-using-sdkman-872a5adc050d">在這裡</a>就來安裝<a href="https://www.azul.com/downloads/zulu-community/?package=jdk">OpenJDK for ARM64</a>的版本吧</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sdk list java                   <span style="color:#75715e"># 列出可以安裝的java列表</span>
+sdk install java 8.0.282-zulu   <span style="color:#75715e"># 安裝支援ARM64的版本</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/2.png" alt="" loading="lazy" decoding="async" width="960" height="654"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/3.png" alt="" loading="lazy" decoding="async" width="1026" height="148"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="安裝grails">安裝Grails</h4>
+<ul>
+<li>在這裡安裝<a href="http://pclevin.blogspot.com/p/grails.html">4.0.10的版本</a>，<a href="https://ithelp.ithome.com.tw/articles/10158094">OpenJDK =&gt; ARM64 =&gt; Grails</a></li>
+</ul>
+<pre tabindex="0"><code>sdk install grails 4.0.10
+</code></pre><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/4.png" alt="" loading="lazy" decoding="async" width="883" height="148"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="安裝intellij-idea-for-m1">安裝IntelliJ IDEA for M1</h4>
+<ul>
+<li>這個IDE - <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>就看個人要不要安裝了，當然要使用用其它的<a href="/2021/02/14/grails_helloworld/#%E5%AE%89%E8%A3%9D%E5%A5%BD%E7%94%A8%E7%9A%84IDE">IDE</a>也是可以的，這裡是使用<a href="/2019/07/12/homebrew-helloworld/">Homebrew</a>安裝。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install --cask intellij-idea
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/5.png" alt="" loading="lazy" decoding="async" width="640" height="400"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="安裝跟新增資料庫">安裝跟新增資料庫</h4>
+<ul>
+<li>其實<a href="https://grails.org/documentation.html">Grails</a>支援性還滿大的，像<a href="https://gorm.grails.org/latest/hibernate/manual/index.html">MySQL</a> / <a href="https://grails.github.io/gorm-graphql/snapshot/guide/index.html">GraphQL</a> / <a href="https://gorm.grails.org/latest/mongodb/manual/index.html">MongoDB</a> / <a href="https://gorm.grails.org/latest/neo4j/manual/index.html">Neo4j</a>，拜<a href="https://gorm.io/zh_CN/docs/index.html">GORM</a>所賜，免寫SQL<a href="https://ananedu.com/a/1/49/">嘛ㄟ通</a>，這裡選擇<a href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server 8.0.23</a>的版本進行安裝，然後使用<a href="https://zh.wikipedia.org/zh-tw/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2">MySQL CLI</a>做新增資料庫的動作。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install mysql
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/6.png" alt="" loading="lazy" decoding="async" width="905" height="171"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql.server stop           <span style="color:#75715e"># 關閉MySQL服務</span>
+mysql.server start          <span style="color:#75715e"># 開啟MySQL服務</span>
+mysql_secure_installation   <span style="color:#75715e"># 設定MySQL的root安全密碼 (12345678)</span>
+mysql -uroot -p             <span style="color:#75715e"># 登入MySQL CLI</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/7.png" alt="" loading="lazy" decoding="async" width="1037" height="148"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">show</span> databases;             <span style="color:#75715e">-- 顯示資料庫列表
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> demo;       <span style="color:#75715e">-- 建立空白資料庫
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">show</span> databases;
+exit                        <span style="color:#75715e">-- 離開MySQL CLI
+</span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/M1/8.png" alt="" loading="lazy" decoding="async" width="894" height="976"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h3 id="新增資料庫">新增資料庫</h3>
+<h4 id="新增專案">新增專案</h4>
+<ul>
+<li>首先，新增加一個Grails的專案，當然要先把<a href="https://blog.darkthread.net/blog/openjdk-in-windows/">OpenJDK 1.8</a> + <a href="http://hk.uwenku.com/question/p-qkagqoyu-ny.html">Grails SDK 4.0.10</a>的路徑寫入正確的值才行。</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/1.png" alt="" loading="lazy" decoding="async" width="864" height="760"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/2.png" alt="" loading="lazy" decoding="async" width="1233" height="713"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<ul>
+<li>然後Run一下看看能不能正常啟動。這裡我是使用<a href="https://zh.wikipedia.org/zh-tw/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">IDE</a>啟動的，當然要使用<a href="https://docs.grails.org/4.0.9/guide/commandLine.html">Grails CLI</a>去啟動也是可以的。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grails      <span style="color:#75715e"># 使用Grails CLI</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">run-app     <span style="color:#75715e"># 啟動Web APP</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/3.png" alt="" loading="lazy" decoding="async" width="853" height="923"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="加上mysql-jdbc-driver">加上MySQL JDBC Driver</h4>
+<ul>
+<li>在專案的<a href="https://zh.wikipedia.org/zh-tw/Gradle">build.gradle</a>加上<a href="https://dev.mysql.com/downloads/connector/j/">MySQL JDBC Driver</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gradle" data-lang="gradle">dependencies <span style="color:#f92672">{</span>
+    runtime <span style="color:#e6db74">&#39;mysql:mysql-connector-java:8.0.23&#39;</span>
+<span style="color:#f92672">}</span><span style="color:#960050;background-color:#1e0010">```</span>
+<span style="color:#f92672">![](</span>images<span style="color:#e6db74">/2021/</span>grails<span style="color:#f92672">-</span>sql<span style="color:#e6db74">/SQL/</span><span style="color:#ae81ff">4</span><span style="color:#f92672">.</span><span style="color:#a6e22e">png</span><span style="color:#f92672">)</span>
+
+<span style="color:#960050;background-color:#1e0010">####</span> <span style="color:#960050;background-color:#1e0010">連接資料庫</span>
+<span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">在這裡，我們可以使用</span><span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">內建的</span>IDE<span style="color:#f92672">](</span>http:<span style="color:#75715e">//localhost:8080/h2-console/)來讀取資料庫
+</span><span style="color:#75715e"></span><span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">比較要注意的是，新版的</span>MySQL Driver的claasname<span style="color:#960050;background-color:#1e0010">，由</span><span style="color:#f92672">[</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span><span style="color:#f92672">](</span>https:<span style="color:#75715e">//blog.csdn.net/superdangbo/article/details/78732700) =&gt; [com.mysql.cj.jdbc.Driver](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-connect-drivermanager.html)
+</span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">```</span>bash
+com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cj</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span>
+jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
+</span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/5.png" alt="" loading="lazy" decoding="async" width="731" height="566"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<ul>
+<li>當然，也可以使用像<a href="https://sequelpro.com/">Sequel Pro</a>的第三方APP來登入
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/6.png" alt="" loading="lazy" decoding="async" width="948" height="635"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<h4 id="錯誤處理">錯誤處理</h4>
+<ul>
+<li>不過呢，有時候會發生像<a href="https://ostechnix.com/fix-mysql-error-1819-hy000-your-password-does-not-satisfy-the-current-policy-requirements/">MySQL ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</a>的警告，明明帳號密碼都對，但就是登不進去，真的是…，這是因為對密碼的安全要求預設是<a href="https://dev.mysql.com/doc/refman/5.6/en/validate-password.html">MEDIUM</a>，所以啊，這種<a href="https://www.setn.com/News.aspx?NewsID=850886">12345678</a>的這種<a href="https://3c.ltn.com.tw/news/42381">超簡單密碼</a>，自然就無法登入了…XD，沒關係，我們把要求等級改低一點就可以了。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -uroot -p                             <span style="color:#75715e"># 登入MySQL CLI</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SHOW</span> VARIABLES <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;validate_password%&#39;</span>;   <span style="color:#75715e">-- 顯示出跟Password有關的變數
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">GLOBAL</span> validate_password.policy<span style="color:#f92672">=</span>LOW;    <span style="color:#75715e">-- 把密碼的要求等級 =&gt; LOW
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SHOW</span> VARIABLES <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;validate_password%&#39;</span>;   <span style="color:#75715e">-- 再確認一下
+</span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/7.png" alt="" loading="lazy" decoding="async" width="887" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<ul>
+<li>或者是會碰到像<a href="https://blog.csdn.net/maoxinwen1/article/details/88629313">MySQL said: Authentication plugin &lsquo;caching_sha2_password&rsquo; cannot be loaded</a>的這種問題，主要是因為MySQL 8之後，<a href="https://blog.csdn.net/maoxinwen1/article/details/88629313">身份驗證的PlugIn</a>進步成了<a href="https://blog.51cto.com/fengfeng688/2147169">caching_sha2_password</a>，而造對有些只對<a href="https://blog.csdn.net/maoxinwen1/article/details/88629313">mysql_native_password</a>的有反應的APP，無法登入，沒關係，我們把它改回來就好了。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">use mysql;                                                                          <span style="color:#75715e">-- 使用mysql資料庫
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">Host</span>, <span style="color:#66d9ef">User</span>, plugin <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">user</span>;                                                <span style="color:#75715e">-- 顯示有關PlugIn的值
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;root&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">WITH</span> mysql_native_password <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;12345678&#39;</span>;  <span style="color:#75715e">-- PlugIn =&gt;  mysql_native_password
+</span><span style="color:#75715e"></span>FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;                                                                   <span style="color:#75715e">-- 重新生效
+</span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/8.png" alt="" loading="lazy" decoding="async" width="1001" height="1000"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="建立資料庫">建立資料庫</h4>
+<ul>
+<li>在這裡會利用CLI去建立一個叫做『eBook』的資料庫。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -uroot -p                             <span style="color:#75715e"># 登入MySQL CLI</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> eBook;                      <span style="color:#75715e">-- 建立&lt;eBook&gt;資料庫
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">SHOW</span> DATABASES;                             <span style="color:#75715e">-- 顯示資料庫列表
+</span></code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/SQL/9.png" alt="" loading="lazy" decoding="async" width="877" height="707"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h3 id="新增資料表">新增資料表</h3>
+<h4 id="相關設定檔">相關設定檔</h4>
+<ul>
+<li>先設定<a href="https://www.jianshu.com/p/fb6731ee53d2">application.yml</a>檔，上面填入資料庫的相關資訊。</li>
+<li>然後連連看<a href="http://localhost:8080/h2-console/">h2-console</a>是否正常。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">environments</span>:
+    <span style="color:#f92672">development</span>:
+        <span style="color:#f92672">server</span>:
+            <span style="color:#f92672">url</span>: <span style="color:#ae81ff">http://localhost:8080/</span>
+            <span style="color:#f92672">contextPath</span>: <span style="color:#ae81ff">/</span>
+            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8080</span>
+        <span style="color:#f92672">dataSource</span>:
+            <span style="color:#f92672">dbCreate</span>: <span style="color:#ae81ff">create-drop</span>
+            <span style="color:#f92672">url</span>: <span style="color:#ae81ff">jdbc:mysql://localhost:3306/eBook?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
+            <span style="color:#f92672">username</span>: <span style="color:#ae81ff">root</span>
+            <span style="color:#f92672">password</span>: <span style="color:#ae81ff">12345678</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Domain/1.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Domain/2.png" alt="" loading="lazy" decoding="async" width="1920" height="437"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="新增資料表-1">新增資料表</h4>
+<ul>
+<li>在這裡，我們在<a href="https://grails.pixnet.net/blog/post/128925355-grails-%E7%AC%AC%E5%9B%9B%E8%AA%B2%EF%BC%9Adomain-class-%E4%BB%8B%E7%B4%B9">domain</a>的資料夾下，新增一個叫『idv.william.Book』的<a href="https://docs.grails.org/latest/ref/Domain%20Classes/Usage.html">Domain Class</a>，然後重Run一次專案，一個叫Book的Table就長出來了，當然使用<a href="http://docs.grails.org/3.1.1/ref/Domain%20Classes/Usage.html">CLI</a>也是可以的。</li>
+</ul>
+<pre tabindex="0"><code>grails create-domain-class idv.william.Book
+</code></pre><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Domain/3.png" alt="" loading="lazy" decoding="async" width="1920" height="523"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Domain/4.png" alt="" loading="lazy" decoding="async" width="879" height="681"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="設定domain欄位">設定Domain欄位</h4>
+<ul>
+<li>設定欄位，我們都知道<a href="https://zh.wikipedia.org/zh-tw/%E5%9B%BD%E9%99%85%E6%A0%87%E5%87%86%E4%B9%A6%E5%8F%B7">ISBN</a>是唯一值，是書的身份證字號，所以要在<a href="https://docs.grails.org/latest/ref/Constraints/Usage.html">Constraints</a>這裡做設定，這裡就不細說了，只要將其設定後，重新啟動，欄位就自動跑出來了。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">package</span> grailssql<span style="color:#f92672">.</span><span style="color:#a6e22e">idv</span><span style="color:#f92672">.</span><span style="color:#a6e22e">william</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">static</span> constraints <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+        isbn13<span style="color:#f92672">(</span>size: <span style="color:#ae81ff">13</span><span style="color:#f92672">,</span> nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> unique: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#75715e">// (13碼 / 不得為空值 / 是唯一值)
+</span><span style="color:#75715e"></span>        title<span style="color:#f92672">(</span>nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+        releaseDate<span style="color:#f92672">(</span>nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">}</span>
+
+    Long isbn13
+    String title
+    Date releaseDate
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">USE eBook;          <span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">使用該資料表</span>
+<span style="color:#66d9ef">DESCRIBE</span> book;      <span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">顯示該資料表結構</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Domain/5.png" alt="" loading="lazy" decoding="async" width="822" height="336"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h3 id="crud">CRUD</h3>
+<h4 id="gorm">GORM</h4>
+<ul>
+<li>這個新增一個<a href="/2021/02/14/grails_helloworld/#%E5%BB%BA%E7%AB%8BController">BookController</a>，使用最基本的<a href="http://docs.grails.org/latest/guide/GORM.html">Object Relational Mapping (GORM)</a>來處理資料，這裡就只做個簡單的示意，可以<a href="/2021/02/14/grails_helloworld/#%E6%96%B0%E5%A2%9E%E6%9B%B8%E7%B1%8DAPI">參考</a>上一篇文的說明。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 新增書籍 =&gt; http://localhost:8080/book/addBook
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
+
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9789863317494</span>
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;圖解星座神話故事&#39;</span>
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;2015/05/28&#39;</span><span style="color:#f92672">)</span>
+
+        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Fail&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
+
+        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Success&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>我們使用<a href="http://www.wibibi.com/info.php?tid=235">GET帶參數的方式</a>，使它更可以靈活的使用。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+
+    <span style="color:#75715e">/**
+</span><span style="color:#75715e">     * 新增書籍 =&gt; http://localhost:8080/book/addBook?isbn13=9789572666203&amp;title=鬼滅之刃_23完&amp;releaseDate=2021/04/16
+</span><span style="color:#75715e">     * @return
+</span><span style="color:#75715e">     */</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">def</span> params <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getParams</span><span style="color:#f92672">()</span>
+
+        <span style="color:#66d9ef">def</span> isbn13 <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;isbn13&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> Long
+        <span style="color:#66d9ef">def</span> title <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+        <span style="color:#66d9ef">def</span> releaseDate <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;releaseDate&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+
+        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
+
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> isbn13
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>releaseDate<span style="color:#f92672">)</span>
+
+        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Fail&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
+
+        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Success&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/CRUD/3.png" alt="" loading="lazy" decoding="async" width="1920" height="144"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="urlmappings">UrlMappings</h4>
+<ul>
+<li>大家有沒有想過，為什麼網址這樣Key就可以對應到正確的function呢？主要是因為<a href="https://guides.grails.org/grails_url_mappings/guide/index.html">UrlMappings</a>這個這設定檔的緣故。</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/CRUD/4.png" alt="" loading="lazy" decoding="async" width="1920" height="719"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<ul>
+<li>可是照這樣寫，只能使用<a href="https://www.w3schools.com/tags/ref_httpmethods.asp">GET來傳參數</a>，如果要使用<a href="https://ihower.tw/blog/archives/6483">POST / DELETE…等</a>現在比較流行的<a href="https://medium.com/itsems-frontend/api-%E6%98%AF%E4%BB%80%E9%BA%BC-restful-api-%E5%8F%88%E6%98%AF%E4%BB%80%E9%BA%BC-a001a85ab638">Restful API</a>的方式呢？其實只要修改<a href="http://docs.grails.org/3.1.1/ref/Plug-ins/URL%20mappings.html">UrlMappings</a>就可以做得到了。</li>
+<li>這裡我們使用<a href="https://xenby.com/b/151-%E6%8E%A8%E8%96%A6-%E4%BD%BF%E9%96%8B%E7%99%BCapi%E6%9B%B4%E6%96%B9%E4%BE%BF%E7%9A%84%E5%B7%A5%E5%85%B7-postman">API測試神器 - Postman</a>來<a href="http://localhost:8080/eBook/new">測試 =&gt; /eBook/new</a>。</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/CRUD/5.png" alt="" loading="lazy" decoding="async" width="1280" height="800"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UrlMappings</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">static</span> mappings <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+        <span style="color:#e6db74">&#34;/$controller/$action?/$id?(.$format)?&#34;</span><span style="color:#f92672">{</span>
+            constraints <span style="color:#f92672">{</span>
+                <span style="color:#75715e">// apply constraints here
+</span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
+        <span style="color:#f92672">}</span>
+
+        <span style="color:#e6db74">&#34;/eBook/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;save&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;GET&#39;</span><span style="color:#f92672">)</span>
+        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;update&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
+        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;update&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;PUT&#39;</span><span style="color:#f92672">)</span>
+        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;delete&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;DELETE&#39;</span><span style="color:#f92672">)</span>
+
+        <span style="color:#e6db74">&#34;/eBook/new/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;addBook&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
+
+        <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#34;/index&#34;</span><span style="color:#f92672">)</span>
+        <span style="color:#e6db74">&#34;500&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#39;/error&#39;</span><span style="color:#f92672">)</span>
+        <span style="color:#e6db74">&#34;404&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#39;/notFound&#39;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grails.converters.JSON
+<span style="color:#f92672">import</span> grailssql.idv.william.Book
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;預設值&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">def</span> json <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">request</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getJSON</span><span style="color:#f92672">()</span>
+
+        <span style="color:#66d9ef">def</span> isbn13 <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;isbn13&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> Long
+        <span style="color:#66d9ef">def</span> title <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+        <span style="color:#66d9ef">def</span> releaseDate <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;releaseDate&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+
+        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
+
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> isbn13
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title
+        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>releaseDate<span style="color:#f92672">)</span>
+
+        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">([</span>result: <span style="color:#66d9ef">false</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
+
+        render<span style="color:#f92672">([</span>result: <span style="color:#66d9ef">true</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;新增&#34;</span> <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;修改 ${id}&#34;</span>  <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;刪除 ${id}&#34;</span> <span style="color:#f92672">}</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;查詢 ${id}&#34;</span> <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038097&#34;</span>,
+  <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
+  <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪？&#34;</span>
+}
+</code></pre></div><h4 id="createcriteria">createCriteria</h4>
+<ul>
+<li>搜尋在資料庫中有著很<a href="http://docs.grails.org/3.1.1/ref/Domain%20Classes/createCriteria.html">重要的</a>地位，這裡介紹一下<a href="https://ithelp.ithome.com.tw/articles/10137251">criteria語法</a>。然後呢，一定要是domain才能使用它。</li>
+<li>加入三筆測試資料後，在<a href="http://localhost:8080/eBook/criteria">執行測試</a>中可以發現，會有兩組答案出現，但要怎麼方便的使用它呢？這裡介紹一下<a href="http://views.grails.org/latest/">GSON - Grails Views</a>。</li>
+<li>因為正常前後端是會分離的，比如說前端用<a href="https://vuejs.org/">Vue.js</a>，後端用<a href="https://grails.org/">Grails</a>，現在很少混在一起寫，所以使用<a href="https://gsp.grails.org/latest/guide/index.html">GSP - Groovy Server Pages</a>的機會就少了，整合網頁的功能就不需要了，安裝一下<a href="https://plugins.grails.org/plugin/grails/grails-views">GSON - 專職打API</a>簡單又輕巧。</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Criteria/1.png" alt="" loading="lazy" decoding="async" width="1063" height="254"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Criteria/2.png" alt="" loading="lazy" decoding="async" width="1280" height="800"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">dependencies <span style="color:#f92672">{</span>
+   compile <span style="color:#e6db74">&#34;org.grails.plugins:views-json:2.0.4&#34;</span>
+   compile <span style="color:#e6db74">&#34;org.grails.plugins:views-json-templates:2.0.4&#34;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UrlMappings</span> <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;/eBook/criteria/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;criteria&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+  {
+    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038097&#34;</span>,
+    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
+    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪？&#34;</span>
+  },
+  {
+    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038098&#34;</span>,
+    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
+    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪2？&#34;</span>
+  },
+  {
+    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789572666203&#34;</span>,
+    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2021/04/16&#34;</span>,
+    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;鬼滅之刃_23完&#34;</span>
+  }
+]
+</code></pre></div><ul>
+<li>加上跟function同名的GSON檔</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Criteria/3.png" alt="" loading="lazy" decoding="async" width="1920" height="489"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Criteria/4.png" alt="" loading="lazy" decoding="async" width="1280" height="800"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">grailssql.idv.william.Book</span>
+
+<span style="color:#960050;background-color:#1e0010">model</span> {
+    <span style="color:#960050;background-color:#1e0010">ArrayList&lt;Book&gt;</span> <span style="color:#960050;background-color:#1e0010">books</span>
+}
+<span style="color:#960050;background-color:#1e0010">json</span> {
+    <span style="color:#960050;background-color:#1e0010">bookList(books)</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">Book</span> <span style="color:#960050;background-color:#1e0010">book</span> <span style="color:#960050;background-color:#1e0010">-&gt;</span>
+        <span style="color:#960050;background-color:#1e0010">title</span> <span style="color:#960050;background-color:#1e0010">book.title</span>
+        <span style="color:#960050;background-color:#1e0010">isbn</span> <span style="color:#960050;background-color:#1e0010">book.isbn13</span>
+        <span style="color:#960050;background-color:#1e0010">releaseDate</span> <span style="color:#960050;background-color:#1e0010">book.releaseDate</span>
+    }
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grailssql.idv.william.Book
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">criteria</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">def</span> books <span style="color:#f92672">=</span> Book<span style="color:#f92672">.</span><span style="color:#a6e22e">createCriteria</span><span style="color:#f92672">().</span><span style="color:#a6e22e">list</span> <span style="color:#f92672">{</span>
+
+            like<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;title&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;誰搬走了%&#34;</span><span style="color:#f92672">)</span>
+            and <span style="color:#f92672">{</span>
+                between<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;isbn13&#34;</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">9789578038090</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">9789578038099</span><span style="color:#f92672">)</span>
+            <span style="color:#f92672">}</span>
+            maxResults<span style="color:#f92672">(</span><span style="color:#ae81ff">10</span><span style="color:#f92672">)</span>
+            order<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;isbn13&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;desc&#34;</span><span style="color:#f92672">)</span>
+        <span style="color:#f92672">}</span>
+
+        respond<span style="color:#f92672">([</span>books: books<span style="color:#f92672">])</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="hql">HQL</h4>
+<ul>
+<li>這裡來介紹一下<a href="https://docs.grails.org/3.1.1/ref/Domain%20Classes/executeQuery.html">HQL語法</a>，主要有<a href="https://ithelp.ithome.com.tw/articles/10137637">四個方法 - find() / findAll() / executeQuery() / executeUpdate()</a>，在這裡以find()來做個簡單的[執行測試]((http://localhost:8080/eBook/hql)</li>
+<li>為什麼會有<a href="https://sites.google.com/a/mis.nsysu.edu.tw/cheng-shi-zi-xun-wang/java-ee-jin-jie-pian/hibernate-ji-shu/zi-liao-cha-xun/hql">HQL - HibernateSession SQL</a>這個東西呢？因為啊，每個資料庫多多少少都有自己的<a href="https://www.1keydata.com/tw/sql/sql-substring.html">語法</a>，如果要做到一寫百用，就一定要轉譯才行。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grails.converters.JSON
+<span style="color:#f92672">import</span> grailssql.idv.william.Book
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hql</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">def</span> hqlQueryString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;from Book&#39;</span><span style="color:#f92672">;</span>
+        <span style="color:#66d9ef">def</span> books <span style="color:#f92672">=</span> Book<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">(</span>hqlQueryString<span style="color:#f92672">)</span>
+
+        respond<span style="color:#f92672">([</span>books: books<span style="color:#f92672">])</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">grailssql.idv.william.Book</span>
+
+<span style="color:#960050;background-color:#1e0010">model</span> {
+    <span style="color:#960050;background-color:#1e0010">ArrayList&lt;Book&gt;</span> <span style="color:#960050;background-color:#1e0010">books</span>
+}
+<span style="color:#960050;background-color:#1e0010">json</span> {
+    <span style="color:#960050;background-color:#1e0010">result(books)</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">Book</span> <span style="color:#960050;background-color:#1e0010">book</span> <span style="color:#960050;background-color:#1e0010">-&gt;</span>
+        <span style="color:#960050;background-color:#1e0010">title</span> <span style="color:#960050;background-color:#1e0010">book.title</span>
+        <span style="color:#960050;background-color:#1e0010">isbn</span> <span style="color:#960050;background-color:#1e0010">book.isbn13</span>
+        <span style="color:#960050;background-color:#1e0010">releaseDate</span> <span style="color:#960050;background-color:#1e0010">book.releaseDate</span>
+    }
+<span style="color:#960050;background-color:#1e0010">}</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/HQL/1.png" alt="" loading="lazy" decoding="async" width="1118" height="786"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<ul>
+<li>有時候測試資料太多時，一重開就不見了，這時候就可以在<a href="https://www.jianshu.com/p/fb6731ee53d2">application.yml的dbCreate</a>去做設定，讓它不要重新建立資料庫。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">dbCreate</span>: <span style="color:#ae81ff">update</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/HQL/2.png" alt="" loading="lazy" decoding="async" width="1516" height="622"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="sql">SQL</h4>
+<ul>
+<li>如果要求效能的時候，使用原生的<a href="https://ithelp.ithome.com.tw/articles/10132229">SQL</a>就是一個好方法，這裡也來做個簡單的[執行測試]](http://localhost:8080/eBook/sql)</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grails.converters.JSON
+<span style="color:#f92672">import</span> grailssql.idv.william.Book
+<span style="color:#f92672">import</span> groovy.sql.Sql
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sql</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#66d9ef">def</span> connection <span style="color:#f92672">=</span> Sql<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span>
+                    <span style="color:#e6db74">&#34;jdbc:mysql://localhost/eBook&#34;</span><span style="color:#f92672">,</span>
+                    <span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">,</span>
+                    <span style="color:#e6db74">&#34;12345678&#34;</span><span style="color:#f92672">,</span>
+                    <span style="color:#e6db74">&#34;com.mysql.cj.jdbc.Driver&#34;</span>
+                <span style="color:#f92672">)</span>
+
+        <span style="color:#66d9ef">def</span> queryString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;select * from book&#39;</span>
+
+        ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+
+        connection<span style="color:#f92672">.</span><span style="color:#a6e22e">eachRow</span><span style="color:#f92672">(</span>queryString<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>resultSet <span style="color:#f92672">-&gt;</span>
+            result<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>resultSet<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span>
+        <span style="color:#f92672">}</span>
+
+        render<span style="color:#f92672">([</span>result: result<span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">)</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/MySQL/1.png" alt="" loading="lazy" decoding="async" width="974" height="825"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/MySQL/2.png" alt="" loading="lazy" decoding="async" width="1144" height="739"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="讀取設定檔">讀取設定檔</h4>
+<ul>
+<li>一般很常用到設定檔去做值的變換，但如果寫在Code裡面太難找了，這裡來跟大家說明如何讀取<a href="https://kknews.cc/zh-tw/code/xlllrko.html">application.yml</a>設定檔的值。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#75715e">// 讀取application.yml設定檔
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">def</span> applicationYml <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">grailsApplication</span><span style="color:#f92672">.</span><span style="color:#a6e22e">config</span>
+        <span style="color:#66d9ef">def</span> server <span style="color:#f92672">=</span> applicationYml<span style="color:#f92672">.</span><span style="color:#a6e22e">environments</span><span style="color:#f92672">.</span><span style="color:#a6e22e">development</span><span style="color:#f92672">.</span><span style="color:#a6e22e">server</span> <span style="color:#66d9ef">as</span> HashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span>
+
+        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${server}&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Setting/1.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<ul>
+<li>另一種就是<a href="https://stackoverflow.com/questions/15389329/where-to-put-a-text-file-in-grails-and-how-to-get-the-path">讀取</a>自己定義的<a href="https://www.codenong.com/13532417/">文字檔</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+
+        <span style="color:#75715e">// 讀取文字檔 (grails-app/conf/resources/demo.txt)
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">def</span> resourceClassPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;classPath:resources/demo.txt&#39;</span>
+        <span style="color:#66d9ef">def</span> resource <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">grailsApplication</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mainContext</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span>resourceClassPath<span style="color:#f92672">)</span>
+        <span style="color:#66d9ef">def</span> fileString <span style="color:#f92672">=</span> IOUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>resource<span style="color:#f92672">.</span><span style="color:#a6e22e">inputStream</span><span style="color:#f92672">)</span>
+
+        println<span style="color:#f92672">(</span>fileString<span style="color:#f92672">)</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://WilliamWeng0609.github.io/images/2021/grails-sql/Setting/2.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h3 id="範例程式碼下載images2021grails-sqlgrailssql7z"><a href="/images/2021/grails-sql/GrailsSQL.7z">範例程式碼下載</a></h3>
+<h3 id="後記">後記</h3>
+<ul>
+<li>這篇寫得有點亂，不過至少把<a href="https://www.setn.com/News.aspx?NewsID=583583">關鍵字</a>都記下來了，以後方便查詢。</li>
+</ul>
+    </div>
+<div class="post_comments">
+  
+  
+</div>
+
+
+
+  </article>
+<aside class="sidebar">
+  <section class="sidebar_inner">
+    
+    <h2 class="mt-4">Recent Posts</h2>
+    <ul class="flex-column">
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/" class="nav-link" title="【Swift 5】我到底身在何方？我到底去到何處？">【Swift 5】我到底身在何方？我到底去到何處？</a>
+      </li>
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/" class="nav-link" title="【SwiftUI 2.0】它好用嗎？能吃嗎？">【SwiftUI 2.0】它好用嗎？能吃嗎？</a>
+      </li>
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
+      </li>
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/" class="nav-link" title="【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a>
+      </li>
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/" class="nav-link" title="【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來">【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</a>
+      </li>
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/" class="nav-link" title="【Vue.js 2.6】Vue.js的初體驗">【Vue.js 2.6】Vue.js的初體驗</a>
+      </li>
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/" class="nav-link" title="【Android 6.0】RecyclerView - 高效能的ListView">【Android 6.0】RecyclerView - 高效能的ListView</a>
+      </li>
+      <li>
+        <a href="https://WilliamWeng0609.github.io/2020/01/ffmpeg%E9%96%8B%E6%BA%90%E4%B8%94%E5%8A%9F%E8%83%BD%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86%E6%A1%86%E6%9E%B6/" class="nav-link" title="【FFmpeg】開源且功能強大的影音處理框架">【FFmpeg】開源且功能強大的影音處理框架</a>
+      </li>
+    </ul>
+    <div>
+      <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
+      <nav class="tags_nav">
+        <a href='https://WilliamWeng0609.github.io/tags/swift/' class="post_tag button button_translucent" title="swift">
+          SWIFT
+          <span class="button_tally">10</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/xcode/' class="post_tag button button_translucent" title="xcode">
+          XCODE
+          <span class="button_tally">10</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/flutter/' class="post_tag button button_translucent" title="flutter">
+          FLUTTER
+          <span class="button_tally">8</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/install/' class="post_tag button button_translucent" title="install">
+          INSTALL
+          <span class="button_tally">8</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/database/' class="post_tag button button_translucent" title="database">
+          DATABASE
+          <span class="button_tally">7</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/dart/' class="post_tag button button_translucent" title="dart">
+          DART
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/firebase/' class="post_tag button button_translucent" title="firebase">
+          FIREBASE
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/game/' class="post_tag button button_translucent" title="game">
+          GAME
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/javascript/' class="post_tag button button_translucent" title="javascript">
+          JAVASCRIPT
+          <span class="button_tally">6</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/android/' class="post_tag button button_translucent" title="android">
+          ANDROID
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/c%23/' class="post_tag button button_translucent" title="c#">
+          C#
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
+          UNITY
+          <span class="button_tally">5</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
+          NOSQL
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/android-studio/' class="post_tag button button_translucent" title="android-studio">
+          ANDROID-STUDIO
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/html/' class="post_tag button button_translucent" title="html">
+          HTML
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/kotlin/' class="post_tag button button_translucent" title="kotlin">
+          KOTLIN
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
+          NODEJS
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/vue/' class="post_tag button button_translucent" title="vue">
+          VUE
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/backend/' class="post_tag button button_translucent" title="backend">
+          BACKEND
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/framework/' class="post_tag button button_translucent" title="framework">
+          FRAMEWORK
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/github/' class="post_tag button button_translucent" title="github">
+          GITHUB
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/grails/' class="post_tag button button_translucent" title="grails">
+          GRAILS
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/groovy/' class="post_tag button button_translucent" title="groovy">
+          GROOVY
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/heroku/' class="post_tag button button_translucent" title="heroku">
+          HEROKU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/ios/' class="post_tag button button_translucent" title="ios">
+          IOS
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/java/' class="post_tag button button_translucent" title="java">
+          JAVA
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/linux/' class="post_tag button button_translucent" title="linux">
+          LINUX
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/macos/' class="post_tag button button_translucent" title="macos">
+          MACOS
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
+          TOOLS
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
+          UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/3rd/' class="post_tag button button_translucent" title="3rd">
+          3RD
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/api/' class="post_tag button button_translucent" title="api">
+          API
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/apollo/' class="post_tag button button_translucent" title="apollo">
+          APOLLO
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/ar/' class="post_tag button button_translucent" title="ar">
+          AR
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/audio/' class="post_tag button button_translucent" title="audio">
+          AUDIO
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/bash/' class="post_tag button button_translucent" title="bash">
+          BASH
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/blog/' class="post_tag button button_translucent" title="blog">
+          BLOG
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/button/' class="post_tag button button_translucent" title="button">
+          BUTTON
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/cheatsheet/' class="post_tag button button_translucent" title="cheatsheet">
+          CHEATSHEET
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/debug/' class="post_tag button button_translucent" title="debug">
+          DEBUG
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/ffmpeg/' class="post_tag button button_translucent" title="ffmpeg">
+          FFMPEG
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/firealpaca/' class="post_tag button button_translucent" title="firealpaca">
+          FIREALPACA
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/graphql/' class="post_tag button button_translucent" title="graphql">
+          GRAPHQL
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/hexo/' class="post_tag button button_translucent" title="hexo">
+          HEXO
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/homebrew/' class="post_tag button button_translucent" title="homebrew">
+          HOMEBREW
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/hotkey/' class="post_tag button button_translucent" title="hotkey">
+          HOTKEY
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/image/' class="post_tag button button_translucent" title="image">
+          IMAGE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/koa2/' class="post_tag button button_translucent" title="koa2">
+          KOA2
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/layout/' class="post_tag button button_translucent" title="layout">
+          LAYOUT
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/listview/' class="post_tag button button_translucent" title="listview">
+          LISTVIEW
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/love2d/' class="post_tag button button_translucent" title="love2d">
+          LOVE2D
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/lua/' class="post_tag button button_translucent" title="lua">
+          LUA
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/magic/' class="post_tag button button_translucent" title="magic">
+          MAGIC
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/mariadb/' class="post_tag button button_translucent" title="mariadb">
+          MARIADB
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/mas-cli/' class="post_tag button button_translucent" title="mas-cli">
+          MAS-CLI
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/mongodb/' class="post_tag button button_translucent" title="mongodb">
+          MONGODB
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
+          MYSQL
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/nativescript/' class="post_tag button button_translucent" title="nativescript">
+          NATIVESCRIPT
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/photoshop/' class="post_tag button button_translucent" title="photoshop">
+          PHOTOSHOP
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/raspberry-pi/' class="post_tag button button_translucent" title="raspberry-pi">
+          RASPBERRY-PI
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/rdbms/' class="post_tag button button_translucent" title="rdbms">
+          RDBMS
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/regex/' class="post_tag button button_translucent" title="regex">
+          REGEX
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/script/' class="post_tag button button_translucent" title="script">
+          SCRIPT
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/shell/' class="post_tag button button_translucent" title="shell">
+          SHELL
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/typescript/' class="post_tag button button_translucent" title="typescript">
+          TYPESCRIPT
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/ui/' class="post_tag button button_translucent" title="ui">
+          UI
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/video/' class="post_tag button button_translucent" title="video">
+          VIDEO
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/virtualbox/' class="post_tag button button_translucent" title="virtualbox">
+          VIRTUALBOX
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
+          VSCODE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/webapp/' class="post_tag button button_translucent" title="webapp">
+          WEBAPP
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://WilliamWeng0609.github.io/tags/yaml/' class="post_tag button button_translucent" title="yaml">
+          YAML
+          <span class="button_tally">1</span>
+        </a>
+        
+        
+      </nav>
+    </div>
+  </section>
+</aside>
+
+  
+</div>
+    </main><svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h151V331h-60v-90h60v-61c0-49.629 40.371-90 90-90h91v90h-91v61h91l-15 90h-76v181h121c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.001 18.001" id="twitter">
+    <path d="M15.891 4.013c.808-.496 1.343-1.173 1.605-2.034a8.68 8.68 0 0 1-2.351.861c-.703-.756-1.593-1.14-2.66-1.14-1.043 0-1.924.366-2.643 1.078a3.56 3.56 0 0 0-1.076 2.605c0 .309.039.585.117.819-3.076-.105-5.622-1.381-7.628-3.837-.34.601-.51 1.213-.51 1.846 0 1.301.549 2.332 1.645 3.089-.625-.053-1.176-.211-1.645-.47 0 .929.273 1.705.82 2.388a3.623 3.623 0 0 0 2.115 1.291c-.312.08-.641.118-.979.118-.312 0-.533-.026-.664-.083.23.757.664 1.371 1.291 1.841a3.652 3.652 0 0 0 2.152.743C4.148 14.173 2.625 14.69.902 14.69c-.422 0-.721-.006-.902-.038 1.697 1.102 3.586 1.649 5.676 1.649 2.139 0 4.029-.542 5.674-1.626 1.645-1.078 2.859-2.408 3.639-3.974a10.77 10.77 0 0 0 1.172-4.892v-.468a7.788 7.788 0 0 0 1.84-1.921 8.142 8.142 0 0 1-2.11.593z"
+      ></path>
+  </symbol>
+  <symbol aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="mail">
+    <path  d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="calendar">
+    <path d="M452 40h-24V0h-40v40H124V0H84v40H60C26.916 40 0 66.916 0 100v352c0 33.084 26.916 60 60 60h392c33.084 0 60-26.916 60-60V100c0-33.084-26.916-60-60-60zm20 412c0 11.028-8.972 20-20 20H60c-11.028 0-20-8.972-20-20V188h432v264zm0-304H40v-48c0-11.028 8.972-20 20-20h24v40h40V80h264v40h40V80h24c11.028 0 20 8.972 20 20v48z"></path>
+    <path d="M76 230h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 310h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zM76 390h40v40H76zm80 0h40v40h-40zm80 0h40v40h-40zm80 0h40v40h-40zm80-80h40v40h-40z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="github">
+    <path d="M255.968 5.329C114.624 5.329 0 120.401 0 262.353c0 113.536 73.344 209.856 175.104 243.872 12.8 2.368 17.472-5.568 17.472-12.384 0-6.112-.224-22.272-.352-43.712-71.2 15.52-86.24-34.464-86.24-34.464-11.616-29.696-28.416-37.6-28.416-37.6-23.264-15.936 1.728-15.616 1.728-15.616 25.696 1.824 39.2 26.496 39.2 26.496 22.848 39.264 59.936 27.936 74.528 21.344 2.304-16.608 8.928-27.936 16.256-34.368-56.832-6.496-116.608-28.544-116.608-127.008 0-28.064 9.984-51.008 26.368-68.992-2.656-6.496-11.424-32.64 2.496-68 0 0 21.504-6.912 70.4 26.336 20.416-5.696 42.304-8.544 64.096-8.64 21.728.128 43.648 2.944 64.096 8.672 48.864-33.248 70.336-26.336 70.336-26.336 13.952 35.392 5.184 61.504 2.56 68 16.416 17.984 26.304 40.928 26.304 68.992 0 98.72-59.84 120.448-116.864 126.816 9.184 7.936 17.376 23.616 17.376 47.584 0 34.368-.32 62.08-.32 70.496 0 6.88 4.608 14.88 17.6 12.352C438.72 472.145 512 375.857 512 262.353 512 120.401 397.376 5.329 255.968 5.329z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212 212" id="gitlab">
+    <path d="M12.3 74.7h54L43.3 3c-1-3.6-6.4-3.6-7.6 0L12.3 74.8z" />
+    <path d="M12.3 74.7L.5 111c-1 3.2 0 6.8 3 8.8l101.6 74-92.5-119z"/>
+    <path d="M105 193.7l-38.6-119h-54l92.7 119z"/>
+    <path d="M105 193.7l38.7-119H66.4l38.7 119z"/>
+    <path d="M105 193.7l38.7-119H198l-93 119z"/>
+    <path d="M198 74.7l11.6 36.2c1 3 0 6.6-3 8.6l-101.5 74 93-119z"/>
+    <path d="M198 74.7h-54.3L167 3c1.2-3.6 6.4-3.6 7.6 0L198 74.8z"/> 
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="rss">
+    <circle cx="3.429" cy="20.571" r="3.429"></circle>
+    <path d="M11.429 24h4.57C15.999 15.179 8.821 8.001 0 8v4.572c6.302.001 11.429 5.126 11.429 11.428z"></path>
+    <path d="M24 24C24 10.766 13.234 0 0 0v4.571c10.714 0 19.43 8.714 19.43 19.429z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="linkedin">
+    <path d="M437 0H75C33.648 0 0 33.648 0 75v362c0 41.352 33.648 75 75 75h362c41.352 0 75-33.648 75-75V75c0-41.352-33.648-75-75-75zM181 406h-60V196h60zm0-240h-60v-60h60zm210 240h-60V286c0-16.54-13.46-30-30-30s-30 13.46-30 30v120h-60V196h60v11.309C286.719 202.422 296.93 196 316 196c40.691.043 75 36.547 75 79.688zm0 0"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" id="arrow">
+    <path d="M604.501 440.509L325.398 134.956c-5.331-5.357-12.423-7.627-19.386-7.27-6.989-.357-14.056 1.913-19.387 7.27L7.499 440.509c-9.999 10.024-9.999 26.298 0 36.323s26.223 10.024 36.222 0l262.293-287.164L568.28 476.832c9.999 10.024 26.222 10.024 36.221 0 9.999-10.023 9.999-26.298 0-36.323z"></path>
+  </symbol>
+  <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="carly">
+    <path d="M504.971 239.029L448 182.059V84c0-46.317-37.682-84-84-84h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c19.851 0 36 16.149 36 36v108c0 6.365 2.529 12.47 7.029 16.971L454.059 256l-47.029 47.029A24.002 24.002 0 0 0 400 320v108c0 19.851-16.149 36-36 36h-44c-13.255 0-24 10.745-24 24s10.745 24 24 24h44c46.318 0 84-37.683 84-84v-98.059l56.971-56.971c9.372-9.372 9.372-24.568 0-33.941zM112 192V84c0-19.851 16.149-36 36-36h44c13.255 0 24-10.745 24-24S205.255 0 192 0h-44c-46.318 0-84 37.683-84 84v98.059l-56.971 56.97c-9.373 9.373-9.373 24.568 0 33.941L64 329.941V428c0 46.317 37.682 84 84 84h44c13.255 0 24-10.745 24-24s-10.745-24-24-24h-44c-19.851 0-36-16.149-36-36V320c0-6.365-2.529-12.47-7.029-16.971L57.941 256l47.029-47.029A24.002 24.002 0 0 0 112 192z"></path>
+  </symbol>
+  <symbol viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" id="copy">
+    <path d="M23 2.75A2.75 2.75 0 0 0 20.25 0H8.75A2.75 2.75 0 0 0 6 2.75v13.5A2.75 2.75 0 0 0 8.75 19h11.5A2.75 2.75 0 0 0 23 16.25zM18.25 14.5h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5zm0-3h-7.5a.75.75 0 0 1 0-1.5h7.5a.75.75 0 0 1 0 1.5z"></path>
+    <path d="M8.75 20.5a4.255 4.255 0 0 1-4.25-4.25V2.75c0-.086.02-.166.025-.25H3.75A2.752 2.752 0 0 0 1 5.25v16A2.752 2.752 0 0 0 3.75 24h12a2.752 2.752 0 0 0 2.75-2.75v-.75z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.001 512.001" id="closeme">
+    <path d="M284.286 256.002L506.143 34.144c7.811-7.811 7.811-20.475 0-28.285-7.811-7.81-20.475-7.811-28.285 0L256 227.717 34.143 5.859c-7.811-7.811-20.475-7.811-28.285 0-7.81 7.811-7.811 20.475 0 28.285l221.857 221.857L5.858 477.859c-7.811 7.811-7.811 20.475 0 28.285a19.938 19.938 0 0 0 14.143 5.857 19.94 19.94 0 0 0 14.143-5.857L256 284.287l221.857 221.857c3.905 3.905 9.024 5.857 14.143 5.857s10.237-1.952 14.143-5.857c7.811-7.811 7.811-20.475 0-28.285L284.286 256.002z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" id="open-menu">
+    <path d="M492 236H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0-160H20C8.954 76 0 84.954 0 96s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20zm0 320H20c-11.046 0-20 8.954-20 20s8.954 20 20 20h472c11.046 0 20-8.954 20-20s-8.954-20-20-20z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="instagram">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id=youtube>
+    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="stackoverflow">
+    <path d="M21 27v-8h3v11H0V19h3v8h18z"></path><path d="M17.1.2L15 1.8l7.9 10.6 2.1-1.6L17.1.2zm3.7 14.7L10.6 6.4l1.7-2 10.2 8.5-1.7 2zM7.2 12.3l12 5.6 1.1-2.4-12-5.6-1.1 2.4zm-1.8 6.8l13.56 1.96.17-2.38-13.26-2.55-.47 2.97zM19 25H5v-3h14v3z"></path>
+  </symbol>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="xing">
+    <path d="M18.188 0c-.517 0-.741.325-.927.66 0 0-7.455 13.224-7.702 13.657.015.024 4.919 9.023 4.919 9.023.17.308.436.66.967.66h3.454c.211 0 .375-.078.463-.22.089-.151.089-.346-.009-.536l-4.879-8.916c-.004-.006-.004-.016 0-.022L22.139.756c.095-.191.097-.387.006-.535C22.056.078 21.894 0 21.686 0h-3.498zM3.648 4.74c-.211 0-.385.074-.473.216-.09.149-.078.339.02.531l2.34 4.05c.004.01.004.016 0 .021L1.86 16.051c-.099.188-.093.381 0 .529.085.142.239.234.45.234h3.461c.518 0 .766-.348.945-.667l3.734-6.609-2.378-4.155c-.172-.315-.434-.659-.962-.659H3.648v.016z"/>
+  </symbol>
+</svg>
+
+
+<footer class="footer">
+  <div class="footer_inner wrap pale">
+    <img src='https://WilliamWeng0609.github.io/icons/apple-touch-icon.png' class="icon icon_2 transparent" alt="William-Weng">
+    <p>Copyright&nbsp;<span class="year"></span>&nbsp;WILLIAM-WENG. All Rights Reserved</p><a class="to_top" href="#documentTop">
+  <svg class="icon">
+  <use xlink:href="#arrow"></use>
+</svg>
+</a>
+
+  </div>
+</footer>
+
+    <script type="text/javascript" src="https://WilliamWeng0609.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

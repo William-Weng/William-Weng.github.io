@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ffmpeg on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/ffmpeg/</link>
+    <description>Recent content in ffmpeg on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 05 Jan 2020 11:58:45 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/ffmpeg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【FFmpeg】開源且功能強大的影音處理框架</title>
+      <link>https://WilliamWeng0609.github.io/2020/01/ffmpeg%E9%96%8B%E6%BA%90%E4%B8%94%E5%8A%9F%E8%83%BD%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sun, 05 Jan 2020 11:58:45 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2020/01/ffmpeg%E9%96%8B%E6%BA%90%E4%B8%94%E5%8A%9F%E8%83%BD%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86%E6%A1%86%E6%9E%B6/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/FFmpeg&#34;&gt;FFmpeg&lt;/a&gt;是一個&lt;a href=&#34;https://www.ffmpeg.org/&#34;&gt;自由軟體&lt;/a&gt;，可以執行音訊和視訊多種格式的錄影、轉檔、串流功能，市面上絕大多數的&lt;a href=&#34;https://lnpcd.blogspot.com/2012/09/ffmpeg.html&#34;&gt;影音轉檔&lt;/a&gt;工具，相信都是由它為主體產生出來的。當初主要會認識它的原因主要是因為macOS上內建錄影功能，輸出的格式是&lt;a href=&#34;http://tw.wondershare.com/mp4/mov-mp4-difference.html&#34;&gt;mov檔&lt;/a&gt;，雖然畫質相當的好，但就是檔案太大了，而且也不像在Windows上有類似&lt;a href=&#34;http://www.pcfreetime.com/&#34;&gt;格式工廠&lt;/a&gt;的轉檔APP，加上有時需要簡單的&lt;a href=&#34;https://www.forhub.io/&#34;&gt;影音合併&lt;/a&gt;，所以只有轉向CLI的方式去處理。現在就來記錄一下使用過的一些指令。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

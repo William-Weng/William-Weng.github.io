@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>html on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/html/</link>
+    <description>Recent content in html on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 29 Dec 2020 06:49:00 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</title>
+      <link>https://WilliamWeng0609.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</link>
+      <pubDate>Tue, 29 Dec 2020 06:49:00 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://vue3js.cn/&#34;&gt;Vue3正式版&lt;/a&gt;終於出現了啊，因為一開始是去學&lt;a href=&#34;https://www.books.com.tw/products/0010832387&#34;&gt;Kuro大大&lt;/a&gt;的Vue2.6的課程，剛好是&lt;a href=&#34;https://blog.darkthread.net/blog/vue-3-release/&#34;&gt;3.0&lt;/a&gt;的前一版，本來滿擔心會不會差很多，但是實際使用上好像也還好，其實是我只會皮毛而己。
+這應該是今年的最後一篇文章了，先預祝大家&lt;a href=&#34;https://www.youtube.com/watch?v=K32qgWlEIP8&#34;&gt;新年快樂&lt;/a&gt;，2021大發財。現在，讓我們來做做一個簡單的&lt;a href=&#34;https://www.vuemastery.com/&#34;&gt;購物車APP吧&lt;/a&gt;，Let&amp;rsquo;s go。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Vue.js 2.6】Vue.js的初體驗</title>
+      <link>https://WilliamWeng0609.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</link>
+      <pubDate>Fri, 03 Apr 2020 18:49:42 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://vuejs.org/&#34;&gt;Vue (讀音 /vjuː/，類似於 view)&lt;/a&gt;是一套用於構建用戶界面的&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10216661&#34;&gt;漸進式框架&lt;/a&gt;，它是由&lt;a href=&#34;https://baike.baidu.com/item/%E5%B0%A4%E9%9B%A8%E6%BA%AA/2281470&#34;&gt;尤雨溪&lt;/a&gt;開發的。Vue與其它大型框架(&lt;a href=&#34;https://angular.io/&#34;&gt;Angular&lt;/a&gt;、&lt;a href=&#34;https://zh-hant.reactjs.org/&#34;&gt;React&lt;/a&gt; )不同的是，Vue被設計為可以&lt;a href=&#34;https://player.youku.com/embed/XMzMwMTYyODMyNA==&#34;&gt;自底向上逐層應用&lt;/a&gt;。Vue的核心庫只關&lt;a href=&#34;https://cn.vuejs.org/v2/guide/&#34;&gt;注視圖層&lt;/a&gt;，不僅&lt;a href=&#34;https://kuro.tw/&#34;&gt;易於上手&lt;/a&gt;，還便於與第三方庫或既有項目整合。另一方面，當與現代化的工具鏈以及各種支持類庫結合使用時，Vue也完全能夠為複雜的單頁應用提供驅動。至於為什麼會去&lt;a href=&#34;https://jsnwork.kiiuo.com/archives/2611/vue-vue-component-%E7%B5%84%E4%BB%B6%E6%95%99%E5%AD%B8-%E4%BD%BF%E7%94%A8-v-bind%E3%80%81v-for%E3%80%81x-template/&#34;&gt;選擇VUE&lt;/a&gt;呢？其一是它很輕量，其二是因為我的英文很弱啊。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Firebase】一個能即時更新的網頁 - Hosting</title>
+      <link>https://WilliamWeng0609.github.io/2019/11/firebase%E4%B8%80%E5%80%8B%E8%83%BD%E5%8D%B3%E6%99%82%E6%9B%B4%E6%96%B0%E7%9A%84%E7%B6%B2%E9%A0%81-hosting/</link>
+      <pubDate>Sat, 30 Nov 2019 21:22:12 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/11/firebase%E4%B8%80%E5%80%8B%E8%83%BD%E5%8D%B3%E6%99%82%E6%9B%B4%E6%96%B0%E7%9A%84%E7%B6%B2%E9%A0%81-hosting/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家都有聽過&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;firebase&lt;/a&gt;的大名，它是一個資料庫，但是其實它其它也有包含網頁的部分，就叫做Hosting，跟它的Database做結合，可以更簡單的做一個有資料庫的動態網頁。安裝&lt;a href=&#34;https://firebase.google.com/docs/cli&#34;&gt;firebase-tools&lt;/a&gt;跟登入的部分就不多說了，詳情可以&lt;a href=&#34;https://WilliamWeng0609.github.io/tags/firebase/&#34;&gt;參考&lt;/a&gt;之前的網頁。我們就開始吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

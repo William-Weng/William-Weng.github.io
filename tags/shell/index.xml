@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>shell on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/shell/</link>
+    <description>Recent content in shell on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 15 May 2019 09:28:57 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/shell/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Bash Shell Script】強大的命令提示字元？</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</link>
+      <pubDate>Wed, 15 May 2019 09:28:57 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Bash&#34;&gt;Bash&lt;/a&gt;是&lt;a href=&#34;https://zh.wikipedia.org/wiki/Unix_shell&#34;&gt;Unix shell&lt;/a&gt;的一種，一般來說Bash就是可以接受用戶輸入命令的程式，包括Linux與MacOSX都將它作為預設shell，它有點類似Windows的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83&#34;&gt;命令提示字元&lt;/a&gt;，但是功能比較強大，比較像是&lt;a href=&#34;https://zh.wikipedia.org/wiki/Windows_PowerShell&#34;&gt;Windows PowerShell&lt;/a&gt;。說了這麼多，為什麼要學bash呢？使用GUI來做事就好了呀？因為有些日常的鎖碎小事，可以利用系統內建的bash就可以處理了，比方說影音轉檔，就可以使用&lt;a href=&#34;https://ffmpeg.org/&#34;&gt;ffmpeg&lt;/a&gt;指令，加上迴圈就可以了，其實很多影音轉檔的GUI裡面都是包ffmpeg的。說了這麼多，我們就來慢慢瞭解&lt;a href=&#34;https://devhints.io/bash&#34;&gt;bash&lt;/a&gt;的強大，學習一點簡單的Script吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

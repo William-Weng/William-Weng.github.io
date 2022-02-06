@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/github/</link>
+    <description>Recent content in github on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 24 Jun 2019 17:11:40 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Heroku】跟github結合的的雲端平臺 - Nodejs篇</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</link>
+      <pubDate>Mon, 24 Jun 2019 17:11:40 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;截至目前為止，&lt;a href=&#34;https://devcenter.heroku.com/&#34;&gt;Heroku&lt;/a&gt;支援的語言有八種，分別是&lt;a href=&#34;https://nodejs.org/zh-tw/&#34;&gt;Node.js&lt;/a&gt;、&lt;a href=&#34;https://www.ruby-lang.org/zh_tw/&#34;&gt;Ruby&lt;/a&gt;、&lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt;、&lt;a href=&#34;https://www.java.com/zh_TW/&#34;&gt;Java&lt;/a&gt;、&lt;a href=&#34;https://php.net/&#34;&gt;PHP&lt;/a&gt;、&lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt;、&lt;a href=&#34;https://www.scala-lang.org/&#34;&gt;Scala&lt;/a&gt;、&lt;a href=&#34;https://clojure.org/&#34;&gt;Clojure&lt;/a&gt;，個人為什麼會選擇這個平臺呢？主要是它主流的語言都有支援到，加上有&lt;a href=&#34;https://www.heroku.com/pricing&#34;&gt;免費&lt;/a&gt;的使用流量，網路上的&lt;a href=&#34;https://dwatow.github.io/2018/01-13-heroku-node-mvp/&#34;&gt;教學&lt;/a&gt;也多，也有SSL的保護，加上也是使用git方便管理，是不可多得的好物啊，拿來做實驗剛剛好。而在接下來的過程中，會使用Node.js為主體，在Ubuntu平臺上，部署到Heroku這個&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1&#34;&gt;PaaS&lt;/a&gt;的服務上。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【免費的Blog】github.io &#43; hexo</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</link>
+      <pubDate>Sun, 05 May 2019 14:02:22 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信身為打字工的各位一定知道&lt;a href=&#34;https://zh.wikipedia.org/wiki/GitHub&#34;&gt;GitHub&lt;/a&gt;是什麼東西吧？沒有它，人生是黑白的？有了它，就可以提早下班？上面有許許多多前人的貢獻，更有大量的&lt;a href=&#34;https://www.ithome.com.tw/voice/103336&#34;&gt;輪子&lt;/a&gt;在上面可供免費使用，真的是佛心來的。雖然它被微軟&lt;a href=&#34;https://technews.tw/2019/01/08/github-unlimited-free-private-repositories/&#34;&gt;買下來&lt;/a&gt;，但是原本要錢的&lt;a href=&#34;https://www.bnext.com.tw/article/39532/BN-2016-05-11-173915-218&#34;&gt;私人倉庫&lt;/a&gt;現在變成『免費』使用，真的是太開心了。其實GitHub除了放Code之外，它也有做為&lt;a href=&#34;https://pages.github.com/&#34;&gt;靜態網頁&lt;/a&gt;的功能，只是一般人都是去使用&lt;a href=&#34;https://www.blogger.com/&#34;&gt;Google的Blogger&lt;/a&gt;、&lt;a href=&#34;https://medium.com/&#34;&gt;Medium&lt;/a&gt;、&lt;a href=&#34;https://zh-tw.wordpress.com/&#34;&gt;Wordpress&lt;/a&gt;、&lt;a href=&#34;https://www.pixnet.net/&#34;&gt;痞客邦&lt;/a&gt;、&lt;a href=&#34;https://www.jianshu.com/&#34;&gt;簡書&lt;/a&gt;…等，其實上述的功能都相當的不錯，但是…寫文章是沒有什麼問題的，如果是寫程式相關的文章時，Code的排版跟&lt;a href=&#34;https://highlightjs.org/&#34;&gt;highlight&lt;/a&gt;就相當的重要了，有顏色的話就一目了然，在我的仔細研究之下，github.io是最優的選擇，現在就來記錄一個Blog的產生過程。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

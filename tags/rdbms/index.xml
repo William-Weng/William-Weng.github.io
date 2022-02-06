@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rdbms on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/rdbms/</link>
+    <description>Recent content in rdbms on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 07 May 2019 13:43:55 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/rdbms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
+      <pubDate>Tue, 07 May 2019 13:43:55 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
+      <description>
+        
+          
+            &lt;p&gt;依稀記得，&lt;a href=&#34;https://zh.wikipedia.org/wiki/MySQL&#34;&gt;MySQL&lt;/a&gt;這個名詞，一直是窮學生學習&lt;a href=&#34;https://zh.wikipedia.org/wiki/SQL&#34;&gt;SQL&lt;/a&gt;的代表，它是一個&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81&#34;&gt;開放原始碼&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1&#34;&gt;關聯式資料庫管理系統&lt;/a&gt;，原開發者為瑞典的&lt;a href=&#34;https://zh.wikipedia.org/wiki/MySQL_AB&#34;&gt;MySQL AB&lt;/a&gt;公司，該公司於2008年被&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6&#34;&gt;昇陽電腦 - Sun Microsystems&lt;/a&gt;收購，這時候還是開放原始碼的。到了2009年，&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%B2%E9%AA%A8%E6%96%87%E5%85%AC%E5%8F%B8&#34;&gt;甲骨文公司 - Oracle&lt;/a&gt;收購昇陽微系統公司，是的，它就是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%87%91%E5%B7%9E%E5%8B%87%E5%A3%AB&#34;&gt;NBA金州勇士隊&lt;/a&gt;的主場&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%B2%E9%AA%A8%E6%96%87%E9%AB%94%E8%82%B2%E9%A4%A8&#34;&gt;甲骨文體育館&lt;/a&gt;的那個甲骨文，在MySQL成為Oracle旗下產品之後，一些原始開發者擔心甲骨文公司收購MySQL後會有一些隱患，所以就&lt;a href=&#34;https://www.ithome.com.tw/news/86622&#34;&gt;復刻&lt;/a&gt;一個改良的版本，就是&lt;a href=&#34;https://zh.wikipedia.org/wiki/MariaDB&#34;&gt;MariaDB&lt;/a&gt;的由來，由社群開發，有商業支援，旨在繼續保持在&lt;a href=&#34;https://zh.wikipedia.org/wiki/GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81&#34;&gt;GNU GPL&lt;/a&gt;下&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%87%AA%E7%94%B1%E5%8F%8A%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%BD%AF%E4%BB%B6&#34;&gt;開源&lt;/a&gt;。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

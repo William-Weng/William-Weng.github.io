@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>raspberry-pi on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/raspberry-pi/</link>
+    <description>Recent content in raspberry-pi on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 08 Dec 2019 09:30:48 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</title>
+      <link>https://WilliamWeng0609.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
+      <pubDate>Sun, 08 Dec 2019 09:30:48 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家都有聽過&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE&#34;&gt;樹莓派 - Raspberry Pi&lt;/a&gt;的大名，它是基於&lt;a href=&#34;https://zh.wikipedia.org/wiki/Linux&#34;&gt;Linux&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%8D%95%E7%89%87%E6%9C%BA&#34;&gt;單晶片&lt;/a&gt;電腦，由英國樹莓派基金會開發，目的是以低價硬體及自由軟體促進學校的基本電腦科學教育。到目前為止，已經出到&lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34;&gt;第四代&lt;/a&gt;了，相較於二、三代來說，&lt;a href=&#34;https://makerpro.cc/2019/06/raspberry-pi-4-is-released/&#34;&gt;效能&lt;/a&gt;大增，已經可以拿來當一臺簡單的文書上網機了，4G-DDR4 + 4K-HDMI雙輸出，而且才15W，這讓有第三代的我有想買下去的衝動。接下來，我們就一步步的記錄安裝的過程吧，也學學Linux強大的指令功能。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

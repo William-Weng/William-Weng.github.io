@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ar on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/ar/</link>
+    <description>Recent content in ar on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 11 Aug 2019 16:43:41 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/ar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【AR.js】利用A-Frame.js來做個生日小卡片吧</title>
+      <link>https://WilliamWeng0609.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</link>
+      <pubDate>Sun, 11 Aug 2019 16:43:41 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;p&gt;話說，版主&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%85%89%E6%A3%8D%E8%8A%82&#34;&gt;1111光棍節&lt;/a&gt;已經過到不想過了，早就從&lt;a href=&#34;https://wiki.komica.org/%E7%AB%A5%E8%B2%9E%E9%AD%94%E6%B3%95%E5%B8%AB&#34;&gt;魔法師&lt;/a&gt;轉生成&lt;a href=&#34;https://www.ettoday.net/dalemon/post/13413&#34;&gt;大魔導士&lt;/a&gt;了，所以本魯今年的願望這是脫單，利用&lt;a href=&#34;https://www.techug.com/post/talk-about-programmer.html&#34;&gt;高級打字工&lt;/a&gt;的優勢，利用&lt;a href=&#34;https://github.com/jeromeetienne/AR.js/blob/master/README.md&#34;&gt;AR.js&lt;/a&gt; / &lt;a href=&#34;https://aframe.io/&#34;&gt;A-Frame.js&lt;/a&gt;做一張令心儀的人會&lt;a href=&#34;https://medium.com/%E9%AB%92%E6%A1%B6%E5%AD%90/%E7%94%A8ar-js%E5%81%9A%E4%B8%80%E5%80%8B%E8%AE%93%E5%8F%A6%E5%B0%8D%E6%96%B9-%E5%96%94%E5%96%94%E5%96%94%E5%96%94-%E7%9A%84%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7-4071ceea41dd&#34;&gt;喔喔喔喔&lt;/a&gt;的生日小卡片吧，相信版主一定會成功的，話不多說，&lt;a href=&#34;https://techbrood.com/aframe&#34;&gt;做就對了&lt;/a&gt;。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

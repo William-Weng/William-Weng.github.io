@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3rd on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/3rd/</link>
+    <description>Recent content in 3rd on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 14 May 2019 16:01:43 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/3rd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</link>
+      <pubDate>Tue, 14 May 2019 16:01:43 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</guid>
+      <description>
+        
+          
+            &lt;p&gt;程式界似乎流傳著一句話：『&lt;a href=&#34;https://tw.twincl.com/programming/*652e&#34;&gt;Code永遠都是別人寫的好&lt;/a&gt;』，iOS界的&lt;a href=&#34;https://zh.wikipedia.org/wiki/CocoaPods&#34;&gt;Cocoapods&lt;/a&gt;、Android界的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Gradle&#34;&gt;Gradle&lt;/a&gt;、Nodejs界的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Npm&#34;&gt;NPM&lt;/a&gt;…等管理工具，當然Dart界也有&lt;a href=&#34;https://pub.dev/&#34;&gt;Pub&lt;/a&gt;，下載現成能用的Code是件幸福的事，除了能讓工作早日完工之外，也幫公司省了一大筆的&lt;a href=&#34;https://www.taipower.com.tw/tc/page.aspx?mid=238&#34;&gt;電費&lt;/a&gt;(&lt;a href=&#34;https://labweb.mol.gov.tw/&#34;&gt;加班費？&lt;/a&gt;)，減少&lt;a href=&#34;https://www.epa.gov.tw/Page/81825C40725F211C/6a1ad12a-4903-4b78-b246-8709e7f00c2b&#34;&gt;二氧化碳的排放量&lt;/a&gt;，為&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%85%A8%E7%90%83%E5%8F%98%E6%9A%96&#34;&gt;地球&lt;/a&gt;盡份心力，何樂而不為呢？現在我們就來試試如何下載別人寫好的package來試用一下吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

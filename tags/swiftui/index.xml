@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swiftui on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/swiftui/</link>
+    <description>Recent content in swiftui on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Thu, 27 May 2021 06:27:56 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【SwiftUI 2.0】它好用嗎？能吃嗎？</title>
+      <link>https://WilliamWeng0609.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</link>
+      <pubDate>Thu, 27 May 2021 06:27:56 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</guid>
+      <description>
+        
+          
+            &lt;p&gt;因為&lt;a href=&#34;https://www.inside.com.tw/article/16548-wwdc-2019-macos-swiftui&#34;&gt;APPLE&lt;/a&gt;在&lt;a href=&#34;https://developer.apple.com/videos/wwdc2019&#34;&gt;WWDC19&lt;/a&gt;發表了&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/238/&#34;&gt;SwiftUI&lt;/a&gt;這個語法簡潔的&lt;a href=&#34;https://www.appcoda.com.tw/swiftui-introduction/&#34;&gt;Framework&lt;/a&gt;，個人發想APPLE應該是在學Google的&lt;a href=&#34;https://www.appcoda.com.tw/flutter-basics/&#34;&gt;Flutter&lt;/a&gt;吧？想讓寫APP的&lt;a href=&#34;https://michaelchen.tech/objc-programming/class-and-object/&#34;&gt;門檻&lt;/a&gt;降低，不過秉持APPLE一貫的傳統，當然這個東西只能寫自家系統的東西，像&lt;a href=&#34;https://www.apple.com/tw/macos/big-sur/&#34;&gt;macOS&lt;/a&gt; / &lt;a href=&#34;https://www.apple.com/tw/watchos/watchos-7/&#34;&gt;watchOS&lt;/a&gt; / &lt;a href=&#34;https://www.appcoda.com.tw/tvos-introduction/&#34;&gt;tvOS&lt;/a&gt;，不像Google想以&lt;a href=&#34;https://WilliamWeng0609.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;一統江湖。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

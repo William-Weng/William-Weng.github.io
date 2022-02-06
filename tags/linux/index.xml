@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/linux/</link>
+    <description>Recent content in linux on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 08 Dec 2019 09:30:48 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</title>
+      <link>https://WilliamWeng0609.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
+      <pubDate>Sun, 08 Dec 2019 09:30:48 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家都有聽過&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE&#34;&gt;樹莓派 - Raspberry Pi&lt;/a&gt;的大名，它是基於&lt;a href=&#34;https://zh.wikipedia.org/wiki/Linux&#34;&gt;Linux&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%8D%95%E7%89%87%E6%9C%BA&#34;&gt;單晶片&lt;/a&gt;電腦，由英國樹莓派基金會開發，目的是以低價硬體及自由軟體促進學校的基本電腦科學教育。到目前為止，已經出到&lt;a href=&#34;https://www.raspberrypi.org/products/raspberry-pi-4-model-b/&#34;&gt;第四代&lt;/a&gt;了，相較於二、三代來說，&lt;a href=&#34;https://makerpro.cc/2019/06/raspberry-pi-4-is-released/&#34;&gt;效能&lt;/a&gt;大增，已經可以拿來當一臺簡單的文書上網機了，4G-DDR4 + 4K-HDMI雙輸出，而且才15W，這讓有第三代的我有想買下去的衝動。接下來，我們就一步步的記錄安裝的過程吧，也學學Linux強大的指令功能。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Bash Shell Script】強大的命令提示字元？</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</link>
+      <pubDate>Wed, 15 May 2019 09:28:57 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/Bash&#34;&gt;Bash&lt;/a&gt;是&lt;a href=&#34;https://zh.wikipedia.org/wiki/Unix_shell&#34;&gt;Unix shell&lt;/a&gt;的一種，一般來說Bash就是可以接受用戶輸入命令的程式，包括Linux與MacOSX都將它作為預設shell，它有點類似Windows的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83&#34;&gt;命令提示字元&lt;/a&gt;，但是功能比較強大，比較像是&lt;a href=&#34;https://zh.wikipedia.org/wiki/Windows_PowerShell&#34;&gt;Windows PowerShell&lt;/a&gt;。說了這麼多，為什麼要學bash呢？使用GUI來做事就好了呀？因為有些日常的鎖碎小事，可以利用系統內建的bash就可以處理了，比方說影音轉檔，就可以使用&lt;a href=&#34;https://ffmpeg.org/&#34;&gt;ffmpeg&lt;/a&gt;指令，加上迴圈就可以了，其實很多影音轉檔的GUI裡面都是包ffmpeg的。說了這麼多，我們就來慢慢瞭解&lt;a href=&#34;https://devhints.io/bash&#34;&gt;bash&lt;/a&gt;的強大，學習一點簡單的Script吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

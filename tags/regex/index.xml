@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>regex on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/regex/</link>
+    <description>Recent content in regex on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 05 Jul 2019 13:39:34 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/regex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Javascript】利用正規表示式來過濾字串</title>
+      <link>https://WilliamWeng0609.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</link>
+      <pubDate>Fri, 05 Jul 2019 13:39:34 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F&#34;&gt;正規表示式 - Regular Expression&lt;/a&gt;，又稱&lt;a href=&#34;https://atedev.wordpress.com/2007/11/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F-regular-expression/&#34;&gt;正規表達式&lt;/a&gt;、&lt;a href=&#34;https://transbiz.com.tw/regex-regular-expression-ga-%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/&#34;&gt;正規表示法&lt;/a&gt;、&lt;a href=&#34;https://larry850806.github.io/2016/06/23/regex/&#34;&gt;規則運算式&lt;/a&gt;、常規表示法，它是用來做字串比對的語法，其實大部分的程式語言都會有，一般在簡單的&lt;a href=&#34;https://hengxiuxu.blogspot.com/2017/10/regular-expression.html&#34;&gt;字串比對&lt;/a&gt;上面，比如說：英文句子中把you are換成you&amp;rsquo;re，利用該程式語言的語法去暴力搜尋即可，但如果是比較複雜的比對呢？常見的像是eMail有沒有符合格式，手機電話號碼的格式，日期的格式等…，如果直接使用該程式語言去寫，除了曠日費時之外，另外也很難寫的很完整，難免會有沒有測到的地方，那為何不用『專門』的方法去做處理呢？以下的測試可以在&lt;a href=&#34;https://regex101.com/&#34;&gt;Regex101&lt;/a&gt;這個網站去做Demo，各程式的正規式使用方法就不在這裡說明了。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

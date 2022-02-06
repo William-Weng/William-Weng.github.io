@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>install on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/install/</link>
+    <description>Recent content in install on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 14 May 2019 09:55:58 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/install/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
+      <pubDate>Tue, 14 May 2019 09:55:58 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
+      <description>
+        
+          
+            &lt;p&gt;恐怖喔，&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%8F%B8%E9%A6%AC%E4%B8%AD%E5%8E%9F&#34;&gt;恐怖到了極點喔&lt;/a&gt;，沒有想到短短數日，除了Flutter已經變成&lt;a href=&#34;https://flutter.dev/docs/development/tools/sdk/releases&#34;&gt;1.5版&lt;/a&gt;之外，而且Dart也變成了&lt;a href=&#34;https://dartcode.org/releases/v3-0/&#34;&gt;3.0版&lt;/a&gt;，更恐怖是它開始可以寫&lt;a href=&#34;https://jonny-huang.github.io/flutter/flutter_003/&#34;&gt;WebApp&lt;/a&gt;了耶，雖然Dart一開始就是想要取代JavaScript的，但是因為TypeScript可以原生支援JavaScript，所以就敗下陣來，而後在Flutter的加持下又重新受到大家的關注，如今Flutter藉由Dart可轉譯為JavaScript的特性，開始計畫性的侵蝕WebApp。好吧，就讓我們來做個簡單的WebApp吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
+      <pubDate>Sun, 12 May 2019 13:30:57 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/VirtualBox&#34;&gt;VirtualBox&lt;/a&gt;是一套免費的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8&#34;&gt;VM系統&lt;/a&gt;，當然像是微軟的&lt;a href=&#34;https://zh.wikipedia.org/wiki/VMware_Workstation&#34;&gt;VMWare&lt;/a&gt;，還是只有mac版的&lt;a href=&#34;https://www.parallels.com/&#34;&gt;Parallels Desktop&lt;/a&gt;，都是不錯的選擇，今天為什麼要選擇VirtualBox呢？主要是因為Parallels Desktop 14 Lite安裝完成之後，居然就要我訂閱，它不是免費版的嗎？而且我也只用Ubuntu而己呀。VirtualBox在Windows、macOS、Linux-like都可以安裝，在教學上或移動上都相當的方便，軟體上也滿穩定的。&lt;a href=&#34;https://zh.wikipedia.org/wiki/MongoDB&#34;&gt;MongoDB&lt;/a&gt;是一套&lt;a href=&#34;&#34;&gt;NoSQL資料庫&lt;/a&gt;，有別於&lt;a href=&#34;https://zh.wikipedia.org/wiki/SQL&#34;&gt;SQL&lt;/a&gt;類的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;關聯式資料庫&lt;/a&gt;，NoSQL主要指非關係型、分散式、不提供&lt;a href=&#34;https://zh.wikipedia.org/wiki/ACID&#34;&gt;ACID&lt;/a&gt;的資料庫設計模式，它是強調Key-Value Stores和文件資料庫的優點，而不是單純的反對&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1&#34;&gt;RDBMS&lt;/a&gt;。說了這麼多，現在我們就來安裝吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
+      <pubDate>Tue, 07 May 2019 13:43:55 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
+      <description>
+        
+          
+            &lt;p&gt;依稀記得，&lt;a href=&#34;https://zh.wikipedia.org/wiki/MySQL&#34;&gt;MySQL&lt;/a&gt;這個名詞，一直是窮學生學習&lt;a href=&#34;https://zh.wikipedia.org/wiki/SQL&#34;&gt;SQL&lt;/a&gt;的代表，它是一個&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81&#34;&gt;開放原始碼&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1&#34;&gt;關聯式資料庫管理系統&lt;/a&gt;，原開發者為瑞典的&lt;a href=&#34;https://zh.wikipedia.org/wiki/MySQL_AB&#34;&gt;MySQL AB&lt;/a&gt;公司，該公司於2008年被&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6&#34;&gt;昇陽電腦 - Sun Microsystems&lt;/a&gt;收購，這時候還是開放原始碼的。到了2009年，&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%B2%E9%AA%A8%E6%96%87%E5%85%AC%E5%8F%B8&#34;&gt;甲骨文公司 - Oracle&lt;/a&gt;收購昇陽微系統公司，是的，它就是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%87%91%E5%B7%9E%E5%8B%87%E5%A3%AB&#34;&gt;NBA金州勇士隊&lt;/a&gt;的主場&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%B2%E9%AA%A8%E6%96%87%E9%AB%94%E8%82%B2%E9%A4%A8&#34;&gt;甲骨文體育館&lt;/a&gt;的那個甲骨文，在MySQL成為Oracle旗下產品之後，一些原始開發者擔心甲骨文公司收購MySQL後會有一些隱患，所以就&lt;a href=&#34;https://www.ithome.com.tw/news/86622&#34;&gt;復刻&lt;/a&gt;一個改良的版本，就是&lt;a href=&#34;https://zh.wikipedia.org/wiki/MariaDB&#34;&gt;MariaDB&lt;/a&gt;的由來，由社群開發，有商業支援，旨在繼續保持在&lt;a href=&#34;https://zh.wikipedia.org/wiki/GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81&#34;&gt;GNU GPL&lt;/a&gt;下&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%87%AA%E7%94%B1%E5%8F%8A%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%BD%AF%E4%BB%B6&#34;&gt;開源&lt;/a&gt;。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【TypeScript 3.2】強類型的JavaScript - TypeScript</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</link>
+      <pubDate>Mon, 06 May 2019 16:25:52 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</guid>
+      <description>
+        
+          
+            &lt;p&gt;記得當時年紀小，一直以為&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/Java&#34;&gt;Java&lt;/a&gt;是類似的東西，後來才發現原來JavaScript是在寫網頁的特效啊，雖然簡單易學，但是只有&lt;a href=&#34;http://marklin-blog.logdown.com/posts/294468-javascript-single-thread&#34;&gt;單線程&lt;/a&gt;，一寫不好網頁就當在那裡了，而且當時只是用來寫&lt;a href=&#34;https://dotblogs.com.tw/puma/2008/10/06/5597&#34;&gt;防滑鼠右鍵跟Ctrl + C&lt;/a&gt;的工具，到了後來，JavaScript使用的範圍越來越廣泛，如雨後春筍般的framework一個接一個，已經算是前臺的必備良藥，後來&lt;a href=&#34;https://zh.wikipedia.org/wiki/V8_(JavaScript%E5%BC%95%E6%93%8E)&#34;&gt;強大的V8引擎&lt;/a&gt;，跟能夠寫後臺資料庫的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Node.js&#34;&gt;Nodejs&lt;/a&gt;，JavaScript等於是網頁端前後臺全包，加上也能寫&lt;a href=&#34;https://zh.wikipedia.org/wiki/Adobe_PhoneGap&#34;&gt;手機APP&lt;/a&gt;，將來真的是JavaScript一統天下。但是就因為JavaScript語法簡單，專案一大就顯得難以維護，其中著名的框架&lt;a href=&#34;https://www.oschina.net/news/100515/plans-for-the-next-iteration-of-vue-js&#34;&gt;VUE 3.0&lt;/a&gt;就正在用&lt;a href=&#34;https://zh.wikipedia.org/wiki/TypeScript&#34;&gt;TypeScript&lt;/a&gt;重寫，而TypeScript就只是JavaScript的一個&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%90%E9%9B%86&#34;&gt;超集&lt;/a&gt;，加上有&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BC%B7%E5%BC%B1%E5%9E%8B%E5%88%A5&#34;&gt;強類型&lt;/a&gt;的支援，讓Debug更簡單，而且可以讓Code變少，易於維護。現在，我們就來介紹TypeScript怎麼跟JavaScript和平共處。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【免費的Blog】github.io &#43; hexo</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</link>
+      <pubDate>Sun, 05 May 2019 14:02:22 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信身為打字工的各位一定知道&lt;a href=&#34;https://zh.wikipedia.org/wiki/GitHub&#34;&gt;GitHub&lt;/a&gt;是什麼東西吧？沒有它，人生是黑白的？有了它，就可以提早下班？上面有許許多多前人的貢獻，更有大量的&lt;a href=&#34;https://www.ithome.com.tw/voice/103336&#34;&gt;輪子&lt;/a&gt;在上面可供免費使用，真的是佛心來的。雖然它被微軟&lt;a href=&#34;https://technews.tw/2019/01/08/github-unlimited-free-private-repositories/&#34;&gt;買下來&lt;/a&gt;，但是原本要錢的&lt;a href=&#34;https://www.bnext.com.tw/article/39532/BN-2016-05-11-173915-218&#34;&gt;私人倉庫&lt;/a&gt;現在變成『免費』使用，真的是太開心了。其實GitHub除了放Code之外，它也有做為&lt;a href=&#34;https://pages.github.com/&#34;&gt;靜態網頁&lt;/a&gt;的功能，只是一般人都是去使用&lt;a href=&#34;https://www.blogger.com/&#34;&gt;Google的Blogger&lt;/a&gt;、&lt;a href=&#34;https://medium.com/&#34;&gt;Medium&lt;/a&gt;、&lt;a href=&#34;https://zh-tw.wordpress.com/&#34;&gt;Wordpress&lt;/a&gt;、&lt;a href=&#34;https://www.pixnet.net/&#34;&gt;痞客邦&lt;/a&gt;、&lt;a href=&#34;https://www.jianshu.com/&#34;&gt;簡書&lt;/a&gt;…等，其實上述的功能都相當的不錯，但是…寫文章是沒有什麼問題的，如果是寫程式相關的文章時，Code的排版跟&lt;a href=&#34;https://highlightjs.org/&#34;&gt;highlight&lt;/a&gt;就相當的重要了，有顏色的話就一目了然，在我的仔細研究之下，github.io是最優的選擇，現在就來記錄一個Blog的產生過程。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Sun, 05 May 2019 13:00:56 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信&lt;a href=&#34;https://zh.wikipedia.org/wiki/Ubuntu&#34;&gt;Ubuntu - 烏班圖&lt;/a&gt;的名氣不用我再次強調了，基於&lt;a href=&#34;https://zh.wikipedia.org/wiki/Debian&#34;&gt;Debian發行版&lt;/a&gt;和&lt;a href=&#34;https://zh.wikipedia.org/wiki/GNOME&#34;&gt;GNOME桌面環境&lt;/a&gt;，所以使用起來穩定又好用，加上圖形介面的加持，是深怕command介面的我的不二之選。為什麼要選擇在Ubuntu上裝呢？因為絕大部分的Server端都是在類Linux上安裝的，在&lt;a href=&#34;https://zh.wikipedia.org/wiki/Windows_Server&#34;&gt;Windows Server&lt;/a&gt;或&lt;a href=&#34;https://www.apple.com/tw/macos/server/&#34;&gt;macOS Server&lt;/a&gt;上安裝的少之又少，除它們了要錢之外，最重要的是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2&#34;&gt;GUI - 圖形使用者介面&lt;/a&gt;對於用戶端而言根本是看不到的，而且又相當的吃效能，所以能單純使用的command介面的類Linux系統，自然就成為不二人選。說了這麼多，現在就來談談為什麼要學裝&lt;a href=&#34;https://zh.wikipedia.org/wiki/Node.js&#34;&gt;Nodejs&lt;/a&gt;呢？因為『這個也不會、那個也不會』的我，有時候還是會要做後端測試的時候，自己做做推播測試和一些簡單的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3&#34;&gt;API&lt;/a&gt;，而Nodejs做一些中小型的網頁是個不錯的選擇，不用去學&lt;a href=&#34;https://zh.wikipedia.org/wiki/Java&#34;&gt;Java&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/C%E2%99%AF&#34;&gt;C#&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/PHP&#34;&gt;PHP&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/Python&#34;&gt;Python&lt;/a&gt;…等，一些專門去做網頁的語言，加上&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;的語法比較簡單易學，對於一秒鐘幾百萬上下的我而言，Nodejs就是最佳人選，以下就是我的安裝心得。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【佛心的編譯器】Visual Studio Code</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</link>
+      <pubDate>Sat, 04 May 2019 17:53:51 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</guid>
+      <description>
+        
+          
+            &lt;p&gt;由&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BE%AE%E8%BD%AF&#34;&gt;Microsoft&lt;/a&gt;推出的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Visual_Studio_Code&#34;&gt;Visual Studio Code&lt;/a&gt;在這幾年打遍天下無敵手，當然微軟本身就是做軟體出身的，功力自然不在話下。之前在Windows上有用過&lt;a href=&#34;https://zh.wikipedia.org/wiki/Notepad++&#34;&gt;Notepad++&lt;/a&gt;、[Atom](&lt;a href=&#34;https://zh.wikipedia.org/wiki/Atom_(&#34;&gt;https://zh.wikipedia.org/wiki/Atom_(&lt;/a&gt;文字編輯器))、&lt;a href=&#34;https://zh.wikipedia.org/wiki/Sublime_Text&#34;&gt;Sublime Text&lt;/a&gt;、&lt;a href=&#34;http://brackets.io/&#34;&gt;Brackets&lt;/a&gt;…等，本來還期待使用&lt;a href=&#34;https://zh.wikipedia.org/wiki/Electron&#34;&gt;Electron框架 - Atom Shell&lt;/a&gt;的Atom能夠起來一統江湖，沒有想到使用上的速度越來越慢，後來我就還是乖乖的使用Notepad++。但是這時候，同樣以Electron框架的Visual Studio Code慢慢的一步一步往上爬，除了在使用速度順暢之外，套件數量也是急起直追，加上對自家的&lt;a href=&#34;https://zh.wikipedia.org/wiki/C%E2%99%AF&#34;&gt;C#&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;、和&lt;a href=&#34;https://zh.wikipedia.org/wiki/TypeScript&#34;&gt;TypeScript&lt;/a&gt;的原生支援完備，一下子就成為程式設計端的新寵兒。現在就來簡單的介紹一下Visual Studio Code的基本界面與功能。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Flutter 1.2】Flutter的安裝過程</title>
+      <link>https://WilliamWeng0609.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
+      <pubDate>Sun, 28 Apr 2019 14:30:33 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/IOS&#34;&gt;iOS&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/Android&#34;&gt;Anroid&lt;/a&gt;也差不多邁入第十年，相信&lt;a href=&#34;https://zh.wikipedia.org/wiki/App_Store_(iOS)&#34;&gt;App Store&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/Google_Play&#34;&gt;Google Play&lt;/a&gt;上的APP早就滿坑滿谷，人類能想出來的創意也差不多了，現在APP應該是求快速開發、雙平臺維護方便的道路前進才是。當然，能做手機雙平臺的IDE，不只有&lt;a href=&#34;https://zh.wikipedia.org/wiki/Google&#34;&gt;Google&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Flutter&#34;&gt;Flutter&lt;/a&gt;而已，像是&lt;a href=&#34;https://zh.wikipedia.org/wiki/Facebook&#34;&gt;Facebook&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/React&#34;&gt;React Native&lt;/a&gt;，&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BE%AE%E8%BD%AF&#34;&gt;Mircosoft&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Xamarin&#34;&gt;Xamarin&lt;/a&gt;，還有&lt;a href=&#34;https://zh.wikipedia.org/wiki/Adobe&#34;&gt;Adobe&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Adobe_PhoneGap&#34;&gt;PhoneGap&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/Apache%E8%BD%AF%E4%BB%B6%E5%9F%BA%E9%87%91%E4%BC%9A&#34;&gt;Apache&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Adobe_PhoneGap&#34;&gt;Cordova&lt;/a&gt;。今天為什麼是選擇Flutter呢？除了它爸爸Google有錢之外，Android系統跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%B2%E9%AA%A8%E6%96%87%E5%85%AC%E5%8F%B8&#34;&gt;甲骨文&lt;/a&gt;在使用Java API上的&lt;a href=&#34;https://www.ithome.com.tw/news/122102&#34;&gt;官司&lt;/a&gt;，相信Android系統早晚會棄用&lt;a href=&#34;https://zh.wikipedia.org/wiki/Java&#34;&gt;Java&lt;/a&gt;，而使用&lt;a href=&#34;https://zh.wikipedia.org/wiki/Dart&#34;&gt;Dart&lt;/a&gt;的，另外加上&lt;a href=&#34;https://zh.wikipedia.org/wiki/Google_Fuchsia&#34;&gt;Google Fuchsia&lt;/a&gt;的出現，相信Flutter除了在智慧型手機上應用之外，也能在桌面程式上能有一片天。而現在，就來記錄Flutter在&lt;a href=&#34;https://zh.wikipedia.org/wiki/MacOS&#34;&gt;macOS&lt;/a&gt;上的安裝過程，讓我們繼續看下去。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

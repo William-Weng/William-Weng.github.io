@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webapp on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/webapp/</link>
+    <description>Recent content in webapp on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 14 May 2019 09:55:58 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/webapp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
+      <pubDate>Tue, 14 May 2019 09:55:58 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
+      <description>
+        
+          
+            &lt;p&gt;恐怖喔，&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%8F%B8%E9%A6%AC%E4%B8%AD%E5%8E%9F&#34;&gt;恐怖到了極點喔&lt;/a&gt;，沒有想到短短數日，除了Flutter已經變成&lt;a href=&#34;https://flutter.dev/docs/development/tools/sdk/releases&#34;&gt;1.5版&lt;/a&gt;之外，而且Dart也變成了&lt;a href=&#34;https://dartcode.org/releases/v3-0/&#34;&gt;3.0版&lt;/a&gt;，更恐怖是它開始可以寫&lt;a href=&#34;https://jonny-huang.github.io/flutter/flutter_003/&#34;&gt;WebApp&lt;/a&gt;了耶，雖然Dart一開始就是想要取代JavaScript的，但是因為TypeScript可以原生支援JavaScript，所以就敗下陣來，而後在Flutter的加持下又重新受到大家的關注，如今Flutter藉由Dart可轉譯為JavaScript的特性，開始計畫性的侵蝕WebApp。好吧，就讓我們來做個簡單的WebApp吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

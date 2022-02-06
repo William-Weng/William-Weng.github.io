@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nodejs on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/nodejs/</link>
+    <description>Recent content in nodejs on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 24 Jun 2019 17:11:40 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Heroku】跟github結合的的雲端平臺 - Nodejs篇</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</link>
+      <pubDate>Mon, 24 Jun 2019 17:11:40 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;截至目前為止，&lt;a href=&#34;https://devcenter.heroku.com/&#34;&gt;Heroku&lt;/a&gt;支援的語言有八種，分別是&lt;a href=&#34;https://nodejs.org/zh-tw/&#34;&gt;Node.js&lt;/a&gt;、&lt;a href=&#34;https://www.ruby-lang.org/zh_tw/&#34;&gt;Ruby&lt;/a&gt;、&lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt;、&lt;a href=&#34;https://www.java.com/zh_TW/&#34;&gt;Java&lt;/a&gt;、&lt;a href=&#34;https://php.net/&#34;&gt;PHP&lt;/a&gt;、&lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt;、&lt;a href=&#34;https://www.scala-lang.org/&#34;&gt;Scala&lt;/a&gt;、&lt;a href=&#34;https://clojure.org/&#34;&gt;Clojure&lt;/a&gt;，個人為什麼會選擇這個平臺呢？主要是它主流的語言都有支援到，加上有&lt;a href=&#34;https://www.heroku.com/pricing&#34;&gt;免費&lt;/a&gt;的使用流量，網路上的&lt;a href=&#34;https://dwatow.github.io/2018/01-13-heroku-node-mvp/&#34;&gt;教學&lt;/a&gt;也多，也有SSL的保護，加上也是使用git方便管理，是不可多得的好物啊，拿來做實驗剛剛好。而在接下來的過程中，會使用Node.js為主體，在Ubuntu平臺上，部署到Heroku這個&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1&#34;&gt;PaaS&lt;/a&gt;的服務上。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【GraphQL】Apollo Server初體驗 (Nodejs篇)</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</link>
+      <pubDate>Mon, 13 May 2019 11:07:49 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/GraphQL&#34;&gt;GraphQL&lt;/a&gt;是一種用於&lt;a href=&#34;https://graphql.org/&#34;&gt;API的查詢語言&lt;/a&gt;，這項技術是由&lt;a href=&#34;https://zh.wikipedia.org/wiki/Facebook&#34;&gt;Facebook&lt;/a&gt;從2012年開始使用，為了因應跨裝置及開發&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E4%BE%86%E6%BA%90&#34;&gt;News Feed&lt;/a&gt;功能而開發，後來覺得不錯用，所以就於2015年公開釋出，它讓Query更加自由，以往如果要新增一組Query，就必須跟後臺人員溝通，現在可以讓前臺的人有很大的空間去修改(工作又多了一項？)，有效減少Request的次數，是不是聽起來很不錯啊？現在就來試試看吧，Let&amp;rsquo;s go。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Sun, 05 May 2019 13:00:56 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信&lt;a href=&#34;https://zh.wikipedia.org/wiki/Ubuntu&#34;&gt;Ubuntu - 烏班圖&lt;/a&gt;的名氣不用我再次強調了，基於&lt;a href=&#34;https://zh.wikipedia.org/wiki/Debian&#34;&gt;Debian發行版&lt;/a&gt;和&lt;a href=&#34;https://zh.wikipedia.org/wiki/GNOME&#34;&gt;GNOME桌面環境&lt;/a&gt;，所以使用起來穩定又好用，加上圖形介面的加持，是深怕command介面的我的不二之選。為什麼要選擇在Ubuntu上裝呢？因為絕大部分的Server端都是在類Linux上安裝的，在&lt;a href=&#34;https://zh.wikipedia.org/wiki/Windows_Server&#34;&gt;Windows Server&lt;/a&gt;或&lt;a href=&#34;https://www.apple.com/tw/macos/server/&#34;&gt;macOS Server&lt;/a&gt;上安裝的少之又少，除它們了要錢之外，最重要的是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%9B%BE%E5%BD%A2%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2&#34;&gt;GUI - 圖形使用者介面&lt;/a&gt;對於用戶端而言根本是看不到的，而且又相當的吃效能，所以能單純使用的command介面的類Linux系統，自然就成為不二人選。說了這麼多，現在就來談談為什麼要學裝&lt;a href=&#34;https://zh.wikipedia.org/wiki/Node.js&#34;&gt;Nodejs&lt;/a&gt;呢？因為『這個也不會、那個也不會』的我，有時候還是會要做後端測試的時候，自己做做推播測試和一些簡單的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%8E%A5%E5%8F%A3&#34;&gt;API&lt;/a&gt;，而Nodejs做一些中小型的網頁是個不錯的選擇，不用去學&lt;a href=&#34;https://zh.wikipedia.org/wiki/Java&#34;&gt;Java&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/C%E2%99%AF&#34;&gt;C#&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/PHP&#34;&gt;PHP&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/Python&#34;&gt;Python&lt;/a&gt;…等，一些專門去做網頁的語言，加上&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;的語法比較簡單易學，對於一秒鐘幾百萬上下的我而言，Nodejs就是最佳人選，以下就是我的安裝心得。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

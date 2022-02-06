@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/javascript/</link>
+    <description>Recent content in javascript on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 29 Dec 2020 06:49:00 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</title>
+      <link>https://WilliamWeng0609.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</link>
+      <pubDate>Tue, 29 Dec 2020 06:49:00 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://vue3js.cn/&#34;&gt;Vue3正式版&lt;/a&gt;終於出現了啊，因為一開始是去學&lt;a href=&#34;https://www.books.com.tw/products/0010832387&#34;&gt;Kuro大大&lt;/a&gt;的Vue2.6的課程，剛好是&lt;a href=&#34;https://blog.darkthread.net/blog/vue-3-release/&#34;&gt;3.0&lt;/a&gt;的前一版，本來滿擔心會不會差很多，但是實際使用上好像也還好，其實是我只會皮毛而己。
+這應該是今年的最後一篇文章了，先預祝大家&lt;a href=&#34;https://www.youtube.com/watch?v=K32qgWlEIP8&#34;&gt;新年快樂&lt;/a&gt;，2021大發財。現在，讓我們來做做一個簡單的&lt;a href=&#34;https://www.vuemastery.com/&#34;&gt;購物車APP吧&lt;/a&gt;，Let&amp;rsquo;s go。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Vue.js 2.6】Vue.js的初體驗</title>
+      <link>https://WilliamWeng0609.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</link>
+      <pubDate>Fri, 03 Apr 2020 18:49:42 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://vuejs.org/&#34;&gt;Vue (讀音 /vjuː/，類似於 view)&lt;/a&gt;是一套用於構建用戶界面的&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10216661&#34;&gt;漸進式框架&lt;/a&gt;，它是由&lt;a href=&#34;https://baike.baidu.com/item/%E5%B0%A4%E9%9B%A8%E6%BA%AA/2281470&#34;&gt;尤雨溪&lt;/a&gt;開發的。Vue與其它大型框架(&lt;a href=&#34;https://angular.io/&#34;&gt;Angular&lt;/a&gt;、&lt;a href=&#34;https://zh-hant.reactjs.org/&#34;&gt;React&lt;/a&gt; )不同的是，Vue被設計為可以&lt;a href=&#34;https://player.youku.com/embed/XMzMwMTYyODMyNA==&#34;&gt;自底向上逐層應用&lt;/a&gt;。Vue的核心庫只關&lt;a href=&#34;https://cn.vuejs.org/v2/guide/&#34;&gt;注視圖層&lt;/a&gt;，不僅&lt;a href=&#34;https://kuro.tw/&#34;&gt;易於上手&lt;/a&gt;，還便於與第三方庫或既有項目整合。另一方面，當與現代化的工具鏈以及各種支持類庫結合使用時，Vue也完全能夠為複雜的單頁應用提供驅動。至於為什麼會去&lt;a href=&#34;https://jsnwork.kiiuo.com/archives/2611/vue-vue-component-%E7%B5%84%E4%BB%B6%E6%95%99%E5%AD%B8-%E4%BD%BF%E7%94%A8-v-bind%E3%80%81v-for%E3%80%81x-template/&#34;&gt;選擇VUE&lt;/a&gt;呢？其一是它很輕量，其二是因為我的英文很弱啊。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Firebase】好好用的Functions功能，自己做WebAPI</title>
+      <link>https://WilliamWeng0609.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</link>
+      <pubDate>Sun, 15 Sep 2019 12:34:13 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家多少都有聽過&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;Firebase&lt;/a&gt;是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個&lt;a href=&#34;https://firebase.google.com/docs/functions&#34;&gt;Functoins&lt;/a&gt;的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的&lt;a href=&#34;https://firebase.google.com/docs/functions/callable&#34;&gt;Framework - onCall()&lt;/a&gt;，但個人是要把它做成&lt;a href=&#34;https://firebase.google.com/docs/functions/http-events&#34;&gt;HTTP的形式 - onRequest()&lt;/a&gt;，為什麼呢？一方面是因為並不是每一個語言都有Firebase的支援，另一方面是比較容易看到輸出的結果。現在我們就來試試看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【AR.js】利用A-Frame.js來做個生日小卡片吧</title>
+      <link>https://WilliamWeng0609.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</link>
+      <pubDate>Sun, 11 Aug 2019 16:43:41 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;p&gt;話說，版主&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%85%89%E6%A3%8D%E8%8A%82&#34;&gt;1111光棍節&lt;/a&gt;已經過到不想過了，早就從&lt;a href=&#34;https://wiki.komica.org/%E7%AB%A5%E8%B2%9E%E9%AD%94%E6%B3%95%E5%B8%AB&#34;&gt;魔法師&lt;/a&gt;轉生成&lt;a href=&#34;https://www.ettoday.net/dalemon/post/13413&#34;&gt;大魔導士&lt;/a&gt;了，所以本魯今年的願望這是脫單，利用&lt;a href=&#34;https://www.techug.com/post/talk-about-programmer.html&#34;&gt;高級打字工&lt;/a&gt;的優勢，利用&lt;a href=&#34;https://github.com/jeromeetienne/AR.js/blob/master/README.md&#34;&gt;AR.js&lt;/a&gt; / &lt;a href=&#34;https://aframe.io/&#34;&gt;A-Frame.js&lt;/a&gt;做一張令心儀的人會&lt;a href=&#34;https://medium.com/%E9%AB%92%E6%A1%B6%E5%AD%90/%E7%94%A8ar-js%E5%81%9A%E4%B8%80%E5%80%8B%E8%AE%93%E5%8F%A6%E5%B0%8D%E6%96%B9-%E5%96%94%E5%96%94%E5%96%94%E5%96%94-%E7%9A%84%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7-4071ceea41dd&#34;&gt;喔喔喔喔&lt;/a&gt;的生日小卡片吧，相信版主一定會成功的，話不多說，&lt;a href=&#34;https://techbrood.com/aframe&#34;&gt;做就對了&lt;/a&gt;。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Javascript】利用正規表示式來過濾字串</title>
+      <link>https://WilliamWeng0609.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</link>
+      <pubDate>Fri, 05 Jul 2019 13:39:34 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F&#34;&gt;正規表示式 - Regular Expression&lt;/a&gt;，又稱&lt;a href=&#34;https://atedev.wordpress.com/2007/11/23/%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F-regular-expression/&#34;&gt;正規表達式&lt;/a&gt;、&lt;a href=&#34;https://transbiz.com.tw/regex-regular-expression-ga-%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F/&#34;&gt;正規表示法&lt;/a&gt;、&lt;a href=&#34;https://larry850806.github.io/2016/06/23/regex/&#34;&gt;規則運算式&lt;/a&gt;、常規表示法，它是用來做字串比對的語法，其實大部分的程式語言都會有，一般在簡單的&lt;a href=&#34;https://hengxiuxu.blogspot.com/2017/10/regular-expression.html&#34;&gt;字串比對&lt;/a&gt;上面，比如說：英文句子中把you are換成you&amp;rsquo;re，利用該程式語言的語法去暴力搜尋即可，但如果是比較複雜的比對呢？常見的像是eMail有沒有符合格式，手機電話號碼的格式，日期的格式等…，如果直接使用該程式語言去寫，除了曠日費時之外，另外也很難寫的很完整，難免會有沒有測到的地方，那為何不用『專門』的方法去做處理呢？以下的測試可以在&lt;a href=&#34;https://regex101.com/&#34;&gt;Regex101&lt;/a&gt;這個網站去做Demo，各程式的正規式使用方法就不在這裡說明了。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【TypeScript 3.2】強類型的JavaScript - TypeScript</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</link>
+      <pubDate>Mon, 06 May 2019 16:25:52 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</guid>
+      <description>
+        
+          
+            &lt;p&gt;記得當時年紀小，一直以為&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/Java&#34;&gt;Java&lt;/a&gt;是類似的東西，後來才發現原來JavaScript是在寫網頁的特效啊，雖然簡單易學，但是只有&lt;a href=&#34;http://marklin-blog.logdown.com/posts/294468-javascript-single-thread&#34;&gt;單線程&lt;/a&gt;，一寫不好網頁就當在那裡了，而且當時只是用來寫&lt;a href=&#34;https://dotblogs.com.tw/puma/2008/10/06/5597&#34;&gt;防滑鼠右鍵跟Ctrl + C&lt;/a&gt;的工具，到了後來，JavaScript使用的範圍越來越廣泛，如雨後春筍般的framework一個接一個，已經算是前臺的必備良藥，後來&lt;a href=&#34;https://zh.wikipedia.org/wiki/V8_(JavaScript%E5%BC%95%E6%93%8E)&#34;&gt;強大的V8引擎&lt;/a&gt;，跟能夠寫後臺資料庫的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Node.js&#34;&gt;Nodejs&lt;/a&gt;，JavaScript等於是網頁端前後臺全包，加上也能寫&lt;a href=&#34;https://zh.wikipedia.org/wiki/Adobe_PhoneGap&#34;&gt;手機APP&lt;/a&gt;，將來真的是JavaScript一統天下。但是就因為JavaScript語法簡單，專案一大就顯得難以維護，其中著名的框架&lt;a href=&#34;https://www.oschina.net/news/100515/plans-for-the-next-iteration-of-vue-js&#34;&gt;VUE 3.0&lt;/a&gt;就正在用&lt;a href=&#34;https://zh.wikipedia.org/wiki/TypeScript&#34;&gt;TypeScript&lt;/a&gt;重寫，而TypeScript就只是JavaScript的一個&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%90%E9%9B%86&#34;&gt;超集&lt;/a&gt;，加上有&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BC%B7%E5%BC%B1%E5%9E%8B%E5%88%A5&#34;&gt;強類型&lt;/a&gt;的支援，讓Debug更簡單，而且可以讓Code變少，易於維護。現在，我們就來介紹TypeScript怎麼跟JavaScript和平共處。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>api on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/api/</link>
+    <description>Recent content in api on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 15 Sep 2019 12:34:13 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/api/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Firebase】好好用的Functions功能，自己做WebAPI</title>
+      <link>https://WilliamWeng0609.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</link>
+      <pubDate>Sun, 15 Sep 2019 12:34:13 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家多少都有聽過&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;Firebase&lt;/a&gt;是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個&lt;a href=&#34;https://firebase.google.com/docs/functions&#34;&gt;Functoins&lt;/a&gt;的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的&lt;a href=&#34;https://firebase.google.com/docs/functions/callable&#34;&gt;Framework - onCall()&lt;/a&gt;，但個人是要把它做成&lt;a href=&#34;https://firebase.google.com/docs/functions/http-events&#34;&gt;HTTP的形式 - onRequest()&lt;/a&gt;，為什麼呢？一方面是因為並不是每一個語言都有Firebase的支援，另一方面是比較容易看到輸出的結果。現在我們就來試試看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

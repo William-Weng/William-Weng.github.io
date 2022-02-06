@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nosql on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/nosql/</link>
+    <description>Recent content in nosql on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Thu, 20 Jun 2019 15:18:26 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/nosql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Firebase】它要怎麼排序呢？(補充)</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</link>
+      <pubDate>Thu, 20 Jun 2019 15:18:26 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</guid>
+      <description>
+        
+          
+            &lt;p&gt;在上集的&lt;a href=&#34;../../14/firebase-money-money&#34;&gt;庫存APP中&lt;/a&gt;，雖然把東西做出來了，但熊熊發現我明明就有寫&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&#34;&gt;排序&lt;/a&gt;的Code呀，卻完全沒有反應，排序在資料庫中是很正常的功能吧？不然要資料庫幹嘛呢？如果利用手機小小的&lt;a href=&#34;https://zh.m.wikipedia.org/wiki/ARM%E6%9E%B6%E6%A7%8B&#34;&gt;CPU&lt;/a&gt;去排序，一下子就沒電了呀，我想我的人品應該沒有問題吧？所以就去問問高高手同事，也查了一下，發現…果然是我的問題呀…XD，現在我們就來排序吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Firebase】庫存APP (上傳、下載文字 / 圖片)</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</link>
+      <pubDate>Fri, 14 Jun 2019 15:13:45 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;在之前的&lt;a href=&#34;../../10/firebase-helloworld&#34;&gt;firebase初體驗&lt;/a&gt;之後，對於它的&lt;a href=&#34;http://jasonchiucc.github.io/2016/07/20/firebase-tutorial-realtime-database/&#34;&gt;Realtime功能&lt;/a&gt;相當的感興趣，所以想來做一個會&lt;a href=&#34;https://www.chinatimes.com/realtimenews/20180919002114-260407?chdtv&#34;&gt;發大財&lt;/a&gt;的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - &lt;a href=&#34;https://www.hackingwithswift.com/articles/161/how-to-use-result-in-swift&#34;&gt;Result&lt;/a&gt;，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在這裡只會說明firebase的使用，關於畫面的部分就不多做說明了。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Firebase】不用錢的NoSQL資料庫？</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</link>
+      <pubDate>Mon, 10 Jun 2019 11:25:36 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家都有聽過&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;firebase&lt;/a&gt;的大名吧？它已經是APP開發者最愛的&lt;a href=&#34;https://baike.baidu.com/item/BaaS/271609&#34;&gt;BaaS - 後端服務平臺&lt;/a&gt;之一，自從Google&lt;a href=&#34;https://www.ithome.com.tw/news/91771&#34;&gt;買下&lt;/a&gt;它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的&lt;a href=&#34;https://kknews.cc/zh-tw/tech/blrm8n9.html&#34;&gt;GCM - Google Cloud Messaging&lt;/a&gt;轉成&lt;a href=&#34;https://firebase.google.com/docs/cloud-messaging/&#34;&gt;FCM - Firebase Cloud Messaging&lt;/a&gt;，還有將&lt;a href=&#34;https://www.inside.com.tw/article/8296-google-bought-twitters-fabbric&#34;&gt;Fabric&lt;/a&gt;關閉等…，總總的跡象都表示Google的決心。其實市面上另外還有一套叫&lt;a href=&#34;http://parseplatform.org/&#34;&gt;Parse.com&lt;/a&gt;的資料庫，是由&lt;a href=&#34;https://www.ithome.com.tw/voice/95454&#34;&gt;Facebook買下&lt;/a&gt;，不過由於不賺錢就&lt;a href=&#34;https://panx.asia/archives/39160&#34;&gt;關閉跟開源了&lt;/a&gt;。以下的Code只會寫出比較重要的部分，如果要完整的Code的話，請去github下載，感謝。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
+      <pubDate>Sun, 12 May 2019 13:30:57 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/VirtualBox&#34;&gt;VirtualBox&lt;/a&gt;是一套免費的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8&#34;&gt;VM系統&lt;/a&gt;，當然像是微軟的&lt;a href=&#34;https://zh.wikipedia.org/wiki/VMware_Workstation&#34;&gt;VMWare&lt;/a&gt;，還是只有mac版的&lt;a href=&#34;https://www.parallels.com/&#34;&gt;Parallels Desktop&lt;/a&gt;，都是不錯的選擇，今天為什麼要選擇VirtualBox呢？主要是因為Parallels Desktop 14 Lite安裝完成之後，居然就要我訂閱，它不是免費版的嗎？而且我也只用Ubuntu而己呀。VirtualBox在Windows、macOS、Linux-like都可以安裝，在教學上或移動上都相當的方便，軟體上也滿穩定的。&lt;a href=&#34;https://zh.wikipedia.org/wiki/MongoDB&#34;&gt;MongoDB&lt;/a&gt;是一套&lt;a href=&#34;&#34;&gt;NoSQL資料庫&lt;/a&gt;，有別於&lt;a href=&#34;https://zh.wikipedia.org/wiki/SQL&#34;&gt;SQL&lt;/a&gt;類的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;關聯式資料庫&lt;/a&gt;，NoSQL主要指非關係型、分散式、不提供&lt;a href=&#34;https://zh.wikipedia.org/wiki/ACID&#34;&gt;ACID&lt;/a&gt;的資料庫設計模式，它是強調Key-Value Stores和文件資料庫的優點，而不是單純的反對&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1&#34;&gt;RDBMS&lt;/a&gt;。說了這麼多，現在我們就來安裝吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

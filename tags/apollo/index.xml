@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>apollo on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/apollo/</link>
+    <description>Recent content in apollo on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 13 May 2019 11:07:49 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/apollo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【GraphQL】Apollo Server初體驗 (Nodejs篇)</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</link>
+      <pubDate>Mon, 13 May 2019 11:07:49 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/GraphQL&#34;&gt;GraphQL&lt;/a&gt;是一種用於&lt;a href=&#34;https://graphql.org/&#34;&gt;API的查詢語言&lt;/a&gt;，這項技術是由&lt;a href=&#34;https://zh.wikipedia.org/wiki/Facebook&#34;&gt;Facebook&lt;/a&gt;從2012年開始使用，為了因應跨裝置及開發&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%B6%88%E6%81%AF%E4%BE%86%E6%BA%90&#34;&gt;News Feed&lt;/a&gt;功能而開發，後來覺得不錯用，所以就於2015年公開釋出，它讓Query更加自由，以往如果要新增一組Query，就必須跟後臺人員溝通，現在可以讓前臺的人有很大的空間去修改(工作又多了一項？)，有效減少Request的次數，是不是聽起來很不錯啊？現在就來試試看吧，Let&amp;rsquo;s go。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

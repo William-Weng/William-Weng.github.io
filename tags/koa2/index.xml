@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>koa2 on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/koa2/</link>
+    <description>Recent content in koa2 on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 24 Jun 2019 17:11:40 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/koa2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Heroku】跟github結合的的雲端平臺 - Nodejs篇</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</link>
+      <pubDate>Mon, 24 Jun 2019 17:11:40 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;截至目前為止，&lt;a href=&#34;https://devcenter.heroku.com/&#34;&gt;Heroku&lt;/a&gt;支援的語言有八種，分別是&lt;a href=&#34;https://nodejs.org/zh-tw/&#34;&gt;Node.js&lt;/a&gt;、&lt;a href=&#34;https://www.ruby-lang.org/zh_tw/&#34;&gt;Ruby&lt;/a&gt;、&lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt;、&lt;a href=&#34;https://www.java.com/zh_TW/&#34;&gt;Java&lt;/a&gt;、&lt;a href=&#34;https://php.net/&#34;&gt;PHP&lt;/a&gt;、&lt;a href=&#34;https://golang.org/&#34;&gt;Go&lt;/a&gt;、&lt;a href=&#34;https://www.scala-lang.org/&#34;&gt;Scala&lt;/a&gt;、&lt;a href=&#34;https://clojure.org/&#34;&gt;Clojure&lt;/a&gt;，個人為什麼會選擇這個平臺呢？主要是它主流的語言都有支援到，加上有&lt;a href=&#34;https://www.heroku.com/pricing&#34;&gt;免費&lt;/a&gt;的使用流量，網路上的&lt;a href=&#34;https://dwatow.github.io/2018/01-13-heroku-node-mvp/&#34;&gt;教學&lt;/a&gt;也多，也有SSL的保護，加上也是使用git方便管理，是不可多得的好物啊，拿來做實驗剛剛好。而在接下來的過程中，會使用Node.js為主體，在Ubuntu平臺上，部署到Heroku這個&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%B9%B3%E5%8F%B0%E5%8D%B3%E6%9C%8D%E5%8A%A1&#34;&gt;PaaS&lt;/a&gt;的服務上。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

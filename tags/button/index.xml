@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>button on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/button/</link>
+    <description>Recent content in button on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Tue, 14 May 2019 14:30:47 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/button/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</link>
+      <pubDate>Tue, 14 May 2019 14:30:47 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</guid>
+      <description>
+        
+          
+            &lt;p&gt;接下來，我們要進入按鈕動作的世界了，先介紹&lt;a href=&#34;https://proandroiddev.com/a-deep-dive-into-floatingactionbutton-in-flutter-bf95bee11627&#34;&gt;FloatingActionButton&lt;/a&gt;，其實Android的也叫&lt;a href=&#34;https://developer.android.com/guide/topics/ui/floating-action-button&#34;&gt;FloatingActionButton&lt;/a&gt;，想想這也沒錯，降低Android開發者的學習曲線。我們現在就來看看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>love2d on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/love2d/</link>
+    <description>Recent content in love2d on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 12 Apr 2021 05:41:32 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/love2d/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</title>
+      <link>https://WilliamWeng0609.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/</link>
+      <pubDate>Mon, 12 Apr 2021 05:41:32 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://love2d.org/&#34;&gt;LÖVE&lt;/a&gt;是一個免費多平臺的&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%88%97%E8%A1%A8&#34;&gt;2D遊戲引擎&lt;/a&gt;，主體是以&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/Lua&#34;&gt;Lua&lt;/a&gt;這種&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80&#34;&gt;手稿語言&lt;/a&gt;，它的語法相當&lt;a href=&#34;http://www.lua.org/&#34;&gt;簡潔&lt;/a&gt;，它是以&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/C++&#34;&gt;C++&lt;/a&gt;編寫，支援&lt;a href=&#34;https://love2d.org/wiki/Game_Distribution&#34;&gt;多平臺輸出&lt;/a&gt;，在官網有介紹幾個上架的遊戲 - &lt;a href=&#34;http://www.ohmygiraffe.com/&#34;&gt;iOS / Android&lt;/a&gt; + &lt;a href=&#34;http://bluerevolvergame.com/&#34;&gt;Windows / macOS / Linux&lt;/a&gt;，好像都是可愛的小遊戲…XD，至於為什麼會想&lt;a href=&#34;https://www.huaweicloud.com/articles/6991c25bed18e130693ce19458a0fa53.html&#34;&gt;學這個&lt;/a&gt;呢？因為&lt;a href=&#34;https://unity.com/&#34;&gt;Unity3D&lt;/a&gt;太過強大，而且自己只是想寫一個小品遊戲當成&lt;a href=&#34;https://jamesmoneylife.pixnet.net/blog/post/306094688&#34;&gt;生日禮物&lt;/a&gt;送人，&lt;a href=&#34;https://store.line.me/stickershop/product/1428520/zh-Hant&#34;&gt;工程師的浪漫&lt;/a&gt;嘛…XD，&lt;a href=&#34;https://www.bluesbear.tw/11105/%E5%8D%81%E4%BA%8C%E6%98%9F%E5%BA%A7%E7%94%B7%E7%94%9F%E7%9C%8B%E5%88%B0%E5%A5%B3%E7%94%9F%E7%AC%AC%E4%B8%80%E7%9C%BC%E6%9C%83%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9.html&#34;&gt;笑容可掬&lt;/a&gt;的女生，最高…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

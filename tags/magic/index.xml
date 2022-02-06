@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>magic on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/magic/</link>
+    <description>Recent content in magic on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sat, 25 May 2019 18:58:21 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/magic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Swift 5】手機也能變撲克牌魔術？</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</link>
+      <pubDate>Sat, 25 May 2019 18:58:21 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</guid>
+      <description>
+        
+          
+            &lt;p&gt;這篇應該算是『極短篇』吧，個人其實是滿喜歡魔術的(喜歡被騙？)，最近在Youtube上看到一篇&lt;a href=&#34;https://www.youtube.com/watch?v=hFdtbbpIAkE&#34;&gt;牌穿進手機的魔術揭秘&lt;/a&gt;，看起來是很久以前的魔術了(把妹招術？)，身為魔術師(脫魯？)的我，當然也要來練習一下，不過它這篇手機上的牌是固定的，而個人在這裡做一些改良，主要是利用&lt;a href=&#34;https://developer.apple.com/documentation/uikit/uidevice/1620046-proximitystatedidchangenotificat&#34;&gt;ProximityMonitor&lt;/a&gt;的變化，跟&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;Firebase&lt;/a&gt;的RealtimeDatabase來變魔術，讓我們來看看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

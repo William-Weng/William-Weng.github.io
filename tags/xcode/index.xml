@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xcode on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/xcode/</link>
+    <description>Recent content in xcode on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 31 May 2021 12:10:27 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/xcode/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Swift 5】我到底身在何方？我到底去到何處？</title>
+      <link>https://WilliamWeng0609.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</link>
+      <pubDate>Mon, 31 May 2021 12:10:27 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</guid>
+      <description>
+        
+          
+            &lt;p&gt;因為呢，個人&lt;a href=&#34;https://www.youtube.com/watch?v=uS_F4nw1fvA&#34;&gt;不務正業&lt;/a&gt;太久了，又加上&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/2019%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E7%97%85%E7%96%AB%E6%83%85&#34;&gt;新冠肺炎疫情&lt;/a&gt;的緣故，這來寫寫這個有關&lt;a href=&#34;https://itisjoe.gitbooks.io/swiftgo/content/apps/taipeitravel/map.html&#34;&gt;定位 / 語系&lt;/a&gt;的文章。&lt;a href=&#34;https://www.youtube.com/watch?v=FMLu34WxjXw&#34;&gt;無論你身在何方 無論你去到何處&lt;/a&gt;，我都要&lt;a href=&#34;https://www.youtube.com/watch?v=kaLTJZXqEjY&#34;&gt;定位&lt;/a&gt;的到你啦，怎麼有點&lt;a href=&#34;https://www.harpersbazaar.com/tw/culture/theatreandbooks/g33802288/love-relationship-book-2020/&#34;&gt;恐怖情人&lt;/a&gt;的感覺…XD，主要是在工作上有用到，用來判斷該給什麼語系的資料，所以想寫個&lt;a href=&#34;https://relab.cc/blog/%E6%87%B6%E4%BA%BA%E5%8C%85&#34;&gt;定位懶人包&lt;/a&gt;以後可以用，這次的文章比較多Code，話不多說，就讓我們&lt;a href=&#34;https://www.youtube.com/watch?v=obLrRjGNa5g&#34;&gt;繼續看下去&lt;/a&gt;。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【SwiftUI 2.0】它好用嗎？能吃嗎？</title>
+      <link>https://WilliamWeng0609.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</link>
+      <pubDate>Thu, 27 May 2021 06:27:56 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</guid>
+      <description>
+        
+          
+            &lt;p&gt;因為&lt;a href=&#34;https://www.inside.com.tw/article/16548-wwdc-2019-macos-swiftui&#34;&gt;APPLE&lt;/a&gt;在&lt;a href=&#34;https://developer.apple.com/videos/wwdc2019&#34;&gt;WWDC19&lt;/a&gt;發表了&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/238/&#34;&gt;SwiftUI&lt;/a&gt;這個語法簡潔的&lt;a href=&#34;https://www.appcoda.com.tw/swiftui-introduction/&#34;&gt;Framework&lt;/a&gt;，個人發想APPLE應該是在學Google的&lt;a href=&#34;https://www.appcoda.com.tw/flutter-basics/&#34;&gt;Flutter&lt;/a&gt;吧？想讓寫APP的&lt;a href=&#34;https://michaelchen.tech/objc-programming/class-and-object/&#34;&gt;門檻&lt;/a&gt;降低，不過秉持APPLE一貫的傳統，當然這個東西只能寫自家系統的東西，像&lt;a href=&#34;https://www.apple.com/tw/macos/big-sur/&#34;&gt;macOS&lt;/a&gt; / &lt;a href=&#34;https://www.apple.com/tw/watchos/watchos-7/&#34;&gt;watchOS&lt;/a&gt; / &lt;a href=&#34;https://www.appcoda.com.tw/tvos-introduction/&#34;&gt;tvOS&lt;/a&gt;，不像Google想以&lt;a href=&#34;https://WilliamWeng0609.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;一統江湖。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Swift 5】UICollectionView也能變桌布？</title>
+      <link>https://WilliamWeng0609.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</link>
+      <pubDate>Wed, 21 Aug 2019 11:04:26 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</guid>
+      <description>
+        
+          
+            &lt;p&gt;這篇應該算應該也是個『極短篇』吧？主要是因為有看到&lt;a href=&#34;https://briian.com/61174/&#34;&gt;這一篇文章&lt;/a&gt;介紹的&lt;a href=&#34;https://apps.apple.com/tw/app/grid-wallpaper/id1455306421&#34;&gt;APP - Grid Wallpaper&lt;/a&gt;，原本以為還滿好做的(其實是想省錢啦)，不過實際上試了之後發現問題不是在程式好不好寫，而是不知道要怎麼去排版，因為沒有iPhone桌面上的相關尺寸資訊(還是我找不到呢？)，所以是使用&lt;a href=&#34;http://www.getmarkman.com/&#34;&gt;馬克鰻 - MarkMan&lt;/a&gt;去量的，沒錯，用量的，話不多說，讓我們看下去吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Swift 5】iPhone也能夠有圖形解鎖？</title>
+      <link>https://WilliamWeng0609.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</link>
+      <pubDate>Tue, 30 Jul 2019 10:16:19 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</guid>
+      <description>
+        
+          
+            &lt;p&gt;話說iPhone創新總是讓人耳目一新，尤其是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%A7%A6%E6%8E%A7_ID&#34;&gt;「指紋辨識 - Touch ID」&lt;/a&gt;跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%AE%B9_ID&#34;&gt;「臉部辨識 - Face ID」&lt;/a&gt;可以算是Android手機們&lt;a href=&#34;https://cocoapods.org/pods/WWTouchIdTesting&#34;&gt;「模仿」&lt;/a&gt;的對象之一，但是Android手機圖形解鎖反而在iPhone沒有，這真的是很讓人奇怪的地方，或許是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%9F%E7%89%A9%E8%AF%86%E5%88%AB%E6%8A%80%E6%9C%AF&#34;&gt;「生物辨識」&lt;/a&gt;的安全性比圖形密碼來的高吧？在這裡呢，我們要仿製一個簡單圖形鎖，話不多說，我們就來試試看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Firebase】它要怎麼排序呢？(補充)</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</link>
+      <pubDate>Thu, 20 Jun 2019 15:18:26 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</guid>
+      <description>
+        
+          
+            &lt;p&gt;在上集的&lt;a href=&#34;../../14/firebase-money-money&#34;&gt;庫存APP中&lt;/a&gt;，雖然把東西做出來了，但熊熊發現我明明就有寫&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95&#34;&gt;排序&lt;/a&gt;的Code呀，卻完全沒有反應，排序在資料庫中是很正常的功能吧？不然要資料庫幹嘛呢？如果利用手機小小的&lt;a href=&#34;https://zh.m.wikipedia.org/wiki/ARM%E6%9E%B6%E6%A7%8B&#34;&gt;CPU&lt;/a&gt;去排序，一下子就沒電了呀，我想我的人品應該沒有問題吧？所以就去問問高高手同事，也查了一下，發現…果然是我的問題呀…XD，現在我們就來排序吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Firebase】庫存APP (上傳、下載文字 / 圖片)</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</link>
+      <pubDate>Fri, 14 Jun 2019 15:13:45 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;在之前的&lt;a href=&#34;../../10/firebase-helloworld&#34;&gt;firebase初體驗&lt;/a&gt;之後，對於它的&lt;a href=&#34;http://jasonchiucc.github.io/2016/07/20/firebase-tutorial-realtime-database/&#34;&gt;Realtime功能&lt;/a&gt;相當的感興趣，所以想來做一個會&lt;a href=&#34;https://www.chinatimes.com/realtimenews/20180919002114-260407?chdtv&#34;&gt;發大財&lt;/a&gt;的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - &lt;a href=&#34;https://www.hackingwithswift.com/articles/161/how-to-use-result-in-swift&#34;&gt;Result&lt;/a&gt;，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在這裡只會說明firebase的使用，關於畫面的部分就不多做說明了。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Firebase】不用錢的NoSQL資料庫？</title>
+      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</link>
+      <pubDate>Mon, 10 Jun 2019 11:25:36 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家都有聽過&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;firebase&lt;/a&gt;的大名吧？它已經是APP開發者最愛的&lt;a href=&#34;https://baike.baidu.com/item/BaaS/271609&#34;&gt;BaaS - 後端服務平臺&lt;/a&gt;之一，自從Google&lt;a href=&#34;https://www.ithome.com.tw/news/91771&#34;&gt;買下&lt;/a&gt;它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的&lt;a href=&#34;https://kknews.cc/zh-tw/tech/blrm8n9.html&#34;&gt;GCM - Google Cloud Messaging&lt;/a&gt;轉成&lt;a href=&#34;https://firebase.google.com/docs/cloud-messaging/&#34;&gt;FCM - Firebase Cloud Messaging&lt;/a&gt;，還有將&lt;a href=&#34;https://www.inside.com.tw/article/8296-google-bought-twitters-fabbric&#34;&gt;Fabric&lt;/a&gt;關閉等…，總總的跡象都表示Google的決心。其實市面上另外還有一套叫&lt;a href=&#34;http://parseplatform.org/&#34;&gt;Parse.com&lt;/a&gt;的資料庫，是由&lt;a href=&#34;https://www.ithome.com.tw/voice/95454&#34;&gt;Facebook買下&lt;/a&gt;，不過由於不賺錢就&lt;a href=&#34;https://panx.asia/archives/39160&#34;&gt;關閉跟開源了&lt;/a&gt;。以下的Code只會寫出比較重要的部分，如果要完整的Code的話，請去github下載，感謝。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Swift 5】手機也能變撲克牌魔術？</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</link>
+      <pubDate>Sat, 25 May 2019 18:58:21 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</guid>
+      <description>
+        
+          
+            &lt;p&gt;這篇應該算是『極短篇』吧，個人其實是滿喜歡魔術的(喜歡被騙？)，最近在Youtube上看到一篇&lt;a href=&#34;https://www.youtube.com/watch?v=hFdtbbpIAkE&#34;&gt;牌穿進手機的魔術揭秘&lt;/a&gt;，看起來是很久以前的魔術了(把妹招術？)，身為魔術師(脫魯？)的我，當然也要來練習一下，不過它這篇手機上的牌是固定的，而個人在這裡做一些改良，主要是利用&lt;a href=&#34;https://developer.apple.com/documentation/uikit/uidevice/1620046-proximitystatedidchangenotificat&#34;&gt;ProximityMonitor&lt;/a&gt;的變化，跟&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;Firebase&lt;/a&gt;的RealtimeDatabase來變魔術，讓我們來看看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95%E5%B0%87%E7%9C%9F%E6%A9%9F%E7%9A%84framework%E8%88%87%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%9A%84framework%E5%90%88%E4%BD%B5%E5%91%A2/</link>
+      <pubDate>Mon, 06 May 2019 14:45:48 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95%E5%B0%87%E7%9C%9F%E6%A9%9F%E7%9A%84framework%E8%88%87%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%9A%84framework%E5%90%88%E4%BD%B5%E5%91%A2/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;../ios-framework-swift/&#34;&gt;承上集&lt;/a&gt;我們很開心的生出了真機的framework與模擬器的的framework，但是每一次測試都要在真機在模擬器之間切換，人生苦短，難到沒有其它的好辦法嗎？各位的聲音我聽到了，接下來我們就來合併它們，我們走。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Xcode 10】如何build出可重複利用的framework (純Swift編)</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95build%E5%87%BA%E5%8F%AF%E9%87%8D%E8%A4%87%E5%88%A9%E7%94%A8%E7%9A%84framework-%E7%B4%94swift%E7%B7%A8/</link>
+      <pubDate>Mon, 06 May 2019 10:49:13 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95build%E5%87%BA%E5%8F%AF%E9%87%8D%E8%A4%87%E5%88%A9%E7%94%A8%E7%9A%84framework-%E7%B4%94swift%E7%B7%A8/</guid>
+      <description>
+        
+          
+            &lt;p&gt;話說世上總是有好人奉獻自己的心血的，像在iOS界的&lt;a href=&#34;https://zh.wikipedia.org/wiki/CocoaPods&#34;&gt;Cocoapods&lt;/a&gt;、Android界的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Gradle&#34;&gt;Gradle&lt;/a&gt;、Nodejs界的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Npm&#34;&gt;NPM&lt;/a&gt;…等管理工具，都是能快速取得第三方套件的好地方，在此感謝這些好人們，加一顆星。那我們要如何才能為這個社會盡一份心力呢？從build出私人的framework開始吧。順便工商一下，我自己也有上傳一些簡單的framework在&lt;a href=&#34;http://cocoapods.org/owners/18398&#34;&gt;Cocoaspod&lt;/a&gt;上，大家覺得不錯也多多支持一下，現在就來製作framework的HelloWorld吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

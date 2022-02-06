@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/typescript/</link>
+    <description>Recent content in typescript on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 06 May 2019 16:25:52 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【TypeScript 3.2】強類型的JavaScript - TypeScript</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</link>
+      <pubDate>Mon, 06 May 2019 16:25:52 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</guid>
+      <description>
+        
+          
+            &lt;p&gt;記得當時年紀小，一直以為&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/Java&#34;&gt;Java&lt;/a&gt;是類似的東西，後來才發現原來JavaScript是在寫網頁的特效啊，雖然簡單易學，但是只有&lt;a href=&#34;http://marklin-blog.logdown.com/posts/294468-javascript-single-thread&#34;&gt;單線程&lt;/a&gt;，一寫不好網頁就當在那裡了，而且當時只是用來寫&lt;a href=&#34;https://dotblogs.com.tw/puma/2008/10/06/5597&#34;&gt;防滑鼠右鍵跟Ctrl + C&lt;/a&gt;的工具，到了後來，JavaScript使用的範圍越來越廣泛，如雨後春筍般的framework一個接一個，已經算是前臺的必備良藥，後來&lt;a href=&#34;https://zh.wikipedia.org/wiki/V8_(JavaScript%E5%BC%95%E6%93%8E)&#34;&gt;強大的V8引擎&lt;/a&gt;，跟能夠寫後臺資料庫的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Node.js&#34;&gt;Nodejs&lt;/a&gt;，JavaScript等於是網頁端前後臺全包，加上也能寫&lt;a href=&#34;https://zh.wikipedia.org/wiki/Adobe_PhoneGap&#34;&gt;手機APP&lt;/a&gt;，將來真的是JavaScript一統天下。但是就因為JavaScript語法簡單，專案一大就顯得難以維護，其中著名的框架&lt;a href=&#34;https://www.oschina.net/news/100515/plans-for-the-next-iteration-of-vue-js&#34;&gt;VUE 3.0&lt;/a&gt;就正在用&lt;a href=&#34;https://zh.wikipedia.org/wiki/TypeScript&#34;&gt;TypeScript&lt;/a&gt;重寫，而TypeScript就只是JavaScript的一個&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%AD%90%E9%9B%86&#34;&gt;超集&lt;/a&gt;，加上有&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BC%B7%E5%BC%B1%E5%9E%8B%E5%88%A5&#34;&gt;強類型&lt;/a&gt;的支援，讓Debug更簡單，而且可以讓Code變少，易於維護。現在，我們就來介紹TypeScript怎麼跟JavaScript和平共處。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

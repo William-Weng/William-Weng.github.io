@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>groovy on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/groovy/</link>
+    <description>Recent content in groovy on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sat, 17 Apr 2021 18:09:06 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/groovy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Grails 4.0】Grails - 使用MySQL來存取資料啦</title>
+      <link>https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/</link>
+      <pubDate>Sat, 17 Apr 2021 18:09:06 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/</guid>
+      <description>
+        
+          
+            &lt;p&gt;因為最近把換成&lt;a href=&#34;https://www.apple.com/tw/shop/buy-mac/mac-mini&#34;&gt;M1版的Mac mini&lt;/a&gt;了，什麼都沒有裝，所以先來記錄一下，&lt;a href=&#34;https://min.news/zh-tw/technique/43eaeb958e2693896f2f6fd200e2fd3e.html&#34;&gt;Java類&lt;/a&gt;的APP安裝過程，也來記錄一下&lt;a href=&#34;https://www.1keydata.com/tw/sql/sql-syntax.html&#34;&gt;SQL&lt;/a&gt;的相關使用過程，&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9&#34;&gt;讀取資料&lt;/a&gt;是身為後臺最重要的一環嘛。話說&lt;a href=&#34;https://itnext.io/how-to-install-x86-and-arm-jdks-on-the-mac-m1-apple-silicon-using-sdkman-872a5adc050d&#34;&gt;SDKMAN 5.10.0&lt;/a&gt;跟&lt;a href=&#34;https://www.ithome.com.tw/news/142050&#34;&gt;IntelliJ IDEA 2020.3.1&lt;/a&gt;也開始支援&lt;a href=&#34;https://www.mdeditor.tw/pl/gzgi/zh-tw&#34;&gt;M1&lt;/a&gt;了，真的是&lt;a href=&#34;https://www.google.com/search?q=%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86&#34;&gt;可喜可賀&lt;/a&gt;啊…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</title>
+      <link>https://WilliamWeng0609.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Sun, 14 Feb 2021 17:20:11 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://grails.org/&#34;&gt;Grails&lt;/a&gt;是一種根基於&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/Groovy&#34;&gt;Groovy&lt;/a&gt;, &lt;a href=&#34;https://zh.wikipedia.org/zh-tw/Spring_Framework&#34;&gt;Spring framework&lt;/a&gt;與&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/Hibernate&#34;&gt;Hibernate&lt;/a&gt;的 Web Framework，也就是說，它把所有要開發網站所需要用到的功能都&lt;a href=&#34;https://grails.pixnet.net/blog/post/113894584-groovy---grails-%E6%98%AF%E4%BB%80%E9%BA%BC&#34;&gt;結合起來&lt;/a&gt;了，照官方的說法是 - 『A powerful Groovy-based web application framework for the JVM built on top of Spring Boot』，因為公司需要用到，所以在這裡記錄一下。身為&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%8D%95%E8%BA%AB%E7%8B%97&#34;&gt;單身狗&lt;/a&gt;的我，祝大家&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E6%83%85%E4%BA%BA%E8%8A%82&#34;&gt;情人節快樂&lt;/a&gt;，請上帝賜給我一個&lt;a href=&#34;https://www.google.com/search?q=%E7%A6%B0%E8%B1%86%E5%AD%90&#34;&gt;可愛的正妹&lt;/a&gt;吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

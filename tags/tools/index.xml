@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tools on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/tools/</link>
+    <description>Recent content in tools on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sat, 04 May 2019 17:53:51 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【佛心的編譯器】Visual Studio Code</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</link>
+      <pubDate>Sat, 04 May 2019 17:53:51 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</guid>
+      <description>
+        
+          
+            &lt;p&gt;由&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%BE%AE%E8%BD%AF&#34;&gt;Microsoft&lt;/a&gt;推出的&lt;a href=&#34;https://zh.wikipedia.org/wiki/Visual_Studio_Code&#34;&gt;Visual Studio Code&lt;/a&gt;在這幾年打遍天下無敵手，當然微軟本身就是做軟體出身的，功力自然不在話下。之前在Windows上有用過&lt;a href=&#34;https://zh.wikipedia.org/wiki/Notepad++&#34;&gt;Notepad++&lt;/a&gt;、[Atom](&lt;a href=&#34;https://zh.wikipedia.org/wiki/Atom_(&#34;&gt;https://zh.wikipedia.org/wiki/Atom_(&lt;/a&gt;文字編輯器))、&lt;a href=&#34;https://zh.wikipedia.org/wiki/Sublime_Text&#34;&gt;Sublime Text&lt;/a&gt;、&lt;a href=&#34;http://brackets.io/&#34;&gt;Brackets&lt;/a&gt;…等，本來還期待使用&lt;a href=&#34;https://zh.wikipedia.org/wiki/Electron&#34;&gt;Electron框架 - Atom Shell&lt;/a&gt;的Atom能夠起來一統江湖，沒有想到使用上的速度越來越慢，後來我就還是乖乖的使用Notepad++。但是這時候，同樣以Electron框架的Visual Studio Code慢慢的一步一步往上爬，除了在使用速度順暢之外，套件數量也是急起直追，加上對自家的&lt;a href=&#34;https://zh.wikipedia.org/wiki/C%E2%99%AF&#34;&gt;C#&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;JavaScript&lt;/a&gt;、和&lt;a href=&#34;https://zh.wikipedia.org/wiki/TypeScript&#34;&gt;TypeScript&lt;/a&gt;的原生支援完備，一下子就成為程式設計端的新寵兒。現在就來簡單的介紹一下Visual Studio Code的基本界面與功能。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Flutter UI 線上好工具】FlutterStudio.app</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/flutter-ui-%E7%B7%9A%E4%B8%8A%E5%A5%BD%E5%B7%A5%E5%85%B7flutterstudio.app/</link>
+      <pubDate>Fri, 03 May 2019 11:01:48 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-ui-%E7%B7%9A%E4%B8%8A%E5%A5%BD%E5%B7%A5%E5%85%B7flutterstudio.app/</guid>
+      <description>
+        
+          
+            &lt;p&gt;相信大家有開發過手機應用程式，它們上面都有附送視覺化的開發工具，不管是Android系統的XML，或是iOS系統的Storyboard，讓開發者能以更簡單、更視覺化方式去開發UI，而不是以純Code去撰寫畫面，除了開發方便之外，在工作上跟PM或是非程式人員的溝通上，以圖像化的方式說明，更能達到事半工倍的效果。像坊間有滿多原型工具的，像是桌面版的&lt;a href=&#34;https://www.axure.com/&#34;&gt;Axure RP&lt;/a&gt;、&lt;a href=&#34;https://modao.cc/&#34;&gt;墨刀&lt;/a&gt;、&lt;a href=&#34;https://www.mockplus.cn/&#34;&gt;摹客&lt;/a&gt;、手機版的&lt;a href=&#34;https://marvelapp.com/pop/&#34;&gt;POP&lt;/a&gt;等…，都是人與人溝通的好幫手。可惜的是，Flutter目前並沒有視覺化的UI設計工具，所有的畫面都必須寫Code的方式去處理，現在『呷好道相報』，有一個好工具要介紹給大家，它就是&lt;a href=&#34;https://flutterstudio.app/&#34;&gt;FlutterStudio.app&lt;/a&gt;，使用方式很直覺、方便，大家可以試試，這裡就不介紹它的使用方法了，內文有影片可以參考看看。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

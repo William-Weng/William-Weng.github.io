@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mongodb on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/mongodb/</link>
+    <description>Recent content in mongodb on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 12 May 2019 13:30:57 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</title>
+      <link>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
+      <pubDate>Sun, 12 May 2019 13:30:57 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://zh.wikipedia.org/wiki/VirtualBox&#34;&gt;VirtualBox&lt;/a&gt;是一套免費的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8&#34;&gt;VM系統&lt;/a&gt;，當然像是微軟的&lt;a href=&#34;https://zh.wikipedia.org/wiki/VMware_Workstation&#34;&gt;VMWare&lt;/a&gt;，還是只有mac版的&lt;a href=&#34;https://www.parallels.com/&#34;&gt;Parallels Desktop&lt;/a&gt;，都是不錯的選擇，今天為什麼要選擇VirtualBox呢？主要是因為Parallels Desktop 14 Lite安裝完成之後，居然就要我訂閱，它不是免費版的嗎？而且我也只用Ubuntu而己呀。VirtualBox在Windows、macOS、Linux-like都可以安裝，在教學上或移動上都相當的方便，軟體上也滿穩定的。&lt;a href=&#34;https://zh.wikipedia.org/wiki/MongoDB&#34;&gt;MongoDB&lt;/a&gt;是一套&lt;a href=&#34;&#34;&gt;NoSQL資料庫&lt;/a&gt;，有別於&lt;a href=&#34;https://zh.wikipedia.org/wiki/SQL&#34;&gt;SQL&lt;/a&gt;類的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93&#34;&gt;關聯式資料庫&lt;/a&gt;，NoSQL主要指非關係型、分散式、不提供&lt;a href=&#34;https://zh.wikipedia.org/wiki/ACID&#34;&gt;ACID&lt;/a&gt;的資料庫設計模式，它是強調Key-Value Stores和文件資料庫的優點，而不是單純的反對&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1&#34;&gt;RDBMS&lt;/a&gt;。說了這麼多，現在我們就來安裝吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

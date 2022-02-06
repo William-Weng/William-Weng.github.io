@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kotlin on William-Weng</title>
+    <link>https://WilliamWeng0609.github.io/tags/kotlin/</link>
+    <description>Recent content in kotlin on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 12 Jan 2020 12:28:27 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Android 6.0】RecyclerView - 高效能的ListView</title>
+      <link>https://WilliamWeng0609.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</link>
+      <pubDate>Sun, 12 Jan 2020 12:28:27 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</guid>
+      <description>
+        
+          
+            &lt;p&gt;現在要介紹的是&lt;a href=&#34;https://medium.com/@evanhou/%E6%B7%BA%E8%AB%87android-recyclerview-375f9c0eea58&#34;&gt;RecyclerView&lt;/a&gt;，這應該是手機上最常用的元件之一，就是列表。RecyclerView可以說是&lt;a href=&#34;https://qiita.com/vc7/items/3fe9edded4b8306646f5&#34;&gt;ListView&lt;/a&gt;的改良版，和&lt;a href=&#34;https://developer.android.com/reference/android/widget/ListView&#34;&gt;ListView&lt;/a&gt;相同的是，&lt;a href=&#34;https://developer.android.com/guide/topics/ui/layout/recyclerview&#34;&gt;RecyclerView&lt;/a&gt;一樣是由配置器(Adapter)來處理ItemView呈現的內容，不同的是，RecyclerView有實做&lt;a href=&#34;https://blog.csdn.net/csdn_aiyang/article/details/80094302&#34;&gt;Recycle機制&lt;/a&gt;，就像iOS的UITableView的&lt;a href=&#34;https://medium.com/@mikru168/ios-uitableviewcell%E7%9A%84%E9%87%8D%E7%94%A8%E6%A9%9F%E5%88%B6-%E7%84%A1storyboard-94e766420b57&#34;&gt;Reuse&lt;/a&gt;機制。話不多說，現在就來一步步做一個長得像這樣的APP吧，以下的說明還是會以iOS做類比。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Kotlin 1.3】findViewById()的四種方式</title>
+      <link>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Fri, 19 Jul 2019 10:38:09 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <description>
+        
+          
+            &lt;p&gt;在Android的一般教科書上，一定會說到&lt;a href=&#34;https://developer.android.com/reference/android/view/View&#34;&gt;findViewById()&lt;/a&gt;這個函式，但是到了&lt;a href=&#34;https://antonioleiva.com/kotlin-android-extensions/&#34;&gt;kotlin&lt;/a&gt;成為官方語言之後，還多了其它幾個方式去做處理，讓程式越來越好維護，語意越來越清晰，現在我們就來看看有那些方式吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Kotlin 1.3】Android程式初體驗 - Kotlin篇</title>
+      <link>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</link>
+      <pubDate>Thu, 18 Jul 2019 10:17:41 +0000</pubDate>
+      
+      <guid>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;話說，全世界的手機系統應該都被&lt;a href=&#34;https://zh.wikipedia.org/wiki/Android&#34;&gt;Android&lt;/a&gt;跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/IOS&#34;&gt;iOS&lt;/a&gt;&lt;a href=&#34;https://www.kocpc.com.tw/archives/184192&#34;&gt;佔光光&lt;/a&gt;了吧，不過最近又跑出來了一個&lt;a href=&#34;https://technews.tw/2019/07/15/huawei-say-the-android-is-the-first-choice/&#34;&gt;鴻蒙系統&lt;/a&gt;，也許未來有可能成為第三大的手機系統吧？至於為什麼要學安卓呢？因為之前有在學一點點的Flutter，發現還是要兩個平臺都要了解一些些，才知道Flutter到底在做什麼？加上本來就是兩個不同的系統，在設定上一定有所差異，加上聽說&lt;a href=&#34;https://zh.wikipedia.org/wiki/Kotlin&#34;&gt;Kotlin&lt;/a&gt;跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/Swift_(%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80)&#34;&gt;Swift&lt;/a&gt;很相像，所以就來學學看了。因為本身對iOS比較熟一點，所以後面會以iOS的名詞來做不專業的說明。話不多說，這裡就用跟&lt;a href=&#34;https://www.jetbrains.com/&#34;&gt;JetBrains&lt;/a&gt;合作的&lt;a href=&#34;https://developer.android.com/studio&#34;&gt;Android Studio&lt;/a&gt;，其實&lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt;也是JetBrains出品的。&lt;a href=&#34;https://developer.android.com/studio/install?hl=zh-cn&#34;&gt;安裝的過程&lt;/a&gt;就不多做說明了，現在馬上就來試試看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
