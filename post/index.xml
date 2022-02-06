@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on William-Weng</title>
-    <link>https://WilliamWeng0609.github.io/post/</link>
+    <link>https://William-Weng.github.io/post/</link>
     <description>Recent content in Posts on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 31 May 2021 12:10:27 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 May 2021 12:10:27 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Swift 5】我到底身在何方？我到底去到何處？</title>
-      <link>https://WilliamWeng0609.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</link>
+      <link>https://William-Weng.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</link>
       <pubDate>Mon, 31 May 2021 12:10:27 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</guid>
+      <guid>https://William-Weng.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</guid>
       <description>
         
           
@@ -25,14 +25,14 @@
     
     <item>
       <title>【SwiftUI 2.0】它好用嗎？能吃嗎？</title>
-      <link>https://WilliamWeng0609.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</link>
+      <link>https://William-Weng.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</link>
       <pubDate>Thu, 27 May 2021 06:27:56 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</guid>
+      <guid>https://William-Weng.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</guid>
       <description>
         
           
-            &lt;p&gt;因為&lt;a href=&#34;https://www.inside.com.tw/article/16548-wwdc-2019-macos-swiftui&#34;&gt;APPLE&lt;/a&gt;在&lt;a href=&#34;https://developer.apple.com/videos/wwdc2019&#34;&gt;WWDC19&lt;/a&gt;發表了&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/238/&#34;&gt;SwiftUI&lt;/a&gt;這個語法簡潔的&lt;a href=&#34;https://www.appcoda.com.tw/swiftui-introduction/&#34;&gt;Framework&lt;/a&gt;，個人發想APPLE應該是在學Google的&lt;a href=&#34;https://www.appcoda.com.tw/flutter-basics/&#34;&gt;Flutter&lt;/a&gt;吧？想讓寫APP的&lt;a href=&#34;https://michaelchen.tech/objc-programming/class-and-object/&#34;&gt;門檻&lt;/a&gt;降低，不過秉持APPLE一貫的傳統，當然這個東西只能寫自家系統的東西，像&lt;a href=&#34;https://www.apple.com/tw/macos/big-sur/&#34;&gt;macOS&lt;/a&gt; / &lt;a href=&#34;https://www.apple.com/tw/watchos/watchos-7/&#34;&gt;watchOS&lt;/a&gt; / &lt;a href=&#34;https://www.appcoda.com.tw/tvos-introduction/&#34;&gt;tvOS&lt;/a&gt;，不像Google想以&lt;a href=&#34;https://WilliamWeng0609.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;一統江湖。&lt;/p&gt;
+            &lt;p&gt;因為&lt;a href=&#34;https://www.inside.com.tw/article/16548-wwdc-2019-macos-swiftui&#34;&gt;APPLE&lt;/a&gt;在&lt;a href=&#34;https://developer.apple.com/videos/wwdc2019&#34;&gt;WWDC19&lt;/a&gt;發表了&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/238/&#34;&gt;SwiftUI&lt;/a&gt;這個語法簡潔的&lt;a href=&#34;https://www.appcoda.com.tw/swiftui-introduction/&#34;&gt;Framework&lt;/a&gt;，個人發想APPLE應該是在學Google的&lt;a href=&#34;https://www.appcoda.com.tw/flutter-basics/&#34;&gt;Flutter&lt;/a&gt;吧？想讓寫APP的&lt;a href=&#34;https://michaelchen.tech/objc-programming/class-and-object/&#34;&gt;門檻&lt;/a&gt;降低，不過秉持APPLE一貫的傳統，當然這個東西只能寫自家系統的東西，像&lt;a href=&#34;https://www.apple.com/tw/macos/big-sur/&#34;&gt;macOS&lt;/a&gt; / &lt;a href=&#34;https://www.apple.com/tw/watchos/watchos-7/&#34;&gt;watchOS&lt;/a&gt; / &lt;a href=&#34;https://www.appcoda.com.tw/tvos-introduction/&#34;&gt;tvOS&lt;/a&gt;，不像Google想以&lt;a href=&#34;https://William-Weng.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;一統江湖。&lt;/p&gt;
           
           
         
@@ -41,10 +41,10 @@
     
     <item>
       <title>【Grails 4.0】Grails - 使用MySQL來存取資料啦</title>
-      <link>https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/</link>
+      <link>https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/</link>
       <pubDate>Sat, 17 Apr 2021 18:09:06 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/</guid>
+      <guid>https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/</guid>
       <description>
         
           
@@ -57,10 +57,10 @@
     
     <item>
       <title>【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</title>
-      <link>https://WilliamWeng0609.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/</link>
+      <link>https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/</link>
       <pubDate>Mon, 12 Apr 2021 05:41:32 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/</guid>
+      <guid>https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/</guid>
       <description>
         
           
@@ -73,10 +73,10 @@
     
     <item>
       <title>【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</title>
-      <link>https://WilliamWeng0609.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</link>
+      <link>https://William-Weng.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Sun, 14 Feb 2021 17:20:11 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://William-Weng.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/</guid>
       <description>
         
           
@@ -89,10 +89,10 @@
     
     <item>
       <title>【Vue.js 3.0】Vue 3.0 - 千呼萬喚始出來</title>
-      <link>https://WilliamWeng0609.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</link>
+      <link>https://William-Weng.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</link>
       <pubDate>Tue, 29 Dec 2020 06:49:00 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</guid>
+      <guid>https://William-Weng.github.io/2020/12/vue.js-3.0vue-3.0-%E5%8D%83%E5%91%BC%E8%90%AC%E5%96%9A%E5%A7%8B%E5%87%BA%E4%BE%86/</guid>
       <description>
         
           
@@ -106,10 +106,10 @@
     
     <item>
       <title>【Vue.js 2.6】Vue.js的初體驗</title>
-      <link>https://WilliamWeng0609.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</link>
+      <link>https://William-Weng.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</link>
       <pubDate>Fri, 03 Apr 2020 18:49:42 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</guid>
+      <guid>https://William-Weng.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/</guid>
       <description>
         
           
@@ -122,10 +122,10 @@
     
     <item>
       <title>【Android 6.0】RecyclerView - 高效能的ListView</title>
-      <link>https://WilliamWeng0609.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</link>
+      <link>https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</link>
       <pubDate>Sun, 12 Jan 2020 12:28:27 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</guid>
+      <guid>https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</guid>
       <description>
         
           
@@ -138,10 +138,10 @@
     
     <item>
       <title>【FFmpeg】開源且功能強大的影音處理框架</title>
-      <link>https://WilliamWeng0609.github.io/2020/01/ffmpeg%E9%96%8B%E6%BA%90%E4%B8%94%E5%8A%9F%E8%83%BD%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86%E6%A1%86%E6%9E%B6/</link>
+      <link>https://William-Weng.github.io/2020/01/ffmpeg%E9%96%8B%E6%BA%90%E4%B8%94%E5%8A%9F%E8%83%BD%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86%E6%A1%86%E6%9E%B6/</link>
       <pubDate>Sun, 05 Jan 2020 11:58:45 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2020/01/ffmpeg%E9%96%8B%E6%BA%90%E4%B8%94%E5%8A%9F%E8%83%BD%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86%E6%A1%86%E6%9E%B6/</guid>
+      <guid>https://William-Weng.github.io/2020/01/ffmpeg%E9%96%8B%E6%BA%90%E4%B8%94%E5%8A%9F%E8%83%BD%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86%E6%A1%86%E6%9E%B6/</guid>
       <description>
         
           
@@ -154,10 +154,10 @@
     
     <item>
       <title>【Raspberry-Pi】Raspberry-Pi 4 的安裝過程</title>
-      <link>https://WilliamWeng0609.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
+      <link>https://William-Weng.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
       <pubDate>Sun, 08 Dec 2019 09:30:48 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
+      <guid>https://William-Weng.github.io/2019/12/raspberry-piraspberry-pi-4-%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
       <description>
         
           
@@ -170,14 +170,14 @@
     
     <item>
       <title>【Firebase】一個能即時更新的網頁 - Hosting</title>
-      <link>https://WilliamWeng0609.github.io/2019/11/firebase%E4%B8%80%E5%80%8B%E8%83%BD%E5%8D%B3%E6%99%82%E6%9B%B4%E6%96%B0%E7%9A%84%E7%B6%B2%E9%A0%81-hosting/</link>
+      <link>https://William-Weng.github.io/2019/11/firebase%E4%B8%80%E5%80%8B%E8%83%BD%E5%8D%B3%E6%99%82%E6%9B%B4%E6%96%B0%E7%9A%84%E7%B6%B2%E9%A0%81-hosting/</link>
       <pubDate>Sat, 30 Nov 2019 21:22:12 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/11/firebase%E4%B8%80%E5%80%8B%E8%83%BD%E5%8D%B3%E6%99%82%E6%9B%B4%E6%96%B0%E7%9A%84%E7%B6%B2%E9%A0%81-hosting/</guid>
+      <guid>https://William-Weng.github.io/2019/11/firebase%E4%B8%80%E5%80%8B%E8%83%BD%E5%8D%B3%E6%99%82%E6%9B%B4%E6%96%B0%E7%9A%84%E7%B6%B2%E9%A0%81-hosting/</guid>
       <description>
         
           
-            &lt;p&gt;相信大家都有聽過&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;firebase&lt;/a&gt;的大名，它是一個資料庫，但是其實它其它也有包含網頁的部分，就叫做Hosting，跟它的Database做結合，可以更簡單的做一個有資料庫的動態網頁。安裝&lt;a href=&#34;https://firebase.google.com/docs/cli&#34;&gt;firebase-tools&lt;/a&gt;跟登入的部分就不多說了，詳情可以&lt;a href=&#34;https://WilliamWeng0609.github.io/tags/firebase/&#34;&gt;參考&lt;/a&gt;之前的網頁。我們就開始吧。&lt;/p&gt;
+            &lt;p&gt;相信大家都有聽過&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;firebase&lt;/a&gt;的大名，它是一個資料庫，但是其實它其它也有包含網頁的部分，就叫做Hosting，跟它的Database做結合，可以更簡單的做一個有資料庫的動態網頁。安裝&lt;a href=&#34;https://firebase.google.com/docs/cli&#34;&gt;firebase-tools&lt;/a&gt;跟登入的部分就不多說了，詳情可以&lt;a href=&#34;https://William-Weng.github.io/tags/firebase/&#34;&gt;參考&lt;/a&gt;之前的網頁。我們就開始吧。&lt;/p&gt;
           
           
         
@@ -186,14 +186,14 @@
     
     <item>
       <title>【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</title>
-      <link>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</link>
+      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</link>
       <pubDate>Sun, 20 Oct 2019 09:09:40 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</guid>
+      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</guid>
       <description>
         
           
-            &lt;p&gt;在&lt;a href=&#34;https://WilliamWeng0609.github.io/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，這裡要做一個比較完整的DEMO，利用Unity的&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/Physics.html&#34;&gt;Physics屬性&lt;/a&gt;來產生碰撞跟移動的效果，其實在&lt;a href=&#34;../../13/unity3d-cat-escape/&#34;&gt;上一篇&lt;/a&gt;中使用程式去改變物體坐標位置也是可以的，不過&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%89%80%E8%A6%8B%E5%8D%B3%E6%89%80%E5%BE%97&#34;&gt;WYSIWYG - 所見即所得&lt;/a&gt;的操作還是比較親民一些，動作也比較流暢。另外也會使用&lt;a href=&#34;http://blog.ja-anything.com/2018/03/08/unity-%E5%8B%95%E7%95%AB%E7%B3%BB%E7%B5%B1%E4%B8%80animation%E4%BB%8B%E7%B4%B9%E8%88%87%E4%BD%BF%E7%94%A8/&#34;&gt;Animation&lt;/a&gt;來做簡單的2D動畫(連續換圖？)，現在我們就開始吧。&lt;/p&gt;
+            &lt;p&gt;在&lt;a href=&#34;https://William-Weng.github.io/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，這裡要做一個比較完整的DEMO，利用Unity的&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/Physics.html&#34;&gt;Physics屬性&lt;/a&gt;來產生碰撞跟移動的效果，其實在&lt;a href=&#34;../../13/unity3d-cat-escape/&#34;&gt;上一篇&lt;/a&gt;中使用程式去改變物體坐標位置也是可以的，不過&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%89%80%E8%A6%8B%E5%8D%B3%E6%89%80%E5%BE%97&#34;&gt;WYSIWYG - 所見即所得&lt;/a&gt;的操作還是比較親民一些，動作也比較流暢。另外也會使用&lt;a href=&#34;http://blog.ja-anything.com/2018/03/08/unity-%E5%8B%95%E7%95%AB%E7%B3%BB%E7%B5%B1%E4%B8%80animation%E4%BB%8B%E7%B4%B9%E8%88%87%E4%BD%BF%E7%94%A8/&#34;&gt;Animation&lt;/a&gt;來做簡單的2D動畫(連續換圖？)，現在我們就開始吧。&lt;/p&gt;
           
           
         
@@ -202,14 +202,14 @@
     
     <item>
       <title>【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</title>
-      <link>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</link>
+      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</link>
       <pubDate>Sun, 13 Oct 2019 21:45:56 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</guid>
+      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</guid>
       <description>
         
           
-            &lt;p&gt;在&lt;a href=&#34;https://WilliamWeng0609.github.io/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入&lt;a href=&#34;https://kendevlog.wordpress.com/2017/09/24/unity%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%986-prefab-%E4%BD%BF%E7%94%A8%E9%A0%88%E7%9F%A5/&#34;&gt;Prefab&lt;/a&gt;的使用，用來&lt;a href=&#34;https://medium.com/@chrislin1015/unity%E6%89%8B%E6%9C%AD-prefab%E7%B0%A1%E5%96%AE%E8%AA%AA-3327c57f4901&#34;&gt;預製(Prefabricated)&lt;/a&gt;來複製大量&lt;a href=&#34;http://gn02214231.pixnet.net/blog/post/197880271-gameobject-%E8%88%87-prefab-%E7%9A%84%E5%8D%80%E5%88%A5%E8%88%87%E5%BB%BA%E7%AB%8B&#34;&gt;重複使用&lt;/a&gt;的模板，另外還加上「&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/KeyCode.html&#34;&gt;鍵盤&lt;/a&gt; / &lt;a href=&#34;http://a032332852.pixnet.net/blog/post/278566585-unity-ugui-button%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95&#34;&gt;按鈕&lt;/a&gt;」的使用，讓我們繼續看下去吧。&lt;/p&gt;
+            &lt;p&gt;在&lt;a href=&#34;https://William-Weng.github.io/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入&lt;a href=&#34;https://kendevlog.wordpress.com/2017/09/24/unity%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%986-prefab-%E4%BD%BF%E7%94%A8%E9%A0%88%E7%9F%A5/&#34;&gt;Prefab&lt;/a&gt;的使用，用來&lt;a href=&#34;https://medium.com/@chrislin1015/unity%E6%89%8B%E6%9C%AD-prefab%E7%B0%A1%E5%96%AE%E8%AA%AA-3327c57f4901&#34;&gt;預製(Prefabricated)&lt;/a&gt;來複製大量&lt;a href=&#34;http://gn02214231.pixnet.net/blog/post/197880271-gameobject-%E8%88%87-prefab-%E7%9A%84%E5%8D%80%E5%88%A5%E8%88%87%E5%BB%BA%E7%AB%8B&#34;&gt;重複使用&lt;/a&gt;的模板，另外還加上「&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/KeyCode.html&#34;&gt;鍵盤&lt;/a&gt; / &lt;a href=&#34;http://a032332852.pixnet.net/blog/post/278566585-unity-ugui-button%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95&#34;&gt;按鈕&lt;/a&gt;」的使用，讓我們繼續看下去吧。&lt;/p&gt;
           
           
         
@@ -218,14 +218,14 @@
     
     <item>
       <title>【Unity 3D 2019】做一個有聲音的小遊戲吧</title>
-      <link>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</link>
+      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</link>
       <pubDate>Fri, 11 Oct 2019 21:59:22 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</guid>
+      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</guid>
       <description>
         
           
-            &lt;p&gt;在&lt;a href=&#34;https://WilliamWeng0609.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇轉盤小遊戲的介紹&lt;/a&gt;之後，總感覺好像少了什麼東西？對了，就是&lt;a href=&#34;https://www.techbang.com/posts/17796-game-soundtrack-history-40-invisible-4-heroes-background-music-music-theme-song-and-the-theme-song-king-of-computers-101-feature-story-today-on-the-edit-custom&#34;&gt;「聲音」&lt;/a&gt;，沒有了聲音，遊戲沒有靈魂，沒有臨場感，現在我們就來加上聲音吧。Unity支援的&lt;a href=&#34;https://support.unity3d.com/hc/en-us/articles/206484803-What-are-the-supported-Audio-formats-in-Unity-&#34;&gt;「聲音格式」&lt;/a&gt;可以自己查看一下 (其實也不多啦)。&lt;/p&gt;
+            &lt;p&gt;在&lt;a href=&#34;https://William-Weng.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇轉盤小遊戲的介紹&lt;/a&gt;之後，總感覺好像少了什麼東西？對了，就是&lt;a href=&#34;https://www.techbang.com/posts/17796-game-soundtrack-history-40-invisible-4-heroes-background-music-music-theme-song-and-the-theme-song-king-of-computers-101-feature-story-today-on-the-edit-custom&#34;&gt;「聲音」&lt;/a&gt;，沒有了聲音，遊戲沒有靈魂，沒有臨場感，現在我們就來加上聲音吧。Unity支援的&lt;a href=&#34;https://support.unity3d.com/hc/en-us/articles/206484803-What-are-the-supported-Audio-formats-in-Unity-&#34;&gt;「聲音格式」&lt;/a&gt;可以自己查看一下 (其實也不多啦)。&lt;/p&gt;
           
           
         
@@ -234,14 +234,14 @@
     
     <item>
       <title>【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</title>
-      <link>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
+      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
       <pubDate>Sun, 06 Oct 2019 16:35:20 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
+      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
       <description>
         
           
-            &lt;p&gt;相信在&lt;a href=&#34;https://WilliamWeng0609.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
+            &lt;p&gt;相信在&lt;a href=&#34;https://William-Weng.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
           
           
         
@@ -250,10 +250,10 @@
     
     <item>
       <title>【Firebase】好好用的Functions功能，自己做WebAPI</title>
-      <link>https://WilliamWeng0609.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</link>
+      <link>https://William-Weng.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</link>
       <pubDate>Sun, 15 Sep 2019 12:34:13 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</guid>
+      <guid>https://William-Weng.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/</guid>
       <description>
         
           
@@ -266,10 +266,10 @@
     
     <item>
       <title>【Swift 5】UICollectionView也能變桌布？</title>
-      <link>https://WilliamWeng0609.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</link>
+      <link>https://William-Weng.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</link>
       <pubDate>Wed, 21 Aug 2019 11:04:26 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</guid>
+      <guid>https://William-Weng.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</guid>
       <description>
         
           
@@ -282,10 +282,10 @@
     
     <item>
       <title>【AR.js】利用A-Frame.js來做個生日小卡片吧</title>
-      <link>https://WilliamWeng0609.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</link>
+      <link>https://William-Weng.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</link>
       <pubDate>Sun, 11 Aug 2019 16:43:41 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</guid>
+      <guid>https://William-Weng.github.io/2019/08/ar.js%E5%88%A9%E7%94%A8a-frame.js%E4%BE%86%E5%81%9A%E5%80%8B%E7%94%9F%E6%97%A5%E5%B0%8F%E5%8D%A1%E7%89%87%E5%90%A7/</guid>
       <description>
         
           
@@ -298,10 +298,10 @@
     
     <item>
       <title>【Swift 5】iPhone也能夠有圖形解鎖？</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</link>
+      <link>https://William-Weng.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</link>
       <pubDate>Tue, 30 Jul 2019 10:16:19 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</guid>
+      <guid>https://William-Weng.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</guid>
       <description>
         
           
@@ -314,10 +314,10 @@
     
     <item>
       <title>【NativeScript 6】NativeScript &#43; Vue.js = iOS &#43; Android?</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</link>
+      <link>https://William-Weng.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</link>
       <pubDate>Tue, 23 Jul 2019 13:51:07 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</guid>
+      <guid>https://William-Weng.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</guid>
       <description>
         
           
@@ -330,10 +330,10 @@
     
     <item>
       <title>【Kotlin 1.3】findViewById()的四種方式</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <link>https://William-Weng.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Fri, 19 Jul 2019 10:38:09 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://William-Weng.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
       <description>
         
           
@@ -346,10 +346,10 @@
     
     <item>
       <title>【Kotlin 1.3】Android程式初體驗 - Kotlin篇</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</link>
+      <link>https://William-Weng.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</link>
       <pubDate>Thu, 18 Jul 2019 10:17:41 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</guid>
+      <guid>https://William-Weng.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</guid>
       <description>
         
           
@@ -362,10 +362,10 @@
     
     <item>
       <title>【Homebrew】macOS必裝的套件管理工具</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/homebrewmacos%E5%BF%85%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
+      <link>https://William-Weng.github.io/2019/07/homebrewmacos%E5%BF%85%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Fri, 12 Jul 2019 14:06:11 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/homebrewmacos%E5%BF%85%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://William-Weng.github.io/2019/07/homebrewmacos%E5%BF%85%E8%A3%9D%E7%9A%84%E5%A5%97%E4%BB%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</guid>
       <description>
         
           
@@ -378,10 +378,10 @@
     
     <item>
       <title>【Unity 3D 2019】向電玩產業踏出成功的第一步</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</link>
+      <link>https://William-Weng.github.io/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</link>
       <pubDate>Fri, 12 Jul 2019 10:31:42 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</guid>
+      <guid>https://William-Weng.github.io/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</guid>
       <description>
         
           
@@ -394,10 +394,10 @@
     
     <item>
       <title>【Javascript】利用正規表示式來過濾字串</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</link>
+      <link>https://William-Weng.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</link>
       <pubDate>Fri, 05 Jul 2019 13:39:34 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</guid>
+      <guid>https://William-Weng.github.io/2019/07/javascript%E5%88%A9%E7%94%A8%E6%AD%A3%E8%A6%8F%E8%A1%A8%E7%A4%BA%E5%BC%8F%E4%BE%86%E9%81%8E%E6%BF%BE%E5%AD%97%E4%B8%B2/</guid>
       <description>
         
           
@@ -410,10 +410,10 @@
     
     <item>
       <title>【Heroku】跟github結合的的雲端平臺 - Nodejs篇</title>
-      <link>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</link>
+      <link>https://William-Weng.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</link>
       <pubDate>Mon, 24 Jun 2019 17:11:40 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</guid>
+      <guid>https://William-Weng.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</guid>
       <description>
         
           
@@ -426,10 +426,10 @@
     
     <item>
       <title>【Firebase】它要怎麼排序呢？(補充)</title>
-      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</link>
+      <link>https://William-Weng.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</link>
       <pubDate>Thu, 20 Jun 2019 15:18:26 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</guid>
+      <guid>https://William-Weng.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/</guid>
       <description>
         
           
@@ -442,10 +442,10 @@
     
     <item>
       <title>【Firebase】庫存APP (上傳、下載文字 / 圖片)</title>
-      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</link>
+      <link>https://William-Weng.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</link>
       <pubDate>Fri, 14 Jun 2019 15:13:45 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</guid>
+      <guid>https://William-Weng.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/</guid>
       <description>
         
           
@@ -458,10 +458,10 @@
     
     <item>
       <title>【Firebase】不用錢的NoSQL資料庫？</title>
-      <link>https://WilliamWeng0609.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</link>
+      <link>https://William-Weng.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</link>
       <pubDate>Mon, 10 Jun 2019 11:25:36 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</guid>
+      <guid>https://William-Weng.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/</guid>
       <description>
         
           
@@ -474,10 +474,10 @@
     
     <item>
       <title>【FireAlpaca 2.1】免費的Photoshop？</title>
-      <link>https://WilliamWeng0609.github.io/2019/06/firealpaca-2.1%E5%85%8D%E8%B2%BB%E7%9A%84photoshop/</link>
+      <link>https://William-Weng.github.io/2019/06/firealpaca-2.1%E5%85%8D%E8%B2%BB%E7%9A%84photoshop/</link>
       <pubDate>Sun, 02 Jun 2019 20:46:20 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/06/firealpaca-2.1%E5%85%8D%E8%B2%BB%E7%9A%84photoshop/</guid>
+      <guid>https://William-Weng.github.io/2019/06/firealpaca-2.1%E5%85%8D%E8%B2%BB%E7%9A%84photoshop/</guid>
       <description>
         
           
@@ -490,10 +490,10 @@
     
     <item>
       <title>【Swift 5】手機也能變撲克牌魔術？</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</link>
+      <link>https://William-Weng.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</link>
       <pubDate>Sat, 25 May 2019 18:58:21 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</guid>
+      <guid>https://William-Weng.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</guid>
       <description>
         
           
@@ -506,10 +506,10 @@
     
     <item>
       <title>【Flutter 1.5】製作一個簡單的名片列表APP</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</link>
       <pubDate>Thu, 23 May 2019 12:31:53 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</guid>
       <description>
         
           
@@ -522,10 +522,10 @@
     
     <item>
       <title>【Bash Shell Script】強大的命令提示字元？</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</link>
+      <link>https://William-Weng.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</link>
       <pubDate>Wed, 15 May 2019 09:28:57 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</guid>
+      <guid>https://William-Weng.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</guid>
       <description>
         
           
@@ -538,10 +538,10 @@
     
     <item>
       <title>【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</link>
       <pubDate>Tue, 14 May 2019 16:01:43 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</guid>
       <description>
         
           
@@ -554,10 +554,10 @@
     
     <item>
       <title>【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</link>
       <pubDate>Tue, 14 May 2019 14:30:47 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</guid>
       <description>
         
           
@@ -570,10 +570,10 @@
     
     <item>
       <title>【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
       <pubDate>Tue, 14 May 2019 09:55:58 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
       <description>
         
           
@@ -586,10 +586,10 @@
     
     <item>
       <title>【Flutter 1.2】手機的畫面佈局 (Container篇)</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
       <pubDate>Mon, 13 May 2019 16:04:16 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</guid>
       <description>
         
           
@@ -602,10 +602,10 @@
     
     <item>
       <title>【GraphQL】Apollo Server初體驗 (Nodejs篇)</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</link>
+      <link>https://William-Weng.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</link>
       <pubDate>Mon, 13 May 2019 11:07:49 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</guid>
+      <guid>https://William-Weng.github.io/2019/05/graphqlapollo-server%E5%88%9D%E9%AB%94%E9%A9%97-nodejs%E7%AF%87/</guid>
       <description>
         
           
@@ -618,10 +618,10 @@
     
     <item>
       <title>【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
+      <link>https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
       <pubDate>Sun, 12 May 2019 13:30:57 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
+      <guid>https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
       <description>
         
           
@@ -634,10 +634,10 @@
     
     <item>
       <title>【macOS 10.14】常用的macOS的快速鍵</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/macos-10.14%E5%B8%B8%E7%94%A8%E7%9A%84macos%E7%9A%84%E5%BF%AB%E9%80%9F%E9%8D%B5/</link>
+      <link>https://William-Weng.github.io/2019/05/macos-10.14%E5%B8%B8%E7%94%A8%E7%9A%84macos%E7%9A%84%E5%BF%AB%E9%80%9F%E9%8D%B5/</link>
       <pubDate>Wed, 08 May 2019 11:16:06 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/macos-10.14%E5%B8%B8%E7%94%A8%E7%9A%84macos%E7%9A%84%E5%BF%AB%E9%80%9F%E9%8D%B5/</guid>
+      <guid>https://William-Weng.github.io/2019/05/macos-10.14%E5%B8%B8%E7%94%A8%E7%9A%84macos%E7%9A%84%E5%BF%AB%E9%80%9F%E9%8D%B5/</guid>
       <description>
         
           
@@ -650,10 +650,10 @@
     
     <item>
       <title>【Flutter 1.2】Flutter UI Debug工具</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Tue, 07 May 2019 16:20:50 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</guid>
       <description>
         
           
@@ -666,10 +666,10 @@
     
     <item>
       <title>【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
+      <link>https://William-Weng.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
       <pubDate>Tue, 07 May 2019 13:43:55 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
+      <guid>https://William-Weng.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
       <description>
         
           
@@ -682,10 +682,10 @@
     
     <item>
       <title>【TypeScript 3.2】強類型的JavaScript - TypeScript</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</link>
+      <link>https://William-Weng.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</link>
       <pubDate>Mon, 06 May 2019 16:25:52 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</guid>
+      <guid>https://William-Weng.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</guid>
       <description>
         
           
@@ -698,10 +698,10 @@
     
     <item>
       <title>【Xcode 10】如何將真機的framework與模擬器的的framework合併呢？</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95%E5%B0%87%E7%9C%9F%E6%A9%9F%E7%9A%84framework%E8%88%87%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%9A%84framework%E5%90%88%E4%BD%B5%E5%91%A2/</link>
+      <link>https://William-Weng.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95%E5%B0%87%E7%9C%9F%E6%A9%9F%E7%9A%84framework%E8%88%87%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%9A%84framework%E5%90%88%E4%BD%B5%E5%91%A2/</link>
       <pubDate>Mon, 06 May 2019 14:45:48 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95%E5%B0%87%E7%9C%9F%E6%A9%9F%E7%9A%84framework%E8%88%87%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%9A%84framework%E5%90%88%E4%BD%B5%E5%91%A2/</guid>
+      <guid>https://William-Weng.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95%E5%B0%87%E7%9C%9F%E6%A9%9F%E7%9A%84framework%E8%88%87%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%9A%84framework%E5%90%88%E4%BD%B5%E5%91%A2/</guid>
       <description>
         
           
@@ -714,10 +714,10 @@
     
     <item>
       <title>【Xcode 10】如何build出可重複利用的framework (純Swift編)</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95build%E5%87%BA%E5%8F%AF%E9%87%8D%E8%A4%87%E5%88%A9%E7%94%A8%E7%9A%84framework-%E7%B4%94swift%E7%B7%A8/</link>
+      <link>https://William-Weng.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95build%E5%87%BA%E5%8F%AF%E9%87%8D%E8%A4%87%E5%88%A9%E7%94%A8%E7%9A%84framework-%E7%B4%94swift%E7%B7%A8/</link>
       <pubDate>Mon, 06 May 2019 10:49:13 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95build%E5%87%BA%E5%8F%AF%E9%87%8D%E8%A4%87%E5%88%A9%E7%94%A8%E7%9A%84framework-%E7%B4%94swift%E7%B7%A8/</guid>
+      <guid>https://William-Weng.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95build%E5%87%BA%E5%8F%AF%E9%87%8D%E8%A4%87%E5%88%A9%E7%94%A8%E7%9A%84framework-%E7%B4%94swift%E7%B7%A8/</guid>
       <description>
         
           
@@ -730,10 +730,10 @@
     
     <item>
       <title>【免費的Blog】github.io &#43; hexo</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</link>
+      <link>https://William-Weng.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</link>
       <pubDate>Sun, 05 May 2019 14:02:22 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</guid>
+      <guid>https://William-Weng.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io-hexo/</guid>
       <description>
         
           
@@ -746,10 +746,10 @@
     
     <item>
       <title>【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <link>https://William-Weng.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Sun, 05 May 2019 13:00:56 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://William-Weng.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
       <description>
         
           
@@ -762,10 +762,10 @@
     
     <item>
       <title>【佛心的編譯器】Visual Studio Code</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</link>
+      <link>https://William-Weng.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</link>
       <pubDate>Sat, 04 May 2019 17:53:51 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</guid>
+      <guid>https://William-Weng.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</guid>
       <description>
         
           
@@ -778,10 +778,10 @@
     
     <item>
       <title>【Flutter UI 線上好工具】FlutterStudio.app</title>
-      <link>https://WilliamWeng0609.github.io/2019/05/flutter-ui-%E7%B7%9A%E4%B8%8A%E5%A5%BD%E5%B7%A5%E5%85%B7flutterstudio.app/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-ui-%E7%B7%9A%E4%B8%8A%E5%A5%BD%E5%B7%A5%E5%85%B7flutterstudio.app/</link>
       <pubDate>Fri, 03 May 2019 11:01:48 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/05/flutter-ui-%E7%B7%9A%E4%B8%8A%E5%A5%BD%E5%B7%A5%E5%85%B7flutterstudio.app/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-ui-%E7%B7%9A%E4%B8%8A%E5%A5%BD%E5%B7%A5%E5%85%B7flutterstudio.app/</guid>
       <description>
         
           
@@ -794,10 +794,10 @@
     
     <item>
       <title>【Flutter 1.2】Flutter的安裝過程</title>
-      <link>https://WilliamWeng0609.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
+      <link>https://William-Weng.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
       <pubDate>Sun, 28 Apr 2019 14:30:33 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
+      <guid>https://William-Weng.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
       <description>
         
           

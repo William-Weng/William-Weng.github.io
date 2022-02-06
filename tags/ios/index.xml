@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ios on William-Weng</title>
-    <link>https://WilliamWeng0609.github.io/tags/ios/</link>
+    <link>https://William-Weng.github.io/tags/ios/</link>
     <description>Recent content in ios on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 06 Oct 2019 16:35:20 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Oct 2019 16:35:20 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</title>
-      <link>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
+      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
       <pubDate>Sun, 06 Oct 2019 16:35:20 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
+      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
       <description>
         
           
-            &lt;p&gt;相信在&lt;a href=&#34;https://WilliamWeng0609.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
+            &lt;p&gt;相信在&lt;a href=&#34;https://William-Weng.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
           
           
         
@@ -25,10 +25,10 @@
     
     <item>
       <title>【NativeScript 6】NativeScript &#43; Vue.js = iOS &#43; Android?</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</link>
+      <link>https://William-Weng.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</link>
       <pubDate>Tue, 23 Jul 2019 13:51:07 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</guid>
+      <guid>https://William-Weng.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</guid>
       <description>
         
           

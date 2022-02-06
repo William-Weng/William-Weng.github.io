@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>android on William-Weng</title>
-    <link>https://WilliamWeng0609.github.io/tags/android/</link>
+    <link>https://William-Weng.github.io/tags/android/</link>
     <description>Recent content in android on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 12 Jan 2020 12:28:27 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Jan 2020 12:28:27 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Android 6.0】RecyclerView - 高效能的ListView</title>
-      <link>https://WilliamWeng0609.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</link>
+      <link>https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</link>
       <pubDate>Sun, 12 Jan 2020 12:28:27 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</guid>
+      <guid>https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</guid>
       <description>
         
           
@@ -25,14 +25,14 @@
     
     <item>
       <title>【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</title>
-      <link>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
+      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
       <pubDate>Sun, 06 Oct 2019 16:35:20 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
+      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
       <description>
         
           
-            &lt;p&gt;相信在&lt;a href=&#34;https://WilliamWeng0609.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
+            &lt;p&gt;相信在&lt;a href=&#34;https://William-Weng.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
           
           
         
@@ -41,10 +41,10 @@
     
     <item>
       <title>【NativeScript 6】NativeScript &#43; Vue.js = iOS &#43; Android?</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</link>
+      <link>https://William-Weng.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</link>
       <pubDate>Tue, 23 Jul 2019 13:51:07 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</guid>
+      <guid>https://William-Weng.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</guid>
       <description>
         
           
@@ -57,10 +57,10 @@
     
     <item>
       <title>【Kotlin 1.3】findViewById()的四種方式</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <link>https://William-Weng.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Fri, 19 Jul 2019 10:38:09 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <guid>https://William-Weng.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
       <description>
         
           
@@ -73,10 +73,10 @@
     
     <item>
       <title>【Kotlin 1.3】Android程式初體驗 - Kotlin篇</title>
-      <link>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</link>
+      <link>https://William-Weng.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</link>
       <pubDate>Thu, 18 Jul 2019 10:17:41 +0000</pubDate>
       
-      <guid>https://WilliamWeng0609.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</guid>
+      <guid>https://William-Weng.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</guid>
       <description>
         
           

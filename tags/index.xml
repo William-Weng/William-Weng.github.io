@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on William-Weng</title>
-    <link>https://WilliamWeng0609.github.io/tags/</link>
+    <link>https://William-Weng.github.io/tags/</link>
     <description>Recent content in Tags on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 31 May 2021 12:10:27 +0000</lastBuildDate><atom:link href="https://WilliamWeng0609.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 31 May 2021 12:10:27 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
