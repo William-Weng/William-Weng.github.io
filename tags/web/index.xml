@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>web on William-Weng</title>
+    <link>https://William-Weng.github.io/tags/web/</link>
+    <description>Recent content in web on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Mon, 14 Mar 2022 17:20:11 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/web/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Golang 1.18】Go! Go! Go! - 可愛又迷人的反派角色</title>
+      <link>https://William-Weng.github.io/2022/03/golang-1.18go-go-go-%E5%8F%AF%E6%84%9B%E5%8F%88%E8%BF%B7%E4%BA%BA%E7%9A%84%E5%8F%8D%E6%B4%BE%E8%A7%92%E8%89%B2/</link>
+      <pubDate>Mon, 14 Mar 2022 17:20:11 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/03/golang-1.18go-go-go-%E5%8F%AF%E6%84%9B%E5%8F%88%E8%BF%B7%E4%BA%BA%E7%9A%84%E5%8F%8D%E6%B4%BE%E8%A7%92%E8%89%B2/</guid>
+      <description>
+        
+          
+            &lt;p&gt;依稀記得&lt;a href=&#34;https://go.dev/&#34;&gt;Golang&lt;/a&gt;剛推出的時候，深深被它的&lt;a href=&#34;https://www.google.com.tw/search?q=golang+icon&#34;&gt;外表&lt;/a&gt;所吸引？不不不，筆者不是&lt;a href=&#34;https://www.ettoday.net/news/20210216/1919904.htm&#34;&gt;外貌協會&lt;/a&gt;的，其實它已經&lt;a href=&#34;https://zh.wikipedia.org/wiki/Go&#34;&gt;出現在&lt;/a&gt;地球上有很長一段時間了，當初Google在設計它的時候，就是想要&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10252829&#34;&gt;語法簡潔&lt;/a&gt;且&lt;a href=&#34;https://min.news/zh-tw/technique/ad6d466d4573300eb56957c9961cbcec.html&#34;&gt;高效能&lt;/a&gt;，筆者覺得它是取代&lt;a href=&#34;https://juejin.cn/post/7048420355743940645&#34;&gt;Node.js - modules 無底洞&lt;/a&gt; / &lt;a href=&#34;https://buzzorange.com/techorange/2021/06/22/python-may-be-replaced/&#34;&gt;Python - 執行速度&lt;/a&gt; / &lt;a href=&#34;https://openhome.cc/Gossip/JavaEssence/WhyJVM.html&#34;&gt;Java - JVM跨平臺&lt;/a&gt;的利器。
+最近感同深受，原本我的網誌是使用&lt;a href=&#34;https://hexo.io/zh-tw/&#34;&gt;hexo - Nodejs&lt;/a&gt;去製作的，但因為&lt;a href=&#34;https://go-echarts.github.io/go-echarts/&#34;&gt;佈景主題&lt;/a&gt;不合新版，所以就跳來使用&lt;a href=&#34;https://gohugo.io/&#34;&gt;hugo - Golang&lt;/a&gt;，雖然hugo的文章大多都是英文的，比起hexo有強大中文資訊來說，的確是筆者的&lt;a href=&#34;http://news.smart7-11.com/news-info.asp?id=672&#34;&gt;痛點&lt;/a&gt;，但是…Build的速度至少差10倍吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
