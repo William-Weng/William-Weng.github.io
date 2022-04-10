@@ -938,16 +938,75 @@ exit                        <span style="color:#75715e">-- 離開MySQL CLI
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gradle" data-lang="gradle">dependencies <span style="color:#f92672">{</span>
     runtime <span style="color:#e6db74">&#39;mysql:mysql-connector-java:8.0.23&#39;</span>
-<span style="color:#f92672">}</span><span style="color:#960050;background-color:#1e0010">```</span>
-<span style="color:#f92672">![](</span>images<span style="color:#e6db74">/2021/</span>grails<span style="color:#f92672">-</span>sql<span style="color:#e6db74">/SQL/</span><span style="color:#ae81ff">4</span><span style="color:#f92672">.</span><span style="color:#a6e22e">png</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>
 
-<span style="color:#960050;background-color:#1e0010">####</span> <span style="color:#960050;background-color:#1e0010">連接資料庫</span>
-<span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">在這裡，我們可以使用</span><span style="color:#f92672">[</span><span style="color:#960050;background-color:#1e0010">內建的</span>IDE<span style="color:#f92672">](</span>http:<span style="color:#75715e">//localhost:8080/h2-console/)來讀取資料庫
-</span><span style="color:#75715e"></span><span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">比較要注意的是，新版的</span>MySQL Driver的claasname<span style="color:#960050;background-color:#1e0010">，由</span><span style="color:#f92672">[</span>com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span><span style="color:#f92672">](</span>https:<span style="color:#75715e">//blog.csdn.net/superdangbo/article/details/78732700) =&gt; [com.mysql.cj.jdbc.Driver](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-connect-drivermanager.html)
-</span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">```</span>bash
-com<span style="color:#f92672">.</span><span style="color:#a6e22e">mysql</span><span style="color:#f92672">.</span><span style="color:#a6e22e">cj</span><span style="color:#f92672">.</span><span style="color:#a6e22e">jdbc</span><span style="color:#f92672">.</span><span style="color:#a6e22e">Driver</span>
-jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
-</span></code></pre></div><p>
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2021/grails-sql/SQL/4.png" alt="" loading="lazy" decoding="async" width="1920" height="647"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<h4 id="連接資料庫">連接資料庫</h4>
+<ul>
+<li>在這裡，我們可以使用<a href="http://localhost:8080/h2-console/">內建的IDE</a>來讀取資料庫</li>
+<li>比較要注意的是，新版的MySQL Driver的claasname，由<a href="https://blog.csdn.net/superdangbo/article/details/78732700">com.mysql.jdbc.Driver</a> =&gt; <a href="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-connect-drivermanager.html">com.mysql.cj.jdbc.Driver</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">com.mysql.cj.jdbc.Driver
+jdbc:mysql://localhost:3306/demo
+</code></pre></div><p>
 
 
 
@@ -2696,7 +2755,10 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://William-Weng.github.io/2022/03/golang-1.18go-go-go-%E5%8F%AF%E6%84%9B%E5%8F%88%E8%BF%B7%E4%BA%BA%E7%9A%84%E5%8F%8D%E6%B4%BE%E8%A7%92%E8%89%B2/" class="nav-link" title="【Golang 1.18】Go! Go! Go! - 可愛又迷人的反派角色">【Golang 1.18】Go! Go! Go! - 可愛又迷人的反派角色</a>
+        <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" class="nav-link" title="【Golang 1.18】Let&#39; Go, MySQL我來了…">【Golang 1.18】Let&#39; Go, MySQL我來了…</a>
+      </li>
+      <li>
+        <a href="https://William-Weng.github.io/2022/04/golang-1.18go-go-go-%E5%8F%AF%E6%84%9B%E5%8F%88%E8%BF%B7%E4%BA%BA%E7%9A%84%E5%8F%8D%E6%B4%BE%E8%A7%92%E8%89%B2/" class="nav-link" title="【Golang 1.18】Go! Go! Go! - 可愛又迷人的反派角色">【Golang 1.18】Go! Go! Go! - 可愛又迷人的反派角色</a>
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/" class="nav-link" title="【Swift 5】我到底身在何方？我到底去到何處？">【Swift 5】我到底身在何方？我到底去到何處？</a>
@@ -2715,9 +2777,6 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
       </li>
       <li>
         <a href="https://William-Weng.github.io/2020/04/vue.js-2.6vue.js%E7%9A%84%E5%88%9D%E9%AB%94%E9%A9%97/" class="nav-link" title="【Vue.js 2.6】Vue.js的初體驗">【Vue.js 2.6】Vue.js的初體驗</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/" class="nav-link" title="【Android 6.0】RecyclerView - 高效能的ListView">【Android 6.0】RecyclerView - 高效能的ListView</a>
       </li>
     </ul>
     <div>
@@ -2783,6 +2842,16 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/backend/' class="post_tag button button_translucent" title="backend">
+          BACKEND
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
+          MYSQL
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
           NOSQL
           <span class="button_tally">4</span>
@@ -2790,11 +2859,6 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
         
         <a href='https://William-Weng.github.io/tags/android-studio/' class="post_tag button button_translucent" title="android-studio">
           ANDROID-STUDIO
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/backend/' class="post_tag button button_translucent" title="backend">
-          BACKEND
           <span class="button_tally">3</span>
         </a>
         
@@ -2808,11 +2872,6 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
-          MYSQL
-          <span class="button_tally">3</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
           NODEJS
           <span class="button_tally">3</span>
@@ -2823,6 +2882,11 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
           <span class="button_tally">3</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/api/' class="post_tag button button_translucent" title="api">
+          API
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/framework/' class="post_tag button button_translucent" title="framework">
           FRAMEWORK
           <span class="button_tally">2</span>
@@ -2830,6 +2894,11 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
         
         <a href='https://William-Weng.github.io/tags/github/' class="post_tag button button_translucent" title="github">
           GITHUB
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
           <span class="button_tally">2</span>
         </a>
         
@@ -2883,11 +2952,6 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/api/' class="post_tag button button_translucent" title="api">
-          API
-          <span class="button_tally">1</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/apollo/' class="post_tag button button_translucent" title="apollo">
           APOLLO
           <span class="button_tally">1</span>
@@ -2935,11 +2999,6 @@ jdbc:mysql:<span style="color:#75715e">//localhost:3306/demo
         
         <a href='https://William-Weng.github.io/tags/firealpaca/' class="post_tag button button_translucent" title="firealpaca">
           FIREALPACA
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
           <span class="button_tally">1</span>
         </a>
         
