@@ -82,7 +82,7 @@
 </svg></span>
     <span class="post_date">
       Apr 10, 2022</span>
-    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
+    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/mysql' title="mysql" class="post_tag button button_translucent">mysql
         </a><a href='https://William-Weng.github.io/tags/api' title="api" class="post_tag button button_translucent">api
         </a><a href='https://William-Weng.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
@@ -783,7 +783,7 @@ Use eBook;
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 建立GoBook的資料結構
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">GoBook</span> <span style="color:#66d9ef">struct</span> {
-	<span style="color:#a6e22e">ID</span>         <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;id&#34;`</span>   <span style="color:#75715e">// &lt;欄位&gt; &lt;類型&gt; &lt;真實在DB的欄位名稱&gt;
+	<span style="color:#a6e22e">ID</span>         <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;id&#34;`</span>   <span style="color:#75715e">// &lt;欄位&gt; &lt;類型&gt; &lt;真實在json輸出的欄位名稱&gt;
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ISBN</span>       <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;isbn&#34;`</span> <span style="color:#75715e">// ISBN是數字，在DB叫isbn
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Name</span>       <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;name&#34;`</span>
 	<span style="color:#a6e22e">CreateTime</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;date&#34;`</span>
@@ -1036,23 +1036,14 @@ Use eBook;
 		}()
 
 		<span style="color:#a6e22e">isbn</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stringToInt</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;isbn&#34;</span>))
-		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">isSuccess</span> = <span style="color:#66d9ef">false</span>
-			<span style="color:#66d9ef">return</span>
-		}
+		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
 
 		<span style="color:#a6e22e">sql</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;Delete From %s Where isbn=?&#34;</span>, <span style="color:#a6e22e">table</span>)
 		<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">sql</span>, <span style="color:#a6e22e">isbn</span>)
-		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">isSuccess</span> = <span style="color:#66d9ef">false</span>
-			<span style="color:#66d9ef">return</span>
-		}
+		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
 
 		<span style="color:#a6e22e">rowsaffected</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">RowsAffected</span>() <span style="color:#75715e">// 很嚴謹的寫法會判斷RowsAffected()是否與處理的資料筆數一致
-</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-			<span style="color:#a6e22e">isSuccess</span> = <span style="color:#66d9ef">false</span>
-			<span style="color:#66d9ef">return</span>
-		}
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
 
 		<span style="color:#a6e22e">isSuccess</span> = <span style="color:#66d9ef">true</span>
 		<span style="color:#a6e22e">count</span> = <span style="color:#a6e22e">rowsaffected</span>
@@ -1118,6 +1109,45 @@ Use eBook;
     </picture>
   </figure>
 </p>
+<h4 id="檔案上傳">檔案上傳</h4>
+<ul>
+<li>將<a href="https://stackoverflow.com/questions/24809287/how-do-you-get-a-golang-program-to-print-the-line-number-of-the-error-it-just-ca">檔案</a>上傳，這樣子應該<a href="https://github.com/google/uuid">基本的功能</a>都有了吧？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 檔案上傳 =&gt; multipart/form-data, default is 32 MiB / file=&lt;base64&gt;
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">UploadFile</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
+
+	<span style="color:#a6e22e">key</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;file&#34;</span>
+	<span style="color:#a6e22e">folder</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;/Users/william.weng/Desktop/&#34;</span>
+
+	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/upload&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+
+		<span style="color:#66d9ef">var</span> <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span> = <span style="color:#66d9ef">nil</span>
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isSuccess</span> <span style="color:#66d9ef">bool</span> = <span style="color:#66d9ef">false</span>
+		<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">filename</span> = <span style="color:#a6e22e">uuid</span>.<span style="color:#a6e22e">NewString</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;.jpg&#34;</span>
+
+		<span style="color:#66d9ef">defer</span> <span style="color:#66d9ef">func</span>() {
+			<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{<span style="color:#e6db74">&#34;isSuccess&#34;</span>: <span style="color:#a6e22e">isSuccess</span>}
+			<span style="color:#a6e22e">contextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>)
+		}()
+
+		<span style="color:#a6e22e">filePath</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">folder</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">filename</span>
+		<span style="color:#a6e22e">file</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">FormFile</span>(<span style="color:#a6e22e">key</span>)
+		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
+
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">uuid</span>.<span style="color:#a6e22e">NewString</span>())
+		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Filename</span>)
+
+		<span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">SaveUploadedFile</span>(<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">filePath</span>)
+		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
+
+		<span style="color:#a6e22e">isSuccess</span> = <span style="color:#66d9ef">true</span>
+	})
+}
+</code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/golang-mysql/3.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
 <h3 id="範例程式碼下載images2022golang-mysqldemo7z"><a href="/images/2022/golang-mysql/demo.7z">範例程式碼下載</a></h3>
 <p>
 
