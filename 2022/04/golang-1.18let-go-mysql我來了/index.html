@@ -784,7 +784,7 @@ Use eBook;
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 建立GoBook的資料結構
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">GoBook</span> <span style="color:#66d9ef">struct</span> {
 	<span style="color:#a6e22e">ID</span>         <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;id&#34;`</span>   <span style="color:#75715e">// &lt;欄位&gt; &lt;類型&gt; &lt;真實在json輸出的欄位名稱&gt;
-</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ISBN</span>       <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;isbn&#34;`</span> <span style="color:#75715e">// ISBN是數字，在DB叫isbn
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ISBN</span>       <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;isbn&#34;`</span> <span style="color:#75715e">// ISBN是數字，在json叫isbn
 </span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Name</span>       <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;name&#34;`</span>
 	<span style="color:#a6e22e">CreateTime</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;date&#34;`</span>
 }
@@ -1134,9 +1134,6 @@ Use eBook;
 		<span style="color:#a6e22e">file</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">FormFile</span>(<span style="color:#a6e22e">key</span>)
 		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
 
-		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">uuid</span>.<span style="color:#a6e22e">NewString</span>())
-		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">file</span>.<span style="color:#a6e22e">Filename</span>)
-
 		<span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">SaveUploadedFile</span>(<span style="color:#a6e22e">file</span>, <span style="color:#a6e22e">filePath</span>)
 		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
 
@@ -1148,6 +1145,110 @@ Use eBook;
     There should have been a video here but your browser does not seem
     to support it.
 </video>
+<h4 id="ios-推播功能">iOS 推播功能</h4>
+<ul>
+<li>就是所謂的<a href="https://www.appcoda.com.tw/push-notification/">APNS</a> + <a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E6%8E%A8%E6%92%AD-p8%E6%86%91%E8%AD%89%E5%8C%AF%E5%87%BA-d195dd6b801b">.p8憑證</a> + <a href="https://github.com/sideshow/apns2">Go的APNS2套件</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go get -u github.com/sideshow/apns2
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// iOS推播功能
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pushNotification</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">deviceToken</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">apns2</span>.<span style="color:#a6e22e">Response</span>, <span style="color:#66d9ef">error</span>) {
+
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authKeyP8</span> = <span style="color:#e6db74">&#34;./&lt;AuthKey&gt;.p8&#34;</span>
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">keyId</span> = <span style="color:#e6db74">&#34;&lt;KeyId&gt;&#34;</span>
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">teamID</span> = <span style="color:#e6db74">&#34;&lt;TeamID&gt;&#34;</span>
+	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">topic</span> = <span style="color:#e6db74">&#34;idv.william.Example&#34;</span>
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">authKey</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">ecdsa</span>.<span style="color:#a6e22e">PrivateKey</span> = <span style="color:#66d9ef">nil</span>
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">apns2</span>.<span style="color:#a6e22e">Response</span> = <span style="color:#66d9ef">nil</span>
+	<span style="color:#66d9ef">var</span> <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span> = <span style="color:#66d9ef">nil</span>
+
+	<span style="color:#a6e22e">payload</span> <span style="color:#f92672">:=</span> []byte(<span style="color:#e6db74">`{&#34;aps&#34;:{&#34;alert&#34;:&#34;Golang，愛你喲…&#34;}}`</span>)
+	<span style="color:#a6e22e">authKey</span>, <span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">AuthKeyFromFile</span>(<span style="color:#a6e22e">authKeyP8</span>)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>, <span style="color:#66d9ef">error</span>
+	}
+
+	<span style="color:#a6e22e">notification</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">apns2</span>.<span style="color:#a6e22e">Notification</span>{}
+	<span style="color:#a6e22e">notification</span>.<span style="color:#a6e22e">Topic</span> = <span style="color:#a6e22e">topic</span>
+	<span style="color:#a6e22e">notification</span>.<span style="color:#a6e22e">DeviceToken</span> = <span style="color:#a6e22e">deviceToken</span>
+	<span style="color:#a6e22e">notification</span>.<span style="color:#a6e22e">Payload</span> = <span style="color:#a6e22e">payload</span>
+
+	<span style="color:#a6e22e">token</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">Token</span>{
+		<span style="color:#a6e22e">AuthKey</span>: <span style="color:#a6e22e">authKey</span>,
+		<span style="color:#a6e22e">KeyID</span>:   <span style="color:#a6e22e">keyId</span>,
+		<span style="color:#a6e22e">TeamID</span>:  <span style="color:#a6e22e">teamID</span>,
+	}
+
+	<span style="color:#a6e22e">client</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">apns2</span>.<span style="color:#a6e22e">NewTokenClient</span>(<span style="color:#a6e22e">token</span>).<span style="color:#a6e22e">Development</span>()
+	<span style="color:#a6e22e">response</span>, <span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Push</span>(<span style="color:#a6e22e">notification</span>)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>, <span style="color:#66d9ef">error</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">response</span>, <span style="color:#66d9ef">error</span>
+}
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-mysql/10.png" alt="" loading="lazy" decoding="async" width="3024" height="1716"  />
+      
+
+    </picture>
+  </figure>
+</p>
 <h3 id="範例程式碼下載images2022golang-mysqldemo7z"><a href="/images/2022/golang-mysql/demo.7z">範例程式碼下載</a></h3>
 <p>
 
