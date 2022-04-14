@@ -365,9 +365,10 @@ brew install mysql
 </video>
 <ul>
 <li>當然，也可以<a href="https://ithelp.ithome.com.tw/articles/10217414">裝別人寫</a>的喲…其實<a href="https://zamhuang.medium.com/golang-%E9%82%84%E5%9C%A8%E6%8A%8A-library-%E6%94%BE%E5%9C%A8%E5%B0%88%E6%A1%88%E8%A3%A1-%E8%A9%B2%E8%B7%9F%E4%B8%8A%E4%BD%BF%E7%94%A8-go-module-%E4%BA%86-4185df23442a">go.mod</a>是很像是<a href="https://www.cc.ntu.edu.tw/chinese/epaper/0034/20150920_3409.html">npm</a>中的<a href="https://ithelp.ithome.com.tw/articles/10158140">package.json</a> / <a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%BD%BF%E7%94%A8-cocoapods-%E7%AE%A1%E7%90%86%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-6e6135b62814">cocoapods</a>的<a href="https://www.appcoda.com.tw/cocoapods/">Podfile</a>設定檔…</li>
-<li>現在我們來安裝<a href="https://willh.gitbook.io/build-web-application-with-golang-zhtw/05.0/05.2">第三方</a>的<a href="https://github.com/go-sql-driver/mysql">MySQL Driver</a></li>
+<li>現在<a href="https://stackoverflow.com/questions/13792254/removing-packages-installed-with-go-get">我們</a>來安裝<a href="https://willh.gitbook.io/build-web-application-with-golang-zhtw/05.0/05.2">第三方</a>的<a href="https://github.com/go-sql-driver/mysql">MySQL Driver</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go get -u github.com/go-sql-driver/mysql
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go get -u github.com/go-sql-driver/mysql		// 安裝
+go get -u github.com/go-sql-driver/mysql@none	// 移除 <span style="color:#f92672">=</span>&gt; @none
 </code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2022/golang-mysql/2.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
@@ -1109,7 +1110,7 @@ Use eBook;
     </picture>
   </figure>
 </p>
-<h4 id="檔案上傳">檔案上傳</h4>
+<h4 id="檔案上傳--下載">檔案上傳 / 下載</h4>
 <ul>
 <li>將<a href="https://stackoverflow.com/questions/24809287/how-do-you-get-a-golang-program-to-print-the-line-number-of-the-error-it-just-ca">檔案</a>上傳，這樣子應該<a href="https://github.com/google/uuid">基本的功能</a>都有了吧？</li>
 </ul>
@@ -1142,6 +1143,22 @@ Use eBook;
 }
 </code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2022/golang-mysql/3.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<ul>
+<li>當然有上傳，就會有<a href="https://matthung0807.blogspot.com/2021/07/go-gin-static-files.html">下載</a>啦，我們把<a href="https://ithelp.ithome.com.tw/articles/10222711">靜態資源資料夾</a>設定一下…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+
+	<span style="color:#a6e22e">router</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
+	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">// 8 MiB
+</span><span style="color:#75715e"></span>
+	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Static</span>(<span style="color:#e6db74">&#34;static&#34;</span>, <span style="color:#e6db74">&#34;./static&#34;</span>)	<span style="color:#75715e">// http://localhost:8080/static &lt;=&gt; ./static
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
+}
+</code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/golang-mysql/4.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
 </video>
@@ -1243,7 +1260,7 @@ Use eBook;
         
       
 
-      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-mysql/10.png" alt="" loading="lazy" decoding="async" width="3024" height="1716"  />
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-mysql/10.png" alt="" loading="lazy" decoding="async" width="1512" height="858"  />
       
 
     </picture>
