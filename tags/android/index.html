@@ -81,6 +81,122 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" title="【Golang 1.18】Let&#39; Go, MySQL我來了…">【Golang 1.18】Let&#39; Go, MySQL我來了…</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg></span>
+    <span class="post_date">
+      Apr 10, 2022</span>
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
+        </a><a href='https://William-Weng.github.io/tags/mysql' title="mysql" class="post_tag button button_translucent">mysql
+        </a><a href='https://William-Weng.github.io/tags/api' title="api" class="post_tag button button_translucent">api
+        </a><a href='https://William-Weng.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
+        </a><a href='https://William-Weng.github.io/tags/ios' title="ios" class="post_tag button button_translucent">ios
+        </a><a href='https://William-Weng.github.io/tags/android' title="android" class="post_tag button button_translucent">android
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Golang%201.18%e3%80%91Let%27%20Go%2c%20MySQL%e6%88%91%e4%be%86%e4%ba%86%e2%80%a6&url=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f04%2fgolang-1.18let-go-mysql%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f04%2fgolang-1.18let-go-mysql%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%2f&t=%e3%80%90Golang%201.18%e3%80%91Let%27%20Go%2c%20MySQL%e6%88%91%e4%be%86%e4%ba%86%e2%80%a6" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+    </a>
+    <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+
+      
+      
+      
+      
+      
+<div class="excerpt_thumbnail">
+  <picture>
+
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_thumbnail image_internal" src="https://William-Weng.github.io/images/thumbnail/Golang.png" alt="【Golang 1.18】Let&#39; Go, MySQL我來了…" loading="lazy" decoding="async" width="256" height="256" /></picture>
+</div>
+
+      
+        <div>
+          <p class="pale">
+            
+              <p>同學們<a href="https://youtu.be/63pp-6Z0JYo">上課啦</a>，記得當時<a href="https://youtu.be/RUuhdR1KCEA">年紀小</a>，筆者當時流行的是<a href="https://glints.com/tw/blog/what-is-a-full-stack-engineer/">網頁工程師-前/後端</a>，但是工作非常的<a href="https://tw.linkedin.com/">難找</a>，因為Web技術已經發展<a href="https://zh.wikipedia.org/zh-tw/HTML">20多年</a>了，所以會的人太多了，而薪資也早已進入了<a href="https://zh.wikipedia.org/wiki/%E8%97%8D%E6%B5%B7%E7%AD%96%E7%95%A5">大紅海時代</a>；後來看到<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E5%8B%95%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1">手機系統</a>的出現，一不小心就<a href="https://www.104.com.tw/">轉職</a>到了<a href="https://buzzorange.com/techorange/2015/04/07/how-youll-go-through-while-learning-coding/">iOS打字工</a>的行列之中；但是，工作之後發現，<a href="https://medium.com/itsems-frontend/api-%E6%98%AF%E4%BB%80%E9%BA%BC-restful-api-%E5%8F%88%E6%98%AF%E4%BB%80%E9%BA%BC-a001a85ab638">老舊的API</a>寫法相當的不適合在<a href="https://ithelp.ithome.com.tw/articles/10157431">手機端</a>使用，要改嘛，又不是件容易的事(<a href="https://www.gvm.com.tw/article/73015"><del><del>資深員工很難溝通？</del></del></a>)，<a href="https://www.businessweekly.com.tw/careers/blog/3005293">有問題</a>第一個顯示的也一定是在前端<a href="https://youtu.be/kg0IWsW1-xI">被發現</a>，還是<a href="https://www.books.com.tw/products/0010185056">靠自己</a>最好…</p>
+            
+          </p>
+          <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/" title="【Android 6.0】RecyclerView - 高效能的ListView">【Android 6.0】RecyclerView - 高效能的ListView</a>
       </h3>
       
@@ -706,6 +822,11 @@
           <span class="button_tally">7</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/android/' class="post_tag button button_translucent" title="android">
+          ANDROID
+          <span class="button_tally">6</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/dart/' class="post_tag button button_translucent" title="dart">
           DART
           <span class="button_tally">6</span>
@@ -724,11 +845,6 @@
         <a href='https://William-Weng.github.io/tags/javascript/' class="post_tag button button_translucent" title="javascript">
           JAVASCRIPT
           <span class="button_tally">6</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/android/' class="post_tag button button_translucent" title="android">
-          ANDROID
-          <span class="button_tally">5</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/c%23/' class="post_tag button button_translucent" title="c#">
@@ -763,6 +879,11 @@
         
         <a href='https://William-Weng.github.io/tags/html/' class="post_tag button button_translucent" title="html">
           HTML
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/ios/' class="post_tag button button_translucent" title="ios">
+          IOS
           <span class="button_tally">3</span>
         </a>
         
@@ -813,11 +934,6 @@
         
         <a href='https://William-Weng.github.io/tags/heroku/' class="post_tag button button_translucent" title="heroku">
           HEROKU
-          <span class="button_tally">2</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/ios/' class="post_tag button button_translucent" title="ios">
-          IOS
           <span class="button_tally">2</span>
         </a>
         

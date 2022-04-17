@@ -82,10 +82,12 @@
 </svg></span>
     <span class="post_date">
       Apr 10, 2022</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/mysql' title="mysql" class="post_tag button button_translucent">mysql
         </a><a href='https://William-Weng.github.io/tags/api' title="api" class="post_tag button button_translucent">api
         </a><a href='https://William-Weng.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
+        </a><a href='https://William-Weng.github.io/tags/ios' title="ios" class="post_tag button button_translucent">ios
+        </a><a href='https://William-Weng.github.io/tags/android' title="android" class="post_tag button button_translucent">android
         </a>
     </span>
     <span class="page_only">&nbsp;·
@@ -1266,6 +1268,94 @@ Use eBook;
     </picture>
   </figure>
 </p>
+<h4 id="android-推播功能">Android 推播功能</h4>
+<ul>
+<li>主要是利用<a href="https://firebase.google.com/">firebase</a>去實現，然後加上<a href="https://github.com/appleboy/go-fcm">go-fcm</a>這個套件</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// Android推播功能
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">firebaseCloudMessaging</span>(<span style="color:#a6e22e">token</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">fcm</span>.<span style="color:#a6e22e">Response</span>, <span style="color:#66d9ef">error</span>) {
+
+	<span style="color:#a6e22e">apiKey</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;&lt;YourProductApiKey&gt;&#34;</span>
+
+	<span style="color:#a6e22e">message</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">fcm</span>.<span style="color:#a6e22e">Message</span>{
+		<span style="color:#a6e22e">To</span>: <span style="color:#a6e22e">token</span>,
+		<span style="color:#a6e22e">Data</span>: <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{
+			<span style="color:#e6db74">&#34;foo&#34;</span>: <span style="color:#e6db74">&#34;bar&#34;</span>,
+		},
+		<span style="color:#a6e22e">Notification</span>: <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">fcm</span>.<span style="color:#a6e22e">Notification</span>{
+			<span style="color:#a6e22e">Title</span>: <span style="color:#e6db74">&#34;Golang&#34;</span>,
+			<span style="color:#a6e22e">Body</span>:  <span style="color:#e6db74">&#34;Golang，愛你喲…&#34;</span>,
+		},
+	}
+
+	<span style="color:#a6e22e">client</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fcm</span>.<span style="color:#a6e22e">NewClient</span>(<span style="color:#a6e22e">apiKey</span>)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">error</span>
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">client</span>.<span style="color:#a6e22e">Send</span>(<span style="color:#a6e22e">message</span>)
+}
+</code></pre></div><p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-mysql/11.png" alt="" loading="lazy" decoding="async" width="1775" height="1001"  />
+      
+
+    </picture>
+  </figure>
+</p>
 <h3 id="範例程式碼下載images2022golang-mysqlgomysql7z"><a href="/images/2022/golang-mysql/GoMySQL.7z">範例程式碼下載</a></h3>
 <p>
 
@@ -1400,6 +1490,11 @@ Use eBook;
           <span class="button_tally">7</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/android/' class="post_tag button button_translucent" title="android">
+          ANDROID
+          <span class="button_tally">6</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/dart/' class="post_tag button button_translucent" title="dart">
           DART
           <span class="button_tally">6</span>
@@ -1418,11 +1513,6 @@ Use eBook;
         <a href='https://William-Weng.github.io/tags/javascript/' class="post_tag button button_translucent" title="javascript">
           JAVASCRIPT
           <span class="button_tally">6</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/android/' class="post_tag button button_translucent" title="android">
-          ANDROID
-          <span class="button_tally">5</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/c%23/' class="post_tag button button_translucent" title="c#">
@@ -1457,6 +1547,11 @@ Use eBook;
         
         <a href='https://William-Weng.github.io/tags/html/' class="post_tag button button_translucent" title="html">
           HTML
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/ios/' class="post_tag button button_translucent" title="ios">
+          IOS
           <span class="button_tally">3</span>
         </a>
         
@@ -1507,11 +1602,6 @@ Use eBook;
         
         <a href='https://William-Weng.github.io/tags/heroku/' class="post_tag button button_translucent" title="heroku">
           HEROKU
-          <span class="button_tally">2</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/ios/' class="post_tag button button_translucent" title="ios">
-          IOS
           <span class="button_tally">2</span>
         </a>
         
