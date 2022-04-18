@@ -6,7 +6,23 @@
     <description>Recent content on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 10 Apr 2022 09:12:17 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 18 Apr 2022 10:40:56 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Golang 1.18】ORM？ORZ？傻傻分不清楚？</title>
+      <link>https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/</link>
+      <pubDate>Mon, 18 Apr 2022 10:40:56 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/</guid>
+      <description>
+        
+          
+            &lt;p&gt;應該有學了三週了吧？今天主要是來介紹&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10207752&#34;&gt;ORM - Object Relational Mapping&lt;/a&gt;這個東西，簡單來說它就是一個幫助你把&lt;a href=&#34;https://gorm.io/&#34;&gt;Go語法 =&amp;gt; SQL語法&lt;/a&gt;的工具，因為一般有學過&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10241383&#34;&gt;SQL語法&lt;/a&gt;的人並不是很多，加上基本上需要&lt;a href=&#34;https://tecky.io/en/blog/SQL%E4%B8%89%E9%83%A8%E6%9B%B2:%E4%BD%A0%E4%B8%8D%E9%9C%80%E8%A6%81ORM/&#34;&gt;高效能&lt;/a&gt;的&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9&#34;&gt;CRUD&lt;/a&gt;的機會就更少了，在語法上大大的&lt;a href=&#34;https://www.itread01.com/content/1550282231.html&#34;&gt;降低&lt;/a&gt;了前端工程師對於SQL的&lt;a href=&#34;https://cinna.tw/%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97/%E4%BD%9C%E8%80%85%E8%B6%85%E5%9B%89%E5%97%A6%EF%BC%8C%E4%BD%86%E4%B8%80%E5%A4%A9%E5%8F%AA%E8%A6%81%E5%8D%81%E5%88%86%E9%90%98%E7%9A%84mysql%E7%9C%9F%EF%BC%8E%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/crud%E5%88%9D%E9%AB%94%E9%A9%97%EF%BC%8C%E6%93%8D%E4%BD%9Cmysql%E8%B3%87%E6%96%99%E5%BA%AB&#34;&gt;語法熟悉度&lt;/a&gt;，而且&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10238611&#34;&gt;轉換資料庫&lt;/a&gt;很容易，有助於快速開發。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Golang 1.18】Let&#39; Go, MySQL我來了…</title>
       <link>https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/</link>
