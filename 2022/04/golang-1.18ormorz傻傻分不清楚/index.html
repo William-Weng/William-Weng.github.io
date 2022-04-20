@@ -82,7 +82,7 @@
 </svg></span>
     <span class="post_date">
       Apr 18, 2022</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/sqlite' title="sqlite" class="post_tag button button_translucent">sqlite
         </a><a href='https://William-Weng.github.io/tags/api' title="api" class="post_tag button button_translucent">api
         </a><a href='https://William-Weng.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
@@ -1223,7 +1223,61 @@ go get -u gorm.io/driver/sqlite   // gorm的sqlite-driver
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<h3 id="範例程式碼下載images2022golang-ormgoorm7z"><a href="/images/2022/golang-orm/GoORM.7z">範例程式碼下載</a></h3>
+<h4 id="切換database">切換Database</h4>
+<ul>
+<li>這裡就把連<a href="https://www.readfog.com/a/1641273244389576704">Sqlite -&gt; MySQL</a>，先建立一個叫<a href="/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/">GoGo的資料庫</a>，圖就不附上了…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#75715e">// 初始設定
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initSetting</span>() <span style="color:#66d9ef">error</span> {
+
+	<span style="color:#75715e">// database, error := Sqlite3.createDatabase(sqliteDatabasePath)
+</span><span style="color:#75715e"></span>
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">info</span> <span style="color:#a6e22e">MySQLInformation</span> = <span style="color:#a6e22e">MySQLInformation</span>{
+		<span style="color:#a6e22e">username</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
+		<span style="color:#a6e22e">password</span>: <span style="color:#e6db74">&#34;12345678&#34;</span>,
+		<span style="color:#a6e22e">host</span>:     <span style="color:#e6db74">&#34;localhost&#34;</span>,
+		<span style="color:#a6e22e">port</span>:     <span style="color:#ae81ff">3306</span>,
+		<span style="color:#a6e22e">database</span>: <span style="color:#e6db74">&#34;GoGo&#34;</span>,
+	}
+
+	<span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">MySql</span>.<span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">mysqlDatabaseSource</span>(<span style="color:#a6e22e">info</span>))
+
+	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">error</span>
+	}
+
+	<span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">createTables</span>(<span style="color:#a6e22e">database</span>)
+
+	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">error</span>
+	}
+
+	<span style="color:#a6e22e">initRouter</span>(<span style="color:#a6e22e">database</span>)
+
+	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+}
+
+<span style="color:#75715e">// 建立資料庫
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">dbType</span> <span style="color:#a6e22e">DatabaseType</span>) <span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
+
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>
+	<span style="color:#66d9ef">var</span> <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span>
+
+	<span style="color:#66d9ef">switch</span> <span style="color:#a6e22e">dbType</span> {
+	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">Sqlite3</span>:
+		<span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">sqlite</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">path</span>), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Config</span>{})
+	<span style="color:#66d9ef">case</span> <span style="color:#a6e22e">MySql</span>:
+		<span style="color:#a6e22e">databaseConnect</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#e6db74">&#34;mysql&#34;</span>, <span style="color:#a6e22e">path</span>)
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+			<span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">err</span>
+			<span style="color:#66d9ef">break</span>
+		}
+		<span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span> = <span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">mysql</span>.<span style="color:#a6e22e">Config</span>{<span style="color:#a6e22e">Conn</span>: <span style="color:#a6e22e">databaseConnect</span>}), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Config</span>{})
+	}
+
+	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span>
+}
+</code></pre></div><h3 id="範例程式碼下載images2022golang-ormgoorm7z"><a href="/images/2022/golang-orm/GoORM.7z">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>發現ORM其實還算滿好用的，而且Go的編譯速度真的是快啊，雖然它比較朝簡潔的語法<a href="https://www.wenda.cool/forum/9984575.html">發展</a>，而少了許多現代程式語言有的功能，但是單就資料庫而言，<a href="https://www.raritan.com/assets/ap/resources/White_Papers/TC/RAP-TC-WP-highpower.pdf">流量</a>就是金錢，<a href="https://www.ithome.com.tw/tech/50265">省電快速</a>才是王道…</li>
