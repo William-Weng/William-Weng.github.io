@@ -81,6 +81,122 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="【Golang 1.18】ORM？ORZ？傻傻分不清楚？">【Golang 1.18】ORM？ORZ？傻傻分不清楚？</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg></span>
+    <span class="post_date">
+      Apr 18, 2022</span>
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
+        </a><a href='https://William-Weng.github.io/tags/sqlite' title="sqlite" class="post_tag button button_translucent">sqlite
+        </a><a href='https://William-Weng.github.io/tags/mysql' title="mysql" class="post_tag button button_translucent">mysql
+        </a><a href='https://William-Weng.github.io/tags/api' title="api" class="post_tag button button_translucent">api
+        </a><a href='https://William-Weng.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
+        </a><a href='https://William-Weng.github.io/tags/email' title="email" class="post_tag button button_translucent">email
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Golang%201.18%e3%80%91ORM%ef%bc%9fORZ%ef%bc%9f%e5%82%bb%e5%82%bb%e5%88%86%e4%b8%8d%e6%b8%85%e6%a5%9a%ef%bc%9f&url=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f04%2fgolang-1.18ormorz%25E5%2582%25BB%25E5%2582%25BB%25E5%2588%2586%25E4%25B8%258D%25E6%25B8%2585%25E6%25A5%259A%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f04%2fgolang-1.18ormorz%25E5%2582%25BB%25E5%2582%25BB%25E5%2588%2586%25E4%25B8%258D%25E6%25B8%2585%25E6%25A5%259A%2f&t=%e3%80%90Golang%201.18%e3%80%91ORM%ef%bc%9fORZ%ef%bc%9f%e5%82%bb%e5%82%bb%e5%88%86%e4%b8%8d%e6%b8%85%e6%a5%9a%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+    </a>
+    <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+
+      
+      
+      
+      
+      
+<div class="excerpt_thumbnail">
+  <picture>
+
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_thumbnail image_internal" src="https://William-Weng.github.io/images/thumbnail/Golang.png" alt="【Golang 1.18】ORM？ORZ？傻傻分不清楚？" loading="lazy" decoding="async" width="256" height="256" /></picture>
+</div>
+
+      
+        <div>
+          <p class="pale">
+            
+              <p>應該有學了三週了吧？今天主要是來介紹<a href="https://ithelp.ithome.com.tw/articles/10207752">ORM - Object Relational Mapping</a>這個東西，簡單來說它就是一個幫助你把<a href="https://gorm.io/">Go語法 =&gt; SQL語法</a>的工具，因為一般有學過<a href="https://ithelp.ithome.com.tw/articles/10241383">SQL語法</a>的人並不是很多，加上基本上需要<a href="https://tecky.io/en/blog/SQL%E4%B8%89%E9%83%A8%E6%9B%B2:%E4%BD%A0%E4%B8%8D%E9%9C%80%E8%A6%81ORM/">高效能</a>的<a href="https://zh.wikipedia.org/wiki/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">CRUD</a>的機會就更少了，在語法上大大的<a href="https://www.itread01.com/content/1550282231.html">降低</a>了前端工程師對於SQL的<a href="https://cinna.tw/%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97/%E4%BD%9C%E8%80%85%E8%B6%85%E5%9B%89%E5%97%A6%EF%BC%8C%E4%BD%86%E4%B8%80%E5%A4%A9%E5%8F%AA%E8%A6%81%E5%8D%81%E5%88%86%E9%90%98%E7%9A%84mysql%E7%9C%9F%EF%BC%8E%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/crud%E5%88%9D%E9%AB%94%E9%A9%97%EF%BC%8C%E6%93%8D%E4%BD%9Cmysql%E8%B3%87%E6%96%99%E5%BA%AB">語法熟悉度</a>，而且<a href="https://ithelp.ithome.com.tw/articles/10238611">轉換資料庫</a>很容易，有助於快速開發。</p>
+            
+          </p>
+          <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" title="【Golang 1.18】Let&#39; Go, MySQL我來了…">【Golang 1.18】Let&#39; Go, MySQL我來了…</a>
       </h3>
       
@@ -634,14 +750,14 @@
           <span class="button_tally">5</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
-          UNITY
+        <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
+          MYSQL
           <span class="button_tally">5</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
-          MYSQL
-          <span class="button_tally">4</span>
+        <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
+          UNITY
+          <span class="button_tally">5</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
