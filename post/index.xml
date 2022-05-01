@@ -6,7 +6,23 @@
     <description>Recent content in Posts on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 18 Apr 2022 10:40:56 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 07:21:56 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</title>
+      <link>https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</link>
+      <pubDate>Sun, 01 May 2022 07:21:56 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://news.gamme.com.tw/618466&#34;&gt;GoGo垃圾信&lt;/a&gt;，大家一起進入&lt;a href=&#34;https://youtu.be/yYC7WkuCyQg&#34;&gt;神乎其技&lt;/a&gt;的&lt;a href=&#34;https://www.worker360.com.tw/blog/developer&#34;&gt;境界&lt;/a&gt;吧。今天這篇呢，主是結合&lt;a href=&#34;https://github.com/YSGStudyHards/Introduction-to-Golang&#34;&gt;資料端&lt;/a&gt; / &lt;a href=&#34;https://github.com/YSGStudyHards/GoFamily&#34;&gt;網頁後端&lt;/a&gt; / &lt;a href=&#34;https://github.com/GolangFamily/vscode-go&#34;&gt;手機端&lt;/a&gt;，產生出求職&lt;a href=&#34;https://github.com/go-spring/go-spring&#34;&gt;三寶系統&lt;/a&gt; - &lt;a href=&#34;https://msg.mitake.com.tw/&#34;&gt;簡訊&lt;/a&gt; / &lt;a href=&#34;https://support.microsoft.com/zh-tw/office/%E6%8E%A8%E6%92%AD%E9%80%9A%E7%9F%A5%E8%88%87-sms-%E8%A8%8A%E6%81%AF%E6%9C%89%E4%BD%95%E4%B8%8D%E5%90%8C-1daa564b-f742-42d4-a257-af8a2b22ae92&#34;&gt;推播&lt;/a&gt; / &lt;a href=&#34;https://www.mailcloud.com.tw/green/green_openfind.html&#34;&gt;垃圾信&lt;/a&gt;，雖然本篇是以&lt;a href=&#34;https://William-Weng.github.io/tags/golang/&#34;&gt;Golang&lt;/a&gt;為主體，但在&lt;a href=&#34;https://cli.vuejs.org/&#34;&gt;Vue CLI + Typescript&lt;/a&gt;的著墨上會比較多，也祝大家&lt;a href=&#34;https://www.mol.gov.tw/1607/1632/1640/43643/&#34;&gt;51勞動節&lt;/a&gt;快樂，也祝我下禮拜能買到&lt;a href=&#34;https://tw.news.yahoo.com/%E5%BF%AB%E7%AF%A9%E8%A9%A6%E5%8A%91%E5%93%AA%E8%A3%A1%E6%9C%89-2%E5%A4%A7%E8%B6%85%E5%95%86app-line%E7%86%B1%E9%BB%9E-%E9%8D%B5%E6%9F%A5%E8%A9%A2-011004487.html&#34;&gt;快篩試劑&lt;/a&gt;，畢竟&lt;a href=&#34;https://tw.news.yahoo.com/%E9%80%BC%E8%BF%91%E5%A4%A7%E7%9B%A4%E6%8C%87%E6%95%B8-%E6%9C%AC%E5%9C%9F%E7%A2%BA%E8%A8%BA%E4%BA%BA%E6%95%B815033-%E5%A2%83%E5%A4%96116-%E6%AD%BB%E4%BA%A1%E5%86%8D-3-065645310.html&#34;&gt;本土確診人數&lt;/a&gt;已經破萬人了啊，&lt;a href=&#34;https://youtu.be/R-q9l_bT6H4&#34;&gt;每週一戳&lt;/a&gt;的大時代來臨了。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Golang 1.18】ORM？ORZ？傻傻分不清楚？</title>
       <link>https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/</link>
