@@ -279,6 +279,11 @@
 <td>http://localhost:12345/push/&lt;username&gt;</td>
 <td>POST</td>
 </tr>
+<tr>
+<td>給單一使用者發垃圾簡訊</td>
+<td>http://localhost:12345/sms/&lt;username&gt;</td>
+<td>POST</td>
+</tr>
 </tbody>
 </table>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
@@ -394,19 +399,12 @@
 		<span style="color:#a6e22e">system</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">MobileSystem</span>(<span style="color:#a6e22e">dictionary</span>[<span style="color:#e6db74">&#34;system&#34;</span>].(<span style="color:#66d9ef">float64</span>))
 		<span style="color:#a6e22e">token</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dictionary</span>[<span style="color:#e6db74">&#34;token&#34;</span>].(<span style="color:#66d9ef">string</span>)
 
-		<span style="color:#a6e22e">user</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">Select</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">name</span>)
-
-		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">ID</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
-			<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">ContextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">error</span>)
-			<span style="color:#66d9ef">return</span>
-		}
-
 		<span style="color:#a6e22e">info</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{
 			<span style="color:#e6db74">&#34;system&#34;</span>: <span style="color:#a6e22e">system</span>,
 			<span style="color:#e6db74">&#34;token&#34;</span>:  <span style="color:#a6e22e">token</span>,
 		}
 
-		<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">Update</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">info</span>)
+		<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">Update</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">info</span>)
 		<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">ContextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>)
 	})
 }
@@ -436,6 +434,21 @@
 		<span style="color:#a6e22e">dictionary</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">RequestBodyToMap</span>(<span style="color:#a6e22e">context</span>)
 
 		<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">PushNotification</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">dictionary</span>)
+		<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">ContextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>)
+	})
+}
+
+<span style="color:#75715e">// &lt;POST&gt;給單一使用者發垃圾簡訊 =&gt; http://localhost:12345/sms/william + {&#34;message&#34;:&#34;什麼事也沒有&#34;}
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">smsUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+
+	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/sms/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+
+		<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;name&#34;</span>)
+		<span style="color:#a6e22e">dictionary</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">RequestBodyToMap</span>(<span style="color:#a6e22e">context</span>)
+		<span style="color:#a6e22e">message</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dictionary</span>[<span style="color:#e6db74">&#34;message&#34;</span>].(<span style="color:#66d9ef">string</span>)
+
+		<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">SMS</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">name</span>, <span style="color:#a6e22e">message</span>)
+
 		<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">ContextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>)
 	})
 }
@@ -898,6 +911,85 @@
     <span style="color:#f92672">&#34;isSuccess&#34;</span>: <span style="color:#66d9ef">true</span>                 <span style="color:#75715e">// 新增結果 (成功:true / 失敗:false)
 </span><span style="color:#75715e"></span>  }
 }
+</code></pre></div><h4 id="-給單一使用者發垃圾簡訊">➐ 給單一使用者發垃圾簡訊</h4>
+<ul>
+<li>這個就是計對單一使用者的手機號碼<a href="https://udn.com/news/story/7098/5261353">發簡訊</a>，這裡使用的是<a href="https://www.twsms.com/">台灣簡訊</a>，當然像是<a href="https://sms.mitake.com.tw/">三竹簡訊</a>也是可以的…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/vue-golang-push/21.png" alt="" loading="lazy" decoding="async" width="1528" height="686"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>HTTP Request</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;就是發垃圾~~~&#34;</span>
+}
+</code></pre></div><ul>
+<li>HTTP Response</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#f92672">&#34;error&#34;</span>: <span style="color:#66d9ef">null</span>,
+  <span style="color:#f92672">&#34;result&#34;</span>: {
+    <span style="color:#f92672">&#34;code&#34;</span>: <span style="color:#e6db74">&#34;00000&#34;</span>,
+    <span style="color:#f92672">&#34;msgid&#34;</span>: <span style="color:#ae81ff">12345678</span>,
+    <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;Success&#34;</span>
+  }
+}
 </code></pre></div><h3 id="ios---再來看看前端ios的部分">iOS - 再來看看前端iOS的部分</h3>
 <ul>
 <li>這裡主要用到跟網路的Link<a href="https://medium.com/@Tommmmm/%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%95%B4%E5%A4%A9%E6%8E%9B%E5%9C%A8%E5%98%B4%E9%82%8A%E7%9A%84api%E6%98%AF%E4%BB%80%E9%BA%BC-7ab8b522d3bc">打API</a></li>
@@ -1048,7 +1140,7 @@
         
         <span style="color:#66d9ef">var</span> isSuccess = <span style="color:#66d9ef">false</span>
         
-        <span style="color:#66d9ef">defer</span> { DispatchQueue.main.async { <span style="color:#66d9ef">self</span>.flashHud(isSuccess: isSuccess) }}
+        <span style="color:#66d9ef">defer</span> { <span style="color:#66d9ef">self</span>.flashHud(isSuccess: isSuccess) }
         
         <span style="color:#66d9ef">switch</span> result {
         <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): wwPrint(error)
@@ -1754,7 +1846,7 @@ yarn add @types/axios   // axios套件ts翻譯檔
 &lt;/<span style="color:#f92672">style</span>&gt;
 </code></pre></div><h4 id="有類型的javascript">有類型的JavaScript</h4>
 <ul>
-<li><a href="https://www.typescriptlang.org/">TypeScript</a>橫空的出世，就是為了解決<a href="https://www.itread01.com/articles/1476684931.html">JavaScript</a>寫法太過自由的問題，加上是<a href="https://tech-wiki.online/tw/javascript-types.html">弱類型的語言</a>，有錯誤都會在<a href="https://totoroliu.medium.com/%E7%B7%A8%E8%AD%AF%E8%AA%9E%E8%A8%80-vs-%E7%9B%B4%E8%AD%AF%E8%AA%9E%E8%A8%80-5f34e6bae051">執行後</a>才會被發現…</li>
+<li><a href="https://www.typescriptlang.org/">TypeScript</a>的橫空出世，就是為了解決<a href="https://www.itread01.com/articles/1476684931.html">JavaScript</a>寫法太過自由的問題，加上是<a href="https://tech-wiki.online/tw/javascript-types.html">弱類型的語言</a>，有錯誤都會在<a href="https://totoroliu.medium.com/%E7%B7%A8%E8%AD%AF%E8%AA%9E%E8%A8%80-vs-%E7%9B%B4%E8%AD%AF%E8%AA%9E%E8%A8%80-5f34e6bae051">執行後</a>才會被發現…</li>
 <li>另外就是IDE的<a href="https://www.zhihu.com/question/308844713">自動提示</a>的問題，因為TypeScript是有類型的，所以在提示function上就會抓得很精準，不能用的就不會出現…
 
 
