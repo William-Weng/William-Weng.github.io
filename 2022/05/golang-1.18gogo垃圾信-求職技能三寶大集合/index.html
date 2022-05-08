@@ -82,7 +82,7 @@
 </svg></span>
     <span class="post_date">
       May 1, 2022</span>
-    <span class="post_time"> · 10 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/vue' title="vue" class="post_tag button button_translucent">vue
+    <span class="post_time"> · 12 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/vue' title="vue" class="post_tag button button_translucent">vue
         </a><a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/push' title="push" class="post_tag button button_translucent">push
         </a><a href='https://William-Weng.github.io/tags/sms' title="SMS" class="post_tag button button_translucent">SMS
@@ -995,6 +995,11 @@
 <li>這裡主要用到跟網路的Link<a href="https://medium.com/@Tommmmm/%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%95%B4%E5%A4%A9%E6%8E%9B%E5%9C%A8%E5%98%B4%E9%82%8A%E7%9A%84api%E6%98%AF%E4%BB%80%E9%BA%BC-7ab8b522d3bc">打API</a></li>
 <li>為了<a href="https://www.google.com/search?q=%E4%B8%A6%E6%B2%92%E6%9C%89">避免</a>有<a href="https://youtu.be/JKnz50Klmmk">置入性行銷</a>的嫌疑，使用自己做的<a href="https://github.com/William-Weng/SwiftPackageManager">framework</a>，<a href="https://github.com/William-Weng/WWPrint">WWPrint</a> / <a href="https://github.com/William-Weng/WWHUD">WWHUD</a> / <a href="https://github.com/William-Weng/WWNetworking">WWNetworking</a></li>
 </ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/vue-golang-push/A.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">WWPrint</span>
 <span style="color:#66d9ef">import</span> <span style="color:#a6e22e">WWNetworking</span>
@@ -1158,13 +1163,155 @@
         }
     }
 }
-</code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
-    <source src="/images/2022/vue-golang-push/A.mp4" type="video/mp4">
+</code></pre></div><h3 id="android---再來看看前端android的部分">Android - 再來看看前端Android的部分</h3>
+<ul>
+<li>這裡是使用<a href="https://thumbb13555.pixnet.net/blog/post/326451188-toolbar">Firebase</a> + <a href="ttps://tw-hkt.blogspot.com/2020/07/android-okhttp-kotlin.html">OkHttp</a>，中間其實<a href="https://ithelp.ithome.com.tw/articles/10188217">碰到</a>滿多的<a href="https://spicyboyd.blogspot.com/2018/04/app-toolbar-actionbar.html">問題</a>的，果然是<a href="https://thumbb13555.pixnet.net/blog/post/333378541-notification">隔行如隔山</a>啊…</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/vue-golang-push/C.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<h3 id="android---再來看看前端android的部分-待補充">Android - 再來看看前端Android的部分 (待補充)</h3>
-<h3 id="vue---再來看看後端vue的部分">Vue - 再來看看後端Vue的部分</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#66d9ef">package</span> idv.william.example
+
+<span style="color:#66d9ef">import</span> android.os.Bundle
+<span style="color:#66d9ef">import</span> android.util.Log
+<span style="color:#66d9ef">import</span> android.view.Menu
+<span style="color:#66d9ef">import</span> android.view.MenuItem
+<span style="color:#66d9ef">import</span> android.widget.EditText
+<span style="color:#66d9ef">import</span> android.widget.Toast
+<span style="color:#66d9ef">import</span> androidx.appcompat.app.AppCompatActivity
+<span style="color:#66d9ef">import</span> androidx.appcompat.widget.Toolbar
+<span style="color:#66d9ef">import</span> com.google.android.gms.tasks.OnCompleteListener
+<span style="color:#66d9ef">import</span> com.google.firebase.messaging.FirebaseMessaging
+<span style="color:#66d9ef">import</span> okhttp3.*
+<span style="color:#66d9ef">import</span> okhttp3.RequestBody.Companion.toRequestBody
+<span style="color:#66d9ef">import</span> org.json.JSONObject
+<span style="color:#66d9ef">import</span> java.io.IOException
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MainActivity</span> : AppCompatActivity() {
+
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> toolbar: Toolbar
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> usernameEditText: EditText
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> eMailEditText: EditText
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> phoneEditText: EditText
+    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">lateinit</span> <span style="color:#66d9ef">var</span> token: String
+
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onCreate</span>(savedInstanceState: Bundle?) {
+        <span style="color:#66d9ef">super</span>.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        initSetting()
+
+        FirebaseMessaging.getInstance().subscribeToTopic(<span style="color:#e6db74">&#34;news&#34;</span>)
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task <span style="color:#f92672">-&gt;</span>
+            <span style="color:#66d9ef">if</span> (!task.isSuccessful) <span style="color:#66d9ef">return</span><span style="color:#a6e22e">@OnCompleteListener</span>
+            token = task.result
+        })
+    }
+
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onCreateOptionsMenu</span>(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.option_menu, menu)
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">super</span>.onCreateOptionsMenu(menu)
+    }
+
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onOptionsItemSelected</span>(item: MenuItem): Boolean {
+
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">when</span> (item.itemId) {
+            R.id.action_item_register <span style="color:#f92672">-&gt;</span> { registerUser(); <span style="color:#66d9ef">true</span> }
+            R.id.action_item_setting <span style="color:#f92672">-&gt;</span>{ settingUser(); <span style="color:#66d9ef">true</span> }
+            <span style="color:#66d9ef">else</span> <span style="color:#f92672">-&gt;</span> { <span style="color:#66d9ef">super</span>.onOptionsItemSelected(item) }
+        }
+    }
+
+    <span style="color:#75715e">// 初始化設定
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">initSetting</span>() {
+
+        toolbar = <span style="color:#66d9ef">this</span>.findViewById(R.id.toolbar)
+        toolbar.title = <span style="color:#e6db74">&#34;GoGo垃圾信&#34;</span>
+
+        usernameEditText = <span style="color:#66d9ef">this</span>.findViewById(R.id.username)
+        eMailEditText = <span style="color:#66d9ef">this</span>.findViewById(R.id.eMail)
+        phoneEditText = <span style="color:#66d9ef">this</span>.findViewById(R.id.phone)
+
+        setSupportActionBar(toolbar)
+    }
+
+    <span style="color:#75715e">// 顯示提示Toast
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">showToast</span>(text: String) {
+        Log.d(<span style="color:#e6db74">&#34;[TOAST]&#34;</span>, text)
+        Toast.makeText(<span style="color:#66d9ef">this</span>, text, Toast.LENGTH_SHORT).show()
+    }
+
+    <span style="color:#75715e">// 產生Request (POST)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">requestPostMaker</span>(urlString: String, json: String): Request {
+        <span style="color:#66d9ef">val</span> body = json.toRequestBody()
+        <span style="color:#66d9ef">this</span>.showToast(urlString)
+        <span style="color:#66d9ef">return</span> Request.Builder().url(urlString).post(body).build()
+    }
+
+    <span style="color:#75715e">// 產生Request (PATCH)
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">requestPatchMaker</span>(urlString: String, json: String): Request {
+        <span style="color:#66d9ef">val</span> body = json.toRequestBody()
+        <span style="color:#66d9ef">return</span> Request.Builder().url(urlString).patch(body).build()
+    }
+
+    <span style="color:#75715e">// 註冊User
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">registerUser</span>() {
+
+        <span style="color:#66d9ef">val</span> map = mapOf(
+            <span style="color:#e6db74">&#34;system&#34;</span> to <span style="color:#ae81ff">1</span>,
+            <span style="color:#e6db74">&#34;name&#34;</span> to usernameEditText.text.toString(),
+            <span style="color:#e6db74">&#34;mail&#34;</span> to eMailEditText.text.toString(),
+            <span style="color:#e6db74">&#34;phone&#34;</span> to phoneEditText.text.toString()
+        )
+
+        <span style="color:#66d9ef">val</span> urlString = <span style="color:#e6db74">&#34;http://192.168.1.103:12345/user/&#34;</span>
+        <span style="color:#66d9ef">val</span> json = JSONObject(map).toString()
+        <span style="color:#66d9ef">val</span> request = <span style="color:#66d9ef">this</span>.requestPostMaker(urlString = urlString, json = json)
+
+        OkHttpClient().newCall(request).enqueue(<span style="color:#66d9ef">object</span> <span style="color:#960050;background-color:#1e0010">: </span><span style="color:#a6e22e">Callback</span> {
+            <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onFailure</span>(call: Call, error: IOException) { runOnUiThread { showToast(text = error.toString()) } }
+            <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onResponse</span>(call: Call, response: Response) { runOnUiThread { showToast(text = <span style="color:#e6db74">&#34;成功&#34;</span>) } }
+        })
+    }
+
+    <span style="color:#75715e">// 更新Token
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">settingUser</span>() {
+
+        <span style="color:#66d9ef">val</span> map = mapOf(
+            <span style="color:#e6db74">&#34;system&#34;</span> to <span style="color:#ae81ff">1</span>,
+            <span style="color:#e6db74">&#34;token&#34;</span> to token,
+        )
+
+        <span style="color:#66d9ef">val</span> urlString = <span style="color:#e6db74">&#34;http://192.168.1.103:12345/user/&#34;</span> + usernameEditText.text.toString()
+        <span style="color:#66d9ef">val</span> json = JSONObject(map).toString()
+        <span style="color:#66d9ef">val</span> request = <span style="color:#66d9ef">this</span>.requestPatchMaker(urlString = urlString, json = json)
+
+        OkHttpClient().newCall(request).enqueue(<span style="color:#66d9ef">object</span> <span style="color:#960050;background-color:#1e0010">: </span><span style="color:#a6e22e">Callback</span> {
+            <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onFailure</span>(call: Call, error: IOException) { runOnUiThread { showToast(text = error.toString()) } }
+            <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onResponse</span>(call: Call, response: Response) { runOnUiThread { showToast(text = <span style="color:#e6db74">&#34;成功&#34;</span>) } }
+        })
+    }
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-kt" data-lang="kt"><span style="color:#66d9ef">package</span> idv.william.example
+
+<span style="color:#66d9ef">import</span> android.util.Log
+<span style="color:#66d9ef">import</span> com.google.firebase.messaging.FirebaseMessagingService
+<span style="color:#66d9ef">import</span> com.google.firebase.messaging.RemoteMessage
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FCMMessageReceiverService</span> : FirebaseMessagingService() {
+
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onNewToken</span>(token: String) {
+        <span style="color:#66d9ef">super</span>.onNewToken(token)
+        Log.d(<span style="color:#e6db74">&#34;[TOKEN]&#34;</span>, token)
+    }
+
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onMessageReceived</span>(message: RemoteMessage) {
+        <span style="color:#66d9ef">super</span>.onMessageReceived(message)
+        message.notification<span style="color:#f92672">?.</span>body<span style="color:#f92672">?.</span>let { Log.d(<span style="color:#e6db74">&#34;[TOKEN]&#34;</span>, <span style="color:#66d9ef">it</span>) }
+    }
+}
+</code></pre></div><h3 id="vue---再來看看後端vue的部分">Vue - 再來看看後端Vue的部分</h3>
 <h4 id="-nodejs--yarn">➊ Node.js + Yarn</h4>
 <ul>
 <li>安裝<a href="https://progressbar.tw/posts/291">Node.js</a>細節就不多做說明，可以參考之前的<a href="/tags/nodejs/">相關文章</a></li>
@@ -2433,7 +2580,7 @@ yarn add @types/axios   // axios套件ts翻譯檔
   <span style="color:#a6e22e">margin</span><span style="color:#f92672">-</span><span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span><span style="color:#a6e22e">px</span>;
 }
 &lt;/<span style="color:#f92672">style</span>&gt;
-</code></pre></div><h3 id="範例程式碼下載---golangimages2022vue-golang-pushgomailandpush_golang7z--vueimages2022vue-golang-pushgomailandpush_vue7z--iosimages2022vue-golang-pushgomailandpush_ios7z">範例程式碼下載 - <a href="/images/2022/vue-golang-push/GoMailAndPush_Golang.7z">Golang</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_VUE.7z">Vue</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_iOS.7z">iOS</a></h3>
+</code></pre></div><h3 id="範例程式碼下載---golangimages2022vue-golang-pushgomailandpush_golang7z--vueimages2022vue-golang-pushgomailandpush_vue7z--iosimages2022vue-golang-pushgomailandpush_ios7z--androidimages2022vue-golang-pushgomailandpush_android7z">範例程式碼下載 - <a href="/images/2022/vue-golang-push/GoMailAndPush_Golang.7z">Golang</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_VUE.7z">Vue</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_iOS.7z">iOS</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_Android.7z">Android</a></h3>
 <video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2022/vue-golang-push/Result.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
