@@ -82,7 +82,7 @@
 </svg></span>
     <span class="post_date">
       May 1, 2022</span>
-    <span class="post_time"> · 12 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/vue' title="vue" class="post_tag button button_translucent">vue
+    <span class="post_time"> · 13 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/vue' title="vue" class="post_tag button button_translucent">vue
         </a><a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/push' title="push" class="post_tag button button_translucent">push
         </a><a href='https://William-Weng.github.io/tags/sms' title="SMS" class="post_tag button button_translucent">SMS
@@ -221,6 +221,14 @@
 <tr>
 <td><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
 <td>1.66.2 arm64</td>
+</tr>
+<tr>
+<td><a href="https://apps.apple.com/tw/app/xcode/id497799835">Xcode</a></td>
+<td>13.2 arm64</td>
+</tr>
+<tr>
+<td><a href="https://developer.android.com/studio">Android Studio</a></td>
+<td>2021.1.1 arm64</td>
 </tr>
 <tr>
 <td><a href="https://www.postman.com/">Postman</a></td>
@@ -2580,6 +2588,325 @@ yarn add @types/axios   // axios套件ts翻譯檔
   <span style="color:#a6e22e">margin</span><span style="color:#f92672">-</span><span style="color:#a6e22e">top</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">60</span><span style="color:#a6e22e">px</span>;
 }
 &lt;/<span style="color:#f92672">style</span>&gt;
+</code></pre></div><h3 id="產生美美的api文件ui---swagger">產生美美的API文件UI - Swagger</h3>
+<ul>
+<li><a href="https://github.com/go-swagger/go-swagger">Swagger</a>是一個能夠<a href="https://dailyview.tw/Popular/Detail/9629">快速</a>的生<a href="https://israynotarray.com/nodejs/20201229/1974873838/">產出</a>一份<a href="https://ithelp.ithome.com.tw/articles/10224472">API Doc</a>的工具，幾乎<a href="https://ithelp.ithome.com.tw/articles/10280346">主流語言</a>都有支援<a href="https://matthung0807.blogspot.com/2021/08/go-gin-swagger-generate-rest-api-docs.html">Swagger</a>，當然<a href="https://github.com/swaggo/gin-swagger">Go</a>也不例外。
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/vue-golang-push/22.png" alt="" loading="lazy" decoding="async" width="1920" height="851"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<h4 id="編譯sourcecode">編譯SourceCode</h4>
+<ul>
+<li>首先下載<a href="https://github.com/swaggo/swag">swag的SourceCode</a>，因為呢<a href="https://github.com/swaggo/swag/releases">官方編的呢</a>沒有M1的版本，所以…就自己編…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/vue-golang-push/23.png" alt="" loading="lazy" decoding="async" width="1697" height="969"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/vue-golang-push/D.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">make build
+</code></pre></div><h4 id="放置編譯好的執行檔">放置編譯好的執行檔</h4>
+<ul>
+<li>再來就是把編譯好的<a href="https://github.com/swaggo/gin-swagger">執行檔</a>放到專案內，然後安裝<a href="https://github.com/swaggo/files">相關套件</a>…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/vue-golang-push/24.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go get -u github.com/swaggo/gin-swagger
+go get -u github.com/swaggo/files
+./swag
+</code></pre></div><h4 id="產生文件的json檔">產生文件的JSON檔</h4>
+<ul>
+<li>這裡就是由swagger產生文件的動作，相關的格式請參考<a href="https://github.com/swaggo/swag/blob/master/README_zh-CN.md">官方的文件</a>…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/vue-golang-push/25.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./swag init
+go run .
+</code></pre></div><h4 id="swaggerui">SwaggerUI</h4>
+<ul>
+<li>最後就是重複的產生文件，然後執行…</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/vue-golang-push/E.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+
+	<span style="color:#e6db74">&#34;william/docs&#34;</span>
+
+	<span style="color:#a6e22e">swaggerfiles</span> <span style="color:#e6db74">&#34;github.com/swaggo/files&#34;</span>
+	<span style="color:#a6e22e">ginSwagger</span> <span style="color:#e6db74">&#34;github.com/swaggo/gin-swagger&#34;</span>
+)
+
+<span style="color:#75715e">// 註冊API
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+	<span style="color:#a6e22e">swaggerApiDoc</span>(<span style="color:#a6e22e">router</span>)
+}
+
+<span style="color:#75715e">/// MARK: - WebAPI
+</span><span style="color:#75715e">// 產生DOC文件UI介面
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">swaggerApiDoc</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>) {
+	<span style="color:#a6e22e">docs</span>.<span style="color:#a6e22e">SwaggerInfo</span>.<span style="color:#a6e22e">BasePath</span> = <span style="color:#e6db74">&#34;/&#34;</span>
+	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/swagger/*any&#34;</span>, <span style="color:#a6e22e">ginSwagger</span>.<span style="color:#a6e22e">WrapHandler</span>(<span style="color:#a6e22e">swaggerfiles</span>.<span style="color:#a6e22e">Handler</span>))
+}
+
+<span style="color:#75715e">// @BasePath /
+</span><span style="color:#75715e">// @schemes http https
+</span><span style="color:#75715e">// @Router /user/{name} [get]
+</span><span style="color:#75715e">// @param name path string true &#34;使用者名稱&#34;
+</span><span style="color:#75715e">// @Tags 搜尋單一使用者
+</span><span style="color:#75715e">// @summary &lt;GET&gt;搜尋單一使用者 =&gt; http://localhost:12345/user/william
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+
+	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/user/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
+
+		<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;name&#34;</span>)
+		<span style="color:#a6e22e">user</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">User</span>.<span style="color:#a6e22e">Select</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">name</span>)
+
+		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">ID</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+			<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">ContextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">user</span>, <span style="color:#66d9ef">nil</span>)
+			<span style="color:#66d9ef">return</span>
+		}
+
+		<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">ContextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">error</span>)
+	})
+}
 </code></pre></div><h3 id="範例程式碼下載---golangimages2022vue-golang-pushgomailandpush_golang7z--vueimages2022vue-golang-pushgomailandpush_vue7z--iosimages2022vue-golang-pushgomailandpush_ios7z--androidimages2022vue-golang-pushgomailandpush_android7z">範例程式碼下載 - <a href="/images/2022/vue-golang-push/GoMailAndPush_Golang.7z">Golang</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_VUE.7z">Vue</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_iOS.7z">iOS</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_Android.7z">Android</a></h3>
 <video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2022/vue-golang-push/Result.mp4" type="video/mp4">
