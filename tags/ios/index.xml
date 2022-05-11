@@ -24,6 +24,38 @@
     </item>
     
     <item>
+      <title>【Swift 5】我到底身在何方？我到底去到何處？</title>
+      <link>https://William-Weng.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</link>
+      <pubDate>Mon, 31 May 2021 12:10:27 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</guid>
+      <description>
+        
+          
+            &lt;p&gt;因為呢，個人&lt;a href=&#34;https://www.youtube.com/watch?v=uS_F4nw1fvA&#34;&gt;不務正業&lt;/a&gt;太久了，又加上&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/2019%E5%86%A0%E7%8A%B6%E7%97%85%E6%AF%92%E7%97%85%E7%96%AB%E6%83%85&#34;&gt;新冠肺炎疫情&lt;/a&gt;的緣故，這來寫寫這個有關&lt;a href=&#34;https://itisjoe.gitbooks.io/swiftgo/content/apps/taipeitravel/map.html&#34;&gt;定位 / 語系&lt;/a&gt;的文章。&lt;a href=&#34;https://www.youtube.com/watch?v=FMLu34WxjXw&#34;&gt;無論你身在何方 無論你去到何處&lt;/a&gt;，我都要&lt;a href=&#34;https://www.youtube.com/watch?v=kaLTJZXqEjY&#34;&gt;定位&lt;/a&gt;的到你啦，怎麼有點&lt;a href=&#34;https://www.harpersbazaar.com/tw/culture/theatreandbooks/g33802288/love-relationship-book-2020/&#34;&gt;恐怖情人&lt;/a&gt;的感覺…XD，主要是在工作上有用到，用來判斷該給什麼語系的資料，所以想寫個&lt;a href=&#34;https://relab.cc/blog/%E6%87%B6%E4%BA%BA%E5%8C%85&#34;&gt;定位懶人包&lt;/a&gt;以後可以用，這次的文章比較多Code，話不多說，就讓我們&lt;a href=&#34;https://www.youtube.com/watch?v=obLrRjGNa5g&#34;&gt;繼續看下去&lt;/a&gt;。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【SwiftUI 2.0】它好用嗎？能吃嗎？</title>
+      <link>https://William-Weng.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</link>
+      <pubDate>Thu, 27 May 2021 06:27:56 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</guid>
+      <description>
+        
+          
+            &lt;p&gt;因為&lt;a href=&#34;https://www.inside.com.tw/article/16548-wwdc-2019-macos-swiftui&#34;&gt;APPLE&lt;/a&gt;在&lt;a href=&#34;https://developer.apple.com/videos/wwdc2019&#34;&gt;WWDC19&lt;/a&gt;發表了&lt;a href=&#34;https://developer.apple.com/videos/play/wwdc2019/238/&#34;&gt;SwiftUI&lt;/a&gt;這個語法簡潔的&lt;a href=&#34;https://www.appcoda.com.tw/swiftui-introduction/&#34;&gt;Framework&lt;/a&gt;，個人發想APPLE應該是在學Google的&lt;a href=&#34;https://www.appcoda.com.tw/flutter-basics/&#34;&gt;Flutter&lt;/a&gt;吧？想讓寫APP的&lt;a href=&#34;https://michaelchen.tech/objc-programming/class-and-object/&#34;&gt;門檻&lt;/a&gt;降低，不過秉持APPLE一貫的傳統，當然這個東西只能寫自家系統的東西，像&lt;a href=&#34;https://www.apple.com/tw/macos/big-sur/&#34;&gt;macOS&lt;/a&gt; / &lt;a href=&#34;https://www.apple.com/tw/watchos/watchos-7/&#34;&gt;watchOS&lt;/a&gt; / &lt;a href=&#34;https://www.appcoda.com.tw/tvos-introduction/&#34;&gt;tvOS&lt;/a&gt;，不像Google想以&lt;a href=&#34;https://William-Weng.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;一統江湖。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
       <title>【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</title>
       <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
       <pubDate>Sun, 06 Oct 2019 16:35:20 +0000</pubDate>
@@ -40,6 +72,38 @@
     </item>
     
     <item>
+      <title>【Swift 5】UICollectionView也能變桌布？</title>
+      <link>https://William-Weng.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</link>
+      <pubDate>Wed, 21 Aug 2019 11:04:26 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2019/08/swift-5uicollectionview%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%A1%8C%E5%B8%83/</guid>
+      <description>
+        
+          
+            &lt;p&gt;這篇應該算應該也是個『極短篇』吧？主要是因為有看到&lt;a href=&#34;https://briian.com/61174/&#34;&gt;這一篇文章&lt;/a&gt;介紹的&lt;a href=&#34;https://apps.apple.com/tw/app/grid-wallpaper/id1455306421&#34;&gt;APP - Grid Wallpaper&lt;/a&gt;，原本以為還滿好做的(其實是想省錢啦)，不過實際上試了之後發現問題不是在程式好不好寫，而是不知道要怎麼去排版，因為沒有iPhone桌面上的相關尺寸資訊(還是我找不到呢？)，所以是使用&lt;a href=&#34;http://www.getmarkman.com/&#34;&gt;馬克鰻 - MarkMan&lt;/a&gt;去量的，沒錯，用量的，話不多說，讓我們看下去吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Swift 5】iPhone也能夠有圖形解鎖？</title>
+      <link>https://William-Weng.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</link>
+      <pubDate>Tue, 30 Jul 2019 10:16:19 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2019/07/swift-5iphone%E4%B9%9F%E8%83%BD%E5%A4%A0%E6%9C%89%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96/</guid>
+      <description>
+        
+          
+            &lt;p&gt;話說iPhone創新總是讓人耳目一新，尤其是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E8%A7%A6%E6%8E%A7_ID&#34;&gt;「指紋辨識 - Touch ID」&lt;/a&gt;跟&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E9%9D%A2%E5%AE%B9_ID&#34;&gt;「臉部辨識 - Face ID」&lt;/a&gt;可以算是Android手機們&lt;a href=&#34;https://cocoapods.org/pods/WWTouchIdTesting&#34;&gt;「模仿」&lt;/a&gt;的對象之一，但是Android手機圖形解鎖反而在iPhone沒有，這真的是很讓人奇怪的地方，或許是&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E7%94%9F%E7%89%A9%E8%AF%86%E5%88%AB%E6%8A%80%E6%9C%AF&#34;&gt;「生物辨識」&lt;/a&gt;的安全性比圖形密碼來的高吧？在這裡呢，我們要仿製一個簡單圖形鎖，話不多說，我們就來試試看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
       <title>【NativeScript 6】NativeScript &#43; Vue.js = iOS &#43; Android?</title>
       <link>https://William-Weng.github.io/2019/07/nativescript-6nativescript-vue.js-ios-android/</link>
       <pubDate>Tue, 23 Jul 2019 13:51:07 +0000</pubDate>
@@ -49,6 +113,70 @@
         
           
             &lt;p&gt;&lt;a href=&#34;https://www.nativescript.org/&#34;&gt;NativeScript&lt;/a&gt;是一套跨平台的framework，聽名字就知道，它是用來寫Native程式的，說到跨平台比較紅的還有使用&lt;a href=&#34;http://dart.goodev.org/&#34;&gt;dart語言&lt;/a&gt;的&lt;a href=&#34;https://william-weng.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;、使用&lt;a href=&#34;https://zh.wikipedia.org/wiki/JavaScript&#34;&gt;javascript語言&lt;/a&gt;的&lt;a href=&#34;https://en.wikipedia.org/wiki/React_Native&#34;&gt;React Native&lt;/a&gt;，之所以會選擇它也是因為&lt;a href=&#34;https://zh.wikipedia.org/wiki/TypeScript&#34;&gt;TypeScript&lt;/a&gt;越來越紅了，很想學一學，如果與&lt;a href=&#34;https://zh.wikipedia.org/wiki/Angular&#34;&gt;Angular&lt;/a&gt;或&lt;a href=&#34;https://zh.wikipedia.org/wiki/Vue.js&#34;&gt;Vue.js&lt;/a&gt;結合，就可以開發手機平臺的程式，聽起來是不是很不錯啊？如果要看看它與其它跨平台開發的工具比較，可以看看&lt;a href=&#34;https://medium.com/@kingapol/%E8%B7%A8%E5%B9%B3%E5%8F%B0%E9%96%8B%E7%99%BC%E7%9A%84%E4%B8%80%E4%BA%9B%E5%A7%BF%E5%8B%A2-e2a59b7849ce&#34;&gt;這一篇文章&lt;/a&gt;。那為什麼會選擇&lt;a href=&#34;https://medium.com/@DingDingTaiwan/%E5%AF%AB-nativescript-vue-%E7%9A%84%E5%BF%83%E5%BE%97-3106e32957f6&#34;&gt;Vue.js v2.x&lt;/a&gt;呢？因為它下一版以&lt;a href=&#34;https://www.oschina.net/news/100515/plans-for-the-next-iteration-of-vue-js&#34;&gt;TypeScript&lt;/a&gt;改寫，加上它有&lt;a href=&#34;https://cn.vuejs.org/&#34;&gt;中文文件&lt;/a&gt;，所以對於英文不好的我是最佳的選擇，接下來我們就開始吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Swift 5】手機也能變撲克牌魔術？</title>
+      <link>https://William-Weng.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</link>
+      <pubDate>Sat, 25 May 2019 18:58:21 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/</guid>
+      <description>
+        
+          
+            &lt;p&gt;這篇應該算是『極短篇』吧，個人其實是滿喜歡魔術的(喜歡被騙？)，最近在Youtube上看到一篇&lt;a href=&#34;https://www.youtube.com/watch?v=hFdtbbpIAkE&#34;&gt;牌穿進手機的魔術揭秘&lt;/a&gt;，看起來是很久以前的魔術了(把妹招術？)，身為魔術師(脫魯？)的我，當然也要來練習一下，不過它這篇手機上的牌是固定的，而個人在這裡做一些改良，主要是利用&lt;a href=&#34;https://developer.apple.com/documentation/uikit/uidevice/1620046-proximitystatedidchangenotificat&#34;&gt;ProximityMonitor&lt;/a&gt;的變化，跟&lt;a href=&#34;https://en.wikipedia.org/wiki/Firebase&#34;&gt;Firebase&lt;/a&gt;的RealtimeDatabase來變魔術，讓我們來看看吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Flutter 1.5】製作一個簡單的名片列表APP</title>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</link>
+      <pubDate>Thu, 23 May 2019 12:31:53 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</guid>
+      <description>
+        
+          
+            &lt;p&gt;主要這一篇文章是要做一個比較&lt;a href=&#34;https://www.appcoda.com.tw/flutter-basics/&#34;&gt;完整的案例&lt;/a&gt;，個人一直覺得『挫折感才是成功的捷徑』，一直做『對的』事情很難成長的，唯有『挫折感』才能讓人記憶深刻，像我的&lt;a href=&#34;https://www.cheers.com.tw/article/article.action?id=5068196&amp;amp;eturec=1&#34;&gt;好人卡&lt;/a&gt;已經打破&lt;a href=&#34;https://kknews.cc/zh-tw/comic/5g6eoy2.html&#34;&gt;櫻木花道&lt;/a&gt;50+的記錄了，真是&lt;a href=&#34;https://zh.moegirl.org/zh-tw/%E5%8F%AF%E5%96%9C%E5%8F%AF%E8%B4%BA&#34;&gt;めでたしめでたし&lt;/a&gt;啊，等我要推出好人撲克牌的時候，再麻煩大家再來&lt;a href=&#34;https://tw.dictionary.search.yahoo.com/search?p=donate&#34;&gt;抖內&lt;/a&gt;，集資一下吧。話不多說，大家一起來從做中學吧，以下只會將部分的Code貼上解說。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Flutter 1.2】手機的畫面佈局 (Container篇)</title>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
+      <pubDate>Mon, 13 May 2019 16:04:16 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;這次是要說明Flutter的畫面佈局，在Flutter的世界中，萬物皆&lt;a href=&#34;https://flutterchina.club/widgets-intro/&#34;&gt;Widget&lt;/a&gt;，應該在iOS中算是&lt;a href=&#34;https://developer.apple.com/documentation/uikit/uiview&#34;&gt;UIView&lt;/a&gt;吧？UI的根源，一切都是由此而生，話不多說，讓我們踏出成功的第一步。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Flutter 1.2】Flutter UI Debug工具</title>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Tue, 07 May 2019 16:20:50 +0000</pubDate>
+      
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</guid>
+      <description>
+        
+          
+            &lt;p&gt;一開始還沒有接觸Flutter的時候，覺得寫Code是沒有問題的，但是UI要怎麼Debug呢？Android方面應該沒有什麼問題，因為是Google自家的東西嘛，但是iOS要怎麼做呢？後來就用VSCode它build出來的專案，分別用Android Studio跟Xcode開，個別去看UI，不過真的沒有用到原生的UI，Flutter的畫面都是『畫』出來的。後來想想真的很笨，明明在Android Studio上面就有&lt;a href=&#34;https://flutter.dev/docs/development/tools/inspector&#34;&gt;Flutter inspector&lt;/a&gt;啊，加上Flutter的UI(&lt;a href=&#34;https://flutter.dev/docs/development/ui/widgets/material&#34;&gt;Material風格&lt;/a&gt; / &lt;a href=&#34;https://flutter.dev/docs/development/ui/widgets/cupertino&#34;&gt;Cupertino風格&lt;/a&gt;)都是Google工程師自己做出來的，並沒有用到兩個平臺的原生UI，想想這樣也對，如此一來UI就可以長得一模一樣了，話不多說，就用以下的影片記錄一下今天的發現吧。&lt;/p&gt;
           
           
         
