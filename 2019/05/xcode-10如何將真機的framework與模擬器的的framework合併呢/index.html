@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -252,8 +252,8 @@
 <ul>
 <li>接下來我們利用<a href="https://www.jianshu.com/p/e590f041c5f6">lipo指令</a>來比較看看有什麼不同，我們可以發現模擬器用的是<a href="https://zh.wikipedia.org/wiki/X86-64">x86_64架構的CPU</a>，而真機用的是<a href="https://zh.wikipedia.org/wiki/ARM%E6%9E%B6%E6%A7%8B">ARM架構的CPU</a>，也就是說在手機上是不能用模擬器上的framework</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lipo -info &lt;your_framework_name&gt;
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lipo -info &lt;your_framework_name&gt;
+</span></span></code></pre></div><p>
 
 
 
@@ -378,9 +378,9 @@
 <ul>
 <li>接下來一樣利用lipo指令來合併編譯檔</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lipo -create -output &lt;new_framework_name&gt; &lt;x86_64_framework_name&gt; &lt;ARM_framework_name&gt;
-lipo -info &lt;new_framework_name&gt;
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>lipo -create -output &lt;new_framework_name&gt; &lt;x86_64_framework_name&gt; &lt;ARM_framework_name&gt;
+</span></span><span style="display:flex;"><span>lipo -info &lt;new_framework_name&gt;
+</span></span></code></pre></div><p>
 
 
 
@@ -694,51 +694,51 @@ lipo -info &lt;new_framework_name&gt;
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Merge Script</span>
-
-<span style="color:#75715e"># 1</span>
-<span style="color:#75715e"># Set bash script to exit immediately if any commands fail.</span>
-set -e
-
-<span style="color:#75715e"># 2</span>
-<span style="color:#75715e"># Setup some constants for use later on.</span>
-FRAMEWORK_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;Your_Framework_Name&gt;&#34;</span>
-
-<span style="color:#75715e"># 3</span>
-<span style="color:#75715e"># If remnants from a previous build exist, delete them.</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span>
-<span style="color:#66d9ef">fi</span>
-
-<span style="color:#75715e"># 4</span>
-<span style="color:#75715e"># Build the framework for device and for simulator (using all needed architectures).</span>
-xcodebuild -target <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch<span style="color:#f92672">=</span>no defines_module<span style="color:#f92672">=</span>yes -sdk <span style="color:#e6db74">&#34;iphoneos&#34;</span>
-xcodebuild -target <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -configuration Release -arch x86_64 -arch i386 only_active_arch<span style="color:#f92672">=</span>no defines_module<span style="color:#f92672">=</span>yes -sdk <span style="color:#e6db74">&#34;iphonesimulator&#34;</span>
-
-<span style="color:#75715e"># 5</span>
-<span style="color:#75715e"># Remove .framework file if exists on Desktop from previous run.</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span>
-<span style="color:#66d9ef">fi</span>
-
-<span style="color:#75715e"># 6</span>
-<span style="color:#75715e"># Copy the device version of framework to Desktop.</span>
-cp -r <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphoneos/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span>
-
-<span style="color:#75715e"># 7</span>
-<span style="color:#75715e"># Replace the framework executable within the framework with a new version created by merging the device and simulator # frameworks&#39; executables with lipo.</span>
-
-lipo -create -output <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphoneos/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphonesimulator/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-
-<span style="color:#75715e"># 8 # Copy the Swift module mappings for the simulator into the # framework. The device mappings already exist from step 6.</span>
-cp -r <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphonesimulator/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/Modules/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.swiftmodule/&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/Modules/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.swiftmodule&#34;</span>
-
-<span style="color:#75715e"># 9</span>
-<span style="color:#75715e"># Delete the most recent build.</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span>
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><h4 id="build-framework">build framework</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Merge Script</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Set bash script to exit immediately if any commands fail.</span>
+</span></span><span style="display:flex;"><span>set -e
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Setup some constants for use later on.</span>
+</span></span><span style="display:flex;"><span>FRAMEWORK_NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&lt;Your_Framework_Name&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If remnants from a previous build exist, delete them.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 4</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Build the framework for device and for simulator (using all needed architectures).</span>
+</span></span><span style="display:flex;"><span>xcodebuild -target <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -configuration Release -arch arm64 -arch armv7 -arch armv7s only_active_arch<span style="color:#f92672">=</span>no defines_module<span style="color:#f92672">=</span>yes -sdk <span style="color:#e6db74">&#34;iphoneos&#34;</span>
+</span></span><span style="display:flex;"><span>xcodebuild -target <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> -configuration Release -arch x86_64 -arch i386 only_active_arch<span style="color:#f92672">=</span>no defines_module<span style="color:#f92672">=</span>yes -sdk <span style="color:#e6db74">&#34;iphonesimulator&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 5</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Remove .framework file if exists on Desktop from previous run.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 6</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copy the device version of framework to Desktop.</span>
+</span></span><span style="display:flex;"><span>cp -r <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphoneos/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 7</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Replace the framework executable within the framework with a new version created by merging the device and simulator # frameworks&#39; executables with lipo.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lipo -create -output <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphoneos/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphonesimulator/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 8 # Copy the Swift module mappings for the simulator into the # framework. The device mappings already exist from step 6.</span>
+</span></span><span style="display:flex;"><span>cp -r <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build/Release-iphonesimulator/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/Modules/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.swiftmodule/&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>HOME<span style="color:#e6db74">}</span><span style="color:#e6db74">/Desktop/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.framework/Modules/</span><span style="color:#e6db74">${</span>FRAMEWORK_NAME<span style="color:#e6db74">}</span><span style="color:#e6db74">.swiftmodule&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 9</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete the most recent build.</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -d <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>SRCROOT<span style="color:#e6db74">}</span><span style="color:#e6db74">/build&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><h4 id="build-framework">build framework</h4>
 <ul>
 <li>切換Target =&gt; Run =&gt; Framework就會出現在桌面上了。這麼簡單，那為什麼我不早點說呢？因為要騙稿費嘛…XD
 
@@ -878,6 +878,9 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -897,9 +900,6 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -970,6 +970,11 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -978,11 +983,6 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -1065,6 +1065,11 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -1077,6 +1082,11 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1260,13 +1270,13 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1287,11 +1297,6 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1391,7 +1396,7 @@ rm -rf <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</s
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

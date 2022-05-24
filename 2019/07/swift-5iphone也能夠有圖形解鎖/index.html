@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -193,82 +193,82 @@
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
-
-    <span style="color:#75715e">/// 圖形鎖的外觀 (圓形的)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCell</span>(with collectionView: UICollectionView, <span style="color:#66d9ef">for</span> indexPath: IndexPath) -&gt; UICollectionViewCell {
-        
-        <span style="color:#66d9ef">let</span> lockCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, <span style="color:#66d9ef">for</span>: indexPath)
-        
-        lockCell.tag = indexPath.row
-        lockCell.layer.cornerRadius = lockCell.bounds.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-        lockCell.layer.borderWidth = <span style="color:#ae81ff">3</span>
-        lockCell.layer.borderColor = lockCellBorderColor(<span style="color:#66d9ef">for</span>: indexPath)
-        
-        <span style="color:#66d9ef">return</span> lockCell
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
-    
-    <span style="color:#75715e">/// 圖形鎖的數量 (3 x 3)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellCount</span>(with row: Int) -&gt; Int {
-        <span style="color:#66d9ef">return</span> row <span style="color:#f92672">*</span> row
-    }
-    
-    <span style="color:#75715e">/// 圖形鎖的平均寬度</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellWidth</span>(with width: CGFloat, <span style="color:#66d9ef">for</span> row: Int) -&gt; CGFloat {
-        <span style="color:#66d9ef">let</span> cellWidth = width <span style="color:#f92672">/</span> CGFloat(row <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
-        <span style="color:#66d9ef">let</span> cellWidthString = String(format: <span style="color:#e6db74">&#34;%.2f&#34;</span>, cellWidth)
-        <span style="color:#66d9ef">return</span> CGFloat(Float(cellWidthString)<span style="color:#f92672">!</span>)
-    }
-    
-    <span style="color:#75715e">/// 圖形鎖的平均大小</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellSize</span>(with width: CGFloat, <span style="color:#66d9ef">for</span> row: Int) -&gt; CGSize {
-        <span style="color:#66d9ef">let</span> cellWidth = lockCellWidth(with: width, <span style="color:#66d9ef">for</span>: row)
-        <span style="color:#66d9ef">return</span> CGSize(width: cellWidth, height: cellWidth)
-    }
-
-    <span style="color:#75715e">/// 圖形鎖的外框顏色 (選到的 / 沒選到)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellBorderColor</span>(<span style="color:#66d9ef">for</span> indexPath: IndexPath) -&gt; CGColor {
-        <span style="color:#66d9ef">let</span> cellBorderColor = selectedPassword.contains(indexPath.row) ? UIColor.green.cgColor : UIColor.white.cgColor
-        <span style="color:#66d9ef">return</span> cellBorderColor
-    }
-}
-</code></pre></div><h4 id="自定義protocol">自定義Protocol</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 圖形鎖的外觀 (圓形的)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCell</span>(with collectionView: UICollectionView, <span style="color:#66d9ef">for</span> indexPath: IndexPath) -&gt; UICollectionViewCell {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> lockCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, <span style="color:#66d9ef">for</span>: indexPath)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        lockCell.tag = indexPath.row
+</span></span><span style="display:flex;"><span>        lockCell.layer.cornerRadius = lockCell.bounds.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>        lockCell.layer.borderWidth = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>        lockCell.layer.borderColor = lockCellBorderColor(<span style="color:#66d9ef">for</span>: indexPath)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lockCell
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 圖形鎖的數量 (3 x 3)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellCount</span>(with row: Int) -&gt; Int {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> row <span style="color:#f92672">*</span> row
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 圖形鎖的平均寬度</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellWidth</span>(with width: CGFloat, <span style="color:#66d9ef">for</span> row: Int) -&gt; CGFloat {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> cellWidth = width <span style="color:#f92672">/</span> CGFloat(row <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> cellWidthString = String(format: <span style="color:#e6db74">&#34;%.2f&#34;</span>, cellWidth)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> CGFloat(Float(cellWidthString)<span style="color:#f92672">!</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 圖形鎖的平均大小</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellSize</span>(with width: CGFloat, <span style="color:#66d9ef">for</span> row: Int) -&gt; CGSize {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> cellWidth = lockCellWidth(with: width, <span style="color:#66d9ef">for</span>: row)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> CGSize(width: cellWidth, height: cellWidth)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 圖形鎖的外框顏色 (選到的 / 沒選到)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockCellBorderColor</span>(<span style="color:#66d9ef">for</span> indexPath: IndexPath) -&gt; CGColor {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> cellBorderColor = selectedPassword.contains(indexPath.row) ? UIColor.green.cgColor : UIColor.white.cgColor
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> cellBorderColor
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="自定義protocol">自定義Protocol</h4>
 <ul>
 <li>在這裡我們要自定義LockCollectionView來覆寫<a href="https://developer.apple.com/documentation/uikit/uiresponder/1621107-touchesmoved">touchesMoved</a>跟<a href="https://developer.apple.com/documentation/uikit/uiresponder/1621084-touchesended">touchesEnded</a>這兩個方法，跟LockCollectionViewDelegate來處理手指滑動的反應。在這裡主要的重點就是，怎麼樣才算「被選到呢」？就是利用它<a href="https://developer.apple.com/documentation/uikit/uicollectionview/1618030-indexpathforitem">「indexPathForItem(at: touchPoint)」</a>來測試Item有沒有被點到。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
-
-<span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">LockCollectionViewDelegate</span>: <span style="color:#66d9ef">class</span> {
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">move</span>(to point: CGPoint)                    <span style="color:#75715e">/// 手指滑動時的反應</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">moveEnded</span>()                                <span style="color:#75715e">/// 手指滑動完成後的反應</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectedItem</span>(at indexPath: IndexPath)      <span style="color:#75715e">/// 選到Item時的反應</span>
-}
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LockCollectionView</span>: UICollectionView {
-    
-    <span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> lockCollectionViewDelegate: LockCollectionViewDelegate?
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">touchesMoved</span>(<span style="color:#66d9ef">_</span> touches: Set&lt;UITouch&gt;, with event: UIEvent?) {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> touchPoint = touches.first?.location(<span style="color:#66d9ef">in</span>: <span style="color:#66d9ef">self</span>) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> indexPath = <span style="color:#66d9ef">self</span>.indexPathForItem(at: touchPoint) {
-            lockCollectionViewDelegate?.selectedItem(at: indexPath); <span style="color:#66d9ef">return</span>
-        }
-        
-        lockCollectionViewDelegate?.move(to: touchPoint)
-    }
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">touchesEnded</span>(<span style="color:#66d9ef">_</span> touches: Set&lt;UITouch&gt;, with event: UIEvent?) {
-        lockCollectionViewDelegate?.moveEnded()
-    }
-}
-</code></pre></div><h4 id="畫線">畫線</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">UIKit</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">LockCollectionViewDelegate</span>: <span style="color:#66d9ef">class</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">move</span>(to point: CGPoint)                    <span style="color:#75715e">/// 手指滑動時的反應</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">moveEnded</span>()                                <span style="color:#75715e">/// 手指滑動完成後的反應</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectedItem</span>(at indexPath: IndexPath)      <span style="color:#75715e">/// 選到Item時的反應</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LockCollectionView</span>: UICollectionView {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> lockCollectionViewDelegate: LockCollectionViewDelegate?
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">touchesMoved</span>(<span style="color:#66d9ef">_</span> touches: Set&lt;UITouch&gt;, with event: UIEvent?) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> touchPoint = touches.first?.location(<span style="color:#66d9ef">in</span>: <span style="color:#66d9ef">self</span>) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> indexPath = <span style="color:#66d9ef">self</span>.indexPathForItem(at: touchPoint) {
+</span></span><span style="display:flex;"><span>            lockCollectionViewDelegate?.selectedItem(at: indexPath); <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        lockCollectionViewDelegate?.move(to: touchPoint)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">touchesEnded</span>(<span style="color:#66d9ef">_</span> touches: Set&lt;UITouch&gt;, with event: UIEvent?) {
+</span></span><span style="display:flex;"><span>        lockCollectionViewDelegate?.moveEnded()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="畫線">畫線</h4>
 <ul>
 <li>畫線主要的是利用<a href="https://developer.apple.com/documentation/quartzcore/cashapelayer">CAShapeLayer</a>去處理，從Item中點開始畫，而路徑是跟<a href="https://developer.apple.com/documentation/uikit/uibezierpath">UIBezierPath</a>做配合，然後記錄Password的值，其中比較要注意的是移動時的線是暫時的，會被清掉，而完成時的線會被記錄下來，在這裡特地把兩條線的顏色分開，以利說明。
 
@@ -332,128 +332,128 @@
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
-    
-    <span style="color:#75715e">/// 畫圖形鎖的線 (完成時 - 紅色)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawLockLayerForSelected</span>(to point: CGPoint) {
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> _currentPoint = currentPoint {
-            
-            <span style="color:#66d9ef">let</span> layerPath = lockShapeLayerPath(from: _currentPoint, to: point)
-            <span style="color:#66d9ef">let</span> lockShapeLayer = lockShapeLayerMaker(<span style="color:#66d9ef">for</span>: layerPath, color: .red)
-            
-            lineLayers.append(lockShapeLayer)
-            view.layer.addSublayer(lockShapeLayer)
-        }
-
-        currentPoint = point
-    }
-    
-    <span style="color:#75715e">/// 畫圖形鎖的線 (移動時 - 綠色)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawLockLayerForMove</span>(to point: CGPoint) {
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> _currentPoint = currentPoint {
-            
-            <span style="color:#66d9ef">let</span> layerPath = lockShapeLayerPath(from: _currentPoint, to: point)
-            
-            <span style="color:#66d9ef">if</span> (moveLayer == <span style="color:#66d9ef">nil</span>) {
-                moveLayer = lockShapeLayerMaker(<span style="color:#66d9ef">for</span>: layerPath, color: .green)
-                view.layer.addSublayer(moveLayer!)
-                <span style="color:#66d9ef">return</span>
-            }
-            
-            moveLayerSetting(<span style="color:#66d9ef">for</span>: layerPath, color: .green)
-        }
-    }
-    
-    <span style="color:#75715e">/// 產生畫線的Layer</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockShapeLayerMaker</span>(<span style="color:#66d9ef">for</span> path: UIBezierPath, color: UIColor) -&gt; CAShapeLayer {
-        <span style="color:#66d9ef">return</span> lockLayerSetting(<span style="color:#66d9ef">for</span>: path, color: color)
-    }
-    
-    <span style="color:#75715e">/// 設定moveLayer</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">moveLayerSetting</span>(<span style="color:#66d9ef">for</span> path: UIBezierPath, color: UIColor) {
-        <span style="color:#66d9ef">_</span> = lockLayerSetting(moveLayer, <span style="color:#66d9ef">for</span>: path, color: color)
-    }
-
-    <span style="color:#75715e">/// 記錄Password的值 (畫線)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">appendPassword</span>(at indexPath: IndexPath) {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#f92672">!</span>selectedPassword.contains(indexPath.row),
-              <span style="color:#66d9ef">let</span> lockCell = lockCollectionView.cellForItem(at: indexPath)
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span>
-        }
-        
-        selectedPassword.append(indexPath.row)
-        drawLockLayerForSelected(to: lockCell.center)
-        
-        moveLayer?.removeFromSuperlayer()
-        moveLayer = <span style="color:#66d9ef">nil</span>
-        
-        playSystemSound(soundID: <span style="color:#ae81ff">1520</span>)
-        lockCollectionView.reloadItems(at: [indexPath])
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
-
-    <span style="color:#75715e">/// 畫線的路徑</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockShapeLayerPath</span>(from point1: CGPoint, to point2: CGPoint) -&gt; UIBezierPath {
-        
-        <span style="color:#66d9ef">let</span> bezierPath = UIBezierPath()
-        
-        bezierPath.move(to: point1)
-        bezierPath.addLine(to: point2)
-        
-        <span style="color:#66d9ef">return</span> bezierPath
-    }
-}
-</code></pre></div><h4 id="比對密碼">比對密碼</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 畫圖形鎖的線 (完成時 - 紅色)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawLockLayerForSelected</span>(to point: CGPoint) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> _currentPoint = currentPoint {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> layerPath = lockShapeLayerPath(from: _currentPoint, to: point)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> lockShapeLayer = lockShapeLayerMaker(<span style="color:#66d9ef">for</span>: layerPath, color: .red)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            lineLayers.append(lockShapeLayer)
+</span></span><span style="display:flex;"><span>            view.layer.addSublayer(lockShapeLayer)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        currentPoint = point
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 畫圖形鎖的線 (移動時 - 綠色)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">drawLockLayerForMove</span>(to point: CGPoint) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> _currentPoint = currentPoint {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> layerPath = lockShapeLayerPath(from: _currentPoint, to: point)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (moveLayer == <span style="color:#66d9ef">nil</span>) {
+</span></span><span style="display:flex;"><span>                moveLayer = lockShapeLayerMaker(<span style="color:#66d9ef">for</span>: layerPath, color: .green)
+</span></span><span style="display:flex;"><span>                view.layer.addSublayer(moveLayer!)
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            moveLayerSetting(<span style="color:#66d9ef">for</span>: layerPath, color: .green)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 產生畫線的Layer</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockShapeLayerMaker</span>(<span style="color:#66d9ef">for</span> path: UIBezierPath, color: UIColor) -&gt; CAShapeLayer {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lockLayerSetting(<span style="color:#66d9ef">for</span>: path, color: color)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 設定moveLayer</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">moveLayerSetting</span>(<span style="color:#66d9ef">for</span> path: UIBezierPath, color: UIColor) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">_</span> = lockLayerSetting(moveLayer, <span style="color:#66d9ef">for</span>: path, color: color)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 記錄Password的值 (畫線)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">appendPassword</span>(at indexPath: IndexPath) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#f92672">!</span>selectedPassword.contains(indexPath.row),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> lockCell = lockCollectionView.cellForItem(at: indexPath)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        selectedPassword.append(indexPath.row)
+</span></span><span style="display:flex;"><span>        drawLockLayerForSelected(to: lockCell.center)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        moveLayer?.removeFromSuperlayer()
+</span></span><span style="display:flex;"><span>        moveLayer = <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        playSystemSound(soundID: <span style="color:#ae81ff">1520</span>)
+</span></span><span style="display:flex;"><span>        lockCollectionView.reloadItems(at: [indexPath])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 畫線的路徑</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lockShapeLayerPath</span>(from point1: CGPoint, to point2: CGPoint) -&gt; UIBezierPath {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> bezierPath = UIBezierPath()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        bezierPath.move(to: point1)
+</span></span><span style="display:flex;"><span>        bezierPath.addLine(to: point2)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> bezierPath
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="比對密碼">比對密碼</h4>
 <ul>
 <li>比對密碼就相當簡單了，直接就使用「!=」就可以了。另外也可以改變Row的數量跟Lock的類型。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Main</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-
-    <span style="color:#75715e">/// 改變Row的數量</span>
-    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">changeLockRows</span>(<span style="color:#66d9ef">_</span> sender: UIStepper) {
-        
-        <span style="color:#66d9ef">if</span> (finalPassword.count <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) { showMessageAlert(<span style="color:#e6db74">&#34;密碼請重新設定&#34;</span>) }
-        
-        lockRowCount = Int(sender.value)
-        clearAllData()
-        finalPassword = []
-    }
-    
-    <span style="color:#75715e">/// 改變Lock的類型</span>
-    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">changeLockType</span>(<span style="color:#66d9ef">_</span> sender: UISegmentedControl) {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> type = LockType(rawValue: sender.selectedSegmentIndex) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-        
-        lockType = type
-        
-        <span style="color:#66d9ef">switch</span> type {
-        <span style="color:#66d9ef">case</span> .setting: lockCollectionView.backgroundColor = .blue
-        <span style="color:#66d9ef">case</span> .unlock: lockCollectionView.backgroundColor = .purple
-        }
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
-    <span style="color:#75715e">/// 比對密碼</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">checkPassword</span>() {
-        
-        <span style="color:#66d9ef">if</span> finalPassword.count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> {
-            <span style="color:#66d9ef">let</span> message = (finalPassword <span style="color:#f92672">!=</span> selectedPassword) ? <span style="color:#e6db74">&#34;答錯了&#34;</span> : <span style="color:#e6db74">&#34;答對了&#34;</span>
-            showMessageAlert(message)
-        }
-    }
-}
-</code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengswift-5treemastergraphiclock"><a href="https://github.com/William-Weng/Swift-5/tree/master/GraphicLock">範例程式碼下載</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Main</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 改變Row的數量</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">changeLockRows</span>(<span style="color:#66d9ef">_</span> sender: UIStepper) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (finalPassword.count <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) { showMessageAlert(<span style="color:#e6db74">&#34;密碼請重新設定&#34;</span>) }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        lockRowCount = Int(sender.value)
+</span></span><span style="display:flex;"><span>        clearAllData()
+</span></span><span style="display:flex;"><span>        finalPassword = []
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 改變Lock的類型</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">changeLockType</span>(<span style="color:#66d9ef">_</span> sender: UISegmentedControl) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> type = LockType(rawValue: sender.selectedSegmentIndex) <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        lockType = type
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> type {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .setting: lockCollectionView.backgroundColor = .blue
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .unlock: lockCollectionView.backgroundColor = .purple
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 比對密碼</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">checkPassword</span>() {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> finalPassword.count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> message = (finalPassword <span style="color:#f92672">!=</span> selectedPassword) ? <span style="color:#e6db74">&#34;答錯了&#34;</span> : <span style="color:#e6db74">&#34;答對了&#34;</span>
+</span></span><span style="display:flex;"><span>            showMessageAlert(message)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengswift-5treemastergraphiclock"><a href="https://github.com/William-Weng/Swift-5/tree/master/GraphicLock">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>其實會有這篇文章只是因為好久沒有寫Swift了，加上看到了<a href="https://medium.com/jeremy-xue-s-blog/swift-%E7%8E%A9%E7%8E%A9-%E6%89%8B%E5%8B%A2-%E5%9C%96%E5%BD%A2%E8%A7%A3%E9%8E%96-gesture-password-6863654b3f8b">這篇文章</a>，就決定要來抄一下，原文寫得很棒，大家也可以去看看，個人只是改一下下而已。另外，個人在文字的著墨上不多，大都是以Code來說明，希望大家能多多包含。</li>
@@ -533,6 +533,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -552,9 +555,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -625,6 +625,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -633,11 +638,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -720,6 +720,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -732,6 +737,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -915,13 +925,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -942,11 +952,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1046,7 +1051,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

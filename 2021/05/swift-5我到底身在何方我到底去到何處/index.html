@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -153,60 +153,60 @@
 <ul>
 <li>這裡先準備一些常數，主要是要取得手機的<a href="https://developer.apple.com/documentation/foundation/locale/2293371-regioncode">地區</a> / <a href="https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html">語系</a> / <a href="https://zh.wikipedia.org/wiki/SIM%E5%8D%A1">SIM</a> / <a href="https://zh.wikipedia.org/zh-tw/%E5%85%A8%E7%90%83%E5%AE%9A%E4%BD%8D%E7%B3%BB%E7%BB%9F">GPS定位</a>的資訊，應該沒有其它可以說明所在地的資訊了吧？</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 自定義的Print</span>
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">wwPrint</span>&lt;T&gt;(<span style="color:#66d9ef">_</span> msg: T, file: String = <span style="color:#66d9ef">#file</span>, method: String = <span style="color:#66d9ef">#function</span>, line: Int = <span style="color:#66d9ef">#line</span>) {
-    <span style="color:#75715e">#if</span> <span style="color:#75715e">DEBUG</span>
-        Swift.print(<span style="color:#e6db74">&#34;🚩 </span><span style="color:#e6db74">\((</span>file <span style="color:#66d9ef">as</span> NSString<span style="color:#e6db74">)</span>.lastPathComponent<span style="color:#e6db74">)</span><span style="color:#e6db74">：</span><span style="color:#e6db74">\(</span>line<span style="color:#e6db74">)</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">\(</span>method<span style="color:#e6db74">)</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> ✅ </span><span style="color:#e6db74">\(</span>msg<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-    <span style="color:#75715e">#endif</span>
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Utility (單例)</span>
-<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Utility</span>: NSObject {
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> shared = Utility()
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>() {}
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - typealias</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
-
-    <span style="color:#75715e">// 定位位置 =&gt; [GPS / SIM卡 / 首選語言 / 區域]</span>
-    <span style="color:#66d9ef">typealias</span> LocationCountryCode = (GPS: String?, SIMs: [String], preferredLanguage: String?, region: String?)
-    
-    <span style="color:#75715e">// 語言資訊 =&gt; [語系-分支-地區]</span>
-    <span style="color:#66d9ef">typealias</span> LanguageInfomation = (code: String.SubSequence?, script: String.SubSequence?, region: String.SubSequence?)
-    
-    <span style="color:#75715e">// 定位的相關資訊</span>
-    <span style="color:#66d9ef">typealias</span> LocationInfomation = (location: CLLocation?, isAvailable: Bool)
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Collection (override class function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Collection</span> {
-
-    <span style="color:#75715e">/// [為Array加上安全取值特性 =&gt; nil](https://stackoverflow.com/questions/25329186/safe-bounds-checked-array-lookup-in-swift-through-optional-bindings)</span>
-    <span style="color:#66d9ef">subscript</span>(safe index: Index) -&gt; Element? { <span style="color:#66d9ef">return</span> indices.contains(index) ? <span style="color:#66d9ef">self</span>[index] : <span style="color:#66d9ef">nil</span> }
-}
-</code></pre></div><h4 id="取得裝置區域">取得裝置區域</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 自定義的Print</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">wwPrint</span>&lt;T&gt;(<span style="color:#66d9ef">_</span> msg: T, file: String = <span style="color:#66d9ef">#file</span>, method: String = <span style="color:#66d9ef">#function</span>, line: Int = <span style="color:#66d9ef">#line</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#if</span> <span style="color:#75715e">DEBUG</span>
+</span></span><span style="display:flex;"><span>        Swift.print(<span style="color:#e6db74">&#34;🚩 </span><span style="color:#e6db74">\((</span>file <span style="color:#66d9ef">as</span> NSString<span style="color:#e6db74">)</span>.lastPathComponent<span style="color:#e6db74">)</span><span style="color:#e6db74">：</span><span style="color:#e6db74">\(</span>line<span style="color:#e6db74">)</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">\(</span>method<span style="color:#e6db74">)</span><span style="color:#e6db74"> </span><span style="color:#ae81ff">\n\t</span><span style="color:#e6db74"> ✅ </span><span style="color:#e6db74">\(</span>msg<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#endif</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Utility (單例)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Utility</span>: NSObject {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> shared = Utility()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>() {}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - typealias</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 定位位置 =&gt; [GPS / SIM卡 / 首選語言 / 區域]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">typealias</span> LocationCountryCode = (GPS: String?, SIMs: [String], preferredLanguage: String?, region: String?)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 語言資訊 =&gt; [語系-分支-地區]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">typealias</span> LanguageInfomation = (code: String.SubSequence?, script: String.SubSequence?, region: String.SubSequence?)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 定位的相關資訊</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">typealias</span> LocationInfomation = (location: CLLocation?, isAvailable: Bool)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Collection (override class function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Collection</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// [為Array加上安全取值特性 =&gt; nil](https://stackoverflow.com/questions/25329186/safe-bounds-checked-array-lookup-in-swift-through-optional-bindings)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">subscript</span>(safe index: Index) -&gt; Element? { <span style="color:#66d9ef">return</span> indices.contains(index) ? <span style="color:#66d9ef">self</span>[index] : <span style="color:#66d9ef">nil</span> }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="取得裝置區域">取得裝置區域</h4>
 <ul>
 <li>取得裝置區域，也就是在『設定 -&gt; 一般 -&gt; <a href="https://support.apple.com/zh-tw/guide/iphone/iphce20717a3/ios">語言與地區</a> -&gt; 地區』的資訊，目前是取得『TW』這個文字。地區代碼的標準是<a href="https://zh.wikipedia.org/wiki/ISO_3166-1">ISO 3166-1</a>。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
-<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()        
-        wwPrint(Locale._currentRegionCode())    <span style="color:#75715e">// Optional(&#34;TW&#34;)</span>
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Locale (static function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Locale</span> {
-    
-    <span style="color:#75715e">/// 取得裝置區域</span>
-    <span style="color:#75715e">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 地區 (TW)</span>
-    <span style="color:#75715e">/// - Returns: 區域辨識碼</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_currentRegionCode</span>() -&gt; String? { <span style="color:#66d9ef">return</span> Locale.current.regionCode }
-}
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()        
+</span></span><span style="display:flex;"><span>        wwPrint(Locale._currentRegionCode())    <span style="color:#75715e">// Optional(&#34;TW&#34;)</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Locale (static function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Locale</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得裝置區域</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 地區 (TW)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: 區域辨識碼</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_currentRegionCode</span>() -&gt; String? { <span style="color:#66d9ef">return</span> Locale.current.regionCode }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
 
 
 
@@ -276,57 +276,57 @@
 <ul>
 <li>語系，也就是在『設定 -&gt; 一般 -&gt; <a href="https://support.apple.com/zh-tw/guide/iphone/iphce20717a3/ios">語言與地區</a> -&gt; <a href="https://jasonlingoogle.blogspot.com/2017/08/iphone-app.html">偏好語言的順序</a>』的資訊，其實也就是iPhone使用的語言，目前是取得『ja-TW』這個文字。要注意的是，語系的地區不一定跟區域是一樣的。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
-<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        wwPrint(Locale._preferredLanguageInfomation())  <span style="color:#75715e">// Optional((code: Optional(&#34;ja&#34;), script: nil, region: Optional(&#34;TW&#34;)))</span>
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Locale (static function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Locale</span> {
-    
-    <span style="color:#75715e">/// 取得裝置區域</span>
-    <span style="color:#75715e">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 地區 (TW)</span>
-    <span style="color:#75715e">/// - Returns: 區域辨識碼</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_currentRegionCode</span>() -&gt; String? { <span style="color:#66d9ef">return</span> Locale.current.regionCode }
-    
-    <span style="color:#75715e">/// 取得首選語系 (第一個語系)</span>
-    <span style="color:#75715e">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 偏好的語言順序 (zh-Hant-TW / [語系-分支-地區])</span>
-    <span style="color:#75715e">/// - Returns: [語系辨識碼](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_preferredLanguage</span>() -&gt; String? {
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> language = Locale.preferredLanguages.first <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span> }
-        <span style="color:#66d9ef">return</span> language
-    }
-    
-    <span style="color:#75715e">/// 把完整的語系編碼分類</span>
-    <span style="color:#75715e">/// - zh-Hant-TW =&gt; [語系-分支-地區]</span>
-    <span style="color:#75715e">/// - Parameter language: 完整的語系文字</span>
-    <span style="color:#75715e">/// - Returns: Utility.LanguageInfomation?</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_preferredLanguageInfomation</span>(<span style="color:#66d9ef">_</span> language: String? = Locale.preferredLanguages.first) -&gt; Utility.LanguageInfomation? {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> preferredLanguage = language,
-              <span style="color:#66d9ef">let</span> languageInfos = Optional.some(preferredLanguage.split(separator: <span style="color:#e6db74">&#34;-&#34;</span>)),
-              languageInfos.count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-        }
-        
-        <span style="color:#66d9ef">var</span> info: Utility.LanguageInfomation = (<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">nil</span>)
-        
-        <span style="color:#66d9ef">switch</span> languageInfos.count {
-        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span>: info.code = languageInfos.first
-        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span>: info.code = languageInfos.first; info.region = languageInfos.last
-        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span>: info.code = languageInfos.first; info.region = languageInfos.last; info.script = languageInfos[safe: <span style="color:#ae81ff">1</span>]
-        <span style="color:#66d9ef">default</span>: <span style="color:#66d9ef">break</span>
-        }
-        
-        <span style="color:#66d9ef">return</span> info
-    }
-}
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        wwPrint(Locale._preferredLanguageInfomation())  <span style="color:#75715e">// Optional((code: Optional(&#34;ja&#34;), script: nil, region: Optional(&#34;TW&#34;)))</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Locale (static function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Locale</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得裝置區域</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 地區 (TW)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: 區域辨識碼</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_currentRegionCode</span>() -&gt; String? { <span style="color:#66d9ef">return</span> Locale.current.regionCode }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得首選語系 (第一個語系)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - 設定 -&gt; 一般 -&gt; 語言與地區 -&gt; 偏好的語言順序 (zh-Hant-TW / [語系-分支-地區])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: [語系辨識碼](https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_preferredLanguage</span>() -&gt; String? {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> language = Locale.preferredLanguages.first <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span> }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> language
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 把完整的語系編碼分類</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - zh-Hant-TW =&gt; [語系-分支-地區]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameter language: 完整的語系文字</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: Utility.LanguageInfomation?</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_preferredLanguageInfomation</span>(<span style="color:#66d9ef">_</span> language: String? = Locale.preferredLanguages.first) -&gt; Utility.LanguageInfomation? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> preferredLanguage = language,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> languageInfos = Optional.some(preferredLanguage.split(separator: <span style="color:#e6db74">&#34;-&#34;</span>)),
+</span></span><span style="display:flex;"><span>              languageInfos.count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> info: Utility.LanguageInfomation = (<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> languageInfos.count {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span>: info.code = languageInfos.first
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span>: info.code = languageInfos.first; info.region = languageInfos.last
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">3</span>: info.code = languageInfos.first; info.region = languageInfos.last; info.script = languageInfos[safe: <span style="color:#ae81ff">1</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span>: <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> info
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
 
 
 
@@ -396,190 +396,190 @@
 <ul>
 <li>取得<a href="https://stackoverflow.com/questions/18798398/how-to-get-the-users-country-calling-code-in-ios">SIM卡供應商的國籍碼</a>，因為在iOS 12之後有<a href="https://support.apple.com/zh-tw/HT209044">雙SIM卡</a>的手機出現，所以會是個Array。利用<a href="https://developer.apple.com/documentation/coretelephony">CoreTelephony Framework</a>所提供的功能來取得。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
-<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        wwPrint(UIDevice._isoCountryCodes())    <span style="color:#75715e">// [&#34;TW&#34;, &#34;TW&#34;]</span>
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UIDevice (static function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">UIDevice</span> {
-    
-    <span style="color:#75715e">/// [SIM卡供應商的國籍碼](https://stackoverflow.com/questions/18798398/how-to-get-the-users-country-calling-code-in-ios)</span>
-    <span style="color:#75715e">/// - iOS 12之後有雙SIM卡 =&gt; [ISO 3166-1](https://zh.wikipedia.org/wiki/ISO_3166-1)</span>
-    <span style="color:#75715e">/// - Returns: [String]</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_isoCountryCodes</span>() -&gt; [String] {
-        
-        <span style="color:#66d9ef">var</span> codeArray = [String]()
-                    
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> info = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders {
-            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">_</span>, value) <span style="color:#66d9ef">in</span> info { <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> code = value.isoCountryCode { codeArray.append(code.uppercased()) } }
-        }
-        
-        <span style="color:#66d9ef">return</span> codeArray
-    }
-}
-</code></pre></div><h4 id="整合一下">整合一下</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        wwPrint(UIDevice._isoCountryCodes())    <span style="color:#75715e">// [&#34;TW&#34;, &#34;TW&#34;]</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UIDevice (static function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">UIDevice</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// [SIM卡供應商的國籍碼](https://stackoverflow.com/questions/18798398/how-to-get-the-users-country-calling-code-in-ios)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - iOS 12之後有雙SIM卡 =&gt; [ISO 3166-1](https://zh.wikipedia.org/wiki/ISO_3166-1)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: [String]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_isoCountryCodes</span>() -&gt; [String] {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> codeArray = [String]()
+</span></span><span style="display:flex;"><span>                    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> info = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">_</span>, value) <span style="color:#66d9ef">in</span> info { <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> code = value.isoCountryCode { codeArray.append(code.uppercased()) } }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> codeArray
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="整合一下">整合一下</h4>
 <ul>
 <li>接下來，把這些功能整合成一個function。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (static function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
-    
-    <span style="color:#75715e">/// 取得該裝置的國家地域碼 (不包含GPS定位)</span>
-    <span style="color:#75715e">/// - Returns: LocationCountryCode</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_locationCountryCode</span>() -&gt; Utility.LocationCountryCode {
-        
-        <span style="color:#66d9ef">var</span> code = Utility.LocationCountryCode(GPS: <span style="color:#66d9ef">nil</span>, SIMs: [], preferredLanguage: <span style="color:#66d9ef">nil</span>, region: <span style="color:#66d9ef">nil</span>)
-        
-        code.SIMs = UIDevice._isoCountryCodes()
-        code.region = Locale._currentRegionCode()
-        
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> codeWithLanguage = Locale._preferredLanguageInfomation()?.region { code.preferredLanguage = String(codeWithLanguage) }
-        
-        <span style="color:#66d9ef">return</span> code
-    }
-}
-</code></pre></div><h3 id="手機定位">手機定位</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (static function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得該裝置的國家地域碼 (不包含GPS定位)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: LocationCountryCode</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_locationCountryCode</span>() -&gt; Utility.LocationCountryCode {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> code = Utility.LocationCountryCode(GPS: <span style="color:#66d9ef">nil</span>, SIMs: [], preferredLanguage: <span style="color:#66d9ef">nil</span>, region: <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        code.SIMs = UIDevice._isoCountryCodes()
+</span></span><span style="display:flex;"><span>        code.region = Locale._currentRegionCode()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> codeWithLanguage = Locale._preferredLanguageInfomation()?.region { code.preferredLanguage = String(codeWithLanguage) }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> code
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="手機定位">手機定位</h3>
 <h4 id="定位權限">定位權限</h4>
 <ul>
 <li>主要就是利用<a href="https://developer.apple.com/documentation/corelocation/">CoreLocation Framework</a>來做處理。在<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%BE%9E%E7%A8%8B%E5%BC%8F%E8%AE%80%E5%8F%96-info-plist-%E7%9A%84%E5%85%A7%E5%AE%B9-%E6%AF%94%E6%96%B9-version-api-key-77744bc6b0ea">info.plist</a>中，加入<a href="https://wigl.github.io/2015/08/28/ios_location_introduction/">NSLocationWhenInUseUsageDescription</a>權限設定，來開啟定位的使用。</li>
 <li>同時也加上<a href="https://ithelp.ithome.com.tw/articles/10197686">CLLocationManagerDelegate</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">NSLocationWhenInUseUsageDescription
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Utility (單例)</span>
-<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Utility</span>: NSObject {
-    
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> shared = Utility()
-    
-    <span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">var</span> locationManager = { CLLocationManager._build(delegate: <span style="color:#66d9ef">self</span>) }()
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>() {}
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManagerDelegate</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span>: CLLocationManagerDelegate {
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {}
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {}
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {}
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (static function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
-    
-    <span style="color:#75715e">/// 定位授權Manager產生器</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - delegate: CLLocationManagerDelegate</span>
-    <span style="color:#75715e">///   - desiredAccuracy: 定位的精度</span>
-    <span style="color:#75715e">///   - distanceFilter: 過濾的距離</span>
-    <span style="color:#75715e">/// - Returns: CLLocationManager</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_build</span>(delegate: CLLocationManagerDelegate?, desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBest, distanceFilter: CLLocationDistance = <span style="color:#ae81ff">1</span>) -&gt; CLLocationManager {
-        
-        <span style="color:#66d9ef">let</span> locationManager = CLLocationManager()
-
-        locationManager.delegate = delegate
-        locationManager.desiredAccuracy = desiredAccuracy
-        locationManager.distanceFilter = distanceFilter
-        
-        <span style="color:#66d9ef">return</span> locationManager
-    }
-}
-</code></pre></div><h4 id="notification">Notification</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>NSLocationWhenInUseUsageDescription
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Utility (單例)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Utility</span>: NSObject {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> shared = Utility()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">lazy</span> <span style="color:#66d9ef">var</span> locationManager = { CLLocationManager._build(delegate: <span style="color:#66d9ef">self</span>) }()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>() {}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManagerDelegate</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span>: CLLocationManagerDelegate {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {}
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {}
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (static function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 定位授權Manager產生器</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - delegate: CLLocationManagerDelegate</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - desiredAccuracy: 定位的精度</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - distanceFilter: 過濾的距離</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: CLLocationManager</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_build</span>(delegate: CLLocationManagerDelegate?, desiredAccuracy: CLLocationAccuracy = kCLLocationAccuracyBest, distanceFilter: CLLocationDistance = <span style="color:#ae81ff">1</span>) -&gt; CLLocationManager {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> locationManager = CLLocationManager()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        locationManager.delegate = delegate
+</span></span><span style="display:flex;"><span>        locationManager.desiredAccuracy = desiredAccuracy
+</span></span><span style="display:flex;"><span>        locationManager.distanceFilter = distanceFilter
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> locationManager
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="notification">Notification</h4>
 <ul>
 <li>因為它並不是一定馬上可以取到的值，所以這裡利用<a href="https://www.appcoda.com.tw/notificationcenter/">NotificationCenter</a>來傳送數值。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Notification (static function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Notification</span> {
-    
-    <span style="color:#75715e">/// String =&gt; Notification.Name</span>
-    <span style="color:#75715e">/// - Parameter name: key的名字</span>
-    <span style="color:#75715e">/// - Returns: Notification.Name</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_name</span>(<span style="color:#66d9ef">_</span> name: String) -&gt; Notification.Name { <span style="color:#66d9ef">return</span> Notification.Name(rawValue: name) }
-    
-    <span style="color:#75715e">/// NotificationName =&gt; Notification.Name</span>
-    <span style="color:#75715e">/// - Parameter name: key的名字 (enum)</span>
-    <span style="color:#75715e">/// - Returns: Notification.Name</span>
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_name</span>(<span style="color:#66d9ef">_</span> name: Utility.NotificationName) -&gt; Notification.Name { <span style="color:#66d9ef">return</span> name.value }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - NotificationCenter (class function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">NotificationCenter</span> {
-    
-    <span style="color:#75715e">/// 註冊通知</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - name: 要註冊的Notification名稱</span>
-    <span style="color:#75715e">///   - queue: 執行的序列</span>
-    <span style="color:#75715e">///   - object: 接收的資料</span>
-    <span style="color:#75715e">///   - handler: 監聽到後要執行的動作</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_register</span>(name: Notification.Name, queue: OperationQueue = .main, object: Any? = <span style="color:#66d9ef">nil</span>, handler: @escaping ((Notification) -&gt; Void)) {
-        <span style="color:#66d9ef">self</span>.addObserver(forName: name, object: object, queue: queue) { (notification) <span style="color:#66d9ef">in</span> handler(notification) }
-    }
-    
-    <span style="color:#75715e">/// 發射通知</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - name: 要發射的Notification名稱</span>
-    <span style="color:#75715e">///   - object: 要傳送的資料</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_post</span>(name: Notification.Name, object: Any? = <span style="color:#66d9ef">nil</span>) { <span style="color:#66d9ef">self</span>.post(name: name, object: object) }
-
-    <span style="color:#75715e">/// 移除通知</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - observer: 要移除的位置</span>
-    <span style="color:#75715e">///   - name: 要移除的Notification名稱</span>
-    <span style="color:#75715e">///   - object: 接收的資料</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_remove</span>(observer: Any, name: Notification.Name, object: Any? = <span style="color:#66d9ef">nil</span>) { <span style="color:#66d9ef">self</span>.removeObserver(observer, name: name, object: object) }
-}
-</code></pre></div><h4 id="啟用定位服務">啟用定位服務</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Notification (static function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Notification</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// String =&gt; Notification.Name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameter name: key的名字</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: Notification.Name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_name</span>(<span style="color:#66d9ef">_</span> name: String) -&gt; Notification.Name { <span style="color:#66d9ef">return</span> Notification.Name(rawValue: name) }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// NotificationName =&gt; Notification.Name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameter name: key的名字 (enum)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: Notification.Name</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_name</span>(<span style="color:#66d9ef">_</span> name: Utility.NotificationName) -&gt; Notification.Name { <span style="color:#66d9ef">return</span> name.value }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - NotificationCenter (class function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">NotificationCenter</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 註冊通知</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - name: 要註冊的Notification名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - queue: 執行的序列</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - object: 接收的資料</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - handler: 監聽到後要執行的動作</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_register</span>(name: Notification.Name, queue: OperationQueue = .main, object: Any? = <span style="color:#66d9ef">nil</span>, handler: @escaping ((Notification) -&gt; Void)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span>.addObserver(forName: name, object: object, queue: queue) { (notification) <span style="color:#66d9ef">in</span> handler(notification) }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 發射通知</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - name: 要發射的Notification名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - object: 要傳送的資料</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_post</span>(name: Notification.Name, object: Any? = <span style="color:#66d9ef">nil</span>) { <span style="color:#66d9ef">self</span>.post(name: name, object: object) }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 移除通知</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - observer: 要移除的位置</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - name: 要移除的Notification名稱</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - object: 接收的資料</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_remove</span>(observer: Any, name: Notification.Name, object: Any? = <span style="color:#66d9ef">nil</span>) { <span style="color:#66d9ef">self</span>.removeObserver(observer, name: name, object: object) }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="啟用定位服務">啟用定位服務</h4>
 <ul>
 <li>在這裡就可以試看看定位功能是不是可以正常使用？</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
-<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-    }
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidAppear</span>(<span style="color:#66d9ef">_</span> animated: Bool) {
-        <span style="color:#66d9ef">super</span>.viewDidAppear(animated)
-        
-        Utility.shared.locationManager._locationServicesAuthorizationStatus {
-            wwPrint(<span style="color:#e6db74">&#34;alwaysHandler&#34;</span>)
-        } whenInUseHandler: {
-            wwPrint(<span style="color:#e6db74">&#34;whenInUseHandler&#34;</span>)
-        } deniedHandler: {
-            wwPrint(<span style="color:#e6db74">&#34;deniedHandler&#34;</span>)
-        }
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (class function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
-     
-    <span style="color:#75715e">/// 定位授權的各種狀態處理</span>
-    <span style="color:#75715e">/// - requestWhenInUseAuthorization() =&gt; 詢問是否要開啟定位授權的提示視窗</span>
-    <span style="color:#75715e">/// - info.plist =&gt; NSLocationAlwaysAndWhenInUseUsageDescription</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - alwaysHandler: 選擇always後的動作</span>
-    <span style="color:#75715e">///   - whenInUseHandler: 選擇whenInUse後的動作</span>
-    <span style="color:#75715e">///   - deniedHandler: 選擇denied後的動作</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_locationServicesAuthorizationStatus</span>(alwaysHandler: @escaping () -&gt; Void, whenInUseHandler: @escaping () -&gt; Void, deniedHandler: @escaping () -&gt; Void) {
-
-        <span style="color:#66d9ef">let</span> authorizationStatus = CLLocationManager.authorizationStatus()
-        
-        <span style="color:#66d9ef">switch</span> authorizationStatus {
-        <span style="color:#66d9ef">case</span> .notDetermined: requestWhenInUseAuthorization()
-        <span style="color:#66d9ef">case</span> .authorizedWhenInUse: whenInUseHandler()
-        <span style="color:#66d9ef">case</span> .authorizedAlways: alwaysHandler()
-        <span style="color:#66d9ef">case</span> .denied: deniedHandler()
-        <span style="color:#66d9ef">case</span> .restricted: deniedHandler()
-        @unknown <span style="color:#66d9ef">default</span>: fatalError()
-        }
-    }
-}
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidAppear</span>(<span style="color:#66d9ef">_</span> animated: Bool) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidAppear(animated)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Utility.shared.locationManager._locationServicesAuthorizationStatus {
+</span></span><span style="display:flex;"><span>            wwPrint(<span style="color:#e6db74">&#34;alwaysHandler&#34;</span>)
+</span></span><span style="display:flex;"><span>        } whenInUseHandler: {
+</span></span><span style="display:flex;"><span>            wwPrint(<span style="color:#e6db74">&#34;whenInUseHandler&#34;</span>)
+</span></span><span style="display:flex;"><span>        } deniedHandler: {
+</span></span><span style="display:flex;"><span>            wwPrint(<span style="color:#e6db74">&#34;deniedHandler&#34;</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (class function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 定位授權的各種狀態處理</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - requestWhenInUseAuthorization() =&gt; 詢問是否要開啟定位授權的提示視窗</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - info.plist =&gt; NSLocationAlwaysAndWhenInUseUsageDescription</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - alwaysHandler: 選擇always後的動作</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - whenInUseHandler: 選擇whenInUse後的動作</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - deniedHandler: 選擇denied後的動作</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_locationServicesAuthorizationStatus</span>(alwaysHandler: @escaping () -&gt; Void, whenInUseHandler: @escaping () -&gt; Void, deniedHandler: @escaping () -&gt; Void) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> authorizationStatus = CLLocationManager.authorizationStatus()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> authorizationStatus {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .notDetermined: requestWhenInUseAuthorization()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .authorizedWhenInUse: whenInUseHandler()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .authorizedAlways: alwaysHandler()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .denied: deniedHandler()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .restricted: deniedHandler()
+</span></span><span style="display:flex;"><span>        @unknown <span style="color:#66d9ef">default</span>: fatalError()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>
 
 
 
@@ -649,188 +649,188 @@
 <ul>
 <li>利用CLLocationManagerDelegate來取得相關的值，進而做處理。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - enum</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
-    
-    <span style="color:#75715e">/// 自訂錯誤</span>
-    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">MyError</span>: Error, LocalizedError {
-        
-        <span style="color:#66d9ef">var</span> errorDescription: String { errorMessage() }
-
-        <span style="color:#66d9ef">case</span> notGeocodeLocation
-        
-        <span style="color:#75715e">/// 顯示錯誤說明</span>
-        <span style="color:#75715e">/// - Returns: String</span>
-        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">errorMessage</span>() -&gt; String {
-            
-            <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
-            <span style="color:#66d9ef">case</span> .notGeocodeLocation: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;地理編碼錯誤&#34;</span>
-            }
-        }
-    }
-    
-    <span style="color:#75715e">/// NotificationName</span>
-    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">NotificationName</span> {
-        
-        <span style="color:#75715e">/// 顯示真實的值</span>
-        <span style="color:#66d9ef">var</span> value: Notification.Name { <span style="color:#66d9ef">return</span> notificationName() }
-        
-        <span style="color:#75715e">// 定位服務 (自定義)</span>
-        <span style="color:#66d9ef">case</span> _locationServices
-        
-        <span style="color:#75715e">/// 顯示真實的值 =&gt; Notification.Name</span>
-        <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">notificationName</span>() -&gt; Notification.Name {
-            
-            <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
-            <span style="color:#66d9ef">case</span> ._locationServices: <span style="color:#66d9ef">return</span> Notification._name(<span style="color:#e6db74">&#34;_locationServices&#34;</span>)
-            }
-        }
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManagerDelegate</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span>: CLLocationManagerDelegate {
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { countryCode(with: manager, locations: locations) }
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) { locationManagerStatus(manager, status: status) }
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
-        <span style="color:#66d9ef">let</span> code = CLLocationManager._locationCountryCode()
-        NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code)
-    }
-}
-</code></pre></div><h4 id="定位權限的狀態處理">定位權限的狀態處理</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - enum</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 自訂錯誤</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">MyError</span>: Error, LocalizedError {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> errorDescription: String { errorMessage() }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> notGeocodeLocation
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/// 顯示錯誤說明</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/// - Returns: String</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">errorMessage</span>() -&gt; String {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .notGeocodeLocation: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;地理編碼錯誤&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// NotificationName</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">NotificationName</span> {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/// 顯示真實的值</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> value: Notification.Name { <span style="color:#66d9ef">return</span> notificationName() }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 定位服務 (自定義)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> _locationServices
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/// 顯示真實的值 =&gt; Notification.Name</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">notificationName</span>() -&gt; Notification.Name {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> ._locationServices: <span style="color:#66d9ef">return</span> Notification._name(<span style="color:#e6db74">&#34;_locationServices&#34;</span>)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManagerDelegate</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span>: CLLocationManagerDelegate {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) { countryCode(with: manager, locations: locations) }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) { locationManagerStatus(manager, status: status) }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManager</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, didFinishDeferredUpdatesWithError error: Error?) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> code = CLLocationManager._locationCountryCode()
+</span></span><span style="display:flex;"><span>        NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="定位權限的狀態處理">定位權限的狀態處理</h4>
 <ul>
 <li>LocationManager的<a href="https://www.jianshu.com/p/1631cf76615d">狀態處理</a>，當權限許可時，就可以更新位置，不然就停下來。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 定位相關 (CLLocationManager)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
-    
-    <span style="color:#75715e">/// LocationManager狀態處理</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - manager: CLLocationManager</span>
-    <span style="color:#75715e">///   - status: CLAuthorizationStatus</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManagerStatus</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, status: CLAuthorizationStatus) {
-        
-        <span style="color:#66d9ef">switch</span> status {
-        <span style="color:#66d9ef">case</span> .authorizedAlways: manager.startUpdatingLocation()
-        <span style="color:#66d9ef">case</span> .authorizedWhenInUse: manager.startUpdatingLocation()
-        <span style="color:#66d9ef">case</span> .notDetermined: manager.stopUpdatingLocation()
-        <span style="color:#66d9ef">case</span> .denied: manager.stopUpdatingLocation()
-        <span style="color:#66d9ef">case</span> .restricted: manager.stopUpdatingLocation()
-        @unknown <span style="color:#66d9ef">default</span>: fatalError()
-        }
-    }
-}
-</code></pre></div><h4 id="取得有效的位置資訊">取得有效的位置資訊</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 定位相關 (CLLocationManager)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// LocationManager狀態處理</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - manager: CLLocationManager</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - status: CLAuthorizationStatus</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">locationManagerStatus</span>(<span style="color:#66d9ef">_</span> manager: CLLocationManager, status: CLAuthorizationStatus) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> status {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .authorizedAlways: manager.startUpdatingLocation()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .authorizedWhenInUse: manager.startUpdatingLocation()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .notDetermined: manager.stopUpdatingLocation()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .denied: manager.stopUpdatingLocation()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .restricted: manager.stopUpdatingLocation()
+</span></span><span style="display:flex;"><span>        @unknown <span style="color:#66d9ef">default</span>: fatalError()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="取得有效的位置資訊">取得有效的位置資訊</h4>
 <ul>
 <li>manager._locationInfomation()：取得有效的位置資訊。</li>
 <li>_placemark()：將坐標(25.04216003, 121.52873230) =&gt; CLPlacemark (地址)。</li>
 <li>_locationCountryCode：取得該裝置的國家地域碼 (不包含GPS定位)。</li>
 <li>最後再利用<a href="http://andy02172001.blogspot.com/2017/07/swiftnotificationcenterobserver.html">NotificationCenter</a>把自定義的<a href="https://medium.com/@tuzaiz/%E4%BD%BF%E7%94%A8%E9%A1%9E%E4%BC%BCnotification-name%E7%9A%84%E6%96%B9%E6%B3%95%E8%99%95%E7%90%86userdefaults%E8%88%87%E5%85%B6%E4%BB%96%E7%95%B6%E4%BD%9Ckey%E7%9A%84%E5%AD%97%E4%B8%B2-87bccfb8c95e">NotificationName</a>發送出去。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 定位相關 (CLLocationManager)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
-    
-    <span style="color:#75715e">/// 取得該裝置的國家地域碼</span>
-    <span style="color:#75715e">/// - Notification._name(._locationServices)</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - manager: CLLocationManager</span>
-    <span style="color:#75715e">///   - locations: [CLLocation]</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">countryCode</span>(with manager: CLLocationManager, locations: [CLLocation]) {
-        
-        <span style="color:#66d9ef">var</span> code = CLLocationManager._locationCountryCode()
-        
-        <span style="color:#66d9ef">guard</span> manager._locationInfomation(with: locations).isAvailable,
-              <span style="color:#66d9ef">let</span> location = manager._locationInfomation(with: locations).location
-        <span style="color:#66d9ef">else</span> {
-            NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code); <span style="color:#66d9ef">return</span>
-        }
-
-        location.coordinate._placemark { (result) <span style="color:#66d9ef">in</span>
-                        
-            <span style="color:#66d9ef">switch</span> result {
-            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">_</span>): NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code)
-            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> placemark):
-                manager.stopUpdatingLocation()
-                code.GPS = placemark.isoCountryCode
-                NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code)
-            }
-        }
-    }
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (class function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
-     
-    <span style="color:#75715e">/// 處理位置的相關資料</span>
-    <span style="color:#75715e">/// - 最後一筆的有效位置 &gt; 0</span>
-    <span style="color:#75715e">/// - Parameter locations: 取到的位置們</span>
-    <span style="color:#75715e">/// - Returns: Utility.LocationInfomation</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_locationInfomation</span>(with locations: [CLLocation]) -&gt; Utility.LocationInfomation {
-
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> location = locations.last,
-              <span style="color:#66d9ef">let</span> isAvailable = Optional.some(location.horizontalAccuracy <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">false</span>)
-        }
-
-        <span style="color:#66d9ef">return</span> (location, isAvailable)
-    }
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationCoordinate2D (class function)</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationCoordinate2D</span> {
-    
-    <span style="color:#75715e">/// 將坐標(25.04216003, 121.52873230) =&gt; CLPlacemark (地址)</span>
-    <span style="color:#75715e">/// - Parameters:</span>
-    <span style="color:#75715e">///   - preferredLocale: 傳回的資料語系區域</span>
-    <span style="color:#75715e">///   - result: Result&lt;CLPlacemark, Error&gt;</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_placemark</span>(preferredLocale: Locale = Locale(identifier: <span style="color:#e6db74">&#34;zh_TW&#34;</span>), result: @escaping (Result&lt;CLPlacemark, Error&gt;) -&gt; Void)  {
-
-        <span style="color:#66d9ef">let</span> location = CLLocation(latitude: latitude, longitude: longitude)
-        <span style="color:#66d9ef">let</span> geocoder = CLGeocoder()
-
-        geocoder.reverseGeocodeLocation(location, preferredLocale: preferredLocale) { placemarks, error <span style="color:#66d9ef">in</span>
-            
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> placemark = placemarks?.first { result(.success(placemark)); <span style="color:#66d9ef">return</span> }
-            
-            result(.failure(Utility.MyError.notGeocodeLocation))
-        }
-    }
-}
-</code></pre></div><h3 id="使用方法">使用方法</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 定位相關 (CLLocationManager)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Utility</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得該裝置的國家地域碼</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Notification._name(._locationServices)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - manager: CLLocationManager</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - locations: [CLLocation]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">countryCode</span>(with manager: CLLocationManager, locations: [CLLocation]) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> code = CLLocationManager._locationCountryCode()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> manager._locationInfomation(with: locations).isAvailable,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> location = manager._locationInfomation(with: locations).location
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code); <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        location.coordinate._placemark { (result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                        
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> result {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">_</span>): NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> placemark):
+</span></span><span style="display:flex;"><span>                manager.stopUpdatingLocation()
+</span></span><span style="display:flex;"><span>                code.GPS = placemark.isoCountryCode
+</span></span><span style="display:flex;"><span>                NotificationCenter.<span style="color:#66d9ef">default</span>._post(name: Notification._name(._locationServices), object: code)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationManager (class function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationManager</span> {
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 處理位置的相關資料</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - 最後一筆的有效位置 &gt; 0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameter locations: 取到的位置們</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Returns: Utility.LocationInfomation</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_locationInfomation</span>(with locations: [CLLocation]) -&gt; Utility.LocationInfomation {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> location = locations.last,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> isAvailable = Optional.some(location.horizontalAccuracy <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> (<span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (location, isAvailable)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CLLocationCoordinate2D (class function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">CLLocationCoordinate2D</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 將坐標(25.04216003, 121.52873230) =&gt; CLPlacemark (地址)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// - Parameters:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - preferredLocale: 傳回的資料語系區域</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">///   - result: Result&lt;CLPlacemark, Error&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_placemark</span>(preferredLocale: Locale = Locale(identifier: <span style="color:#e6db74">&#34;zh_TW&#34;</span>), result: @escaping (Result&lt;CLPlacemark, Error&gt;) -&gt; Void)  {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> location = CLLocation(latitude: latitude, longitude: longitude)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> geocoder = CLGeocoder()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        geocoder.reverseGeocodeLocation(location, preferredLocale: preferredLocale) { placemarks, error <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> placemark = placemarks?.first { result(.success(placemark)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            result(.failure(Utility.MyError.notGeocodeLocation))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="使用方法">使用方法</h3>
 <ul>
 <li>雖然寫起來有點複雜，但使用起來卻是超簡單的。</li>
 <li>先註冊Notification，然後就可以用了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
-<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-
-    <span style="color:#66d9ef">@IBOutlet</span> <span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> resultLabel: UILabel!
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
-        <span style="color:#66d9ef">super</span>.viewDidLoad()
-        
-        <span style="color:#66d9ef">let</span> notificationName = Notification._name(._locationServices)
-        
-        NotificationCenter.<span style="color:#66d9ef">default</span>._register(name: notificationName) { notification <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">self</span>.resultLabel.text = notification.object.debugDescription
-        }
-    }
-    
-    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidAppear</span>(<span style="color:#66d9ef">_</span> animated: Bool) {
-        <span style="color:#66d9ef">super</span>.viewDidAppear(animated)
-        
-        Utility.shared.locationManager._locationServicesAuthorizationStatus {
-            wwPrint(<span style="color:#e6db74">&#34;alwaysHandler&#34;</span>)
-        } whenInUseHandler: {
-            wwPrint(<span style="color:#e6db74">&#34;whenInUseHandler&#34;</span>)
-        } deniedHandler: {
-            <span style="color:#66d9ef">self</span>.resultLabel.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>CLLocationManager._locationCountryCode<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>
-        }
-    }
-}
-</code></pre></div><video class="video-shortcode" width="30%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 我到底身在何方？我到底去到何處？</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@IBOutlet</span> <span style="color:#66d9ef">weak</span> <span style="color:#66d9ef">var</span> resultLabel: UILabel!
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidLoad</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidLoad()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> notificationName = Notification._name(._locationServices)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        NotificationCenter.<span style="color:#66d9ef">default</span>._register(name: notificationName) { notification <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">self</span>.resultLabel.text = notification.object.debugDescription
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">viewDidAppear</span>(<span style="color:#66d9ef">_</span> animated: Bool) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.viewDidAppear(animated)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        Utility.shared.locationManager._locationServicesAuthorizationStatus {
+</span></span><span style="display:flex;"><span>            wwPrint(<span style="color:#e6db74">&#34;alwaysHandler&#34;</span>)
+</span></span><span style="display:flex;"><span>        } whenInUseHandler: {
+</span></span><span style="display:flex;"><span>            wwPrint(<span style="color:#e6db74">&#34;whenInUseHandler&#34;</span>)
+</span></span><span style="display:flex;"><span>        } deniedHandler: {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">self</span>.resultLabel.text = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>CLLocationManager._locationCountryCode<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><video class="video-shortcode" width="30%" preload="auto" controls>
     <source src="/images/2021/ios-my-location/result.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -916,6 +916,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -935,9 +938,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/" class="nav-link" title="【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a>
       </li>
     </ul>
     <div>
@@ -1008,6 +1008,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -1016,11 +1021,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -1103,6 +1103,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -1115,6 +1120,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1298,13 +1308,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1325,11 +1335,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1429,7 +1434,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

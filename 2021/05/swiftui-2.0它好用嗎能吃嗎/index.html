@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -150,8 +150,8 @@
 <li>這裡新建一個名叫『SwiftUI_First』的專案，Interface選擇『SwiftUI』, <a href="https://www.vadimbulavin.com/swiftui-view-lifecycle/">LifeCycle</a>選擇『SwiftUI App』，當然如果要<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%9C%A8-swiftui-app-%E5%8A%A0%E5%85%A5-uikit-view-f74b70282487">混搭風</a>的話，LifeCycle可以選擇『UIKit App Delegate』。</li>
 <li>在這裡跟以前最顯眼的不同，就是它有<a href="https://franksios.medium.com/swiftui-%E6%B7%BA%E7%8E%A9-swiftui-%E7%94%A8%E5%85%B6%E5%BB%BA%E6%A7%8B%E4%B8%80%E7%B0%A1%E5%96%AE%E7%9A%84-app-2f2477bd49d7">預覽的功能</a>，而且要<a href="https://support.apple.com/zh-tw/HT210642">macOS 10.15</a>以上才支援，其主要是因為它使用了<a href="https://developer.apple.com/documentation/swiftui/previewprovider">PreviewProvider</a>這個Protocol，當然預覽可以<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E8%AA%BF%E6%95%B4-swiftui-preview-%E6%A8%A3%E5%BC%8F%E7%9A%84-modifier-9e47d1771d07">不只一支</a>，不過要在模擬器有安裝的才可以 (風扇一直轉…XD)。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Xcode -&gt; Editor -&gt; Create Preview
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Xcode -&gt; Editor -&gt; Create Preview
+</span></span></code></pre></div><p>
 
 
 
@@ -397,30 +397,30 @@
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        ZStack(alignment: .center, content: {           <span style="color:#75715e">// ZStack =&gt; 有階層的StackView (z軸上的先後次序) / 內容物對齊置中</span>
-            
-            RoundedRectangle(cornerRadius: <span style="color:#ae81ff">25.0</span>)        <span style="color:#75715e">// RoundedRectangle =&gt; 可以看成是長方形的UIView</span>
-                .stroke(lineWidth: <span style="color:#ae81ff">3.0</span>)                 <span style="color:#75715e">// 畫外框線 (如果沒有的話，會變成實心的)</span>
-            
-            Text(<span style="color:#e6db74">&#34;Hello World !!!&#34;</span>)                     <span style="color:#75715e">// Text =&gt; 可以看成是UILabel</span>
-        })
-        .padding(.horizontal)                           <span style="color:#75715e">// .padding(.horizontal) =&gt; 置中對齊</span>
-        .foregroundColor(.red)                          <span style="color:#75715e">// .foregroundColor(.red) =&gt; 前景顏色</span>
-    }
-}
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
-        ContentView().preferredColorScheme(.light).previewDevice(<span style="color:#e6db74">&#34;iPhone 11&#34;</span>)
-    }
-}
-</code></pre></div><h3 id="進階例子">進階例子</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        ZStack(alignment: .center, content: {           <span style="color:#75715e">// ZStack =&gt; 有階層的StackView (z軸上的先後次序) / 內容物對齊置中</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            RoundedRectangle(cornerRadius: <span style="color:#ae81ff">25.0</span>)        <span style="color:#75715e">// RoundedRectangle =&gt; 可以看成是長方形的UIView</span>
+</span></span><span style="display:flex;"><span>                .stroke(lineWidth: <span style="color:#ae81ff">3.0</span>)                 <span style="color:#75715e">// 畫外框線 (如果沒有的話，會變成實心的)</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            Text(<span style="color:#e6db74">&#34;Hello World !!!&#34;</span>)                     <span style="color:#75715e">// Text =&gt; 可以看成是UILabel</span>
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        .padding(.horizontal)                           <span style="color:#75715e">// .padding(.horizontal) =&gt; 置中對齊</span>
+</span></span><span style="display:flex;"><span>        .foregroundColor(.red)                          <span style="color:#75715e">// .foregroundColor(.red) =&gt; 前景顏色</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView_Previews</span>: PreviewProvider {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> previews: some View {
+</span></span><span style="display:flex;"><span>        ContentView().preferredColorScheme(.light).previewDevice(<span style="color:#e6db74">&#34;iPhone 11&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="進階例子">進階例子</h3>
 <h4 id="要做一個長得像這樣的app">要做一個長得像這樣的APP</h4>
 <video class="video-shortcode" width="20%" preload="auto" controls>
     <source src="/images/2021/swiftui-first/Card/result.mp4" type="video/mp4">
@@ -431,14 +431,14 @@
 <ul>
 <li>這個做一個比較<a href="https://www.youtube.com/watch?v=3lahkdHEhW8">進階的例子</a>，首先利用<a href="https://support.apple.com/zh-tw/guide/mac-help/mchlp1560/mac">字元檢視器</a>來將<a href="https://emojipedia.org/">emoji</a>輸入上去</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">let</span> emojis = [
-    <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
-    <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
-    <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
-    <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
-    <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
-]
-</code></pre></div><h4 id="新增一個cardview">新增一個CardView</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> emojis = [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h4 id="新增一個cardview">新增一個CardView</h4>
 <ul>
 <li>新增一個中間有字的View
 
@@ -502,21 +502,21 @@
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CardView</span>
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CardView</span>: View {
-    
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        ZStack {
-            RoundedRectangle(cornerRadius: <span style="color:#ae81ff">20.0</span>)
-                .fill()
-                .foregroundColor(.red)
-            Text(<span style="color:#e6db74">&#34;🏴&#34;</span>)
-                .font(.largeTitle)
-        }
-    }
-}
-</code></pre></div><h4 id="加上點擊功能">加上點擊功能</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CardView</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CardView</span>: View {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        ZStack {
+</span></span><span style="display:flex;"><span>            RoundedRectangle(cornerRadius: <span style="color:#ae81ff">20.0</span>)
+</span></span><span style="display:flex;"><span>                .fill()
+</span></span><span style="display:flex;"><span>                .foregroundColor(.red)
+</span></span><span style="display:flex;"><span>            Text(<span style="color:#e6db74">&#34;🏴&#34;</span>)
+</span></span><span style="display:flex;"><span>                .font(.largeTitle)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="加上點擊功能">加上點擊功能</h4>
 <ul>
 <li>利用.onTapGesture()加上點擊的<a href="https://appcoda.com.tw/swiftui-text-perspective/">功能</a></li>
 <li>不過要注意的是，因為CardView是struct，所以在要變更值的時候，要加上<a href="https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617">@State - Property Wrapper</a></li>
@@ -527,82 +527,82 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CardView</span>
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CardView</span>: View {
-    
-    @State <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> isFaceUp = <span style="color:#66d9ef">true</span>      <span style="color:#75715e">// 要加上@State(屬性包裝器)才可以改值 =&gt; struct =&gt; mutating</span>
-
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        <span style="color:#66d9ef">let</span> rectangle = RoundedRectangle(cornerRadius: <span style="color:#ae81ff">20.0</span>)
-        <span style="color:#66d9ef">let</span> text = Text(<span style="color:#e6db74">&#34;🏴&#34;</span>)
-        
-        ZStack {
-            
-            <span style="color:#75715e">/// 正面 =&gt; 顯示文字 / 背面 =&gt; 沒有文字</span>
-            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isFaceUp) {
-                rectangle.fill()
-            } <span style="color:#66d9ef">else</span> {
-                rectangle.fill().foregroundColor(.white)
-                rectangle.strokeBorder(lineWidth: <span style="color:#ae81ff">3.0</span>, antialiased: <span style="color:#75715e">/*@START_MENU_TOKEN@*/</span><span style="color:#66d9ef">true</span><span style="color:#75715e">/*@END_MENU_TOKEN@*/</span>)
-                text.font(.largeTitle)
-            }
-
-        }.onTapGesture {                    <span style="color:#75715e">// 點擊後 =&gt; isFaceUp = false</span>
-            isFaceUp.toggle()
-        }
-    }
-}
-</code></pre></div><h4 id="讓text能動態換文字">讓Text能動態換文字</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CardView</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CardView</span>: View {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    @State <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> isFaceUp = <span style="color:#66d9ef">true</span>      <span style="color:#75715e">// 要加上@State(屬性包裝器)才可以改值 =&gt; struct =&gt; mutating</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> rectangle = RoundedRectangle(cornerRadius: <span style="color:#ae81ff">20.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> text = Text(<span style="color:#e6db74">&#34;🏴&#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        ZStack {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/// 正面 =&gt; 顯示文字 / 背面 =&gt; 沒有文字</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isFaceUp) {
+</span></span><span style="display:flex;"><span>                rectangle.fill()
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                rectangle.fill().foregroundColor(.white)
+</span></span><span style="display:flex;"><span>                rectangle.strokeBorder(lineWidth: <span style="color:#ae81ff">3.0</span>, antialiased: <span style="color:#75715e">/*@START_MENU_TOKEN@*/</span><span style="color:#66d9ef">true</span><span style="color:#75715e">/*@END_MENU_TOKEN@*/</span>)
+</span></span><span style="display:flex;"><span>                text.font(.largeTitle)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        }.onTapGesture {                    <span style="color:#75715e">// 點擊後 =&gt; isFaceUp = false</span>
+</span></span><span style="display:flex;"><span>            isFaceUp.toggle()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="讓text能動態換文字">讓Text能動態換文字</h4>
 <ul>
 <li>為了讓每張牌都不一樣，所以Text的文字要是可以更換的，所以加上『var content: String』。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    
-    <span style="color:#66d9ef">let</span> emojis = [
-        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
-        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
-        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
-    ]
-    
-    <span style="color:#66d9ef">var</span> body: some View {
-        CardView(content: emojis[<span style="color:#ae81ff">5</span>])
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CardView</span>
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CardView</span>: View {
-
-    <span style="color:#66d9ef">var</span> content: String                     <span style="color:#75715e">// 加上一個String變數，讓Text能動態換文字</span>
-    
-    @State <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> isFaceUp = <span style="color:#66d9ef">true</span>      <span style="color:#75715e">// 要加上@State(屬性包裝器)才可以改值 =&gt; struct =&gt; mutating</span>
-    
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        <span style="color:#66d9ef">let</span> rectangle = RoundedRectangle(cornerRadius: <span style="color:#ae81ff">20.0</span>)
-        <span style="color:#66d9ef">let</span> text = Text(content)
-        
-        ZStack {
-            
-            <span style="color:#75715e">/// 正面 =&gt; 顯示文字 / 背面 =&gt; 沒有文字</span>
-            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isFaceUp) {
-                rectangle.fill()
-            } <span style="color:#66d9ef">else</span> {
-                rectangle.fill().foregroundColor(.white)
-                rectangle.strokeBorder(lineWidth: <span style="color:#ae81ff">3.0</span>, antialiased: <span style="color:#75715e">/*@START_MENU_TOKEN@*/</span><span style="color:#66d9ef">true</span><span style="color:#75715e">/*@END_MENU_TOKEN@*/</span>)
-                text.font(.largeTitle)
-            }
-
-        }.onTapGesture {                    <span style="color:#75715e">// 點擊後 =&gt; isFaceUp = false</span>
-            isFaceUp.toggle()
-        }
-    }
-}
-</code></pre></div><h4 id="重複使用cardview">重複使用CardView</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> emojis = [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        CardView(content: emojis[<span style="color:#ae81ff">5</span>])
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - CardView</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">CardView</span>: View {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> content: String                     <span style="color:#75715e">// 加上一個String變數，讓Text能動態換文字</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    @State <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">var</span> isFaceUp = <span style="color:#66d9ef">true</span>      <span style="color:#75715e">// 要加上@State(屬性包裝器)才可以改值 =&gt; struct =&gt; mutating</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> rectangle = RoundedRectangle(cornerRadius: <span style="color:#ae81ff">20.0</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> text = Text(content)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        ZStack {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">/// 正面 =&gt; 顯示文字 / 背面 =&gt; 沒有文字</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isFaceUp) {
+</span></span><span style="display:flex;"><span>                rectangle.fill()
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>                rectangle.fill().foregroundColor(.white)
+</span></span><span style="display:flex;"><span>                rectangle.strokeBorder(lineWidth: <span style="color:#ae81ff">3.0</span>, antialiased: <span style="color:#75715e">/*@START_MENU_TOKEN@*/</span><span style="color:#66d9ef">true</span><span style="color:#75715e">/*@END_MENU_TOKEN@*/</span>)
+</span></span><span style="display:flex;"><span>                text.font(.largeTitle)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        }.onTapGesture {                    <span style="color:#75715e">// 點擊後 =&gt; isFaceUp = false</span>
+</span></span><span style="display:flex;"><span>            isFaceUp.toggle()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="重複使用cardview">重複使用CardView</h4>
 <ul>
 <li>使用<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-%E7%9A%84-foreach-7ccd426e53ac">ForEach迴圈</a>來重複使用CardView。</li>
 <li>要注意的是，要<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E7%82%BA%E4%BB%80%E9%BA%BC-foreach-list-%E9%9C%80%E8%A6%81%E5%8D%80%E5%88%86-array-%E8%A3%A1%E7%9A%84%E6%88%90%E5%93%A1-31b420f300a6">傳入參數 id</a>來當成它的唯一值。</li>
@@ -613,67 +613,67 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    
-    <span style="color:#66d9ef">let</span> emojis = [
-        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
-        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
-        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
-    ]
-    
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        VStack {
-            HStack {
-                
-                CardView(content: emojis[<span style="color:#ae81ff">1</span>])
-                CardView(content: emojis[<span style="color:#ae81ff">2</span>])
-                CardView(content: emojis[<span style="color:#ae81ff">3</span>])
-                
-                ForEach(emojis[<span style="color:#ae81ff">4.</span>..<span style="color:#ae81ff">6</span>], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
-                    CardView(content: emoji)
-                }
-            }
-        }.foregroundColor(.red)
-    }
-}
-</code></pre></div><h4 id="把所有的cardview全部都排列上去">把所有的CardView全部都排列上去</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> emojis = [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        VStack {
+</span></span><span style="display:flex;"><span>            HStack {
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                CardView(content: emojis[<span style="color:#ae81ff">1</span>])
+</span></span><span style="display:flex;"><span>                CardView(content: emojis[<span style="color:#ae81ff">2</span>])
+</span></span><span style="display:flex;"><span>                CardView(content: emojis[<span style="color:#ae81ff">3</span>])
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                ForEach(emojis[<span style="color:#ae81ff">4.</span>..<span style="color:#ae81ff">6</span>], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                    CardView(content: emoji)
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }.foregroundColor(.red)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="把所有的cardview全部都排列上去">把所有的CardView全部都排列上去</h4>
 <ul>
 <li>把所有的CardView全部都排列上去，利用<a href="https://www.appcoda.com.tw/swiftui-lazyvgrid-lazyhgrid/">LazyVGrid</a>組合一下。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-
-    <span style="color:#66d9ef">let</span> emojis = [
-        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
-        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
-        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
-    ]
-
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        VStack {
-            HStack {
-                
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: <span style="color:#ae81ff">100</span>))]) {               <span style="color:#75715e">// LazyVGrid =&gt; 一列 =&gt; 三個 (100是測出來的)</span>
-                    
-                    ForEach(emojis[<span style="color:#ae81ff">0.</span>.&lt;<span style="color:#ae81ff">3</span>], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
-                        CardView(content: emoji).aspectRatio(<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>, contentMode: .fit)    <span style="color:#75715e">// 長相比例：2:3 =&gt; 按比例填滿</span>
-                    }
-                }
-                    
-            }.foregroundColor(.red)
-        }
-    }
-}
-</code></pre></div><h4 id="超出範圍怎麼辦">超出範圍怎麼辦？</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> emojis = [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        VStack {
+</span></span><span style="display:flex;"><span>            HStack {
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                LazyVGrid(columns: [GridItem(.adaptive(minimum: <span style="color:#ae81ff">100</span>))]) {               <span style="color:#75715e">// LazyVGrid =&gt; 一列 =&gt; 三個 (100是測出來的)</span>
+</span></span><span style="display:flex;"><span>                    
+</span></span><span style="display:flex;"><span>                    ForEach(emojis[<span style="color:#ae81ff">0.</span>.&lt;<span style="color:#ae81ff">3</span>], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                        CardView(content: emoji).aspectRatio(<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>, contentMode: .fit)    <span style="color:#75715e">// 長相比例：2:3 =&gt; 按比例填滿</span>
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>                    
+</span></span><span style="display:flex;"><span>            }.foregroundColor(.red)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="超出範圍怎麼辦">超出範圍怎麼辦？</h4>
 <ul>
 <li>超出範圍怎麼辦？利用<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/swiftui-scrollview-%E7%9A%84%E6%8D%B2%E5%8B%95%E6%96%B9%E5%90%91-68027d8bdf0f">ScrollView</a>來處理這個問題。</li>
 </ul>
@@ -737,37 +737,37 @@
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    
-    <span style="color:#66d9ef">let</span> emojis = [
-        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
-        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
-        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
-    ]
-    
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        VStack {
-            HStack {
-                
-                ScrollView {                                                                <span style="color:#75715e">// 超出範圍怎麼辦？ =&gt; ScrollView</span>
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: <span style="color:#ae81ff">100</span>))]) {               <span style="color:#75715e">// LazyVGrid =&gt; 一列 =&gt; 三個 (100是測出來的)</span>
-                        
-                        ForEach(emojis[<span style="color:#ae81ff">0.</span>.&lt;emojis.count], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
-                            CardView(content: emoji).aspectRatio(<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>, contentMode: .fit)    <span style="color:#75715e">// 長相比例：2:3 =&gt; 按比例填滿</span>
-                        }
-                    }
-
-                }.foregroundColor(.red)
-            }
-        }
-    }
-}
-</code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> emojis = [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        VStack {
+</span></span><span style="display:flex;"><span>            HStack {
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                ScrollView {                                                                <span style="color:#75715e">// 超出範圍怎麼辦？ =&gt; ScrollView</span>
+</span></span><span style="display:flex;"><span>                    LazyVGrid(columns: [GridItem(.adaptive(minimum: <span style="color:#ae81ff">100</span>))]) {               <span style="color:#75715e">// LazyVGrid =&gt; 一列 =&gt; 三個 (100是測出來的)</span>
+</span></span><span style="display:flex;"><span>                        
+</span></span><span style="display:flex;"><span>                        ForEach(emojis[<span style="color:#ae81ff">0.</span>.&lt;emojis.count], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                            CardView(content: emoji).aspectRatio(<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>, contentMode: .fit)    <span style="color:#75715e">// 長相比例：2:3 =&gt; 按比例填滿</span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                }.foregroundColor(.red)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2021/swiftui-first/Card/3.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -836,74 +836,74 @@
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
-
-<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
-    
-    @State <span style="color:#66d9ef">var</span> emojiCount = <span style="color:#ae81ff">12</span>                                                           <span style="color:#75715e">// 要加上@State(屬性包裝器)才可以改值 =&gt; struct =&gt; mutating</span>
-    
-    <span style="color:#66d9ef">let</span> emojis = [
-        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
-        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
-        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
-        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
-    ]
-    
-    <span style="color:#66d9ef">var</span> body: some View {
-        
-        VStack {
-            HStack {
-                
-                ScrollView {                                                               <span style="color:#75715e">// 超出範圍怎麼辦？ =&gt; ScrollView</span>
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: <span style="color:#ae81ff">80</span>))]) {               <span style="color:#75715e">// LazyVGrid =&gt; 一列 =&gt; 四個 (80是測出來的)</span>
-                        
-                        ForEach(emojis[<span style="color:#ae81ff">0.</span>.&lt;emojiCount], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
-                            CardView(content: emoji).aspectRatio(<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>, contentMode: .fit)    <span style="color:#75715e">// 長相比例：2:3 =&gt; 按比例填滿</span>
-                        }
-                    }
-                        
-                }.foregroundColor(.red)
-            }
-            
-            Spacer()                                                                        <span style="color:#75715e">// 中間的空白</span>
-            
-            HStack {
-                removeButton                                                                <span style="color:#75715e">// 移除用的Button</span>
-                Spacer()
-                addButton                                                                   <span style="color:#75715e">// 新增用的Button</span>
-            }
-            .padding(.horizontal)
-            .font(.largeTitle)
-        }
-    }
-
-    <span style="color:#75715e">/// 移除用的Button</span>
-    <span style="color:#66d9ef">var</span> removeButton: some View {
-        
-        <span style="color:#75715e">/// 第一個的action:可以不寫 =&gt; label:</span>
-        Button {
-            <span style="color:#66d9ef">if</span> (emojiCount <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) { emojiCount <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span> }                                         <span style="color:#75715e">// 最少有一個</span>
-        } label: {
-            VStack {
-                Image(systemName: <span style="color:#e6db74">&#34;minus.circle&#34;</span>)                                           <span style="color:#75715e">// SF Symbols 2 =&gt; 上面圖示的名字</span>
-            }
-        }
-    }
-    
-    <span style="color:#75715e">/// 新增用的Button</span>
-    <span style="color:#66d9ef">var</span> addButton: some View {
-            
-        Button(action: {
-            <span style="color:#66d9ef">if</span> (emojiCount <span style="color:#f92672">&lt;</span> emojis.count) { emojiCount <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span> }                              <span style="color:#75715e">// 最多就是emojis的量</span>
-        }, label: {
-            VStack {
-                Image(systemName: <span style="color:#e6db74">&#34;plus.circle&#34;</span>)                                            <span style="color:#75715e">// SF Symbols 2 =&gt; 上面圖示的名字</span>
-            }
-        })
-    }
-}
-</code></pre></div><video class="video-shortcode" width="20%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    @State <span style="color:#66d9ef">var</span> emojiCount = <span style="color:#ae81ff">12</span>                                                           <span style="color:#75715e">// 要加上@State(屬性包裝器)才可以改值 =&gt; struct =&gt; mutating</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> emojis = [
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️&#34;</span>, <span style="color:#e6db74">&#34;🏴&#34;</span>, <span style="color:#e6db74">&#34;🏴‍☠️&#34;</span>, <span style="color:#e6db74">&#34;🏁&#34;</span>, <span style="color:#e6db74">&#34;🚩&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🏳️‍🌈&#34;</span>, <span style="color:#e6db74">&#34;🏳️‍⚧️&#34;</span>, <span style="color:#e6db74">&#34;🇺🇳&#34;</span>, <span style="color:#e6db74">&#34;🇹🇹&#34;</span>, <span style="color:#e6db74">&#34;🇹🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇹🇨&#34;</span>, <span style="color:#e6db74">&#34;🇹🇲&#34;</span>, <span style="color:#e6db74">&#34;🇧🇹&#34;</span>, <span style="color:#e6db74">&#34;🇨🇫&#34;</span>, <span style="color:#e6db74">&#34;🇨🇳&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇩🇰&#34;</span>, <span style="color:#e6db74">&#34;🇪🇨&#34;</span>, <span style="color:#e6db74">&#34;🇪🇷&#34;</span>, <span style="color:#e6db74">&#34;🇵🇬&#34;</span>, <span style="color:#e6db74">&#34;🇧🇷&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;🇧🇧&#34;</span>, <span style="color:#e6db74">&#34;🇵🇾&#34;</span>, <span style="color:#e6db74">&#34;🇧🇭&#34;</span>, <span style="color:#e6db74">&#34;🇧🇸&#34;</span>, <span style="color:#e6db74">&#34;🇵🇦&#34;</span>,
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        VStack {
+</span></span><span style="display:flex;"><span>            HStack {
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                ScrollView {                                                               <span style="color:#75715e">// 超出範圍怎麼辦？ =&gt; ScrollView</span>
+</span></span><span style="display:flex;"><span>                    LazyVGrid(columns: [GridItem(.adaptive(minimum: <span style="color:#ae81ff">80</span>))]) {               <span style="color:#75715e">// LazyVGrid =&gt; 一列 =&gt; 四個 (80是測出來的)</span>
+</span></span><span style="display:flex;"><span>                        
+</span></span><span style="display:flex;"><span>                        ForEach(emojis[<span style="color:#ae81ff">0.</span>.&lt;emojiCount], id: <span style="color:#960050;background-color:#1e0010">\</span>.<span style="color:#66d9ef">self</span>) { emoji <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                            CardView(content: emoji).aspectRatio(<span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">3</span>, contentMode: .fit)    <span style="color:#75715e">// 長相比例：2:3 =&gt; 按比例填滿</span>
+</span></span><span style="display:flex;"><span>                        }
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                        
+</span></span><span style="display:flex;"><span>                }.foregroundColor(.red)
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            Spacer()                                                                        <span style="color:#75715e">// 中間的空白</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            HStack {
+</span></span><span style="display:flex;"><span>                removeButton                                                                <span style="color:#75715e">// 移除用的Button</span>
+</span></span><span style="display:flex;"><span>                Spacer()
+</span></span><span style="display:flex;"><span>                addButton                                                                   <span style="color:#75715e">// 新增用的Button</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            .padding(.horizontal)
+</span></span><span style="display:flex;"><span>            .font(.largeTitle)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 移除用的Button</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> removeButton: some View {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/// 第一個的action:可以不寫 =&gt; label:</span>
+</span></span><span style="display:flex;"><span>        Button {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (emojiCount <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) { emojiCount <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span> }                                         <span style="color:#75715e">// 最少有一個</span>
+</span></span><span style="display:flex;"><span>        } label: {
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Image(systemName: <span style="color:#e6db74">&#34;minus.circle&#34;</span>)                                           <span style="color:#75715e">// SF Symbols 2 =&gt; 上面圖示的名字</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 新增用的Button</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> addButton: some View {
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        Button(action: {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (emojiCount <span style="color:#f92672">&lt;</span> emojis.count) { emojiCount <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span> }                              <span style="color:#75715e">// 最多就是emojis的量</span>
+</span></span><span style="display:flex;"><span>        }, label: {
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Image(systemName: <span style="color:#e6db74">&#34;plus.circle&#34;</span>)                                            <span style="color:#75715e">// SF Symbols 2 =&gt; 上面圖示的名字</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><video class="video-shortcode" width="20%" preload="auto" controls>
     <source src="/images/2021/swiftui-first/Card/result.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -988,6 +988,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -1007,9 +1010,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/" class="nav-link" title="【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a>
       </li>
     </ul>
     <div>
@@ -1080,6 +1080,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -1088,11 +1093,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -1175,6 +1175,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -1187,6 +1192,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1370,13 +1380,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1397,11 +1407,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1501,7 +1506,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

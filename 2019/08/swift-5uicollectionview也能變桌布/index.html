@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -130,149 +130,149 @@
 <ul>
 <li>首先，先讓<a href="https://itisjoe.gitbooks.io/swiftgo/content/uikit/uicollectionview.html">UICollectionView</a>會動，按下去有反應，這裡就不多做說明了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UICollectionViewDelegate</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UICollectionViewDelegate {
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <span style="color:#66d9ef">let</span> cell = collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = gridColor
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UICollectionViewDataSource</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UICollectionViewDataSource {
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {
-        <span style="color:#66d9ef">return</span> iPhoneSizeInformation.iconMaxCount
-    }
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell {
-        
-        <span style="color:#66d9ef">let</span> cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, <span style="color:#66d9ef">for</span>: indexPath)
-        cell.backgroundColor = .white
-        
-        <span style="color:#66d9ef">return</span> cell
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UICollectionViewDelegateFlowLayout</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UICollectionViewDelegateFlowLayout {
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -&gt; CGSize {
-        <span style="color:#66d9ef">return</span> itemSizeMaker(with: indexPath)
-    }
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -&gt; UIEdgeInsets {
-        <span style="color:#66d9ef">return</span> .zero
-    }
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -&gt; CGFloat {
-        <span style="color:#66d9ef">return</span> CGFloat(integerLiteral: <span style="color:#ae81ff">0</span>)
-    }
-    
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -&gt; CGFloat {
-        <span style="color:#66d9ef">return</span> CGFloat(integerLiteral: <span style="color:#ae81ff">0</span>)
-    }
-}
-</code></pre></div><h4 id="iphone的尺寸相關資訊">iPhone的尺寸相關資訊</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UICollectionViewDelegate</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UICollectionViewDelegate {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> cell = collectionView.cellForItem(at: indexPath)
+</span></span><span style="display:flex;"><span>        cell?.backgroundColor = gridColor
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UICollectionViewDataSource</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UICollectionViewDataSource {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> iPhoneSizeInformation.iconMaxCount
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, <span style="color:#66d9ef">for</span>: indexPath)
+</span></span><span style="display:flex;"><span>        cell.backgroundColor = .white
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> cell
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - UICollectionViewDelegateFlowLayout</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span>: UICollectionViewDelegateFlowLayout {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -&gt; CGSize {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> itemSizeMaker(with: indexPath)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -&gt; UIEdgeInsets {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> .zero
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -&gt; CGFloat {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> CGFloat(integerLiteral: <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">collectionView</span>(<span style="color:#66d9ef">_</span> collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -&gt; CGFloat {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> CGFloat(integerLiteral: <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="iphone的尺寸相關資訊">iPhone的尺寸相關資訊</h4>
 <ul>
 <li>這裡主要是參考<a href="https://www.idev101.com/code/User_Interface/sizes.html">iPhone Development 101</a>上的資訊作一個整理，比較要注意的是，iPhone上的最大icon的數量，在4.7吋之後的是滿版28個。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">iPhoneSizeInformation</span> {
-    
-    <span style="color:#66d9ef">case</span> _35inch
-    <span style="color:#66d9ef">case</span> _40inch
-    <span style="color:#66d9ef">case</span> _47inch
-    <span style="color:#66d9ef">case</span> _55inch
-    <span style="color:#66d9ef">case</span> _58inch
-    <span style="color:#66d9ef">case</span> _61inch
-    <span style="color:#66d9ef">case</span> _65inch
-    
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> type: iPhoneSizeInformation? { <span style="color:#66d9ef">return</span> getType() }
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> bounds: ScreenBoundsInfo { <span style="color:#66d9ef">return</span> getBounds() }
-    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> iconMaxCount: Int { <span style="color:#66d9ef">return</span> pageCountInfos()[type ?? _35inch] ?? <span style="color:#ae81ff">0</span> }
-    
-    <span style="color:#75715e">/// Screen的資訊</span>
-    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ScreenBoundsInfo</span>: Equatable {
-        <span style="color:#66d9ef">var</span> width: CGFloat
-        <span style="color:#66d9ef">var</span> height: CGFloat
-        <span style="color:#66d9ef">var</span> scale: CGFloat
-    }
-    
-    <span style="color:#75715e">/// 取得iPhone的Screen的大小Type</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getType</span>() -&gt; iPhoneSizeInformation? {
-        
-        <span style="color:#66d9ef">let</span> boundsInfo = ScreenBoundsInfo(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, scale: UIScreen.main.scale)
-        <span style="color:#66d9ef">let</span> screenBoundsInfos = mainScreenBoundsInfos()
-        
-        <span style="color:#66d9ef">for</span> _screenBoundsInfo <span style="color:#66d9ef">in</span> screenBoundsInfos {
-            <span style="color:#66d9ef">if</span> (_screenBoundsInfo.value == boundsInfo) { <span style="color:#66d9ef">return</span> _screenBoundsInfo.key }
-        }
-        
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-    }
-    
-    <span style="color:#75715e">/// 取得iPhone的Screen的大小</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getBounds</span>() -&gt; ScreenBoundsInfo {
-        <span style="color:#66d9ef">return</span> ScreenBoundsInfo(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, scale: UIScreen.main.scale)
-    }
-    
-    <span style="color:#75715e">/// 取得記錄iPhone的大小跟比例的Array (https://www.idev101.com/code/User_Interface/sizes.html)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mainScreenBoundsInfos</span>() -&gt; [iPhoneSizeInformation: ScreenBoundsInfo] {
-        
-        <span style="color:#66d9ef">let</span> screenBoundsInfos: [iPhoneSizeInformation: ScreenBoundsInfo] = [
-            ._35inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">320</span>, height: <span style="color:#ae81ff">480</span>, scale: <span style="color:#ae81ff">2</span>),
-            ._40inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">320</span>, height: <span style="color:#ae81ff">568</span>, scale: <span style="color:#ae81ff">2</span>),
-            ._47inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">375</span>, height: <span style="color:#ae81ff">667</span>, scale: <span style="color:#ae81ff">2</span>),
-            ._55inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">414</span>, height: <span style="color:#ae81ff">736</span>, scale: <span style="color:#ae81ff">3</span>),
-            ._58inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">375</span>, height: <span style="color:#ae81ff">812</span>, scale: <span style="color:#ae81ff">3</span>),
-            ._61inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">375</span>, height: <span style="color:#ae81ff">812</span>, scale: <span style="color:#ae81ff">2</span>),
-            ._65inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">414</span>, height: <span style="color:#ae81ff">896</span>, scale: <span style="color:#ae81ff">3</span>),
-        ]
-        
-        <span style="color:#66d9ef">return</span> screenBoundsInfos
-    }
-    
-    <span style="color:#75715e">/// 取得記錄iPhone的單頁icon最大數量Array</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pageCountInfos</span>() -&gt; [iPhoneSizeInformation: Int] {
-        
-        <span style="color:#66d9ef">let</span> countInfos: [iPhoneSizeInformation: Int] = [
-            ._35inch: <span style="color:#ae81ff">24</span>,
-            ._40inch: <span style="color:#ae81ff">24</span>,
-            ._47inch: <span style="color:#ae81ff">28</span>,
-            ._55inch: <span style="color:#ae81ff">28</span>,
-            ._58inch: <span style="color:#ae81ff">28</span>,
-            ._61inch: <span style="color:#ae81ff">28</span>,
-            ._65inch: <span style="color:#ae81ff">28</span>,
-        ]
-        
-        <span style="color:#66d9ef">return</span> countInfos
-    }
-}
-</code></pre></div><h4 id="存照片--改變顏色">存照片 / 改變顏色</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">iPhoneSizeInformation</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _35inch
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _40inch
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _47inch
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _55inch
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _58inch
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _61inch
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> _65inch
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> type: iPhoneSizeInformation? { <span style="color:#66d9ef">return</span> getType() }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> bounds: ScreenBoundsInfo { <span style="color:#66d9ef">return</span> getBounds() }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">var</span> iconMaxCount: Int { <span style="color:#66d9ef">return</span> pageCountInfos()[type ?? _35inch] ?? <span style="color:#ae81ff">0</span> }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// Screen的資訊</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ScreenBoundsInfo</span>: Equatable {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> width: CGFloat
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> height: CGFloat
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> scale: CGFloat
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得iPhone的Screen的大小Type</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getType</span>() -&gt; iPhoneSizeInformation? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> boundsInfo = ScreenBoundsInfo(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, scale: UIScreen.main.scale)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> screenBoundsInfos = mainScreenBoundsInfos()
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> _screenBoundsInfo <span style="color:#66d9ef">in</span> screenBoundsInfos {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (_screenBoundsInfo.value == boundsInfo) { <span style="color:#66d9ef">return</span> _screenBoundsInfo.key }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得iPhone的Screen的大小</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getBounds</span>() -&gt; ScreenBoundsInfo {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> ScreenBoundsInfo(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, scale: UIScreen.main.scale)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得記錄iPhone的大小跟比例的Array (https://www.idev101.com/code/User_Interface/sizes.html)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mainScreenBoundsInfos</span>() -&gt; [iPhoneSizeInformation: ScreenBoundsInfo] {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> screenBoundsInfos: [iPhoneSizeInformation: ScreenBoundsInfo] = [
+</span></span><span style="display:flex;"><span>            ._35inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">320</span>, height: <span style="color:#ae81ff">480</span>, scale: <span style="color:#ae81ff">2</span>),
+</span></span><span style="display:flex;"><span>            ._40inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">320</span>, height: <span style="color:#ae81ff">568</span>, scale: <span style="color:#ae81ff">2</span>),
+</span></span><span style="display:flex;"><span>            ._47inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">375</span>, height: <span style="color:#ae81ff">667</span>, scale: <span style="color:#ae81ff">2</span>),
+</span></span><span style="display:flex;"><span>            ._55inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">414</span>, height: <span style="color:#ae81ff">736</span>, scale: <span style="color:#ae81ff">3</span>),
+</span></span><span style="display:flex;"><span>            ._58inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">375</span>, height: <span style="color:#ae81ff">812</span>, scale: <span style="color:#ae81ff">3</span>),
+</span></span><span style="display:flex;"><span>            ._61inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">375</span>, height: <span style="color:#ae81ff">812</span>, scale: <span style="color:#ae81ff">2</span>),
+</span></span><span style="display:flex;"><span>            ._65inch: ScreenBoundsInfo(width: <span style="color:#ae81ff">414</span>, height: <span style="color:#ae81ff">896</span>, scale: <span style="color:#ae81ff">3</span>),
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> screenBoundsInfos
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得記錄iPhone的單頁icon最大數量Array</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pageCountInfos</span>() -&gt; [iPhoneSizeInformation: Int] {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> countInfos: [iPhoneSizeInformation: Int] = [
+</span></span><span style="display:flex;"><span>            ._35inch: <span style="color:#ae81ff">24</span>,
+</span></span><span style="display:flex;"><span>            ._40inch: <span style="color:#ae81ff">24</span>,
+</span></span><span style="display:flex;"><span>            ._47inch: <span style="color:#ae81ff">28</span>,
+</span></span><span style="display:flex;"><span>            ._55inch: <span style="color:#ae81ff">28</span>,
+</span></span><span style="display:flex;"><span>            ._58inch: <span style="color:#ae81ff">28</span>,
+</span></span><span style="display:flex;"><span>            ._61inch: <span style="color:#ae81ff">28</span>,
+</span></span><span style="display:flex;"><span>            ._65inch: <span style="color:#ae81ff">28</span>,
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> countInfos
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="存照片--改變顏色">存照片 / 改變顏色</h4>
 <ul>
 <li>這裡主要是利用<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E5%B0%87%E5%9C%96%E7%89%87%E5%84%B2%E5%AD%98%E5%88%B0-ios-11-%E7%9A%84-photo-album-c8761bb21139">UIImageWriteToSavedPhotosAlbum</a>來存照片</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
-
-    <span style="color:#75715e">/// 存照片</span>
-    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">saveWallpaper</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> image = captureImageMaker(with: view) <span style="color:#66d9ef">else</span> { fatalError() }
-        UIImageWriteToSavedPhotosAlbum(image, <span style="color:#66d9ef">self</span>, <span style="color:#66d9ef">#selector</span>(image(<span style="color:#66d9ef">_</span>:didFinishSavingWithError:contextInfo:)), <span style="color:#66d9ef">nil</span>)
-    }
-    
-    <span style="color:#75715e">/// 改變顏色</span>
-    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">changeGridColor</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
-        showGridColorSettingAlertController(with: sender)
-    }
-    
-    <span style="color:#75715e">/// 存完照片後的動作</span>
-    <span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">image</span>(<span style="color:#66d9ef">_</span> image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
-        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { showAlertController(with: <span style="color:#e6db74">&#34;錯誤&#34;</span>, message: error.description); <span style="color:#66d9ef">return</span> }
-        showAlertController(with: <span style="color:#e6db74">&#34;成功&#34;</span>, message: <span style="color:#e6db74">&#34;已經存到您的照片內了&#34;</span>)
-    }
-}
-</code></pre></div><h4 id="畫面配置">畫面配置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewController</span>: UIViewController {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 存照片</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">saveWallpaper</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> image = captureImageMaker(with: view) <span style="color:#66d9ef">else</span> { fatalError() }
+</span></span><span style="display:flex;"><span>        UIImageWriteToSavedPhotosAlbum(image, <span style="color:#66d9ef">self</span>, <span style="color:#66d9ef">#selector</span>(image(<span style="color:#66d9ef">_</span>:didFinishSavingWithError:contextInfo:)), <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 改變顏色</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@IBAction</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">changeGridColor</span>(<span style="color:#66d9ef">_</span> sender: UIButton) {
+</span></span><span style="display:flex;"><span>        showGridColorSettingAlertController(with: sender)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 存完照片後的動作</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">@objc</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">image</span>(<span style="color:#66d9ef">_</span> image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { showAlertController(with: <span style="color:#e6db74">&#34;錯誤&#34;</span>, message: error.description); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        showAlertController(with: <span style="color:#e6db74">&#34;成功&#34;</span>, message: <span style="color:#e6db74">&#34;已經存到您的照片內了&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="畫面配置">畫面配置</h4>
 <ul>
 <li>最重要的點來了，就是關於各iPhone畫面上的設定，這裡是使用<a href="http://www.getmarkman.com/">馬克鰻 - MarkMan</a>去量手機上的圖的，有圖有真相。比較要注意的是，iPhone的比例的問題(UIScreen.main.scale)，各位看倌要自己換算一下喲。
 
@@ -395,108 +395,108 @@
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
-    
-    <span style="color:#75715e">/// 取得Screen上的距離數據 (用MarkMan量的)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getScreenBoundsInfo</span>(<span style="color:#66d9ef">for</span> iPhoneType: iPhoneSizeInformation) -&gt; iPhoneDesktopInfo? {
-        <span style="color:#66d9ef">return</span> getScreenBoundsInfoArray()[iPhoneType]
-    }
-    
-    <span style="color:#75715e">/// 取得Screen上第一列 / 最後一列的icon位置</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getIconRangeInfo</span>(<span style="color:#66d9ef">for</span> iPhoneType: iPhoneSizeInformation) -&gt; iPhoneIconRangeInfo? {
-        <span style="color:#66d9ef">return</span> getIconRangeInfoArray()[iPhoneType]
-    }
-    
-    <span style="color:#75715e">/// 取得Screen上的距離數據Array (用MarkMan量的)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getScreenBoundsInfoArray</span>() -&gt; [iPhoneSizeInformation: iPhoneDesktopInfo] {
-        
-        <span style="color:#66d9ef">let</span> screenBoundsInfos: [iPhoneSizeInformation: iPhoneDesktopInfo] = [
-            ._35inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">16</span>, height: <span style="color:#ae81ff">28</span>), barDistance: (top: <span style="color:#ae81ff">27</span>, bottom: <span style="color:#ae81ff">129</span>)),
-            ._40inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">16</span>, height: <span style="color:#ae81ff">28</span>), barDistance: (top: <span style="color:#ae81ff">27</span>, bottom: <span style="color:#ae81ff">129</span>)),
-            ._47inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">27</span>, height: <span style="color:#ae81ff">28</span>), barDistance: (top: <span style="color:#ae81ff">30</span>, bottom: <span style="color:#ae81ff">137</span>)),
-            ._55inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">34.75</span>, height: <span style="color:#ae81ff">40</span>), barDistance: (top: <span style="color:#ae81ff">38</span>, bottom: <span style="color:#ae81ff">139</span>)),
-            ._58inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">27</span>, height: <span style="color:#ae81ff">42</span>), barDistance: (top: <span style="color:#ae81ff">72</span>, bottom: <span style="color:#ae81ff">170</span>)),
-            ._61inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">27</span>, height: <span style="color:#ae81ff">42</span>), barDistance: (top: <span style="color:#ae81ff">72</span>, bottom: <span style="color:#ae81ff">170</span>)),
-            ._65inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">64</span>, height: <span style="color:#ae81ff">64</span>), gapSize: CGSize(width: <span style="color:#ae81ff">31.6</span>, height: <span style="color:#ae81ff">49</span>), barDistance: (top: <span style="color:#ae81ff">78</span>, bottom: <span style="color:#ae81ff">192</span>)),
-        ]
-        
-        <span style="color:#66d9ef">return</span> screenBoundsInfos
-    }
-    
-    <span style="color:#75715e">/// 取得Screen上第一列 / 最後一列的icon位置Array</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getIconRangeInfoArray</span>() -&gt; [iPhoneSizeInformation: iPhoneIconRangeInfo] {
-        
-        <span style="color:#66d9ef">let</span> screenBoundsInfos: [iPhoneSizeInformation: iPhoneIconRangeInfo] = [
-            ._35inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">20.</span>..<span style="color:#ae81ff">23</span>),
-            ._40inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">20.</span>..<span style="color:#ae81ff">23</span>),
-            ._47inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
-            ._55inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
-            ._58inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
-            ._61inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
-            ._65inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
-        ]
-        
-        <span style="color:#66d9ef">return</span> screenBoundsInfos
-    }
-}
-</code></pre></div><h4 id="擷取畫面--尺寸配置">擷取畫面 / 尺寸配置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得Screen上的距離數據 (用MarkMan量的)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getScreenBoundsInfo</span>(<span style="color:#66d9ef">for</span> iPhoneType: iPhoneSizeInformation) -&gt; iPhoneDesktopInfo? {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> getScreenBoundsInfoArray()[iPhoneType]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得Screen上第一列 / 最後一列的icon位置</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getIconRangeInfo</span>(<span style="color:#66d9ef">for</span> iPhoneType: iPhoneSizeInformation) -&gt; iPhoneIconRangeInfo? {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> getIconRangeInfoArray()[iPhoneType]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得Screen上的距離數據Array (用MarkMan量的)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getScreenBoundsInfoArray</span>() -&gt; [iPhoneSizeInformation: iPhoneDesktopInfo] {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> screenBoundsInfos: [iPhoneSizeInformation: iPhoneDesktopInfo] = [
+</span></span><span style="display:flex;"><span>            ._35inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">16</span>, height: <span style="color:#ae81ff">28</span>), barDistance: (top: <span style="color:#ae81ff">27</span>, bottom: <span style="color:#ae81ff">129</span>)),
+</span></span><span style="display:flex;"><span>            ._40inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">16</span>, height: <span style="color:#ae81ff">28</span>), barDistance: (top: <span style="color:#ae81ff">27</span>, bottom: <span style="color:#ae81ff">129</span>)),
+</span></span><span style="display:flex;"><span>            ._47inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">27</span>, height: <span style="color:#ae81ff">28</span>), barDistance: (top: <span style="color:#ae81ff">30</span>, bottom: <span style="color:#ae81ff">137</span>)),
+</span></span><span style="display:flex;"><span>            ._55inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">34.75</span>, height: <span style="color:#ae81ff">40</span>), barDistance: (top: <span style="color:#ae81ff">38</span>, bottom: <span style="color:#ae81ff">139</span>)),
+</span></span><span style="display:flex;"><span>            ._58inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">27</span>, height: <span style="color:#ae81ff">42</span>), barDistance: (top: <span style="color:#ae81ff">72</span>, bottom: <span style="color:#ae81ff">170</span>)),
+</span></span><span style="display:flex;"><span>            ._61inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">60</span>, height: <span style="color:#ae81ff">60</span>), gapSize: CGSize(width: <span style="color:#ae81ff">27</span>, height: <span style="color:#ae81ff">42</span>), barDistance: (top: <span style="color:#ae81ff">72</span>, bottom: <span style="color:#ae81ff">170</span>)),
+</span></span><span style="display:flex;"><span>            ._65inch: iPhoneDesktopInfo(iconSize: CGSize(width: <span style="color:#ae81ff">64</span>, height: <span style="color:#ae81ff">64</span>), gapSize: CGSize(width: <span style="color:#ae81ff">31.6</span>, height: <span style="color:#ae81ff">49</span>), barDistance: (top: <span style="color:#ae81ff">78</span>, bottom: <span style="color:#ae81ff">192</span>)),
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> screenBoundsInfos
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得Screen上第一列 / 最後一列的icon位置Array</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getIconRangeInfoArray</span>() -&gt; [iPhoneSizeInformation: iPhoneIconRangeInfo] {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> screenBoundsInfos: [iPhoneSizeInformation: iPhoneIconRangeInfo] = [
+</span></span><span style="display:flex;"><span>            ._35inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">20.</span>..<span style="color:#ae81ff">23</span>),
+</span></span><span style="display:flex;"><span>            ._40inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">20.</span>..<span style="color:#ae81ff">23</span>),
+</span></span><span style="display:flex;"><span>            ._47inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
+</span></span><span style="display:flex;"><span>            ._55inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
+</span></span><span style="display:flex;"><span>            ._58inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
+</span></span><span style="display:flex;"><span>            ._61inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
+</span></span><span style="display:flex;"><span>            ._65inch: iPhoneIconRangeInfo(firstColumn: <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">3</span>, lastColumn: <span style="color:#ae81ff">24.</span>..<span style="color:#ae81ff">27</span>),
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> screenBoundsInfos
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="擷取畫面--尺寸配置">擷取畫面 / 尺寸配置</h4>
 <ul>
 <li>這裡使用<a href="https://www.jianshu.com/p/8f508f4ffd2c">UIGraphicsBeginImageContextWithOptions</a>來擷取畫面，至於尺寸的計算也不多做說明了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
-    
-    <span style="color:#75715e">/// 擷取UIView的畫面 =&gt; UIImage</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">captureImageMaker</span>(with view: UIView) -&gt; UIImage? {
-        
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, <span style="color:#ae81ff">0.0</span>)
-        buttonsHidden(<span style="color:#66d9ef">true</span>)
-
-        <span style="color:#66d9ef">defer</span> {
-            UIGraphicsEndImageContext()
-            buttonsHidden(<span style="color:#66d9ef">false</span>)
-        }
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> context = UIGraphicsGetCurrentContext() <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span> }
-        
-        view.layer.render(<span style="color:#66d9ef">in</span>: context)
-        <span style="color:#66d9ef">let</span> image = UIGraphicsGetImageFromCurrentImageContext()
-
-        <span style="color:#66d9ef">return</span> image
-    }
-    
-    <span style="color:#75715e">/// 產生item對應的大小</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">itemSizeMaker</span>(with indexPath: IndexPath) -&gt; CGSize {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> iPhoneType = iPhoneSizeInformation.type,
-              <span style="color:#66d9ef">let</span> desktopSizeInfo = getScreenBoundsInfo(<span style="color:#66d9ef">for</span>: iPhoneType),
-              <span style="color:#66d9ef">let</span> iconRangeInfo = getIconRangeInfo(<span style="color:#66d9ef">for</span>: iPhoneType),
-              <span style="color:#66d9ef">let</span> iconSize = Optional.some(desktopSizeInfo.iconSize),
-              <span style="color:#66d9ef">let</span> gapSize = Optional.some(desktopSizeInfo.gapSize),
-              <span style="color:#66d9ef">let</span> barDistance = Optional.some(desktopSizeInfo.barDistance),
-              <span style="color:#66d9ef">let</span> marginTop: CGFloat = Optional.some(barDistance.top <span style="color:#f92672">-</span> gapSize.height <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>),
-              <span style="color:#66d9ef">let</span> bottomHeight: CGFloat = Optional.some(barDistance.bottom <span style="color:#f92672">-</span> gapSize.height <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>),
-              <span style="color:#66d9ef">let</span> rowType = RowType(rawValue: indexPath.row <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span>)
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span> .zero
-        }
-        
-        <span style="color:#66d9ef">var</span> itemSize = CGSize(width: iconSize.width <span style="color:#f92672">+</span> gapSize.width, height: iconSize.height <span style="color:#f92672">+</span> gapSize.height)
-        
-        <span style="color:#66d9ef">switch</span> indexPath.row {
-        <span style="color:#66d9ef">case</span> iconRangeInfo.firstColumn: itemSize.height <span style="color:#f92672">+=</span> marginTop
-        <span style="color:#66d9ef">case</span> iconRangeInfo.lastColumn: itemSize.height = bottomHeight
-        <span style="color:#66d9ef">default</span>: <span style="color:#66d9ef">break</span>
-        }
-        
-        <span style="color:#66d9ef">if</span> rowType == .first <span style="color:#f92672">||</span> rowType == .last {
-            itemSize.width <span style="color:#f92672">+=</span> gapSize.width <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>
-        }
-        
-        <span style="color:#66d9ef">return</span> itemSize
-    }
-}
-</code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengswift-5treemasterwallpaperofgrid"><a href="https://github.com/William-Weng/Swift-5/tree/master/WallpaperOfGrid">範例程式碼下載</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ViewController</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 擷取UIView的畫面 =&gt; UIImage</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">captureImageMaker</span>(with view: UIView) -&gt; UIImage? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.isOpaque, <span style="color:#ae81ff">0.0</span>)
+</span></span><span style="display:flex;"><span>        buttonsHidden(<span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">defer</span> {
+</span></span><span style="display:flex;"><span>            UIGraphicsEndImageContext()
+</span></span><span style="display:flex;"><span>            buttonsHidden(<span style="color:#66d9ef">false</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> context = UIGraphicsGetCurrentContext() <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span> }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        view.layer.render(<span style="color:#66d9ef">in</span>: context)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> image = UIGraphicsGetImageFromCurrentImageContext()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> image
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 產生item對應的大小</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">itemSizeMaker</span>(with indexPath: IndexPath) -&gt; CGSize {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> iPhoneType = iPhoneSizeInformation.type,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> desktopSizeInfo = getScreenBoundsInfo(<span style="color:#66d9ef">for</span>: iPhoneType),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> iconRangeInfo = getIconRangeInfo(<span style="color:#66d9ef">for</span>: iPhoneType),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> iconSize = Optional.some(desktopSizeInfo.iconSize),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> gapSize = Optional.some(desktopSizeInfo.gapSize),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> barDistance = Optional.some(desktopSizeInfo.barDistance),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> marginTop: CGFloat = Optional.some(barDistance.top <span style="color:#f92672">-</span> gapSize.height <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> bottomHeight: CGFloat = Optional.some(barDistance.bottom <span style="color:#f92672">-</span> gapSize.height <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> rowType = RowType(rawValue: indexPath.row <span style="color:#f92672">%</span> <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> .zero
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> itemSize = CGSize(width: iconSize.width <span style="color:#f92672">+</span> gapSize.width, height: iconSize.height <span style="color:#f92672">+</span> gapSize.height)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> indexPath.row {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> iconRangeInfo.firstColumn: itemSize.height <span style="color:#f92672">+=</span> marginTop
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> iconRangeInfo.lastColumn: itemSize.height = bottomHeight
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span>: <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> rowType == .first <span style="color:#f92672">||</span> rowType == .last {
+</span></span><span style="display:flex;"><span>            itemSize.width <span style="color:#f92672">+=</span> gapSize.width <span style="color:#f92672">*</span> <span style="color:#ae81ff">0.5</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> itemSize
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengswift-5treemasterwallpaperofgrid"><a href="https://github.com/William-Weng/Swift-5/tree/master/WallpaperOfGrid">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>本來還以為一天就可以做完了，但實作了之後才知道問題點在哪裡，果然自己的經驗還不足，要多多學習才是。不過也讓我知道了MarkMan這個UI工具，算是個不錯的體驗啊。</li>
@@ -576,6 +576,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -595,9 +598,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -668,6 +668,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -676,11 +681,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -763,6 +763,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -775,6 +780,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -958,13 +968,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -985,11 +995,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1089,7 +1094,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

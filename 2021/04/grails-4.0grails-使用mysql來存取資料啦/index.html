@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -169,9 +169,9 @@
 <ul>
 <li>續上集, <a href="/2021/02/14/grails_helloworld/">使用SDKMAN安裝環境</a>，首先可以使用<a href="https://man.linuxde.net/arch">arch</a>這個命令來<a href="https://www.kocpc.com.tw/archives/356272">查看</a>跟<a href="https://tree.rocks/react-native-appl-m1-cpu-with-cocoapods-e13256357c9b">設定</a>，當然，因為目前的<a href="https://www.kocpc.com.tw/archives/357653">macOS 11</a>有<a href="https://www.kocpc.com.tw/archives/372356">Rosetta2 編譯器</a>的關係，才能做切換的動作，記要把<a href="https://sdkman.io/usage">SDKMAN</a>的支援Rosetta2的功能關掉，以獲得最好的原生支援，當然使用指令也可以，在APP上去做關閉也是可以的。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">arch -x86_64 zsh    <span style="color:#75715e"># 執行i386的環境 =&gt; zsh (Rosetta2)</span>
-arch -ARM64 zsh     <span style="color:#75715e"># 執行ARM64的環境 =&gt; zsh</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>arch -x86_64 zsh    <span style="color:#75715e"># 執行i386的環境 =&gt; zsh (Rosetta2)</span>
+</span></span><span style="display:flex;"><span>arch -ARM64 zsh     <span style="color:#75715e"># 執行ARM64的環境 =&gt; zsh</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -231,9 +231,9 @@ arch -ARM64 zsh     <span style="color:#75715e"># 執行ARM64的環境 =&gt; zsh
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo code .sdkman/etc/config        <span style="color:#75715e"># 設定SDKMan的設定檔 =&gt; VSCode</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sdkman_rosetta2_compatible<span style="color:#f92672">=</span>false    <span style="color:#75715e"># 把支援Rosetta2的功能關掉</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo code .sdkman/etc/config        <span style="color:#75715e"># 設定SDKMan的設定檔 =&gt; VSCode</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdkman_rosetta2_compatible<span style="color:#f92672">=</span>false    <span style="color:#75715e"># 把支援Rosetta2的功能關掉</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -297,9 +297,9 @@ arch -ARM64 zsh     <span style="color:#75715e"># 執行ARM64的環境 =&gt; zsh
 <ul>
 <li><a href="https://itnext.io/how-to-install-x86-and-arm-jdks-on-the-mac-m1-apple-silicon-using-sdkman-872a5adc050d">在這裡</a>就來安裝<a href="https://www.azul.com/downloads/zulu-community/?package=jdk">OpenJDK for ARM64</a>的版本吧</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sdk list java                   <span style="color:#75715e"># 列出可以安裝的java列表</span>
-sdk install java 8.0.282-zulu   <span style="color:#75715e"># 安裝支援ARM64的版本</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sdk list java                   <span style="color:#75715e"># 列出可以安裝的java列表</span>
+</span></span><span style="display:flex;"><span>sdk install java 8.0.282-zulu   <span style="color:#75715e"># 安裝支援ARM64的版本</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -488,8 +488,8 @@ sdk install java 8.0.282-zulu   <span style="color:#75715e"># 安裝支援ARM64�
 <ul>
 <li>這個IDE - <a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>就看個人要不要安裝了，當然要使用用其它的<a href="/2021/02/14/grails_helloworld/#%E5%AE%89%E8%A3%9D%E5%A5%BD%E7%94%A8%E7%9A%84IDE">IDE</a>也是可以的，這裡是使用<a href="/2019/07/12/homebrew-helloworld/">Homebrew</a>安裝。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install --cask intellij-idea
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install --cask intellij-idea
+</span></span></code></pre></div><p>
 
 
 
@@ -553,8 +553,8 @@ sdk install java 8.0.282-zulu   <span style="color:#75715e"># 安裝支援ARM64�
 <ul>
 <li>其實<a href="https://grails.org/documentation.html">Grails</a>支援性還滿大的，像<a href="https://gorm.grails.org/latest/hibernate/manual/index.html">MySQL</a> / <a href="https://grails.github.io/gorm-graphql/snapshot/guide/index.html">GraphQL</a> / <a href="https://gorm.grails.org/latest/mongodb/manual/index.html">MongoDB</a> / <a href="https://gorm.grails.org/latest/neo4j/manual/index.html">Neo4j</a>，拜<a href="https://gorm.io/zh_CN/docs/index.html">GORM</a>所賜，免寫SQL<a href="https://ananedu.com/a/1/49/">嘛ㄟ通</a>，這裡選擇<a href="https://dev.mysql.com/downloads/mysql/">MySQL Community Server 8.0.23</a>的版本進行安裝，然後使用<a href="https://zh.wikipedia.org/zh-tw/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2">MySQL CLI</a>做新增資料庫的動作。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install mysql
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install mysql
+</span></span></code></pre></div><p>
 
 
 
@@ -614,11 +614,11 @@ sdk install java 8.0.282-zulu   <span style="color:#75715e"># 安裝支援ARM64�
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql.server stop           <span style="color:#75715e"># 關閉MySQL服務</span>
-mysql.server start          <span style="color:#75715e"># 開啟MySQL服務</span>
-mysql_secure_installation   <span style="color:#75715e"># 設定MySQL的root安全密碼 (12345678)</span>
-mysql -uroot -p             <span style="color:#75715e"># 登入MySQL CLI</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql.server stop           <span style="color:#75715e"># 關閉MySQL服務</span>
+</span></span><span style="display:flex;"><span>mysql.server start          <span style="color:#75715e"># 開啟MySQL服務</span>
+</span></span><span style="display:flex;"><span>mysql_secure_installation   <span style="color:#75715e"># 設定MySQL的root安全密碼 (12345678)</span>
+</span></span><span style="display:flex;"><span>mysql -uroot -p             <span style="color:#75715e"># 登入MySQL CLI</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -678,11 +678,11 @@ mysql -uroot -p             <span style="color:#75715e"># 登入MySQL CLI</span>
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">show</span> databases;             <span style="color:#75715e">-- 顯示資料庫列表
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> demo;       <span style="color:#75715e">-- 建立空白資料庫
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">show</span> databases;
-exit                        <span style="color:#75715e">-- 離開MySQL CLI
-</span></code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">show</span> databases;             <span style="color:#75715e">-- 顯示資料庫列表
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">create</span> <span style="color:#66d9ef">database</span> demo;       <span style="color:#75715e">-- 建立空白資料庫
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">show</span> databases;
+</span></span><span style="display:flex;"><span>exit                        <span style="color:#75715e">-- 離開MySQL CLI
+</span></span></span></code></pre></div><p>
 
 
 
@@ -870,9 +870,9 @@ exit                        <span style="color:#75715e">-- 離開MySQL CLI
 <ul>
 <li>然後Run一下看看能不能正常啟動。這裡我是使用<a href="https://zh.wikipedia.org/zh-tw/%E9%9B%86%E6%88%90%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">IDE</a>啟動的，當然要使用<a href="https://docs.grails.org/4.0.9/guide/commandLine.html">Grails CLI</a>去啟動也是可以的。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">grails      <span style="color:#75715e"># 使用Grails CLI</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">run-app     <span style="color:#75715e"># 啟動Web APP</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grails      <span style="color:#75715e"># 使用Grails CLI</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>run-app     <span style="color:#75715e"># 啟動Web APP</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -936,10 +936,10 @@ exit                        <span style="color:#75715e">-- 離開MySQL CLI
 <ul>
 <li>在專案的<a href="https://zh.wikipedia.org/zh-tw/Gradle">build.gradle</a>加上<a href="https://dev.mysql.com/downloads/connector/j/">MySQL JDBC Driver</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-gradle" data-lang="gradle">dependencies <span style="color:#f92672">{</span>
-    runtime <span style="color:#e6db74">&#39;mysql:mysql-connector-java:8.0.23&#39;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gradle" data-lang="gradle"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    runtime <span style="color:#e6db74">&#39;mysql:mysql-connector-java:8.0.23&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1004,9 +1004,9 @@ exit                        <span style="color:#75715e">-- 離開MySQL CLI
 <li>在這裡，我們可以使用<a href="http://localhost:8080/h2-console/">內建的IDE</a>來讀取資料庫</li>
 <li>比較要注意的是，新版的MySQL Driver的claasname，由<a href="https://blog.csdn.net/superdangbo/article/details/78732700">com.mysql.jdbc.Driver</a> =&gt; <a href="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-connect-drivermanager.html">com.mysql.cj.jdbc.Driver</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">com.mysql.cj.jdbc.Driver
-jdbc:mysql://localhost:3306/demo
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>com.mysql.cj.jdbc.Driver
+</span></span><span style="display:flex;"><span>jdbc:mysql://localhost:3306/demo
+</span></span></code></pre></div><p>
 
 
 
@@ -1133,11 +1133,11 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>不過呢，有時候會發生像<a href="https://ostechnix.com/fix-mysql-error-1819-hy000-your-password-does-not-satisfy-the-current-policy-requirements/">MySQL ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</a>的警告，明明帳號密碼都對，但就是登不進去，真的是…，這是因為對密碼的安全要求預設是<a href="https://dev.mysql.com/doc/refman/5.6/en/validate-password.html">MEDIUM</a>，所以啊，這種<a href="https://www.setn.com/News.aspx?NewsID=850886">12345678</a>的這種<a href="https://3c.ltn.com.tw/news/42381">超簡單密碼</a>，自然就無法登入了…XD，沒關係，我們把要求等級改低一點就可以了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -uroot -p                             <span style="color:#75715e"># 登入MySQL CLI</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">SHOW</span> VARIABLES <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;validate_password%&#39;</span>;   <span style="color:#75715e">-- 顯示出跟Password有關的變數
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">GLOBAL</span> validate_password.policy<span style="color:#f92672">=</span>LOW;    <span style="color:#75715e">-- 把密碼的要求等級 =&gt; LOW
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SHOW</span> VARIABLES <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;validate_password%&#39;</span>;   <span style="color:#75715e">-- 再確認一下
-</span></code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql -uroot -p                             <span style="color:#75715e"># 登入MySQL CLI</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SHOW</span> VARIABLES <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;validate_password%&#39;</span>;   <span style="color:#75715e">-- 顯示出跟Password有關的變數
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SET</span> <span style="color:#66d9ef">GLOBAL</span> validate_password.policy<span style="color:#f92672">=</span>LOW;    <span style="color:#75715e">-- 把密碼的要求等級 =&gt; LOW
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SHOW</span> VARIABLES <span style="color:#66d9ef">LIKE</span> <span style="color:#e6db74">&#39;validate_password%&#39;</span>;   <span style="color:#75715e">-- 再確認一下
+</span></span></span></code></pre></div><p>
 
 
 
@@ -1200,11 +1200,11 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>或者是會碰到像<a href="https://blog.csdn.net/maoxinwen1/article/details/88629313">MySQL said: Authentication plugin &lsquo;caching_sha2_password&rsquo; cannot be loaded</a>的這種問題，主要是因為MySQL 8之後，<a href="https://blog.csdn.net/maoxinwen1/article/details/88629313">身份驗證的PlugIn</a>進步成了<a href="https://blog.51cto.com/fengfeng688/2147169">caching_sha2_password</a>，而造對有些只對<a href="https://blog.csdn.net/maoxinwen1/article/details/88629313">mysql_native_password</a>的有反應的APP，無法登入，沒關係，我們把它改回來就好了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">use mysql;                                                                          <span style="color:#75715e">-- 使用mysql資料庫
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">Host</span>, <span style="color:#66d9ef">User</span>, plugin <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">user</span>;                                                <span style="color:#75715e">-- 顯示有關PlugIn的值
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;root&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">WITH</span> mysql_native_password <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;12345678&#39;</span>;  <span style="color:#75715e">-- PlugIn =&gt;  mysql_native_password
-</span><span style="color:#75715e"></span>FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;                                                                   <span style="color:#75715e">-- 重新生效
-</span></code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>use mysql;                                                                          <span style="color:#75715e">-- 使用mysql資料庫
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SELECT</span> <span style="color:#66d9ef">Host</span>, <span style="color:#66d9ef">User</span>, plugin <span style="color:#66d9ef">from</span> <span style="color:#66d9ef">user</span>;                                                <span style="color:#75715e">-- 顯示有關PlugIn的值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">ALTER</span> <span style="color:#66d9ef">USER</span> <span style="color:#e6db74">&#39;root&#39;</span><span style="color:#f92672">@</span><span style="color:#e6db74">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#66d9ef">WITH</span> mysql_native_password <span style="color:#66d9ef">BY</span> <span style="color:#e6db74">&#39;12345678&#39;</span>;  <span style="color:#75715e">-- PlugIn =&gt;  mysql_native_password
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>FLUSH <span style="color:#66d9ef">PRIVILEGES</span>;                                                                   <span style="color:#75715e">-- 重新生效
+</span></span></span></code></pre></div><p>
 
 
 
@@ -1268,10 +1268,10 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>在這裡會利用CLI去建立一個叫做『eBook』的資料庫。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mysql -uroot -p                             <span style="color:#75715e"># 登入MySQL CLI</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> eBook;                      <span style="color:#75715e">-- 建立&lt;eBook&gt;資料庫
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">SHOW</span> DATABASES;                             <span style="color:#75715e">-- 顯示資料庫列表
-</span></code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql -uroot -p                             <span style="color:#75715e"># 登入MySQL CLI</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">DATABASE</span> eBook;                      <span style="color:#75715e">-- 建立&lt;eBook&gt;資料庫
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">SHOW</span> DATABASES;                             <span style="color:#75715e">-- 顯示資料庫列表
+</span></span></span></code></pre></div><p>
 
 
 
@@ -1337,18 +1337,18 @@ jdbc:mysql://localhost:3306/demo
 <li>先設定<a href="https://www.jianshu.com/p/fb6731ee53d2">application.yml</a>檔，上面填入資料庫的相關資訊。</li>
 <li>然後連連看<a href="http://localhost:8080/h2-console/">h2-console</a>是否正常。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">environments</span>:
-    <span style="color:#f92672">development</span>:
-        <span style="color:#f92672">server</span>:
-            <span style="color:#f92672">url</span>: <span style="color:#ae81ff">http://localhost:8080/</span>
-            <span style="color:#f92672">contextPath</span>: <span style="color:#ae81ff">/</span>
-            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8080</span>
-        <span style="color:#f92672">dataSource</span>:
-            <span style="color:#f92672">dbCreate</span>: <span style="color:#ae81ff">create-drop</span>
-            <span style="color:#f92672">url</span>: <span style="color:#ae81ff">jdbc:mysql://localhost:3306/eBook?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
-            <span style="color:#f92672">username</span>: <span style="color:#ae81ff">root</span>
-            <span style="color:#f92672">password</span>: <span style="color:#ae81ff">12345678</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">environments</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">development</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">server</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">url</span>: <span style="color:#ae81ff">http://localhost:8080/</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">contextPath</span>: <span style="color:#ae81ff">/</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">port</span>: <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">dataSource</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">dbCreate</span>: <span style="color:#ae81ff">create-drop</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">url</span>: <span style="color:#ae81ff">jdbc:mysql://localhost:3306/eBook?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">username</span>: <span style="color:#ae81ff">root</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">password</span>: <span style="color:#ae81ff">12345678</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1597,23 +1597,23 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>設定欄位，我們都知道<a href="https://zh.wikipedia.org/zh-tw/%E5%9B%BD%E9%99%85%E6%A0%87%E5%87%86%E4%B9%A6%E5%8F%B7">ISBN</a>是唯一值，是書的身份證字號，所以要在<a href="https://docs.grails.org/latest/ref/Constraints/Usage.html">Constraints</a>這裡做設定，這裡就不細說了，只要將其設定後，重新啟動，欄位就自動跑出來了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">package</span> grailssql<span style="color:#f92672">.</span><span style="color:#a6e22e">idv</span><span style="color:#f92672">.</span><span style="color:#a6e22e">william</span>
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">static</span> constraints <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-        isbn13<span style="color:#f92672">(</span>size: <span style="color:#ae81ff">13</span><span style="color:#f92672">,</span> nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> unique: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#75715e">// (13碼 / 不得為空值 / 是唯一值)
-</span><span style="color:#75715e"></span>        title<span style="color:#f92672">(</span>nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
-        releaseDate<span style="color:#f92672">(</span>nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
-    <span style="color:#f92672">}</span>
-
-    Long isbn13
-    String title
-    Date releaseDate
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">USE eBook;          <span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">使用該資料表</span>
-<span style="color:#66d9ef">DESCRIBE</span> book;      <span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">顯示該資料表結構</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#f92672">package</span> grailssql<span style="color:#f92672">.</span><span style="color:#a6e22e">idv</span><span style="color:#f92672">.</span><span style="color:#a6e22e">william</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Book</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> constraints <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        isbn13<span style="color:#f92672">(</span>size: <span style="color:#ae81ff">13</span><span style="color:#f92672">,</span> nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">,</span> unique: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span> <span style="color:#75715e">// (13碼 / 不得為空值 / 是唯一值)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        title<span style="color:#f92672">(</span>nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        releaseDate<span style="color:#f92672">(</span>nullable: <span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Long isbn13
+</span></span><span style="display:flex;"><span>    String title
+</span></span><span style="display:flex;"><span>    Date releaseDate
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span>USE eBook;          <span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">使用該資料表</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">DESCRIBE</span> book;      <span style="color:#f92672">#</span> <span style="color:#960050;background-color:#1e0010">顯示該資料表結構</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1678,59 +1678,59 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>這個新增一個<a href="/2021/02/14/grails_helloworld/#%E5%BB%BA%E7%AB%8BController">BookController</a>，使用最基本的<a href="http://docs.grails.org/latest/guide/GORM.html">Object Relational Mapping (GORM)</a>來處理資料，這裡就只做個簡單的示意，可以<a href="/2021/02/14/grails_helloworld/#%E6%96%B0%E5%A2%9E%E6%9B%B8%E7%B1%8DAPI">參考</a>上一篇文的說明。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 新增書籍 =&gt; http://localhost:8080/book/addBook
-</span><span style="color:#75715e">     * @return
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
-
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9789863317494</span>
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;圖解星座神話故事&#39;</span>
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;2015/05/28&#39;</span><span style="color:#f92672">)</span>
-
-        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
-
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Fail&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
-
-        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Success&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * 新增書籍 =&gt; http://localhost:8080/book/addBook
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9789863317494</span>
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;圖解星座神話故事&#39;</span>
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;2015/05/28&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Fail&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Success&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><ul>
 <li>我們使用<a href="http://www.wibibi.com/info.php?tid=235">GET帶參數的方式</a>，使它更可以靈活的使用。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
-
-    <span style="color:#75715e">/**
-</span><span style="color:#75715e">     * 新增書籍 =&gt; http://localhost:8080/book/addBook?isbn13=9789572666203&amp;title=鬼滅之刃_23完&amp;releaseDate=2021/04/16
-</span><span style="color:#75715e">     * @return
-</span><span style="color:#75715e">     */</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#66d9ef">def</span> params <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getParams</span><span style="color:#f92672">()</span>
-
-        <span style="color:#66d9ef">def</span> isbn13 <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;isbn13&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> Long
-        <span style="color:#66d9ef">def</span> title <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
-        <span style="color:#66d9ef">def</span> releaseDate <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;releaseDate&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
-
-        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
-
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> isbn13
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>releaseDate<span style="color:#f92672">)</span>
-
-        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
-
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Fail&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
-
-        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Success&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * 新增書籍 =&gt; http://localhost:8080/book/addBook?isbn13=9789572666203&amp;title=鬼滅之刃_23完&amp;releaseDate=2021/04/16
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     * @return
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> params <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getParams</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> isbn13 <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;isbn13&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> Long
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> title <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> releaseDate <span style="color:#f92672">=</span> params<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;releaseDate&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> isbn13
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>releaseDate<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Fail&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;&lt;h1&gt;Success&lt;/h1&gt;&#39;</span><span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1918,66 +1918,66 @@ jdbc:mysql://localhost:3306/demo
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UrlMappings</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">static</span> mappings <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
-        <span style="color:#e6db74">&#34;/$controller/$action?/$id?(.$format)?&#34;</span><span style="color:#f92672">{</span>
-            constraints <span style="color:#f92672">{</span>
-                <span style="color:#75715e">// apply constraints here
-</span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
-        <span style="color:#f92672">}</span>
-
-        <span style="color:#e6db74">&#34;/eBook/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;save&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;GET&#39;</span><span style="color:#f92672">)</span>
-        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;update&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
-        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;update&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;PUT&#39;</span><span style="color:#f92672">)</span>
-        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;delete&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;DELETE&#39;</span><span style="color:#f92672">)</span>
-
-        <span style="color:#e6db74">&#34;/eBook/new/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;addBook&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
-
-        <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#34;/index&#34;</span><span style="color:#f92672">)</span>
-        <span style="color:#e6db74">&#34;500&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#39;/error&#39;</span><span style="color:#f92672">)</span>
-        <span style="color:#e6db74">&#34;404&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#39;/notFound&#39;</span><span style="color:#f92672">)</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grails.converters.JSON
-<span style="color:#f92672">import</span> grailssql.idv.william.Book
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;預設值&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#66d9ef">def</span> json <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">request</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getJSON</span><span style="color:#f92672">()</span>
-
-        <span style="color:#66d9ef">def</span> isbn13 <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;isbn13&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> Long
-        <span style="color:#66d9ef">def</span> title <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
-        <span style="color:#66d9ef">def</span> releaseDate <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;releaseDate&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
-
-        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
-
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> isbn13
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title
-        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>releaseDate<span style="color:#f92672">)</span>
-
-        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
-
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">([</span>result: <span style="color:#66d9ef">false</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
-
-        render<span style="color:#f92672">([</span>result: <span style="color:#66d9ef">true</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">);</span>
-    <span style="color:#f92672">}</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;新增&#34;</span> <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;修改 ${id}&#34;</span>  <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;刪除 ${id}&#34;</span> <span style="color:#f92672">}</span>
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;查詢 ${id}&#34;</span> <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038097&#34;</span>,
-  <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
-  <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪？&#34;</span>
-}
-</code></pre></div><h4 id="createcriteria">createCriteria</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UrlMappings</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> mappings <span style="color:#f92672">=</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;/$controller/$action?/$id?(.$format)?&#34;</span><span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            constraints <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e">// apply constraints here
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;/eBook/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;save&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;GET&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;update&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;update&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;PUT&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;/eBook/$id?&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;delete&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;DELETE&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;/eBook/new/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;addBook&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#34;/index&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;500&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#39;/error&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;404&#34;</span><span style="color:#f92672">(</span>view:<span style="color:#e6db74">&#39;/notFound&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#f92672">import</span> grails.converters.JSON
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> grailssql.idv.william.Book
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;預設值&#34;</span><span style="color:#f92672">)</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addBook</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> json <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">request</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getJSON</span><span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> isbn13 <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;isbn13&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> Long
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> title <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> releaseDate <span style="color:#f92672">=</span> json<span style="color:#f92672">[</span><span style="color:#e6db74">&#39;releaseDate&#39;</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> String
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> book <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Book<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">isbn13</span> <span style="color:#f92672">=</span> isbn13
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">title</span> <span style="color:#f92672">=</span> title
+</span></span><span style="display:flex;"><span>        book<span style="color:#f92672">.</span><span style="color:#a6e22e">releaseDate</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span>releaseDate<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> result <span style="color:#f92672">=</span> book<span style="color:#f92672">.</span><span style="color:#a6e22e">save</span><span style="color:#f92672">(</span>flash: <span style="color:#66d9ef">true</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>result <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render<span style="color:#f92672">([</span>result: <span style="color:#66d9ef">false</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">);</span> <span style="color:#66d9ef">return</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        render<span style="color:#f92672">([</span>result: <span style="color:#66d9ef">true</span><span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">save</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;新增&#34;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;修改 ${id}&#34;</span>  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">delete</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;刪除 ${id}&#34;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">show</span><span style="color:#f92672">(</span>Long id<span style="color:#f92672">)</span> <span style="color:#f92672">{</span> render <span style="color:#e6db74">&#34;查詢 ${id}&#34;</span> <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038097&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪？&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="createcriteria">createCriteria</h4>
 <ul>
 <li>搜尋在資料庫中有著很<a href="http://docs.grails.org/3.1.1/ref/Domain%20Classes/createCriteria.html">重要的</a>地位，這裡介紹一下<a href="https://ithelp.ithome.com.tw/articles/10137251">criteria語法</a>。然後呢，一定要是domain才能使用它。</li>
 <li>加入三筆測試資料後，在<a href="http://localhost:8080/eBook/criteria">執行測試</a>中可以發現，會有兩組答案出現，但要怎麼方便的使用它呢？這裡介紹一下<a href="http://views.grails.org/latest/">GSON - Grails Views</a>。</li>
@@ -2103,31 +2103,31 @@ jdbc:mysql://localhost:3306/demo
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">dependencies <span style="color:#f92672">{</span>
-   compile <span style="color:#e6db74">&#34;org.grails.plugins:views-json:2.0.4&#34;</span>
-   compile <span style="color:#e6db74">&#34;org.grails.plugins:views-json-templates:2.0.4&#34;</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UrlMappings</span> <span style="color:#f92672">{</span>
-    <span style="color:#e6db74">&#34;/eBook/criteria/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;criteria&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-  {
-    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038097&#34;</span>,
-    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
-    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪？&#34;</span>
-  },
-  {
-    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038098&#34;</span>,
-    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
-    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪2？&#34;</span>
-  },
-  {
-    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789572666203&#34;</span>,
-    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2021/04/16&#34;</span>,
-    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;鬼滅之刃_23完&#34;</span>
-  }
-]
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>   compile <span style="color:#e6db74">&#34;org.grails.plugins:views-json:2.0.4&#34;</span>
+</span></span><span style="display:flex;"><span>   compile <span style="color:#e6db74">&#34;org.grails.plugins:views-json-templates:2.0.4&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">UrlMappings</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;/eBook/criteria/&#34;</span><span style="color:#f92672">(</span>controller: <span style="color:#e6db74">&#39;book&#39;</span><span style="color:#f92672">,</span> action: <span style="color:#e6db74">&#39;criteria&#39;</span><span style="color:#f92672">,</span> method: <span style="color:#e6db74">&#39;POST&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038097&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪？&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789578038098&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2011/12/26&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;誰搬走了我的乳酪2？&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;isbn13&#34;</span>: <span style="color:#e6db74">&#34;9789572666203&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;releaseDate&#34;</span>: <span style="color:#e6db74">&#34;2021/04/16&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;title&#34;</span>: <span style="color:#e6db74">&#34;鬼滅之刃_23完&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><ul>
 <li>加上跟function同名的GSON檔</li>
 </ul>
 <p>
@@ -2250,68 +2250,68 @@ jdbc:mysql://localhost:3306/demo
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">grailssql.idv.william.Book</span>
-
-<span style="color:#960050;background-color:#1e0010">model</span> {
-    <span style="color:#960050;background-color:#1e0010">ArrayList&lt;Book&gt;</span> <span style="color:#960050;background-color:#1e0010">books</span>
-}
-<span style="color:#960050;background-color:#1e0010">json</span> {
-    <span style="color:#960050;background-color:#1e0010">bookList(books)</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">Book</span> <span style="color:#960050;background-color:#1e0010">book</span> <span style="color:#960050;background-color:#1e0010">-&gt;</span>
-        <span style="color:#960050;background-color:#1e0010">title</span> <span style="color:#960050;background-color:#1e0010">book.title</span>
-        <span style="color:#960050;background-color:#1e0010">isbn</span> <span style="color:#960050;background-color:#1e0010">book.isbn13</span>
-        <span style="color:#960050;background-color:#1e0010">releaseDate</span> <span style="color:#960050;background-color:#1e0010">book.releaseDate</span>
-    }
-<span style="color:#960050;background-color:#1e0010">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grailssql.idv.william.Book
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">criteria</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#66d9ef">def</span> books <span style="color:#f92672">=</span> Book<span style="color:#f92672">.</span><span style="color:#a6e22e">createCriteria</span><span style="color:#f92672">().</span><span style="color:#a6e22e">list</span> <span style="color:#f92672">{</span>
-
-            like<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;title&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;誰搬走了%&#34;</span><span style="color:#f92672">)</span>
-            and <span style="color:#f92672">{</span>
-                between<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;isbn13&#34;</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">9789578038090</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">9789578038099</span><span style="color:#f92672">)</span>
-            <span style="color:#f92672">}</span>
-            maxResults<span style="color:#f92672">(</span><span style="color:#ae81ff">10</span><span style="color:#f92672">)</span>
-            order<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;isbn13&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;desc&#34;</span><span style="color:#f92672">)</span>
-        <span style="color:#f92672">}</span>
-
-        respond<span style="color:#f92672">([</span>books: books<span style="color:#f92672">])</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><h4 id="hql">HQL</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">grailssql.idv.william.Book</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">model</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">ArrayList&lt;Book&gt;</span> <span style="color:#960050;background-color:#1e0010">books</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">json</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">bookList(books)</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">Book</span> <span style="color:#960050;background-color:#1e0010">book</span> <span style="color:#960050;background-color:#1e0010">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">title</span> <span style="color:#960050;background-color:#1e0010">book.title</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">isbn</span> <span style="color:#960050;background-color:#1e0010">book.isbn13</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">releaseDate</span> <span style="color:#960050;background-color:#1e0010">book.releaseDate</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#f92672">import</span> grailssql.idv.william.Book
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">criteria</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> books <span style="color:#f92672">=</span> Book<span style="color:#f92672">.</span><span style="color:#a6e22e">createCriteria</span><span style="color:#f92672">().</span><span style="color:#a6e22e">list</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            like<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;title&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;誰搬走了%&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            and <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>                between<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;isbn13&#34;</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">9789578038090</span><span style="color:#f92672">,</span> <span style="color:#ae81ff">9789578038099</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            maxResults<span style="color:#f92672">(</span><span style="color:#ae81ff">10</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            order<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;isbn13&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;desc&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        respond<span style="color:#f92672">([</span>books: books<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><h4 id="hql">HQL</h4>
 <ul>
 <li>這裡來介紹一下<a href="https://docs.grails.org/3.1.1/ref/Domain%20Classes/executeQuery.html">HQL語法</a>，主要有<a href="https://ithelp.ithome.com.tw/articles/10137637">四個方法 - find() / findAll() / executeQuery() / executeUpdate()</a>，在這裡以find()來做個簡單的[執行測試]((http://localhost:8080/eBook/hql)</li>
 <li>為什麼會有<a href="https://sites.google.com/a/mis.nsysu.edu.tw/cheng-shi-zi-xun-wang/java-ee-jin-jie-pian/hibernate-ji-shu/zi-liao-cha-xun/hql">HQL - HibernateSession SQL</a>這個東西呢？因為啊，每個資料庫多多少少都有自己的<a href="https://www.1keydata.com/tw/sql/sql-substring.html">語法</a>，如果要做到一寫百用，就一定要轉譯才行。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grails.converters.JSON
-<span style="color:#f92672">import</span> grailssql.idv.william.Book
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hql</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#66d9ef">def</span> hqlQueryString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;from Book&#39;</span><span style="color:#f92672">;</span>
-        <span style="color:#66d9ef">def</span> books <span style="color:#f92672">=</span> Book<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">(</span>hqlQueryString<span style="color:#f92672">)</span>
-
-        respond<span style="color:#f92672">([</span>books: books<span style="color:#f92672">])</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">grailssql.idv.william.Book</span>
-
-<span style="color:#960050;background-color:#1e0010">model</span> {
-    <span style="color:#960050;background-color:#1e0010">ArrayList&lt;Book&gt;</span> <span style="color:#960050;background-color:#1e0010">books</span>
-}
-<span style="color:#960050;background-color:#1e0010">json</span> {
-    <span style="color:#960050;background-color:#1e0010">result(books)</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">Book</span> <span style="color:#960050;background-color:#1e0010">book</span> <span style="color:#960050;background-color:#1e0010">-&gt;</span>
-        <span style="color:#960050;background-color:#1e0010">title</span> <span style="color:#960050;background-color:#1e0010">book.title</span>
-        <span style="color:#960050;background-color:#1e0010">isbn</span> <span style="color:#960050;background-color:#1e0010">book.isbn13</span>
-        <span style="color:#960050;background-color:#1e0010">releaseDate</span> <span style="color:#960050;background-color:#1e0010">book.releaseDate</span>
-    }
-<span style="color:#960050;background-color:#1e0010">}</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#f92672">import</span> grails.converters.JSON
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> grailssql.idv.william.Book
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hql</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> hqlQueryString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;from Book&#39;</span><span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> books <span style="color:#f92672">=</span> Book<span style="color:#f92672">.</span><span style="color:#a6e22e">findAll</span><span style="color:#f92672">(</span>hqlQueryString<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        respond<span style="color:#f92672">([</span>books: books<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">import</span> <span style="color:#960050;background-color:#1e0010">grailssql.idv.william.Book</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">model</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">ArrayList&lt;Book&gt;</span> <span style="color:#960050;background-color:#1e0010">books</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">json</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">result(books)</span> <span style="color:#960050;background-color:#1e0010">{</span> <span style="color:#960050;background-color:#1e0010">Book</span> <span style="color:#960050;background-color:#1e0010">book</span> <span style="color:#960050;background-color:#1e0010">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">title</span> <span style="color:#960050;background-color:#1e0010">book.title</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">isbn</span> <span style="color:#960050;background-color:#1e0010">book.isbn13</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">releaseDate</span> <span style="color:#960050;background-color:#1e0010">book.releaseDate</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -2374,8 +2374,8 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>有時候測試資料太多時，一重開就不見了，這時候就可以在<a href="https://www.jianshu.com/p/fb6731ee53d2">application.yml的dbCreate</a>去做設定，讓它不要重新建立資料庫。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">dbCreate</span>: <span style="color:#ae81ff">update</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">dbCreate</span>: <span style="color:#ae81ff">update</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -2439,33 +2439,33 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>如果要求效能的時候，使用原生的<a href="https://ithelp.ithome.com.tw/articles/10132229">SQL</a>就是一個好方法，這裡也來做個簡單的[執行測試]](http://localhost:8080/eBook/sql)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#f92672">import</span> grails.converters.JSON
-<span style="color:#f92672">import</span> grailssql.idv.william.Book
-<span style="color:#f92672">import</span> groovy.sql.Sql
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sql</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#66d9ef">def</span> connection <span style="color:#f92672">=</span> Sql<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span>
-                    <span style="color:#e6db74">&#34;jdbc:mysql://localhost/eBook&#34;</span><span style="color:#f92672">,</span>
-                    <span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">,</span>
-                    <span style="color:#e6db74">&#34;12345678&#34;</span><span style="color:#f92672">,</span>
-                    <span style="color:#e6db74">&#34;com.mysql.cj.jdbc.Driver&#34;</span>
-                <span style="color:#f92672">)</span>
-
-        <span style="color:#66d9ef">def</span> queryString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;select * from book&#39;</span>
-
-        ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
-
-        connection<span style="color:#f92672">.</span><span style="color:#a6e22e">eachRow</span><span style="color:#f92672">(</span>queryString<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>resultSet <span style="color:#f92672">-&gt;</span>
-            result<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>resultSet<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span>
-        <span style="color:#f92672">}</span>
-
-        render<span style="color:#f92672">([</span>result: result<span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">)</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#f92672">import</span> grails.converters.JSON
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> grailssql.idv.william.Book
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> groovy.sql.Sql
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sql</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> connection <span style="color:#f92672">=</span> Sql<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;jdbc:mysql://localhost/eBook&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;12345678&#34;</span><span style="color:#f92672">,</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#34;com.mysql.cj.jdbc.Driver&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> queryString <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;select * from book&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ArrayList<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> result <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        connection<span style="color:#f92672">.</span><span style="color:#a6e22e">eachRow</span><span style="color:#f92672">(</span>queryString<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>resultSet <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>            result<span style="color:#f92672">.</span><span style="color:#a6e22e">push</span><span style="color:#f92672">(</span>resultSet<span style="color:#f92672">[</span><span style="color:#ae81ff">2</span><span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        render<span style="color:#f92672">([</span>result: result<span style="color:#f92672">]</span> <span style="color:#66d9ef">as</span> JSON<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -2589,18 +2589,18 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>一般很常用到設定檔去做值的變換，但如果寫在Code裡面太難找了，這裡來跟大家說明如何讀取<a href="https://kknews.cc/zh-tw/code/xlllrko.html">application.yml</a>設定檔的值。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#75715e">// 讀取application.yml設定檔
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">def</span> applicationYml <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">grailsApplication</span><span style="color:#f92672">.</span><span style="color:#a6e22e">config</span>
-        <span style="color:#66d9ef">def</span> server <span style="color:#f92672">=</span> applicationYml<span style="color:#f92672">.</span><span style="color:#a6e22e">environments</span><span style="color:#f92672">.</span><span style="color:#a6e22e">development</span><span style="color:#f92672">.</span><span style="color:#a6e22e">server</span> <span style="color:#66d9ef">as</span> HashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span>
-
-        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${server}&#34;</span><span style="color:#f92672">)</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 讀取application.yml設定檔
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">def</span> applicationYml <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">grailsApplication</span><span style="color:#f92672">.</span><span style="color:#a6e22e">config</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> server <span style="color:#f92672">=</span> applicationYml<span style="color:#f92672">.</span><span style="color:#a6e22e">environments</span><span style="color:#f92672">.</span><span style="color:#a6e22e">development</span><span style="color:#f92672">.</span><span style="color:#a6e22e">server</span> <span style="color:#66d9ef">as</span> HashMap<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">,</span> String<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        render<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;${server}&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -2663,19 +2663,19 @@ jdbc:mysql://localhost:3306/demo
 <ul>
 <li>另一種就是<a href="https://stackoverflow.com/questions/15389329/where-to-put-a-text-file-in-grails-and-how-to-get-the-path">讀取</a>自己定義的<a href="https://www.codenong.com/13532417/">文字檔</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
-
-    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-
-        <span style="color:#75715e">// 讀取文字檔 (grails-app/conf/resources/demo.txt)
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">def</span> resourceClassPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;classPath:resources/demo.txt&#39;</span>
-        <span style="color:#66d9ef">def</span> resource <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">grailsApplication</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mainContext</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span>resourceClassPath<span style="color:#f92672">)</span>
-        <span style="color:#66d9ef">def</span> fileString <span style="color:#f92672">=</span> IOUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>resource<span style="color:#f92672">.</span><span style="color:#a6e22e">inputStream</span><span style="color:#f92672">)</span>
-
-        println<span style="color:#f92672">(</span>fileString<span style="color:#f92672">)</span>
-    <span style="color:#f92672">}</span>
-<span style="color:#f92672">}</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">BookController</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">index</span><span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 讀取文字檔 (grails-app/conf/resources/demo.txt)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">def</span> resourceClassPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;classPath:resources/demo.txt&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> resource <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">grailsApplication</span><span style="color:#f92672">.</span><span style="color:#a6e22e">mainContext</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getResource</span><span style="color:#f92672">(</span>resourceClassPath<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">def</span> fileString <span style="color:#f92672">=</span> IOUtils<span style="color:#f92672">.</span><span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span>resource<span style="color:#f92672">.</span><span style="color:#a6e22e">inputStream</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        println<span style="color:#f92672">(</span>fileString<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -2815,6 +2815,9 @@ jdbc:mysql://localhost:3306/demo
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -2834,9 +2837,6 @@ jdbc:mysql://localhost:3306/demo
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/" class="nav-link" title="【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a>
       </li>
     </ul>
     <div>
@@ -2907,6 +2907,11 @@ jdbc:mysql://localhost:3306/demo
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -2915,11 +2920,6 @@ jdbc:mysql://localhost:3306/demo
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -3002,6 +3002,11 @@ jdbc:mysql://localhost:3306/demo
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -3014,6 +3019,11 @@ jdbc:mysql://localhost:3306/demo
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -3197,13 +3207,13 @@ jdbc:mysql://localhost:3306/demo
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -3224,11 +3234,6 @@ jdbc:mysql://localhost:3306/demo
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -3328,7 +3333,7 @@ jdbc:mysql://localhost:3306/demo
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

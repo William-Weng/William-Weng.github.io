@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -315,12 +315,12 @@
 <ul>
 <li>在macOS的話，我們使用<a href="https://blog.gtwang.org/linux/dd-command-examples/">dd指令</a>來安裝，也是將映像檔寫到SD卡上。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 利用dd指令將img檔copy到sd卡上，其中bs的值為一次寫入的區塊大小</span>
-sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>2019-09-26-raspbian-buster.img of<span style="color:#f92672">=</span>/dev/rdisk2 bs<span style="color:#f92672">=</span>4m
-
-<span style="color:#75715e"># 利用dd指令跟pv指令將img檔copy到sd卡上，並且顯示進度，其中pv的值為img檔的大小</span>
-sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>2019-09-26-raspbian-buster.img | pv -s 4G | sudo dd of<span style="color:#f92672">=</span>/dev/rdisk2 bs<span style="color:#f92672">=</span>4m
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 利用dd指令將img檔copy到sd卡上，其中bs的值為一次寫入的區塊大小</span>
+</span></span><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>2019-09-26-raspbian-buster.img of<span style="color:#f92672">=</span>/dev/rdisk2 bs<span style="color:#f92672">=</span>4m
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 利用dd指令跟pv指令將img檔copy到sd卡上，並且顯示進度，其中pv的值為img檔的大小</span>
+</span></span><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>2019-09-26-raspbian-buster.img | pv -s 4G | sudo dd of<span style="color:#f92672">=</span>/dev/rdisk2 bs<span style="color:#f92672">=</span>4m
+</span></span></code></pre></div><p>
 
 
 
@@ -513,8 +513,8 @@ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span
 <ul>
 <li>使用apt指令來「更新」軟體清單。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span></code></pre></div><p>
 
 
 
@@ -578,8 +578,8 @@ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span
 <ul>
 <li>使用apt指令跟據軟體清單來「更新」軟體。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt upgrade
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt upgrade
+</span></span></code></pre></div><p>
 
 
 
@@ -643,9 +643,9 @@ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span
 <ul>
 <li>設定地區、語系之後，再使用下面的指令去做安裝的動作，重開機後，就會變成中文版的。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt update
-sudo apt upgrade
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt upgrade
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/raspberry-pi-helloworld/location.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -655,8 +655,8 @@ sudo apt upgrade
 <ul>
 <li>這裡使用的是<a href="https://zh.wikipedia.org/wiki/Fcitx">fcitx - 小企鵝輸入法</a>，因為安裝完中文語系之後就會有了，所以我們可以新增其它的輸入法。主要個人是使用<a href="https://boshiamy.com/">嘸蝦米</a>的，<a href="https://www.ubuntu-tw.org/modules/newbb/viewtopic.php?topic_id=53570&amp;forum=8">其它的</a>輸入法安裝就自行參考吧。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install fcitx-table-boshiamy
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install fcitx-table-boshiamy
+</span></span></code></pre></div><p>
 
 
 
@@ -720,9 +720,9 @@ sudo apt upgrade
 <ul>
 <li>雖然說上網找答案是件滿正常的事情，但是紀錄也是很重要的。<a href="https://phab.enlightenment.org/diffusion/ESVN/browse/trunk/misc/scrot;35502">Scrot</a>是一套CLI的擷圖工具，簡單好用。而<a href="https://www.maartenbaert.be/simplescreenrecorder/">SimpleScreenRecorder</a>是一套簡單的GUI錄影工具，簡單易學。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install scrot
-sudo apt install simplescreenrecorder
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install scrot
+</span></span><span style="display:flex;"><span>sudo apt install simplescreenrecorder
+</span></span></code></pre></div><p>
 
 
 
@@ -786,9 +786,9 @@ sudo apt install simplescreenrecorder
 <ul>
 <li>安裝exfat及ntfs支援工具，不然就不能讀到USB的資料了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install exfat-fuse
-sudo apt install ntfs-3g
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install exfat-fuse
+</span></span><span style="display:flex;"><span>sudo apt install ntfs-3g
+</span></span></code></pre></div><p>
 
 
 
@@ -852,8 +852,8 @@ sudo apt install ntfs-3g
 <ul>
 <li>因為本身是使用7z壓縮的常客，所以就加上對它的支援</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install p7zip-full
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install p7zip-full
+</span></span></code></pre></div><p>
 
 
 
@@ -918,12 +918,12 @@ sudo apt install ntfs-3g
 <ul>
 <li>利用dd指令做備份，將SD卡整張卡Copy成image檔，其中16G是SD卡的大小</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 利用dd指令將sd卡備份成檔案，其中bs的值為一次寫入的區塊大小</span>
-sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/disk2 of<span style="color:#f92672">=</span>back.img bs<span style="color:#f92672">=</span>4m
-
-<span style="color:#75715e"># 利用dd指令跟pv指令將sd卡備份成檔案，並且顯示進度，其中pv的值為sd卡的大小</span>
-sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/disk2 | pv -s 16G | sudo dd of<span style="color:#f92672">=</span>back.img bs<span style="color:#f92672">=</span>4m
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 利用dd指令將sd卡備份成檔案，其中bs的值為一次寫入的區塊大小</span>
+</span></span><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/disk2 of<span style="color:#f92672">=</span>back.img bs<span style="color:#f92672">=</span>4m
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 利用dd指令跟pv指令將sd卡備份成檔案，並且顯示進度，其中pv的值為sd卡的大小</span>
+</span></span><span style="display:flex;"><span>sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>/dev/disk2 | pv -s 16G | sudo dd of<span style="color:#f92672">=</span>back.img bs<span style="color:#f92672">=</span>4m
+</span></span></code></pre></div><p>
 
 
 
@@ -987,8 +987,8 @@ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span
 <ul>
 <li>由上面可以知道備份是備份一整張的sd卡，那為什麼下載image的時候解開也才不到4G呢？因為其實也才安裝不到4G，其它都是空白的。利用<a href="https://github.com/Drewsif/PiShrink">熱心人士</a>寫好的<a href="pishrink.sh.7z">pishrink.sh</a>來縮小image檔。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pishrink.sh image.img
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo pishrink.sh image.img
+</span></span></code></pre></div><p>
 
 
 
@@ -1117,16 +1117,16 @@ sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span
 <ul>
 <li>首先，打開<a href="https://zh.wikipedia.org/wiki/Secure_Shell">ssh協定</a>，然後設定使用者(pi)的登入密碼，再利用<a href="https://www.opencli.com/linux/ip-command">ifconfig / ip</a>去查尋區網的IP。然後在macOS端的使用<a href="https://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/">ssh</a>指令後，輸入使用者(pi)的登入密碼就可以完成登入。Windows也可以使用ssh登入。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig
-ip a
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ifconfig
+</span></span><span style="display:flex;"><span>ip a
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/raspberry-pi-helloworld/ssh.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh pi@192.168.0.8
-exit
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh pi@192.168.0.8
+</span></span><span style="display:flex;"><span>exit
+</span></span></code></pre></div><p>
 
 
 
@@ -1190,20 +1190,20 @@ exit
 <ul>
 <li>安裝<a href="https://zh.wikipedia.org/wiki/Samba">Samba協定</a>，讓Windows也能讀得到樹莓派上的資料夾。在安裝的過程中，密碼要記錄下來，不然就登不進去了，而分享的資料夾位置是自己可以決定的，不一定要在桌面上。最後設定smb.conf檔，再重新啟動smbd.service就完成了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install samba -y
-mkdir Share
-sudo geany /etc/samba/samba.conf
-sudo systemctl restart smbd.service
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span>PiShare<span style="color:#f92672">]</span>
-   comment <span style="color:#f92672">=</span> Share Fold
-   path <span style="color:#f92672">=</span> /home/pi/Desktop/Share
-   browseable <span style="color:#f92672">=</span> yes
-   writeable <span style="color:#f92672">=</span> yes
-   create mask <span style="color:#f92672">=</span> <span style="color:#ae81ff">0740</span>
-   directory mask <span style="color:#f92672">=</span> <span style="color:#ae81ff">0750</span>
-   guest ok <span style="color:#f92672">=</span> yes
-   public <span style="color:#f92672">=</span> no
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install samba -y
+</span></span><span style="display:flex;"><span>mkdir Share
+</span></span><span style="display:flex;"><span>sudo geany /etc/samba/samba.conf
+</span></span><span style="display:flex;"><span>sudo systemctl restart smbd.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span>PiShare<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>   comment <span style="color:#f92672">=</span> Share Fold
+</span></span><span style="display:flex;"><span>   path <span style="color:#f92672">=</span> /home/pi/Desktop/Share
+</span></span><span style="display:flex;"><span>   browseable <span style="color:#f92672">=</span> yes
+</span></span><span style="display:flex;"><span>   writeable <span style="color:#f92672">=</span> yes
+</span></span><span style="display:flex;"><span>   create mask <span style="color:#f92672">=</span> <span style="color:#ae81ff">0740</span>
+</span></span><span style="display:flex;"><span>   directory mask <span style="color:#f92672">=</span> <span style="color:#ae81ff">0750</span>
+</span></span><span style="display:flex;"><span>   guest ok <span style="color:#f92672">=</span> yes
+</span></span><span style="display:flex;"><span>   public <span style="color:#f92672">=</span> no
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/raspberry-pi-helloworld/samba.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -1340,9 +1340,9 @@ sudo systemctl restart smbd.service
 <ul>
 <li>在樹莓派端安裝<a href="http://xrdp.org/">xrdp</a>跟<a href="https://www.tightvnc.com/licensing-tvnserver.php">tightvncserver</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install xrdp -y
-sudo apt install tightvncserver -y
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install xrdp -y
+</span></span><span style="display:flex;"><span>sudo apt install tightvncserver -y
+</span></span></code></pre></div><p>
 
 
 
@@ -1654,8 +1654,8 @@ sudo apt install tightvncserver -y
 <ul>
 <li><a href="http://linux.vbird.org/linux_server/0410vsftpd.php">FTP (File Transfer Protocol)</a>， 可說是最古老的協定之一了，主要是用來進行檔案的傳輸，尤其是<a href="http://www.wkb.idv.tw/study/centos/c07.htm">大型檔案</a>的傳輸使用FTP更是方便。在這裡使用的是<a href="https://security.appspot.com/vsftpd.html">vsftpd</a>，主要的設定都在<a href="https://blog.xuite.net/tolarku/blog/62756003-VSFTP+%E5%AE%89%E8%A3%9D%E5%8F%8A%E8%A8%AD%E5%AE%9A">vsftpd.conf</a>內。最後在Client端利用<a href="https://filezilla-project.org/">filezilla</a>這個FTP傳輸軟體就可以登入使用了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install vsftpd
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install vsftpd
+</span></span></code></pre></div><p>
 
 
 
@@ -1715,9 +1715,9 @@ sudo apt install tightvncserver -y
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo geany /etc/vsftpd.conf
-sudo service vsftpd restart
-</code></pre></div><pre tabindex="0"><code class="language-conf" data-lang="conf">local_enable=YES
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo geany /etc/vsftpd.conf
+</span></span><span style="display:flex;"><span>sudo service vsftpd restart
+</span></span></code></pre></div><pre tabindex="0"><code class="language-conf" data-lang="conf">local_enable=YES
 write_enable=YES
 </code></pre><p>
 
@@ -1843,10 +1843,10 @@ write_enable=YES
 <ul>
 <li>前面的軟體安裝完成雖然都可以正常動作，但是只要樹莓派重新開機的話，IP就會因為<a href="https://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E4%B8%BB%E6%9C%BA%E8%AE%BE%E7%BD%AE%E5%8D%8F%E8%AE%AE">DHCP</a>而改變，所以設定完<a href="http://yehnan.blogspot.com/2016/05/raspberry-piipdhcpcd.html">dhcpcd.conf</a>就固定了，當然如果要知道網卡的名字，可以利用<a href="https://www.opencli.com/linux/ip-command">ip</a>這個指令來達成。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip a
-sudo geany /etc/dhcpcd.conf
-sudo service vsftpd restart
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ip a
+</span></span><span style="display:flex;"><span>sudo geany /etc/dhcpcd.conf
+</span></span><span style="display:flex;"><span>sudo service vsftpd restart
+</span></span></code></pre></div><p>
 
 
 
@@ -1906,18 +1906,18 @@ sudo service vsftpd restart
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># 有線網卡 - eth0</span>
-interface eth0
-static ip_address<span style="color:#f92672">=</span>192.168.0.87/24
-static routers<span style="color:#f92672">=</span>192.168.0.1
-static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
-
-<span style="color:#75715e"># 無線網卡 - wlan0</span>
-interface wlan0
-static ip_address<span style="color:#f92672">=</span>192.168.0.87/24
-static routers<span style="color:#f92672">=</span>192.168.0.1
-static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 有線網卡 - eth0</span>
+</span></span><span style="display:flex;"><span>interface eth0
+</span></span><span style="display:flex;"><span>static ip_address<span style="color:#f92672">=</span>192.168.0.87/24
+</span></span><span style="display:flex;"><span>static routers<span style="color:#f92672">=</span>192.168.0.1
+</span></span><span style="display:flex;"><span>static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 無線網卡 - wlan0</span>
+</span></span><span style="display:flex;"><span>interface wlan0
+</span></span><span style="display:flex;"><span>static ip_address<span style="color:#f92672">=</span>192.168.0.87/24
+</span></span><span style="display:flex;"><span>static routers<span style="color:#f92672">=</span>192.168.0.1
+</span></span><span style="display:flex;"><span>static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
+</span></span></code></pre></div><p>
 
 
 
@@ -2056,6 +2056,9 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -2075,9 +2078,6 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -2148,6 +2148,11 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -2156,11 +2161,6 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -2243,6 +2243,11 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -2255,6 +2260,11 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -2438,13 +2448,13 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -2465,11 +2475,6 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -2569,7 +2574,7 @@ static domain_name_server<span style="color:#f92672">=</span>192.168.0.1
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

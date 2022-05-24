@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -148,8 +148,8 @@
 <li>上面有<a href="https://github.com/love2d/love">各平臺</a>的<a href="https://medium.com/swlh/run-x86-terminal-apps-like-homebrew-on-your-new-m1-mac-73bdc9b0f343">版本</a>，大家就自行<a href="https://love2d.org/forums/">下載</a>吧</li>
 <li>個人是用<a href="https://formulae.brew.sh/cask/love">Homebrew</a>安裝的，<a href="https://love2d.org/wiki/Main_Page">安裝</a>完後可以執行一下</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew inatall --cask love
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew inatall --cask love
+</span></span></code></pre></div><p>
 
 
 
@@ -281,93 +281,93 @@
 <li>因為上面都有寫簡單的註解了，所以就不多做說明</li>
 <li>這裡要記錄一下，<a href="https://eqmac.app/">eqMAC</a>可以讓macOS內建的錄影程式，錄到本身的聲音 (模擬麥克風？)…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- MARK: 生命週期</span>
-<span style="color:#75715e">-- 一開始載入的時候</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">load</span>()
-    initSetting()
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 繪製畫面的時候</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">draw</span>()
-    drawPicture()
-    drawFont(<span style="color:#ae81ff">40</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 定時更新 (60fps =&gt; 0.016664166999817 (1/60))</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">update</span>(deltaTime)
-    <span style="color:#75715e">-- print(deltaTime)</span>
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 滑鼠按下去的時候</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">mousepressed</span>(x, y, button)
-    
-    <span style="color:#75715e">-- button == 1 (左鍵)</span>
-    <span style="color:#66d9ef">if</span> (button <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">then</span>
-        love.audio.play(music.error)
-    <span style="color:#66d9ef">end</span>
-
-    <span style="color:#75715e">-- button == 2 (右鍵)</span>
-    <span style="color:#66d9ef">if</span> button <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">then</span>
-        love.audio.play(music.bgm)
-    <span style="color:#66d9ef">end</span>
-
-    <span style="color:#75715e">--</span>
-    print(button)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 按下鍵盤的時候</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">keypressed</span>(key)
-    print(key)    
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- MARK: 小工具</span>
-<span style="color:#75715e">-- 初始設定 (自定義的function)</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initSetting</span>()
-    screenSize()
-    soundInfo()
-    initTitle()
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 設定標題文字</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initTitle</span>()
-    love.window.setTitle(<span style="color:#e6db74">&#39;Hello World&#39;</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 繪圖</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawPicture</span>()
-    <span style="color:#66d9ef">local</span> imageName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;image/love2d.png&#39;</span>        <span style="color:#75715e">-- 區域變數</span>
-    image <span style="color:#f92672">=</span> love.graphics.newImage(imageName)   <span style="color:#75715e">-- 全域變數</span>
-    love.graphics.draw(image, <span style="color:#ae81ff">300</span>, <span style="color:#ae81ff">200</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 繪字</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawFont</span>(size)
-    font <span style="color:#f92672">=</span> love.graphics.newFont(<span style="color:#e6db74">&#39;font/jf-openhuninn-1.1.ttf&#39;</span>, size)                <span style="color:#75715e">-- 產生字型 + 大小</span>
-    love.graphics.setFont(font)                                                     <span style="color:#75715e">-- 設定字型</span>
-    love.graphics.printf(<span style="color:#e6db74">&#39;滑鼠左鍵音效 / 右鍵音樂&#39;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">480</span>, screen.width, <span style="color:#e6db74">&#39;center&#39;</span>)     <span style="color:#75715e">-- 繪出文字</span>
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 取得畫面大小</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">screenSize</span>()
-
-    screen <span style="color:#f92672">=</span> {
-        width <span style="color:#f92672">=</span> love.graphics.getWidth(),
-        height <span style="color:#f92672">=</span> love.graphics.getHeight(),
-    }
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 設定音樂曲目</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">soundInfo</span>()
-    
-    music <span style="color:#f92672">=</span> {
-        bgm <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/bgm.mp3&#34;</span>, <span style="color:#e6db74">&#34;stream&#34;</span>),          <span style="color:#75715e">-- 一直播 =&gt; stream</span>
-        error <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/error.wav&#34;</span>, <span style="color:#e6db74">&#34;static&#34;</span>)       <span style="color:#75715e">-- 短聲音 =&gt; static</span>
-    }
-
-    music.bgm:setLooping(<span style="color:#66d9ef">true</span>)  <span style="color:#75715e">-- 一直播放</span>
-    music.bgm:setVolume(<span style="color:#ae81ff">0.5</span>)    <span style="color:#75715e">-- 音量50%</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><h4 id="生命週期">生命週期</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- MARK: 生命週期</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 一開始載入的時候</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">load</span>()
+</span></span><span style="display:flex;"><span>    initSetting()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 繪製畫面的時候</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">draw</span>()
+</span></span><span style="display:flex;"><span>    drawPicture()
+</span></span><span style="display:flex;"><span>    drawFont(<span style="color:#ae81ff">40</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 定時更新 (60fps =&gt; 0.016664166999817 (1/60))</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">update</span>(deltaTime)
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- print(deltaTime)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 滑鼠按下去的時候</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">mousepressed</span>(x, y, button)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- button == 1 (左鍵)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (button <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        love.audio.play(music.error)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- button == 2 (右鍵)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> button <span style="color:#f92672">==</span> <span style="color:#ae81ff">2</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        love.audio.play(music.bgm)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">--</span>
+</span></span><span style="display:flex;"><span>    print(button)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 按下鍵盤的時候</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">keypressed</span>(key)
+</span></span><span style="display:flex;"><span>    print(key)    
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- MARK: 小工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 初始設定 (自定義的function)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initSetting</span>()
+</span></span><span style="display:flex;"><span>    screenSize()
+</span></span><span style="display:flex;"><span>    soundInfo()
+</span></span><span style="display:flex;"><span>    initTitle()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 設定標題文字</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initTitle</span>()
+</span></span><span style="display:flex;"><span>    love.window.setTitle(<span style="color:#e6db74">&#39;Hello World&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 繪圖</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawPicture</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> imageName <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;image/love2d.png&#39;</span>        <span style="color:#75715e">-- 區域變數</span>
+</span></span><span style="display:flex;"><span>    image <span style="color:#f92672">=</span> love.graphics.newImage(imageName)   <span style="color:#75715e">-- 全域變數</span>
+</span></span><span style="display:flex;"><span>    love.graphics.draw(image, <span style="color:#ae81ff">300</span>, <span style="color:#ae81ff">200</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 繪字</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawFont</span>(size)
+</span></span><span style="display:flex;"><span>    font <span style="color:#f92672">=</span> love.graphics.newFont(<span style="color:#e6db74">&#39;font/jf-openhuninn-1.1.ttf&#39;</span>, size)                <span style="color:#75715e">-- 產生字型 + 大小</span>
+</span></span><span style="display:flex;"><span>    love.graphics.setFont(font)                                                     <span style="color:#75715e">-- 設定字型</span>
+</span></span><span style="display:flex;"><span>    love.graphics.printf(<span style="color:#e6db74">&#39;滑鼠左鍵音效 / 右鍵音樂&#39;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">480</span>, screen.width, <span style="color:#e6db74">&#39;center&#39;</span>)     <span style="color:#75715e">-- 繪出文字</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 取得畫面大小</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">screenSize</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    screen <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        width <span style="color:#f92672">=</span> love.graphics.getWidth(),
+</span></span><span style="display:flex;"><span>        height <span style="color:#f92672">=</span> love.graphics.getHeight(),
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 設定音樂曲目</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">soundInfo</span>()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    music <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        bgm <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/bgm.mp3&#34;</span>, <span style="color:#e6db74">&#34;stream&#34;</span>),          <span style="color:#75715e">-- 一直播 =&gt; stream</span>
+</span></span><span style="display:flex;"><span>        error <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/error.wav&#34;</span>, <span style="color:#e6db74">&#34;static&#34;</span>)       <span style="color:#75715e">-- 短聲音 =&gt; static</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    music.bgm:setLooping(<span style="color:#66d9ef">true</span>)  <span style="color:#75715e">-- 一直播放</span>
+</span></span><span style="display:flex;"><span>    music.bgm:setVolume(<span style="color:#ae81ff">0.5</span>)    <span style="color:#75715e">-- 音量50%</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="生命週期">生命週期</h4>
 <ul>
 <li><a href="https://love2d.org/wiki/love.load">love.load()</a>：一開始載入的時候，一般都是用來設定初始變數使用</li>
 <li><a href="https://love2d.org/wiki/love.draw">love.draw()</a>：繪製畫面</li>
@@ -411,71 +411,71 @@
 <li>下面顯示的Code都是『非完整的』，完整內容請下載git</li>
 <li>在這裡唯一的資料結構叫<a href="https://love2d.org/wiki/table">Table - {}</a>，可以是<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>，也可以是<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- ./main.lua</span>
-<span style="color:#75715e">-- MARK: 生命週期</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">load</span>()
-    importSource()
-    initSprite()
-    initSound()
-    _setTitle(<span style="color:#e6db74">&#39;射擊遊戲&#39;</span>)
-    _setScreen(<span style="color:#ae81ff">1024</span>, <span style="color:#ae81ff">600</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">draw</span>()
-    _drawBackground(sprite.sky)
-    <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getScreenSize()
-    print(size.width, size.height)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 載入其它位置的檔案 =&gt; 容易維護</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">importSource</span>()
-    require(<span style="color:#e6db74">&#39;source.utility&#39;</span>)
-    require(<span style="color:#e6db74">&#39;source.setting&#39;</span>)
-<span style="color:#66d9ef">end</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- ./source/setting.lua</span>
-<span style="color:#75715e">-- MARK: - 初始設定</span>
-<span style="color:#75715e">-- 初始化圖形物件 =&gt; Table</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initSprite</span>()
-    sprite <span style="color:#f92672">=</span> {}
-    sprite.sky <span style="color:#f92672">=</span> love.graphics.newImage(<span style="color:#e6db74">&#39;sprite/sky.png&#39;</span>)
-    sprite.target <span style="color:#f92672">=</span> love.graphics.newImage(<span style="color:#e6db74">&#39;sprite/target.png&#39;</span>)
-    sprite.crosshairs <span style="color:#f92672">=</span> love.graphics.newImage(<span style="color:#e6db74">&#39;sprite/crosshairs.png&#39;</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 初始化音效 =&gt; Table</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initSound</span>()
-    sound <span style="color:#f92672">=</span> {
-        bgm <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/bgm.mp3&#34;</span>, <span style="color:#e6db74">&#34;stream&#34;</span>),
-        shoot <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/shoot.wav&#34;</span>, <span style="color:#e6db74">&#34;static&#34;</span>)
-    }
-
-    sound.bgm:setLooping(<span style="color:#66d9ef">true</span>)
-    sound.bgm:setVolume(<span style="color:#ae81ff">0.5</span>)
-
-    love.audio.play(sound.bgm)
-<span style="color:#66d9ef">end</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- ./source/utility.lua</span>
-<span style="color:#75715e">-- MARK: - 公用工具</span>
-<span style="color:#75715e">-- 設定遊戲的Title</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_setTitle</span>(text)
-    love.window.setTitle(text)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 畫背景 =&gt; 一定要最先畫，不然會蓋過其它的東西</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_drawBackground</span>(image)
-    love.graphics.draw(image, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 設定畫面大小</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_setScreen</span>(width, height)
-    love.window.setMode(width, height)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 取得畫面大小</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getScreenSize</span>()
-    <span style="color:#66d9ef">return</span> { width <span style="color:#f92672">=</span> love.graphics.getWidth(), height <span style="color:#f92672">=</span> love.graphics.getHeight() }
-<span style="color:#66d9ef">end</span>
-</code></pre></div><h4 id="設定文字">設定文字</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- ./main.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- MARK: 生命週期</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">load</span>()
+</span></span><span style="display:flex;"><span>    importSource()
+</span></span><span style="display:flex;"><span>    initSprite()
+</span></span><span style="display:flex;"><span>    initSound()
+</span></span><span style="display:flex;"><span>    _setTitle(<span style="color:#e6db74">&#39;射擊遊戲&#39;</span>)
+</span></span><span style="display:flex;"><span>    _setScreen(<span style="color:#ae81ff">1024</span>, <span style="color:#ae81ff">600</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">draw</span>()
+</span></span><span style="display:flex;"><span>    _drawBackground(sprite.sky)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getScreenSize()
+</span></span><span style="display:flex;"><span>    print(size.width, size.height)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 載入其它位置的檔案 =&gt; 容易維護</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">importSource</span>()
+</span></span><span style="display:flex;"><span>    require(<span style="color:#e6db74">&#39;source.utility&#39;</span>)
+</span></span><span style="display:flex;"><span>    require(<span style="color:#e6db74">&#39;source.setting&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- ./source/setting.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- MARK: - 初始設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 初始化圖形物件 =&gt; Table</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initSprite</span>()
+</span></span><span style="display:flex;"><span>    sprite <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>    sprite.sky <span style="color:#f92672">=</span> love.graphics.newImage(<span style="color:#e6db74">&#39;sprite/sky.png&#39;</span>)
+</span></span><span style="display:flex;"><span>    sprite.target <span style="color:#f92672">=</span> love.graphics.newImage(<span style="color:#e6db74">&#39;sprite/target.png&#39;</span>)
+</span></span><span style="display:flex;"><span>    sprite.crosshairs <span style="color:#f92672">=</span> love.graphics.newImage(<span style="color:#e6db74">&#39;sprite/crosshairs.png&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 初始化音效 =&gt; Table</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initSound</span>()
+</span></span><span style="display:flex;"><span>    sound <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        bgm <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/bgm.mp3&#34;</span>, <span style="color:#e6db74">&#34;stream&#34;</span>),
+</span></span><span style="display:flex;"><span>        shoot <span style="color:#f92672">=</span> love.audio.newSource(<span style="color:#e6db74">&#34;sound/shoot.wav&#34;</span>, <span style="color:#e6db74">&#34;static&#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    sound.bgm:setLooping(<span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>    sound.bgm:setVolume(<span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    love.audio.play(sound.bgm)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- ./source/utility.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- MARK: - 公用工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 設定遊戲的Title</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_setTitle</span>(text)
+</span></span><span style="display:flex;"><span>    love.window.setTitle(text)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 畫背景 =&gt; 一定要最先畫，不然會蓋過其它的東西</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_drawBackground</span>(image)
+</span></span><span style="display:flex;"><span>    love.graphics.draw(image, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 設定畫面大小</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_setScreen</span>(width, height)
+</span></span><span style="display:flex;"><span>    love.window.setMode(width, height)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 取得畫面大小</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getScreenSize</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> { width <span style="color:#f92672">=</span> love.graphics.getWidth(), height <span style="color:#f92672">=</span> love.graphics.getHeight() }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="設定文字">設定文字</h4>
 <video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2021/love2d-helloworld/game/2.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
@@ -485,50 +485,50 @@
 <li>倒數計時，其中很有趣的是，它的0是『-0』，所以文字會跑版 =&gt; -0，所以要修正一下</li>
 <li>分數 / 開始文字</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- ./main.lua</span>
-<span style="color:#75715e">-- 繪出倒數計時的值</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printTimer</span>()
-    <span style="color:#66d9ef">local</span> time <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;時間: &#39;</span><span style="color:#f92672">..</span>math.ceil(timer.value)
-    <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getScreenSize()
-    _print(time, size.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> font.size <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">5</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 印出開始的一開始的標題</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printStartTitle</span>()
-    <span style="color:#66d9ef">if</span> game.isOver <span style="color:#66d9ef">then</span>
-        <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getScreenSize()
-        _printf(<span style="color:#e6db74">&#39;點這裡就開始了喲!&#39;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>, size.width, <span style="color:#e6db74">&#39;center&#39;</span>)
-    <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 繪出分數</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printScore</span>()
-    <span style="color:#66d9ef">local</span> text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;分數: &#39;</span><span style="color:#f92672">..</span>game.score
-    _print(text, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
-<span style="color:#66d9ef">end</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- ./source/setting.lua</span>
-<span style="color:#75715e">-- MARK: - 初始設定</span>
-<span style="color:#75715e">-- 初始化變數</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initParameter</span>()
-
-    timer <span style="color:#f92672">=</span> {
-        max <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>,
-        value <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>,
-    }
-<span style="color:#66d9ef">end</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- ./source/utility.lua</span>
-<span style="color:#75715e">-- 時間倒數 =&gt; -0現象</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_timerCountDown</span>(timer, deltaTime)
-
-    <span style="color:#66d9ef">local</span> newTimer <span style="color:#f92672">=</span> timer <span style="color:#f92672">-</span> deltaTime
-
-    <span style="color:#66d9ef">if</span> newTimer <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
-        <span style="color:#66d9ef">return</span> newTimer
-    <span style="color:#66d9ef">end</span>
-
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><h4 id="繪出準心及標靶">繪出準心及標靶</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- ./main.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 繪出倒數計時的值</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printTimer</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> time <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;時間: &#39;</span><span style="color:#f92672">..</span>math.ceil(timer.value)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getScreenSize()
+</span></span><span style="display:flex;"><span>    _print(time, size.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> font.size <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">40</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 印出開始的一開始的標題</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printStartTitle</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> game.isOver <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getScreenSize()
+</span></span><span style="display:flex;"><span>        _printf(<span style="color:#e6db74">&#39;點這裡就開始了喲!&#39;</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">250</span>, size.width, <span style="color:#e6db74">&#39;center&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 繪出分數</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">printScore</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;分數: &#39;</span><span style="color:#f92672">..</span>game.score
+</span></span><span style="display:flex;"><span>    _print(text, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- ./source/setting.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- MARK: - 初始設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 初始化變數</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">initParameter</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    timer <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        max <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>        value <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- ./source/utility.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 時間倒數 =&gt; -0現象</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_timerCountDown</span>(timer, deltaTime)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> newTimer <span style="color:#f92672">=</span> timer <span style="color:#f92672">-</span> deltaTime
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> newTimer <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> newTimer
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="繪出準心及標靶">繪出準心及標靶</h4>
 <video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2021/love2d-helloworld/game/3.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
@@ -538,21 +538,21 @@
 <li>這裡有一個game.isOver的變數，用來記錄遊戲是否結束的狀態</li>
 <li>主要是準心要跟著滑鼠的位置做移動</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#75715e">-- 畫準心 =&gt; 跟著滑鼠移動，一定要最後畫，不然會不見</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawCrosshairs</span>()
-    <span style="color:#66d9ef">local</span> position, size <span style="color:#f92672">=</span> _getMousePosition(), _getImageSize(sprite.crosshairs)
-    _draw(sprite.crosshairs, position.x <span style="color:#f92672">-</span> size.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, position.y <span style="color:#f92672">-</span> size.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 畫標靶</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawTarget</span>()
-
-    <span style="color:#66d9ef">if</span> game.isOver <span style="color:#66d9ef">then</span>
-        <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getImageSize(sprite.target)
-        _draw(sprite.target, target.x <span style="color:#f92672">-</span> size.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, target.y <span style="color:#f92672">-</span> size.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
-    <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span>
-</code></pre></div><h4 id="標靶隨機位置">標靶隨機位置</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- 畫準心 =&gt; 跟著滑鼠移動，一定要最後畫，不然會不見</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawCrosshairs</span>()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> position, size <span style="color:#f92672">=</span> _getMousePosition(), _getImageSize(sprite.crosshairs)
+</span></span><span style="display:flex;"><span>    _draw(sprite.crosshairs, position.x <span style="color:#f92672">-</span> size.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, position.y <span style="color:#f92672">-</span> size.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 畫標靶</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">drawTarget</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> game.isOver <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">local</span> size <span style="color:#f92672">=</span> _getImageSize(sprite.target)
+</span></span><span style="display:flex;"><span>        _draw(sprite.target, target.x <span style="color:#f92672">-</span> size.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, target.y <span style="color:#f92672">-</span> size.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h4 id="標靶隨機位置">標靶隨機位置</h4>
 <video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2021/love2d-helloworld/game/final.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
@@ -561,40 +561,40 @@
 <ul>
 <li>最主要是要判斷滑鼠點擊的位置，是否在標靶的半徑內部</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">mousepressed</span>(x, y, button)
-
-    <span style="color:#75715e">-- button: 1 =&gt; 左鍵</span>
-    <span style="color:#66d9ef">if</span> button <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>
-
-        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> game.isOver <span style="color:#66d9ef">then</span>
-    
-            <span style="color:#66d9ef">local</span> distance, targetRadius  <span style="color:#f92672">=</span> _distanceBetween(x, y, target.x, target.y), _getImageSize(sprite.target).height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
-            
-            love.audio.play(sound.shoot)
-
-            <span style="color:#75715e">-- 假如點在圈圈內的話 =&gt; 點到加分 + 換位置</span>
-            <span style="color:#66d9ef">if</span> distance <span style="color:#f92672">&lt;</span> targetRadius <span style="color:#66d9ef">then</span>
-                game.score <span style="color:#f92672">=</span> game.score <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
-                targetRandomPosition()
-                <span style="color:#66d9ef">return</span>
-            <span style="color:#66d9ef">end</span>
-        <span style="color:#66d9ef">end</span>
-    
-        <span style="color:#66d9ef">if</span> game.isOver <span style="color:#66d9ef">then</span>
-            restart()
-        <span style="color:#66d9ef">end</span>
-    <span style="color:#66d9ef">end</span>
-<span style="color:#66d9ef">end</span>
-
-<span style="color:#75715e">-- 標靶隨機位置</span>
-<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">targetRandomPosition</span>()
-    
-    <span style="color:#66d9ef">local</span> screenSize, targetSize <span style="color:#f92672">=</span> _getScreenSize(), _getImageSize(sprite.target)
-
-    target.x <span style="color:#f92672">=</span> _random(targetSize.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, screenSize.width <span style="color:#f92672">-</span> targetSize.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
-    target.y <span style="color:#f92672">=</span> _random(targetSize.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, screenSize.height <span style="color:#f92672">-</span> targetSize.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
-<span style="color:#66d9ef">end</span>
-</code></pre></div><h3 id="遊戲發行">遊戲發行</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">love</span>.<span style="color:#a6e22e">mousepressed</span>(x, y, button)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">-- button: 1 =&gt; 左鍵</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> button <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> game.isOver <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">local</span> distance, targetRadius  <span style="color:#f92672">=</span> _distanceBetween(x, y, target.x, target.y), _getImageSize(sprite.target).height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            love.audio.play(sound.shoot)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">-- 假如點在圈圈內的話 =&gt; 點到加分 + 換位置</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> distance <span style="color:#f92672">&lt;</span> targetRadius <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                game.score <span style="color:#f92672">=</span> game.score <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>                targetRandomPosition()
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> game.isOver <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            restart()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- 標靶隨機位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">targetRandomPosition</span>()
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">local</span> screenSize, targetSize <span style="color:#f92672">=</span> _getScreenSize(), _getImageSize(sprite.target)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    target.x <span style="color:#f92672">=</span> _random(targetSize.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, screenSize.width <span style="color:#f92672">-</span> targetSize.width <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>    target.y <span style="color:#f92672">=</span> _random(targetSize.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>, screenSize.height <span style="color:#f92672">-</span> targetSize.height <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><h3 id="遊戲發行">遊戲發行</h3>
 <h4 id="直接打包">直接打包</h4>
 <ul>
 <li>其實<a href="https://love2d.org/wiki/love">.love</a>本身就是個<a href="https://zh.wikipedia.org/zh-tw/7-Zip">.zip</a>檔，只要把<a href="https://love2d.org/wiki/Game_Distribution">.zip =&gt; .love</a>，在系統<a href="">有安裝love</a>的時候，就可以直接執行了。</li>
@@ -721,20 +721,20 @@
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">zip -9 -r MyGame.love .
-</code></pre></div><h4 id="windows--exe">Windows =&gt; .EXE</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zip -9 -r MyGame.love .
+</span></span></code></pre></div><h4 id="windows--exe">Windows =&gt; .EXE</h4>
 <ul>
 <li>如果要送人的時候要怎麼辦呢？總不能叫別人安裝<a href="https://trouble-care.com/pursue-success/">LÖVE</a>吧，這樣子<a href="https://www.youtube.com/watch?v=Ibv7LFt0k94">目的性</a>太明顯了…XD</li>
 <li>簡單來說呢，就是把壓好的.love檔，跟love.exe<a href="https://dotblogs.com.tw/hunterpo/2009/10/30/11362">直接合併</a>在一起</li>
 <li>如果需要<a href="https://github.com/love2d/love/releases/download/11.3/love-11.3-win64.exe">love.exe</a>，請在這裡下載</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Windows</span>
-copy /b love.exe + MyGame.love MyGame.exe
-copy /b love.exe + %1 <span style="color:#e6db74">&#34;%~n1.exe&#34;</span>
-
-<span style="color:#75715e">#macOS</span>
-cat love.exe MyGame.love &gt; MyGame.exe
-</code></pre></div><h4 id="不能動加上dll檔">不能動？加上.dll檔</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Windows</span>
+</span></span><span style="display:flex;"><span>copy /b love.exe + MyGame.love MyGame.exe
+</span></span><span style="display:flex;"><span>copy /b love.exe + %1 <span style="color:#e6db74">&#34;%~n1.exe&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#macOS</span>
+</span></span><span style="display:flex;"><span>cat love.exe MyGame.love &gt; MyGame.exe
+</span></span></code></pre></div><h4 id="不能動加上dll檔">不能動？加上.dll檔</h4>
 <ul>
 <li>其實包完後會發現…<a href="https://www.youtube.com/watch?v=WTk_HJdXVNQ&amp;t=142s">不能動</a>，因為它需要一些<a href="https://zh.wikipedia.org/zh-tw/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93">.dll檔</a>，包完後就可以送人啦…XD</li>
 </ul>
@@ -922,8 +922,8 @@ cat love.exe MyGame.love &gt; MyGame.exe
 <ul>
 <li>如果是<a href="https://blog.csdn.net/korekara88730/article/details/50590131">macOS</a>的話，<a href="https://www.youtube.com/watch?v=SU2RpGdezP4">打包就超簡單的</a>，只要將系統的<a href="">love.app</a>改一份就好了，題目就在影片中…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./Contents/Resources
-</code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./Contents/Resources
+</span></span></code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2021/love2d-helloworld/distribution/macOS.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -1008,6 +1008,9 @@ cat love.exe MyGame.love &gt; MyGame.exe
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -1027,9 +1030,6 @@ cat love.exe MyGame.love &gt; MyGame.exe
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/02/grails-4.0grails-%E4%BD%BF%E7%94%A8apache-groovy%E7%B7%A8%E7%A8%8B%E8%AA%9E%E8%A8%80%E7%9A%84%E9%96%8B%E6%BA%90web%E6%87%89%E7%94%A8%E7%A8%8B%E5%BA%8F%E6%A1%86%E6%9E%B6/" class="nav-link" title="【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架">【Grails 4.0】Grails - 使用Apache Groovy編程語言的開源Web應用程序框架</a>
       </li>
     </ul>
     <div>
@@ -1100,6 +1100,11 @@ cat love.exe MyGame.love &gt; MyGame.exe
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -1108,11 +1113,6 @@ cat love.exe MyGame.love &gt; MyGame.exe
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -1195,6 +1195,11 @@ cat love.exe MyGame.love &gt; MyGame.exe
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -1207,6 +1212,11 @@ cat love.exe MyGame.love &gt; MyGame.exe
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1390,13 +1400,13 @@ cat love.exe MyGame.love &gt; MyGame.exe
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1417,11 +1427,6 @@ cat love.exe MyGame.love &gt; MyGame.exe
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1521,7 +1526,7 @@ cat love.exe MyGame.love &gt; MyGame.exe
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -200,254 +200,254 @@
 <ul>
 <li>有鑑於之前的經驗(坑？)，決定再把API進化一下，在只要使用一個function就可以選擇要不要及時去做更新，另外在使用realtime的時候會回傳一個UInt的值，可以用來關閉它。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
-    
-    <span style="color:#75715e">/// 取值 (單次 / 及時) =&gt; 回傳realtime的handle代號</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">childValueFor</span>(type: RealtimeDatabaseType, path: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
-        
-        <span style="color:#66d9ef">switch</span> type {
-        <span style="color:#66d9ef">case</span> .single:
-            
-            <span style="color:#66d9ef">let</span> handleNumber = childValueForSingle(withPath: path) { (_result) <span style="color:#66d9ef">in</span>
-                <span style="color:#66d9ef">switch</span>(_result) {
-                <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
-                <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
-                }
-            }
-            <span style="color:#66d9ef">return</span> handleNumber
-            
-        <span style="color:#66d9ef">case</span> .realtime:
-            
-            <span style="color:#66d9ef">let</span> handleNumber = childValueForRealtime(withPath: path) { (_result) <span style="color:#66d9ef">in</span>
-                <span style="color:#66d9ef">switch</span>(_result) {
-                <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
-                <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
-                }
-            }
-            <span style="color:#66d9ef">return</span> handleNumber
-        }
-    }
-    
-    <span style="color:#75715e">/// 移除Realtime的Handle</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeObserver</span>(withHandle handleNumber: UInt?) {
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> handleNumber = handleNumber <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
-        reference.removeObserver(withHandle: handleNumber)
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
-    
-    <span style="color:#75715e">/// 取值 (單次)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">childValueForSingle</span>(withPath path: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
-        
-        reference.child(path).queryOrdered(byChild: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.ISBN<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>).observeSingleEvent(of: .value, with: { (snapshot) <span style="color:#66d9ef">in</span>
-            result(.success(snapshot.value))
-        }, withCancel: { (error) <span style="color:#66d9ef">in</span>
-            result(.failure(error))
-        })
-        
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-    }
-    
-    <span style="color:#75715e">/// 取值 (及時) =&gt; 回傳realtime的handle代號</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">childValueForRealtime</span>(withPath path: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
-        
-        <span style="color:#66d9ef">let</span> handleNumber = reference.child(path).queryOrderedByKey().observe(.value, with: { (snapshot) <span style="color:#66d9ef">in</span>
-            result(.success(snapshot.value))
-        }, withCancel: { (error) <span style="color:#66d9ef">in</span>
-            result(.failure(error))
-        })
-        
-        <span style="color:#66d9ef">return</span> handleNumber
-    }
-}
-</code></pre></div><h4 id="更新數據">更新數據</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取值 (單次 / 及時) =&gt; 回傳realtime的handle代號</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">childValueFor</span>(type: RealtimeDatabaseType, path: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> type {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .single:
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> handleNumber = childValueForSingle(withPath: path) { (_result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">switch</span>(_result) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> handleNumber
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .realtime:
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> handleNumber = childValueForRealtime(withPath: path) { (_result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">switch</span>(_result) {
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> handleNumber
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 移除Realtime的Handle</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeObserver</span>(withHandle handleNumber: UInt?) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> handleNumber = handleNumber <span style="color:#66d9ef">else</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        reference.removeObserver(withHandle: handleNumber)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取值 (單次)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">childValueForSingle</span>(withPath path: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        reference.child(path).queryOrdered(byChild: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.ISBN<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>).observeSingleEvent(of: .value, with: { (snapshot) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            result(.success(snapshot.value))
+</span></span><span style="display:flex;"><span>        }, withCancel: { (error) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            result(.failure(error))
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取值 (及時) =&gt; 回傳realtime的handle代號</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">childValueForRealtime</span>(withPath path: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> handleNumber = reference.child(path).queryOrderedByKey().observe(.value, with: { (snapshot) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            result(.success(snapshot.value))
+</span></span><span style="display:flex;"><span>        }, withCancel: { (error) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            result(.failure(error))
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> handleNumber
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="更新數據">更新數據</h4>
 <ul>
 <li>在<a href="https://firebase.google.com/docs/database/ios/read-and-write">更新數據</a>方面，有更新單一數值，跟多組數值的方式。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
-    
-    <span style="color:#75715e">/// 更新數據 (單個)</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setChildValue</span>(<span style="color:#66d9ef">_</span> value: Any?, forKey key: String, path: String, result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
-        
-        reference.child(path).child(key).setValue(value) { (error, database) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
-            result(.success(<span style="color:#66d9ef">true</span>))
-        }
-    }
-    
-    <span style="color:#75715e">/// 更新數據 (多個)</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateChildValues</span>(withPath path: String, values: [String: Any], result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
-        
-        reference.child(path).updateChildValues(values) { (error, database) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
-            result(.success(<span style="color:#66d9ef">true</span>))
-        }
-    }
-</code></pre></div><h4 id="搜尋數據">搜尋數據</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 更新數據 (單個)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setChildValue</span>(<span style="color:#66d9ef">_</span> value: Any?, forKey key: String, path: String, result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        reference.child(path).child(key).setValue(value) { (error, database) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            result(.success(<span style="color:#66d9ef">true</span>))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 更新數據 (多個)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateChildValues</span>(withPath path: String, values: [String: Any], result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        reference.child(path).updateChildValues(values) { (error, database) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            result(.success(<span style="color:#66d9ef">true</span>))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><h4 id="搜尋數據">搜尋數據</h4>
 <ul>
 <li>在這裡主要是搜尋單一值，在使用前一定要<a href="https://firebase.google.com/docs/firestore/query-data/order-limit-data">先排序</a>才能使用喲。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
-
-    <span style="color:#75715e">/// 搜尋數據</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">queryChildValue</span>(<span style="color:#66d9ef">_</span> value: Any?, withPath path: String, forKey key: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) {
-        
-        reference.child(path).queryOrdered(byChild: key).queryEqual(toValue: value).observeSingleEvent(of: .value, with: { (snapshot) <span style="color:#66d9ef">in</span>
-            result(.success(snapshot.value))
-        }, withCancel: { (error) <span style="color:#66d9ef">in</span>
-            result(.failure(error))
-        })
-    }
-}
-</code></pre></div><h4 id="移除數據">移除數據</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 搜尋數據</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">queryChildValue</span>(<span style="color:#66d9ef">_</span> value: Any?, withPath path: String, forKey key: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        reference.child(path).queryOrdered(byChild: key).queryEqual(toValue: value).observeSingleEvent(of: .value, with: { (snapshot) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            result(.success(snapshot.value))
+</span></span><span style="display:flex;"><span>        }, withCancel: { (error) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            result(.failure(error))
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="移除數據">移除數據</h4>
 <ul>
 <li><a href="https://firebase.google.com/docs/reference/android/com/google/firebase/database/DatabaseReference">移除數據</a>就很單純啦。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
-
-    <span style="color:#75715e">/// 移除資料</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeChildValue</span>(withPath path: String, forKey key: String, result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
-        
-        reference.child(path).child(key).removeValue { (error, database) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
-            result(.success(<span style="color:#66d9ef">true</span>))
-        }
-    }
-}
-</code></pre></div><h3 id="頁面功能">頁面功能</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRDatabase</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 移除資料</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeChildValue</span>(withPath path: String, forKey key: String, result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        reference.child(path).child(key).removeValue { (error, database) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            result(.success(<span style="color:#66d9ef">true</span>))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="頁面功能">頁面功能</h3>
 <h4 id="庫存功能">庫存功能</h4>
 <ul>
 <li>主要就是及時去取得資料，跟移除單一資料。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">/// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">StockViewController</span> {
-    
-    <span style="color:#75715e">/// 取得firebase上的數值 (回傳handle代號)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bookInfomation</span>(withType type: RealtimeDatabaseType, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
-        
-        <span style="color:#66d9ef">let</span> handleNumber = FIRDatabase.shared.childValueFor(type: type, path: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>) { (_result) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">switch</span>(_result) {
-            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
-            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
-            }
-        }
-        
-        <span style="color:#66d9ef">return</span> handleNumber
-    }
-    
-    <span style="color:#75715e">/// 移除書籍</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeBook</span>(withPath path: String, forKey key: String, result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
-        
-        FIRDatabase.shared.removeChildValue(withPath: path, forKey: key) { (_result) <span style="color:#66d9ef">in</span>
-            
-            <span style="color:#66d9ef">switch</span> (_result) {
-            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
-            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> isOK): result(.success(isOK))
-            }
-        }
-    }
-}
-</code></pre></div><h4 id="新增修改功能">新增、修改功能</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">/// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">StockViewController</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得firebase上的數值 (回傳handle代號)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bookInfomation</span>(withType type: RealtimeDatabaseType, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> handleNumber = FIRDatabase.shared.childValueFor(type: type, path: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>) { (_result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span>(_result) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> handleNumber
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 移除書籍</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeBook</span>(withPath path: String, forKey key: String, result: @escaping (Result&lt;Bool, Error&gt;) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        FIRDatabase.shared.removeChildValue(withPath: path, forKey: key) { (_result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> (_result) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> isOK): result(.success(isOK))
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="新增修改功能">新增、修改功能</h4>
 <ul>
 <li>這裡主要的功能都是利用ISBN的值去取得資料來做為準則，然後因為有很多相似的功能，所以這四頁都是同一個頁面。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ProductActionViewController</span> {
-    
-    <span style="color:#75715e">/// 加入新書</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">appendBook</span>(<span style="color:#66d9ef">_</span> sender: UIBarButtonItem) {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> _isbn = isbnTextField.text,
-              <span style="color:#66d9ef">let</span> _count = countTextField.text,
-              <span style="color:#66d9ef">let</span> title = titleTextField.text,
-              <span style="color:#66d9ef">let</span> isbn = Int(_isbn),
-              <span style="color:#66d9ef">let</span> count = Int(_count),
-              <span style="color:#66d9ef">let</span> timestamp = Optional.some(Int(Date().timeIntervalSince1970))
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span>
-        }
-        
-        FIRDatabase.shared.queryChildValue(isbn, withPath: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>, forKey: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.ISBN<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>) { (_result) <span style="color:#66d9ef">in</span>
-            
-            KRProgressHUD.show()
-            
-            <span style="color:#66d9ef">switch</span> (_result) {
-            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error):
-                KRProgressHUD.showError(withMessage: error.localizedDescription)
-                
-            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value):
-                
-                <span style="color:#66d9ef">let</span> isOK = <span style="color:#66d9ef">self</span>.checkValue(value, withType: <span style="color:#66d9ef">self</span>.tabBarType)
-                
-                <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isOK) { <span style="color:#66d9ef">return</span> }
-                
-                <span style="color:#66d9ef">let</span> product = Book(isbn: isbn, title: title, url: <span style="color:#66d9ef">nil</span>, icon: <span style="color:#66d9ef">nil</span>, count: count, timestamp: timestamp).dictionary() <span style="color:#66d9ef">as</span> [String: Any]
-                <span style="color:#66d9ef">let</span> realPath = BookField.BarCode.realPath(withBarCode: isbn)
-                
-                FIRDatabase.shared.updateChildValues(withPath: realPath, values: product) { (result) <span style="color:#66d9ef">in</span>
-                    <span style="color:#66d9ef">switch</span> (result) {
-                    <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): KRProgressHUD.showError(withMessage: error.localizedDescription)
-                    <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">_</span>): KRProgressHUD.showSuccess()
-                    }
-                }
-            }
-        }
-    }
-
-    <span style="color:#75715e">/// 更新書本數量</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateBookCount</span>(<span style="color:#66d9ef">_</span> count: String?, barCode: String?, type: TabBarType) {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> _count = count,
-              <span style="color:#66d9ef">let</span> _barCode = barCode,
-              <span style="color:#66d9ef">let</span> count = Int(_count),
-              <span style="color:#66d9ef">let</span> barCode = Int(_barCode)
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span>
-        }
-        
-        <span style="color:#66d9ef">let</span> path = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">(</span>withBarCode: barCode<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>
-        <span style="color:#66d9ef">var</span> saveCount = <span style="color:#ae81ff">0</span>
-        
-        <span style="color:#66d9ef">switch</span> type {
-        <span style="color:#66d9ef">case</span> .plus: saveCount = (originalCount ?? <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> count
-        <span style="color:#66d9ef">case</span> .minus: saveCount = (originalCount ?? <span style="color:#ae81ff">0</span>) <span style="color:#f92672">-</span> count
-        <span style="color:#66d9ef">case</span> .cart, .fix, .stock: <span style="color:#66d9ef">return</span>
-        }
-        
-        FIRDatabase.shared.setChildValue(saveCount, forKey: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.Count<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>, path: path) { (result) <span style="color:#66d9ef">in</span>
-            
-            <span style="color:#66d9ef">switch</span> (result) {
-            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error):
-                KRProgressHUD.showError(withMessage: error.localizedDescription)
-            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> isOK):
-                <span style="color:#66d9ef">if</span> (isOK) { KRProgressHUD.showSuccess() }
-                KRProgressHUD.showError()
-            }
-        }
-    }
-    
-    <span style="color:#75715e">/// 取得firebase上的數值 (回傳handle代號)</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bookInfomation</span>(withType type: RealtimeDatabaseType, barCode: Int ,result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
-        
-        <span style="color:#66d9ef">let</span> path = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">(</span>withBarCode: barCode<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>
-        
-        <span style="color:#66d9ef">let</span> handleNumber = FIRDatabase.shared.childValueFor(type: type, path: path) { (_result) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">switch</span>(_result) {
-            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
-            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
-            }
-        }
-        
-        <span style="color:#66d9ef">return</span> handleNumber
-    }
-}
-</code></pre></div><h3 id="cloud-storage小工具">Cloud Storage小工具</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 小工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">ProductActionViewController</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 加入新書</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">appendBook</span>(<span style="color:#66d9ef">_</span> sender: UIBarButtonItem) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> _isbn = isbnTextField.text,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> _count = countTextField.text,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> title = titleTextField.text,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> isbn = Int(_isbn),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> count = Int(_count),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> timestamp = Optional.some(Int(Date().timeIntervalSince1970))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        FIRDatabase.shared.queryChildValue(isbn, withPath: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>, forKey: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.ISBN<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>) { (_result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            KRProgressHUD.show()
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> (_result) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error):
+</span></span><span style="display:flex;"><span>                KRProgressHUD.showError(withMessage: error.localizedDescription)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value):
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> isOK = <span style="color:#66d9ef">self</span>.checkValue(value, withType: <span style="color:#66d9ef">self</span>.tabBarType)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isOK) { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> product = Book(isbn: isbn, title: title, url: <span style="color:#66d9ef">nil</span>, icon: <span style="color:#66d9ef">nil</span>, count: count, timestamp: timestamp).dictionary() <span style="color:#66d9ef">as</span> [String: Any]
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> realPath = BookField.BarCode.realPath(withBarCode: isbn)
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>                FIRDatabase.shared.updateChildValues(withPath: realPath, values: product) { (result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">switch</span> (result) {
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): KRProgressHUD.showError(withMessage: error.localizedDescription)
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">_</span>): KRProgressHUD.showSuccess()
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 更新書本數量</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateBookCount</span>(<span style="color:#66d9ef">_</span> count: String?, barCode: String?, type: TabBarType) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> _count = count,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> _barCode = barCode,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> count = Int(_count),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> barCode = Int(_barCode)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> path = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">(</span>withBarCode: barCode<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> saveCount = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> type {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .plus: saveCount = (originalCount ?? <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> count
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .minus: saveCount = (originalCount ?? <span style="color:#ae81ff">0</span>) <span style="color:#f92672">-</span> count
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .cart, .fix, .stock: <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        FIRDatabase.shared.setChildValue(saveCount, forKey: <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.Count<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>, path: path) { (result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> (result) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error):
+</span></span><span style="display:flex;"><span>                KRProgressHUD.showError(withMessage: error.localizedDescription)
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> isOK):
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> (isOK) { KRProgressHUD.showSuccess() }
+</span></span><span style="display:flex;"><span>                KRProgressHUD.showError()
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 取得firebase上的數值 (回傳handle代號)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">bookInfomation</span>(withType type: RealtimeDatabaseType, barCode: Int ,result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) -&gt; UInt? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> path = <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>BookField.BarCode.realPath<span style="color:#e6db74">(</span>withBarCode: barCode<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> handleNumber = FIRDatabase.shared.childValueFor(type: type, path: path) { (_result) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span>(_result) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .failure(<span style="color:#66d9ef">let</span> error): result(.failure(error))
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .success(<span style="color:#66d9ef">let</span> value): result(.success(value))
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> handleNumber
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="cloud-storage小工具">Cloud Storage小工具</h3>
 <h4 id="資料結構">資料結構</h4>
 <ul>
 <li>其實就跟一般的資料夾一樣，而在規則方面就要去看看文件說明了
@@ -516,98 +516,98 @@
 <ul>
 <li>簡單的上傳就是以Data去做處理，而下載的方法有分直接下載跟使用網址二種</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Storage工具</span>
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FIRStorage</span>: NSObject {
-    
-    <span style="color:#75715e">/// 圖片類型</span>
-    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ImageType</span>: String {
-        
-        <span style="color:#66d9ef">var</span> metadata: String { <span style="color:#66d9ef">return</span> getMetadata() }
-        
-        <span style="color:#66d9ef">case</span> jpeg = <span style="color:#e6db74">&#34;.jpg&#34;</span>
-        <span style="color:#66d9ef">case</span> png = <span style="color:#e6db74">&#34;.png&#34;</span>
-        
-        <span style="color:#75715e">/// 取得Metadata</span>
-        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getMetadata</span>() -&gt; String {
-            <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
-            <span style="color:#66d9ef">case</span> .jpeg: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;image/jpeg&#34;</span>
-            <span style="color:#66d9ef">case</span> .png: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;image/png&#34;</span>
-            }
-        }
-    }
-    
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> shared = FIRStorage()
-    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> imageFolder = <span style="color:#e6db74">&#34;Books&#34;</span>
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> reference = Storage.storage().reference()
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> maxSize: Int64 = <span style="color:#ae81ff">1024</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>
-    
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>() { <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>() }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRStorage</span> {
-    
-    <span style="color:#75715e">/// 下載圖片 (記憶體)</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">imageWithName</span>(<span style="color:#66d9ef">_</span> name: String, forFolder fold: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) {
-        
-        reference.child(fold).child(name).getData(maxSize: maxSize) { (data, error) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
-            result(.success(data))
-        }
-    }
-    
-    <span style="color:#75715e">/// 下載圖片 (網址)</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">downloadImageWithName</span>(<span style="color:#66d9ef">_</span> name: String, forFolder fold: String, result: @escaping (Result&lt;URL?, Error&gt;) -&gt; Void) {
-        
-        reference.child(fold).child(name).downloadURL { (url, error) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
-            result(.success(url))
-        }
-    }
-    
-    <span style="color:#75715e">/// 上傳圖片</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">uploadImageWithName</span>(<span style="color:#66d9ef">_</span> name: String, forFolder fold: String, image: UIImage?, type: ImageType, result: @escaping (Result&lt;StorageMetadata?, Error&gt;) -&gt; Void) -&gt; StorageUploadTask? {
-        
-        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> image = image,
-              <span style="color:#66d9ef">let</span> imageData = imageData(image, withType: type),
-              <span style="color:#66d9ef">let</span> metadata = Optional.some(StorageMetadata()),
-              <span style="color:#66d9ef">let</span> nameWithType = Optional.some(name <span style="color:#f92672">+</span> type.rawValue)
-        <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
-        }
-        
-        metadata.contentType = type.metadata
-        
-        <span style="color:#66d9ef">let</span> task = reference.child(fold).child(nameWithType).putData(imageData, metadata: metadata) { (metadata, error) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
-            result(.success(metadata))
-        }
-        
-        <span style="color:#66d9ef">return</span> task
-    }
-    
-    <span style="color:#75715e">/// 刪除圖片</span>
-    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeImage</span>(withName name: String, forFolder fold: String, result: @escaping (Bool) -&gt; Void) {
-        reference.child(fold).child(name).delete { (error) <span style="color:#66d9ef">in</span>
-            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> _ = error { result(<span style="color:#66d9ef">false</span>); <span style="color:#66d9ef">return</span> }
-            result(<span style="color:#66d9ef">true</span>)
-        }
-    }
-}
-
-<span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
-<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRStorage</span> {
-    
-    <span style="color:#75715e">/// 圖片壓縮 -&gt; Data</span>
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">imageData</span>(<span style="color:#66d9ef">_</span> image: UIImage, withType type: ImageType) -&gt; Data? {
-        <span style="color:#66d9ef">switch</span> type {
-        <span style="color:#66d9ef">case</span> .jpeg: <span style="color:#66d9ef">return</span> image.jpegData(compressionQuality: <span style="color:#ae81ff">0.5</span>)
-        <span style="color:#66d9ef">case</span> .png: <span style="color:#66d9ef">return</span> image.pngData()
-        }
-    }
-}
-</code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengswift-5treemasterfirebasequery"><a href="https://github.com/William-Weng/Swift-5/tree/master/FirebaseQuery">範例程式碼下載</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - Storage工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FIRStorage</span>: NSObject {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 圖片類型</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ImageType</span>: String {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> metadata: String { <span style="color:#66d9ef">return</span> getMetadata() }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> jpeg = <span style="color:#e6db74">&#34;.jpg&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> png = <span style="color:#e6db74">&#34;.png&#34;</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">/// 取得Metadata</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">getMetadata</span>() -&gt; String {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .jpeg: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;image/jpeg&#34;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">case</span> .png: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;image/png&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> shared = FIRStorage()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">let</span> imageFolder = <span style="color:#e6db74">&#34;Books&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> reference = Storage.storage().reference()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">let</span> maxSize: Int64 = <span style="color:#ae81ff">1024</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">1024</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">init</span>() { <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>() }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRStorage</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 下載圖片 (記憶體)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">imageWithName</span>(<span style="color:#66d9ef">_</span> name: String, forFolder fold: String, result: @escaping (Result&lt;Any?, Error&gt;) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        reference.child(fold).child(name).getData(maxSize: maxSize) { (data, error) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            result(.success(data))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 下載圖片 (網址)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">downloadImageWithName</span>(<span style="color:#66d9ef">_</span> name: String, forFolder fold: String, result: @escaping (Result&lt;URL?, Error&gt;) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        reference.child(fold).child(name).downloadURL { (url, error) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            result(.success(url))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 上傳圖片</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">uploadImageWithName</span>(<span style="color:#66d9ef">_</span> name: String, forFolder fold: String, image: UIImage?, type: ImageType, result: @escaping (Result&lt;StorageMetadata?, Error&gt;) -&gt; Void) -&gt; StorageUploadTask? {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> image = image,
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> imageData = imageData(image, withType: type),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> metadata = Optional.some(StorageMetadata()),
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">let</span> nameWithType = Optional.some(name <span style="color:#f92672">+</span> type.rawValue)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        metadata.contentType = type.metadata
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> task = reference.child(fold).child(nameWithType).putData(imageData, metadata: metadata) { (metadata, error) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> error = error { result(.failure(error)); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            result(.success(metadata))
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> task
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 刪除圖片</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">removeImage</span>(withName name: String, forFolder fold: String, result: @escaping (Bool) -&gt; Void) {
+</span></span><span style="display:flex;"><span>        reference.child(fold).child(name).delete { (error) <span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> _ = error { result(<span style="color:#66d9ef">false</span>); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>            result(<span style="color:#66d9ef">true</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// </span><span style="color:#75715e">MARK:</span><span style="color:#75715e"> - 主工具</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">FIRStorage</span> {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 圖片壓縮 -&gt; Data</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">imageData</span>(<span style="color:#66d9ef">_</span> image: UIImage, withType type: ImageType) -&gt; Data? {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">switch</span> type {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .jpeg: <span style="color:#66d9ef">return</span> image.jpegData(compressionQuality: <span style="color:#ae81ff">0.5</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> .png: <span style="color:#66d9ef">return</span> image.pngData()
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengswift-5treemasterfirebasequery"><a href="https://github.com/William-Weng/Swift-5/tree/master/FirebaseQuery">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>其實做了這支APP也花了好幾天的時間在做，但主要的精神是在於firebase的使用，所以寫起來在文字上不是著墨很多，主要都集中在Code上。另外有發現一些錯誤，比如說會回傳兩次值？然後不會排序？然後沒有上傳圖片的功能？相信這些問題在下一次都會有相當程度的解決方法才是，共勉之。</li>
@@ -626,6 +626,9 @@
     
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
+      <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
       <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
@@ -646,9 +649,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -719,6 +719,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -727,11 +732,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -814,6 +814,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -826,6 +831,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1009,13 +1019,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1036,11 +1046,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1140,7 +1145,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

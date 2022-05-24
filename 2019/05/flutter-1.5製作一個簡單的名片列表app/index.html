@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -251,48 +251,48 @@
 </li>
 </ul>
 <h4 id="常數">常數</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">// Constants.dart
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter/material.dart&#39;</span>;
-
-<span style="color:#75715e">// 文字
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> appTitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MyTableViewApp&#34;</span>;
-<span style="color:#66d9ef">const</span> pinCodeHintText <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Pin Code&#34;</span>;
-<span style="color:#66d9ef">const</span> loginButtonText <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Login&#34;</span>;
-
-<span style="color:#75715e">// 常數
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> bigRadius <span style="color:#f92672">=</span> <span style="color:#ae81ff">66.0</span>;
-<span style="color:#66d9ef">const</span> buttonHeight <span style="color:#f92672">=</span> <span style="color:#ae81ff">24.0</span>;
-
-<span style="color:#75715e">// 顏色
-</span><span style="color:#75715e"></span>Color appDarkGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">66</span>, <span style="color:#ae81ff">86</span>, <span style="color:#ae81ff">1.0</span>);
-Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">96</span>, .<span style="color:#ae81ff">9</span>);
-
-<span style="color:#75715e">// 圖片
-</span><span style="color:#75715e"></span>Image appLogo <span style="color:#f92672">=</span> Image.asset(<span style="color:#e6db74">&#39;assets/images/flutter-logo-round.jpg&#39;</span>);
-
-<span style="color:#75715e">// 頁面Tag
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> loginPageTag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Login Page&#39;</span>;
-<span style="color:#66d9ef">const</span> homePageTag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Home Page&#39;</span>;
-</code></pre></div><h4 id="主程式">主程式</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">void</span> main() <span style="color:#f92672">=&gt;</span> runApp(MyTableViewApp());
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyTableViewApp</span> <span style="color:#66d9ef">extends</span> StatelessWidget {
-  <span style="color:#66d9ef">final</span> routes <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span>, WidgetBuilder<span style="color:#f92672">&gt;</span>{
-    loginPageTag: (context) <span style="color:#f92672">=&gt;</span> LoginPage(),
-    homePageTag: (context) <span style="color:#f92672">=&gt;</span> HomePage(),
-  };
-
-  <span style="color:#960050;background-color:#1e0010">@</span>override
-  Widget build(BuildContext context) {
-    <span style="color:#66d9ef">return</span> MaterialApp(
-      title: appTitle,
-      theme: ThemeData(primaryColor: appDarkGreyColor,),
-      home: LoginPage(),
-      routes: routes,
-    );
-  }
-}
-</code></pre></div><h3 id="登入畫面">登入畫面</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">// Constants.dart
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter/material.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 文字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> appTitle <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MyTableViewApp&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> pinCodeHintText <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Pin Code&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> loginButtonText <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Login&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 常數
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> bigRadius <span style="color:#f92672">=</span> <span style="color:#ae81ff">66.0</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> buttonHeight <span style="color:#f92672">=</span> <span style="color:#ae81ff">24.0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 顏色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Color appDarkGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span style="color:#ae81ff">58</span>, <span style="color:#ae81ff">66</span>, <span style="color:#ae81ff">86</span>, <span style="color:#ae81ff">1.0</span>);
+</span></span><span style="display:flex;"><span>Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">96</span>, .<span style="color:#ae81ff">9</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 圖片
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Image appLogo <span style="color:#f92672">=</span> Image.asset(<span style="color:#e6db74">&#39;assets/images/flutter-logo-round.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 頁面Tag
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> loginPageTag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Login Page&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> homePageTag <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Home Page&#39;</span>;
+</span></span></code></pre></div><h4 id="主程式">主程式</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> main() <span style="color:#f92672">=&gt;</span> runApp(MyTableViewApp());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyTableViewApp</span> <span style="color:#66d9ef">extends</span> StatelessWidget {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> routes <span style="color:#f92672">=</span> <span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span>, WidgetBuilder<span style="color:#f92672">&gt;</span>{
+</span></span><span style="display:flex;"><span>    loginPageTag: (context) <span style="color:#f92672">=&gt;</span> LoginPage(),
+</span></span><span style="display:flex;"><span>    homePageTag: (context) <span style="color:#f92672">=&gt;</span> HomePage(),
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  Widget build(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> MaterialApp(
+</span></span><span style="display:flex;"><span>      title: appTitle,
+</span></span><span style="display:flex;"><span>      theme: ThemeData(primaryColor: appDarkGreyColor,),
+</span></span><span style="display:flex;"><span>      home: LoginPage(),
+</span></span><span style="display:flex;"><span>      routes: routes,
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="登入畫面">登入畫面</h3>
 <ul>
 <li>在登入畫面中主要的內容有三塊，一是<a href="https://juejin.im/post/5c00a971f265da61776bb1c6">圓角圖片框 - CircleAvatar</a>，再來是<a href="https://blog.csdn.net/u011272795/article/details/82528432">輸入框 - TextFormField</a>，而後是<a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/85004313">凸起按鈕 - RaisedButton</a>
 
@@ -421,50 +421,50 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 產生logo圖示
-</span><span style="color:#75715e"></span>CircleAvatar _appLogoMaker() {
-  <span style="color:#66d9ef">var</span> circleAvatar <span style="color:#f92672">=</span> CircleAvatar(
-    backgroundColor: Colors.transparent,
-    radius: bigRadius,
-    child: appLogo,
-  );
-  <span style="color:#66d9ef">return</span> circleAvatar;
-}
-</code></pre></div><h5 id="取得圖片">取得圖片</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 產生logo圖示
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>CircleAvatar _appLogoMaker() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> circleAvatar <span style="color:#f92672">=</span> CircleAvatar(
+</span></span><span style="display:flex;"><span>    backgroundColor: Colors.transparent,
+</span></span><span style="display:flex;"><span>    radius: bigRadius,
+</span></span><span style="display:flex;"><span>    child: appLogo,
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> circleAvatar;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="取得圖片">取得圖片</h5>
 <ul>
 <li>不得不說flutter在取得<a href="https://juejin.im/post/5c10871ae51d451402773231">網路圖片</a>上很簡單，<a href="https://github.com/onevcat/Kingfisher">iOS</a>或<a href="https://square.github.io/picasso/">Android</a>要取得網路上的圖片一般都需要安裝套件，或者是寫一堆Code，但是flutter內建的<a href="https://juejin.im/post/5c00a971f265da61776bb1c6">Image Class</a>一行就OK了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">// 從本機內取得
-</span><span style="color:#75715e"></span>Image localImage <span style="color:#f92672">=</span> Image.asset(<span style="color:#e6db74">&#39;assets/images/flutter-logo-round.jpg&#39;</span>);
-
-<span style="color:#75715e">// 從網路上取得 (緩存)
-</span><span style="color:#75715e"></span>Image networkImage <span style="color:#f92672">=</span> Image.network(<span style="color:#e6db74">&#39;https://cdn-images-1.medium.com/max/1600/1*TFZQzyVAHLVXI_wNreokGA.jpg&#39;</span>);
-</code></pre></div><h5 id="製作圖片圓角">製作圖片圓角</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">// 從本機內取得
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Image localImage <span style="color:#f92672">=</span> Image.asset(<span style="color:#e6db74">&#39;assets/images/flutter-logo-round.jpg&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 從網路上取得 (緩存)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Image networkImage <span style="color:#f92672">=</span> Image.network(<span style="color:#e6db74">&#39;https://cdn-images-1.medium.com/max/1600/1*TFZQzyVAHLVXI_wNreokGA.jpg&#39;</span>);
+</span></span></code></pre></div><h5 id="製作圖片圓角">製作圖片圓角</h5>
 <ul>
 <li>在這裡可以使用<a href="https://juejin.im/post/5b519fb05188251b1b448ec5">CircleAvatar</a>來製作圓角，圖的大小就由radius屬性來決定。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart">CircleAvatar(radius: <span style="color:#ae81ff">25.0</span>,);
-</code></pre></div><h4 id="產生輸入框">產生輸入框</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 產生輸入框
-</span><span style="color:#75715e"></span>TextFormField _appPinCodeMaker() {
-  <span style="color:#66d9ef">var</span> textFormField <span style="color:#f92672">=</span> TextFormField(
-    controller: _pinCodeController, 
-    keyboardType: TextInputType.phone,
-    maxLength: <span style="color:#ae81ff">4</span>,
-    minLines: <span style="color:#ae81ff">1</span>,
-    autofocus: <span style="color:#66d9ef">true</span>,
-    decoration: InputDecoration(
-      hintText: pinCodeHintText,
-      contentPadding: EdgeInsets.fromLTRB(<span style="color:#ae81ff">20.0</span>, <span style="color:#ae81ff">10.0</span>, <span style="color:#ae81ff">20.0</span>, <span style="color:#ae81ff">10.0</span>),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(<span style="color:#ae81ff">32.0</span>),),
-      hintStyle: TextStyle(color: Colors.white,)
-    ),
-    style: TextStyle(color: Colors.white),
-  );
-
-    <span style="color:#66d9ef">return</span> textFormField;
-}
-</code></pre></div><h5 id="控制器">控制器</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span>CircleAvatar(radius: <span style="color:#ae81ff">25.0</span>,);
+</span></span></code></pre></div><h4 id="產生輸入框">產生輸入框</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 產生輸入框
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>TextFormField _appPinCodeMaker() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> textFormField <span style="color:#f92672">=</span> TextFormField(
+</span></span><span style="display:flex;"><span>    controller: _pinCodeController, 
+</span></span><span style="display:flex;"><span>    keyboardType: TextInputType.phone,
+</span></span><span style="display:flex;"><span>    maxLength: <span style="color:#ae81ff">4</span>,
+</span></span><span style="display:flex;"><span>    minLines: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>    autofocus: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>    decoration: InputDecoration(
+</span></span><span style="display:flex;"><span>      hintText: pinCodeHintText,
+</span></span><span style="display:flex;"><span>      contentPadding: EdgeInsets.fromLTRB(<span style="color:#ae81ff">20.0</span>, <span style="color:#ae81ff">10.0</span>, <span style="color:#ae81ff">20.0</span>, <span style="color:#ae81ff">10.0</span>),
+</span></span><span style="display:flex;"><span>      border: OutlineInputBorder(borderRadius: BorderRadius.circular(<span style="color:#ae81ff">32.0</span>),),
+</span></span><span style="display:flex;"><span>      hintStyle: TextStyle(color: Colors.white,)
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>    style: TextStyle(color: Colors.white),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> textFormField;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="控制器">控制器</h5>
 <ul>
 <li><a href="https://flutter.dev/docs/cookbook/forms/text-field-changes">controller</a>這個屬性是用來看看是誰來控制它 (取得文字)</li>
 </ul>
@@ -480,48 +480,48 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
 <ul>
 <li>其中比較重要的就是，按下去會有什麼反應 - <a href="https://zhuanlan.zhihu.com/p/38500192">RaisedButton</a>的<a href="https://blog.csdn.net/yuzhiqiang_1993/article/details/85004313">onPressed</a>屬性，利用<a href="https://juejin.im/post/5c7e4a02e51d4541bd34b40e">Navigator</a>跳到下一頁去</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 產生按鈕
-</span><span style="color:#75715e"></span>RaisedButton _raisedButtonMaker(BuildContext context) {
-  <span style="color:#66d9ef">var</span> raisedButton <span style="color:#f92672">=</span> RaisedButton(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(<span style="color:#ae81ff">24</span>)),
-    padding: EdgeInsets.all(<span style="color:#ae81ff">12</span>),
-    color: appDarkGreyColor,
-    onPressed: () { Navigator.of(context).pushNamed(homePageTag); },
-    child: _buttonTextMaker(),
-  );
-
-  <span style="color:#66d9ef">return</span> raisedButton;
-}
-</code></pre></div><h4 id="widget合體">Widget合體</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 產生按鈕
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>RaisedButton _raisedButtonMaker(BuildContext context) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">var</span> raisedButton <span style="color:#f92672">=</span> RaisedButton(
+</span></span><span style="display:flex;"><span>    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(<span style="color:#ae81ff">24</span>)),
+</span></span><span style="display:flex;"><span>    padding: EdgeInsets.all(<span style="color:#ae81ff">12</span>),
+</span></span><span style="display:flex;"><span>    color: appDarkGreyColor,
+</span></span><span style="display:flex;"><span>    onPressed: () { Navigator.of(context).pushNamed(homePageTag); },
+</span></span><span style="display:flex;"><span>    child: _buttonTextMaker(),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> raisedButton;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="widget合體">Widget合體</h4>
 <ul>
 <li>最後利用<a href="https://medium.com/flutter-community/flutter-listview-and-scrollphysics-a-detailed-look-7f0912df2754">ListView - Android也是叫ListView</a>來組合Widget，其中<a href="https://juejin.im/post/5b52784ef265da0f521defa2">SizedBox</a>就是空白的框，再把整個外框架構用<a href="https://book.flutterchina.club/chapter5/material_scaffold.html">Scaffold</a>包起來輸出。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 整體架構
-</span><span style="color:#75715e"></span>Scaffold appScaffold(BuildContext context) {
-  <span style="color:#66d9ef">final</span> logo <span style="color:#f92672">=</span> _appLogoMaker();
-  <span style="color:#66d9ef">final</span> pinCode <span style="color:#f92672">=</span> _appPinCodeMaker();
-  <span style="color:#66d9ef">final</span> loginButton <span style="color:#f92672">=</span> _appLoginButtonMaker(context);
-
-  Scaffold scaffold <span style="color:#f92672">=</span> Scaffold(
-    backgroundColor: appDarkGreyColor,
-    body: Center(
-      child: ListView(
-        shrinkWrap: <span style="color:#66d9ef">true</span>,
-        padding: EdgeInsets.only(left: <span style="color:#ae81ff">24.0</span>, right: <span style="color:#ae81ff">24.0</span>),
-        children: <span style="color:#f92672">&lt;</span>Widget<span style="color:#f92672">&gt;</span>[
-          logo,
-          SizedBox(height: bigRadius,),
-          pinCode,
-          SizedBox(height: buttonHeight,),
-          loginButton
-        ],
-      ),
-    ),
-  );
-
-  <span style="color:#66d9ef">return</span> scaffold;
-}
-</code></pre></div><h3 id="人員清單">人員清單</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 整體架構
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Scaffold appScaffold(BuildContext context) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> logo <span style="color:#f92672">=</span> _appLogoMaker();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> pinCode <span style="color:#f92672">=</span> _appPinCodeMaker();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> loginButton <span style="color:#f92672">=</span> _appLoginButtonMaker(context);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Scaffold scaffold <span style="color:#f92672">=</span> Scaffold(
+</span></span><span style="display:flex;"><span>    backgroundColor: appDarkGreyColor,
+</span></span><span style="display:flex;"><span>    body: Center(
+</span></span><span style="display:flex;"><span>      child: ListView(
+</span></span><span style="display:flex;"><span>        shrinkWrap: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        padding: EdgeInsets.only(left: <span style="color:#ae81ff">24.0</span>, right: <span style="color:#ae81ff">24.0</span>),
+</span></span><span style="display:flex;"><span>        children: <span style="color:#f92672">&lt;</span>Widget<span style="color:#f92672">&gt;</span>[
+</span></span><span style="display:flex;"><span>          logo,
+</span></span><span style="display:flex;"><span>          SizedBox(height: bigRadius,),
+</span></span><span style="display:flex;"><span>          pinCode,
+</span></span><span style="display:flex;"><span>          SizedBox(height: buttonHeight,),
+</span></span><span style="display:flex;"><span>          loginButton
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> scaffold;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="人員清單">人員清單</h3>
 <p>
 
 
@@ -586,46 +586,46 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
 <ul>
 <li>這裡就不再細部作介紹了，相信大家能看到這裡，就已經是Layout界的高高手了</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 取得大頭照
-</span><span style="color:#75715e"></span>CircleAvatar _getRecordPhoto(Record record) {
-  CircleAvatar circleAvatar <span style="color:#f92672">=</span> CircleAvatar(
-    radius: <span style="color:#ae81ff">32</span>,
-    backgroundImage: NetworkImage(record.photo),
-  );
-
-  <span style="color:#66d9ef">return</span> circleAvatar;
-}
-
-<span style="color:#75715e">/// 取得內容文字 (介紹)
-</span><span style="color:#75715e"></span>RichText _getRecordRichText(Record record) {
-  RichText richText <span style="color:#f92672">=</span> RichText(
-    text: TextSpan(
-    text: record.address,
-    style: TextStyle(color: Colors.white),
-  ),
-    maxLines: <span style="color:#ae81ff">3</span>,
-    softWrap: <span style="color:#66d9ef">true</span>,
-  );
-
-  <span style="color:#66d9ef">return</span> richText;
-}
-
-<span style="color:#75715e">/// 取得內容文字 (姓名)
-</span><span style="color:#75715e"></span>Text _getRecordText(Record record) {
-  Text text <span style="color:#f92672">=</span> Text(
-    record.name, 
-    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-  );
-    
-  <span style="color:#66d9ef">return</span> text;
-}
-
-<span style="color:#75715e">/// 取得箭頭圖示
-</span><span style="color:#75715e"></span>Icon _getArrowIcon() {
-  Icon icon <span style="color:#f92672">=</span> Icon(Icons.keyboard_arrow_right, color: Colors.white, size: <span style="color:#ae81ff">30.0</span>);
-  <span style="color:#66d9ef">return</span> icon;
-}
-</code></pre></div><h4 id="資料的取得">資料的取得</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 取得大頭照
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>CircleAvatar _getRecordPhoto(Record record) {
+</span></span><span style="display:flex;"><span>  CircleAvatar circleAvatar <span style="color:#f92672">=</span> CircleAvatar(
+</span></span><span style="display:flex;"><span>    radius: <span style="color:#ae81ff">32</span>,
+</span></span><span style="display:flex;"><span>    backgroundImage: NetworkImage(record.photo),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> circleAvatar;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得內容文字 (介紹)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>RichText _getRecordRichText(Record record) {
+</span></span><span style="display:flex;"><span>  RichText richText <span style="color:#f92672">=</span> RichText(
+</span></span><span style="display:flex;"><span>    text: TextSpan(
+</span></span><span style="display:flex;"><span>    text: record.address,
+</span></span><span style="display:flex;"><span>    style: TextStyle(color: Colors.white),
+</span></span><span style="display:flex;"><span>  ),
+</span></span><span style="display:flex;"><span>    maxLines: <span style="color:#ae81ff">3</span>,
+</span></span><span style="display:flex;"><span>    softWrap: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> richText;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得內容文字 (姓名)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Text _getRecordText(Record record) {
+</span></span><span style="display:flex;"><span>  Text text <span style="color:#f92672">=</span> Text(
+</span></span><span style="display:flex;"><span>    record.name, 
+</span></span><span style="display:flex;"><span>    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> text;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得箭頭圖示
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Icon _getArrowIcon() {
+</span></span><span style="display:flex;"><span>  Icon icon <span style="color:#f92672">=</span> Icon(Icons.keyboard_arrow_right, color: Colors.white, size: <span style="color:#ae81ff">30.0</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> icon;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="資料的取得">資料的取得</h4>
 <ul>
 <li>相信大家可以看到上面的程式都有一個變數叫『Record record』，其實它就是去讀取『records.json』的資料來使用 (雖然一般都是去讀取網路上的資料)，主要的處理都是在『models』資料夾之內</li>
 </ul>
@@ -633,59 +633,59 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
 <ul>
 <li>Record.dart跟RecordList.dart就是存資料的樣子，裡面比較重要的就是<a href="https://juejin.im/post/5adaf9b76fb9a07aa9254c54">factory關鍵字</a>，聽名字就知道它是一個工廠方法，利用fromJson()來將<a href="https://zh.wikipedia.org/wiki/JSON">JSON字串</a>轉成Class，這個動作就叫做<a href="https://zh.wikipedia.org/wiki/%E5%BA%8F%E5%88%97%E5%8C%96">反序列化</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">// Record.dart
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Record</span> {
-  <span style="color:#66d9ef">String</span> name;
-  <span style="color:#66d9ef">String</span> address;
-  <span style="color:#66d9ef">String</span> contact;
-  <span style="color:#66d9ef">String</span> photo;
-  <span style="color:#66d9ef">String</span> url;
-
-  Record({<span style="color:#66d9ef">this</span>.name, <span style="color:#66d9ef">this</span>.address, <span style="color:#66d9ef">this</span>.contact, <span style="color:#66d9ef">this</span>.photo, <span style="color:#66d9ef">this</span>.url});
-
-  <span style="color:#66d9ef">factory</span> Record.fromJson(Map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span>, <span style="color:#66d9ef">dynamic</span><span style="color:#f92672">&gt;</span> json) {
-    <span style="color:#66d9ef">var</span> record <span style="color:#f92672">=</span> Record(
-        name: json[<span style="color:#e6db74">&#39;name&#39;</span>],
-        address: json[<span style="color:#e6db74">&#39;address&#39;</span>],
-        contact: json[<span style="color:#e6db74">&#39;contact&#39;</span>],
-        photo: json[<span style="color:#e6db74">&#39;photo&#39;</span>],
-        url: json[<span style="color:#e6db74">&#39;url&#39;</span>]);
-    <span style="color:#66d9ef">return</span> record;
-  }
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">// RecordList.dart
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;Record.dart&#39;</span>;
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RecordList</span> {
-  List<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> List();
-
-  RecordList({<span style="color:#66d9ef">this</span>.records});
-
-  <span style="color:#66d9ef">factory</span> RecordList.fromJson(List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">dynamic</span><span style="color:#f92672">&gt;</span> parsedJson) {
-    List<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> List<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span>();
-    records <span style="color:#f92672">=</span> parsedJson.map((i) <span style="color:#f92672">=&gt;</span> Record.fromJson(i)).toList();
-
-    <span style="color:#66d9ef">return</span> RecordList(
-      records: records,
-    );
-  }
-}
-</code></pre></div><h5 id="取得資料">取得資料</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">// Record.dart
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Record</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">String</span> name;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">String</span> address;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">String</span> contact;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">String</span> photo;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">String</span> url;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Record({<span style="color:#66d9ef">this</span>.name, <span style="color:#66d9ef">this</span>.address, <span style="color:#66d9ef">this</span>.contact, <span style="color:#66d9ef">this</span>.photo, <span style="color:#66d9ef">this</span>.url});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">factory</span> Record.fromJson(Map<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">String</span>, <span style="color:#66d9ef">dynamic</span><span style="color:#f92672">&gt;</span> json) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> record <span style="color:#f92672">=</span> Record(
+</span></span><span style="display:flex;"><span>        name: json[<span style="color:#e6db74">&#39;name&#39;</span>],
+</span></span><span style="display:flex;"><span>        address: json[<span style="color:#e6db74">&#39;address&#39;</span>],
+</span></span><span style="display:flex;"><span>        contact: json[<span style="color:#e6db74">&#39;contact&#39;</span>],
+</span></span><span style="display:flex;"><span>        photo: json[<span style="color:#e6db74">&#39;photo&#39;</span>],
+</span></span><span style="display:flex;"><span>        url: json[<span style="color:#e6db74">&#39;url&#39;</span>]);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> record;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">// RecordList.dart
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;Record.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">RecordList</span> {
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> List();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  RecordList({<span style="color:#66d9ef">this</span>.records});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">factory</span> RecordList.fromJson(List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">dynamic</span><span style="color:#f92672">&gt;</span> parsedJson) {
+</span></span><span style="display:flex;"><span>    List<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span> records <span style="color:#f92672">=</span> List<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>    records <span style="color:#f92672">=</span> parsedJson.map((i) <span style="color:#f92672">=&gt;</span> Record.fromJson(i)).toList();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> RecordList(
+</span></span><span style="display:flex;"><span>      records: records,
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="取得資料">取得資料</h5>
 <ul>
 <li>利用<a href="https://juejin.im/post/5ad33bcaf265da238d512840">async / await</a>來取得網路上的資料(非同步)，再使用<a href="https://zhuanlan.zhihu.com/p/34190963">setState()</a>來改變畫面上的樣子(重畫)，這個動作是<a href="https://zhuanlan.zhihu.com/p/37880161">StatefulWidget</a>才會有的，故名思義，它就是會改變的Widget，當然也有不會改變的<a href="https://lizhaoxuan.github.io/2019/01/02/Flutter-%E4%BD%A0%E8%BF%98%E5%9C%A8%E6%BB%A5%E7%94%A8StatefulWidget%E5%90%97/">StatelessWidget</a>，我想應該是為了效能才有這兩者的分別才是。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 取得資料
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _getRecords() <span style="color:#66d9ef">async</span> {
-  RecordList records <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> RecordService().loadRecords();
-
-  setState(() {
-    <span style="color:#66d9ef">for</span> (Record record <span style="color:#66d9ef">in</span> records.records) {
-      <span style="color:#66d9ef">this</span>._records.records.add(record);
-      <span style="color:#66d9ef">this</span>._filteredRecords.records.add(record);
-    }
-  });
-}
-</code></pre></div><h5 id="產生搜尋列">產生搜尋列</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 取得資料
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _getRecords() <span style="color:#66d9ef">async</span> {
+</span></span><span style="display:flex;"><span>  RecordList records <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> RecordService().loadRecords();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  setState(() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (Record record <span style="color:#66d9ef">in</span> records.records) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>._records.records.add(record);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">this</span>._filteredRecords.records.add(record);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="產生搜尋列">產生搜尋列</h5>
 <ul>
 <li>其實它就是在AppBar上加上一個TextField輸入文字，來進行搜尋
 
@@ -749,94 +749,94 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 搜尋功能
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _searchPressed() {
-  setState(() {
-    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>._searchIcon.icon <span style="color:#f92672">!=</span> Icons.search) { _closeSerachBar(); <span style="color:#66d9ef">return</span>; }
-    _openSerachBar();
-  });
-}
-
-<span style="color:#75715e">/// 把SearchBar打開
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _openSerachBar() {
-  <span style="color:#66d9ef">this</span>._searchIcon <span style="color:#f92672">=</span> Icon(Icons.close);
-  <span style="color:#66d9ef">this</span>._appBarTitle <span style="color:#f92672">=</span> TextField(
-    controller: _filterTextEditingController,
-    style: TextStyle(color: Colors.white),
-    decoration: InputDecoration(
-      prefixIcon: Icon(Icons.search, color: Colors.white),
-      fillColor: Colors.white,
-      hintText: <span style="color:#e6db74">&#39;Search by name&#39;</span>,
-      hintStyle: TextStyle(color: Colors.white),
-    ),
-  );
-}
-
-<span style="color:#75715e">/// 把SearchBar關掉
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _closeSerachBar() {
-  <span style="color:#66d9ef">this</span>._searchIcon <span style="color:#f92672">=</span> Icon(Icons.search);
-  <span style="color:#66d9ef">this</span>._appBarTitle <span style="color:#f92672">=</span> Text(appTitle);
-  _filterTextEditingController.clear();
-}
-</code></pre></div><h5 id="過濾資料">過濾資料</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 搜尋功能
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _searchPressed() {
+</span></span><span style="display:flex;"><span>  setState(() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">this</span>._searchIcon.icon <span style="color:#f92672">!=</span> Icons.search) { _closeSerachBar(); <span style="color:#66d9ef">return</span>; }
+</span></span><span style="display:flex;"><span>    _openSerachBar();
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 把SearchBar打開
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _openSerachBar() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._searchIcon <span style="color:#f92672">=</span> Icon(Icons.close);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._appBarTitle <span style="color:#f92672">=</span> TextField(
+</span></span><span style="display:flex;"><span>    controller: _filterTextEditingController,
+</span></span><span style="display:flex;"><span>    style: TextStyle(color: Colors.white),
+</span></span><span style="display:flex;"><span>    decoration: InputDecoration(
+</span></span><span style="display:flex;"><span>      prefixIcon: Icon(Icons.search, color: Colors.white),
+</span></span><span style="display:flex;"><span>      fillColor: Colors.white,
+</span></span><span style="display:flex;"><span>      hintText: <span style="color:#e6db74">&#39;Search by name&#39;</span>,
+</span></span><span style="display:flex;"><span>      hintStyle: TextStyle(color: Colors.white),
+</span></span><span style="display:flex;"><span>    ),
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 把SearchBar關掉
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _closeSerachBar() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._searchIcon <span style="color:#f92672">=</span> Icon(Icons.search);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">this</span>._appBarTitle <span style="color:#f92672">=</span> Text(appTitle);
+</span></span><span style="display:flex;"><span>  _filterTextEditingController.clear();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="過濾資料">過濾資料</h5>
 <ul>
 <li>就是先把文字轉成小寫再去做文字的比對</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#75715e">/// 過濾資料 (轉小寫比較)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _filterRecords() {
-  <span style="color:#66d9ef">if</span> (_searchText.isNotEmpty) {
-    _filteredRecords.records <span style="color:#f92672">=</span> List();
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> _records.records.length; i<span style="color:#f92672">++</span>) {
-      <span style="color:#66d9ef">if</span> (_records.records[i].name.toLowerCase().contains(_searchText.toLowerCase()) <span style="color:#f92672">||</span> _records.records[i].address.toLowerCase().contains(_searchText.toLowerCase())) {
-          _filteredRecords.records.add(_records.records[i]);
-      }
-    }
-  }
-}
-</code></pre></div><h3 id="內文頁">內文頁</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#75715e">/// 過濾資料 (轉小寫比較)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> _filterRecords() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (_searchText.isNotEmpty) {
+</span></span><span style="display:flex;"><span>    _filteredRecords.records <span style="color:#f92672">=</span> List();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> _records.records.length; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (_records.records[i].name.toLowerCase().contains(_searchText.toLowerCase()) <span style="color:#f92672">||</span> _records.records[i].address.toLowerCase().contains(_searchText.toLowerCase())) {
+</span></span><span style="display:flex;"><span>          _filteredRecords.records.add(_records.records[i]);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="內文頁">內文頁</h3>
 <ul>
 <li>這頁的畫面跟上頁用的widget差不多，就不再多說了，這頁最主要的功能是安裝<a href="../../14/flutter-dart-packages/">第三方套件 - url_launcher</a>來開啟網頁，而安裝設定的位置則是在<a href="https://dart.dev/tools/pub/pubspec">pubspec.yaml</a>上</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#75715e"># pubspec.yaml</span>
-<span style="color:#f92672">name</span>: <span style="color:#ae81ff">flutter_uitableview</span>
-<span style="color:#f92672">description</span>: <span style="color:#ae81ff">A new Flutter project.</span>
-
-<span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.0.0+1</span>
-
-<span style="color:#f92672">environment</span>:
-  <span style="color:#f92672">sdk</span>: <span style="color:#e6db74">&#34;&gt;=2.1.0 &lt;3.0.0&#34;</span>
-
-<span style="color:#f92672">dependencies</span>:
-  <span style="color:#f92672">flutter</span>:
-    <span style="color:#f92672">sdk</span>: <span style="color:#ae81ff">flutter</span>
-
-  <span style="color:#f92672">cupertino_icons</span>: <span style="color:#ae81ff">^0.1.2</span>
-  <span style="color:#f92672">url_launcher</span>: <span style="color:#ae81ff">^5.0.2</span>
-
-<span style="color:#f92672">dev_dependencies</span>:
-  <span style="color:#f92672">flutter_test</span>:
-    <span style="color:#f92672">sdk</span>: <span style="color:#ae81ff">flutter</span>
-
-<span style="color:#f92672">flutter</span>:
-  <span style="color:#f92672">uses-material-design</span>: <span style="color:#66d9ef">true</span>
-
-  <span style="color:#f92672">assets</span>:
-    - <span style="color:#ae81ff">assets/images/flutter-logo-round.jpg</span>
-    - <span style="color:#ae81ff">assets/data/records.json</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:url_launcher/url_launcher.dart&#39;</span>;
-
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">URLLauncher</span> {
-
-  <span style="color:#75715e">/// 開啟網頁
-</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">void</span> launchURL(<span style="color:#66d9ef">String</span> url) <span style="color:#66d9ef">async</span> {
-    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">await</span> canLaunch(url)) {
-      <span style="color:#66d9ef">await</span> launch(url);
-    } <span style="color:#66d9ef">else</span> {
-      <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;Could not launch </span><span style="color:#e6db74">$</span>url<span style="color:#e6db74">&#39;</span>;
-    }
-  }
-}
-</code></pre></div><h3 id="結果">結果</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># pubspec.yaml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">flutter_uitableview</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">A new Flutter project.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">1.0.0+1</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sdk</span>: <span style="color:#e6db74">&#34;&gt;=2.1.0 &lt;3.0.0&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">dependencies</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">flutter</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">sdk</span>: <span style="color:#ae81ff">flutter</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">cupertino_icons</span>: <span style="color:#ae81ff">^0.1.2</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">url_launcher</span>: <span style="color:#ae81ff">^5.0.2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">dev_dependencies</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">flutter_test</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">sdk</span>: <span style="color:#ae81ff">flutter</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">flutter</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">uses-material-design</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">assets</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">assets/images/flutter-logo-round.jpg</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#ae81ff">assets/data/records.json</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:url_launcher/url_launcher.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">URLLauncher</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/// 開啟網頁
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#66d9ef">void</span> launchURL(<span style="color:#66d9ef">String</span> url) <span style="color:#66d9ef">async</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#66d9ef">await</span> canLaunch(url)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">await</span> launch(url);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> <span style="color:#e6db74">&#39;Could not launch </span><span style="color:#e6db74">$</span>url<span style="color:#e6db74">&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="結果">結果</h3>
 <video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2019/flutter-listview/Demo.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
@@ -922,6 +922,9 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -941,9 +944,6 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -1014,6 +1014,11 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -1022,11 +1027,6 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -1109,6 +1109,11 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -1121,6 +1126,11 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1304,13 +1314,13 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1331,11 +1341,6 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1435,7 +1440,7 @@ Color appGreyColor <span style="color:#f92672">=</span> Color.fromRGBO(<span sty
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

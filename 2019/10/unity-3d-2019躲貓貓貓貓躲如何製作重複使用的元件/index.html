@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -144,26 +144,26 @@
     to support it.
 </video></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> moveSpeed = <span style="color:#ae81ff">3.0f</span>;
-
-    <span style="color:#66d9ef">void</span> Update() { MovePlayerWithKey(); }
-
-    <span style="color:#75715e">// 利用鍵盤左右鍵來移動Player
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MovePlayerWithKey() {
-        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.LeftArrow)) { MovePlayerWithSpeed(-moveSpeed); }
-        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.RightArrow)) { MovePlayerWithSpeed(moveSpeed); }
-    }
-
-    <span style="color:#75715e">// 移動Player (速度)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MovePlayerWithSpeed(<span style="color:#66d9ef">float</span> speed) {
-        transform.Translate(speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
-    }
-}
-</code></pre></div><h4 id="箭頭落下">箭頭落下</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> moveSpeed = <span style="color:#ae81ff">3.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { MovePlayerWithKey(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 利用鍵盤左右鍵來移動Player</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MovePlayerWithKey() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.LeftArrow)) { MovePlayerWithSpeed(-moveSpeed); }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.RightArrow)) { MovePlayerWithSpeed(moveSpeed); }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 移動Player (速度)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MovePlayerWithSpeed(<span style="color:#66d9ef">float</span> speed) {
+</span></span><span style="display:flex;"><span>        transform.Translate(speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="箭頭落下">箭頭落下</h4>
 <ul>
 <li>在這裡新增一個ArrowController.cs的Script，讓箭頭能落下，然後超出了畫面就<a href="http://www.victsao.com/blog/97-unity/428-unity-script-destroy">消失 - Destroy()</a>。
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -172,27 +172,27 @@
     to support it.
 </video></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> dropSpeed = -<span style="color:#ae81ff">0.1f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> boundPositionY = -<span style="color:#ae81ff">5.0f</span>;
-
-    <span style="color:#66d9ef">void</span> Update() { DropArrow(); }
-
-    <span style="color:#75715e">// 讓箭頭往下掉落 (超過畫面就消失)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> DropArrow() {
-        transform.Translate(<span style="color:#ae81ff">0</span>, dropSpeed, <span style="color:#ae81ff">0</span>);
-        <span style="color:#66d9ef">if</span> (transform.position.y &lt; boundPositionY) { ArrowDestory(); }
-    }
-
-    <span style="color:#75715e">// 箭頭消失
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ArrowDestory() {
-        Destroy(gameObject);
-    }
-}
-</code></pre></div><h4 id="prefab">Prefab</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> dropSpeed = -<span style="color:#ae81ff">0.1f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> boundPositionY = -<span style="color:#ae81ff">5.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { DropArrow(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓箭頭往下掉落 (超過畫面就消失)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> DropArrow() {
+</span></span><span style="display:flex;"><span>        transform.Translate(<span style="color:#ae81ff">0</span>, dropSpeed, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (transform.position.y &lt; boundPositionY) { ArrowDestory(); }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 箭頭消失</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ArrowDestory() {
+</span></span><span style="display:flex;"><span>        Destroy(gameObject);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="prefab">Prefab</h4>
 <ul>
 <li>到這裡就是今天的重頭戲啦 - <a href="https://docs.unity3d.com/Manual/CreatingPrefabs.html">Prefab</a>，其實做法很簡法，只要將做好的元件拉到專案內就可以了，然後就可以看到一個跟原來長的一模一樣，但是是灰色背景的元件，然後把原來的Delete掉，使用<a href="https://docs.unity3d.com/ScriptReference/Object.Instantiate.html">Instantiate()</a>產生元件，讓它<a href="https://home.gamer.com.tw/creationDetail.php?sn=2275726">定時</a>的被Clone。
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -201,42 +201,42 @@
     to support it.
 </video></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowGenerator</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">public</span> GameObject arrowPrefab;
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">int</span> minRandomX = -<span style="color:#ae81ff">6</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">int</span> maxRandomX = <span style="color:#ae81ff">7</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> height = <span style="color:#ae81ff">7.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> spanTime = <span style="color:#ae81ff">1.0f</span>;
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">float</span> deltaTime;
-
-    <span style="color:#66d9ef">void</span> Update() { ArrowMaker(); }
-
-    <span style="color:#75715e">// 產生箭頭 (定時產生)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ArrowMaker() {
-
-        deltaTime += Time.deltaTime;
-
-        <span style="color:#66d9ef">if</span> (deltaTime &gt; spanTime) {
-
-            deltaTime = <span style="color:#ae81ff">0</span>;
-
-            GameObject arrowObject = Instantiate(arrowPrefab) <span style="color:#66d9ef">as</span> GameObject;
-            arrowObject.transform.position = RandomVector3(minRandomX, maxRandomX);
-        }
-    }
-
-    <span style="color:#75715e">// 產生不同的位置
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> Vector3 RandomVector3(<span style="color:#66d9ef">int</span> min, <span style="color:#66d9ef">int</span> max) {
-        <span style="color:#66d9ef">int</span> randomX = Random.Range(min, max);
-        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Vector3(randomX, height, <span style="color:#ae81ff">0</span>);
-    }
-}
-</code></pre></div><h4 id="物體碰撞">物體碰撞</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowGenerator</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> GameObject arrowPrefab;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">int</span> minRandomX = -<span style="color:#ae81ff">6</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">int</span> maxRandomX = <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> height = <span style="color:#ae81ff">7.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> spanTime = <span style="color:#ae81ff">1.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">float</span> deltaTime;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { ArrowMaker(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 產生箭頭 (定時產生)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ArrowMaker() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        deltaTime += Time.deltaTime;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (deltaTime &gt; spanTime) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            deltaTime = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            GameObject arrowObject = Instantiate(arrowPrefab) <span style="color:#66d9ef">as</span> GameObject;
+</span></span><span style="display:flex;"><span>            arrowObject.transform.position = RandomVector3(minRandomX, maxRandomX);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 產生不同的位置</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Vector3 RandomVector3(<span style="color:#66d9ef">int</span> min, <span style="color:#66d9ef">int</span> max) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> randomX = Random.Range(min, max);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> Vector3(randomX, height, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="物體碰撞">物體碰撞</h4>
 <ul>
 <li>在這裡要先找到「誰跟誰」碰撞？怎麼樣才算「碰撞」？先簡單利用兩個物件的距離來當成碰撞與否的判斷依據。
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -305,41 +305,41 @@
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> playerRadius = <span style="color:#ae81ff">1.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> arrowRadius = <span style="color:#ae81ff">0.5f</span>;
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> playIdentity = <span style="color:#e6db74">&#34;player&#34;</span>;
-
-    GameObject playerObject;
-
-    <span style="color:#66d9ef">void</span> Start() { playerObject = FindGameObjectWithIdentity(playIdentity); }
-    <span style="color:#66d9ef">void</span> Update() { ConflictTesting(); }
-
-    <span style="color:#75715e">// 利用物件的名字找到該物件
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> GameObject FindGameObjectWithIdentity(<span style="color:#66d9ef">string</span> identity) {
-        <span style="color:#66d9ef">return</span> GameObject.Find(identity);
-    }
-
-    <span style="color:#75715e">// 測試箭頭跟玩家撞到時的反應 (兩者的距離 &lt; 兩者的半徑和 =&gt; 箭頭消失 / 損血)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConflictTesting() {
-
-        Vector2 arrowPosition = transform.position;
-        Vector2 playerPosition = playerObject.transform.position;
-        Vector2 directionVector = arrowPosition - playerPosition;
-
-        <span style="color:#66d9ef">float</span> direction = directionVector.magnitude;
-        <span style="color:#66d9ef">float</span> conflictRadius = arrowRadius + playerRadius;
-
-        <span style="color:#66d9ef">if</span> (direction &lt; conflictRadius) {
-            ArrowDestory();
-        }
-    }
-}
-</code></pre></div><h4 id="加入血量環">加入血量環</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> playerRadius = <span style="color:#ae81ff">1.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> arrowRadius = <span style="color:#ae81ff">0.5f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> playIdentity = <span style="color:#e6db74">&#34;player&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    GameObject playerObject;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Start() { playerObject = FindGameObjectWithIdentity(playIdentity); }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { ConflictTesting(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 利用物件的名字找到該物件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> GameObject FindGameObjectWithIdentity(<span style="color:#66d9ef">string</span> identity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> GameObject.Find(identity);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 測試箭頭跟玩家撞到時的反應 (兩者的距離 &lt; 兩者的半徑和 =&gt; 箭頭消失 / 損血)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConflictTesting() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Vector2 arrowPosition = transform.position;
+</span></span><span style="display:flex;"><span>        Vector2 playerPosition = playerObject.transform.position;
+</span></span><span style="display:flex;"><span>        Vector2 directionVector = arrowPosition - playerPosition;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> direction = directionVector.magnitude;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> conflictRadius = arrowRadius + playerRadius;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (direction &lt; conflictRadius) {
+</span></span><span style="display:flex;"><span>            ArrowDestory();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="加入血量環">加入血量環</h4>
 <ul>
 <li>這裡我們幫助主角加入血量的計算，首先增加一個「UI -&gt; Image」，然後把血量的圖示加進去。比較要注意的是，要將「<a href="blog.fourdesire.com/2018/07/03/%E6%88%90%E7%82%BA-ugui-%E7%9A%84%E6%8E%92%E7%89%88%E5%A4%A7%E5%B8%AB-%E4%B8%80%E6%AC%A1%E7%B2%BE%E9%80%9A-recttransform/">錨點 - Anchor</a>」改在右上角，如此一來畫面縮小的話，血量圖也不會跑出到畫面之外。再來就是要將「<a href="https://read01.com/zh-tw/Jmm8KQ.html#.XaOoqSV-VTY">Image Type</a>」調整成「Filled / Radial 360 / Top」，然後再改變「Fill Amount」試試看，血量圖是不是會變化了呢？
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -417,49 +417,49 @@
     to support it.
 </video></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-<span style="color:#66d9ef">using</span> UnityEngine.UI;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameDirector</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> hpGaugeIdentity = <span style="color:#e6db74">&#34;hpGauge&#34;</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> decreaseHpRate = <span style="color:#ae81ff">0.1f</span>;
-
-    GameObject hpGauge;
-
-    <span style="color:#66d9ef">void</span> Start() { hpGauge = FindGameObjectWithIdentity(hpGaugeIdentity); }
-
-    <span style="color:#75715e">// 利用物件的名字找到該物件
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> GameObject FindGameObjectWithIdentity(<span style="color:#66d9ef">string</span> identity) {
-        <span style="color:#66d9ef">return</span> GameObject.Find(identity);
-    }
-
-    <span style="color:#75715e">// 損血的處理 (公開的函式)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> DecreaseHp() {
-        hpGauge.GetComponent&lt;Image&gt;().fillAmount -= decreaseHpRate;
-    }
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowController</span> : MonoBehaviour {
-
-    <span style="color:#75715e">// 測試箭頭跟玩家撞到時的反應 (兩者的距離 &lt; 兩者的半徑和 =&gt; 箭頭消失 / 損血)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConflictTesting() {
-        ...
-
-        <span style="color:#66d9ef">if</span> (direction &lt; conflictRadius) {
-            ArrowDestory();
-            NoticeDecreaseHp();
-        }
-    }
-
-    <span style="color:#75715e">// 通知GameDirector要損血了
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> NoticeDecreaseHp() {
-        GameObject gameDirector = FindGameObjectWithIdentity(gameDirectorIdentity);
-        gameDirector.GetComponent&lt;GameDirector&gt;().DecreaseHp();
-    }
-}
-</code></pre></div><h4 id="產生左右按鈕">產生左右按鈕</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine.UI;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameDirector</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> hpGaugeIdentity = <span style="color:#e6db74">&#34;hpGauge&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> decreaseHpRate = <span style="color:#ae81ff">0.1f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    GameObject hpGauge;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Start() { hpGauge = FindGameObjectWithIdentity(hpGaugeIdentity); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 利用物件的名字找到該物件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> GameObject FindGameObjectWithIdentity(<span style="color:#66d9ef">string</span> identity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> GameObject.Find(identity);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 損血的處理 (公開的函式)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> DecreaseHp() {
+</span></span><span style="display:flex;"><span>        hpGauge.GetComponent&lt;Image&gt;().fillAmount -= decreaseHpRate;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ArrowController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 測試箭頭跟玩家撞到時的反應 (兩者的距離 &lt; 兩者的半徑和 =&gt; 箭頭消失 / 損血)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> ConflictTesting() {
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (direction &lt; conflictRadius) {
+</span></span><span style="display:flex;"><span>            ArrowDestory();
+</span></span><span style="display:flex;"><span>            NoticeDecreaseHp();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 通知GameDirector要損血了</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> NoticeDecreaseHp() {
+</span></span><span style="display:flex;"><span>        GameObject gameDirector = FindGameObjectWithIdentity(gameDirectorIdentity);
+</span></span><span style="display:flex;"><span>        gameDirector.GetComponent&lt;GameDirector&gt;().DecreaseHp();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="產生左右按鈕">產生左右按鈕</h4>
 <ul>
 <li>因為在手機上並沒有「左右鍵」，所以在這裡做個「<a href="https://home.gamer.com.tw/creationDetail.php?sn=3443731">UI -&gt; Button</a>」，讓手機也能玩。
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -532,28 +532,28 @@
     </picture>
   </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> moveSpeed = <span style="color:#ae81ff">3.0f</span>;
-
-    <span style="color:#75715e">// 利用右按鍵來移動Player (公開的函式)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> MovePlayerWithRightButton() {
-        MovePlayerWithSpeed(-moveSpeed);
-    }
-
-    <span style="color:#75715e">// 利用左按鍵來移動Player (公開的函式)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> MovePlayerWithLeftButton() {
-        MovePlayerWithSpeed(moveSpeed);
-    }
-
-    <span style="color:#75715e">// 移動Player (速度)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MovePlayerWithSpeed(<span style="color:#66d9ef">float</span> speed) {
-        transform.Translate(speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
-    }
-}
-</code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengunity3dtreemastercatescape"><a href="https://github.com/William-Weng/Unity3D/tree/master/CatEscape">範例程式碼下載</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> moveSpeed = <span style="color:#ae81ff">3.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 利用右按鍵來移動Player (公開的函式)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> MovePlayerWithRightButton() {
+</span></span><span style="display:flex;"><span>        MovePlayerWithSpeed(-moveSpeed);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 利用左按鍵來移動Player (公開的函式)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> MovePlayerWithLeftButton() {
+</span></span><span style="display:flex;"><span>        MovePlayerWithSpeed(moveSpeed);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 移動Player (速度)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MovePlayerWithSpeed(<span style="color:#66d9ef">float</span> speed) {
+</span></span><span style="display:flex;"><span>        transform.Translate(speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengunity3dtreemastercatescape"><a href="https://github.com/William-Weng/Unity3D/tree/master/CatEscape">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>終於完成了，做遊戲真是是寫程式的大全，什麼細節都要先考慮到，難怪薪水比較高？個人還在慢慢的學習中，希望能出個小品遊戲上架。
@@ -633,6 +633,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -652,9 +655,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -725,6 +725,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -733,11 +738,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -820,6 +820,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -832,6 +837,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1015,13 +1025,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1042,11 +1052,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1146,7 +1151,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

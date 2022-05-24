@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -144,37 +144,37 @@
     to support it.
 </video></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarController</span> : MonoBehaviour
-{
-    <span style="color:#66d9ef">float</span> speed;
-    Vector2 startPosition;
-
-    <span style="color:#66d9ef">void</span> Update() { MoveCarWithMouse(); }
-
-    <span style="color:#75715e">// 使用滑鼠移動車子
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MoveCarWithMouse()
-    {
-        <span style="color:#75715e">// 按下滑鼠左鍵
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>))
-        {
-            <span style="color:#66d9ef">this</span>.startPosition = Input.mousePosition;
-        }
-
-        <span style="color:#75715e">// 放開滑鼠左鍵 =&gt; 根據兩者的差距決定速度
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonUp(<span style="color:#ae81ff">0</span>))
-        {
-            Vector2 endPosition = Input.mousePosition;
-            <span style="color:#66d9ef">float</span> swipeLength = endPosition.x - <span style="color:#66d9ef">this</span>.startPosition.x;
-            <span style="color:#66d9ef">this</span>.speed = swipeLength / <span style="color:#ae81ff">500.0f</span>;
-        }
-
-        transform.Translate(<span style="color:#66d9ef">this</span>.speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
-        <span style="color:#66d9ef">this</span>.speed *= <span style="color:#ae81ff">0.98f</span>;
-    }
-}
-</code></pre></div><h4 id="加入音效">加入音效</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarController</span> : MonoBehaviour
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> speed;
+</span></span><span style="display:flex;"><span>    Vector2 startPosition;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { MoveCarWithMouse(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 使用滑鼠移動車子</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MoveCarWithMouse()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 按下滑鼠左鍵</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.startPosition = Input.mousePosition;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 放開滑鼠左鍵 =&gt; 根據兩者的差距決定速度</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonUp(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Vector2 endPosition = Input.mousePosition;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">float</span> swipeLength = endPosition.x - <span style="color:#66d9ef">this</span>.startPosition.x;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.speed = swipeLength / <span style="color:#ae81ff">500.0f</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        transform.Translate(<span style="color:#66d9ef">this</span>.speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.speed *= <span style="color:#ae81ff">0.98f</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="加入音效">加入音效</h4>
 <ul>
 <li>為車子加入「音效」的<a href="https://medium.com/@wuufone/%E9%9D%9E%E9%9B%BB%E7%8E%A9%E4%BA%BA%E5%AD%B8unity3d-2-%E8%AA%8D%E9%80%8F-gameobject-%E8%88%87-component-ba95a5502bce">Component - AudioSource</a>，比較要注意的是，如果<a href="https://medium.com/%E7%A8%8B%E5%BC%8F%E8%A3%A1%E6%9C%89%E8%9F%B2/%E6%92%AD%E6%94%BE%E9%9F%B3%E6%95%88-with-unity-eec4b8ddeb9b">「Play On Awake」</a>打勾的話，只要一Run就會發出聲音了，這樣滿怪的，所以這裡是把它「取消掉」。這裡可以看到，在車子的圖片上會多一個「聲音的圖示」。而取得播放元件的方法是使用<a href="https://blog.frost.tw/posts/2014/01/03/unity3d-component-of-game-production/">「GetComponent()」</a>，去取得「AudioSource」的元件 (應該說「轉型」)，到這裡在車子動的時候就會有音效了。
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -183,44 +183,44 @@
     to support it.
 </video></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarController</span> : MonoBehaviour
-{
-    <span style="color:#66d9ef">float</span> speed;
-    Vector2 startPosition;
-
-    <span style="color:#66d9ef">void</span> Update() { MoveCarWithMouse(); }
-
-    <span style="color:#75715e">// 使用滑鼠移動車子
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MoveCarWithMouse()
-    {
-        <span style="color:#75715e">// 按下滑鼠左鍵
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>))
-        {
-            <span style="color:#66d9ef">this</span>.startPosition = Input.mousePosition;
-        }
-
-        <span style="color:#75715e">// 放開滑鼠左鍵 =&gt; 根據兩者的差距決定速度
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonUp(<span style="color:#ae81ff">0</span>))
-        {
-            Vector2 endPosition = Input.mousePosition;
-            <span style="color:#66d9ef">float</span> swipeLength = endPosition.x - <span style="color:#66d9ef">this</span>.startPosition.x;
-            <span style="color:#66d9ef">this</span>.speed = swipeLength / <span style="color:#ae81ff">500.0f</span>;
-
-            PlaySound();
-        }
-
-        transform.Translate(<span style="color:#66d9ef">this</span>.speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
-        <span style="color:#66d9ef">this</span>.speed *= <span style="color:#ae81ff">0.98f</span>;
-    }
-
-    <span style="color:#75715e">// 播放音效
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlaySound() {
-        GetComponent&lt;AudioSource&gt;().Play();
-    }
-}
-</code></pre></div><h4 id="加入文字框">加入文字框</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CarController</span> : MonoBehaviour
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> speed;
+</span></span><span style="display:flex;"><span>    Vector2 startPosition;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { MoveCarWithMouse(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 使用滑鼠移動車子</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> MoveCarWithMouse()
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 按下滑鼠左鍵</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.startPosition = Input.mousePosition;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 放開滑鼠左鍵 =&gt; 根據兩者的差距決定速度</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonUp(<span style="color:#ae81ff">0</span>))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Vector2 endPosition = Input.mousePosition;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">float</span> swipeLength = endPosition.x - <span style="color:#66d9ef">this</span>.startPosition.x;
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.speed = swipeLength / <span style="color:#ae81ff">500.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            PlaySound();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        transform.Translate(<span style="color:#66d9ef">this</span>.speed, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.speed *= <span style="color:#ae81ff">0.98f</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 播放音效</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlaySound() {
+</span></span><span style="display:flex;"><span>        GetComponent&lt;AudioSource&gt;().Play();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="加入文字框">加入文字框</h4>
 <ul>
 <li>在這裡我們加上一個用來顯示距離的<a href="https://docs.unity3d.com/Manual/script-Text.html">文字框 - Text</a>，這裡可以發現到，文字框的位置跟遊戲的位置好像差滿遠的？不過在Run的時候還是正確的。
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -238,37 +238,37 @@
     to support it.
 </video></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-<span style="color:#66d9ef">using</span> UnityEngine.UI;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameDirector</span> : MonoBehaviour
-{
-    GameObject car;
-    GameObject flag;
-    GameObject distance;
-
-    <span style="color:#66d9ef">void</span> Start() { InitGameObject(); }
-    <span style="color:#66d9ef">void</span> Update() { FinishTesting(); }
-
-    <span style="color:#75715e">// 先找到畫面上的物件在哪裡 (名字就是在屬性表上看到的名字)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitGameObject() {
-        <span style="color:#66d9ef">this</span>.car = GameObject.Find(<span style="color:#e6db74">&#34;car&#34;</span>);
-        <span style="color:#66d9ef">this</span>.flag = GameObject.Find(<span style="color:#e6db74">&#34;flag&#34;</span>);
-        <span style="color:#66d9ef">this</span>.distance = GameObject.Find(<span style="color:#e6db74">&#34;Distance&#34;</span>);
-    }
-
-    <span style="color:#75715e">// 測試車子有沒有到終點 (GetComponent()的使用)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> FinishTesting() {
-        <span style="color:#66d9ef">float</span> length = <span style="color:#66d9ef">this</span>.flag.transform.position.x - <span style="color:#66d9ef">this</span>.car.transform.position.x;
-
-        <span style="color:#66d9ef">if</span> (length &gt; <span style="color:#ae81ff">0</span>) {
-            <span style="color:#66d9ef">this</span>.distance.GetComponent&lt;Text&gt;().text = <span style="color:#e6db74">&#34;距離目標還有 &#34;</span> + length.ToString(<span style="color:#e6db74">&#34;F2&#34;</span>) + <span style="color:#e6db74">&#34; 公尺&#34;</span>;
-        } <span style="color:#66d9ef">else</span> {
-            <span style="color:#66d9ef">this</span>.distance.GetComponent&lt;Text&gt;().text = <span style="color:#e6db74">&#34;抵達終點&#34;</span>;
-        }
-    }
-}
-</code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengunity3dtreemasterswipecar"><a href="https://github.com/William-Weng/Unity3D/tree/master/SwipeCar">範例程式碼下載</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine.UI;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GameDirector</span> : MonoBehaviour
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    GameObject car;
+</span></span><span style="display:flex;"><span>    GameObject flag;
+</span></span><span style="display:flex;"><span>    GameObject distance;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Start() { InitGameObject(); }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { FinishTesting(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 先找到畫面上的物件在哪裡 (名字就是在屬性表上看到的名字)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitGameObject() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.car = GameObject.Find(<span style="color:#e6db74">&#34;car&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.flag = GameObject.Find(<span style="color:#e6db74">&#34;flag&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.distance = GameObject.Find(<span style="color:#e6db74">&#34;Distance&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 測試車子有沒有到終點 (GetComponent()的使用)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> FinishTesting() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> length = <span style="color:#66d9ef">this</span>.flag.transform.position.x - <span style="color:#66d9ef">this</span>.car.transform.position.x;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (length &gt; <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.distance.GetComponent&lt;Text&gt;().text = <span style="color:#e6db74">&#34;距離目標還有 &#34;</span> + length.ToString(<span style="color:#e6db74">&#34;F2&#34;</span>) + <span style="color:#e6db74">&#34; 公尺&#34;</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">this</span>.distance.GetComponent&lt;Text&gt;().text = <span style="color:#e6db74">&#34;抵達終點&#34;</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengunity3dtreemasterswipecar"><a href="https://github.com/William-Weng/Unity3D/tree/master/SwipeCar">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>這篇主要是延續上一次的功能，然後在加上聲音，慢慢的做出一個完整的小遊戲。</li>
@@ -348,6 +348,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -367,9 +370,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -440,6 +440,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -448,11 +453,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -535,6 +535,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -547,6 +552,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -730,13 +740,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -757,11 +767,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -861,7 +866,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

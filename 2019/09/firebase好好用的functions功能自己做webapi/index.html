@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -133,9 +133,9 @@
 <ul>
 <li>首先要要安裝<a href="https://william-weng.github.io/2019/05/05/ubuntu-nodejs/">nodejs</a>，然後安裝<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%95%8C%E9%9D%A2">Firebase CLI</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node -v
-npm install -g firebase-tools
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node -v
+</span></span><span style="display:flex;"><span>npm install -g firebase-tools
+</span></span></code></pre></div><p>
 
 
 
@@ -199,8 +199,8 @@ npm install -g firebase-tools
 <ul>
 <li>當然要有個<a href="https://support.google.com/mail/answer/56256?hl=zh-Hant">gmail帳號</a>用來登入<a href="https://firebase.google.com/docs/cli">Firebase Functions CLI</a>，接下來就是按影片施工，保證成功。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">firebase login
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>firebase login
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/firebase-functions-helloworld/Functions_2.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -220,15 +220,15 @@ npm install -g firebase-tools
 <ul>
 <li>主要的code都是放在index.js上面，它是functions的進入點。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// index.js
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
-
-<span style="color:#75715e">// helloWorld() =&gt; 印出中文字
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">helloWorld</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
-})
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">firebase deploy
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// index.js
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// helloWorld() =&gt; 印出中文字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">helloWorld</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>firebase deploy
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/firebase-functions-helloworld/Functions_4.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -237,29 +237,29 @@ npm install -g firebase-tools
 <ul>
 <li>將程式上傳到firebase上的時候，不一定要一次上傳全部，也可以一次上傳某幾個，比較要注意的是，如果使用<a href="https://blog.hellojcc.tw/2016/01/08/module-exports-vs-exports-in-node-js/">「module.exports」</a>建立多個function，而不是用「exports」建立單一個function的話，只有「module.exports」才有反應，就看看大家習慣哪一種了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
-
-<span style="color:#75715e">// helloWorld() =&gt; 印出中文字
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">helloWorld</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
-})
-
-<span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">helloWorld2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
-})
-
-<span style="color:#75715e">// module.exports
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">helloWorld3</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
-    }),
-    <span style="color:#a6e22e">helloWorld4</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
-    })
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">firebase deploy                                             <span style="color:#75715e"># 全部上傳</span>
-firebase deploy --only functions:&lt;functionA&gt;,&lt;functionB&gt;    <span style="color:#75715e"># 上傳某幾個Function</span>
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// helloWorld() =&gt; 印出中文字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">helloWorld</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">exports</span>.<span style="color:#a6e22e">helloWorld2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
+</span></span><span style="display:flex;"><span>})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// module.exports
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">helloWorld3</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">helloWorld4</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>firebase deploy                                             <span style="color:#75715e"># 全部上傳</span>
+</span></span><span style="display:flex;"><span>firebase deploy --only functions:&lt;functionA&gt;,&lt;functionB&gt;    <span style="color:#75715e"># 上傳某幾個Function</span>
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/firebase-functions-helloworld/Functions_5.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -268,41 +268,41 @@ firebase deploy --only functions:&lt;functionA&gt;,&lt;functionB&gt;    <span st
 <ul>
 <li>這個資料主要是來由於<a href="https://www.books.com.tw/">博客來</a>的書籍資料來當成DEMO</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;eBook&#34;</span>: {
-    <span style="color:#f92672">&#34;9789861365404&#34;</span>: {
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;勇氣圖鑑：受挫、失敗都是成長的養分&#34;</span>,
-      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010831766&#34;</span>,
-      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">320</span>, <span style="color:#ae81ff">253</span>, <span style="color:#ae81ff">202</span>],
-      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">1</span>
-    },
-    <span style="color:#f92672">&#34;9789578640856&#34;</span>: {
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;不插電 小學生基礎程式邏輯訓練繪本全套四冊&#34;</span>,
-      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010818767&#34;</span>,
-      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">1440</span>, <span style="color:#ae81ff">1080</span>],
-      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">3</span>
-    },
-    <span style="color:#f92672">&#34;9789869744560&#34;</span>: {
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;關於工作的9大謊言&#34;</span>,
-      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010832091&#34;</span>,
-      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">420</span>, <span style="color:#ae81ff">332</span>],
-      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">2</span>
-    },
-    <span style="color:#f92672">&#34;9789570853551&#34;</span>: {
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;全圖解！AI知識一本通：用故事讓你三小時輕鬆搞懂人工智慧&#34;</span>,
-      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010830584&#34;</span>,
-      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">280</span>, <span style="color:#ae81ff">221</span>],
-      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">4</span>
-    },
-    <span style="color:#f92672">&#34;9789863774938&#34;</span>: {
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;星座決定我愛你：用占星和塔羅幫你找到真命天子or女&#34;</span>,
-      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010825318&#34;</span>,
-      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">320</span>, <span style="color:#ae81ff">253</span>, <span style="color:#ae81ff">177</span>],
-      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">5</span>
-    }
-  }
-}
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;eBook&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;9789861365404&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;勇氣圖鑑：受挫、失敗都是成長的養分&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010831766&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">320</span>, <span style="color:#ae81ff">253</span>, <span style="color:#ae81ff">202</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;9789578640856&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;不插電 小學生基礎程式邏輯訓練繪本全套四冊&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010818767&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">1440</span>, <span style="color:#ae81ff">1080</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;9789869744560&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;關於工作的9大謊言&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010832091&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">420</span>, <span style="color:#ae81ff">332</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;9789570853551&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;全圖解！AI知識一本通：用故事讓你三小時輕鬆搞懂人工智慧&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010830584&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">280</span>, <span style="color:#ae81ff">221</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;9789863774938&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;星座決定我愛你：用占星和塔羅幫你找到真命天子or女&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;url&#34;</span>: <span style="color:#e6db74">&#34;https://www.books.com.tw/products/0010825318&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;prices&#34;</span>: [<span style="color:#ae81ff">320</span>, <span style="color:#ae81ff">253</span>, <span style="color:#ae81ff">177</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;order&#34;</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/firebase-functions-helloworld/Functions_6.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -312,40 +312,40 @@ firebase deploy --only functions:&lt;functionA&gt;,&lt;functionB&gt;    <span st
 <ul>
 <li>讀取Firebase上的資料，主要是要<a href="https://www.npmjs.com/package/firebase-admin">require(&ldquo;firebase-admin&rdquo;)</a>，利用<a href="https://firebase.google.com/docs/reference/admin">admin</a>來讀取Firebase上的資料。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">admin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;firebase-admin&#34;</span>)
-
-<span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">initializeApp</span>()
-
-<span style="color:#75715e">// MARK: - 輸出的Function名稱
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">helloWorld</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">string</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getHelloWorld</span>()
-        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">string</span>)
-    }),
-    <span style="color:#a6e22e">bookList</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">getBookList</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-            <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>)
-        })
-    })
-}
-
-<span style="color:#75715e">// MARK: - 小工具
-</span><span style="color:#75715e">/// helloWorld() =&gt; 印出中文字
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getHelloWorld</span>() {
-    <span style="color:#66d9ef">return</span> (<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
-}
-
-<span style="color:#75715e">/// 取得全部的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookList</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">callback</span>) {
-
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">readType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
-
-    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">readType</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
-    })
-}
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">admin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;firebase-admin&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">initializeApp</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 輸出的Function名稱
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">helloWorld</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">string</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getHelloWorld</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">string</span>)
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">bookList</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getBookList</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 小工具
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// helloWorld() =&gt; 印出中文字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getHelloWorld</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> (<span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得全部的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookList</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">readType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">readType</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/firebase-functions-helloworld/Functions_7.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -354,46 +354,46 @@ firebase deploy --only functions:&lt;functionA&gt;,&lt;functionB&gt;    <span st
 <ul>
 <li>這裡主要是利用<a href="https://www.firebase.com/docs/web/quickstart.html">「orderByChild()」</a>來排序資料內的順序，此外要注意的是，因為是「排序過的」資料，所以要轉成<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Array">「Array」</a>才能得到正確的資料。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">admin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;firebase-admin&#34;</span>)
-
-<span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">initializeApp</span>()
-
-<span style="color:#75715e">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">bookListOrderByChild</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
-    }),
-}
-
-<span style="color:#75715e">// MARK: - 主工具
-</span><span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊 =&gt; Array  (https://&lt;host&gt;/bookListOrderByChild?child=name)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
-    
-    <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        
-        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> []
-
-        <span style="color:#a6e22e">snapshot</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">item</span> =&gt; {
-            <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">item</span>)
-        })
-
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">items</span>)
-    })
-}
-
-<span style="color:#75715e">// MARK: - 小工具
-</span><span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
-
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">readType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span>
-
-    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">readType</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
-    })
-}
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">functions</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;firebase-functions&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">admin</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;firebase-admin&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">initializeApp</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">bookListOrderByChild</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 主工具
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊 =&gt; Array  (https://&lt;host&gt;/bookListOrderByChild?child=name)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">snapshot</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">item</span> =&gt; {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">item</span>)
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">items</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 小工具
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">readType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">readType</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/firebase-functions-helloworld/Functions_8.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -462,172 +462,172 @@ firebase deploy --only functions:&lt;functionA&gt;,&lt;functionB&gt;    <span st
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">bookListOrderByKeyOfRange</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">array</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">array</span>) })
-    }),
-}
-
-<span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊 =&gt; Array (https://&lt;host&gt;/bookListOrderByKeyOfRange?child=order&amp;start=2&amp;end=4)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
-    
-    <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>)
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">items</span>)
-    })
-}
-
-<span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
-
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">readType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span>
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">start</span>)
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">end</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">end</span>)
-
-    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">startAt</span>(<span style="color:#a6e22e">start</span>).<span style="color:#a6e22e">endAt</span>(<span style="color:#a6e22e">end</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">readType</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
-    })
-}
-
-<span style="color:#75715e">/// 將snapshot =&gt; Array
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>) {
-    
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> []
-    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dict</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">snapshot</span>.<span style="color:#a6e22e">val</span>()
-
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">dict</span>) {
-        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dict</span>[<span style="color:#a6e22e">key</span>]
-        <span style="color:#a6e22e">_item</span>[<span style="color:#e6db74">&#39;identify&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">key</span> <span style="color:#75715e">// _item.identify = key
-</span><span style="color:#75715e"></span>        <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">_item</span>)
-    }
-
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">items</span>
-}
-</code></pre></div><h4 id="typescript的版本">TypeScript的版本</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">bookListOrderByKeyOfRange</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">array</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">array</span>) })
+</span></span><span style="display:flex;"><span>    }),
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊 =&gt; Array (https://&lt;host&gt;/bookListOrderByKeyOfRange?child=order&amp;start=2&amp;end=4)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">items</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">callback</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">readType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">start</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">start</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">end</span> <span style="color:#f92672">=</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">end</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">startAt</span>(<span style="color:#a6e22e">start</span>).<span style="color:#a6e22e">endAt</span>(<span style="color:#a6e22e">end</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">readType</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 將snapshot =&gt; Array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">items</span> <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">dict</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">snapshot</span>.<span style="color:#a6e22e">val</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">key</span> <span style="color:#66d9ef">in</span> <span style="color:#a6e22e">dict</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">_item</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dict</span>[<span style="color:#a6e22e">key</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">_item</span>[<span style="color:#e6db74">&#39;identify&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">key</span> <span style="color:#75715e">// _item.identify = key
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">_item</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">items</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="typescript的版本">TypeScript的版本</h4>
 <ul>
 <li>其實TypeScript也沒有想像中的難學，不過在JavaScript亂寫都會對的情形就不太會存在了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">functions</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;firebase-functions&#39;</span>
-<span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">admin</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;firebase-admin&#39;</span>
-
-<span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">initializeApp</span>()
-
-<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eventType</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">EventType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
-
-<span style="color:#75715e">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
-    <span style="color:#a6e22e">tsHelloWorld</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">helloWorld</span>(),
-    <span style="color:#a6e22e">tsBookList</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bookList</span>(),
-    <span style="color:#a6e22e">tsBookListOrderByChild</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bookListOrderByChild</span>(),
-    <span style="color:#a6e22e">tsBookListOrderByKeyOfRange</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bookListOrderByKeyOfRange</span>(),
-}
-
-<span style="color:#75715e">// MARK: - 主程式
-</span><span style="color:#75715e">/// 印出中文字 (https://&lt;host&gt;/tsHelloWorld)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">helloWorld</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">HttpsFunction</span> {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">getHelloWorld</span>())
-    })
-}
-
-<span style="color:#75715e">/// 取得全部的書籍資訊 (https://&lt;host&gt;/tsBookList)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bookList</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">HttpsFunction</span> {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">getBookList</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
-    })
-}
-
-<span style="color:#75715e">/// 取得排序後的書籍資訊 (https://&lt;host&gt;/tsBookListOrderByChild?child=name)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bookListOrderByChild</span>() {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
-    })
-}
-
-<span style="color:#75715e">/// 取得排序後在範圍內的書籍資訊 (https://&lt;host&gt;/tsBookListOrderByKeyOfRange?child=order&amp;start=2&amp;end=4)
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bookListOrderByKeyOfRange</span>() {
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
-        <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
-    })
-}
-
-<span style="color:#75715e">// MARK: - 主工具
-</span><span style="color:#75715e">/// 取得中文字
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getHelloWorld</span>()<span style="color:#f92672">:</span> Object {
-    <span style="color:#66d9ef">return</span> ({ <span style="color:#a6e22e">helloWorld</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span> })
-}
-
-<span style="color:#75715e">/// 取得全部的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookList</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>) =&gt; <span style="color:#66d9ef">void</span>) {
-
-    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">eventType</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
-    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">reason</span>) =&gt;
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">reason</span>)
-    )
-}
-
-<span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[]) =&gt; <span style="color:#66d9ef">void</span>) {
-    
-    <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>))
-    })
-}
-
-<span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[]) =&gt; <span style="color:#66d9ef">void</span>) {
-    
-    <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>))
-    })
-}
-
-<span style="color:#75715e">// MARK: - 小工具
-</span><span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>) =&gt; <span style="color:#66d9ef">void</span>) {
-    
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">string</span>
-
-    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">eventType</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
-    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt;
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>)
-    )
-}
-
-<span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>) =&gt; <span style="color:#66d9ef">void</span>) {
-
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parameter</span> <span style="color:#f92672">=</span> {
-        <span style="color:#a6e22e">child</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">string</span>,
-        <span style="color:#a6e22e">start</span><span style="color:#f92672">:</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">start</span>),
-        <span style="color:#a6e22e">end</span><span style="color:#f92672">:</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">end</span>),
-    }
-
-    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">parameter</span>.<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">startAt</span>(<span style="color:#a6e22e">parameter</span>.<span style="color:#a6e22e">start</span>).<span style="color:#a6e22e">endAt</span>(<span style="color:#a6e22e">parameter</span>.<span style="color:#a6e22e">end</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">eventType</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">snapshot</span>) =&gt; {
-        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
-    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt;
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>)
-    )
-}
-
-<span style="color:#75715e">/// 將snapshot =&gt; Array
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[] {
-    
-    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">items</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[] <span style="color:#f92672">=</span> []
-
-    <span style="color:#a6e22e">snapshot</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>) =&gt; {
-        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dict</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">val</span>()
-        <span style="color:#a6e22e">dict</span>.<span style="color:#a6e22e">identify</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">key</span>
-        <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">dict</span>)
-    })
-
-    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">items</span>
-}
-</code></pre></div><h4 id="consolelog">console.log()</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">functions</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;firebase-functions&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">admin</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;firebase-admin&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">initializeApp</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">eventType</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">EventType</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;value&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 輸出的Function名稱 (給Firebase Functions看的)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tsHelloWorld</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">helloWorld</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tsBookList</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bookList</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tsBookListOrderByChild</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bookListOrderByChild</span>(),
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tsBookListOrderByKeyOfRange</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">bookListOrderByKeyOfRange</span>(),
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 主程式
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// 印出中文字 (https://&lt;host&gt;/tsHelloWorld)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">helloWorld</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">HttpsFunction</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">getHelloWorld</span>())
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得全部的書籍資訊 (https://&lt;host&gt;/tsBookList)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bookList</span>()<span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">HttpsFunction</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getBookList</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得排序後的書籍資訊 (https://&lt;host&gt;/tsBookListOrderByChild?child=name)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bookListOrderByChild</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得排序後在範圍內的書籍資訊 (https://&lt;host&gt;/tsBookListOrderByKeyOfRange?child=order&amp;start=2&amp;end=4)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bookListOrderByKeyOfRange</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">onRequest</span>((<span style="color:#a6e22e">request</span>, <span style="color:#a6e22e">response</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#e6db74">&#39;eBook&#39;</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; { <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">snapshot</span>) })
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 主工具
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得中文字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getHelloWorld</span>()<span style="color:#f92672">:</span> Object {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> ({ <span style="color:#a6e22e">helloWorld</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;哈囉你好嗎，衷心感謝，珍重再見，期待再相逢&#34;</span> })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 取得全部的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookList</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>) =&gt; <span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">eventType</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">reason</span>) =&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">reason</span>)
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[]) =&gt; <span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>))
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[]) =&gt; <span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span>, <span style="color:#a6e22e">request</span>, (<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span>))
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - 小工具
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得全部的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByChild</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>) =&gt; <span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">child</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">string</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">eventType</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>)
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 根據子Key排序後，取得該範圍內的書籍資訊
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">_getBookListOrderByKeyOfRange</span>(<span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">request</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">functions</span>.<span style="color:#a6e22e">https</span>.<span style="color:#a6e22e">Request</span>, <span style="color:#a6e22e">callback</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>) =&gt; <span style="color:#66d9ef">void</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parameter</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">child</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">child</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">string</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">start</span><span style="color:#f92672">:</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">start</span>),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">end</span><span style="color:#f92672">:</span> parseInt(<span style="color:#a6e22e">request</span>.<span style="color:#a6e22e">query</span>.<span style="color:#a6e22e">end</span>),
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>().<span style="color:#a6e22e">ref</span>(<span style="color:#a6e22e">path</span>).<span style="color:#a6e22e">orderByChild</span>(<span style="color:#a6e22e">parameter</span>.<span style="color:#a6e22e">child</span>).<span style="color:#a6e22e">startAt</span>(<span style="color:#a6e22e">parameter</span>.<span style="color:#a6e22e">start</span>).<span style="color:#a6e22e">endAt</span>(<span style="color:#a6e22e">parameter</span>.<span style="color:#a6e22e">end</span>).<span style="color:#a6e22e">once</span>(<span style="color:#a6e22e">eventType</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">snapshot</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">snapshot</span>)
+</span></span><span style="display:flex;"><span>    }).<span style="color:#66d9ef">catch</span>((<span style="color:#a6e22e">error</span>) =&gt;
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">error</span>)
+</span></span><span style="display:flex;"><span>    )
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// 將snapshot =&gt; Array
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">snapshotToArray</span>(<span style="color:#a6e22e">snapshot</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">admin</span>.<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">DataSnapshot</span>)<span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[] {
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">items</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>[] <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">snapshot</span>.<span style="color:#a6e22e">forEach</span>((<span style="color:#a6e22e">item</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">dict</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">val</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">dict</span>.<span style="color:#a6e22e">identify</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">item</span>.<span style="color:#a6e22e">key</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">items</span>.<span style="color:#a6e22e">push</span>(<span style="color:#a6e22e">dict</span>)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">items</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="consolelog">console.log()</h4>
 <ul>
 <li>大家有沒有發現到，萬一有錯的時候要怎麼debug呢？最基本的<a href="https://medium.com/devgorilla/the-console-object-provides-access-to-the-browsers-debugging-console-354eda9d2d50">console.log()</a>怎麼印不出來呢？其實可以利用「firebase functios」的記錄來看，或者是使用CLI的方式也是可以的。另外不知道有沒有發現，code裡面都沒有「分號;」結尾，這是為什麼呢？大家可以看看<a href="http://eddychang.me/js-semicolon/">這篇文章</a>就能理解了。
 
@@ -691,9 +691,9 @@ firebase deploy --only functions:&lt;functionA&gt;,&lt;functionB&gt;    <span st
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">firebase functions:log                                  <span style="color:#75715e"># 列出全部的log</span>
-firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style="color:#75715e"># 列出部分的log</span>
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>firebase functions:log                                  <span style="color:#75715e"># 列出全部的log</span>
+</span></span><span style="display:flex;"><span>firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style="color:#75715e"># 列出部分的log</span>
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/firebase-functions-helloworld/Functions_9.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -762,37 +762,37 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
   </figure>
 </li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#75715e">/* MARK: - 一般 */</span>
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;我是中文字&#39;</span>)                 <span style="color:#75715e">// 列印中文字
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Willam&#39;</span> })  <span style="color:#75715e">// 列印Object
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;我是info&#39;</span>)                 <span style="color:#75715e">// 訊息列印
-</span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;我是error&#39;</span>)               <span style="color:#75715e">// 錯誤列印
-</span><span style="color:#75715e">// console.clear()                      // 清除log
-</span><span style="color:#75715e">// console.trace()                      // 追踨軌跡
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">/* MARK: - 群組 */</span>
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">group</span>(<span style="color:#e6db74">&#39;Group&#39;</span>)
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;user: William&#39;</span>)
-
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">group</span>(<span style="color:#e6db74">&#39;Group A&#39;</span>)
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;book: JS Book&#39;</span>)
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;ISBN: 978777555777&#39;</span>)
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">groupEnd</span>()
-
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">group</span>(<span style="color:#e6db74">&#39;Group B&#39;</span>)
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;book: JS Book&#39;</span>)
-        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;ISBN: 978777555777&#39;</span>)
-    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">groupEnd</span>()
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">groupEnd</span>()
-
-<span style="color:#75715e">/* MARK: - 表格 */</span>
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">table</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Willam&#39;</span> })
-
-<span style="color:#75715e">/* MARK: - 時間差 */</span>
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">time</span>()
-<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100000</span>; <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>) {}
-<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">timeEnd</span>()
-</code></pre></div><h3 id="範例程式碼下載images2019firebase-functions-helloworlddemo7z"><a href="/images/2019/firebase-functions-helloworld/demo.7z">範例程式碼下載</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#75715e">/* MARK: - 一般 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;我是中文字&#39;</span>)                 <span style="color:#75715e">// 列印中文字
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Willam&#39;</span> })  <span style="color:#75715e">// 列印Object
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">info</span>(<span style="color:#e6db74">&#39;我是info&#39;</span>)                 <span style="color:#75715e">// 訊息列印
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">error</span>(<span style="color:#e6db74">&#39;我是error&#39;</span>)               <span style="color:#75715e">// 錯誤列印
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// console.clear()                      // 清除log
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// console.trace()                      // 追踨軌跡
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* MARK: - 群組 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">group</span>(<span style="color:#e6db74">&#39;Group&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;user: William&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">group</span>(<span style="color:#e6db74">&#39;Group A&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;book: JS Book&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;ISBN: 978777555777&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">groupEnd</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">group</span>(<span style="color:#e6db74">&#39;Group B&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;book: JS Book&#39;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;ISBN: 978777555777&#39;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">groupEnd</span>()
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">groupEnd</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* MARK: - 表格 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">table</span>({ <span style="color:#a6e22e">id</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Willam&#39;</span> })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* MARK: - 時間差 */</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">time</span>()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">index</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">index</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100000</span>; <span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>) {}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">timeEnd</span>()
+</span></span></code></pre></div><h3 id="範例程式碼下載images2019firebase-functions-helloworlddemo7z"><a href="/images/2019/firebase-functions-helloworld/demo.7z">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>Firebase Functions是一個做API滿友好的工具，又結合了Firebase Database，加上它也能夠有推播的功能、Hosting的網頁功能，等於是前後台全包了，Google真的是太可怕了呀。其實<a href="https://www.ithome.com.tw/news/91771">Firebase</a>是用買的呀。另外呢，還發現了一個<a href="https://oranwind.org/-iot-studio/">好用的字型 - fira code</a>，大家也可以試用看看，尤其在寫<a href="https://zh.wikipedia.org/wiki/JavaScript">JavaScript</a>特別的明顯好用呢。此外，真心覺得JavaScript真的好寫難debug，寫錯了要到Run的時候才會發現，看來也許要用<a href="https://zh.wikipedia.org/zh-tw/TypeScript">TypeScript</a>的版本來寫寫看了，最近滿流行的，真的覺得<a href="https://zh.wikipedia.org/wiki/%E5%BC%B7%E5%BC%B1%E5%9E%8B%E5%88%A5">強型別 - Strong Type</a>的語言還是比較適合我呀。</li>
@@ -811,6 +811,9 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
     
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
+      <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
       <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
@@ -831,9 +834,6 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -904,6 +904,11 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -912,11 +917,6 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -999,6 +999,11 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -1011,6 +1016,11 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1194,13 +1204,13 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1221,11 +1231,6 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1325,7 +1330,7 @@ firebase functions:log --only &lt;function1&gt;,&lt;function2&gt;   <span style=
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

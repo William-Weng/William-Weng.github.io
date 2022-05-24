@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -156,47 +156,47 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">new</span> Rigidbody2D rigidbody2D;
-
-    <span style="color:#66d9ef">void</span> Start() { InitSetting(); }
-
-    <span style="color:#66d9ef">void</span> Update() {
-        PlayerMove(walkForce);
-        PlayerJump(jumpForce);
-    }
-
-    <span style="color:#75715e">// 讓主角左右移動 (往左右推)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
-
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
-
-        rigidbody2D.AddForce(transform.right * direction * force);
-    }
-
-    <span style="color:#75715e">// 讓主角向上跳 (往上推)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
-            rigidbody2D.AddForce(transform.up * force);
-        }
-    }
-
-    <span style="color:#75715e">// 初始的一些設定 (先找出相關物件的位置)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitSetting() {
-        rigidbody2D = GetComponent&lt;Rigidbody2D&gt;();
-    }
-}
-</code></pre></div><h4 id="改變碰撞體的外型">改變碰撞體的外型</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">new</span> Rigidbody2D rigidbody2D;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Start() { InitSetting(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() {
+</span></span><span style="display:flex;"><span>        PlayerMove(walkForce);
+</span></span><span style="display:flex;"><span>        PlayerJump(jumpForce);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角左右移動 (往左右推)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rigidbody2D.AddForce(transform.right * direction * force);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角向上跳 (往上推)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
+</span></span><span style="display:flex;"><span>            rigidbody2D.AddForce(transform.up * force);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初始的一些設定 (先找出相關物件的位置)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitSetting() {
+</span></span><span style="display:flex;"><span>        rigidbody2D = GetComponent&lt;Rigidbody2D&gt;();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="改變碰撞體的外型">改變碰撞體的外型</h4>
 <ul>
 <li>在這裡可以發現主角跟雲不是那麼的貼合，所以我們要改變Collider的範圍，把雲變成的小一點的方形，而主角是半膠囊形的 (半圓形 + 方形)。</li>
 </ul>
@@ -214,60 +214,60 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> maxWalkForce = <span style="color:#ae81ff">2.0f</span>;
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">new</span> Rigidbody2D rigidbody2D;
-
-    <span style="color:#66d9ef">void</span> Start() { InitSetting(); }
-
-    <span style="color:#66d9ef">void</span> Update() {
-        PlayerMove(walkForce);
-        PlayerJump(jumpForce);
-    }
-
-    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
-        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
-
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
-
-        rigidbody2D.AddForce(transform.right * direction * force);
-
-        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
-            rigidbody2D.AddForce(transform.right * direction * force);
-        }
-
-        Debug.Log(<span style="color:#e6db74">&#34;&lt;color=red&gt;[speedX] = &#34;</span> + speedX + <span style="color:#e6db74">&#34;&lt;/color&gt;&#34;</span>);
-    }
-
-    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
-            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) { rigidbody2D.AddForce(transform.up * force); }
-        }
-    }
-
-    <span style="color:#75715e">// 初始的一些設定 (先找出相關物件的位置)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitSetting() {
-        rigidbody2D = GetComponent&lt;Rigidbody2D&gt;();
-    }
-
-    <span style="color:#75715e">// 測試速度是否為0？
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> IsVelocityZero(<span style="color:#66d9ef">float</span> velocity) {
-        <span style="color:#66d9ef">return</span> Mathf.Approximately(velocity, <span style="color:#ae81ff">0</span>);
-    }
-}
-</code></pre></div><h4 id="臉朝哪一邊">臉朝哪一邊？</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> maxWalkForce = <span style="color:#ae81ff">2.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">new</span> Rigidbody2D rigidbody2D;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Start() { InitSetting(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() {
+</span></span><span style="display:flex;"><span>        PlayerMove(walkForce);
+</span></span><span style="display:flex;"><span>        PlayerJump(jumpForce);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rigidbody2D.AddForce(transform.right * direction * force);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
+</span></span><span style="display:flex;"><span>            rigidbody2D.AddForce(transform.right * direction * force);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Debug.Log(<span style="color:#e6db74">&#34;&lt;color=red&gt;[speedX] = &#34;</span> + speedX + <span style="color:#e6db74">&#34;&lt;/color&gt;&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) { rigidbody2D.AddForce(transform.up * force); }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初始的一些設定 (先找出相關物件的位置)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitSetting() {
+</span></span><span style="display:flex;"><span>        rigidbody2D = GetComponent&lt;Rigidbody2D&gt;();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 測試速度是否為0？</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> IsVelocityZero(<span style="color:#66d9ef">float</span> velocity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Mathf.Approximately(velocity, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="臉朝哪一邊">臉朝哪一邊？</h4>
 <ul>
 <li>利用<a href="http://labginger.blogspot.com/2013/04/unity-c-vector3.html">Vector3</a>的正負<a href="https://zh.wikipedia.org/wiki/%E5%90%91%E9%87%8F">向量值</a>，來改變圖片的方向。</li>
 </ul>
@@ -276,68 +276,68 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> maxWalkForce = <span style="color:#ae81ff">2.0f</span>;
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">new</span> Rigidbody2D rigidbody2D;
-
-    <span style="color:#66d9ef">void</span> Start() { InitSetting(); }
-
-    <span style="color:#66d9ef">void</span> Update() {
-        PlayerMove(walkForce);
-        PlayerJump(jumpForce);
-    }
-
-    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
-        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
-
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
-
-        rigidbody2D.AddForce(transform.right * direction * force);
-
-        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
-            rigidbody2D.AddForce(transform.right * direction * force);
-        }
-
-        PlayerMoveDirection(direction);
-    }
-
-    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
-            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) { rigidbody2D.AddForce(transform.up * force); }
-        }
-    }
-
-    <span style="color:#75715e">// 初始的一些設定 (先找出相關物件的位置)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitSetting() {
-        rigidbody2D = GetComponent&lt;Rigidbody2D&gt;();
-    }
-
-    <span style="color:#75715e">// 測試速度是否為0？
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> IsVelocityZero(<span style="color:#66d9ef">float</span> velocity) {
-        <span style="color:#66d9ef">return</span> Mathf.Approximately(velocity, <span style="color:#ae81ff">0</span>);
-    }
-
-    <span style="color:#75715e">// 主角移動的圖形位置 (圖片翻轉)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMoveDirection(<span style="color:#66d9ef">int</span> direction) {
-
-        <span style="color:#66d9ef">if</span> (direction != <span style="color:#ae81ff">0</span>) {
-            transform.localScale = <span style="color:#66d9ef">new</span> Vector3(direction, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>);
-        }
-    }
-}
-</code></pre></div><h3 id="建立動畫">建立動畫</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> maxWalkForce = <span style="color:#ae81ff">2.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">new</span> Rigidbody2D rigidbody2D;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Start() { InitSetting(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() {
+</span></span><span style="display:flex;"><span>        PlayerMove(walkForce);
+</span></span><span style="display:flex;"><span>        PlayerJump(jumpForce);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        rigidbody2D.AddForce(transform.right * direction * force);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
+</span></span><span style="display:flex;"><span>            rigidbody2D.AddForce(transform.right * direction * force);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        PlayerMoveDirection(direction);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) { rigidbody2D.AddForce(transform.up * force); }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初始的一些設定 (先找出相關物件的位置)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitSetting() {
+</span></span><span style="display:flex;"><span>        rigidbody2D = GetComponent&lt;Rigidbody2D&gt;();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 測試速度是否為0？</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> IsVelocityZero(<span style="color:#66d9ef">float</span> velocity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Mathf.Approximately(velocity, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 主角移動的圖形位置 (圖片翻轉)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMoveDirection(<span style="color:#66d9ef">int</span> direction) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (direction != <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>            transform.localScale = <span style="color:#66d9ef">new</span> Vector3(direction, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="建立動畫">建立動畫</h3>
 <h4 id="建立移動動畫">建立移動動畫</h4>
 <ul>
 <li>在這裡我們要利用Unity強大的<a href="http://www.victsao.com/blog/97-unity/418-unity-mecanim">Mecanim</a>動作系統來處理動畫。首先選擇主角，然後選<a href="https://www.itread01.com/content/1502430002.html">Window -&gt; Animation -&gt; Animation</a>開啟動畫視窗，然後建立一個<a href="http://unitytaiwan.blogspot.com/2016/10/recoremecanim.html">Walk.anim</a>的動畫物件，再來新增<a href="https://medium.com/@wuufone/%E9%9D%9E%E9%9B%BB%E7%8E%A9%E4%BA%BA%E5%AD%B8unity3d-5-sprite-6e4fab762775">Add Property -&gt; Sprite Renderer -&gt; Sprite</a>，最後把走路的圖放上去就可以了。完成後，按下播放鍵就可以看到成果。</li>
@@ -347,35 +347,35 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> Animator animator;
-
-    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
-        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
-
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
-
-        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
-            rigidbody2D.AddForce(transform.right * direction * force);
-            WalkAnimatorSpeed(speedX);
-        }
-
-        PlayerMoveDirection(direction);
-    }
-
-    <span style="color:#75715e">// 走路的動畫速度
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> WalkAnimatorSpeed(<span style="color:#66d9ef">float</span> speed) {
-        animator.speed = speed * <span style="color:#ae81ff">0.5f</span>;
-    }
-}
-</code></pre></div><h4 id="建立彈跳動畫">建立彈跳動畫</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> Animator animator;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
+</span></span><span style="display:flex;"><span>            rigidbody2D.AddForce(transform.right * direction * force);
+</span></span><span style="display:flex;"><span>            WalkAnimatorSpeed(speedX);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        PlayerMoveDirection(direction);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 走路的動畫速度</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> WalkAnimatorSpeed(<span style="color:#66d9ef">float</span> speed) {
+</span></span><span style="display:flex;"><span>        animator.speed = speed * <span style="color:#ae81ff">0.5f</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="建立彈跳動畫">建立彈跳動畫</h4>
 <ul>
 <li>建立彈跳動畫跟建立移動動畫的動作大同小異，大家可以自己看看。</li>
 </ul>
@@ -393,60 +393,60 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> maxWalkForce = <span style="color:#ae81ff">2.0f</span>;
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> trigger = <span style="color:#e6db74">&#34;JumpTrigger&#34;</span>;
-
-    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
-        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
-
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
-        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
-
-        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
-            rigidbody2D.AddForce(transform.right * direction * force);
-        }
-
-        PlayerMoveDirection(direction);
-        WalkAnimatorSpeed(speedX);
-    }
-
-    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳 / 切換動畫Trigger)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
-            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) {
-                animator.SetTrigger(trigger);
-                rigidbody2D.AddForce(transform.up * force);
-            }
-        }
-    }
-
-    <span style="color:#75715e">// 測試速度是否為0？
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> IsVelocityZero(<span style="color:#66d9ef">float</span> velocity) {
-        <span style="color:#66d9ef">return</span> Mathf.Approximately(velocity, <span style="color:#ae81ff">0</span>);
-    }
-
-    <span style="color:#75715e">// 走路 / 彈跳的動畫速度
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> WalkAnimatorSpeed(<span style="color:#66d9ef">float</span> speed) {
-
-        <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) {
-            animator.speed = speed * <span style="color:#ae81ff">0.5f</span>;
-        } <span style="color:#66d9ef">else</span> {
-            animator.speed = <span style="color:#ae81ff">1.0f</span>;
-        }
-    }
-}
-</code></pre></div><h3 id="完成遊戲">完成遊戲</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> jumpForce = <span style="color:#ae81ff">300.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> walkForce = <span style="color:#ae81ff">10.0f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">float</span> maxWalkForce = <span style="color:#ae81ff">2.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> trigger = <span style="color:#e6db74">&#34;JumpTrigger&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角左右移動 (往左右推 / 限制最高速)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerMove(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> direction = <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> speedX = Mathf.Abs(rigidbody2D.velocity.x);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.RightArrow)) { direction = <span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKey(KeyCode.LeftArrow)) { direction = -<span style="color:#ae81ff">1</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (speedX &lt; maxWalkForce) {
+</span></span><span style="display:flex;"><span>            rigidbody2D.AddForce(transform.right * direction * force);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        PlayerMoveDirection(direction);
+</span></span><span style="display:flex;"><span>        WalkAnimatorSpeed(speedX);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳 / 切換動畫Trigger)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) {
+</span></span><span style="display:flex;"><span>                animator.SetTrigger(trigger);
+</span></span><span style="display:flex;"><span>                rigidbody2D.AddForce(transform.up * force);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 測試速度是否為0？</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">bool</span> IsVelocityZero(<span style="color:#66d9ef">float</span> velocity) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Mathf.Approximately(velocity, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 走路 / 彈跳的動畫速度</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> WalkAnimatorSpeed(<span style="color:#66d9ef">float</span> speed) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) {
+</span></span><span style="display:flex;"><span>            animator.speed = speed * <span style="color:#ae81ff">0.5f</span>;
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>            animator.speed = <span style="color:#ae81ff">1.0f</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="完成遊戲">完成遊戲</h3>
 <h4 id="產生重複物件">產生重複物件</h4>
 <ul>
 <li>利用<a href="https://kendevlog.wordpress.com/2017/09/24/unity%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%986-prefab-%E4%BD%BF%E7%94%A8%E9%A0%88%E7%9F%A5/">Prefab</a>產生<a href="/2019/10/13/unity3d-cat-escape/">重複</a>的雲朵</li>
@@ -465,44 +465,44 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CameraController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> playerObjectName = <span style="color:#e6db74">&#34;cat&#34;</span>;
-
-    <span style="color:#66d9ef">private</span> GameObject player;
-
-    <span style="color:#66d9ef">void</span> Start() {
-        InitPlayer();
-    }
-
-    <span style="color:#66d9ef">void</span> Update() {
-        CameraPostion();
-    }
-
-    <span style="color:#75715e">/// 找尋主角物件
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitPlayer() {
-        player = GameObject.Find(playerObjectName);
-    }
-
-    <span style="color:#75715e">/// 攝影機的位置 (跟著主角移動)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> CameraPostion() {
-        Vector3 playerPosition = player.transform.position;
-        transform.position = <span style="color:#66d9ef">new</span> Vector3(transform.position.x, playerPosition.y, transform.position.z);
-    }
-}
-</code></pre></div><h4 id="碰到旗子了">碰到旗子了？</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CameraController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> playerObjectName = <span style="color:#e6db74">&#34;cat&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> GameObject player;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Start() {
+</span></span><span style="display:flex;"><span>        InitPlayer();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() {
+</span></span><span style="display:flex;"><span>        CameraPostion();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 找尋主角物件</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> InitPlayer() {
+</span></span><span style="display:flex;"><span>        player = GameObject.Find(playerObjectName);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 攝影機的位置 (跟著主角移動)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> CameraPostion() {
+</span></span><span style="display:flex;"><span>        Vector3 playerPosition = player.transform.position;
+</span></span><span style="display:flex;"><span>        transform.position = <span style="color:#66d9ef">new</span> Vector3(transform.position.x, playerPosition.y, transform.position.z);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="碰到旗子了">碰到旗子了？</h4>
 <ul>
 <li>接下來我們在旗子上加上<a href="https://www.slideshare.net/sshiouwu/unity05-2dii">Box Collider 2D</a>元件，然後將<a href="https://ithelp.ithome.com.tw/articles/10185208">is Trigger</a>功能打開，然後當主角碰到旗子時，就會觸發<a href="https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnTriggerEnter2D.html">OnTriggerEnter2D()</a>。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
-    <span style="color:#75715e">// @override =&gt; 碰到旗子的話，就回到首頁
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log(<span style="color:#e6db74">&#34;碰到旗子了&#34;</span>);
-    }
-}
-</code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// @override =&gt; 碰到旗子的話，就回到首頁</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> OnTriggerEnter2D(Collider2D collision) {
+</span></span><span style="display:flex;"><span>        Debug.Log(<span style="color:#e6db74">&#34;碰到旗子了&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
     <source src="/images/2019/unity3d-climb-cloud/12.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
@@ -516,53 +516,53 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-<span style="color:#66d9ef">using</span> UnityEngine.SceneManagement;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClearDircetor</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> sceneName = <span style="color:#e6db74">&#34;GameScene&#34;</span>;
-
-    <span style="color:#66d9ef">void</span> Update() { changeScene(); }
-
-    <span style="color:#75715e">// 切換場景
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> changeScene() {
-        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) { SceneManager.LoadScene(sceneName); }
-    }
-}
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#66d9ef">using</span> UnityEngine;
-<span style="color:#66d9ef">using</span> UnityEngine.SceneManagement;
-
-<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
-
-    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> sceneName = <span style="color:#e6db74">&#34;ClearScene&#34;</span>;
-
-    <span style="color:#75715e">// @override =&gt; 碰到旗子的話，就回到首頁
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> OnTriggerEnter2D(Collider2D collision) {
-        GotoClearScene();
-    }
-
-    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳 / 切換動畫Trigger / 掉下去回到首頁)
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
-
-        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
-            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) {
-                animator.SetTrigger(trigger);
-                rigidbody2D.AddForce(transform.up * force);
-            }
-        }
-
-        <span style="color:#66d9ef">if</span> (transform.position.y &lt; -<span style="color:#ae81ff">10</span>) {
-            GotoClearScene();
-        }
-    }
-
-    <span style="color:#75715e">// 回到首頁
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> GotoClearScene() {
-        SceneManager.LoadScene(sceneName);
-    }
-}
-</code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengunity3dtreemasterclimbcloud"><a href="https://github.com/William-Weng/Unity3D/tree/master/ClimbCloud">範例程式碼下載</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine.SceneManagement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ClearDircetor</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> sceneName = <span style="color:#e6db74">&#34;GameScene&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> Update() { changeScene(); }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 切換場景</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> changeScene() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) { SceneManager.LoadScene(sceneName); }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> UnityEngine.SceneManagement;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PlayerController</span> : MonoBehaviour {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">readonly</span> <span style="color:#66d9ef">string</span> sceneName = <span style="color:#e6db74">&#34;ClearScene&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// @override =&gt; 碰到旗子的話，就回到首頁</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> OnTriggerEnter2D(Collider2D collision) {
+</span></span><span style="display:flex;"><span>        GotoClearScene();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 讓主角向上跳 (往上推 / 防止兩段跳 / 切換動畫Trigger / 掉下去回到首頁)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> PlayerJump(<span style="color:#66d9ef">float</span> force) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(<span style="color:#ae81ff">0</span>)) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (IsVelocityZero(rigidbody2D.velocity.y)) {
+</span></span><span style="display:flex;"><span>                animator.SetTrigger(trigger);
+</span></span><span style="display:flex;"><span>                rigidbody2D.AddForce(transform.up * force);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (transform.position.y &lt; -<span style="color:#ae81ff">10</span>) {
+</span></span><span style="display:flex;"><span>            GotoClearScene();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 回到首頁</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">void</span> GotoClearScene() {
+</span></span><span style="display:flex;"><span>        SceneManager.LoadScene(sceneName);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengunity3dtreemasterclimbcloud"><a href="https://github.com/William-Weng/Unity3D/tree/master/ClimbCloud">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>終於完成了，做遊戲要考慮到的東西真的好多，沒有想像中的簡單，這篇文章寫得好久呀，希望下次學學3D的製作，自己再加加油吧，希望能出個小品遊戲上架。</li>
@@ -642,6 +642,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -661,9 +664,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -734,6 +734,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -742,11 +747,6 @@
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -829,6 +829,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -841,6 +846,11 @@
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -1024,13 +1034,13 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -1051,11 +1061,6 @@
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -1155,7 +1160,7 @@
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>

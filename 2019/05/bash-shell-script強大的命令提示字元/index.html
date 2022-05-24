@@ -30,8 +30,8 @@
     
     
     <link rel="preload" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity = "sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" as="style" crossorigin="anonymous">
-    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" as="script" integrity=
-    "sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous">
+    <link rel="preload" href="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" as="script" integrity=
+    "sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous">
 
     
     <link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.01869c76e4757810d94ecbdccadba853d9d01d9416dfeb113df02e1479ff8b36e284e8bfeb3e8f353f2fdcdcbbdfcf27e558dbda96eb6341bfc304d55cd9e986.css" integrity="sha512-AYacduR1eBDZTsvcytuoU9nQHZQW3&#43;sRPfAuFHn/izbihOi/6z6PNT8v3Ny7388n5Vjb2pbrY0G/wwTVXNnphg==" crossorigin="anonymous">
@@ -125,13 +125,13 @@
 <ul>
 <li>當然只要是『純文字』型的編譯器都可以用來編譯，我這裡就使用<a href="../../04/vscode-install-mac/">VSCode</a>來新建一個.sh檔方便說明，在這裡比較要注意的是檔案的『權限問題』，要使用<a href="https://zh.wikipedia.org/wiki/Chmod">chmod</a>指令去讓.sh變成有<a href="http://linux.vbird.org/linux_basic/0210filepermission.php">可執行</a>的權限，變更之後，可以看到該檔案的顏色變成『紅色字』，這就表示它可以執行。這點就跟Windons有很大的不同，不是副檔名是『.exe』就是可執行檔，在Linux的世界中，只要該檔案有可執行的『權限』就可以執行，文字檔也可以執行喲，只是…執行不會成功而已…T.T。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#! /bin/bash
-</span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;hello world&#34;</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bash hello.sh
-./hello.sh
-chmod +x hello.sh
-./hello.sh
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#! /bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>echo <span style="color:#e6db74">&#34;hello world&#34;</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bash hello.sh
+</span></span><span style="display:flex;"><span>./hello.sh
+</span></span><span style="display:flex;"><span>chmod +x hello.sh
+</span></span><span style="display:flex;"><span>./hello.sh
+</span></span></code></pre></div><p>
 
 
 
@@ -195,9 +195,9 @@ chmod +x hello.sh
 <ul>
 <li>Bash的參數是由『空白』去做為分隔，空白的數量沒有限制，只要是一個空白以上就可以了。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;我是一個      參數&#34;</span>
-echo 參數1      參數2      參數3
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;我是一個      參數&#34;</span>
+</span></span><span style="display:flex;"><span>echo 參數1      參數2      參數3
+</span></span></code></pre></div><p>
 
 
 
@@ -261,11 +261,11 @@ echo 參數1      參數2      參數3
 <ul>
 <li>設定。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">touch <span style="color:#e6db74">&#34;bash is shell.mp3&#34;</span>
-file<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bash is shell.mp3&#34;</span>
-rm $file
-rm <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>touch <span style="color:#e6db74">&#34;bash is shell.mp3&#34;</span>
+</span></span><span style="display:flex;"><span>file<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;bash is shell.mp3&#34;</span>
+</span></span><span style="display:flex;"><span>rm $file
+</span></span><span style="display:flex;"><span>rm <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -329,9 +329,9 @@ rm <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34
 <ul>
 <li>利用大括弧可以讓變數更有可應用性 ($變數)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">User<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;USER&#34;</span>
-echo <span style="color:#e6db74">&#34;</span>$User<span style="color:#e6db74">, </span>$Users<span style="color:#e6db74">, </span><span style="color:#e6db74">${</span>User<span style="color:#e6db74">}</span><span style="color:#e6db74">s&#34;</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>User<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;USER&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$User<span style="color:#e6db74">, </span>$Users<span style="color:#e6db74">, </span><span style="color:#e6db74">${</span>User<span style="color:#e6db74">}</span><span style="color:#e6db74">s&#34;</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -395,17 +395,17 @@ echo <span style="color:#e6db74">&#34;</span>$User<span style="color:#e6db74">, 
 <ul>
 <li>介紹一些常用的特殊變數</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;\$0 = </span>$0<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$1 = </span>$1<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$2 = </span>$2<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$# = </span>$#<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$* = </span>$*<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$@ = </span>$@<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$? = </span>$?<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$</span>$<span style="color:#e6db74"> = </span>$$<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$! = </span>$!<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;\$_ = </span>$_<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$0 = </span>$0<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$1 = </span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$2 = </span>$2<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$# = </span>$#<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$* = </span>$*<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$@ = </span>$@<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$? = </span>$?<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$</span>$<span style="color:#e6db74"> = </span>$$<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$! = </span>$!<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;\$_ = </span>$_<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -469,11 +469,11 @@ echo <span style="color:#e6db74">&#34;\$_ = </span>$_<span style="color:#e6db74"
 <ul>
 <li>利用『(())』去做數學運算</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">i<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
-echo $i
-<span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>i*5<span style="color:#f92672">))</span>
-echo $i
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>i<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>echo $i
+</span></span><span style="display:flex;"><span><span style="color:#f92672">((</span>i<span style="color:#f92672">=</span>i*5<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>echo $i
+</span></span></code></pre></div><p>
 
 
 
@@ -537,11 +537,11 @@ echo $i
 <ul>
 <li>利用『``/ $()』取得指令的結果</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">now<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date<span style="color:#e6db74">`</span>
-echo $now
-time<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span>
-echo $time
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>now<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>date<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>echo $now
+</span></span><span style="display:flex;"><span>time<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo $time
+</span></span></code></pre></div><p>
 
 
 
@@ -606,9 +606,9 @@ echo $time
 <ul>
 <li>Test運算就是指『[…]』，其中要注意的是要加入『空白』，有空白的分隔才會被當成運算使用</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; echo $?
-<span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; echo $?
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; echo $?
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; echo $?
+</span></span></code></pre></div><p>
 
 
 
@@ -669,10 +669,10 @@ echo $time
   </figure>
 </p>
 <h4 id="字串判斷">字串判斷</h4>
-<pre tabindex="0"><code>yourname='Kevin Chang' myname='William Weng'
+<pre tabindex="0"><code>yourname=&#39;Kevin Chang&#39; myname=&#39;William Weng&#39;
 [ $yourname = $myname ]; echo $?
-[ &quot;$yourname&quot; = &quot;$myname&quot; ]; echo $?
-[ &quot;Kevin Chang&quot; = &quot;William Weng&quot; ]; echo $?
+[ &#34;$yourname&#34; = &#34;$myname&#34; ]; echo $?
+[ &#34;Kevin Chang&#34; = &#34;William Weng&#34; ]; echo $?
 </code></pre><p>
 
 
@@ -805,11 +805,11 @@ echo [h]*.sh
 <ul>
 <li>其實實際上在bash內它只是一行字，所以要<a href="https://www.techug.com/post/bash-pitfalls.html">注意</a>『空格 / 分號』 (-gt: 大於)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">2</span> -gt <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>;
-<span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;true&#34;</span>;
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">2</span> -gt <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;true&#34;</span>; <span style="color:#66d9ef">fi</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">2</span> -gt <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;true&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">2</span> -gt <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;true&#34;</span>; <span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -870,11 +870,11 @@ echo [h]*.sh
   </figure>
 </p>
 <h4 id="if-else">if else</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">10</span> -gt <span style="color:#ae81ff">100</span> <span style="color:#f92672">]</span>;
-<span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;true&#34;</span>;
-<span style="color:#66d9ef">else</span> echo <span style="color:#e6db74">&#34;false&#34;</span>;
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">10</span> -gt <span style="color:#ae81ff">100</span> <span style="color:#f92672">]</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span> echo <span style="color:#e6db74">&#34;true&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> echo <span style="color:#e6db74">&#34;false&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -935,14 +935,14 @@ echo [h]*.sh
   </figure>
 </p>
 <h4 id="if-elif-else">if elif else</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> 
-    echo <span style="color:#e6db74">&#34;true&#34;</span>;
-<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;false&#34;</span>;
-<span style="color:#66d9ef">else</span>
-    echo <span style="color:#e6db74">&#34;1 != 2, 1 != 3&#34;</span>
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span> 
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;true&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;false&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;1 != 2, 1 != 3&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1003,12 +1003,12 @@ echo [h]*.sh
   </figure>
 </p>
 <h4 id="實際範例">實際範例</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e hello.sh <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;hello.sh 存在&#34;</span>;
-<span style="color:#66d9ef">else</span> 
-    echo <span style="color:#e6db74">&#34;hello.sh 不存在&#34;</span>;
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -e hello.sh <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;hello.sh 存在&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;hello.sh 不存在&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1072,17 +1072,17 @@ echo [h]*.sh
 <ul>
 <li>『&amp;&amp; / -a』都叫做and，『!』叫not</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> ! 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;true&#34;</span>;
-<span style="color:#66d9ef">else</span>
-    echo <span style="color:#e6db74">&#34;false&#34;</span>;
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> -a 2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;true&#34;</span>;
-<span style="color:#66d9ef">else</span>
-    echo <span style="color:#e6db74">&#34;false&#34;</span>;
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">[</span> ! 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;true&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;false&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> 1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> -a 2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;true&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;false&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1146,19 +1146,19 @@ echo [h]*.sh
 <ul>
 <li>利用bash做數字的運算</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! $# -eq <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;參數數量不是三個&#34;</span>;
-    exit;
-<span style="color:#66d9ef">fi</span>
-
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;+&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;相加 = </span><span style="color:#66d9ef">$((</span>$1<span style="color:#f92672">+</span>$3<span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span>;
-<span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> $2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;相減 = </span><span style="color:#66d9ef">$((</span>$1<span style="color:#f92672">-</span>$3<span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span>;
-<span style="color:#66d9ef">else</span> 
-    echo <span style="color:#e6db74">&#34;不知道耶&#34;</span>
-<span style="color:#66d9ef">fi</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! $# -eq <span style="color:#ae81ff">3</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;參數數量不是三個&#34;</span>;
+</span></span><span style="display:flex;"><span>    exit;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;+&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;相加 = </span><span style="color:#66d9ef">$((</span>$1<span style="color:#f92672">+</span>$3<span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> $2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;相減 = </span><span style="color:#66d9ef">$((</span>$1<span style="color:#f92672">-</span>$3<span style="color:#66d9ef">))</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;不知道耶&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1220,12 +1220,12 @@ echo [h]*.sh
 </p>
 <h3 id="while迴圈">while迴圈</h3>
 <h4 id="利用while跑迴圈">利用while跑迴圈</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">((</span> index<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span> <span style="color:#f92672">))</span>;
-<span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span> index &gt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">))</span>; <span style="color:#66d9ef">do</span>
-    echo <span style="color:#e6db74">&#34;index = </span>$index<span style="color:#e6db74">&#34;</span>;
-    <span style="color:#f92672">((</span> index-- <span style="color:#f92672">))</span>;
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#f92672">((</span> index<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span> <span style="color:#f92672">))</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> <span style="color:#f92672">((</span> index &gt; <span style="color:#ae81ff">0</span> <span style="color:#f92672">))</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;index = </span>$index<span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">((</span> index-- <span style="color:#f92672">))</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1286,12 +1286,12 @@ echo [h]*.sh
   </figure>
 </p>
 <h4 id="利用while讀取csv檔">利用while讀取csv檔</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">while</span> read line; <span style="color:#66d9ef">do</span>                                         <span style="color:#75715e"># 一次讀取一行文字</span>
-    IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>;                                                <span style="color:#75715e"># 設定分隔號為，</span>
-    read -a records <span style="color:#f92672">&lt;&lt;&lt;</span> <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span>;                            <span style="color:#75715e"># 將line內容存入records中</span>
-    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>records[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">${</span>records[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">${</span>records[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> 
-<span style="color:#66d9ef">done</span> &lt; $1                                                   <span style="color:#75715e"># 將檔名(參數1)當成輸入資料</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> read line; <span style="color:#66d9ef">do</span>                                         <span style="color:#75715e"># 一次讀取一行文字</span>
+</span></span><span style="display:flex;"><span>    IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;,&#39;</span>;                                                <span style="color:#75715e"># 設定分隔號為，</span>
+</span></span><span style="display:flex;"><span>    read -a records <span style="color:#f92672">&lt;&lt;&lt;</span> <span style="color:#e6db74">&#34;</span>$line<span style="color:#e6db74">&#34;</span>;                            <span style="color:#75715e"># 將line內容存入records中</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>records[0]<span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">${</span>records[1]<span style="color:#e6db74">}</span><span style="color:#e6db74">, </span><span style="color:#e6db74">${</span>records[2]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span> &lt; $1                                                   <span style="color:#75715e"># 將檔名(參數1)當成輸入資料</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1353,16 +1353,16 @@ echo [h]*.sh
 </p>
 <h3 id="for迴圈">for迴圈</h3>
 <h4 id="利用for跑迴圈">利用for跑迴圈</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> index in <span style="color:#f92672">{</span>10..1<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
-    echo $index;
-<span style="color:#66d9ef">done</span>
-
-datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C D E&#34;</span>;
-
-<span style="color:#66d9ef">for</span> string in $datas; <span style="color:#66d9ef">do</span>
-    echo $string;
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index in <span style="color:#f92672">{</span>10..1<span style="color:#f92672">}</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo $index;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C D E&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> string in $datas; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo $string;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1426,14 +1426,14 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
 <ul>
 <li>裡面會用到一些Bash的<a href="https://linux.cn/article-5657-1.html">特殊符號</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> paramater in $*; <span style="color:#66d9ef">do</span>     <span style="color:#75715e"># $* =&gt; 傳回的是String</span>
-    echo $paramater;
-<span style="color:#66d9ef">done</span>
-
-<span style="color:#66d9ef">for</span> paramater in $@; <span style="color:#66d9ef">do</span>     <span style="color:#75715e"># $@ =&gt; 傳回的是Array</span>
-    echo $paramater;
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> paramater in $*; <span style="color:#66d9ef">do</span>     <span style="color:#75715e"># $* =&gt; 傳回的是String</span>
+</span></span><span style="display:flex;"><span>    echo $paramater;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> paramater in $@; <span style="color:#66d9ef">do</span>     <span style="color:#75715e"># $@ =&gt; 傳回的是Array</span>
+</span></span><span style="display:flex;"><span>    echo $paramater;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1494,10 +1494,10 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
   </figure>
 </p>
 <h4 id="讀取檔案名稱">讀取檔案名稱</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">for</span> filename in *.sh; <span style="color:#66d9ef">do</span>
-    echo $filename;
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> filename in *.sh; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo $filename;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1561,11 +1561,11 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
 <ul>
 <li>這裡有一些文字處理的<a href="http://xstarcd.github.io/wiki/shell/ShellParameterExpansion.html">相關內容</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\n&#34;</span>
-<span style="color:#66d9ef">for</span> line in <span style="color:#f92672">(</span>cat $1<span style="color:#f92672">)</span>; <span style="color:#66d9ef">do</span>
-    echo $line;
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>IFS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\n&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> line in <span style="color:#f92672">(</span>cat $1<span style="color:#f92672">)</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo $line;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1630,15 +1630,15 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
 <ul>
 <li>switch比較要注意的是『)跟;;』的語法</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
-    william<span style="color:#f92672">)</span>
-        echo <span style="color:#e6db74">&#34;Hello </span>$1<span style="color:#e6db74">&#34;</span>;;
-    jack<span style="color:#f92672">)</span>
-        echo <span style="color:#e6db74">&#34;Good morning, </span>$1<span style="color:#e6db74">&#34;</span>;;
-    *<span style="color:#f92672">)</span>
-        echo <span style="color:#e6db74">&#34;How are you, </span>$1<span style="color:#e6db74">&#34;</span>;;
-<span style="color:#66d9ef">esac</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>    william<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Hello </span>$1<span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span>    jack<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Good morning, </span>$1<span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span>    *<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;How are you, </span>$1<span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1702,15 +1702,15 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
 <ul>
 <li>話說bash的結尾字好像都是『倒著寫』耶？</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
-    0<span style="color:#f92672">)</span>
-        echo <span style="color:#e6db74">&#34;Zero&#34;</span>;;
-    1<span style="color:#f92672">)</span>
-        echo <span style="color:#e6db74">&#34;First&#34;</span>;;
-    *<span style="color:#f92672">)</span>
-        echo <span style="color:#e6db74">&#34;Other&#34;</span>;;
-<span style="color:#66d9ef">esac</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> in
+</span></span><span style="display:flex;"><span>    0<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Zero&#34;</span>;;
+</span></span><span style="display:flex;"><span>    1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;First&#34;</span>;;
+</span></span><span style="display:flex;"><span>    *<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;Other&#34;</span>;;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">esac</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1775,11 +1775,11 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
 <ul>
 <li>內有bash的<a href="https://www.tldp.org/LDP/abs/html/internalvariables.html">內建變數</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">select</span> filename in *; <span style="color:#66d9ef">do</span>
-    echo <span style="color:#e6db74">&#34;You select </span>$filename<span style="color:#e6db74">, </span>$REPLY<span style="color:#e6db74">&#34;</span>;
-    break;
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">select</span> filename in *; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;You select </span>$filename<span style="color:#e6db74">, </span>$REPLY<span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    break;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1840,17 +1840,17 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
   </figure>
 </p>
 <h4 id="select--switch">select + switch</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">colors<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red green blue&#34;</span>
-<span style="color:#66d9ef">select</span> color in $colors; <span style="color:#66d9ef">do</span>
-    <span style="color:#66d9ef">case</span> $color in
-        <span style="color:#e6db74">&#34;</span>$quit<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>
-            echo <span style="color:#e6db74">&#34;bye&#34;</span>
-            break;;
-        *<span style="color:#f92672">)</span>
-            echo <span style="color:#e6db74">&#34;selected color is </span>$color<span style="color:#e6db74">&#34;</span>;;
-    <span style="color:#66d9ef">esac</span>
-<span style="color:#66d9ef">done</span>
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>colors<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red green blue&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">select</span> color in $colors; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> $color in
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;</span>$quit<span style="color:#e6db74">&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            echo <span style="color:#e6db74">&#34;bye&#34;</span>
+</span></span><span style="display:flex;"><span>            break;;
+</span></span><span style="display:flex;"><span>        *<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            echo <span style="color:#e6db74">&#34;selected color is </span>$color<span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>
 
 
 
@@ -1915,17 +1915,17 @@ datas<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;A B C 
 <ul>
 <li>使用function關鍵字或()</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#66d9ef">function</span> my_print <span style="color:#f92672">{</span>
-    echo <span style="color:#e6db74">&#34;@my_print&#34;</span>;
-<span style="color:#f92672">}</span>
-
-your_print <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    echo <span style="color:#e6db74">&#34;@your_print&#34;</span>;
-<span style="color:#f92672">}</span>
-
-my_print;
-your_print;
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#66d9ef">function</span> my_print <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;@my_print&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>your_print <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;@your_print&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>my_print;
+</span></span><span style="display:flex;"><span>your_print;
+</span></span></code></pre></div><p>
 
 
 
@@ -1986,23 +1986,23 @@ your_print;
   </figure>
 </p>
 <h4 id="一般函式">一般函式</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hello <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    echo -e <span style="color:#e6db74">&#34;hello, \$1 = </span>$1<span style="color:#e6db74">, \$2 = </span>$2<span style="color:#e6db74">&#34;</span>;
-<span style="color:#f92672">}</span>
-
-isEqual <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $1 -eq $2 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-        <span style="color:#66d9ef">return</span> 0;
-    <span style="color:#66d9ef">fi</span>
-
-    <span style="color:#66d9ef">return</span> 1;
-<span style="color:#f92672">}</span>
-
-hello william go
-
-isEqual <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span>
-echo $?
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hello <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    echo -e <span style="color:#e6db74">&#34;hello, \$1 = </span>$1<span style="color:#e6db74">, \$2 = </span>$2<span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>isEqual <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $1 -eq $2 <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> 0;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> 1;
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>hello william go
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>isEqual <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>echo $?
+</span></span></code></pre></div><p>
 
 
 
@@ -2063,17 +2063,17 @@ echo $?
   </figure>
 </p>
 <h4 id="離開執行">離開執行</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exit_func <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
-    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-        echo <span style="color:#e6db74">&#34;exit in func&#34;</span>;
-        exit 1;
-    <span style="color:#66d9ef">fi</span>
-<span style="color:#f92672">}</span>
-
-exit_func $1;
-echo <span style="color:#e6db74">&#34;exit in main&#34;</span>;
-exit 0;
-</code></pre></div><p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>exit_func <span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> $1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;exit in func&#34;</span>;
+</span></span><span style="display:flex;"><span>        exit 1;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exit_func $1;
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;exit in main&#34;</span>;
+</span></span><span style="display:flex;"><span>exit 0;
+</span></span></code></pre></div><p>
 
 
 
@@ -2138,13 +2138,13 @@ exit 0;
 <ul>
 <li>因為個人常常錄製mov，學了一點簡單的bash之後，也不用使用IDE去轉檔，轉成mp4就這麼簡單，三行就OK…這篇只是我的個人筆記而已，學海無涯，各位一起努力吧，加油…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> name in *.mov; <span style="color:#66d9ef">do</span>
-  ffmpeg -i <span style="color:#e6db74">&#34;</span>$name<span style="color:#e6db74">&#34;</span> -an <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>name%.*<span style="color:#e6db74">}</span><span style="color:#e6db74">.mp4&#34;</span> 
-<span style="color:#66d9ef">done</span> 
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Windows的可以喲</span>
-<span style="color:#66d9ef">for</span> /F <span style="color:#e6db74">&#34;delims=&#34;</span> %i in <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;dir /b *.mov&#39;</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">do</span> ffmpeg -i <span style="color:#e6db74">&#34;%i&#34;</span> <span style="color:#e6db74">&#34;%~ni.mp4&#34;</span>
-</code></pre></div><p><a href="https://www.buymeacoffee.com/linuxice0609">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> name in *.mov; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  ffmpeg -i <span style="color:#e6db74">&#34;</span>$name<span style="color:#e6db74">&#34;</span> -an <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>name%.*<span style="color:#e6db74">}</span><span style="color:#e6db74">.mp4&#34;</span> 
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span> 
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Windows的可以喲</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> /F <span style="color:#e6db74">&#34;delims=&#34;</span> %i in <span style="color:#f92672">(</span><span style="color:#e6db74">&#39;dir /b *.mov&#39;</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">do</span> ffmpeg -i <span style="color:#e6db74">&#34;%i&#34;</span> <span style="color:#e6db74">&#34;%~ni.mp4&#34;</span>
+</span></span></code></pre></div><p><a href="https://www.buymeacoffee.com/linuxice0609">
 
 
 
@@ -2219,6 +2219,9 @@ exit 0;
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/" class="nav-link" title="【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合">【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</a>
       </li>
       <li>
@@ -2238,9 +2241,6 @@ exit 0;
       </li>
       <li>
         <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" class="nav-link" title="【Grails 4.0】Grails - 使用MySQL來存取資料啦">【Grails 4.0】Grails - 使用MySQL來存取資料啦</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" class="nav-link" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
       </li>
     </ul>
     <div>
@@ -2311,6 +2311,11 @@ exit 0;
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
+          GOLANG
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/mysql/' class="post_tag button button_translucent" title="mysql">
           MYSQL
           <span class="button_tally">5</span>
@@ -2319,11 +2324,6 @@ exit 0;
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
-          GOLANG
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
@@ -2406,6 +2406,11 @@ exit 0;
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
+          SQLITE
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -2418,6 +2423,11 @@ exit 0;
         
         <a href='https://William-Weng.github.io/tags/ubuntu/' class="post_tag button button_translucent" title="ubuntu">
           UBUNTU
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
+          WEB
           <span class="button_tally">2</span>
         </a>
         
@@ -2601,13 +2611,13 @@ exit 0;
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
-          SQLITE
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
+        <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
+          TINYURL
           <span class="button_tally">1</span>
         </a>
         
@@ -2628,11 +2638,6 @@ exit 0;
         
         <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
           VSCODE
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
-          WEB
           <span class="button_tally">1</span>
         </a>
         
@@ -2732,7 +2737,7 @@ exit 0;
   </div>
 </footer>
 
-    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.84b005361841618b00dc9871eb83e5466b5d4b84f4888ac28fc99cb6e53c5a66063ac0b6d2d91dbf61fe8b35f5ee5e9c4d0a722b6eea6c8504061c617080244f.js" integrity="sha512-hLAFNhhBYYsA3Jhx64PlRmtdS4T0iIrCj8mctuU8WmYGOsC20tkdv2H&#43;izX17l6cTQpyK27qbIUEBhxhcIAkTw==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://William-Weng.github.io/js/bundle.min.fe14f20ee75eb99301c83930990b3f10977f50769fa525eecc7e0c766e9e88b36508ccc6633e5efda7bb4a4e0c33dd01131431094346327536c9908c5495cee9.js" integrity="sha512-/hTyDudeuZMByDkwmQs/EJd/UHafpSXuzH4Mdm6eiLNlCMzGYz5e/ae7Sk4MM90BExQxCUNGMnU2yZCMVJXO6Q==" crossorigin="anonymous"></script>
     
   </body>
 </html>
