@@ -6,7 +6,23 @@
     <description>Recent content in nativescript on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Tue, 23 Jul 2019 13:51:07 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/nativescript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 May 2022 11:33:44 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/nativescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Flutter 3.1】Flutter vs NativeScript - 回憶篇</title>
+      <link>https://William-Weng.github.io/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/</link>
+      <pubDate>Sun, 29 May 2022 11:33:44 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;離上一篇&lt;a href=&#34;https://William-Weng.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;的文章，算算了有三年了吧，這篇只是單純比較、回憶一下而已。其實個人一直認為手機多平台開發是&lt;a href=&#34;https://www.books.com.tw/products/0010767651&#34;&gt;斜門歪道&lt;/a&gt;，但自從&lt;a href=&#34;https://docs.flutter.dev/development/tools/sdk/release-notes/release-notes-3.0.0&#34;&gt;Flutter 3.0&lt;/a&gt;出現之後，似乎有了希望。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【NativeScript 6】NativeScript &#43; Vue.js = iOS &#43; Android?</title>
       <link>https://William-Weng.github.io/2019/07/nativescript-6nativescript--vue.js-ios--android/</link>
