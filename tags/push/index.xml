@@ -6,7 +6,23 @@
     <description>Recent content in push on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 01 May 2022 07:21:56 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/push/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Jun 2022 14:24:00 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/push/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Swift 5.6】RichPushNotification - 有錢人的推播功能？</title>
+      <link>https://William-Weng.github.io/2022/06/swift-5.6richpushnotification-%E6%9C%89%E9%8C%A2%E4%BA%BA%E7%9A%84%E6%8E%A8%E6%92%AD%E5%8A%9F%E8%83%BD/</link>
+      <pubDate>Sat, 11 Jun 2022 14:24:00 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/06/swift-5.6richpushnotification-%E6%9C%89%E9%8C%A2%E4%BA%BA%E7%9A%84%E6%8E%A8%E6%92%AD%E5%8A%9F%E8%83%BD/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://www.facebook.com/%E5%A6%99%E8%AA%9E%E9%80%A3%E7%8F%A0%E7%AC%91%E4%B8%80%E7%AC%91-969881116389749/videos/%E5%8F%97%E4%BA%BA%E9%BB%9E%E6%BB%B4%E6%81%A9%E5%A0%B1%E4%B9%8B%E4%BB%A5%E6%B9%A7%E6%B3%89%E5%A6%82%E4%BD%95%E7%BF%BB%E8%AD%AF%E6%88%90%E8%8B%B1%E6%96%87/233574811262261/&#34;&gt;受人點滴當湧泉以報&lt;/a&gt;，這次來介紹&lt;a href=&#34;https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification&#34;&gt;推播&lt;/a&gt;的功能，其實除了&lt;a href=&#34;https://ppfocus.com/hk/0/cu0b32b39.html&#34;&gt;顯示文字&lt;/a&gt;之外，在iOS 12之後加上&lt;a href=&#34;https://www.appcoda.com.tw/user-notifications-ios12/&#34;&gt;顯示圖片&lt;/a&gt;的功能，不過這個功能在&lt;a href=&#34;https://stackoverflow.com/questions/31979394/how-to-show-the-image-in-push-notification-gcm-android&#34;&gt;Android&lt;/a&gt;好像很久以前&lt;a href=&#34;https://developer.android.com/training/notify-user/expanded&#34;&gt;就有了&lt;/a&gt;？而這個功能也是&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10196486&#34;&gt;網頁&lt;/a&gt;不可取代的&lt;a href=&#34;https://youtu.be/4ZGM40Lj5to&#34;&gt;必備功能&lt;/a&gt;，在此特別感謝&lt;a href=&#34;https://github.com/nick6969/SlideShow/blob/master/20170718-remoteNotification.key&#34;&gt;Nick大大&lt;/a&gt;的簡報，話不多說，就來實作一下吧。&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</title>
       <link>https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</link>

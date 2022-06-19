@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://William-Weng.github.io/2022/06/swift-5.6richpushnotification-%E6%9C%89%E9%8C%A2%E4%BA%BA%E7%9A%84%E6%8E%A8%E6%92%AD%E5%8A%9F%E8%83%BD/</loc>
+    <lastmod>2022-06-11T14:24:00+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/post/</loc>
+    <lastmod>2022-06-11T14:24:00+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/push/</loc>
+    <lastmod>2022-06-11T14:24:00+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/swift/</loc>
+    <lastmod>2022-06-11T14:24:00+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/</loc>
+    <lastmod>2022-06-11T14:24:00+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/</loc>
+    <lastmod>2022-06-11T14:24:00+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/xcode/</loc>
+    <lastmod>2022-06-11T14:24:00+08:00</lastmod>
+  </url><url>
     <loc>https://William-Weng.github.io/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/</loc>
     <lastmod>2022-05-29T11:33:44+08:00</lastmod>
   </url><url>
@@ -20,16 +41,7 @@
     <loc>https://William-Weng.github.io/tags/nativescript/</loc>
     <lastmod>2022-05-29T11:33:44+08:00</lastmod>
   </url><url>
-    <loc>https://William-Weng.github.io/post/</loc>
-    <lastmod>2022-05-29T11:33:44+08:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/tags/</loc>
-    <lastmod>2022-05-29T11:33:44+08:00</lastmod>
-  </url><url>
     <loc>https://William-Weng.github.io/tags/web/</loc>
-    <lastmod>2022-05-29T11:33:44+08:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/</loc>
     <lastmod>2022-05-29T11:33:44+08:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/tags/windows/</loc>
@@ -51,9 +63,6 @@
     <lastmod>2022-05-01T07:21:56+08:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/tags/email/</loc>
-    <lastmod>2022-05-01T07:21:56+08:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/tags/push/</loc>
     <lastmod>2022-05-01T07:21:56+08:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/tags/sms/</loc>
@@ -90,12 +99,6 @@
     <lastmod>2022-04-09T09:12:17+08:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/2021/05/swift-5%E6%88%91%E5%88%B0%E5%BA%95%E8%BA%AB%E5%9C%A8%E4%BD%95%E6%96%B9%E6%88%91%E5%88%B0%E5%BA%95%E5%8E%BB%E5%88%B0%E4%BD%95%E8%99%95/</loc>
-    <lastmod>2021-05-31T12:10:27+00:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/tags/swift/</loc>
-    <lastmod>2021-05-31T12:10:27+00:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/tags/xcode/</loc>
     <lastmod>2021-05-31T12:10:27+00:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</loc>
