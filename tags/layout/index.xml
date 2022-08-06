@@ -6,7 +6,23 @@
     <description>Recent content in layout on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 13 May 2019 16:04:16 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/layout/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Jul 2022 21:49:20 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/layout/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Flutter 3.1】Flutter我來了 - 萬用的ListView</title>
+      <link>https://William-Weng.github.io/2022/07/flutter-3.1flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</link>
+      <pubDate>Sun, 31 Jul 2022 21:49:20 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/07/flutter-3.1flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</guid>
+      <description>
+        
+          
+            &lt;p&gt;寫程式真的是一條&lt;a href=&#34;https://youtu.be/B605yySdkUE&#34;&gt;活到老學到老&lt;/a&gt;的不歸路啊…這次就來學學&lt;a href=&#34;https://book.flutterchina.club/&#34;&gt;flutter 3.0&lt;/a&gt;吧，終於安裝的是完整的&lt;a href=&#34;https://www.cnblogs.com/zhaoqingqing/p/13145115.html&#34;&gt;ARM64環境&lt;/a&gt;。要先學什麼好呢？就學萬用的&lt;a href=&#34;ttps://flutter.cn/docs/get-started/flutter-for/ios-devs&#34;&gt;ListView&lt;/a&gt;吧…聽說&lt;a href=&#34;https://applealmond.com/posts/151000&#34;&gt;Apple Silicon M2&lt;/a&gt;的&lt;a href=&#34;https://www.techbang.com/posts/98410-the-m2-version-of-macbook-air-is-open-for-pre-order-priced-at&#34;&gt;Macbook Air&lt;/a&gt;在台開買了，想買，但是…&lt;a href=&#34;https://mrmad.com.tw/m2-macbook-air-2022-officially-goes-on-sale&#34;&gt;沒錢錢&lt;/a&gt;…&lt;a href=&#34;https://www.storm.mg/lifestyle/2956993?mode=whole&#34;&gt;農曆七月&lt;/a&gt;到了，彈首&lt;a href=&#34;https://youtu.be/uHDIz_3DgRI&#34;&gt;通靈少女&lt;/a&gt;的插曲，算是滿應景的吧？XD，同時也祝大家&lt;a href=&#34;https://youtu.be/xduAxtB13xM&#34;&gt;父親節 / 付清節&lt;/a&gt;快樂…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Flutter 1.2】手機的畫面佈局 (Container篇)</title>
       <link>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
