@@ -6,13 +6,30 @@
     <description>Recent content in Posts on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 31 Jul 2022 21:49:20 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Aug 2022 16:45:30 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>【Flutter 3.1】Flutter我來了 - 萬用的ListView</title>
-      <link>https://William-Weng.github.io/2022/07/flutter-3.1flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</link>
+      <title>【Flutter 3.0】初學ListView - 可愛的角落生物我來了</title>
+      <link>https://William-Weng.github.io/2022/08/flutter-3.0%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/</link>
+      <pubDate>Sat, 13 Aug 2022 16:45:30 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/08/flutter-3.0%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/</guid>
+      <description>
+        
+          
+            &lt;p&gt;最近實際學了一下&lt;a href=&#34;https://youtu.be/HD5gYnspYzk&#34;&gt;Flutter ~ 抖動？&lt;/a&gt;之後，個人發現它的想法不太像一般手機APP的想法，反而比較像&lt;a href=&#34;https://jonny-huang.github.io/flutter/flutter_003/&#34;&gt;網頁？&lt;/a&gt;，都是以&lt;a href=&#34;https://youtu.be/gK288ZfzjCc&#34;&gt;Widget&lt;/a&gt;去組合，把元件切的很細，一直去做組合，而且反而&lt;a href=&#34;https://ithelp.ithome.com.tw/articles/10215158&#34;&gt;懂元件&lt;/a&gt;的種類，遠比寫程式硬寫來得重要…
+今天，續上集的熱烈&lt;a href=&#34;https://www.google.com/search?q=%E4%B8%A6%E6%B2%92%E6%9C%89&#34;&gt;回應之後&lt;/a&gt;，我們就來做一個&lt;a href=&#34;https://www.google.com/search?q=%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9&#34;&gt;角落生物&lt;/a&gt;的列表，那以下的圖片Link呢，都僅做為教學之用，Let&amp;rsquo;s Go…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Flutter 3.0】Flutter我來了 - 萬用的ListView</title>
+      <link>https://William-Weng.github.io/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</link>
       <pubDate>Sun, 31 Jul 2022 21:49:20 +0800</pubDate>
       
-      <guid>https://William-Weng.github.io/2022/07/flutter-3.1flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</guid>
+      <guid>https://William-Weng.github.io/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</guid>
       <description>
         
           
