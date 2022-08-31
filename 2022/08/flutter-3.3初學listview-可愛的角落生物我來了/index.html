@@ -11,14 +11,14 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="最近實際學了一下Flutter ~ 抖動？之後，個人發現它的想法不太像一般手機APP的想法，反而比較像網頁？，都是以Widget去組合，把元件切的很細，一直去做組合，而且反而懂元件的種類，遠比寫程式硬寫來得重要…
-今天，續上集的熱烈回應之後，我們就來做一個角落生物的列表，那以下的圖片Link呢，都僅做為教學之 …">
+今天，續上集的熱烈回應之後，我們就來做一個角落生物的列表，那以下的圖片Link呢，都僅做為教學之用， …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="【Flutter 3.3】初學ListView - 可愛的角落生物我來了" />
 <meta property="og:url" content="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/" />
 <meta property="og:title" content="【Flutter 3.3】初學ListView - 可愛的角落生物我來了" />
 <meta property="og:description" content="最近實際學了一下Flutter ~ 抖動？之後，個人發現它的想法不太像一般手機APP的想法，反而比較像網頁？，都是以Widget去組合，把元件切的很細，一直去做組合，而且反而懂元件的種類，遠比寫程式硬寫來得重要…
-今天，續上集的熱烈回應之後，我們就來做一個角落生物的列表，那以下的圖片Link呢，都僅做為教學之 …" />
+今天，續上集的熱烈回應之後，我們就來做一個角落生物的列表，那以下的圖片Link呢，都僅做為教學之用， …" />
 <meta property="og:image" content="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/images/thumbnail/Flutter.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://William-Weng.github.io/icons/apple-touch-icon.png">
@@ -84,7 +84,7 @@
 </svg></span>
     <span class="post_date">
       Aug 13, 2022</span>
-    <span class="post_time"> · 7 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/flutter' title="flutter" class="post_tag button button_translucent">flutter
+    <span class="post_time"> · 9 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/flutter' title="flutter" class="post_tag button button_translucent">flutter
         </a><a href='https://William-Weng.github.io/tags/ios' title="ios" class="post_tag button button_translucent">ios
         </a><a href='https://William-Weng.github.io/tags/android' title="android" class="post_tag button button_translucent">android
         </a><a href='https://William-Weng.github.io/tags/layout' title="layout" class="post_tag button button_translucent">layout
@@ -122,8 +122,8 @@
 
 
     
-    <div class="post_body"><p>最近實際學了一下<a href="https://youtu.be/HD5gYnspYzk">Flutter ~ 抖動？</a>之後，個人發現它的想法不太像一般手機APP的想法，反而比較像<a href="https://jonny-huang.github.io/flutter/flutter_003/">網頁？</a>，都是以<a href="https://youtu.be/gK288ZfzjCc">Widget</a>去組合，把元件切的很細，一直去做組合，而且反而<a href="https://ithelp.ithome.com.tw/articles/10215158">懂元件</a>的種類，遠比寫程式硬寫來得重要…
-今天，續上集的熱烈<a href="https://www.google.com/search?q=%E4%B8%A6%E6%B2%92%E6%9C%89">回應之後</a>，我們就來做一個<a href="https://www.google.com/search?q=%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9">角落生物</a>的列表，那以下的圖片Link呢，都僅做為教學之用，Let&rsquo;s Go…</p>
+    <div class="post_body"><p>最近實際學了一下<a href="https://youtu.be/HD5gYnspYzk">Flutter ~ 抖動？</a>之後，個人發現它的想法不太像一般手機APP的想法，反而比較像<a href="https://jonny-huang.github.io/flutter/flutter_003/">網頁？</a>，都是以<a href="https://youtu.be/gK288ZfzjCc">Widget</a>去組合，把元件切的很細，一直去做組合，而且反而<a href="https://ithelp.ithome.com.tw/articles/10215158">懂元件</a>的種類，遠比寫程式<a href="https://sshiqiao.github.io/document/douyin-swift.html">硬寫</a>來得重要…
+今天，續上集的熱烈<a href="https://www.google.com/search?q=%E4%B8%A6%E6%B2%92%E6%9C%89">回應之後</a>，我們就來做一個<a href="https://www.google.com/search?q=%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9">角落生物</a>的列表，那以下的圖片Link呢，都僅做為教學之用，<a href="https://youtu.be/hc-als4F4MM">Let&rsquo;s Go</a>…</p>
 <h3 id="作業環境">作業環境</h3>
 <table>
 <thead>
@@ -1030,9 +1030,37 @@
 <ul>
 <li>其實，這個也滿單純的，就設定ScrollController的offset就可以了…</li>
 <li>這裡因為呢，滾到0的時候會觸發更新JSON，所以『暫時』設定offset = 0.1…</li>
-<li>不過如果官方有像iOS一樣，是直接設定<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/indexpath-%E5%9C%A8-switch-%E8%A3%A1%E5%8F%AF%E4%BB%A5%E7%95%B6%E6%88%90-array-%E4%BE%86%E6%AF%94%E5%B0%8D-e2710de94746">IndexPath</a>的話，相信會更方便的…</li>
+<li>不過如果有像iOS一樣，是直接設定<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/indexpath-%E5%9C%A8-switch-%E8%A3%A1%E5%8F%AF%E4%BB%A5%E7%95%B6%E6%88%90-array-%E4%BE%86%E6%AF%94%E5%B0%8D-e2710de94746">IndexPath</a>的話，相信會更方便的…</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_ProfilePageState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>ProfilePage<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> Widget bodyMaker(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> bottomPadding <span style="color:#f92672">=</span> MediaQuery.of(context).padding.bottom;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> bodyWidget <span style="color:#f92672">=</span> Scaffold(
+</span></span><span style="display:flex;"><span>      appBar: PreferredSize(
+</span></span><span style="display:flex;"><span>        preferredSize: AppBar().preferredSize,
+</span></span><span style="display:flex;"><span>        child: WWAppBar(
+</span></span><span style="display:flex;"><span>          title: widget.title,
+</span></span><span style="display:flex;"><span>          color: Colors.black,
+</span></span><span style="display:flex;"><span>          backgroundColor: Colors.transparent,
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>      extendBodyBehindAppBar: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      backgroundColor: Colors.amber.shade100,
+</span></span><span style="display:flex;"><span>      body: listViewBuilder(_sampleList.length),
+</span></span><span style="display:flex;"><span>      floatingActionButton: Padding(
+</span></span><span style="display:flex;"><span>        padding: EdgeInsets.only(bottom: bottomPadding),
+</span></span><span style="display:flex;"><span>        child: FloatingActionButton(
+</span></span><span style="display:flex;"><span>          onPressed: scrollToTop,
+</span></span><span style="display:flex;"><span>          tooltip: <span style="color:#e6db74">&#39;回到第一個&#39;</span>,
+</span></span><span style="display:flex;"><span>          child: <span style="color:#66d9ef">const</span> Icon(Icons.arrow_upward),
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> bodyWidget;
+</span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> scrollToTop() {
 </span></span><span style="display:flex;"><span>    _scrollController.animateTo(
@@ -1045,8 +1073,8 @@
 </span></span></code></pre></div><h4 id="加上loading動畫">加上loading動畫</h4>
 <ul>
 <li>最後呢，再加上一個轉圈圈，就看起來更有feel了啦…</li>
-<li>這種提示型的功能，一般統稱做<a href="https://github.com/pkluz/PKHUD">HUD - Head-Up Display</a>，就是<a href="https://24h.pchome.com.tw/store/DXAA6A">抬頭顯示器</a>…</li>
-<li>這裡是利用<a href="https://book.flutterchina.club/chapter3/progress.html">CircularProgressIndicator</a> + <a href="https://ithelp.ithome.com.tw/articles/10215918">Navigator.of(context).push()</a>，就是利用下一頁的功能，只要讓Widget背景是透明的，看起來就很像了…</li>
+<li>這種提示型的功能，一般統稱做<a href="https://github.com/pkluz/PKHUD">HUD (Head-Up Display)</a>，就是<a href="https://24h.pchome.com.tw/store/DXAA6A">抬頭顯示器</a>…</li>
+<li>這裡是利用<a href="https://book.flutterchina.club/chapter3/progress.html">CircularProgressIndicator</a> + <a href="https://ithelp.ithome.com.tw/articles/10215918">Navigator.of(context).push()</a>，就是利用開啟下一頁的功能，只要讓Widget背景是透明的，看起來就很像了…</li>
 <li>這招也是從<a href="https://medium.com/hans-revolution/swift-%E8%B7%B3%E8%BD%89-controller-%E6%99%82%E8%A8%AD%E5%AE%9A%E8%83%8C%E6%99%AF%E5%8D%8A%E9%80%8F%E6%98%8E-2be562112686">iOS</a>上學來的，沒想到還真的可以用啊…</li>
 </ul>
 <p>
@@ -1163,13 +1191,311 @@
 </span></span><span style="display:flex;"><span>    );
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="點擊換頁">點擊換頁</h4>
+<ul>
+<li>在這裡，利用<a href="">Navigator</a>來切換至下一頁…</li>
+<li>也利用ProfileDetailPage的<a href="https://ithelp.ithome.com.tw/articles/10107623">Constructor - 建構子</a>，把選中的值帶過去…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_ProfilePageState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>ProfilePage<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> itemOnTap(<span style="color:#66d9ef">int</span> index) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> sample <span style="color:#f92672">=</span> _sampleList.elementAt(index);
+</span></span><span style="display:flex;"><span>    Navigator.push(context, MaterialPageRoute(builder: (context) <span style="color:#f92672">=&gt;</span> ProfileDetailPage(sample: sample)));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="開啟網頁">開啟網頁</h4>
+<ul>
+<li>這裡我們想要有點了圖片，然後在網頁開啟該<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B8%80%E8%B5%84%E6%BA%90%E5%AE%9A%E4%BD%8D%E7%AC%A6">Url</a>…</li>
+<li>因為一般圖片點擊下去是沒有反應的，只要加上<a href="https://www.gushiciku.cn/pl/ggBK/zh-tw">InkWell</a>，就可以給任意Widget增加點選事件…</li>
+<li>如果只是一般<a href="https://openhome.cc/Gossip/Flutter/GestureDetector.html">點一下</a>的功能，只要用到<a href="https://stackoverflow.com/questions/56715403/how-to-add-onclick-on-image-asset-in-flutter">GestureDetector</a>就可以了…</li>
+<li>這裡我們刻意加上<a href="https://www.aiwalls.com/android%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC%E6%95%99%E5%AD%B8/29/23282.html">onDoubleTap</a>的事件，安裝套件<a href="https://pub.dev/packages/url_launcher">url_launcher</a></li>
+<li>其實<a href="https://codertw.com/%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80/686195/">url_launcher</a>，也能利用Scheme，打電話、開第三方APP…</li>
+<li>我們可以使用<a href="https://blog.logrocket.com/launching-urls-flutter-url_launcher/">指令安裝</a>，或者是在<a href="https://flutter.cn/docs/development/packages-and-plugins/using-packages">pubspec.yaml</a>上新增都是可以的…</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/flutter-listview-json/url.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flutter pub add url_launcher
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flutter pub get
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;dart:developer&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter/material.dart&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter_first_app/utility/model.dart&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter_first_app/utility/utility.dart&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter_first_app/utility/widget/appBar.dart&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:url_launcher/url_launcher_string.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProfileDetailPage</span> <span style="color:#66d9ef">extends</span> StatefulWidget {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> Sample sample;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> ProfileDetailPage({Key<span style="color:#f92672">?</span> key, required <span style="color:#66d9ef">this</span>.sample}) <span style="color:#f92672">:</span> <span style="color:#66d9ef">super</span>(key: key);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  State<span style="color:#f92672">&lt;</span>ProfileDetailPage<span style="color:#f92672">&gt;</span> createState() <span style="color:#f92672">=&gt;</span> _ProfileDetailPageState();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_ProfileDetailPageState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>ProfileDetailPage<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>  late Sample _sample;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> initState() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.initState();
+</span></span><span style="display:flex;"><span>    _sample <span style="color:#f92672">=</span> widget.sample;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  Widget build(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Scaffold(
+</span></span><span style="display:flex;"><span>        appBar: PreferredSize(
+</span></span><span style="display:flex;"><span>          preferredSize: AppBar().preferredSize,
+</span></span><span style="display:flex;"><span>          child: WWAppBar(
+</span></span><span style="display:flex;"><span>            title: _sample.title,
+</span></span><span style="display:flex;"><span>            backgroundColor: Colors.greenAccent,
+</span></span><span style="display:flex;"><span>          ),
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        body: Column(
+</span></span><span style="display:flex;"><span>          children: [
+</span></span><span style="display:flex;"><span>            InkWell(
+</span></span><span style="display:flex;"><span>              child: Utility.shared.webImage(
+</span></span><span style="display:flex;"><span>                _sample.imageUrl,
+</span></span><span style="display:flex;"><span>              ),
+</span></span><span style="display:flex;"><span>              onDoubleTap: () {
+</span></span><span style="display:flex;"><span>                gotoUrl(_sample.imageUrl);
+</span></span><span style="display:flex;"><span>              },
+</span></span><span style="display:flex;"><span>            ),
+</span></span><span style="display:flex;"><span>            Expanded(
+</span></span><span style="display:flex;"><span>              child: SingleChildScrollView(
+</span></span><span style="display:flex;"><span>                scrollDirection: Axis.vertical,
+</span></span><span style="display:flex;"><span>                child: Padding(
+</span></span><span style="display:flex;"><span>                  padding: <span style="color:#66d9ef">const</span> EdgeInsets.all(<span style="color:#ae81ff">8.0</span>),
+</span></span><span style="display:flex;"><span>                  child: Text(
+</span></span><span style="display:flex;"><span>                    _sample.content,
+</span></span><span style="display:flex;"><span>                    style: <span style="color:#66d9ef">const</span> TextStyle(
+</span></span><span style="display:flex;"><span>                      fontSize: <span style="color:#ae81ff">32</span>,
+</span></span><span style="display:flex;"><span>                    ),
+</span></span><span style="display:flex;"><span>                  ),
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>              ),
+</span></span><span style="display:flex;"><span>            ),
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>        ));
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Future<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">bool</span><span style="color:#f92672">&gt;</span> gotoUrl(<span style="color:#66d9ef">String</span> url) <span style="color:#66d9ef">async</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">String</span> urlString <span style="color:#f92672">=</span> Uri.encodeFull(url);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">await</span> launchUrlString(urlString);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="非同步--異步">非同步 / 異步</h4>
+<ul>
+<li>大家可以看到有<a href="https://medium.com/%E9%A6%AC%E5%85%8B%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98/flutter-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-future-futurebuilder-463c75f491f1">Future - 未來</a>這個關鍵字…</li>
+<li>字如其義，就是要等一下才會有反應的東西，也就是<a href="https://ithelp.ithome.com.tw/articles/10242688">非同步 / 異步</a>的功能…</li>
+<li>所以它會伴隨著<a href="https://dart.cn/tutorials/language/futures">async</a> / <a href="https://dart.dev/codelabs/async-await">await</a>這兩個關鍵字，也就是像js的<a href="https://www.casper.tw/development/2020/02/16/all-new-promise/">Promise</a>功能…</li>
+<li>在<a href="https://ithelp.ithome.com.tw/articles/10278941">Swift 5.5中</a>，也增加了<a href="https://www.appcoda.com.tw/swift-concurrency-actor/">async / await</a>這兩個新特性…</li>
+</ul>
+<h3 id="搜尋功能">搜尋功能</h3>
+<h4 id="切換titlebar">切換TitleBar</h4>
+<ul>
+<li>一般這有兩種顯示的方法：
+<ol>
+<li>點擊後去開新的一頁，在該頁上顯示搜尋列，像<a href="https://play.google.com/store/apps/details?id=com.shopee.tw&amp;hl=zh_TW&amp;gl=US">蝦皮APP</a> / <a href="https://youtu.be/wFbLqUpgzgQ">Google的APP</a>都是這一類的，好像大多數的<a href="https://m.momoshop.com.tw/main.momo">商城類APP</a>都是這樣設計的…</li>
+<li>另外就是，直接在該頁顯示搜尋列，這邊要做的就是這一種…</li>
+</ol>
+</li>
+<li>利用切換<a href="https://openhome.cc/Gossip/Flutter/AppBar.html">AppBar(title:)</a>的方式去處理，<a href="https://hsuchihting.github.io/vue-js/20200922/1658435018/">動態切換</a>上面的Widget…</li>
+<li>簡單來說，就是點下去，然後更新Title的Widget…</li>
+<li>這是自己想的方法，所以…<a href="https://checkcoverage.apple.com/tw/zh/;jsessionid=node01qmeh6o9nak60yul1qjf9njw65029004.node0">不保固</a>…XD</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/flutter-listview-json/SearchBar.png" alt="" loading="lazy" decoding="async" width="656" height="512"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_WWAppBarState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>WWAppBar<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  Widget build(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> appBar <span style="color:#f92672">=</span> AppBar(
+</span></span><span style="display:flex;"><span>      title: appBarTitleBar,
+</span></span><span style="display:flex;"><span>      titleSpacing: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      centerTitle: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      backgroundColor: widget.backgroundColor,
+</span></span><span style="display:flex;"><span>      elevation: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      actions: [
+</span></span><span style="display:flex;"><span>        IconButton(
+</span></span><span style="display:flex;"><span>          icon: searchIcon,
+</span></span><span style="display:flex;"><span>          color: Colors.blue,
+</span></span><span style="display:flex;"><span>          onPressed: () {
+</span></span><span style="display:flex;"><span>            setState(() {
+</span></span><span style="display:flex;"><span>              toggleTitleBar();
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> appBar;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> toggleTitleBar() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isSearchBar) {
+</span></span><span style="display:flex;"><span>      isSearchBar <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>      searchIcon <span style="color:#f92672">=</span> <span style="color:#66d9ef">const</span> Icon(Icons.cancel);
+</span></span><span style="display:flex;"><span>      appBarTitleBar <span style="color:#f92672">=</span> searchBar();
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    isSearchBar <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    searchIcon <span style="color:#f92672">=</span> <span style="color:#66d9ef">const</span> Icon(Icons.search);
+</span></span><span style="display:flex;"><span>    appBarTitleBar <span style="color:#f92672">=</span> titleBar();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="實做搜尋功能">實做搜尋功能</h4>
+<ul>
+<li>主要是在SearchBar上，留了兩個<a href="https://medium.flutterdevs.com/working-with-callback-in-flutter-89dc207cba37">Callback Function</a>變數，讓利用它的元件去自訂它的功能…</li>
+<li>這就像是前面的<a href="https://docs.flutter.dev/cookbook/gestures/handling-taps">onTap()</a>一樣的功能…</li>
+<li>至於實作呢，目前就只是簡單的<a href="https://api.flutter.dev/flutter/dart-core/String/contains.html">文字比對</a>而已…</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/flutter-listview-json/search.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter/material.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WWSearchBar</span> <span style="color:#66d9ef">extends</span> StatefulWidget {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> title;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> Color<span style="color:#f92672">?</span> color;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> Color<span style="color:#f92672">?</span> backgroundColor;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> Function(<span style="color:#66d9ef">String</span>) searchAction;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> Function(<span style="color:#66d9ef">bool</span>) toggleAction;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> WWSearchBar({
+</span></span><span style="display:flex;"><span>    Key<span style="color:#f92672">?</span> key,
+</span></span><span style="display:flex;"><span>    required <span style="color:#66d9ef">this</span>.title,
+</span></span><span style="display:flex;"><span>    required <span style="color:#66d9ef">this</span>.searchAction,
+</span></span><span style="display:flex;"><span>    required <span style="color:#66d9ef">this</span>.toggleAction,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.color,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.backgroundColor,
+</span></span><span style="display:flex;"><span>  }) <span style="color:#f92672">:</span> <span style="color:#66d9ef">super</span>(key: key);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  State<span style="color:#f92672">&lt;</span>WWSearchBar<span style="color:#f92672">&gt;</span> createState() <span style="color:#f92672">=&gt;</span> _WWSearchBarState();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Widget bodyMaker(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> bottomPadding <span style="color:#f92672">=</span> MediaQuery.of(context).padding.bottom;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> bodyWidget <span style="color:#f92672">=</span> Scaffold(
+</span></span><span style="display:flex;"><span>      appBar: PreferredSize(
+</span></span><span style="display:flex;"><span>        preferredSize: AppBar().preferredSize,
+</span></span><span style="display:flex;"><span>        child: WWSearchBar(
+</span></span><span style="display:flex;"><span>          title: widget.title,
+</span></span><span style="display:flex;"><span>          color: Colors.black,
+</span></span><span style="display:flex;"><span>          backgroundColor: Colors.white,
+</span></span><span style="display:flex;"><span>          searchAction: (value) {
+</span></span><span style="display:flex;"><span>            List<span style="color:#f92672">&lt;</span>Sample<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> sample <span style="color:#66d9ef">in</span> _sampleList) {
+</span></span><span style="display:flex;"><span>              <span style="color:#66d9ef">if</span> (sample.title.contains(value.toLowerCase())) {
+</span></span><span style="display:flex;"><span>                list.add(sample);
+</span></span><span style="display:flex;"><span>              }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            setState(() {
+</span></span><span style="display:flex;"><span>              _sampleList <span style="color:#f92672">=</span> list.toList();
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          toggleAction: (isSearchBar) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>isSearchBar) {
+</span></span><span style="display:flex;"><span>              setState(() {
+</span></span><span style="display:flex;"><span>                _sampleList <span style="color:#f92672">=</span> _fullSampleList.toList();
+</span></span><span style="display:flex;"><span>              });
+</span></span><span style="display:flex;"><span>            } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>              _fullSampleList <span style="color:#f92672">=</span> _sampleList.toList();
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>      extendBodyBehindAppBar: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      backgroundColor: Colors.amber.shade100,
+</span></span><span style="display:flex;"><span>      body: listViewBuilder(_sampleList.length),
+</span></span><span style="display:flex;"><span>      floatingActionButton: Padding(
+</span></span><span style="display:flex;"><span>        padding: EdgeInsets.only(bottom: bottomPadding),
+</span></span><span style="display:flex;"><span>        child: FloatingActionButton(
+</span></span><span style="display:flex;"><span>          onPressed: scrollToTop,
+</span></span><span style="display:flex;"><span>          tooltip: <span style="color:#e6db74">&#39;回到第一個&#39;</span>,
+</span></span><span style="display:flex;"><span>          child: <span style="color:#66d9ef">const</span> Icon(Icons.arrow_upward),
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> bodyWidget;
+</span></span><span style="display:flex;"><span>  }
 </span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengflutter-first-app"><a href="https://github.com/William-Weng/Flutter-First-App">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>因為本身就是<a href="/tags/ios">iOS打字工</a>，加上也自學過點一點點點<a href="/tags/android">Android</a>，而且本身一開始也是用<a href="https://www.android.com/">安卓手機</a>，其實對雙方的<a href="https://gremlinworks.com.tw/ui-ux/ui-ux-comparison/">UX體驗</a>也有基本的了解，其實要寫的長相一樣，是有點難度啊，因為系統<a href="https://medium.com/uxabc/designing-for-different-platforms-dc0d40eb18c3">本來就不一樣</a>，不過看起來Flutter在這點上保有<a href="https://jasonck.medium.com/%E5%8E%9F%E7%94%9F-ios-%E8%88%87-android-app-%E8%A8%AD%E8%A8%88%E4%B8%8A%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8D%80%E5%88%A5-4aef8610a0fd">各系統的特色</a>，就不知道在市場上能不能接受了？</li>
 <li>雖然能做得出來，但總是<a href="https://www.rocksaying.tw/archives/25688136.html">不太正規</a>，畢竟是自學的，請大家多多包含…</li>
 <li>其實寫<a href="https://tw.news.yahoo.com/4%E6%8A%80%E5%B7%A7%E9%80%99%E6%A8%A3%E5%81%9A-%E6%95%99%E5%B0%8E%E5%AD%A9%E5%AD%90%E6%A8%82%E6%96%BC%E5%88%86%E4%BA%AB-000204377.html">教學文章</a>真的很累，除了要能動之外，還要能讓人看得懂，不過個人還是<a href="https://buzzorange.com/techorange/2014/12/19/what-is-open-source/">樂於分享</a>的…</li>
-<li><a href="https://youtu.be/5flP7DbjQjY">木葉飛舞之處，火亦生生不息 (木の葉舞う所に火は燃ゆる)</a>, 請小心用火…XD</li>
+<li><a href="https://youtu.be/5flP7DbjQjY">木葉飛舞之處，火亦生生不息 (木の葉舞う所に火は燃ゆる)</a>，請小心用火…XD</li>
 </ul>
 <p><a href="https://www.buymeacoffee.com/linuxice0609">
 
