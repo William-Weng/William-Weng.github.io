@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en" data-figures="" class="page">
   <head>
-<title>【Flutter 3.0】初學ListView - 可愛的角落生物我來了 | William-Weng</title>
+<title>【Flutter 3.3】初學ListView - 可愛的角落生物我來了 | William-Weng</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,18 +14,18 @@
 今天，續上集的熱烈回應之後，我們就來做一個角落生物的列表，那以下的圖片Link呢，都僅做為教學之 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
-<meta name="twitter:title" content="【Flutter 3.0】初學ListView - 可愛的角落生物我來了" />
-<meta property="og:url" content="https://William-Weng.github.io/2022/08/flutter-3.0%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/" />
-<meta property="og:title" content="【Flutter 3.0】初學ListView - 可愛的角落生物我來了" />
+<meta name="twitter:title" content="【Flutter 3.3】初學ListView - 可愛的角落生物我來了" />
+<meta property="og:url" content="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/" />
+<meta property="og:title" content="【Flutter 3.3】初學ListView - 可愛的角落生物我來了" />
 <meta property="og:description" content="最近實際學了一下Flutter ~ 抖動？之後，個人發現它的想法不太像一般手機APP的想法，反而比較像網頁？，都是以Widget去組合，把元件切的很細，一直去做組合，而且反而懂元件的種類，遠比寫程式硬寫來得重要…
 今天，續上集的熱烈回應之後，我們就來做一個角落生物的列表，那以下的圖片Link呢，都僅做為教學之 …" />
-<meta property="og:image" content="https://William-Weng.github.io/2022/08/flutter-3.0%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/images/thumbnail/Flutter.png" />
+<meta property="og:image" content="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/images/thumbnail/Flutter.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://William-Weng.github.io/icons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://William-Weng.github.io/icons/favicon-32x32.png">
 <link rel="manifest" href="https://William-Weng.github.io/icons/site.webmanifest">
 
-<link rel="canonical" href="https://William-Weng.github.io/2022/08/flutter-3.0%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/">
+<link rel="canonical" href="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/">
 
     
 
@@ -77,14 +77,14 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">【Flutter 3.0】初學ListView - 可愛的角落生物我來了</h1>
+    <h1 class="post_title">【Flutter 3.3】初學ListView - 可愛的角落生物我來了</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <use xlink:href="#calendar"></use>
 </svg></span>
     <span class="post_date">
       Aug 13, 2022</span>
-    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/flutter' title="flutter" class="post_tag button button_translucent">flutter
+    <span class="post_time"> · 7 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/flutter' title="flutter" class="post_tag button button_translucent">flutter
         </a><a href='https://William-Weng.github.io/tags/ios' title="ios" class="post_tag button button_translucent">ios
         </a><a href='https://William-Weng.github.io/tags/android' title="android" class="post_tag button button_translucent">android
         </a><a href='https://William-Weng.github.io/tags/layout' title="layout" class="post_tag button button_translucent">layout
@@ -94,12 +94,12 @@
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Flutter%203.0%e3%80%91%e5%88%9d%e5%ad%b8ListView%20-%20%e5%8f%af%e6%84%9b%e7%9a%84%e8%a7%92%e8%90%bd%e7%94%9f%e7%89%a9%e6%88%91%e4%be%86%e4%ba%86&url=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f08%2fflutter-3.0%25E5%2588%259D%25E5%25AD%25B8listview-%25E5%258F%25AF%25E6%2584%259B%25E7%259A%2584%25E8%25A7%2592%25E8%2590%25BD%25E7%2594%259F%25E7%2589%25A9%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Flutter%203.3%e3%80%91%e5%88%9d%e5%ad%b8ListView%20-%20%e5%8f%af%e6%84%9b%e7%9a%84%e8%a7%92%e8%90%bd%e7%94%9f%e7%89%a9%e6%88%91%e4%be%86%e4%ba%86&url=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f08%2fflutter-3.3%25E5%2588%259D%25E5%25AD%25B8listview-%25E5%258F%25AF%25E6%2584%259B%25E7%259A%2584%25E8%25A7%2592%25E8%2590%25BD%25E7%2594%259F%25E7%2589%25A9%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#twitter"></use>
 </svg>
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f08%2fflutter-3.0%25E5%2588%259D%25E5%25AD%25B8listview-%25E5%258F%25AF%25E6%2584%259B%25E7%259A%2584%25E8%25A7%2592%25E8%2590%25BD%25E7%2594%259F%25E7%2589%25A9%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%2f&t=%e3%80%90Flutter%203.0%e3%80%91%e5%88%9d%e5%ad%b8ListView%20-%20%e5%8f%af%e6%84%9b%e7%9a%84%e8%a7%92%e8%90%bd%e7%94%9f%e7%89%a9%e6%88%91%e4%be%86%e4%ba%86" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f08%2fflutter-3.3%25E5%2588%259D%25E5%25AD%25B8listview-%25E5%258F%25AF%25E6%2584%259B%25E7%259A%2584%25E8%25A7%2592%25E8%2590%25BD%25E7%2594%259F%25E7%2589%25A9%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%2f&t=%e3%80%90Flutter%203.3%e3%80%91%e5%88%9d%e5%ad%b8ListView%20-%20%e5%8f%af%e6%84%9b%e7%9a%84%e8%a7%92%e8%90%bd%e7%94%9f%e7%89%a9%e6%88%91%e4%be%86%e4%ba%86" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <use xlink:href="#facebook"></use>
 </svg>
@@ -109,7 +109,7 @@
   <use xlink:href="#linkedin"></use>
 </svg>
     </a>
-    <a href="https://William-Weng.github.io/2022/08/flutter-3.0%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/" title="Copy Link" class="link link_yank">
+    <a href="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/" title="Copy Link" class="link link_yank">
       <svg class="icon">
   <use xlink:href="#copy"></use>
 </svg>
@@ -135,7 +135,7 @@
 <tbody>
 <tr>
 <td><a href="https://zh.wikipedia.org/zh-tw/MacOS">macOS</a></td>
-<td>Big Sur 12.4 arm64</td>
+<td>Big Sur 12.5.1 arm64</td>
 </tr>
 <tr>
 <td><a href="https://openjdk.org/">OpenJDK</a></td>
@@ -147,7 +147,7 @@
 </tr>
 <tr>
 <td><a href="https://flutter.dev/">Flutter SDK</a></td>
-<td>3.0.5 arm64</td>
+<td>3.3.0 arm64</td>
 </tr>
 <tr>
 <td><a href="https://apps.apple.com/tw/app/xcode/id497799835">Xcode</a></td>
@@ -155,7 +155,7 @@
 </tr>
 <tr>
 <td><a href="https://developer.android.com/studio">Android Studio</a></td>
-<td>2021.1.1 arm64</td>
+<td>2021.2.1 arm64</td>
 </tr>
 <tr>
 <td><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
@@ -177,7 +177,6 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<h3 id="範例程式碼下載httpsgithubcomwilliam-wengflutter-first-app"><a href="https://github.com/William-Weng/Flutter-First-App">範例程式碼下載</a></h3>
 <h3 id="自訂listview的長相">自訂ListView的長相</h3>
 <h4 id="自訂item的長相">自訂Item的長相</h4>
 <ul>
@@ -524,6 +523,7 @@
 <ul>
 <li>如果要上下一個個放上去的話，就使用<a href="https://medium.com/flutter-taipei/%E4%BE%86%E5%90%A7-flutter-7-row-column-3b8bc34a4d83">Column</a>吧…</li>
 <li>當然，有上下放，就會有左右放的<a href="https://ithelp.ithome.com.tw/articles/10218513">Row</a></li>
+<li>在視覺上，就有點像<a href="https://www.google.com/search?q=%E5%8D%83%E5%B1%A4%E7%B3%95">千層糕</a>的樣子，一層一層的…</li>
 <li>這其實跟iOS的<a href="https://jjeremy-xue.medium.com/swift-%E8%AA%AA%E8%AA%AA-%E5%A0%86%E7%96%8A%E8%A6%96%E5%9C%96-uistack-view-557c09f24645">UIStack View</a>滿像的…</li>
 <li>如果最後一個要填滿的話呢？就加上<a href="https://jdev.tw/blog/5960/flutter-expanded-widget">Expanded</a>，讓它放到最滿吧…</li>
 </ul>
@@ -742,12 +742,434 @@
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="後記">後記</h3>
+</span></span></code></pre></div><h3 id="模擬網路下載資料">模擬網路下載資料</h3>
+<ul>
+<li>一般來說，這種列表的資料一定是很多的，少說也有上百筆吧？所以不可能一次性的下載…</li>
+<li>這邊我們來模擬一下，上拉、下拉後，下載JSON資料，然後更新列表的功能…</li>
+<li>主要的Code都在這裡了，後面會分成一步步解說…</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/flutter-listview-json/update.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter/material.dart&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter_first_app/utility/widget/progressIndicator.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;/utility/model.dart&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;/utility/utility.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProfilePage</span> <span style="color:#66d9ef">extends</span> StatefulWidget {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> ProfilePage({Key<span style="color:#f92672">?</span> key, required <span style="color:#66d9ef">this</span>.title}) <span style="color:#f92672">:</span> <span style="color:#66d9ef">super</span>(key: key);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> title;
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  State<span style="color:#f92672">&lt;</span>ProfilePage<span style="color:#f92672">&gt;</span> createState() <span style="color:#f92672">=&gt;</span> _ProfilePageState();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_ProfilePageState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>ProfilePage<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> _title <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;萬能的滾動列表&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">String</span> _assetsPath <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./lib/assets/sample.json&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> ScrollController _scrollController <span style="color:#f92672">=</span> ScrollController();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bool</span> isDownloading <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Sample<span style="color:#f92672">&gt;</span> _sampleList <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> initState() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.initState();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    downloadJSON(
+</span></span><span style="display:flex;"><span>      _assetsPath,
+</span></span><span style="display:flex;"><span>      action: (list) {
+</span></span><span style="display:flex;"><span>        setState(() {
+</span></span><span style="display:flex;"><span>          _sampleList.addAll(list);
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    _scrollController.addListener(() {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">final</span> offset <span style="color:#f92672">=</span> _scrollController.offset;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (isDownloading) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (offset <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        simulationReloadJSON();
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (offset <span style="color:#f92672">&gt;=</span> _scrollController.position.maxScrollExtent) {
+</span></span><span style="display:flex;"><span>        simulationDownloadJSON();
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> dispose() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.dispose();
+</span></span><span style="display:flex;"><span>    _scrollController.dispose();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  Widget build(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">final</span> bottomPadding <span style="color:#f92672">=</span> MediaQuery.of(context).padding.bottom;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Scaffold(
+</span></span><span style="display:flex;"><span>      appBar: AppBar(
+</span></span><span style="display:flex;"><span>        title: Text(
+</span></span><span style="display:flex;"><span>          _title,
+</span></span><span style="display:flex;"><span>          style: <span style="color:#66d9ef">const</span> TextStyle(
+</span></span><span style="display:flex;"><span>            color: Colors.black,
+</span></span><span style="display:flex;"><span>          ),
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        centerTitle: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        backgroundColor: Colors.transparent,
+</span></span><span style="display:flex;"><span>        elevation: <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>      extendBodyBehindAppBar: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>      backgroundColor: Colors.amber.shade100,
+</span></span><span style="display:flex;"><span>      body: listViewBuilder(_sampleList.length),
+</span></span><span style="display:flex;"><span>      floatingActionButton: Padding(
+</span></span><span style="display:flex;"><span>        padding: EdgeInsets.only(bottom: bottomPadding),
+</span></span><span style="display:flex;"><span>        child: FloatingActionButton(
+</span></span><span style="display:flex;"><span>          onPressed: scrollToTop,
+</span></span><span style="display:flex;"><span>          tooltip: <span style="color:#e6db74">&#39;回到第一個&#39;</span>,
+</span></span><span style="display:flex;"><span>          child: <span style="color:#66d9ef">const</span> Icon(Icons.arrow_upward),
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ListView listViewBuilder(<span style="color:#66d9ef">int</span> itemCount) {
+</span></span><span style="display:flex;"><span>    Widget _itemMaker(<span style="color:#66d9ef">int</span> index) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">final</span> sample <span style="color:#f92672">=</span> _sampleList.elementAt(index);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">final</span> widget <span style="color:#f92672">=</span> SizedBox(
+</span></span><span style="display:flex;"><span>        height: <span style="color:#ae81ff">200.0</span>,
+</span></span><span style="display:flex;"><span>        child: Stack(
+</span></span><span style="display:flex;"><span>          fit: StackFit.expand,
+</span></span><span style="display:flex;"><span>          children: [
+</span></span><span style="display:flex;"><span>            Image.network(
+</span></span><span style="display:flex;"><span>              sample.imageUrl,
+</span></span><span style="display:flex;"><span>              fit: BoxFit.fitWidth,
+</span></span><span style="display:flex;"><span>            ),
+</span></span><span style="display:flex;"><span>            Column(
+</span></span><span style="display:flex;"><span>              crossAxisAlignment: CrossAxisAlignment.stretch,
+</span></span><span style="display:flex;"><span>              children: [
+</span></span><span style="display:flex;"><span>                Container(
+</span></span><span style="display:flex;"><span>                  decoration: <span style="color:#66d9ef">const</span> BoxDecoration(
+</span></span><span style="display:flex;"><span>                    color: Color.fromARGB(<span style="color:#ae81ff">96</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>                  ),
+</span></span><span style="display:flex;"><span>                  child: Padding(
+</span></span><span style="display:flex;"><span>                    padding: <span style="color:#66d9ef">const</span> EdgeInsets.all(<span style="color:#ae81ff">8.0</span>),
+</span></span><span style="display:flex;"><span>                    child: Center(
+</span></span><span style="display:flex;"><span>                        child: Text(
+</span></span><span style="display:flex;"><span>                      <span style="color:#e6db74">&#39;(</span><span style="color:#e6db74">${</span>index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">}</span><span style="color:#e6db74">) </span><span style="color:#e6db74">${</span>sample.title<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;</span>,
+</span></span><span style="display:flex;"><span>                      style: <span style="color:#66d9ef">const</span> TextStyle(
+</span></span><span style="display:flex;"><span>                        fontSize: <span style="color:#ae81ff">24</span>,
+</span></span><span style="display:flex;"><span>                        fontWeight: FontWeight.w900,
+</span></span><span style="display:flex;"><span>                        color: Colors.black87,
+</span></span><span style="display:flex;"><span>                      ),
+</span></span><span style="display:flex;"><span>                    )),
+</span></span><span style="display:flex;"><span>                  ),
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>                Expanded(
+</span></span><span style="display:flex;"><span>                  child: Container(
+</span></span><span style="display:flex;"><span>                    decoration: <span style="color:#66d9ef">const</span> BoxDecoration(
+</span></span><span style="display:flex;"><span>                      color: Color.fromARGB(<span style="color:#ae81ff">64</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>),
+</span></span><span style="display:flex;"><span>                    ),
+</span></span><span style="display:flex;"><span>                    child: Padding(
+</span></span><span style="display:flex;"><span>                      padding: <span style="color:#66d9ef">const</span> EdgeInsets.all(<span style="color:#ae81ff">8.0</span>),
+</span></span><span style="display:flex;"><span>                      child: Text(sample.content),
+</span></span><span style="display:flex;"><span>                    ),
+</span></span><span style="display:flex;"><span>                  ),
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>              ],
+</span></span><span style="display:flex;"><span>            ),
+</span></span><span style="display:flex;"><span>          ],
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> widget;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    Divider _dividerMaker(<span style="color:#66d9ef">int</span> index) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">const</span> Divider(
+</span></span><span style="display:flex;"><span>        height: <span style="color:#ae81ff">1</span>,
+</span></span><span style="display:flex;"><span>        thickness: <span style="color:#ae81ff">2</span>,
+</span></span><span style="display:flex;"><span>        color: Colors.blueGrey,
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ListView _listViewMaker(<span style="color:#66d9ef">int</span> itemCount) {
+</span></span><span style="display:flex;"><span>      ListView listView <span style="color:#f92672">=</span> ListView.separated(
+</span></span><span style="display:flex;"><span>        itemCount: itemCount,
+</span></span><span style="display:flex;"><span>        itemBuilder: ((context, index) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> _itemMaker(index);
+</span></span><span style="display:flex;"><span>        }),
+</span></span><span style="display:flex;"><span>        controller: _scrollController,
+</span></span><span style="display:flex;"><span>        separatorBuilder: ((context, index) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> _dividerMaker(index);
+</span></span><span style="display:flex;"><span>        }),
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> listView;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> _listViewMaker(itemCount);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> scrollToTop() {
+</span></span><span style="display:flex;"><span>    _scrollController.animateTo(
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0.1</span>,
+</span></span><span style="display:flex;"><span>      duration: <span style="color:#66d9ef">const</span> Duration(milliseconds: <span style="color:#ae81ff">500</span>),
+</span></span><span style="display:flex;"><span>      curve: Curves.fastOutSlowIn,
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> simulationReloadJSON() {
+</span></span><span style="display:flex;"><span>    WWProgressIndicator.shared.display(context);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    isDownloading <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    downloadJSON(
+</span></span><span style="display:flex;"><span>      _assetsPath,
+</span></span><span style="display:flex;"><span>      action: (list) {
+</span></span><span style="display:flex;"><span>        Future.delayed(<span style="color:#66d9ef">const</span> Duration(seconds: <span style="color:#ae81ff">3</span>)).then((value) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>              WWProgressIndicator.shared.dismiss(context),
+</span></span><span style="display:flex;"><span>              isDownloading <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>              setState(() {
+</span></span><span style="display:flex;"><span>                _sampleList <span style="color:#f92672">=</span> list;
+</span></span><span style="display:flex;"><span>              }),
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> simulationDownloadJSON() {
+</span></span><span style="display:flex;"><span>    WWProgressIndicator.shared.display(context);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    isDownloading <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    downloadJSON(
+</span></span><span style="display:flex;"><span>      _assetsPath,
+</span></span><span style="display:flex;"><span>      action: (list) {
+</span></span><span style="display:flex;"><span>        Future.delayed(<span style="color:#66d9ef">const</span> Duration(seconds: <span style="color:#ae81ff">3</span>)).then((value) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>              WWProgressIndicator.shared.dismiss(context),
+</span></span><span style="display:flex;"><span>              isDownloading <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>              setState(() {
+</span></span><span style="display:flex;"><span>                _sampleList.addAll(list);
+</span></span><span style="display:flex;"><span>              }),
+</span></span><span style="display:flex;"><span>            });
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> downloadJSON(<span style="color:#66d9ef">String</span> assetsPath,
+</span></span><span style="display:flex;"><span>      {required Function(List<span style="color:#f92672">&lt;</span>Sample<span style="color:#f92672">&gt;</span>) action}) {
+</span></span><span style="display:flex;"><span>    Utility.shared.readJSON(assetsPath: assetsPath).then((value) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">final</span> list <span style="color:#f92672">=</span> value[<span style="color:#e6db74">&#39;result&#39;</span>] <span style="color:#f92672">as</span> List<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">dynamic</span><span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">final</span> sampleList <span style="color:#f92672">=</span> Sample.fromList(list);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      action(sampleList);
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="滾動到底部後更新">滾動到底部後更新</h4>
+<ul>
+<li>主要是靠<a href="https://book.flutterchina.club/chapter6/scroll_controller.html">ScrollController</a>來處理滑動的位置訊息，進而判斷是不是到底部了…</li>
+<li>將ScrollController加上<a href="https://ithelp.ithome.com.tw/articles/10250905">addListener()</a>之後，可以試著log一下offset…</li>
+<li>主要的重點就是：
+<ol>
+<li>offset &lt;= 0：就是到最上方了</li>
+<li>offset &gt;= _scrollController.position.maxScrollExtent：就是到最下方了</li>
+</ol>
+</li>
+<li>這裡要比較注意的是，iOS跟Android預設在處理<a href="https://jjeremy-xue.medium.com/swift-%E8%AA%AA%E8%AA%AA-tableview-reload-updates-110bded53c3c">滾動回饋</a>的方式是不同的，iOS的offset是可以小於0的，所以要加上<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/reload-tableview-%E5%88%B7%E6%96%B0tableview%E7%95%AB%E9%9D%A2-reloaddata-updates-72ad19164c87">isDownloading</a>做為開關，不然會一直更新…</li>
+<li>這一點就很<a href="https://flutter.cn/docs/cookbook/forms/text-field-changes">Android / Web</a>了，不像iOS的<a href="https://franksios.medium.com/ios-protocol-and-delegate-2019852d4f14">delegate</a>…</li>
+<li>最後記得，在結束後，ScrollController要<a href="https://zhuanlan.zhihu.com/p/55969418">dispose()</a>掉…</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/flutter-listview-json/scroll.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_ProfilePageState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>ProfilePage<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">final</span> ScrollController _scrollController <span style="color:#f92672">=</span> ScrollController();
+</span></span><span style="display:flex;"><span>  List<span style="color:#f92672">&lt;</span>Sample<span style="color:#f92672">&gt;</span> _sampleList <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> initState() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.initState();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    _scrollController.addListener(() {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">final</span> offset <span style="color:#f92672">=</span> _scrollController.offset;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (isDownloading) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (offset <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>        simulationReloadJSON();
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (offset <span style="color:#f92672">&gt;=</span> _scrollController.position.maxScrollExtent) {
+</span></span><span style="display:flex;"><span>        simulationDownloadJSON();
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> dispose() {
+</span></span><span style="display:flex;"><span>    _scrollController.dispose();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.dispose();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="自動回到第一個">自動回到第一個</h4>
+<ul>
+<li>其實，這個也滿單純的，就設定ScrollController的offset就可以了…</li>
+<li>這裡因為呢，滾到0的時候會觸發更新JSON，所以『暫時』設定offset = 0.1…</li>
+<li>不過如果官方有像iOS一樣，是直接設定<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/indexpath-%E5%9C%A8-switch-%E8%A3%A1%E5%8F%AF%E4%BB%A5%E7%95%B6%E6%88%90-array-%E4%BE%86%E6%AF%94%E5%B0%8D-e2710de94746">IndexPath</a>的話，相信會更方便的…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_ProfilePageState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>ProfilePage<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> scrollToTop() {
+</span></span><span style="display:flex;"><span>    _scrollController.animateTo(
+</span></span><span style="display:flex;"><span>      <span style="color:#ae81ff">0.1</span>,
+</span></span><span style="display:flex;"><span>      duration: <span style="color:#66d9ef">const</span> Duration(milliseconds: <span style="color:#ae81ff">500</span>),
+</span></span><span style="display:flex;"><span>      curve: Curves.fastOutSlowIn,
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="加上loading動畫">加上loading動畫</h4>
+<ul>
+<li>最後呢，再加上一個轉圈圈，就看起來更有feel了啦…</li>
+<li>這種提示型的功能，一般統稱做<a href="https://github.com/pkluz/PKHUD">HUD - Head-Up Display</a>，就是<a href="https://24h.pchome.com.tw/store/DXAA6A">抬頭顯示器</a>…</li>
+<li>這裡是利用<a href="https://book.flutterchina.club/chapter3/progress.html">CircularProgressIndicator</a> + <a href="https://ithelp.ithome.com.tw/articles/10215918">Navigator.of(context).push()</a>，就是利用下一頁的功能，只要讓Widget背景是透明的，看起來就很像了…</li>
+<li>這招也是從<a href="https://medium.com/hans-revolution/swift-%E8%B7%B3%E8%BD%89-controller-%E6%99%82%E8%A8%AD%E5%AE%9A%E8%83%8C%E6%99%AF%E5%8D%8A%E9%80%8F%E6%98%8E-2be562112686">iOS</a>上學來的，沒想到還真的可以用啊…</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/flutter-listview-json/loading.png" alt="" loading="lazy" decoding="async" width="454" height="790"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dart" data-lang="dart"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#e6db74">&#39;package:flutter/material.dart&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">WWProgressIndicator</span> <span style="color:#66d9ef">extends</span> StatefulWidget {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> WWProgressIndicator({Key<span style="color:#f92672">?</span> key}) <span style="color:#f92672">:</span> <span style="color:#66d9ef">super</span>(key: key);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">const</span> shared <span style="color:#f92672">=</span> WWProgressIndicator();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  State<span style="color:#f92672">&lt;</span>WWProgressIndicator<span style="color:#f92672">&gt;</span> createState() <span style="color:#f92672">=&gt;</span> _WWProgressIndicatorState();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  display(BuildContext context) {
+</span></span><span style="display:flex;"><span>    Navigator.of(context).push(
+</span></span><span style="display:flex;"><span>      PageRouteBuilder(
+</span></span><span style="display:flex;"><span>        opaque: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        pageBuilder: (BuildContext context, _, __) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">this</span>,
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> dismiss(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>Navigator.canPop(context)) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    Navigator.of(context).pop();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">_WWProgressIndicatorState</span> <span style="color:#66d9ef">extends</span> State<span style="color:#f92672">&lt;</span>WWProgressIndicator<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> initState() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.initState();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> dispose() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">super</span>.dispose();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">@</span>override
+</span></span><span style="display:flex;"><span>  Widget build(BuildContext context) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Scaffold(
+</span></span><span style="display:flex;"><span>      backgroundColor: Colors.black.withAlpha(<span style="color:#ae81ff">64</span>),
+</span></span><span style="display:flex;"><span>      body: <span style="color:#66d9ef">const</span> Center(
+</span></span><span style="display:flex;"><span>        child: SizedBox(
+</span></span><span style="display:flex;"><span>          width: <span style="color:#ae81ff">128</span>,
+</span></span><span style="display:flex;"><span>          height: <span style="color:#ae81ff">128</span>,
+</span></span><span style="display:flex;"><span>          child: CircularProgressIndicator(
+</span></span><span style="display:flex;"><span>            valueColor: AlwaysStoppedAnimation(Colors.blue),
+</span></span><span style="display:flex;"><span>          ),
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>      ),
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengflutter-first-app"><a href="https://github.com/William-Weng/Flutter-First-App">範例程式碼下載</a></h3>
+<h3 id="後記">後記</h3>
 <ul>
 <li>因為本身就是<a href="/tags/ios">iOS打字工</a>，加上也自學過點一點點點<a href="/tags/android">Android</a>，而且本身一開始也是用<a href="https://www.android.com/">安卓手機</a>，其實對雙方的<a href="https://gremlinworks.com.tw/ui-ux/ui-ux-comparison/">UX體驗</a>也有基本的了解，其實要寫的長相一樣，是有點難度啊，因為系統<a href="https://medium.com/uxabc/designing-for-different-platforms-dc0d40eb18c3">本來就不一樣</a>，不過看起來Flutter在這點上保有<a href="https://jasonck.medium.com/%E5%8E%9F%E7%94%9F-ios-%E8%88%87-android-app-%E8%A8%AD%E8%A8%88%E4%B8%8A%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8D%80%E5%88%A5-4aef8610a0fd">各系統的特色</a>，就不知道在市場上能不能接受了？</li>
-<li>雖然能做得出來，但總是不太正規，畢竟是自學的，請大家多多包含…</li>
-<li>其實寫教學文章真的很累，除了要能動之外，還要能讓人看得懂，不過個人還是樂於分享的…</li>
-<li><a href="https://youtu.be/5flP7DbjQjY">『木の葉舞う所に火は燃ゆる』</a>, 請小心用火…XD</li>
+<li>雖然能做得出來，但總是<a href="https://www.rocksaying.tw/archives/25688136.html">不太正規</a>，畢竟是自學的，請大家多多包含…</li>
+<li>其實寫<a href="https://tw.news.yahoo.com/4%E6%8A%80%E5%B7%A7%E9%80%99%E6%A8%A3%E5%81%9A-%E6%95%99%E5%B0%8E%E5%AD%A9%E5%AD%90%E6%A8%82%E6%96%BC%E5%88%86%E4%BA%AB-000204377.html">教學文章</a>真的很累，除了要能動之外，還要能讓人看得懂，不過個人還是<a href="https://buzzorange.com/techorange/2014/12/19/what-is-open-source/">樂於分享</a>的…</li>
+<li><a href="https://youtu.be/5flP7DbjQjY">木葉飛舞之處，火亦生生不息 (木の葉舞う所に火は燃ゆる)</a>, 請小心用火…XD</li>
 </ul>
 <p><a href="https://www.buymeacoffee.com/linuxice0609">
 
