@@ -6,7 +6,24 @@
     <description>Recent content in typescript on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 01 May 2022 07:21:56 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Sep 2022 15:29:00 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Golang 1.19】Go! Go! 購物趣! 取得APP版本號</title>
+      <link>https://William-Weng.github.io/2022/09/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E5%8F%96%E5%BE%97app%E7%89%88%E6%9C%AC%E8%99%9F/</link>
+      <pubDate>Sat, 24 Sep 2022 15:29:00 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/09/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E5%8F%96%E5%BE%97app%E7%89%88%E6%9C%AC%E8%99%9F/</guid>
+      <description>
+        
+          
+            &lt;p&gt;聽說&lt;a href=&#34;https://opensourcedoc.com/golang-programming/generics/&#34;&gt;Golang&lt;/a&gt;也開始支援&lt;a href=&#34;https://alankrantas.medium.com/%E7%B0%A1%E5%96%AE%E7%8E%A9-go-1-18-%E6%B3%9B%E5%9E%8B-1d09da07b70&#34;&gt;泛型 (Generics)&lt;/a&gt;了，但聽說可能會使&lt;a href=&#34;https://www.ithome.com.tw/news/150411&#34;&gt;程式變慢&lt;/a&gt;？求不要更新了，&lt;a href=&#34;https://github.com/denoland/deno/issues/25&#34;&gt;老子學不動了&lt;/a&gt;…
+這次呢，主要是要做一個&lt;a href=&#34;https://gs.statcounter.com/os-version-market-share/ios/mobile-tablet/worldwide&#34;&gt;App版本&lt;/a&gt;的設定後台，因為在學了Flutter之後，發現Apple真的是太佛心了，有提供&lt;a href=&#34;https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/&#34;&gt;iTunes Search API&lt;/a&gt;，來取得該&lt;a href=&#34;https://developer.apple.com/system-status/&#34;&gt;App&lt;/a&gt;在&lt;a href=&#34;https://apps.apple.com/tw/app/line/id443904275&#34;&gt;AppStore&lt;/a&gt;上的&lt;a href=&#34;https://itunes.apple.com/lookup?id=443904275&#34;&gt;相關訊息&lt;/a&gt;；反觀&lt;a href=&#34;https://play.google.com/store/apps/details?id=jp.naver.line.android&amp;amp;hl=zh_TW&amp;amp;gl=US&#34;&gt;GooglePlay&lt;/a&gt;，全世界約佔&lt;a href=&#34;https://3c.ltn.com.tw/news/48726&#34;&gt;80%以上&lt;/a&gt;的Android系統，居然沒有幫它出個&lt;a href=&#34;https://stackoverflow.com/questions/34309564/how-to-get-app-market-version-information-from-google-play-store&#34;&gt;SearchAPI&lt;/a&gt;，真的太說不過去了吧，後來發現，GooglePlay可以&lt;a href=&#34;https://www.kocpc.com.tw/archives/436214&#34;&gt;下載的&lt;/a&gt;APP版本是跟手機&lt;a href=&#34;https://qooah.com/2022/04/14/android-version-fragmentation-is-still-serious/&#34;&gt;OS版本&lt;/a&gt;有關，也就是說，可以下載到&lt;a href=&#34;https://www.kocpc.com.tw/archives/332117&#34;&gt;舊的版本&lt;/a&gt;，也許是考慮到&lt;a href=&#34;https://www.bnext.com.tw/article/44484/start-with-andriod-o-google-will-modify-the-fragmentation-of-android?&#34;&gt;相容性&lt;/a&gt;的關係吧？&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</title>
       <link>https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</link>
