@@ -6,7 +6,23 @@
     <description>Recent content in golang on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 24 Sep 2022 15:29:00 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Oct 2022 07:02:43 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Golang 1.19】Go! Go! 購物趣! 我是VIP</title>
+      <link>https://William-Weng.github.io/2022/10/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E6%88%91%E6%98%AFvip/</link>
+      <pubDate>Thu, 06 Oct 2022 07:02:43 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2022/10/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E6%88%91%E6%98%AFvip/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://William-Weng.github.io/2022/09/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E5%8F%96%E5%BE%97app%E7%89%88%E6%9C%AC%E8%99%9F/&#34;&gt;續上集&lt;/a&gt;，這是要介紹JWT的登入 (內文待)；最近覺得自己會一點點&lt;a href=&#34;https://github.com/William-Weng/GoAppVersion&#34;&gt;程式&lt;/a&gt;，加上會一點點&lt;a href=&#34;https://youtu.be/PVh9weIxp0Y&#34;&gt;樂器&lt;/a&gt;，應該可以算是&lt;a href=&#34;https://www.google.com/search?q=%E4%B8%8D%E8%A6%81%E7%9E%8E%E6%8E%B0&#34;&gt;文武雙全&lt;/a&gt;吧？XD&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Golang 1.19】Go! Go! 購物趣! 取得APP版本號</title>
       <link>https://William-Weng.github.io/2022/09/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E5%8F%96%E5%BE%97app%E7%89%88%E6%9C%AC%E8%99%9F/</link>
