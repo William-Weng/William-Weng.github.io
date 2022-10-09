@@ -10,13 +10,13 @@
 <meta property="og:locale" content="en" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="續上集，這是要介紹JWT的登入 (內文待)；最近覺得自己會一點點程式，加上會一點點樂器，應該可以算是文武雙全吧？XD">
+<meta name="description" content="續上集，這次要介紹的是JWT - JSON Web Token的使用者登入功能，雖然功能做好了，但總不讓路人甲、路人乙都可以來亂加、亂刪吧？還是要有個權限設定才行，使用者註冊之後，要如何實現權限的分類呢？這次的介紹會比較偏重網頁端，所以Vue的部分也會比較吃重一點…對了，axios終於升成1.0了…🤣；狂賀，突破60篇 …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="【Golang 1.19】Go! Go! 購物趣! 我是VIP" />
 <meta property="og:url" content="https://William-Weng.github.io/2022/10/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E6%88%91%E6%98%AFvip/" />
 <meta property="og:title" content="【Golang 1.19】Go! Go! 購物趣! 我是VIP" />
-<meta property="og:description" content="續上集，這是要介紹JWT的登入 (內文待)；最近覺得自己會一點點程式，加上會一點點樂器，應該可以算是文武雙全吧？XD" />
+<meta property="og:description" content="續上集，這次要介紹的是JWT - JSON Web Token的使用者登入功能，雖然功能做好了，但總不讓路人甲、路人乙都可以來亂加、亂刪吧？還是要有個權限設定才行，使用者註冊之後，要如何實現權限的分類呢？這次的介紹會比較偏重網頁端，所以Vue的部分也會比較吃重一點…對了，axios終於升成1.0了…🤣；狂賀，突破60篇 …" />
 <meta property="og:image" content="https://William-Weng.github.io/2022/10/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E6%88%91%E6%98%AFvip/images/thumbnail/Golang.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://William-Weng.github.io/icons/apple-touch-icon.png">
@@ -82,7 +82,7 @@
 </svg></span>
     <span class="post_date">
       Oct 6, 2022</span>
-    <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
+    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/vue' title="vue" class="post_tag button button_translucent">vue
         </a><a href='https://William-Weng.github.io/tags/web' title="web" class="post_tag button button_translucent">web
         </a><a href='https://William-Weng.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
@@ -122,7 +122,264 @@
 
 
     
-    <div class="post_body"><p><a href="/2022/09/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E5%8F%96%E5%BE%97app%E7%89%88%E6%9C%AC%E8%99%9F/">續上集</a>，這是要介紹JWT的登入 (內文待)；最近覺得自己會一點點<a href="https://github.com/William-Weng/GoAppVersion">程式</a>，加上會一點點<a href="https://youtu.be/PVh9weIxp0Y">樂器</a>，應該可以算是<a href="https://www.google.com/search?q=%E4%B8%8D%E8%A6%81%E7%9E%8E%E6%8E%B0">文武雙全</a>吧？XD</p>
+    <div class="post_body"><p><a href="/2022/09/golang-1.19go-go-%E8%B3%BC%E7%89%A9%E8%B6%A3-%E5%8F%96%E5%BE%97app%E7%89%88%E6%9C%AC%E8%99%9F/">續上集</a>，這次要介紹的是<a href="https://www.gushiciku.cn/pl/peiZ/zh-tw">JWT - JSON Web Token</a>的使用者<a href="https://ithelp.ithome.com.tw/articles/10214903">登入</a>功能，雖然功能做好了，但總不讓<a href="https://youtu.be/D5eUlAlruAo">路人甲</a>、<a href="https://youtu.be/QyECO8ti-b8">路人乙</a>都可以來<a href="https://www.cloudflare.com/zh-tw/learning/ddos/what-is-a-ddos-attack/">亂加</a>、<a href="https://youtu.be/dlUBdqSLk2I">亂刪</a>吧？還是要有個<a href="https://ccc.technews.tw/2020/11/24/top-200-most-common-passwords-of-the-year-2020/">權限</a>設定才行，使用者註冊之後，要如何實現權限的分類呢？這次的<a href="https://www.rfc-editor.org/rfc/rfc7519">介紹</a>會比較偏重<a href="https://www.fooish.com/html/header-tag.html">網頁端</a>，所以Vue的部分也會比較吃重一點…對了，<a href="https://github.com/axios/axios">axios</a>終於升成<a href="https://www.google.com/search?q=axios+1.0+bug">1.0</a>了…🤣；<a href="https://memes.tw/">狂賀</a>，突破<a href="https://youtu.be/LbeaiRfx3fY">60篇文</a>，考慮寫點<a href="https://youtu.be/vl4Ny5F7Mos">吃吃喝喝</a>的，寫程式文太累了，<a href="https://lu651011.pixnet.net/blog/post/117844980-%E6%96%B0%E8%A9%9E%3D%E3%80%8C%E6%96%97%E5%85%A7%E3%80%8D%E3%80%8C%E6%8A%96%E5%85%A7%E3%80%8D%2C%E7%B6%B2%E8%B7%AF%E7%94%A8%E8%AA%9E">抖內抖內</a>，<a href="https://youtu.be/m53_2INOIzc">業配</a>也可以…</p>
+<h3 id="做一個長得像這樣的東西">做一個長得像這樣的東西</h3>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/golang-app-version-vip/Result.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<h3 id="作業環境">作業環境</h3>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://zh.wikipedia.org/zh-tw/Apple_Silicon">CPU</a></td>
+<td>Apple M1</td>
+</tr>
+<tr>
+<td><a href="https://zh.wikipedia.org/zh-tw/MacOS">macOS</a></td>
+<td>Big Sur 12.6 arm64</td>
+</tr>
+<tr>
+<td><a href="https://go.dev/">Golang</a></td>
+<td>1.19.1 arm64</td>
+</tr>
+<tr>
+<td><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
+<td>1.71.2 arm64</td>
+</tr>
+<tr>
+<td><a href="https://www.postman.com/">Postman</a></td>
+<td>10.0 arm64</td>
+</tr>
+<tr>
+<td><a href="https://nodejs.org/">Node.js</a></td>
+<td><a href="https://github.com/nodejs/node/issues/40126">16.15 arm64</a></td>
+</tr>
+<tr>
+<td><a href="https://yarnpkg.com/">Yarn</a></td>
+<td>1.22.18 arm64</td>
+</tr>
+<tr>
+<td><a href="https://cli.vuejs.org/">Vue CLI</a></td>
+<td>5.0.4 arm64</td>
+</tr>
+<tr>
+<td><a href="https://sqlitebrowser.org/">DB Browser for SQLite</a></td>
+<td>3.12.1 x86_64</td>
+</tr>
+</tbody>
+</table>
+<h3 id="說明">說明</h3>
+<h4 id="基本參數">基本參數</h4>
+<ul>
+<li>這裡先列出<a href="https://www.796t.com/content/1541721973.html">基本參數</a>，不然連<a href="https://blog.gtwang.org/linux/sudo-su-command-tutorial-examples/">登入</a>都不能，那就<a href="https://youtu.be/FU8iFl5ZKFQ">完了、完了、完了</a>，<a href="https://youtu.be/Y95_twh2iKY">芭比Q了</a>…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;william/model&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AutoUpdate</span>              <span style="color:#66d9ef">bool</span>   = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ValidityDays</span>            <span style="color:#66d9ef">int</span>    = <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">SqliteDatabasePath</span>      <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;./material/database.sqlite3&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AutoUpdateCronRule</span>      <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;*/1 * * * *&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AutoRemoveTokenCronRule</span> <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;*/60 * * * *&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Port</span>                    <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;:12345&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Sheet</span>                   <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;App版本相關訊息&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AuthorizationKey</span>        <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;Authorization&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">UserMinimumLength</span>     <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">PasswordMinimumLength</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 預先設定的帳號
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">SuperUsers</span> = <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">UserLevel</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;root&#34;</span>:    {<span style="color:#e6db74">&#34;3939889&#34;</span>: <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Root</span>},
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;admin&#34;</span>:   {<span style="color:#e6db74">&#34;28825252&#34;</span>: <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Admin</span>},
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;william&#34;</span>: {<span style="color:#e6db74">&#34;987987&#34;</span>: <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Account</span>},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// API的通行規則
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ApiRules</span> = <span style="color:#66d9ef">map</span>[<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">UserLevel</span>]<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>][]<span style="color:#66d9ef">string</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Account</span>: {
+</span></span><span style="display:flex;"><span>			<span style="color:#e6db74">&#34;GET&#34;</span>:  {<span style="color:#e6db74">&#34;/appVersion/:id&#34;</span>},
+</span></span><span style="display:flex;"><span>			<span style="color:#e6db74">&#34;POST&#34;</span>: {<span style="color:#e6db74">&#34;/checkToken&#34;</span>, <span style="color:#e6db74">&#34;/versionList/:page&#34;</span>, <span style="color:#e6db74">&#34;/saveAppVersion&#34;</span>, <span style="color:#e6db74">&#34;/forceUpdate&#34;</span>},
+</span></span><span style="display:flex;"><span>		},
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Admin</span>: {<span style="color:#e6db74">&#34;GET&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;POST&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;PUT&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;PATCH&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}},
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Root</span>:  {<span style="color:#e6db74">&#34;GET&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;POST&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;PUT&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;PATCH&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;DELETE&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}},
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><h4 id="api設定">API設定</h4>
+<ul>
+<li>在這裡多了幾支API，主要是跟<a href="https://youtu.be/7Uh88Tjlxf4">使用者 / 權限</a>有關的…</li>
+<li>結果就請各位用Postman<a href="https://ithelp.ithome.com.tw/articles/10227359">打看看</a>，Code內有附匯出的<a href="https://dotblogs.com.tw/kinanson/2015/11/07/153838">Postman.js檔</a>，這裡就不細說了…
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>API</th>
+<th>參數</th>
+<th>方式</th>
+<th>權限</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>取得該AppId相關訊息</td>
+<td>/appVersion/:id</td>
+<td>-</td>
+<td>GET</td>
+<td>-</td>
+</tr>
+<tr>
+<td>取得該AppId相關訊息 (簡單版)</td>
+<td>/appVersion/mobile/:id</td>
+<td>-</td>
+<td>GET</td>
+<td>-</td>
+</tr>
+<tr>
+<td>搜尋使用者</td>
+<td>/user/:username</td>
+<td>-</td>
+<td>GET</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>新增AppId與名稱</td>
+<td>/appVersion</td>
+<td><code>{&quot;type&quot;:1,&quot;id&quot;:&quot;com.ubercab.driver&quot;,&quot;name&quot;:&quot;Uber Driver&quot;}</code></td>
+<td>POST</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>取得所有AppId相關訊息</td>
+<td>/versionList/:page</td>
+<td><code>{&quot;limit&quot;:10,&quot;offset&quot;:0}</code></td>
+<td>POST</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>儲存成excel</td>
+<td>/saveAppVersion</td>
+<td>-</td>
+<td>POST</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>上傳Excel</td>
+<td>/uploadExcel</td>
+<td>-</td>
+<td>POST</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>新增使用者</td>
+<td>/user</td>
+<td><code>{&quot;username&quot;:&quot;William123&quot;,&quot;password&quot;:&quot;12345678&quot;,&quot;level&quot;:9}</code></td>
+<td>POST</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>使用者登入</td>
+<td>/login</td>
+<td><code>{&quot;username&quot;:&quot;William123&quot;,&quot;password&quot;:&quot;12345678&quot;}</code></td>
+<td>POST</td>
+<td>-</td>
+</tr>
+<tr>
+<td>測試Token合法性</td>
+<td>/checkToken</td>
+<td><code>{&quot;token&quot;:&quot;Bearer 0800.092.000&quot;}</code></td>
+<td>POST</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Token列表</td>
+<td>/authToken</td>
+<td><code>{&quot;where&quot;:&quot;id &gt; 0&quot;,&quot;limit&quot;:10,&quot;offset&quot;:0}</code></td>
+<td>POST</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>強制更新資料</td>
+<td>/forceUpdate</td>
+<td>-</td>
+<td>POST</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>取得在該Store的APP版本號</td>
+<td>/appVersion/:id/:type</td>
+<td>-</td>
+<td>PUT</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>更新單一Update的型式</td>
+<td>/updateType/:id</td>
+<td><code>{&quot;type&quot;:&quot;DEV&quot;,&quot;level&quot;:2}</code></td>
+<td>PUTCH</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>更新相關資訊</td>
+<td>/appVersion/:id/:type</td>
+<td><code>{&quot;auto&quot;:true,&quot;name&quot;:&quot;優食 - Android&quot;,&quot;icon&quot;:&quot;/images/icon.jpg&quot;,&quot;version&quot;:{&quot;store&quot;:&quot;1.2.3&quot;,&quot;dev&quot;:&quot;1.2.0&quot;,&quot;prod&quot;:&quot;1.3.0&quot;}}</code></td>
+<td>PUTCH</td>
+<td>Root / Admin</td>
+</tr>
+<tr>
+<td>刪除該APP資訊</td>
+<td>/appVersion/:id</td>
+<td><code>{&quot;type&quot;:&quot;DEV&quot;,&quot;level&quot;:2}</code></td>
+<td>DELETE</td>
+<td>Root</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="使用者相關api">使用者相關API</h3>
+<ul>
+<li>以下是使用者struct的相關欄位</li>
+<li>主要是把<a href="https://www.businesstoday.com.tw/article/category/80408/post/201806080007/">使用者</a>分成三個等級：<a href="https://indeed-omrj.com/post-0144">Account (使用者)</a> / <a href="https://youtu.be/o5OcdAJLbPM">Admin (管理者)</a> / <a href="https://blog.gtwang.org/linux/sudo-su-command-tutorial-examples/">Root (老大)</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">UserLevel</span> <span style="color:#66d9ef">uint</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Account</span> <span style="color:#a6e22e">UserLevel</span> = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Admin</span>   <span style="color:#a6e22e">UserLevel</span> = <span style="color:#ae81ff">9</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Root</span>    <span style="color:#a6e22e">UserLevel</span> = <span style="color:#ae81ff">99</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">UsernameMinimumLength</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">PasswordMinimumLength</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">User</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Model</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Username</span> <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;username&#34; gorm:&#34;index:idx_username,unique&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Password</span> <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;password&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Level</span>    <span style="color:#a6e22e">UserLevel</span> <span style="color:#e6db74">`json:&#34;level&#34;`</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="使用者登入">使用者登入</h4>
+<ul>
+<li>這個是整個在使用上<a href="https://5xruby.tw/posts/what-is-jwt">最重要</a>的事情，因為<a href="https://waynestalk.com/go-jwt-tutorial/">大部分</a>的API都是需要<a href="https://www.jianshu.com/p/50ade6f2e4fd">權限</a>的…</li>
+<li>登入成功後，會回傳<a href="https://blog.csdn.net/default7/article/details/123530116">Token</a>跟Token<a href="https://www.jianshu.com/p/fee89fbb5f27">到期</a>的時間</li>
+<li>在這裡是設定成<a href="https://www.wjsljc.com/document/ts-axios/axios/chapter1/require.html">14天整後</a>到期</li>
+</ul>
 <p>
 
 
@@ -177,89 +434,763 @@
         
       
 
-      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/thumbnail/@Working.gif" alt="" loading="lazy" decoding="async" width="513" height="291"  />
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/01.png" alt="" loading="lazy" decoding="async" width="1920" height="711"  />
       
 
     </picture>
   </figure>
 </p>
-<h3 id="做一個長得像這樣的東西">做一個長得像這樣的東西</h3>
+<h4 id="新增使用者">新增使用者</h4>
+<ul>
+<li>這個就不用多說了吧，<a href="https://www.storm.mg/article/3054108?mode=whole">人流</a>就是<a href="https://nintygogo.wordpress.com/2018/03/28/003/">金流</a></li>
+<li>之後都會用到剛才<a href="https://www.gushiciku.cn/pl/peiZ/zh-tw">產生</a>的<a href="https://blog.cssuen.tw/jwt-jwe-jws-%E5%A4%A7%E4%BA%82%E9%AC%A5-5ca68bebe426">Token</a></li>
+<li><a href="https://blog.cssuen.tw/json-web-token-jwt-%E7%B0%A1%E4%BB%8B-a5719a1b0a70#.ce7gs8bqg">按圖</a>施工，保證<a href="https://youtu.be/Y2IotKdItGA">成功</a></li>
+</ul>
 <video class="video-shortcode" width="50%" preload="auto" controls>
-    <source src="/images/2022/golang-app-version-vip/Result.mp4" type="video/mp4">
+    <source src="/images/2022/golang-app-version-vip/Login.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<h3 id="作業環境">作業環境</h3>
-<table>
-<thead>
-<tr>
-<th>項目</th>
-<th>版本</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://zh.wikipedia.org/zh-tw/Apple_M1">CPU</a></td>
-<td>Apple M1</td>
-</tr>
-<tr>
-<td><a href="https://zh.wikipedia.org/zh-tw/MacOS">macOS</a></td>
-<td>Big Sur 12.6 arm64</td>
-</tr>
-<tr>
-<td><a href="https://go.dev/">Golang</a></td>
-<td>1.19.1 arm64</td>
-</tr>
-<tr>
-<td><a href="https://code.visualstudio.com/">Visual Studio Code</a></td>
-<td>1.71.2 arm64</td>
-</tr>
-<tr>
-<td><a href="https://www.postman.com/">Postman</a></td>
-<td>9.31 arm64</td>
-</tr>
-<tr>
-<td><a href="https://yarnpkg.com/">Yarn</a></td>
-<td>1.22.18</td>
-</tr>
-<tr>
-<td><a href="https://cli.vuejs.org/">Vue CLI</a></td>
-<td>5.0.4</td>
-</tr>
-<tr>
-<td><a href="https://sqlitebrowser.org/">DB Browser for SQLite</a></td>
-<td>3.12.1 x86_64</td>
-</tr>
-</tbody>
-</table>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<h3 id="產生token">產生Token</h3>
+<ul>
+<li>這個就牽扯到<a href="https://medium.com/@RiverChan/%E5%9F%BA%E7%A4%8E%E5%AF%86%E7%A2%BC%E5%AD%B8-%E5%B0%8D%E7%A8%B1%E5%BC%8F%E8%88%87%E9%9D%9E%E5%B0%8D%E7%A8%B1%E5%BC%8F%E5%8A%A0%E5%AF%86%E6%8A%80%E8%A1%93-de25fd5fa537">密碼學</a>的部分，其實<a href="https://carsonwah.github.io/http-authentication.html">認證</a>的方法有很多，<a href="https://youtu.be/dom-cPDuspI">斯斯</a>都有三種了，對吧？</li>
+<li>因為世上沒有<a href="https://www.teepr.com/17410/edwardliu/25%E5%80%8B%E5%BE%9E%E6%9C%AA%E8%A2%AB%E7%A0%B4%E8%A7%A3%E7%9A%84%E5%AF%86%E7%A2%BC/">不能破解</a>的密碼，所以才有<a href="https://www.kocpc.com.tw/archives/171061">雙重認證</a> / <a href="https://tw.news.yahoo.com/news/%E5%8F%AA%E9%9D%A0%E5%AF%86%E7%A2%BC%E4%B8%8D%E5%A4%A0-google%E5%AE%A3%E5%B8%83%E6%9B%BF1-5%E5%84%84%E4%BA%BA%E9%96%8B%E9%9B%99%E9%87%8D%E8%AA%8D%E8%AD%89-085348615.html">二階段驗證</a> / <a href="https://israynotarray.com/other/20220207/2089611734/">2FA (Two-factor Authentication)</a>的產生…</li>
+<li>所以呢，產生出來的Token就是…要<a href="https://briian.com/25740/">破解很久</a>，然後<a href="https://www.ithome.com.tw/news/112347">重覆性</a>極低
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/02.png" alt="" loading="lazy" decoding="async" width="1919" height="696"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<h4 id="basic-authentication">Basic Authentication</h4>
+<ul>
+<li>首先，人類<a href="https://zh.m.wikipedia.org/zh-tw/%E5%88%97%E5%A5%A5%E7%BA%B3%E5%A4%9A%C2%B7%E8%BE%BE%C2%B7%E8%8A%AC%E5%A5%87">造出來</a>的東西，絕大部分是用來<a href="https://www.gvm.com.tw/article/68853">解決問題</a>的，複雜事物<a href="https://www.stockfeel.com.tw/%E7%A8%BB%E7%9B%9B%E5%92%8C%E5%A4%AB-%E8%A4%87%E9%9B%9C-%E7%B0%A1%E5%96%AE%E5%8C%96/">簡單化</a>…</li>
+<li>先來介紹一個<a href="https://zh.wikipedia.org/zh-tw/HTTP%E5%9F%BA%E6%9C%AC%E8%AE%A4%E8%AF%81">最簡單</a>的 - Basic Authentication…</li>
+<li><a href="https://zh.m.wikipedia.org/zh-hant/RFC">RFC</a>文件中有記載它的細節，<a href="https://www.rfc-editor.org/rfc/rfc2617">RFC 2617</a> / <a href="https://www.rfc-editor.org/rfc/rfc7617">RFC 7617</a>，因為太<a href="https://www.ettoday.net/news/20121027/119307.htm">文謅謅</a>了，所以我從來沒看過…🤣</li>
+<li>那為什麼需要認證呢？因為呢，如果<a href="https://blog.darkthread.net/blog/store-pwd-safely/">登入成功</a>之後，還是每點一個功能，就要輸入一次帳密，這不是很麻煩嗎？那要怎麼辦呢？</li>
+<li>把帳密放在一起變成一串字，然後給它<a href="https://www.base64encode.org/">編碼</a>一下，就變成亂碼了，當然也可以<a href="https://medium.com/starbugs/how-to-store-password-in-database-sefely-6b20f48def92">加點料</a>…</li>
+<li>不一定要<a href="https://health.tvbs.com.tw/medical/325912">加鹽</a>喲，加糖、<a href="https://health.udn.com/health/story/6037/5195740">加胡椒</a>也是可以的，還是不要吃<a href="https://helloyishi.com.tw/heart-health/hypertension/salty-diet-results-hypertension-kidney-problems/">太鹹</a>比較好…🤣
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/03.png" alt="" loading="lazy" decoding="async" width="945" height="290"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>而那一串<a href="https://www.convertstring.com/zh_TW/EncodeDecode/Base64Encode">看不懂</a>的字串，就叫做<a href="https://www.google.com/search?q=Token">Token</a>，中文是要叫<a href="https://medium.com/vincent-chen/token%E7%9A%84%E6%84%8F%E7%BE%A9-3244e264b779">代幣？</a>還是<a href="https://blockchain.storesocool.com/2018/02/22/token%E6%98%AF%E4%BB%A3%E5%B9%A3%E9%82%84%E6%98%AF%E4%BB%A4%E7%89%8C/">令牌？</a></li>
+<li>因為<a href="https://www.google.com/search?q=%E4%B8%A6%E6%B2%92%E6%9C%89">民情不一</a>，個人比較喜歡叫<a href="https://youtu.be/AQbAJ2D5n88">通行證</a>啦，就像去101樓上，要拿<a href="https://www.google.com/search?q=%E8%BA%AB%E4%BB%BD%E8%AD%89%E6%98%8E%E6%96%87%E4%BB%B6%E6%9C%89%E5%93%AA%E4%BA%9B">身份證明文件</a>換通行證一樣…🤣</li>
+<li>也類似<a href="https://zh.m.wikipedia.org/zh-tw/%E6%B9%AF%E5%A7%86%E7%86%8A%E6%AD%A1%E6%A8%82%E4%B8%96%E7%95%8C">湯姆熊</a>一樣，拿<a href="https://youtu.be/AQ3ZIq_gkgc">真錢</a>換代幣<a href="https://news.ltn.com.tw/news/society/breakingnews/3101348">(<del>假錢</del>)</a> / <a href="https://www.cheers.com.tw/article/article.action?id=5099396">Token</a></li>
+<li>登入成功之後，我們電腦傳過去的大約是長這樣，是不是<a href="https://www.bilibili.com/video/BV1oi4y1x79C/">看不到</a>帳密了啊？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">GET</span> <span style="color:#f92672">/</span><span style="color:#66d9ef">private</span><span style="color:#f92672">/</span><span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">html</span> <span style="color:#a6e22e">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Host</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">localhost</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Basic</span> <span style="color:#a6e22e">V2lsbGlhbTk4Nzk4Nw</span><span style="color:#f92672">==</span>
+</span></span></code></pre></div><ul>
+<li>對方傳回來的大約是長這樣…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.0</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Server</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">HTTPd</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>Date<span style="color:#f92672">:</span> <span style="color:#a6e22e">Sat</span>, <span style="color:#ae81ff">27</span> <span style="color:#a6e22e">Nov</span> <span style="color:#ae81ff">2022</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">07</span> <span style="color:#a6e22e">GMT</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Content</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">text</span><span style="color:#f92672">/</span><span style="color:#a6e22e">html</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Content</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">87</span>
+</span></span></code></pre></div><h4 id="json-web-token">JSON Web Token</h4>
+<ul>
+<li>文件在這裡 - <a href="https://www.rfc-editor.org/rfc/rfc7519">RFC 7519</a>，還是沒看過…🤣</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10250968">JSON Web Token - JWT</a>的Token產生，其實就是基於上面說的 - <a href="https://jwt.io/">Basic Authentication</a>，只是<a href="https://www.readfog.com/a/1631827957635977216">弄亂的方式 (編碼)</a>變的更複雜而已…</li>
+<li>傳過去大約是長這樣，Token字串的長度是不是長很多啊？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">GET</span> <span style="color:#f92672">/</span><span style="color:#66d9ef">private</span><span style="color:#f92672">/</span><span style="color:#a6e22e">index</span>.<span style="color:#a6e22e">html</span> <span style="color:#a6e22e">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Host</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">localhost</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Authorization</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Bearer</span> <span style="color:#a6e22e">eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9</span>.<span style="color:#a6e22e">eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0</span>.<span style="color:#a6e22e">VFb0qJ1LRg_4ujbZoRMXnVkUgiuKq5KxWqNdbKq_G9Vvz</span><span style="color:#f92672">-</span><span style="color:#a6e22e">S1zZa9LPxtHWKa64zDl2ofkT8F6jBt_K4riU</span><span style="color:#f92672">-</span><span style="color:#a6e22e">fPg</span>
+</span></span></code></pre></div><ul>
+<li>對方傳回來的大約是長這樣…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.0</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Server</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">HTTPd</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>Date<span style="color:#f92672">:</span> <span style="color:#a6e22e">Sat</span>, <span style="color:#ae81ff">27</span> <span style="color:#a6e22e">Nov</span> <span style="color:#ae81ff">2022</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">:</span><span style="color:#ae81ff">19</span><span style="color:#f92672">:</span><span style="color:#ae81ff">07</span> <span style="color:#a6e22e">GMT</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Content</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">text</span><span style="color:#f92672">/</span><span style="color:#a6e22e">html</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Content</span><span style="color:#f92672">-</span><span style="color:#a6e22e">Length</span><span style="color:#f92672">:</span> <span style="color:#ae81ff">87</span>
+</span></span></code></pre></div><h4 id="jwt實踐">JWT實踐</h4>
+<ul>
+<li>這裡呢，使用<a href="https://github.com/golang-jwt/jwt">jwt-go</a>這個套件來處理…</li>
+<li>因為Token在有效的期間之內都是可以合法使用的，那<a href="https://angiestyle.cc/hacked/">被盜帳號</a>，那中間要把它停掉怎麼辦呢？</li>
+<li><a href="https://youtu.be/xDFOLgx9878">凍結帳號</a>？這樣子是在<a href="https://womany.net/read/article/27470">懲罰好人</a>吧？…<a href="https://applealmond.com/posts/149386">刪帳號</a>？這就<a href="https://n.sfs.tw/content/index/10926">更不行</a>了吧？難怪…<a href="https://youtu.be/qA8g7iSe48Y">好人</a>不長命？<a href="https://kknews.cc/zh-tw/story/m26jy5g.html">禍害</a>遺千年？🤣
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/04.png" alt="" loading="lazy" decoding="async" width="975" height="390"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>所以這邊會多一個<a href="https://medium.com/%E9%BA%A5%E5%85%8B%E7%9A%84%E5%8D%8A%E8%B7%AF%E5%87%BA%E5%AE%B6%E7%AD%86%E8%A8%98/%E7%AD%86%E8%A8%98-%E9%80%8F%E9%81%8E-jwt-%E5%AF%A6%E4%BD%9C%E9%A9%97%E8%AD%89%E6%A9%9F%E5%88%B6-2e64d72594f8">步驟</a>，先把產生的Token存在資料庫內，經由比對<a href="https://youtu.be/gvRXjsrpCHw">資料庫</a>，再去解析Token，如此一來，就可以去刪Token了，就算是有效的Token也進不來…🤣</li>
+<li>最後，這裡的<a href="https://supertokens.com/blog/what-is-jwt">Token</a>還加入了到期時間 / 使用者名稱 / 使用者等級的資訊，JWT真的是<a href="https://mgleon08.github.io/blog/2018/07/16/jwt/">滿好用</a>的…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/05.png" alt="" loading="lazy" decoding="async" width="1920" height="663"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">model</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;william/model&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;errors&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/url&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;regexp&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;time&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AutoUpdate</span>              <span style="color:#66d9ef">bool</span>   = <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ValidityDays</span>            <span style="color:#66d9ef">int</span>    = <span style="color:#ae81ff">14</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">SqliteDatabasePath</span>      <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;./material/database.sqlite3&#34;</span> <span style="color:#75715e">// 把資料庫存放在material資料夾下
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">AutoUpdateCronRule</span>      <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;*/1 * * * *&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AutoRemoveTokenCronRule</span> <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;*/60 * * * *&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Port</span>                    <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;:12345&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Sheet</span>                   <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;App版本相關訊息&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">AuthorizationKey</span>        <span style="color:#66d9ef">string</span> = <span style="color:#e6db74">&#34;Authorization&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/golang-jwt/jwt/v4&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">UserMinimumLength</span>     <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">8</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">PasswordMinimumLength</span> <span style="color:#66d9ef">int</span> = <span style="color:#ae81ff">8</span>
-</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 紀錄Token
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">AuthToken</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Model</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Username</span>    <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;username&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Token</span>       <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;token&#34; gorm:&#34;index:idx_token,unique&#34;`</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ExpiresTime</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;expiresTime&#34;`</span>
+</span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// 預先設定的帳號
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">SuperUsers</span> = <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">UserLevel</span>{
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;root&#34;</span>:    {<span style="color:#e6db74">&#34;3939889&#34;</span>: <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Root</span>},
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;admin&#34;</span>:   {<span style="color:#e6db74">&#34;28825252&#34;</span>: <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Admin</span>},
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;william&#34;</span>: {<span style="color:#e6db74">&#34;987987&#34;</span>: <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Account</span>},
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_authToken</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">AuthToken</span>) <span style="color:#a6e22e">CheckToken</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">token</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">authToken</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">_authToken</span>.<span style="color:#a6e22e">Select</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">token</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">authToken</span>.<span style="color:#a6e22e">ID</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;token is null&#34;</span>)
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">_authToken</span>.<span style="color:#a6e22e">validateToken</span>(<span style="color:#a6e22e">token</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_authToken</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">AuthToken</span>) <span style="color:#a6e22e">JwtToken</span>(<span style="color:#a6e22e">user</span> <span style="color:#a6e22e">User</span>, <span style="color:#a6e22e">expiresTime</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span>) (<span style="color:#f92672">*</span><span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">claims</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">RegisteredClaims</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Subject</span>:   <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">Username</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">ExpiresAt</span>: <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">NewNumericDate</span>(<span style="color:#a6e22e">expiresTime</span>),
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">authClaims</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">authClaims</span>{
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">RegisteredClaims</span>: <span style="color:#a6e22e">claims</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">UserID</span>:           <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">ID</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">Level</span>:            <span style="color:#a6e22e">user</span>.<span style="color:#a6e22e">Level</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">token</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">NewWithClaims</span>(<span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">SigningMethodHS512</span>, <span style="color:#a6e22e">authClaims</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">tokenString</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">SignedString</span>(<span style="color:#a6e22e">jwtKey</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">tokenString</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_authToken</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">AuthToken</span>) <span style="color:#a6e22e">validateToken</span>(<span style="color:#a6e22e">jwtToken</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">claims</span> <span style="color:#a6e22e">authClaims</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">result</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;id&#34;</span>:       <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;username&#34;</span>: <span style="color:#66d9ef">nil</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;level&#34;</span>:    <span style="color:#a6e22e">Account</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">token</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">ParseWithClaims</span>(<span style="color:#a6e22e">jwtToken</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">claims</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">token</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">Token</span>) (<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">isSuccess</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">Method</span>.(<span style="color:#f92672">*</span><span style="color:#a6e22e">jwt</span>.<span style="color:#a6e22e">SigningMethodHMAC</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">isSuccess</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#e6db74">&#34;unexpected signing method: %v&#34;</span>, <span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">Header</span>[<span style="color:#e6db74">&#34;alg&#34;</span>])
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">jwtKey</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>	})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> !<span style="color:#a6e22e">token</span>.<span style="color:#a6e22e">Valid</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>, <span style="color:#a6e22e">errors</span>.<span style="color:#a6e22e">New</span>(<span style="color:#e6db74">&#34;invalid token&#34;</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">result</span> = <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}{
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;id&#34;</span>:          <span style="color:#a6e22e">claims</span>.<span style="color:#a6e22e">UserID</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;username&#34;</span>:    <span style="color:#a6e22e">claims</span>.<span style="color:#a6e22e">Subject</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;level&#34;</span>:       <span style="color:#a6e22e">claims</span>.<span style="color:#a6e22e">Level</span>,
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;expiresTime&#34;</span>: <span style="color:#a6e22e">claims</span>.<span style="color:#a6e22e">ExpiresAt</span>.<span style="color:#a6e22e">Time</span>,
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="api--jwt-token">API + JWT Token</h3>
+<ul>
+<li>在使用Postman的時候，Token是手動輸入的，但在網頁上，總不能<a href="https://meme.fandom.com/zh-tw/wiki/%E6%88%91%E5%B0%B1%E7%88%9B">純手工</a>輸入吧？</li>
+</ul>
+<h4 id="儲存authorization">儲存Authorization</h4>
+<ul>
+<li>使用者登入後會取得Token，然後把它存起來，就算<a href="https://www.mozilla.org/zh-TW/firefox/browsers/compare/">瀏覽器</a>關掉，下次還是可以取得到…</li>
+<li>像<a href="https://zh.wikipedia.org/wiki/IOS">iOS</a>會存在<a href="https://medium.com/@albert1994/%E4%BD%BF%E7%94%A8swift%E9%96%8B%E7%99%BCapp-%E7%B0%A1%E6%98%93%E5%84%B2%E5%AD%98-userdefault-eda46f6e28ea">UserDefault</a>，或者是<a href="https://dnz-think.medium.com/swift-keychain-6489bd09b51">Keychain</a>裡面；<a href="https://zh.wikipedia.org/wiki/Android">Android</a>，會存在<a href="https://litotom.com/ch7-1-sharedpreferences/">SharedPreferences</a>之內…</li>
+<li>那在<a href="https://medium.com/starbugs/%E8%BA%AB%E7%82%BA-web-%E5%B7%A5%E7%A8%8B%E5%B8%AB-%E4%BD%A0%E6%87%89%E8%A9%B2%E8%A6%81%E7%9F%A5%E9%81%93%E7%9A%84%E7%80%8F%E8%A6%BD%E5%99%A8%E6%9E%B6%E6%A7%8B%E6%BC%94%E9%80%B2%E5%8F%B2-feat-%E6%B8%B2%E6%9F%93%E5%BC%95%E6%93%8E%E9%81%8B%E4%BD%9C%E6%A9%9F%E5%88%B6-6d95d4d960ee">瀏覽器</a>可以存在<a href="https://www.waca.net/support/id/445">Cookie</a> / <a href="https://ithelp.ithome.com.tw/articles/10203525">SessionStorage</a> / <a href="https://medium.com/@bebebobohaha/cookie-localstorage-sessionstorage-%E5%B7%AE%E7%95%B0-9e1d5df3dd7f">LocalStorage</a></li>
+<li>這裡選擇儲存在<a href="https://ithelp.ithome.com.tw/articles/10220513">LocalStorage</a>中，打完login的API，就把它存起來吧…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/06.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">defineComponent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setup</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 使用者登入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">userLogin</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">username</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>, <span style="color:#a6e22e">password</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">string</span>) =&gt; {
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Constant</span>.<span style="color:#a6e22e">GolangAPI</span>.<span style="color:#a6e22e">userLogin</span>()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">post</span>(<span style="color:#a6e22e">url</span>, {
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;username&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">username</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">password</span>,
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">result</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">Utility</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e">// 使用者登入
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">userLogin</span><span style="color:#f92672">:</span> () =&gt; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">username</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Utility</span>.<span style="color:#a6e22e">tempUser</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">username</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">password</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Utility</span>.<span style="color:#a6e22e">tempUser</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">password</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">API</span>.<span style="color:#a6e22e">userLogin</span>(<span style="color:#a6e22e">username</span>, <span style="color:#a6e22e">password</span>).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">result</span>) =&gt; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">token</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">undefined</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Utility</span>.<span style="color:#a6e22e">tips</span>(<span style="color:#e6db74">&#34;登入失敗&#34;</span>, <span style="color:#e6db74">&#34;error&#34;</span>)
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Utility</span>.<span style="color:#a6e22e">clearTemporary</span>(); <span style="color:#66d9ef">return</span> 
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">setItem</span>(<span style="color:#a6e22e">API</span>.<span style="color:#a6e22e">AuthorizationKey</span>, <span style="color:#e6db74">`Bearer </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">token</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h4 id="使用authorization">使用Authorization</h4>
+<ul>
+<li>在打API的時候，要先加上<a href="https://ithelp.ithome.com.tw/articles/10256445">AuthorizationToken</a>在Header，不然會<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/401">401 Unauthorized</a></li>
+<li>其實，也不一定要放在Header，放在Body也可以，後台取得到就好，只是…大家都放在那裡，還是<a href="https://udn.com/news/story/7333/6305830">合群點</a>比較好…</li>
+</ul>
+<video class="video-shortcode" width="50%" preload="auto" controls>
+    <source src="/images/2022/golang-app-version-vip/JWT.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<p>
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/07.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">defineComponent</span>({
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;App&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">components</span><span style="color:#f92672">:</span> {},
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">setup</span>() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">API</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e">// 取得記在localStorage的token
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">authToken</span><span style="color:#f92672">:</span> () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">localStorage</span>.<span style="color:#a6e22e">getItem</span>(<span style="color:#a6e22e">API</span>.<span style="color:#a6e22e">AuthorizationKey</span>)
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e">// 加上認證的headers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">authorizationHeaders</span><span style="color:#f92672">:</span> () =&gt; {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">headers</span> <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#34;Authorization&#34;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">API</span>.<span style="color:#a6e22e">authToken</span>() <span style="color:#f92672">??</span> <span style="color:#e6db74">&#34;&#34;</span> }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">headers</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e">// 取得App版本列表
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>      <span style="color:#a6e22e">appVersions</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">async</span> (<span style="color:#a6e22e">page</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">number</span>) =&gt; {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">parameters</span> <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">limit</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">Constant</span>.<span style="color:#a6e22e">PaginationSetting</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">pageSize</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#a6e22e">offset</span><span style="color:#f92672">:</span> (<span style="color:#a6e22e">page</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">Constant</span>.<span style="color:#a6e22e">PaginationSetting</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">pageSize</span>,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authAPI</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">axios</span>.<span style="color:#a6e22e">create</span>({ <span style="color:#a6e22e">headers</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">API</span>.<span style="color:#a6e22e">authorizationHeaders</span>() })
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">url</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">Constant</span>.<span style="color:#a6e22e">GolangAPI</span>.<span style="color:#a6e22e">appVersionList</span>(<span style="color:#a6e22e">Constant</span>.<span style="color:#a6e22e">PaginationSetting</span>.<span style="color:#a6e22e">value</span>.<span style="color:#a6e22e">currentPage</span>)          
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">response</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> <span style="color:#a6e22e">authAPI</span>.<span style="color:#a6e22e">post</span>(<span style="color:#a6e22e">url</span>, <span style="color:#a6e22e">parameters</span>)
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">401</span>) { <span style="color:#a6e22e">Utility</span>.<span style="color:#a6e22e">tips</span>(<span style="color:#e6db74">&#34;尚未授權&#34;</span>, <span style="color:#e6db74">&#34;error&#34;</span>); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> { <span style="color:#a6e22e">result</span> } <span style="color:#f92672">=</span> <span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">data</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">catch</span> (<span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">any</span>) {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">error</span>.<span style="color:#a6e22e">response</span>.<span style="color:#a6e22e">status</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">401</span>) { <span style="color:#a6e22e">Utility</span>.<span style="color:#a6e22e">tips</span>(<span style="color:#e6db74">&#34;尚未授權&#34;</span>, <span style="color:#e6db74">&#34;error&#34;</span>); <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h4 id="判斷授權">判斷授權</h4>
+<ul>
+<li>這段我想超久的，好加在有寫過<a href="https://grails.org/">grails</a>，就想仿一下設定…</li>
+<li>其實一定有套件可以處理這一段，但目前還是先這樣做吧…</li>
+<li>我的想法是利用<a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Regular_Expressions">正規式</a>去過濾網址，打*的就<a href="https://www.facebook.com/1980Jerry/videos/%E8%8B%B1%E6%96%87%E8%80%83%E8%A9%A6%E9%80%9A%E9%81%8E%E6%98%AF-all-pass-/246238083096913/">All Pass</a>…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/08.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2022/golang-app-version-vip/09.png" alt="" loading="lazy" decoding="async" width="1181" height="285"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#75715e">// API的通行規則
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ApiRules</span> = <span style="color:#66d9ef">map</span>[<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">UserLevel</span>]<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>][]<span style="color:#66d9ef">string</span>{
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Account</span>: {
@@ -270,9 +1201,38 @@
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">Root</span>:  {<span style="color:#e6db74">&#34;GET&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;POST&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;PUT&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;PATCH&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}, <span style="color:#e6db74">&#34;DELETE&#34;</span>: {<span style="color:#e6db74">&#34;*&#34;</span>}},
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_authToken</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">AuthToken</span>) <span style="color:#a6e22e">CheckLevel</span>(<span style="color:#a6e22e">level</span> <span style="color:#a6e22e">UserLevel</span>, <span style="color:#a6e22e">url</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">URL</span>, <span style="color:#a6e22e">method</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">rules</span> <span style="color:#66d9ef">map</span>[<span style="color:#a6e22e">UserLevel</span>]<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>][]<span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">isMatch</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">urlString</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">url</span>.<span style="color:#a6e22e">String</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">urls</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">rules</span>[<span style="color:#a6e22e">level</span>][<span style="color:#a6e22e">method</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">_url</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">urls</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">_url</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;*&#34;</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">isMatch</span> = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">isMatch</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">rule</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">`:[\w]+`</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">regular</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#a6e22e">rule</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">newRule</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">regular</span>.<span style="color:#a6e22e">ReplaceAllString</span>(<span style="color:#a6e22e">_url</span>, <span style="color:#e6db74">`[\w]+`</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">regular</span> = <span style="color:#a6e22e">regexp</span>.<span style="color:#a6e22e">MustCompile</span>(<span style="color:#a6e22e">newRule</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">isMatch</span> = <span style="color:#a6e22e">regular</span>.<span style="color:#a6e22e">MatchString</span>(<span style="color:#a6e22e">urlString</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">isMatch</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">isMatch</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">isMatch</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="範例程式碼下載---githubhttpsgithubcomwilliam-wenggoappversiongit">範例程式碼下載 - <a href="https://github.com/William-Weng/GoAppVersion.git">GitHub</a></h3>
 <h3 id="後記">後記</h3>
-<p>最近有點累，就先上傳Code，內文的話，再慢慢寫，這篇要介紹滿多東西的…</p>
+<p>做完之後發現，平時<a href="https://youtu.be/jVsWuncfDmE">簡簡單單</a>使用的API，原來背後有這麼深的<a href="https://youtu.be/I0yqm0ZruF0">學問</a>啊，果然每個行業都有它的<a href="https://youtu.be/NQkJSExppSU">專業</a>…而且，看起來簡簡單單的設定介面，居然要<a href="https://zh.m.wikipedia.org/zh-tw/%E5%8D%81%E5%85%AD%E5%BC%B5%E9%BA%BB%E5%B0%87">16支API</a>，真的是<a href="https://www.google.com/search?q=%E4%B8%8D%E8%A6%81%E7%9E%8E%E6%8E%B0">超乎</a>我的<a href="https://youtu.be/PVh9weIxp0Y">想象</a>啊…學完了該學的<a href="https://www.businessweekly.com.tw/careers/blog/3008087">基礎</a>之後，<a href="https://touchingstory3.blogspot.com/2018/12/blog-post_653.html">有空</a>再來學學<a href="http://moneyaaa.com/27587/">說話</a>的高超<a href="https://www.managertoday.com.tw/articles/view/46821">技巧</a>吧，<a href="https://www.vogue.com.tw/lifestyle/article/cp%E5%80%BC-op-%E8%8B%B1%E6%96%87%E7%B8%AE%E5%AF%AB%E5%A4%A7%E9%9B%86%E5%90%88">物美價廉</a>的我，便宜一樣<a href="https://youtu.be/qupODoNeFag">有好貨</a>…
+理論總是簡單，要<a href="https://youtu.be/TttXYkqdATQ">實做</a>出來就是另外一回事了，就像有人說，<a href="https://youtu.be/nzXXLBNWzKo">籃球</a>不就是把球投進<a href="https://youtu.be/lsLf_C0rVSU">籃框</a>就好了嗎？是…是沒錯啦…，真奇怪，都寫了60篇了，怎麼都沒有人找我業配啊？🤣</p>
 <p><a href="https://www.buymeacoffee.com/linuxice0609">
 
 
