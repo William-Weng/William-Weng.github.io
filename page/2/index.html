@@ -84,6 +84,122 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="【Golang 1.18】ORM？ORZ？傻傻分不清楚？">【Golang 1.18】ORM？ORZ？傻傻分不清楚？</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <use xlink:href="#calendar"></use>
+</svg></span>
+    <span class="post_date">
+      Apr 18, 2022</span>
+    <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang' title="golang" class="post_tag button button_translucent">golang
+        </a><a href='https://William-Weng.github.io/tags/sqlite' title="sqlite" class="post_tag button button_translucent">sqlite
+        </a><a href='https://William-Weng.github.io/tags/mysql' title="mysql" class="post_tag button button_translucent">mysql
+        </a><a href='https://William-Weng.github.io/tags/api' title="api" class="post_tag button button_translucent">api
+        </a><a href='https://William-Weng.github.io/tags/backend' title="backend" class="post_tag button button_translucent">backend
+        </a><a href='https://William-Weng.github.io/tags/email' title="email" class="post_tag button button_translucent">email
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Golang%201.18%e3%80%91ORM%ef%bc%9fORZ%ef%bc%9f%e5%82%bb%e5%82%bb%e5%88%86%e4%b8%8d%e6%b8%85%e6%a5%9a%ef%bc%9f&url=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f04%2fgolang-1.18ormorz%25E5%2582%25BB%25E5%2582%25BB%25E5%2588%2586%25E4%25B8%258D%25E6%25B8%2585%25E6%25A5%259A%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#twitter"></use>
+</svg>
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f04%2fgolang-1.18ormorz%25E5%2582%25BB%25E5%2582%25BB%25E5%2588%2586%25E4%25B8%258D%25E6%25B8%2585%25E6%25A5%259A%2f&t=%e3%80%90Golang%201.18%e3%80%91ORM%ef%bc%9fORZ%ef%bc%9f%e5%82%bb%e5%82%bb%e5%88%86%e4%b8%8d%e6%b8%85%e6%a5%9a%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#facebook"></use>
+</svg>
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <use xlink:href="#linkedin"></use>
+</svg>
+    </a>
+    <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <use xlink:href="#copy"></use>
+</svg>
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+
+      
+      
+      
+      
+      
+<div class="excerpt_thumbnail">
+  <picture>
+
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_thumbnail image_internal" src="https://William-Weng.github.io/images/thumbnail/Golang.png" alt="【Golang 1.18】ORM？ORZ？傻傻分不清楚？" loading="lazy" decoding="async" width="256" height="256" /></picture>
+</div>
+
+      
+        <div>
+          <p class="pale">
+            
+              <p>應該有學了三週了吧？今天主要是來介紹<a href="https://ithelp.ithome.com.tw/articles/10207752">ORM - Object Relational Mapping</a>這個東西，簡單來說它就是一個幫助你把<a href="https://gorm.io/">Go語法 =&gt; SQL語法</a>的工具，因為一般有學過<a href="https://ithelp.ithome.com.tw/articles/10241383">SQL語法</a>的人並不是很多，加上基本上需要<a href="https://tecky.io/en/blog/SQL%E4%B8%89%E9%83%A8%E6%9B%B2:%E4%BD%A0%E4%B8%8D%E9%9C%80%E8%A6%81ORM/">高效能</a>的<a href="https://zh.wikipedia.org/wiki/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">CRUD</a>的機會就更少了，在語法上大大的<a href="https://www.itread01.com/content/1550282231.html">降低</a>了前端工程師對於SQL的<a href="https://cinna.tw/%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97/%E4%BD%9C%E8%80%85%E8%B6%85%E5%9B%89%E5%97%A6%EF%BC%8C%E4%BD%86%E4%B8%80%E5%A4%A9%E5%8F%AA%E8%A6%81%E5%8D%81%E5%88%86%E9%90%98%E7%9A%84mysql%E7%9C%9F%EF%BC%8E%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/crud%E5%88%9D%E9%AB%94%E9%A9%97%EF%BC%8C%E6%93%8D%E4%BD%9Cmysql%E8%B3%87%E6%96%99%E5%BA%AB">語法熟悉度</a>，而且<a href="https://ithelp.ithome.com.tw/articles/10238611">轉換資料庫</a>很容易，有助於快速開發。</p>
+            
+          </p>
+          <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+      <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" title="【Golang 1.18】Let&#39; Go, MySQL我來了…">【Golang 1.18】Let&#39; Go, MySQL我來了…</a>
       </h3>
       
@@ -1107,119 +1223,6 @@
     </div>
   </li>
 
-      <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/" title="【Android 6.0】RecyclerView - 高效能的ListView">【Android 6.0】RecyclerView - 高效能的ListView</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <use xlink:href="#calendar"></use>
-</svg></span>
-    <span class="post_date">
-      Jan 12, 2020</span>
-    <span class="post_time"> · 8 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/android' title="android" class="post_tag button button_translucent">android
-        </a><a href='https://William-Weng.github.io/tags/kotlin' title="kotlin" class="post_tag button button_translucent">kotlin
-        </a><a href='https://William-Weng.github.io/tags/android-studio' title="android studio" class="post_tag button button_translucent">android studio
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Android%206.0%e3%80%91RecyclerView%20-%20%e9%ab%98%e6%95%88%e8%83%bd%e7%9a%84ListView&url=https%3a%2f%2fWilliam-Weng.github.io%2f2020%2f01%2fandroid-6.0recyclerview-%25E9%25AB%2598%25E6%2595%2588%25E8%2583%25BD%25E7%259A%2584listview%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#twitter"></use>
-</svg>
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2020%2f01%2fandroid-6.0recyclerview-%25E9%25AB%2598%25E6%2595%2588%25E8%2583%25BD%25E7%259A%2584listview%2f&t=%e3%80%90Android%206.0%e3%80%91RecyclerView%20-%20%e9%ab%98%e6%95%88%e8%83%bd%e7%9a%84ListView" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#facebook"></use>
-</svg>
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <use xlink:href="#linkedin"></use>
-</svg>
-    </a>
-    <a href="https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <use xlink:href="#copy"></use>
-</svg>
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-    <div class="excerpt_footer partition">
-
-      
-      
-      
-      
-      
-<div class="excerpt_thumbnail">
-  <picture>
-
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
-
-      <img class="image_thumbnail image_internal" src="https://William-Weng.github.io/images/thumbnail/AndroidStudio.png" alt="【Android 6.0】RecyclerView - 高效能的ListView" loading="lazy" decoding="async" width="256" height="256" /></picture>
-</div>
-
-      
-        <div>
-          <p class="pale">
-            
-              <p>現在要介紹的是<a href="https://medium.com/@evanhou/%E6%B7%BA%E8%AB%87android-recyclerview-375f9c0eea58">RecyclerView</a>，這應該是手機上最常用的元件之一，就是列表。RecyclerView可以說是<a href="https://qiita.com/vc7/items/3fe9edded4b8306646f5">ListView</a>的改良版，和<a href="https://developer.android.com/reference/android/widget/ListView">ListView</a>相同的是，<a href="https://developer.android.com/guide/topics/ui/layout/recyclerview">RecyclerView</a>一樣是由配置器(Adapter)來處理ItemView呈現的內容，不同的是，RecyclerView有實做<a href="https://blog.csdn.net/csdn_aiyang/article/details/80094302">Recycle機制</a>，就像iOS的UITableView的<a href="https://medium.com/@mikru168/ios-uitableviewcell%E7%9A%84%E9%87%8D%E7%94%A8%E6%A9%9F%E5%88%B6-%E7%84%A1storyboard-94e766420b57">Reuse</a>機制。話不多說，現在就來一步步做一個長得像這樣的APP吧，以下的說明還是會以iOS做類比。</p>
-            
-          </p>
-          <a href="https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
     <li>
     <ul class="pagination pagination-default">
       <li class="page-item">
@@ -1258,6 +1261,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2023/01/unreal-5%E4%BE%86%E5%90%A7%E8%99%9B%E5%B9%BB%E5%BC%95%E6%93%8E-5/" class="nav-link" title="【Unreal 5】來吧，虛幻引擎 5">【Unreal 5】來吧，虛幻引擎 5</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2022/10/xcode-14ipad%E7%AE%A1%E7%90%86%E5%BE%8C%E5%8F%B0lets-go/" class="nav-link" title="【Xcode 14】iPad管理後台，Let&#39;s Go!">【Xcode 14】iPad管理後台，Let&#39;s Go!</a>
       </li>
       <li>
@@ -1277,9 +1283,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/" class="nav-link" title="【Flutter 3.1】Flutter vs NativeScript - 回憶篇">【Flutter 3.1】Flutter vs NativeScript - 回憶篇</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2022/05/golang-1.18%E7%9F%AD%E7%B6%B2%E5%9D%80%E7%94%A2%E7%94%9F%E5%99%A8-%E6%A5%B5%E7%9F%AD%E7%AF%87/" class="nav-link" title="【Golang 1.18】短網址產生器 - 極短篇">【Golang 1.18】短網址產生器 - 極短篇</a>
       </li>
     </ul>
     <div>
@@ -1330,6 +1333,11 @@
           <span class="button_tally">7</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
+          GAME
+          <span class="button_tally">7</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/vue/' class="post_tag button button_translucent" title="vue">
           VUE
           <span class="button_tally">7</span>
@@ -1342,11 +1350,6 @@
         
         <a href='https://William-Weng.github.io/tags/firebase/' class="post_tag button button_translucent" title="firebase">
           FIREBASE
-          <span class="button_tally">6</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
-          GAME
           <span class="button_tally">6</span>
         </a>
         
@@ -1667,6 +1670,11 @@
         
         <a href='https://William-Weng.github.io/tags/ui/' class="post_tag button button_translucent" title="ui">
           UI
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/unreal/' class="post_tag button button_translucent" title="unreal">
+          UNREAL
           <span class="button_tally">1</span>
         </a>
         
