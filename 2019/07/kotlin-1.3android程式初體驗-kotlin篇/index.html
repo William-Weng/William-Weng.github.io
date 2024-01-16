@@ -492,7 +492,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onCreate</span>(savedInstanceState: Bundle?) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.onCreate(savedInstanceState)
-</span></span><span style="display:flex;"><span>        setContentView(R.layout.main_activity) 
+</span></span><span style="display:flex;"><span>        setContentView(<span style="color:#a6e22e">R</span>.layout.main_activity) 
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="rjava">R.java</h4>
@@ -510,9 +510,9 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">R</span> <span style="color:#f92672">{</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">anim</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> abc_fade_in<span style="color:#f92672">=</span>0x7f010000<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> abc_fade_out<span style="color:#f92672">=</span>0x7f010001<span style="color:#f92672">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> abc_grow_fade_in_from_bottom<span style="color:#f92672">=</span>0x7f010002<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> abc_fade_in<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>x7f010000<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> abc_fade_out<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>x7f010001<span style="color:#f92672">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> abc_grow_fade_in_from_bottom<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>x7f010002<span style="color:#f92672">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">...</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
@@ -525,15 +525,15 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">/// 初始化設定元件
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">initElements</span>() {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        inputName = findViewById(R.id.input_name)
-</span></span><span style="display:flex;"><span>        radioGroup = findViewById(R.id.radioGroup)
-</span></span><span style="display:flex;"><span>        startGame = findViewById(R.id.start_game)
-</span></span><span style="display:flex;"><span>        nextPage = findViewById(R.id.nextPage)
+</span></span><span style="display:flex;"><span>        inputName = findViewById(<span style="color:#a6e22e">R</span>.id.input_name)
+</span></span><span style="display:flex;"><span>        radioGroup = findViewById(<span style="color:#a6e22e">R</span>.id.radioGroup)
+</span></span><span style="display:flex;"><span>        startGame = findViewById(<span style="color:#a6e22e">R</span>.id.start_game)
+</span></span><span style="display:flex;"><span>        nextPage = findViewById(<span style="color:#a6e22e">R</span>.id.nextPage)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        labelName = findViewById&lt;TextView&gt;(R.id.label_name)
-</span></span><span style="display:flex;"><span>        labelMe = findViewById&lt;TextView&gt;(R.id.label_me)
-</span></span><span style="display:flex;"><span>        labelWinner = findViewById&lt;TextView&gt;(R.id.label_winner)
-</span></span><span style="display:flex;"><span>        labelPC = findViewById&lt;TextView&gt;(R.id.label_pc)
+</span></span><span style="display:flex;"><span>        labelName = findViewById&lt;TextView&gt;(<span style="color:#a6e22e">R</span>.id.label_name)
+</span></span><span style="display:flex;"><span>        labelMe = findViewById&lt;TextView&gt;(<span style="color:#a6e22e">R</span>.id.label_me)
+</span></span><span style="display:flex;"><span>        labelWinner = findViewById&lt;TextView&gt;(<span style="color:#a6e22e">R</span>.id.label_winner)
+</span></span><span style="display:flex;"><span>        labelPC = findViewById&lt;TextView&gt;(<span style="color:#a6e22e">R</span>.id.label_pc)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h4 id="setonclicklistener">setOnClickListener()</h4>
@@ -591,9 +591,9 @@
 </span></span><span style="display:flex;"><span>   <span style="color:#75715e">/// 我方出拳的結果 (勾選值)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">moraResultForMe</span>(): Int {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> selectScissors = findViewById&lt;RadioButton&gt;(R.id.select_scissors)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> selectRock = findViewById&lt;RadioButton&gt;(R.id.select_rock)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> selectPaper = findViewById&lt;RadioButton&gt;(R.id.select_paper)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> selectScissors = findViewById&lt;RadioButton&gt;(<span style="color:#a6e22e">R</span>.id.select_scissors)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> selectRock = findViewById&lt;RadioButton&gt;(<span style="color:#a6e22e">R</span>.id.select_rock)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> selectPaper = findViewById&lt;RadioButton&gt;(<span style="color:#a6e22e">R</span>.id.select_paper)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> answer = <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>
@@ -739,7 +739,7 @@
 </span></span><span style="display:flex;"><span>        bundle.putString(<span style="color:#e6db74">&#34;SubValue&#34;</span>, subValue)
 </span></span><span style="display:flex;"><span>        intent.putExtras(bundle)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        setResult(Activity.RESULT_OK, intent)
+</span></span><span style="display:flex;"><span>        setResult(<span style="color:#a6e22e">Activity</span>.RESULT_OK, intent)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="範例程式碼下載httpsgithubcomwilliam-wengkotlin-1treemasterandroid_helloworld"><a href="https://github.com/William-Weng/Kotlin-1/tree/master/Android_HelloWorld">範例程式碼下載</a></h3>
@@ -762,6 +762,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" class="nav-link" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2023/08/%E5%8A%A0%E5%AF%86-/-%E8%A7%A3%E5%AF%86%E5%87%B1%E6%92%92%E5%A4%A7%E5%B8%9D%E8%88%87%E5%B8%8C%E7%89%B9%E5%8B%92%E7%9A%84%E7%A5%95%E5%AF%86/" class="nav-link" title="【加密 / 解密】凱撒大帝與希特勒的祕密">【加密 / 解密】凱撒大帝與希特勒的祕密</a>
       </li>
       <li>
@@ -782,9 +785,6 @@
       <li>
         <a href="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/" class="nav-link" title="【Flutter 3.3】初學ListView - 可愛的角落生物我來了">【Flutter 3.3】初學ListView - 可愛的角落生物我來了</a>
       </li>
-      <li>
-        <a href="https://William-Weng.github.io/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/" class="nav-link" title="【Flutter 3.0】Flutter我來了 - 萬用的ListView">【Flutter 3.0】Flutter我來了 - 萬用的ListView</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
@@ -796,12 +796,12 @@
         
         <a href='https://William-Weng.github.io/tags/swift/' class="post_tag button button_translucent" title="swift">
           SWIFT
-          <span class="button_tally">13</span>
+          <span class="button_tally">14</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/xcode/' class="post_tag button button_translucent" title="xcode">
           XCODE
-          <span class="button_tally">13</span>
+          <span class="button_tally">14</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/android/' class="post_tag button button_translucent" title="android">
@@ -989,6 +989,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -1051,6 +1056,16 @@
         
         <a href='https://William-Weng.github.io/tags/cheatsheet/' class="post_tag button button_translucent" title="cheatsheet">
           CHEATSHEET
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/combine/' class="post_tag button button_translucent" title="combine">
+          COMBINE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/decrypt/' class="post_tag button button_translucent" title="decrypt">
+          DECRYPT
           <span class="button_tally">1</span>
         </a>
         
@@ -1159,6 +1174,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/rx/' class="post_tag button button_translucent" title="rx">
+          RX
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/script/' class="post_tag button button_translucent" title="script">
           SCRIPT
           <span class="button_tally">1</span>
@@ -1176,11 +1196,6 @@
         
         <a href='https://William-Weng.github.io/tags/ssl/' class="post_tag button button_translucent" title="ssl">
           SSL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         

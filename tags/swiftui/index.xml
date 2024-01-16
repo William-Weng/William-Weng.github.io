@@ -6,7 +6,23 @@
     <description>Recent content in swiftui on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Thu, 27 May 2021 06:27:56 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jan 2024 05:00:03 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/swiftui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</title>
+      <link>https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/</link>
+      <pubDate>Wed, 17 Jan 2024 05:00:03 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/</guid>
+      <description>
+        
+          
+            &lt;p&gt;最近台灣的&lt;a href=&#34;https://github.com/William-Weng/StudyCombine&#34;&gt;總統大選&lt;/a&gt;剛選完，還真的是&lt;a href=&#34;https://youtu.be/37CS5TvmLTw&#34;&gt;幾家歡樂幾家愁&lt;/a&gt;呢，無論結果如何，大家一起&lt;a href=&#34;https://developer.apple.com/documentation/combine&#34;&gt;Combine&lt;/a&gt;，為了未來一起努力吧…話說，雖然&lt;a href=&#34;https://tw.dictionary.search.yahoo.com/search?p=combine&#34;&gt;Combine&lt;/a&gt;從iOS 13.0就開始支援了，但是那時的時空背景是要來取代&lt;a href=&#34;https://github.com/ReactiveX/RxSwift&#34;&gt;Rx&lt;/a&gt;的，但當時的&lt;a href=&#34;https://beeth0ven.github.io/RxSwift-Chinese-Documentation/&#34;&gt;Rx&lt;/a&gt;可謂是&lt;a href=&#34;https://www.youtube.com/channel/UC5l1Yto5oOIgRXlI4p4VKbw&#34;&gt;如日中天&lt;/a&gt;，因為&lt;a href=&#34;https://hackmd.io/@canry334/Sk7FHQFdD&#34;&gt;函數響應式(Functional Reactive Programming)&lt;/a&gt;的流行，加上&lt;a href=&#34;https://flutter.dev/monetization&#34;&gt;Flutter雙平台開發&lt;/a&gt;越來越強大，使得APPLE不得不出個&lt;a href=&#34;https://developer.apple.com/xcode/swiftui/&#34;&gt;SwiftUI&lt;/a&gt;來應戰，在這時候Combine的應用在SwiftUI就非常的方便，當然，因為&lt;a href=&#34;https://github.com/CombineCommunity/RxCombine&#34;&gt;Rx系列&lt;/a&gt;是不能應用在SwiftUI上，所以就漸漸取代了RxSwift，成為&lt;a href=&#34;https://www.104.com.tw/jobs/search/?keyword=iOS%E5%B7%A5%E7%A8%8B%E5%B8%AB&#34;&gt;面試&lt;/a&gt;的主流…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【SwiftUI 2.0】它好用嗎？能吃嗎？</title>
       <link>https://William-Weng.github.io/2021/05/swiftui-2.0%E5%AE%83%E5%A5%BD%E7%94%A8%E5%97%8E%E8%83%BD%E5%90%83%E5%97%8E/</link>

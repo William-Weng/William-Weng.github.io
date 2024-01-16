@@ -1144,26 +1144,26 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onCreate</span>(savedInstanceState: Bundle?) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.onCreate(savedInstanceState)
-</span></span><span style="display:flex;"><span>        setContentView(R.layout.activity_main)
+</span></span><span style="display:flex;"><span>        setContentView(<span style="color:#a6e22e">R</span>.layout.activity_main)
 </span></span><span style="display:flex;"><span>        initSetting()
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        FirebaseMessaging.getInstance().subscribeToTopic(<span style="color:#e6db74">&#34;news&#34;</span>)
-</span></span><span style="display:flex;"><span>        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task <span style="color:#f92672">-&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">FirebaseMessaging</span>.getInstance().subscribeToTopic(<span style="color:#e6db74">&#34;news&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">FirebaseMessaging</span>.getInstance().token.addOnCompleteListener(OnCompleteListener { task <span style="color:#f92672">-&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (!task.isSuccessful) <span style="color:#66d9ef">return</span><span style="color:#a6e22e">@OnCompleteListener</span>
 </span></span><span style="display:flex;"><span>            token = task.result
 </span></span><span style="display:flex;"><span>        })
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onCreateOptionsMenu</span>(menu: Menu?): Boolean {
-</span></span><span style="display:flex;"><span>        menuInflater.inflate(R.menu.option_menu, menu)
+</span></span><span style="display:flex;"><span>        menuInflater.inflate(<span style="color:#a6e22e">R</span>.menu.option_menu, menu)
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">super</span>.onCreateOptionsMenu(menu)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onOptionsItemSelected</span>(item: MenuItem): Boolean {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">when</span> (item.itemId) {
-</span></span><span style="display:flex;"><span>            R.id.action_item_register <span style="color:#f92672">-&gt;</span> { registerUser(); <span style="color:#66d9ef">true</span> }
-</span></span><span style="display:flex;"><span>            R.id.action_item_setting <span style="color:#f92672">-&gt;</span>{ settingUser(); <span style="color:#66d9ef">true</span> }
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">R</span>.id.action_item_register <span style="color:#f92672">-&gt;</span> { registerUser(); <span style="color:#66d9ef">true</span> }
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">R</span>.id.action_item_setting <span style="color:#f92672">-&gt;</span>{ settingUser(); <span style="color:#66d9ef">true</span> }
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span> <span style="color:#f92672">-&gt;</span> { <span style="color:#66d9ef">super</span>.onOptionsItemSelected(item) }
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
@@ -1171,33 +1171,33 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 初始化設定
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">initSetting</span>() {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        toolbar = <span style="color:#66d9ef">this</span>.findViewById(R.id.toolbar)
+</span></span><span style="display:flex;"><span>        toolbar = <span style="color:#66d9ef">this</span>.findViewById(<span style="color:#a6e22e">R</span>.id.toolbar)
 </span></span><span style="display:flex;"><span>        toolbar.title = <span style="color:#e6db74">&#34;GoGo垃圾信&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        usernameEditText = <span style="color:#66d9ef">this</span>.findViewById(R.id.username)
-</span></span><span style="display:flex;"><span>        eMailEditText = <span style="color:#66d9ef">this</span>.findViewById(R.id.eMail)
-</span></span><span style="display:flex;"><span>        phoneEditText = <span style="color:#66d9ef">this</span>.findViewById(R.id.phone)
+</span></span><span style="display:flex;"><span>        usernameEditText = <span style="color:#66d9ef">this</span>.findViewById(<span style="color:#a6e22e">R</span>.id.username)
+</span></span><span style="display:flex;"><span>        eMailEditText = <span style="color:#66d9ef">this</span>.findViewById(<span style="color:#a6e22e">R</span>.id.eMail)
+</span></span><span style="display:flex;"><span>        phoneEditText = <span style="color:#66d9ef">this</span>.findViewById(<span style="color:#a6e22e">R</span>.id.phone)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        setSupportActionBar(toolbar)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 顯示提示Toast
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">showToast</span>(text: String) {
-</span></span><span style="display:flex;"><span>        Log.d(<span style="color:#e6db74">&#34;[TOAST]&#34;</span>, text)
-</span></span><span style="display:flex;"><span>        Toast.makeText(<span style="color:#66d9ef">this</span>, text, Toast.LENGTH_SHORT).show()
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Log</span>.d(<span style="color:#e6db74">&#34;[TOAST]&#34;</span>, text)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Toast</span>.makeText(<span style="color:#66d9ef">this</span>, text, <span style="color:#a6e22e">Toast</span>.LENGTH_SHORT).show()
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 產生Request (POST)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">requestPostMaker</span>(urlString: String, json: String): Request {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> body = json.toRequestBody()
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">this</span>.showToast(urlString)
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Request.Builder().url(urlString).post(body).build()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Request</span>.Builder().url(urlString).post(body).build()
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 產生Request (PATCH)
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">private</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">requestPatchMaker</span>(urlString: String, json: String): Request {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">val</span> body = json.toRequestBody()
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Request.Builder().url(urlString).patch(body).build()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">Request</span>.Builder().url(urlString).patch(body).build()
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 註冊User
@@ -1248,12 +1248,12 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onNewToken</span>(token: String) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.onNewToken(token)
-</span></span><span style="display:flex;"><span>        Log.d(<span style="color:#e6db74">&#34;[TOKEN]&#34;</span>, token)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">Log</span>.d(<span style="color:#e6db74">&#34;[TOKEN]&#34;</span>, token)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">onMessageReceived</span>(message: RemoteMessage) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">super</span>.onMessageReceived(message)
-</span></span><span style="display:flex;"><span>        message.notification<span style="color:#f92672">?.</span>body<span style="color:#f92672">?.</span>let { Log.d(<span style="color:#e6db74">&#34;[TOKEN]&#34;</span>, <span style="color:#66d9ef">it</span>) }
+</span></span><span style="display:flex;"><span>        message.notification<span style="color:#f92672">?.</span>body<span style="color:#f92672">?.</span>let { <span style="color:#a6e22e">Log</span>.d(<span style="color:#e6db74">&#34;[TOKEN]&#34;</span>, <span style="color:#66d9ef">it</span>) }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h3 id="vue---再來看看後端vue的部分">Vue - 再來看看後端Vue的部分</h3>
@@ -2928,6 +2928,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" class="nav-link" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2023/08/%E5%8A%A0%E5%AF%86-/-%E8%A7%A3%E5%AF%86%E5%87%B1%E6%92%92%E5%A4%A7%E5%B8%9D%E8%88%87%E5%B8%8C%E7%89%B9%E5%8B%92%E7%9A%84%E7%A5%95%E5%AF%86/" class="nav-link" title="【加密 / 解密】凱撒大帝與希特勒的祕密">【加密 / 解密】凱撒大帝與希特勒的祕密</a>
       </li>
       <li>
@@ -2948,9 +2951,6 @@
       <li>
         <a href="https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/" class="nav-link" title="【Flutter 3.3】初學ListView - 可愛的角落生物我來了">【Flutter 3.3】初學ListView - 可愛的角落生物我來了</a>
       </li>
-      <li>
-        <a href="https://William-Weng.github.io/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/" class="nav-link" title="【Flutter 3.0】Flutter我來了 - 萬用的ListView">【Flutter 3.0】Flutter我來了 - 萬用的ListView</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
@@ -2962,12 +2962,12 @@
         
         <a href='https://William-Weng.github.io/tags/swift/' class="post_tag button button_translucent" title="swift">
           SWIFT
-          <span class="button_tally">13</span>
+          <span class="button_tally">14</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/xcode/' class="post_tag button button_translucent" title="xcode">
           XCODE
-          <span class="button_tally">13</span>
+          <span class="button_tally">14</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/android/' class="post_tag button button_translucent" title="android">
@@ -3155,6 +3155,11 @@
           <span class="button_tally">2</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
+          SWIFTUI
+          <span class="button_tally">2</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/tools/' class="post_tag button button_translucent" title="tools">
           TOOLS
           <span class="button_tally">2</span>
@@ -3217,6 +3222,16 @@
         
         <a href='https://William-Weng.github.io/tags/cheatsheet/' class="post_tag button button_translucent" title="cheatsheet">
           CHEATSHEET
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/combine/' class="post_tag button button_translucent" title="combine">
+          COMBINE
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/decrypt/' class="post_tag button button_translucent" title="decrypt">
+          DECRYPT
           <span class="button_tally">1</span>
         </a>
         
@@ -3325,6 +3340,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/rx/' class="post_tag button button_translucent" title="rx">
+          RX
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/script/' class="post_tag button button_translucent" title="script">
           SCRIPT
           <span class="button_tally">1</span>
@@ -3342,11 +3362,6 @@
         
         <a href='https://William-Weng.github.io/tags/ssl/' class="post_tag button button_translucent" title="ssl">
           SSL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
-          SWIFTUI
           <span class="button_tally">1</span>
         </a>
         
