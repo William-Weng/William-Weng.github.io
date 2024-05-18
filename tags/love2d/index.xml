@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>love2d on William-Weng</title>
+    <title>Love2d on William-Weng</title>
     <link>https://William-Weng.github.io/tags/love2d/</link>
-    <description>Recent content in love2d on William-Weng</description>
+    <description>Recent content in Love2d on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
     <lastBuildDate>Mon, 12 Apr 2021 05:41:32 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/love2d/index.xml" rel="self" type="application/rss+xml" />

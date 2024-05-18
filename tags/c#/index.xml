@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c# on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/c#/</link>
-    <description>Recent content in c# on William-Weng</description>
+    <title>C# on William-Weng</title>
+    <link>https://William-Weng.github.io/tags/c</link>
+    <description>Recent content in C# on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 20 Oct 2019 09:09:40 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/c#/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Oct 2019 09:09:40 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/c" rel="self" type="application/rss+xml" />
     <item>
       <title>【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</title>
       <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</link>

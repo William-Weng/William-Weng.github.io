@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>swift on William-Weng</title>
+    <title>Swift on William-Weng</title>
     <link>https://William-Weng.github.io/tags/swift/</link>
-    <description>Recent content in swift on William-Weng</description>
+    <description>Recent content in Swift on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
     <lastBuildDate>Sat, 17 Feb 2024 21:16:58 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>flutter on William-Weng</title>
+    <title>Flutter on William-Weng</title>
     <link>https://William-Weng.github.io/tags/flutter/</link>
-    <description>Recent content in flutter on William-Weng</description>
+    <description>Recent content in Flutter on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
     <lastBuildDate>Sat, 13 Aug 2022 16:45:30 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/flutter/index.xml" rel="self" type="application/rss+xml" />

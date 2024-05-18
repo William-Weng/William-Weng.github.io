@@ -6,7 +6,23 @@
     <description>Recent content on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 17 Feb 2024 21:16:58 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 May 2024 06:39:22 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Godot 4】踏出成功的第一步 - 2D遊戲初體驗</title>
+      <link>https://William-Weng.github.io/2024/05/godot-4%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5-2d%E9%81%8A%E6%88%B2%E5%88%9D%E9%AB%94%E9%A9%97/</link>
+      <pubDate>Sat, 18 May 2024 06:39:22 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2024/05/godot-4%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5-2d%E9%81%8A%E6%88%B2%E5%88%9D%E9%AB%94%E9%A9%97/</guid>
+      <description>
+        
+          
+            &lt;p&gt;記得之前有接觸過幾個&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%88%97%E8%A1%A8&#34;&gt;遊戲開發引擎&lt;/a&gt;，分別是：&lt;a href=&#34;../../../tags/love2d/&#34;&gt;LÖVE&lt;/a&gt; / &lt;a href=&#34;../../../tags/unity/&#34;&gt;Unity&lt;/a&gt; / &lt;a href=&#34;../../../tags/unreal/&#34;&gt;Unreal&lt;/a&gt; / &lt;a href=&#34;https://github.com/William-Weng/Spritekit_iOS&#34;&gt;Spritekit&lt;/a&gt;，這一次再介紹一個叫&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/Godot&#34;&gt;Godot&lt;/a&gt;的遊戲開發引擎，它是一個&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6&#34;&gt;Open-Source&lt;/a&gt;的遊戲開發引擎，可以開發&lt;a href=&#34;https://youtu.be/WXiBf6Y-JQ8&#34;&gt;2D&lt;/a&gt; / &lt;a href=&#34;https://youtu.be/JRw2PN7dyys&#34;&gt;3D&lt;/a&gt;的遊戲，比較著名的遊戲有&lt;a href=&#34;https://store.steampowered.com/app/2007530/_/?l=tchinese&#34;&gt;《魔導書幸存者》&lt;/a&gt;、&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E6%96%87%E5%AD%97%E9%81%8A%E6%88%B2_(%E9%9B%BB%E5%AD%90%E9%81%8A%E6%88%B2)&#34;&gt;《文字遊戲》&lt;/a&gt;，接下來我們就一步步帶領大家做個&lt;a href=&#34;https://youtu.be/YDjX56kn4RA&#34;&gt;可愛又有趣&lt;/a&gt;的小遊戲吧…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Xcode 15】自己跟自己聊天？ - ChatGPT</title>
       <link>https://William-Weng.github.io/2024/02/xcode-15%E8%87%AA%E5%B7%B1%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%81%8A%E5%A4%A9-chatgpt/</link>

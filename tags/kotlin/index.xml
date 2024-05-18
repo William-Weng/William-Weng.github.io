@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>kotlin on William-Weng</title>
+    <title>Kotlin on William-Weng</title>
     <link>https://William-Weng.github.io/tags/kotlin/</link>
-    <description>Recent content in kotlin on William-Weng</description>
+    <description>Recent content in Kotlin on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
     <lastBuildDate>Sun, 12 Jan 2020 12:28:27 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>lua on William-Weng</title>
+    <title>Lua on William-Weng</title>
     <link>https://William-Weng.github.io/tags/lua/</link>
-    <description>Recent content in lua on William-Weng</description>
+    <description>Recent content in Lua on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
     <lastBuildDate>Mon, 12 Apr 2021 05:41:32 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/lua/index.xml" rel="self" type="application/rss+xml" />
