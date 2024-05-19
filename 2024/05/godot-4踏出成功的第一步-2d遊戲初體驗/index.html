@@ -82,7 +82,7 @@
 </svg></span>
     <span class="post_date">
       May 18, 2024</span>
-    <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/godot' title="godot" class="post_tag button button_translucent">godot
+    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/godot' title="godot" class="post_tag button button_translucent">godot
         </a><a href='https://William-Weng.github.io/tags/game' title="game" class="post_tag button button_translucent">game
         </a><a href='https://William-Weng.github.io/tags/2d' title="2d" class="post_tag button button_translucent">2d
         </a><a href='https://William-Weng.github.io/tags/gdscript' title="gdscript" class="post_tag button button_translucent">gdscript
@@ -210,7 +210,7 @@
         
       
 
-      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/Godot.png" alt="" loading="lazy" decoding="async" width="1900" height="915"  />
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/GodotEngine.png" alt="" loading="lazy" decoding="async" width="1900" height="915"  />
       
 
     </picture>
@@ -403,11 +403,10 @@
     </picture>
   </figure>
 </li>
-<li>因為本文是使用GDScript，所以安裝一般版本的就可以了…</li>
-</ul>
+<li>因為本文是使用GDScript，所以安裝一般版本的就可以了…
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install --cask godot
-</span></span></code></pre></div><ul>
-<li>安裝好後，可以新增一個專案來使用…
+</span></span></code></pre></div></li>
+<li>安裝好後，可以新增一個專案來使用，如果筆者有說明不足或漏掉之處，麻煩請再<a href="https://docs.godotengine.org/en/stable/getting_started/first_2d_game/index.html">對照</a>一下官方說明…
 
 
 
@@ -775,27 +774,31 @@
 </ul>
 <h4 id="取得方向鍵">取得方向鍵</h4>
 <ul>
-<li>利用「Input.is_action_pressed()」取得方向鍵的按下去的動作…</li>
-</ul>
+<li>利用「Input.is_action_pressed()」取得方向鍵的按下去的動作…
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>Input.is_action_pressed(<span style="color:#e6db74">&#34;move_right&#34;</span>)
-</span></span></code></pre></div><h4 id="設定動作">設定動作</h4>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="設定動作">設定動作</h4>
 <ul>
 <li>利用「$AnimatedSprite2D」取該名稱的節點…</li>
-<li>利用$AnimatedSprite2D.animation = &ldquo;&lt;動畫名稱&gt;&ldquo;來設定動畫…</li>
-</ul>
+<li>利用$AnimatedSprite2D.animation = &ldquo;&lt;動畫名稱&gt;&ldquo;來設定動畫…
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">$</span>AnimatedSprite2D.animation = <span style="color:#e6db74">&#34;walk&#34;</span>
-</span></span></code></pre></div><h4 id="設定外部參數">設定外部參數</h4>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="設定外部參數">設定外部參數</h4>
 <ul>
 <li>利用@export關鍵字，產生在面板上可以直接設定的欄位，跟Swift的<a href="https://www.appcoda.com.tw/ibdesignable-ui/">@IBInspectable</a></li>
-<li>雖然GDScript可以不用寫類型的，但是為了快速顯示方便，還是加上比較好一點…</li>
-</ul>
+<li>雖然GDScript可以不用寫類型的，但是為了快速顯示方便，還是加上比較好一點…
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>@export <span style="color:#66d9ef">var</span> speed: int = <span style="color:#ae81ff">400</span>
-</span></span></code></pre></div><h4 id="跟其它的script做連接的功能">跟其它的Script做連接的功能</h4>
-<ul>
-<li>這個後面會用到，有點像Swift的<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E4%BD%BF%E7%94%A8-notifications-%E5%AF%A6%E4%BD%9C%E8%A7%80%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-10b90de31db9">Notifications</a>，到後面會<a href="https://www.youtube.com/@laogao">再做說明</a>…</li>
+</span></span></code></pre></div></li>
 </ul>
+<h4 id="跟其它的script做連接的功能">跟其它的Script做連接的功能</h4>
+<ul>
+<li>這個後面會用到，有點像Swift的<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E4%BD%BF%E7%94%A8-notifications-%E5%AF%A6%E4%BD%9C%E8%A7%80%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F-10b90de31db9">Notifications</a>，到後面會<a href="https://www.youtube.com/@laogao">再做說明</a>…
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>signal hit
-</span></span></code></pre></div><h4 id="程式碼與場景結合">程式碼與場景結合</h4>
+</span></span></code></pre></div></li>
+</ul>
+<h4 id="程式碼與場景結合">程式碼與場景結合</h4>
 <ul>
 <li>然後將程式碼與場景做結合，不然是不會有動作的…
 <video class="video-shortcode" width="100%" preload="auto" controls>
@@ -902,6 +905,15 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
 </span></span><span style="display:flex;"><span>        <span style="color:#960050;background-color:#1e0010">$</span>AnimatedSprite2D.flip_h = <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div></li>
+</ul>
+<h4 id="設定動作連結">設定動作連結</h4>
+<ul>
+<li>有點像Swift的@IBAction拉線的功能，應該算是Override吧…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/PlayerBodyEntered.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video></li>
 </ul>
 <h4 id="新增節點---敵人">新增節點 - 敵人</h4>
 <ul>
@@ -1071,6 +1083,682 @@
 </span></span></code></pre></div></li>
 </ul>
 <h4 id="新增節點---開始選單">新增節點 - 開始選單</h4>
+<ul>
+<li>首先新增一個<a href="https://docs.godotengine.org/en/stable/classes/class_canvaslayer.html">「CanvasLayer」</a>的主節點，取名為<a href="https://youtu.be/qH_t8D2X35c">「HUD」</a>…</li>
+<li>附加一個<a href="https://docs.godotengine.org/en/stable/classes/class_timer.html">「Timer」</a>的節點，取名為<a href="https://youtu.be/vIHzaYH-1Bk">「MessageTimer」</a>…</li>
+<li>附加兩個<a href="https://docs.godotengine.org/en/stable/classes/class_label.html">「Label」</a>的節點，取名為<a href="https://youtu.be/Zf6awHRr7bU?si=qgQ-Baz7-zeMyO1R">「ScoreLabel」、「Message」</a>…</li>
+<li>附加一個<a href="https://docs.godotengine.org/en/stable/classes/class_button.html">「Button」</a>的節點，取名為<a href="https://youtu.be/zHXzlz4T9qE">「StartButton」</a>…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/HUD.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<h4 id="設定文字--位置--字型">設定文字 / 位置 / 字型</h4>
+<ul>
+<li>首先設定「StartButton」，文字為「Start」，位置在中下的地方，大小為(200, 100)，字型大小為64px，細節如影片所示…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/HudButton.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video></li>
+<li>「ScoreLabel」、「Message」也是類似的設定方式，這裡就不再贅述…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/HudScoreLabel.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/HudMessage.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<h4 id="開始選單程式碼">開始選單程式碼</h4>
+<ul>
+<li>程式碼就不多做說明了，上面都有註解，就按圖施工吧…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/HudScene.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>extends CanvasLayer
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>signal start_game
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">生命週期</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_ready</span>(): pass
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_process</span>(delta: float): pass
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> Node函式
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_start_button_pressed</span>(): _OnStartButtonPressed()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_message_timer_timeout</span>(): _OnMessageTimerTimeout()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">公用函式</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">show_game_over</span>(): _ShowGameOverAction()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">update_score</span>(score: int): _UpdateScoreAction(score)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">show_message</span>(text: String): _ShowMessageAction(text)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">主工具</span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">按下開始鍵後</span> =<span style="color:#f92672">&gt;</span> <span style="color:#960050;background-color:#1e0010">開始遊戲</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnStartButtonPressed</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>StartButton.hide()
+</span></span><span style="display:flex;"><span>    start_game.emit()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">隱藏$</span>Message <span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">$</span>StartButton (One Shot)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnMessageTimerTimeout</span>():
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>Message.hide()
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>StartButton.hide()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">更新分數</span>
+</span></span><span style="display:flex;"><span># <span style="color:#f92672">-</span> Parameters:
+</span></span><span style="display:flex;"><span>#   <span style="color:#f92672">-</span> score: int
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_UpdateScoreAction</span>(score: int):
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>ScoreLabel.text = str(score)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">顯示提示訊息</span>
+</span></span><span style="display:flex;"><span># <span style="color:#f92672">-</span> Parameters:
+</span></span><span style="display:flex;"><span>#   <span style="color:#f92672">-</span> text: String
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_ShowMessageAction</span>(text: String):
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>Message.text = text
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>Message.show()
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>MessageTimer.start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">顯示遊戲結束提示訊息</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_ShowGameOverAction</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    _ShowMessageAction(<span style="color:#e6db74">&#34;Game Over&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    await <span style="color:#960050;background-color:#1e0010">$</span>MessageTimer.timeout
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>Message.text = <span style="color:#e6db74">&#34;Dodge the Creeps!&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>Message.show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    await get_tree().create_timer(<span style="color:#ae81ff">1.0</span>).timeout
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">$</span>StartButton.show()
+</span></span></code></pre></div></li>
+<li>完成後，也可以設定成主畫面跑一下看看長相…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/HudReady.png" alt="" loading="lazy" decoding="async" width="480" height="748"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<h4 id="新增節點---主畫面">新增節點 - 主畫面</h4>
+<ul>
+<li>接下來就是要把三個節點結合在一起了…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/MainSceneMaker.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video></li>
+<li>主節點「Node2D」- Main…</li>
+<li>計時器節點「Timer」 - MobTimer (0.5s) / ScoreTimer (1s) / StartTimer (2s)…</li>
+<li>背景節點「ColorRect」- 設定顏色為「#009999」，大小為(480，720)…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/MainColorRect.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>聲音節點「AudioStreamPlayer」 - Music (House In a Forest Loop.ogg) / DeathSound (gameover.wav)…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/MainMusic.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video></li>
+<li>設定Mob出現的路徑…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/MainMobPath.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video>
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/MainMobPath.png" alt="" loading="lazy" decoding="async" width="1208" height="755"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>相關的程式如下，主要是要去連接相關的功能…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>extends Node2D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@export <span style="color:#66d9ef">var</span> mob_scene: PackedScene
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> score: int
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">生命週期</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_ready</span>(): new_game()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_process</span>(delta: float): pass
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> Node函式
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">new_game</span>(): _NewGameAction()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">game_over</span>(): _GameOverAction()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_score_timer_timeout</span>(): _OnScoreTimerTimeout()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_start_timer_timeout</span>(): _OnStartTimerTimeout()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_mob_timer_timeout</span>(): _OnMobTimerTimeout()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">主工具</span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">產生新遊戲</span> =<span style="color:#f92672">&gt;</span> <span style="color:#960050;background-color:#1e0010">該清的清一清</span> <span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">音樂</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_NewGameAction</span>():
+</span></span><span style="display:flex;"><span>	score = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>	get_tree().call_group(<span style="color:#e6db74">&#34;mobs&#34;</span>, <span style="color:#e6db74">&#34;queue_free&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>Player.start(<span style="color:#960050;background-color:#1e0010">$</span>StartPosition.position)
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>StartTimer.start()
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>HUD.update_score(score)
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>HUD.show_message(<span style="color:#e6db74">&#34;Get Ready&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>Music.play()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">遊戲結束</span> =<span style="color:#f92672">&gt;</span> <span style="color:#960050;background-color:#1e0010">該停的停一停</span> <span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">音樂</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_GameOverAction</span>():
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>ScoreTimer.stop()
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>MobTimer.stop()
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>HUD.show_game_over()
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>Music.stop()
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>DeathSound.play()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">秒後啟動$</span>MobTimer <span style="color:#f92672">/</span> <span style="color:#960050;background-color:#1e0010">$</span>ScoreTimer (One Shot)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnStartTimerTimeout</span>():
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>MobTimer.start()
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>ScoreTimer.start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">更新分數</span> =<span style="color:#f92672">&gt;</span> <span style="color:#960050;background-color:#1e0010">撐</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">秒加</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">分</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnScoreTimerTimeout</span>():
+</span></span><span style="display:flex;"><span>	score <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>HUD.update_score(score)
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">產生隨機位置的敵人</span> =<span style="color:#f92672">&gt;</span> <span style="color:#960050;background-color:#1e0010">根據$</span>MobPath<span style="color:#f92672">/</span>MobSpawnLocation上的範圍
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnMobTimerTimeout</span>():
+</span></span><span style="display:flex;"><span>	
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> mob = mob_scene.instantiate()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> mob_spawn_location = <span style="color:#960050;background-color:#1e0010">$</span>MobPath<span style="color:#f92672">/</span>MobSpawnLocation
+</span></span><span style="display:flex;"><span>	mob_spawn_location.progress_ratio = randf()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> direction = mob_spawn_location.rotation <span style="color:#f92672">+</span> PI <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>	mob.position = mob_spawn_location.position
+</span></span><span style="display:flex;"><span>	direction <span style="color:#f92672">+=</span> randf_range(<span style="color:#f92672">-</span>PI <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>, PI <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>	mob.rotation = direction
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> velocity = Vector2(randf_range(<span style="color:#ae81ff">150.0</span>, <span style="color:#ae81ff">250.0</span>), <span style="color:#ae81ff">0.0</span>)
+</span></span><span style="display:flex;"><span>	mob.linear_velocity = velocity.rotated(direction)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	add_child(mob)
+</span></span></code></pre></div><h4 id="maincrash">MainCrash</h4>
+<ul>
+<li>設定Main為主場景之後，是不是發現會當掉呢？
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/MainCrash.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video></li>
+<li>因為啊，還沒有跟Mob作連接，所以會當掉…所以呢，要將mob_scene變數跟mob.tscn做相連，然後在mob.tscn加上群組設定 (因為很多個嘛)，讓在遊戲開始的時候把敵人通通清空…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/Game.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video></li>
+<li>最後再把玩家位置設定在中間 (240, 450)就完成了…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-2d-game-first/MainPlayerPosition.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+
+<video class="video-shortcode" width="25%" preload="auto" controls>
+    <source src="/images/2024/godot-2d-game-first/Result.mp4" type="video/mp4">
+    There should have been a video here but your browser does not seem
+    to support it.
+</video></li>
+</ul>
+<h3 id="範例程式碼下載httpsgithubcomwilliam-wenggodot-game-exampletreemain2d_game_helloworld"><a href="https://github.com/William-Weng/Godot-Game-Example/tree/main/2D_Game_Helloworld">範例程式碼下載</a></h3>
+<h3 id="後記">後記</h3>
+<ul>
+<li>其實這個<a href="https://docs.godotengine.org/en/stable/getting_started/first_2d_game/">官方說明</a>的範例，筆者做了約5次了吧？除了官方的<a href="https://docs.godotengine.org/en/stable/getting_started/first_3d_game/">文字說明</a>之外，有些<a href="https://youtu.be/YjPsAjWCvvw">細節</a>並沒有用圖來表示，也算是踏了很多坑啊，所以<a href="https://youtu.be/aQ9ifA3Jjlc">特做此文</a>來補這些坑，也來記錄一下學習的過程，筆者也算是初學者的好朋友吧…</li>
+<li>經過這次的<a href="https://www.edh.tw/article/10556">大病</a>之後，也了解了一些社會的<a href="https://frhosp.rghealth.com.tw/%E7%B6%B2%E7%90%83%E8%82%98-%E8%88%87-%E9%AB%98%E7%88%BE%E5%A4%AB%E7%90%83%E8%82%98/">怪事</a>，認真的人永遠在幫<a href="https://tw.aboluowang.com/2022/0117/1697074.html">摸魚</a>的人的忙，社會大多都是在處罰認真的人；薪水小偷在<a href="https://news.tvbs.com.tw/fun/2133779">廁所摸魚</a>30分鐘 * 3，結果<a href="https://www.mobile01.com/topicdetail.php?f=651&amp;t=6206020">公司規定</a>大家去上廁所最多10分鐘；<a href="https://www.518.com.tw/article/941">薪水小偷</a>解bug解半年未果，還故意寫錯裝不會，造成同事的工作量增加…</li>
+<li>但摸魚的確是個人的本事，而且薪水又不是我發的，八小時<a href="https://health.ettoday.net/news/1076222">躺著睡</a>也沒關係，但影響到其他人就不行了…</li>
+<li>想想以後還是<a href="https://youtu.be/ir5kH7pUNc8">領多少錢，做多少事</a>吧，既沒<a href="https://www.gvm.com.tw/article/111131">升遷</a>，也沒加薪的，健康最重要…</li>
+</ul>
+<p><a href="https://www.buymeacoffee.com/linuxice0609">
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/thumbnail/buy-me-a-coffee.png" alt="" loading="lazy" decoding="async" width="1599" height="357"  />
+      
+
+    </picture>
+  </figure>
+</a></p>
     </div>
 <div class="post_comments">
   
