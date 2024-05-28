@@ -534,11 +534,374 @@
 	    There should have been a video here but your browser does not seem
 	    to support it.
 	</video></li>
+<li>再來就是動畫設計，先新增一個<a href="https://docs.godotengine.org/en/stable/classes/class_animationplayer.html">「AnimationPlayer」</a>的節點，故名思義就是<a href="https://youtu.be/V9kshvtj6s0">播放動畫</a>的節點…</li>
+<li>在AnimationPlayer節點上，新增一個名為「float」的動畫，總長度為「1.2秒」，主要設定Character的「位置」與<a href="https://youtu.be/DGIkYndv-f0">「旋轉角度」</a>，讓主角看起來有在<a href="https://gas.goodlife.tw/">浮動</a>的感覺，接下來數值的設定細節，就請大家看圖說故事吧…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/PlayerAnimation.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></li>
+<li>最後再將「MobDetector」的「body_exited(body:Node3D)」訊號，連接到「_on_mob_detector_body_entered()」之上…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-3d-game-first/PlayerBodyExited.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+</ul>
+<h4 id="敵人設定">敵人設定</h4>
+<ul>
+<li>接下來就來設定敵人節點「Mob」，它的節點設計跟主角差不多，就不再細說了，就看影片去新增節點吧…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/Mob.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></li>
+<li>程式碼如下，內容也不多做說明了，記得要在Mob節點加上群組「mob」…
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>extends CharacterBody3D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@export <span style="color:#66d9ef">var</span> min_speed = <span style="color:#ae81ff">10</span>		# <span style="color:#960050;background-color:#1e0010">移動的最小速度</span>
+</span></span><span style="display:flex;"><span>@export <span style="color:#66d9ef">var</span> max_speed = <span style="color:#ae81ff">18</span>		# <span style="color:#960050;background-color:#1e0010">移動的最大速度</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>signal squashed					# <span style="color:#960050;background-color:#1e0010">被壓扁的信號功能</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">生命週期</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_physics_process</span>(_delta): move_and_slide()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> Node函式
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_visible_on_screen_enabler_3d_screen_exited</span>(): _OnVisibleOnScreenEnabler3dScreenExited()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">公用函式</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initialize</span>(start_position, player_position): _InitializeActiion(start_position, player_position)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">squash</span>(): _SquashAction()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">主工具</span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">初始化腳色的位置</span>
+</span></span><span style="display:flex;"><span># <span style="color:#f92672">-</span> Parameters:
+</span></span><span style="display:flex;"><span>#   <span style="color:#f92672">-</span> startPosition: <span style="color:#960050;background-color:#1e0010">開始的位置</span>
+</span></span><span style="display:flex;"><span>#   <span style="color:#f92672">-</span> playerPosition: <span style="color:#960050;background-color:#1e0010">主角的位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span>  <span style="color:#a6e22e">_InitializeActiion</span>(startPosition: Vector3, playerPosition: Vector3):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> random_speed = randi_range(min_speed, max_speed)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	look_at_from_position(startPosition, playerPosition, Vector3.UP)
+</span></span><span style="display:flex;"><span>	rotate_y(randf_range(<span style="color:#f92672">-</span>PI <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>, PI <span style="color:#f92672">/</span> <span style="color:#ae81ff">4</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	velocity = Vector3.FORWARD <span style="color:#f92672">*</span> random_speed
+</span></span><span style="display:flex;"><span>	velocity = velocity.rotated(Vector3.UP, rotation.y)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">到設定範圍外就清除</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnVisibleOnScreenEnabler3dScreenExited</span>():
+</span></span><span style="display:flex;"><span>	queue_free()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">被壓到的反應</span> (<span style="color:#960050;background-color:#1e0010">清除</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_SquashAction</span>():
+</span></span><span style="display:flex;"><span>	squashed.emit()
+</span></span><span style="display:flex;"><span>	queue_free()
+</span></span></code></pre></div></li>
+<li>再來我們把Mob設定成「編號2」的Layer圖層，也就是對應一開始設定「專案 -&gt; 專案設定 -&gt; 一般 -&gt; 圖層 -&gt; 3D物理」中的那些數值…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-3d-game-first/MobLayer.png" alt="" loading="lazy" decoding="async" width="1858" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>然後再設定「VisibleNotifier」的「screen_exited()」<a href="https://docs.godotengine.org/en/stable/classes/class_visibleonscreennotifier3d.html">連接</a>至方法「_on_visible_on_screen_enabler_3d_screen_exited()」…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-3d-game-first/MobScreenExited.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>設定<a href="https://docs.godotengine.org/en/stable/classes/class_collisionshape3d.html">「BoxSharp3D」</a>外型的碰撞範圍大小…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-3d-game-first/MobCollision.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
+<li>最後，再設定畫面觸發事件<a href="https://docs.godotengine.org/en/stable/classes/class_visibleonscreenenabler3d.html">「VisibleOnScreenEnabler3D」</a>的<a href="https://baike.baidu.com/item/AABB%E7%9B%92/10087682">AABB - Axis Aligned Bounding Box</a>數值…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-3d-game-first/MobAABB.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</li>
 </ul>
 <h3 id="範例程式碼下載httpsgithubcomwilliam-wenggodot-game-exampletreemain3d_game_helloworld"><a href="https://github.com/William-Weng/Godot-Game-Example/tree/main/3D_Game_HelloWorld">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
-<li>其實這篇文章的<a href="https://youtu.be/1AuJkFQ4xSo">先後</a>順序，是照自己的<a href="https://www.bluesbear.tw/16972/%E5%8D%81%E4%BA%8C%E6%98%9F%E5%BA%A7%E5%88%86%E6%89%8B%E4%B9%8B%E5%BE%8C%EF%BC%8C%E6%B2%92%E8%AA%AA%E5%87%BA%E5%8F%A3%E7%9A%84%E6%83%B3%E6%B3%95.html">想法</a>去編排的，而非照<a href="https://docs.godotengine.org/en/stable/getting_started/first_3d_game">官方</a>的文章說明順序，因為每個人的想法都<a href="https://youtu.be/aQ9ifA3Jjlc">不盡相同</a>，記憶上的點也會有所不同，所以照著自己能最快理解的思序是最好的，記的也快，正所謂<a href="https://dict.idioms.moe.edu.tw/bookView.jsp?ID=912">「殊途同歸」</a>嘛，能產生一樣的結果也就<a href="https://youtu.be/FrjQ28bv7sw">圓滿</a>了…</li>
+<li>其實這篇文章的<a href="https://youtu.be/1AuJkFQ4xSo">先後</a>順序，是照自己的<a href="https://www.bluesbear.tw/16972/%E5%8D%81%E4%BA%8C%E6%98%9F%E5%BA%A7%E5%88%86%E6%89%8B%E4%B9%8B%E5%BE%8C%EF%BC%8C%E6%B2%92%E8%AA%AA%E5%87%BA%E5%8F%A3%E7%9A%84%E6%83%B3%E6%B3%95.html">想法</a>去編排的，而非照<a href="https://docs.godotengine.org/en/stable/getting_started/first_3d_game">官方</a>的文章說明順序，因為每個人的想法都<a href="https://youtu.be/aQ9ifA3Jjlc">不盡相同</a>，記憶上的點也會有所不同，所以照著自己能最快理解的<a href="https://youtu.be/0352TPmVLBI">思緒</a>是最好的，記的也快，正所謂<a href="https://dict.idioms.moe.edu.tw/bookView.jsp?ID=912">「殊途同歸」</a>嘛，能產生一樣的結果也就<a href="https://youtu.be/FrjQ28bv7sw">圓滿</a>了…</li>
 <li>或許有人會想說，寫得這麼細不就<a href="https://youtu.be/UP0UrEYCOS0">很累</a>？把技巧告訴別人不就<a href="https://bookzone.cwgv.com.tw/article/1187">很笨</a>嗎？其實，這文章是寫給筆者當成筆記在用的，而且筆者也不是<a href="https://youtu.be/HR0torATwCk">高高手</a>，只是個努力的打字工，也不是什麼<a href="https://youtu.be/bg2ZMHIQLTM">名校</a>出身，只是看不到排名的<a href="https://www.tkblearning.com.tw/newExam/inside?str=329C24DC739CE310D6EE8312AEECF1D1">私立小學</a>畢業而已，學程式是個人的夢想，有人看筆者的文章有受益就覺得很<a href="https://kotobank.jp/word/%E5%B9%B8%E3%81%9B-515403">幸福</a>了…</li>
 </ul>
 <p><a href="https://www.buymeacoffee.com/linuxice0609">
