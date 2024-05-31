@@ -84,7 +84,7 @@
 </svg></span>
     <span class="post_date">
       May 25, 2024</span>
-    <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/godot' title="godot" class="post_tag button button_translucent">godot
+    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/godot' title="godot" class="post_tag button button_translucent">godot
         </a><a href='https://William-Weng.github.io/tags/game' title="game" class="post_tag button button_translucent">game
         </a><a href='https://William-Weng.github.io/tags/3d' title="3d" class="post_tag button button_translucent">3d
         </a><a href='https://William-Weng.github.io/tags/gdscript' title="gdscript" class="post_tag button button_translucent">gdscript
@@ -898,9 +898,271 @@
   </figure>
 </li>
 </ul>
+<h4 id="背景音樂">背景音樂</h4>
+<ul>
+<li>設定背景音樂，新增一個叫<a href="https://docs.godotengine.org/en/stable/classes/class_audiostreamplayer.html">『AudioStreamPlayer』</a>的場景，取名為『MusicPlayer』，然後在『專案 -&gt; 專案設定 -&gt; 自動載入』新增節點…</li>
+<li>然後再新增音樂，勾選『Autoplay』，細節在影片中，大家可以按圖施工…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/AudioPlayer.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></li>
+</ul>
+<h4 id="主場景">主場景</h4>
+<ul>
+<li>
+<p>終於到了要把元件結合在一起的時刻了，新增一個「Node」場景，名為「Main」，然後把程式貼上，設定『mob_scene』場景為mob.tcsn…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/Main.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>extends Node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>@export <span style="color:#66d9ef">var</span> mob_scene: PackedScene	# mob主角載入
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">生命週期</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_ready</span>(): _ReadyActoin()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_unhandled_input</span>(event): _UnhandledInput(event)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> Node函式
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_mob_timer_timeout</span>(): _OnMobTimerTimeoutAction()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_player_hit</span>(): _OnPlayerHitAction()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">主工具</span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">根據路徑隨機產生</span>Mob
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnMobTimerTimeoutAction</span>():
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> mob = mob_scene.instantiate()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> mob_spawn_location = <span style="color:#960050;background-color:#1e0010">$</span><span style="color:#e6db74">&#34;SpawnPath/SpawnLocation&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> player_position = <span style="color:#960050;background-color:#1e0010">$</span>Player.position
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	mob_spawn_location.progress_ratio = randf()
+</span></span><span style="display:flex;"><span>	mob.initialize(mob_spawn_location.position, player_position)
+</span></span><span style="display:flex;"><span>	mob.squashed.connect(<span style="color:#960050;background-color:#1e0010">$</span>UserInterface<span style="color:#f92672">/</span>ScoreLabel._on_mob_squashed.bind())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	add_child(mob)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">初始化設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_ReadyActoin</span>():
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>UserInterface<span style="color:#f92672">/</span>Retry.hide()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Player被碰到的設定
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnPlayerHitAction</span>():
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>MobTimer.stop()
+</span></span><span style="display:flex;"><span>	<span style="color:#960050;background-color:#1e0010">$</span>UserInterface<span style="color:#f92672">/</span>Retry.show()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">失去控制權的設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_UnhandledInput</span>(event):
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> event.is_action_pressed(<span style="color:#e6db74">&#34;ui_accept&#34;</span>) and <span style="color:#960050;background-color:#1e0010">$</span>UserInterface<span style="color:#f92672">/</span>Retry.visible: 
+</span></span><span style="display:flex;"><span>		get_tree().reload_current_scene()
+</span></span></code></pre></div></li>
+<li>
+<p>設定地板，新增<a href="https://docs.godotengine.org/en/stable/classes/class_staticbody3d.html">「StaticBody3D」</a>，名為<a href="https://www.bookstack.cn/read/godot-4.2-zh/125d6a322537b7d4.md">「Ground」</a>…</p>
+</li>
+<li>
+<p>再新增<a href="https://docs.godotengine.org/en/stable/classes/class_meshinstance3d.html">「MeshInstance3D」</a>，將它的Mesh設定為<a href="https://youtu.be/d3M3jBHIKxo">「BoxMesh」</a>，尺寸為(60, 2, 60)…</p>
+</li>
+<li>
+<p>然後再新增碰撞範圍的節點<a href="https://docs.godotengine.org/en/stable/tutorials/physics/collision_shapes_3d.html">「CollisionSharp3D」</a>，尺寸同樣為(60, 2, 60)…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/MainGround.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></p>
+</li>
+<li>
+<p>最後再將「Ground」的Layer圖層設定為「3 - World」，Mask圖層全關，位置設定為(0, -2, 0)…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-3d-game-first/MainLayer.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</p>
+</li>
+<li>
+<p>連接Player場景，再將「hit()」訊號連接到「_on_player_hit()」…
+
+
+
+
+
+
+
+
+
+
+  <figure>
+    <picture>
+
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+
+      <img class="image_figure image_internal" src="https://William-Weng.github.io/images/2024/godot-3d-game-first/MainPlayer.png" alt="" loading="lazy" decoding="async" width="1920" height="1055"  />
+      
+
+    </picture>
+  </figure>
+</p>
+</li>
+<li>
+<p>新增環境光源<a href="https://docs.godotengine.org/en/stable/classes/class_directionallight3d.html">「DirectionalLight3D」</a>，這個光源就類似太陽一樣，大家可以自己設定自己想要的位置…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/MainLight.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></p>
+</li>
+<li>
+<p>再來是設定Camera，這個動作跟前面的一樣，就不多說了…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/MainCamera.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></p>
+</li>
+<li>
+<p>接下來設定「Timer」節點，名為「MobTimer」，這是用來設定Mob產生的速度，記得將「timeout()」訊號連接至「_on_mob_timer_timeout()」…</p>
+</li>
+<li>
+<p>而後就是設定Mob出現的範圍，跟之前說的2D是類似的，只是換成<a href="https://docs.godotengine.org/en/stable/classes/class_path3d.html">「Path3D」</a>+<a href="https://youtu.be/ENpCQUj371k?si=vJrmxXxGkZz-27UG">「PathFollow3D」</a>，這裡就用影片說明會比較清楚，因為動作滿多的…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/MainPath3D.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></p>
+</li>
+<li>
+<p>最後再設計2D的畫面，計分跟顯示的畫面，現在筆者才知道原來2D/3D畫面是分開的，3D一定要有相機才會顯示…</p>
+</li>
+<li>
+<p>先加入一個「Control」，名為「UserInterface」，加入一個節點「ColorRect」名叫「Retry」，這個就是黑色半透明的框，提示重玩用的，當然也是要有個提示「Label」名叫「RetryLabel」…</p>
+</li>
+<li>
+<p>再加上一個計分用的Label，名叫「ScoreLabel」，當然這是要寫程式碼的…</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span>extends Label
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> score = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">公用函式</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_on_mob_squashed</span>(): _OnMobSquashedAction()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># MARK: <span style="color:#f92672">-</span> <span style="color:#960050;background-color:#1e0010">主工具</span>
+</span></span><span style="display:flex;"><span># <span style="color:#960050;background-color:#1e0010">壓到後計算分數</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">_OnMobSquashedAction</span>():
+</span></span><span style="display:flex;"><span>	score <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>	text = <span style="color:#e6db74">&#34;Score: %s&#34;</span> <span style="color:#f92672">%</span> score
+</span></span></code></pre></div><video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/MainLabel.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video>
+</li>
+<li>
+<p>完工…
+<video class="video-shortcode" width="100%" preload="auto" controls>
+	    <source src="/images/2024/godot-3d-game-first/Result.mp4" type="video/mp4">
+	    There should have been a video here but your browser does not seem
+	    to support it.
+	</video></p>
+</li>
+</ul>
 <h3 id="範例程式碼下載httpsgithubcomwilliam-wenggodot-game-exampletreemain3d_game_helloworld"><a href="https://github.com/William-Weng/Godot-Game-Example/tree/main/3D_Game_HelloWorld">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
+<li>最後此文章可能有說明<a href="https://docs.godotengine.org/en/stable/getting_started/first_3d_game/index.html">不清楚</a>的地方，大家再看看Code去補一下，或者參考一下官方的說明，筆者自己也是一知半解的，做4次，4次都不一樣…</li>
 <li>其實這篇文章的<a href="https://youtu.be/1AuJkFQ4xSo">先後</a>順序，是照自己的<a href="https://www.bluesbear.tw/16972/%E5%8D%81%E4%BA%8C%E6%98%9F%E5%BA%A7%E5%88%86%E6%89%8B%E4%B9%8B%E5%BE%8C%EF%BC%8C%E6%B2%92%E8%AA%AA%E5%87%BA%E5%8F%A3%E7%9A%84%E6%83%B3%E6%B3%95.html">想法</a>去編排的，而非照<a href="https://docs.godotengine.org/en/stable/getting_started/first_3d_game">官方</a>的文章說明順序，因為每個人的想法都<a href="https://youtu.be/aQ9ifA3Jjlc">不盡相同</a>，記憶上的點也會有所不同，所以照著自己能最快理解的<a href="https://youtu.be/0352TPmVLBI">思緒</a>是最好的，記的也快，正所謂<a href="https://dict.idioms.moe.edu.tw/bookView.jsp?ID=912">「殊途同歸」</a>嘛，能產生一樣的結果也就<a href="https://youtu.be/FrjQ28bv7sw">圓滿</a>了…</li>
 <li>或許有人會想說，寫得這麼細不就<a href="https://youtu.be/UP0UrEYCOS0">很累</a>？把技巧告訴別人不就<a href="https://bookzone.cwgv.com.tw/article/1187">很笨</a>嗎？其實，這文章是寫給筆者當成筆記在用的，而且筆者也不是<a href="https://youtu.be/HR0torATwCk">高高手</a>，只是個努力的打字工，也不是什麼<a href="https://youtu.be/bg2ZMHIQLTM">名校</a>出身，只是看不到排名的<a href="https://www.tkblearning.com.tw/newExam/inside?str=329C24DC739CE310D6EE8312AEECF1D1">私立小學</a>畢業而已，學程式是個人的夢想，有人看筆者的文章有受益就覺得很<a href="https://kotobank.jp/word/%E5%B9%B8%E3%81%9B-515403">幸福</a>了…</li>
 </ul>
