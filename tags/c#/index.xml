@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C# on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/c%23/</link>
+    <link>http://localhost:1313/tags/c%23/</link>
     <description>Recent content in C# on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 20 Oct 2019 09:09:40 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Oct 2019 09:09:40 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Unity 3D 2019】讓喵喵不再是阿飄？物理屬性與動畫</title>
-      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</link>
+      <link>http://localhost:1313/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</link>
       <pubDate>Sun, 20 Oct 2019 09:09:40 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</guid>
+      <guid>http://localhost:1313/2019/10/unity-3d-2019%E8%AE%93%E5%96%B5%E5%96%B5%E4%B8%8D%E5%86%8D%E6%98%AF%E9%98%BF%E9%A3%84%E7%89%A9%E7%90%86%E5%B1%AC%E6%80%A7%E8%88%87%E5%8B%95%E7%95%AB/</guid>
       <description>
         
           
-            &lt;p&gt;在&lt;a href=&#34;https://William-Weng.github.io/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，這裡要做一個比較完整的DEMO，利用Unity的&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/Physics.html&#34;&gt;Physics屬性&lt;/a&gt;來產生碰撞跟移動的效果，其實在&lt;a href=&#34;../../13/unity3d-cat-escape/&#34;&gt;上一篇&lt;/a&gt;中使用程式去改變物體坐標位置也是可以的，不過&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%89%80%E8%A6%8B%E5%8D%B3%E6%89%80%E5%BE%97&#34;&gt;WYSIWYG - 所見即所得&lt;/a&gt;的操作還是比較親民一些，動作也比較流暢。另外也會使用&lt;a href=&#34;http://blog.ja-anything.com/2018/03/08/unity-%E5%8B%95%E7%95%AB%E7%B3%BB%E7%B5%B1%E4%B8%80animation%E4%BB%8B%E7%B4%B9%E8%88%87%E4%BD%BF%E7%94%A8/&#34;&gt;Animation&lt;/a&gt;來做簡單的2D動畫(連續換圖？)，現在我們就開始吧。&lt;/p&gt;
+            &lt;p&gt;在&lt;a href=&#34;http://localhost:1313/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，這裡要做一個比較完整的DEMO，利用Unity的&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/Physics.html&#34;&gt;Physics屬性&lt;/a&gt;來產生碰撞跟移動的效果，其實在&lt;a href=&#34;../../13/unity3d-cat-escape/&#34;&gt;上一篇&lt;/a&gt;中使用程式去改變物體坐標位置也是可以的，不過&lt;a href=&#34;https://zh.wikipedia.org/wiki/%E6%89%80%E8%A6%8B%E5%8D%B3%E6%89%80%E5%BE%97&#34;&gt;WYSIWYG - 所見即所得&lt;/a&gt;的操作還是比較親民一些，動作也比較流暢。另外也會使用&lt;a href=&#34;http://blog.ja-anything.com/2018/03/08/unity-%E5%8B%95%E7%95%AB%E7%B3%BB%E7%B5%B1%E4%B8%80animation%E4%BB%8B%E7%B4%B9%E8%88%87%E4%BD%BF%E7%94%A8/&#34;&gt;Animation&lt;/a&gt;來做簡單的2D動畫(連續換圖？)，現在我們就開始吧。&lt;/p&gt;
           
           
         
@@ -25,14 +25,14 @@
     
     <item>
       <title>【Unity 3D 2019】躲貓貓？貓貓躲？如何製作重複使用的元件？</title>
-      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</link>
+      <link>http://localhost:1313/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</link>
       <pubDate>Sun, 13 Oct 2019 21:45:56 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</guid>
+      <guid>http://localhost:1313/2019/10/unity-3d-2019%E8%BA%B2%E8%B2%93%E8%B2%93%E8%B2%93%E8%B2%93%E8%BA%B2%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%85%83%E4%BB%B6/</guid>
       <description>
         
           
-            &lt;p&gt;在&lt;a href=&#34;https://William-Weng.github.io/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入&lt;a href=&#34;https://kendevlog.wordpress.com/2017/09/24/unity%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%986-prefab-%E4%BD%BF%E7%94%A8%E9%A0%88%E7%9F%A5/&#34;&gt;Prefab&lt;/a&gt;的使用，用來&lt;a href=&#34;https://medium.com/@chrislin1015/unity%E6%89%8B%E6%9C%AD-prefab%E7%B0%A1%E5%96%AE%E8%AA%AA-3327c57f4901&#34;&gt;預製(Prefabricated)&lt;/a&gt;來複製大量&lt;a href=&#34;http://gn02214231.pixnet.net/blog/post/197880271-gameobject-%E8%88%87-prefab-%E7%9A%84%E5%8D%80%E5%88%A5%E8%88%87%E5%BB%BA%E7%AB%8B&#34;&gt;重複使用&lt;/a&gt;的模板，另外還加上「&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/KeyCode.html&#34;&gt;鍵盤&lt;/a&gt; / &lt;a href=&#34;http://a032332852.pixnet.net/blog/post/278566585-unity-ugui-button%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95&#34;&gt;按鈕&lt;/a&gt;」的使用，讓我們繼續看下去吧。&lt;/p&gt;
+            &lt;p&gt;在&lt;a href=&#34;http://localhost:1313/tags/unity/&#34;&gt;前面幾篇的介紹&lt;/a&gt;之後，現在我們要來做一個簡單的小遊戲 - 貓貓躲，一些IDE使用上的細節就不多說了，在此帶入&lt;a href=&#34;https://kendevlog.wordpress.com/2017/09/24/unity%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%986-prefab-%E4%BD%BF%E7%94%A8%E9%A0%88%E7%9F%A5/&#34;&gt;Prefab&lt;/a&gt;的使用，用來&lt;a href=&#34;https://medium.com/@chrislin1015/unity%E6%89%8B%E6%9C%AD-prefab%E7%B0%A1%E5%96%AE%E8%AA%AA-3327c57f4901&#34;&gt;預製(Prefabricated)&lt;/a&gt;來複製大量&lt;a href=&#34;http://gn02214231.pixnet.net/blog/post/197880271-gameobject-%E8%88%87-prefab-%E7%9A%84%E5%8D%80%E5%88%A5%E8%88%87%E5%BB%BA%E7%AB%8B&#34;&gt;重複使用&lt;/a&gt;的模板，另外還加上「&lt;a href=&#34;https://docs.unity3d.com/ScriptReference/KeyCode.html&#34;&gt;鍵盤&lt;/a&gt; / &lt;a href=&#34;http://a032332852.pixnet.net/blog/post/278566585-unity-ugui-button%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95&#34;&gt;按鈕&lt;/a&gt;」的使用，讓我們繼續看下去吧。&lt;/p&gt;
           
           
         
@@ -41,14 +41,14 @@
     
     <item>
       <title>【Unity 3D 2019】做一個有聲音的小遊戲吧</title>
-      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</link>
+      <link>http://localhost:1313/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</link>
       <pubDate>Fri, 11 Oct 2019 21:59:22 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</guid>
+      <guid>http://localhost:1313/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E6%9C%89%E8%81%B2%E9%9F%B3%E7%9A%84%E5%B0%8F%E9%81%8A%E6%88%B2%E5%90%A7/</guid>
       <description>
         
           
-            &lt;p&gt;在&lt;a href=&#34;https://William-Weng.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇轉盤小遊戲的介紹&lt;/a&gt;之後，總感覺好像少了什麼東西？對了，就是&lt;a href=&#34;https://www.techbang.com/posts/17796-game-soundtrack-history-40-invisible-4-heroes-background-music-music-theme-song-and-the-theme-song-king-of-computers-101-feature-story-today-on-the-edit-custom&#34;&gt;「聲音」&lt;/a&gt;，沒有了聲音，遊戲沒有靈魂，沒有臨場感，現在我們就來加上聲音吧。Unity支援的&lt;a href=&#34;https://support.unity3d.com/hc/en-us/articles/206484803-What-are-the-supported-Audio-formats-in-Unity-&#34;&gt;「聲音格式」&lt;/a&gt;可以自己查看一下 (其實也不多啦)。&lt;/p&gt;
+            &lt;p&gt;在&lt;a href=&#34;http://localhost:1313/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇轉盤小遊戲的介紹&lt;/a&gt;之後，總感覺好像少了什麼東西？對了，就是&lt;a href=&#34;https://www.techbang.com/posts/17796-game-soundtrack-history-40-invisible-4-heroes-background-music-music-theme-song-and-the-theme-song-king-of-computers-101-feature-story-today-on-the-edit-custom&#34;&gt;「聲音」&lt;/a&gt;，沒有了聲音，遊戲沒有靈魂，沒有臨場感，現在我們就來加上聲音吧。Unity支援的&lt;a href=&#34;https://support.unity3d.com/hc/en-us/articles/206484803-What-are-the-supported-Audio-formats-in-Unity-&#34;&gt;「聲音格式」&lt;/a&gt;可以自己查看一下 (其實也不多啦)。&lt;/p&gt;
           
           
         
@@ -57,14 +57,14 @@
     
     <item>
       <title>【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</title>
-      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
+      <link>http://localhost:1313/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
       <pubDate>Sun, 06 Oct 2019 16:35:20 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
+      <guid>http://localhost:1313/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
       <description>
         
           
-            &lt;p&gt;相信在&lt;a href=&#34;https://William-Weng.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
+            &lt;p&gt;相信在&lt;a href=&#34;http://localhost:1313/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
           
           
         
@@ -73,10 +73,10 @@
     
     <item>
       <title>【Unity 3D 2019】向電玩產業踏出成功的第一步</title>
-      <link>https://William-Weng.github.io/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</link>
+      <link>http://localhost:1313/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</link>
       <pubDate>Fri, 12 Jul 2019 10:31:42 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</guid>
+      <guid>http://localhost:1313/2019/07/unity-3d-2019%E5%90%91%E9%9B%BB%E7%8E%A9%E7%94%A2%E6%A5%AD%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5/</guid>
       <description>
         
           

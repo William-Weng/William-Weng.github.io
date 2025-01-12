@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Apns on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/apns/</link>
+    <link>http://localhost:1313/tags/apns/</link>
     <description>Recent content in Apns on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 10 Apr 2022 09:12:17 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/apns/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 09:12:17 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/apns/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Golang 1.18】Let&#39; Go, MySQL我來了…</title>
-      <link>https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/</link>
+      <link>http://localhost:1313/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/</link>
       <pubDate>Sun, 10 Apr 2022 09:12:17 +0800</pubDate>
       
-      <guid>https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/</guid>
+      <guid>http://localhost:1313/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/</guid>
       <description>
         
           

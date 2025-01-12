@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Android on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/android/</link>
+    <link>http://localhost:1313/tags/android/</link>
     <description>Recent content in Android on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 13 Aug 2022 16:45:30 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Aug 2022 16:45:30 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Flutter 3.3】初學ListView - 可愛的角落生物我來了</title>
-      <link>https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/</link>
+      <link>http://localhost:1313/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/</link>
       <pubDate>Sat, 13 Aug 2022 16:45:30 +0800</pubDate>
       
-      <guid>https://William-Weng.github.io/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/</guid>
+      <guid>http://localhost:1313/2022/08/flutter-3.3%E5%88%9D%E5%AD%B8listview-%E5%8F%AF%E6%84%9B%E7%9A%84%E8%A7%92%E8%90%BD%E7%94%9F%E7%89%A9%E6%88%91%E4%BE%86%E4%BA%86/</guid>
       <description>
         
           
@@ -26,10 +26,10 @@
     
     <item>
       <title>【Flutter 3.0】Flutter我來了 - 萬用的ListView</title>
-      <link>https://William-Weng.github.io/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</link>
+      <link>http://localhost:1313/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</link>
       <pubDate>Sun, 31 Jul 2022 21:49:20 +0800</pubDate>
       
-      <guid>https://William-Weng.github.io/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</guid>
+      <guid>http://localhost:1313/2022/07/flutter-3.0flutter%E6%88%91%E4%BE%86%E4%BA%86-%E8%90%AC%E7%94%A8%E7%9A%84listview/</guid>
       <description>
         
           
@@ -42,14 +42,14 @@
     
     <item>
       <title>【Flutter 3.1】Flutter vs NativeScript - 回憶篇</title>
-      <link>https://William-Weng.github.io/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/</link>
+      <link>http://localhost:1313/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/</link>
       <pubDate>Sun, 29 May 2022 11:33:44 +0800</pubDate>
       
-      <guid>https://William-Weng.github.io/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/</guid>
+      <guid>http://localhost:1313/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/</guid>
       <description>
         
           
-            &lt;p&gt;離上一篇&lt;a href=&#34;https://William-Weng.github.io/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;的文章，算算了有三年了吧，這篇只是單純比較、回憶一下而已。其實個人一直認為手機多平台開發是&lt;a href=&#34;https://www.books.com.tw/products/0010767651&#34;&gt;斜門歪道&lt;/a&gt;，但自從&lt;a href=&#34;https://docs.flutter.dev/development/tools/sdk/release-notes/release-notes-3.0.0&#34;&gt;Flutter 3.0&lt;/a&gt;出現之後，似乎有了希望。&lt;/p&gt;
+            &lt;p&gt;離上一篇&lt;a href=&#34;http://localhost:1313/tags/flutter/&#34;&gt;Flutter&lt;/a&gt;的文章，算算了有三年了吧，這篇只是單純比較、回憶一下而已。其實個人一直認為手機多平台開發是&lt;a href=&#34;https://www.books.com.tw/products/0010767651&#34;&gt;斜門歪道&lt;/a&gt;，但自從&lt;a href=&#34;https://docs.flutter.dev/development/tools/sdk/release-notes/release-notes-3.0.0&#34;&gt;Flutter 3.0&lt;/a&gt;出現之後，似乎有了希望。&lt;/p&gt;
           
           
         
@@ -58,14 +58,14 @@
     
     <item>
       <title>【Golang 1.18】GoGo垃圾信 - 求職技能三寶大集合</title>
-      <link>https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</link>
+      <link>http://localhost:1313/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</link>
       <pubDate>Sun, 01 May 2022 07:21:56 +0800</pubDate>
       
-      <guid>https://William-Weng.github.io/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</guid>
+      <guid>http://localhost:1313/2022/05/golang-1.18gogo%E5%9E%83%E5%9C%BE%E4%BF%A1-%E6%B1%82%E8%81%B7%E6%8A%80%E8%83%BD%E4%B8%89%E5%AF%B6%E5%A4%A7%E9%9B%86%E5%90%88/</guid>
       <description>
         
           
-            &lt;p&gt;&lt;a href=&#34;https://news.gamme.com.tw/618466&#34;&gt;GoGo垃圾信&lt;/a&gt;，大家一起進入&lt;a href=&#34;https://youtu.be/yYC7WkuCyQg&#34;&gt;神乎其技&lt;/a&gt;的&lt;a href=&#34;https://www.worker360.com.tw/blog/developer&#34;&gt;境界&lt;/a&gt;吧。今天這篇呢，主是結合&lt;a href=&#34;https://github.com/YSGStudyHards/Introduction-to-Golang&#34;&gt;資料端&lt;/a&gt; / &lt;a href=&#34;https://github.com/YSGStudyHards/GoFamily&#34;&gt;網頁後端&lt;/a&gt; / &lt;a href=&#34;https://github.com/GolangFamily/vscode-go&#34;&gt;手機端&lt;/a&gt;，產生出求職&lt;a href=&#34;https://github.com/go-spring/go-spring&#34;&gt;三寶系統&lt;/a&gt; - &lt;a href=&#34;https://msg.mitake.com.tw/&#34;&gt;簡訊&lt;/a&gt; / &lt;a href=&#34;https://support.microsoft.com/zh-tw/office/%E6%8E%A8%E6%92%AD%E9%80%9A%E7%9F%A5%E8%88%87-sms-%E8%A8%8A%E6%81%AF%E6%9C%89%E4%BD%95%E4%B8%8D%E5%90%8C-1daa564b-f742-42d4-a257-af8a2b22ae92&#34;&gt;推播&lt;/a&gt; / &lt;a href=&#34;https://www.mailcloud.com.tw/green/green_openfind.html&#34;&gt;垃圾信&lt;/a&gt;，雖然本篇是以&lt;a href=&#34;https://William-Weng.github.io/tags/golang/&#34;&gt;Golang&lt;/a&gt;為主體，但在&lt;a href=&#34;https://cli.vuejs.org/&#34;&gt;Vue CLI + Typescript&lt;/a&gt;的著墨上會比較多，也祝大家&lt;a href=&#34;https://www.mol.gov.tw/1607/1632/1640/43643/&#34;&gt;51勞動節&lt;/a&gt;快樂，也祝我下禮拜能買到&lt;a href=&#34;https://tw.news.yahoo.com/%E5%BF%AB%E7%AF%A9%E8%A9%A6%E5%8A%91%E5%93%AA%E8%A3%A1%E6%9C%89-2%E5%A4%A7%E8%B6%85%E5%95%86app-line%E7%86%B1%E9%BB%9E-%E9%8D%B5%E6%9F%A5%E8%A9%A2-011004487.html&#34;&gt;快篩試劑&lt;/a&gt;，畢竟&lt;a href=&#34;https://tw.news.yahoo.com/%E9%80%BC%E8%BF%91%E5%A4%A7%E7%9B%A4%E6%8C%87%E6%95%B8-%E6%9C%AC%E5%9C%9F%E7%A2%BA%E8%A8%BA%E4%BA%BA%E6%95%B815033-%E5%A2%83%E5%A4%96116-%E6%AD%BB%E4%BA%A1%E5%86%8D-3-065645310.html&#34;&gt;本土確診人數&lt;/a&gt;已經破萬人了啊，&lt;a href=&#34;https://youtu.be/R-q9l_bT6H4&#34;&gt;每週一戳&lt;/a&gt;的大時代來臨了。&lt;/p&gt;
+            &lt;p&gt;&lt;a href=&#34;https://news.gamme.com.tw/618466&#34;&gt;GoGo垃圾信&lt;/a&gt;，大家一起進入&lt;a href=&#34;https://youtu.be/yYC7WkuCyQg&#34;&gt;神乎其技&lt;/a&gt;的&lt;a href=&#34;https://www.worker360.com.tw/blog/developer&#34;&gt;境界&lt;/a&gt;吧。今天這篇呢，主是結合&lt;a href=&#34;https://github.com/YSGStudyHards/Introduction-to-Golang&#34;&gt;資料端&lt;/a&gt; / &lt;a href=&#34;https://github.com/YSGStudyHards/GoFamily&#34;&gt;網頁後端&lt;/a&gt; / &lt;a href=&#34;https://github.com/GolangFamily/vscode-go&#34;&gt;手機端&lt;/a&gt;，產生出求職&lt;a href=&#34;https://github.com/go-spring/go-spring&#34;&gt;三寶系統&lt;/a&gt; - &lt;a href=&#34;https://msg.mitake.com.tw/&#34;&gt;簡訊&lt;/a&gt; / &lt;a href=&#34;https://support.microsoft.com/zh-tw/office/%E6%8E%A8%E6%92%AD%E9%80%9A%E7%9F%A5%E8%88%87-sms-%E8%A8%8A%E6%81%AF%E6%9C%89%E4%BD%95%E4%B8%8D%E5%90%8C-1daa564b-f742-42d4-a257-af8a2b22ae92&#34;&gt;推播&lt;/a&gt; / &lt;a href=&#34;https://www.mailcloud.com.tw/green/green_openfind.html&#34;&gt;垃圾信&lt;/a&gt;，雖然本篇是以&lt;a href=&#34;http://localhost:1313/tags/golang/&#34;&gt;Golang&lt;/a&gt;為主體，但在&lt;a href=&#34;https://cli.vuejs.org/&#34;&gt;Vue CLI + Typescript&lt;/a&gt;的著墨上會比較多，也祝大家&lt;a href=&#34;https://www.mol.gov.tw/1607/1632/1640/43643/&#34;&gt;51勞動節&lt;/a&gt;快樂，也祝我下禮拜能買到&lt;a href=&#34;https://tw.news.yahoo.com/%E5%BF%AB%E7%AF%A9%E8%A9%A6%E5%8A%91%E5%93%AA%E8%A3%A1%E6%9C%89-2%E5%A4%A7%E8%B6%85%E5%95%86app-line%E7%86%B1%E9%BB%9E-%E9%8D%B5%E6%9F%A5%E8%A9%A2-011004487.html&#34;&gt;快篩試劑&lt;/a&gt;，畢竟&lt;a href=&#34;https://tw.news.yahoo.com/%E9%80%BC%E8%BF%91%E5%A4%A7%E7%9B%A4%E6%8C%87%E6%95%B8-%E6%9C%AC%E5%9C%9F%E7%A2%BA%E8%A8%BA%E4%BA%BA%E6%95%B815033-%E5%A2%83%E5%A4%96116-%E6%AD%BB%E4%BA%A1%E5%86%8D-3-065645310.html&#34;&gt;本土確診人數&lt;/a&gt;已經破萬人了啊，&lt;a href=&#34;https://youtu.be/R-q9l_bT6H4&#34;&gt;每週一戳&lt;/a&gt;的大時代來臨了。&lt;/p&gt;
           
           
         
@@ -74,10 +74,10 @@
     
     <item>
       <title>【Android 6.0】RecyclerView - 高效能的ListView</title>
-      <link>https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</link>
+      <link>http://localhost:1313/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</link>
       <pubDate>Sun, 12 Jan 2020 12:28:27 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</guid>
+      <guid>http://localhost:1313/2020/01/android-6.0recyclerview-%E9%AB%98%E6%95%88%E8%83%BD%E7%9A%84listview/</guid>
       <description>
         
           
@@ -90,14 +90,14 @@
     
     <item>
       <title>【Unity 3D 2019】做一個簡單的抽籤用的轉盤吧</title>
-      <link>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
+      <link>http://localhost:1313/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</link>
       <pubDate>Sun, 06 Oct 2019 16:35:20 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
+      <guid>http://localhost:1313/2019/10/unity-3d-2019%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E6%8A%BD%E7%B1%A4%E7%94%A8%E7%9A%84%E8%BD%89%E7%9B%A4%E5%90%A7/</guid>
       <description>
         
           
-            &lt;p&gt;相信在&lt;a href=&#34;https://William-Weng.github.io/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
+            &lt;p&gt;相信在&lt;a href=&#34;http://localhost:1313/2019/07/12/unity3d-helloworld/&#34;&gt;上一篇的Unity介紹&lt;/a&gt;之後，大家都很想試試看，自己來做個game吧，這裡我們就來做個簡單的轉盤吧，然後在macOS / iOS / Android上安裝，話不多說，馬上行動。&lt;/p&gt;
           
           
         
@@ -106,10 +106,10 @@
     
     <item>
       <title>【NativeScript 6】NativeScript &#43; Vue.js = iOS &#43; Android?</title>
-      <link>https://William-Weng.github.io/2019/07/nativescript-6nativescript--vue.js-ios--android/</link>
+      <link>http://localhost:1313/2019/07/nativescript-6nativescript--vue.js-ios--android/</link>
       <pubDate>Tue, 23 Jul 2019 13:51:07 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/07/nativescript-6nativescript--vue.js-ios--android/</guid>
+      <guid>http://localhost:1313/2019/07/nativescript-6nativescript--vue.js-ios--android/</guid>
       <description>
         
           
@@ -122,10 +122,10 @@
     
     <item>
       <title>【Kotlin 1.3】findViewById()的四種方式</title>
-      <link>https://William-Weng.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <link>http://localhost:1313/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Fri, 19 Jul 2019 10:38:09 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <guid>http://localhost:1313/2019/07/kotlin-1.3findviewbyid%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
       <description>
         
           
@@ -138,10 +138,10 @@
     
     <item>
       <title>【Kotlin 1.3】Android程式初體驗 - Kotlin篇</title>
-      <link>https://William-Weng.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</link>
+      <link>http://localhost:1313/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</link>
       <pubDate>Thu, 18 Jul 2019 10:17:41 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</guid>
+      <guid>http://localhost:1313/2019/07/kotlin-1.3android%E7%A8%8B%E5%BC%8F%E5%88%9D%E9%AB%94%E9%A9%97-kotlin%E7%AF%87/</guid>
       <description>
         
           
@@ -154,10 +154,10 @@
     
     <item>
       <title>【Flutter 1.5】製作一個簡單的名片列表APP</title>
-      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</link>
+      <link>http://localhost:1313/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</link>
       <pubDate>Thu, 23 May 2019 12:31:53 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</guid>
+      <guid>http://localhost:1313/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</guid>
       <description>
         
           
@@ -170,10 +170,10 @@
     
     <item>
       <title>【Flutter 1.2】手機的畫面佈局 (Container篇)</title>
-      <link>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
+      <link>http://localhost:1313/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
       <pubDate>Mon, 13 May 2019 16:04:16 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</guid>
+      <guid>http://localhost:1313/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</guid>
       <description>
         
           
@@ -186,10 +186,10 @@
     
     <item>
       <title>【Flutter 1.2】Flutter UI Debug工具</title>
-      <link>https://William-Weng.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</link>
+      <link>http://localhost:1313/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Tue, 07 May 2019 16:20:50 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</guid>
+      <guid>http://localhost:1313/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/</guid>
       <description>
         
           

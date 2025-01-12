@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Virtualbox on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/virtualbox/</link>
+    <link>http://localhost:1313/tags/virtualbox/</link>
     <description>Recent content in Virtualbox on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 12 May 2019 13:30:57 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 May 2019 13:30:57 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</title>
-      <link>https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
+      <link>http://localhost:1313/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
       <pubDate>Sun, 12 May 2019 13:30:57 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
+      <guid>http://localhost:1313/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
       <description>
         
           

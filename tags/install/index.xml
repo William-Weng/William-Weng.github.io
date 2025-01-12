@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Install on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/install/</link>
+    <link>http://localhost:1313/tags/install/</link>
     <description>Recent content in Install on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Tue, 14 May 2019 09:55:58 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/install/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2019 09:55:58 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/install/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</title>
-      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
+      <link>http://localhost:1313/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
       <pubDate>Tue, 14 May 2019 09:55:58 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
+      <guid>http://localhost:1313/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
       <description>
         
           
@@ -25,10 +25,10 @@
     
     <item>
       <title>【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</title>
-      <link>https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
+      <link>http://localhost:1313/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</link>
       <pubDate>Sun, 12 May 2019 13:30:57 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
+      <guid>http://localhost:1313/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/</guid>
       <description>
         
           
@@ -41,10 +41,10 @@
     
     <item>
       <title>【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</title>
-      <link>https://William-Weng.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
+      <link>http://localhost:1313/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
       <pubDate>Tue, 07 May 2019 13:43:55 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
+      <guid>http://localhost:1313/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
       <description>
         
           
@@ -57,10 +57,10 @@
     
     <item>
       <title>【TypeScript 3.2】強類型的JavaScript - TypeScript</title>
-      <link>https://William-Weng.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</link>
+      <link>http://localhost:1313/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</link>
       <pubDate>Mon, 06 May 2019 16:25:52 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</guid>
+      <guid>http://localhost:1313/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/</guid>
       <description>
         
           
@@ -73,10 +73,10 @@
     
     <item>
       <title>【免費的Blog】github.io &#43; hexo</title>
-      <link>https://William-Weng.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io--hexo/</link>
+      <link>http://localhost:1313/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io--hexo/</link>
       <pubDate>Sun, 05 May 2019 14:02:22 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io--hexo/</guid>
+      <guid>http://localhost:1313/2019/05/%E5%85%8D%E8%B2%BB%E7%9A%84bloggithub.io--hexo/</guid>
       <description>
         
           
@@ -89,10 +89,10 @@
     
     <item>
       <title>【Ubuntu 18.04】在Linux上安裝Nodejs的四種方式</title>
-      <link>https://William-Weng.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
+      <link>http://localhost:1313/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</link>
       <pubDate>Sun, 05 May 2019 13:00:56 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
+      <guid>http://localhost:1313/2019/05/ubuntu-18.04%E5%9C%A8linux%E4%B8%8A%E5%AE%89%E8%A3%9Dnodejs%E7%9A%84%E5%9B%9B%E7%A8%AE%E6%96%B9%E5%BC%8F/</guid>
       <description>
         
           
@@ -105,10 +105,10 @@
     
     <item>
       <title>【佛心的編譯器】Visual Studio Code</title>
-      <link>https://William-Weng.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</link>
+      <link>http://localhost:1313/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</link>
       <pubDate>Sat, 04 May 2019 17:53:51 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</guid>
+      <guid>http://localhost:1313/2019/05/%E4%BD%9B%E5%BF%83%E7%9A%84%E7%B7%A8%E8%AD%AF%E5%99%A8visual-studio-code/</guid>
       <description>
         
           
@@ -121,10 +121,10 @@
     
     <item>
       <title>【Flutter 1.2】Flutter的安裝過程</title>
-      <link>https://William-Weng.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
+      <link>http://localhost:1313/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
       <pubDate>Sun, 28 Apr 2019 14:30:33 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
+      <guid>http://localhost:1313/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
       <description>
         
           

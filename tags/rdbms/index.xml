@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rdbms on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/rdbms/</link>
+    <link>http://localhost:1313/tags/rdbms/</link>
     <description>Recent content in Rdbms on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Tue, 07 May 2019 13:43:55 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/rdbms/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 May 2019 13:43:55 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/rdbms/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【MariaDB 10.4】安裝MySQL的孿生兄弟 - MariaDB</title>
-      <link>https://William-Weng.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
+      <link>http://localhost:1313/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</link>
       <pubDate>Tue, 07 May 2019 13:43:55 +0000</pubDate>
       
-      <guid>https://William-Weng.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
+      <guid>http://localhost:1313/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/</guid>
       <description>
         
           
