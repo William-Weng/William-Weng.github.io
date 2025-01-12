@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dart on William-Weng</title>
-    <link>http://localhost:1313/tags/dart/</link>
+    <link>https://William-Weng.github.io/tags/dart/</link>
     <description>Recent content in Dart on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Thu, 23 May 2019 12:31:53 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dart/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 May 2019 12:31:53 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/dart/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Flutter 1.5】製作一個簡單的名片列表APP</title>
-      <link>http://localhost:1313/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</link>
       <pubDate>Thu, 23 May 2019 12:31:53 +0000</pubDate>
       
-      <guid>http://localhost:1313/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/</guid>
       <description>
         
           
@@ -25,10 +25,10 @@
     
     <item>
       <title>【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</title>
-      <link>http://localhost:1313/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</link>
       <pubDate>Tue, 14 May 2019 16:01:43 +0000</pubDate>
       
-      <guid>http://localhost:1313/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/</guid>
       <description>
         
           
@@ -41,10 +41,10 @@
     
     <item>
       <title>【Flutter 1.5】Flutter的按鈕動作 - FloatingActionButton</title>
-      <link>http://localhost:1313/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</link>
       <pubDate>Tue, 14 May 2019 14:30:47 +0000</pubDate>
       
-      <guid>http://localhost:1313/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5flutter%E7%9A%84%E6%8C%89%E9%88%95%E5%8B%95%E4%BD%9C-floatingactionbutton/</guid>
       <description>
         
           
@@ -57,10 +57,10 @@
     
     <item>
       <title>【Flutter 1.5】天啊，Flutter居然可以寫WebApp了耶</title>
-      <link>http://localhost:1313/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</link>
       <pubDate>Tue, 14 May 2019 09:55:58 +0000</pubDate>
       
-      <guid>http://localhost:1313/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.5%E5%A4%A9%E5%95%8Aflutter%E5%B1%85%E7%84%B6%E5%8F%AF%E4%BB%A5%E5%AF%ABwebapp%E4%BA%86%E8%80%B6/</guid>
       <description>
         
           
@@ -73,10 +73,10 @@
     
     <item>
       <title>【Flutter 1.2】手機的畫面佈局 (Container篇)</title>
-      <link>http://localhost:1313/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
+      <link>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</link>
       <pubDate>Mon, 13 May 2019 16:04:16 +0000</pubDate>
       
-      <guid>http://localhost:1313/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</guid>
+      <guid>https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/</guid>
       <description>
         
           
@@ -89,10 +89,10 @@
     
     <item>
       <title>【Flutter 1.2】Flutter的安裝過程</title>
-      <link>http://localhost:1313/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
+      <link>https://William-Weng.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</link>
       <pubDate>Sun, 28 Apr 2019 14:30:33 +0000</pubDate>
       
-      <guid>http://localhost:1313/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
+      <guid>https://William-Weng.github.io/2019/04/flutter-1.2flutter%E7%9A%84%E5%AE%89%E8%A3%9D%E9%81%8E%E7%A8%8B/</guid>
       <description>
         
           

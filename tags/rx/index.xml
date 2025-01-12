@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Rx on William-Weng</title>
-    <link>http://localhost:1313/tags/rx/</link>
+    <link>https://William-Weng.github.io/tags/rx/</link>
     <description>Recent content in Rx on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 17 Jan 2024 05:00:03 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/rx/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Jan 2024 05:00:03 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/rx/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</title>
-      <link>http://localhost:1313/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/</link>
+      <link>https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/</link>
       <pubDate>Wed, 17 Jan 2024 05:00:03 +0800</pubDate>
       
-      <guid>http://localhost:1313/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/</guid>
+      <guid>https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/</guid>
       <description>
         
           

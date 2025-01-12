@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Script on William-Weng</title>
-    <link>http://localhost:1313/tags/script/</link>
+    <link>https://William-Weng.github.io/tags/script/</link>
     <description>Recent content in Script on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 15 May 2019 09:28:57 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/script/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 15 May 2019 09:28:57 +0000</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/script/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>【Bash Shell Script】強大的命令提示字元？</title>
-      <link>http://localhost:1313/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</link>
+      <link>https://William-Weng.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</link>
       <pubDate>Wed, 15 May 2019 09:28:57 +0000</pubDate>
       
-      <guid>http://localhost:1313/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</guid>
+      <guid>https://William-Weng.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/</guid>
       <description>
         
           
