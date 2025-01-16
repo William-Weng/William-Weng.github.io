@@ -101,6 +101,103 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/" title="【Firebase】不用錢的NoSQL資料庫？">【Firebase】不用錢的NoSQL資料庫？</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <title>calendar</title>
+  <use xlink:href="#calendar"></use>
+</svg>
+</span>
+    <span class="post_date">
+      Jun 10, 2019</span>
+    <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/firebase/' title="firebase" class="post_tag button button_translucent">firebase
+        </a><a href='https://William-Weng.github.io/tags/nosql/' title="nosql" class="post_tag button button_translucent">nosql
+        </a><a href='https://William-Weng.github.io/tags/database/' title="database" class="post_tag button button_translucent">database
+        </a><a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
+        </a><a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Firebase%e3%80%91%e4%b8%8d%e7%94%a8%e9%8c%a2%e7%9a%84NoSQL%e8%b3%87%e6%96%99%e5%ba%ab%ef%bc%9f&url=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f06%2ffirebase%25E4%25B8%258D%25E7%2594%25A8%25E9%258C%25A2%25E7%259A%2584nosql%25E8%25B3%2587%25E6%2596%2599%25E5%25BA%25AB%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>twitter</title>
+  <use xlink:href="#twitter"></use>
+</svg>
+
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f06%2ffirebase%25E4%25B8%258D%25E7%2594%25A8%25E9%258C%25A2%25E7%259A%2584nosql%25E8%25B3%2587%25E6%2596%2599%25E5%25BA%25AB%2f&t=%e3%80%90Firebase%e3%80%91%e4%b8%8d%e7%94%a8%e9%8c%a2%e7%9a%84NoSQL%e8%b3%87%e6%96%99%e5%ba%ab%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>facebook</title>
+  <use xlink:href="#facebook"></use>
+</svg>
+
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <title>linkedin</title>
+  <use xlink:href="#linkedin"></use>
+</svg>
+
+    </a>
+    <a href="https://William-Weng.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <title>copy</title>
+  <use xlink:href="#copy"></use>
+</svg>
+
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+      <div class="excerpt_thumbnail"><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt="【Firebase】不用錢的NoSQL資料庫？"
+      
+        class="image_figure image_thumbnail image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/thumbnail/Firebase.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+      </div>
+      
+        <div class="pale">
+          
+            相信大家都有聽過<a href="https://en.wikipedia.org/wiki/Firebase">firebase</a>的大名吧？它已經是APP開發者最愛的<a href="https://baike.baidu.com/item/BaaS/271609">BaaS - 後端服務平臺</a>之一，自從Google<a href="https://www.ithome.com.tw/news/91771">買下</a>它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的<a href="https://kknews.cc/zh-tw/tech/blrm8n9.html">GCM - Google Cloud Messaging</a>轉成<a href="https://firebase.google.com/docs/cloud-messaging/">FCM - Firebase Cloud Messaging</a>，還有將<a href="https://www.inside.com.tw/article/8296-google-bought-twitters-fabbric">Fabric</a>關閉等…，總總的跡象都表示Google的決心。其實市面上另外還有一套叫<a href="http://parseplatform.org/">Parse.com</a>的資料庫，是由<a href="https://www.ithome.com.tw/voice/95454">Facebook買下</a>，不過由於不賺錢就<a href="https://panx.asia/archives/39160">關閉跟開源了</a>。以下的Code只會寫出比較重要的部分，如果要完整的Code的話，請去github下載，感謝。
+          
+          <br>
+          <a href="https://William-Weng.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+        <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2019/06/firealpaca-2.1%E5%85%8D%E8%B2%BB%E7%9A%84photoshop/" title="【FireAlpaca 2.1】免費的Photoshop？">【FireAlpaca 2.1】免費的Photoshop？</a>
       </h3>
       
@@ -962,103 +1059,6 @@
     </div>
   </li>
 
-        <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/" title="【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)">【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <title>calendar</title>
-  <use xlink:href="#calendar"></use>
-</svg>
-</span>
-    <span class="post_date">
-      May 12, 2019</span>
-    <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/nosql/' title="nosql" class="post_tag button button_translucent">nosql
-        </a><a href='https://William-Weng.github.io/tags/mongodb/' title="mongodb" class="post_tag button button_translucent">mongodb
-        </a><a href='https://William-Weng.github.io/tags/database/' title="database" class="post_tag button button_translucent">database
-        </a><a href='https://William-Weng.github.io/tags/virtualbox/' title="virtualbox" class="post_tag button button_translucent">virtualbox
-        </a><a href='https://William-Weng.github.io/tags/install/' title="install" class="post_tag button button_translucent">install
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%e3%80%90MongoDB%204.0%e3%80%91%e5%9c%a8Ubuntu18.04%e4%b8%8a%e5%ae%89%e8%a3%9dMongoDB%20%28VirtualBox%e7%af%87%29&url=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f05%2fmongodb-4.0%25E5%259C%25A8ubuntu18.04%25E4%25B8%258A%25E5%25AE%2589%25E8%25A3%259Dmongodb-virtualbox%25E7%25AF%2587%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>twitter</title>
-  <use xlink:href="#twitter"></use>
-</svg>
-
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f05%2fmongodb-4.0%25E5%259C%25A8ubuntu18.04%25E4%25B8%258A%25E5%25AE%2589%25E8%25A3%259Dmongodb-virtualbox%25E7%25AF%2587%2f&t=%e3%80%90MongoDB%204.0%e3%80%91%e5%9c%a8Ubuntu18.04%e4%b8%8a%e5%ae%89%e8%a3%9dMongoDB%20%28VirtualBox%e7%af%87%29" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>facebook</title>
-  <use xlink:href="#facebook"></use>
-</svg>
-
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <title>linkedin</title>
-  <use xlink:href="#linkedin"></use>
-</svg>
-
-    </a>
-    <a href="https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <title>copy</title>
-  <use xlink:href="#copy"></use>
-</svg>
-
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-    <div class="excerpt_footer partition">
-      <div class="excerpt_thumbnail"><figure>
-  <picture>
-
-    
-      
-        
-        
-        
-        
-        
-        
-    <img
-      loading="lazy"
-      decoding="async"
-      alt="【MongoDB 4.0】在Ubuntu18.04上安裝MongoDB (VirtualBox篇)"
-      
-        class="image_figure image_thumbnail image_internal image_unprocessed"
-        src="https://William-Weng.github.io/images/thumbnail/MongoDB.png"
-      
-      
-    />
-
-    </picture>
-</figure>
-
-      </div>
-      
-        <div class="pale">
-          
-            <a href="https://zh.wikipedia.org/wiki/VirtualBox">VirtualBox</a>是一套免費的<a href="https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8">VM系統</a>，當然像是微軟的<a href="https://zh.wikipedia.org/wiki/VMware_Workstation">VMWare</a>，還是只有mac版的<a href="https://www.parallels.com/">Parallels Desktop</a>，都是不錯的選擇，今天為什麼要選擇VirtualBox呢？主要是因為Parallels Desktop 14 Lite安裝完成之後，居然就要我訂閱，它不是免費版的嗎？而且我也只用Ubuntu而己呀。VirtualBox在Windows、macOS、Linux-like都可以安裝，在教學上或移動上都相當的方便，軟體上也滿穩定的。<a href="https://zh.wikipedia.org/wiki/MongoDB">MongoDB</a>是一套<a href="">NoSQL資料庫</a>，有別於<a href="https://zh.wikipedia.org/wiki/SQL">SQL</a>類的<a href="https://zh.wikipedia.org/wiki/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93">關聯式資料庫</a>，NoSQL主要指非關係型、分散式、不提供<a href="https://zh.wikipedia.org/wiki/ACID">ACID</a>的資料庫設計模式，它是強調Key-Value Stores和文件資料庫的優 …
-          
-          <br>
-          <a href="https://William-Weng.github.io/2019/05/mongodb-4.0%E5%9C%A8ubuntu18.04%E4%B8%8A%E5%AE%89%E8%A3%9Dmongodb-virtualbox%E7%AF%87/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
       <li>
     <ul class="pagination pagination-default">
       <li class="page-item">
@@ -1103,6 +1103,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/01/%E4%B8%B2%E6%B5%81%E5%BD%B1%E9%9F%B3%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E7%9B%B4%E6%92%AD%E4%B8%BB%E5%90%A7/" class="nav-link" title="【串流影音】大家一起來當直播主吧…">【串流影音】大家一起來當直播主吧…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/01/eop%E7%B0%A1%E8%AD%9C%E5%A4%A7%E5%B8%AB%E8%AE%93%E6%88%91%E5%80%91%E4%B8%80%E8%B5%B7%E6%88%90%E7%82%BA%E5%A4%A7%E5%B8%AB%E5%90%A7/" class="nav-link" title="【EOP簡譜大師】讓我們一起成為大師吧…">【EOP簡譜大師】讓我們一起成為大師吧…</a>
       </li>
       <li>
@@ -1122,9 +1125,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2023/08/%E5%8A%A0%E5%AF%86-/-%E8%A7%A3%E5%AF%86%E5%87%B1%E6%92%92%E5%A4%A7%E5%B8%9D%E8%88%87%E5%B8%8C%E7%89%B9%E5%8B%92%E7%9A%84%E7%A5%95%E5%AF%86/" class="nav-link" title="【加密 / 解密】凱撒大帝與希特勒的祕密">【加密 / 解密】凱撒大帝與希特勒的祕密</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2023/05/xcode-14%E6%98%9F%E5%BA%A7%E8%81%8A%E5%A4%A9%E5%AE%A4-websocket/" class="nav-link" title="【Xcode 14】星座聊天室 - WebSocket">【Xcode 14】星座聊天室 - WebSocket</a>
       </li>
     </ul>
     <div>
@@ -1282,6 +1282,11 @@
         
         <a href='https://William-Weng.github.io/tags/email/' class="post_tag button button_translucent" title="email">
           EMAIL
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/ffmpeg/' class="post_tag button button_translucent" title="ffmpeg">
+          FFMPEG
           <span class="button_tally">2</span>
         </a>
         
@@ -1455,6 +1460,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/docker/' class="post_tag button button_translucent" title="docker">
+          DOCKER
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/encrypt/' class="post_tag button button_translucent" title="encrypt">
           ENCRYPT
           <span class="button_tally">1</span>
@@ -1470,11 +1480,6 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/ffmpeg/' class="post_tag button button_translucent" title="ffmpeg">
-          FFMPEG
-          <span class="button_tally">1</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/firealpaca/' class="post_tag button button_translucent" title="firealpaca">
           FIREALPACA
           <span class="button_tally">1</span>
@@ -1487,6 +1492,11 @@
         
         <a href='https://William-Weng.github.io/tags/hexo/' class="post_tag button button_translucent" title="hexo">
           HEXO
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/hls/' class="post_tag button button_translucent" title="hls">
+          HLS
           <span class="button_tally">1</span>
         </a>
         
@@ -1550,6 +1560,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/nginx/' class="post_tag button button_translucent" title="nginx">
+          NGINX
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/photoshop/' class="post_tag button button_translucent" title="photoshop">
           PHOTOSHOP
           <span class="button_tally">1</span>
@@ -1567,6 +1582,11 @@
         
         <a href='https://William-Weng.github.io/tags/regex/' class="post_tag button button_translucent" title="regex">
           REGEX
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/rtmp/' class="post_tag button button_translucent" title="rtmp">
+          RTMP
           <span class="button_tally">1</span>
         </a>
         
@@ -1607,26 +1627,6 @@
         
         <a href='https://William-Weng.github.io/tags/ui/' class="post_tag button button_translucent" title="ui">
           UI
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/unreal/' class="post_tag button button_translucent" title="unreal">
-          UNREAL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/video/' class="post_tag button button_translucent" title="video">
-          VIDEO
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/virtualbox/' class="post_tag button button_translucent" title="virtualbox">
-          VIRTUALBOX
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/vscode/' class="post_tag button button_translucent" title="vscode">
-          VSCODE
           <span class="button_tally">1</span>
         </a>
         
@@ -1736,6 +1736,10 @@
             </a>
             
             
+            <a href='https://William-Weng.github.io/tags/docker/' class=" post_tag button button_translucent" data-position=1 title="docker">DOCKER<span class="button_tally">1</span>
+            </a>
+            
+            
             <a href='https://William-Weng.github.io/tags/email/' class=" post_tag button button_translucent" data-position=2 title="email">EMAIL<span class="button_tally">2</span>
             </a>
             
@@ -1752,7 +1756,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/ffmpeg/' class=" post_tag button button_translucent" data-position=1 title="ffmpeg">FFMPEG<span class="button_tally">1</span>
+            <a href='https://William-Weng.github.io/tags/ffmpeg/' class=" post_tag button button_translucent" data-position=2 title="ffmpeg">FFMPEG<span class="button_tally">2</span>
             </a>
             
             
@@ -1809,6 +1813,10 @@
             
             
             <a href='https://William-Weng.github.io/tags/hexo/' class=" post_tag button button_translucent" data-position=1 title="hexo">HEXO<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/hls/' class=" post_tag button button_translucent" data-position=1 title="hls">HLS<span class="button_tally">1</span>
             </a>
             
             
@@ -1912,6 +1920,10 @@
             </a>
             
             
+            <a href='https://William-Weng.github.io/tags/nginx/' class=" post_tag button button_translucent" data-position=1 title="nginx">NGINX<span class="button_tally">1</span>
+            </a>
+            
+            
             <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=3 title="nodejs">NODEJS<span class="button_tally">3</span>
             </a>
             
@@ -1937,6 +1949,10 @@
             
             
             <a href='https://William-Weng.github.io/tags/regex/' class=" post_tag button button_translucent" data-position=1 title="regex">REGEX<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/rtmp/' class=" post_tag button button_translucent" data-position=1 title="rtmp">RTMP<span class="button_tally">1</span>
             </a>
             
             

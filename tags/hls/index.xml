@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hls on William-Weng</title>
+    <link>https://William-Weng.github.io/tags/hls/</link>
+    <description>Recent content in Hls on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Wed, 15 Jan 2025 21:53:20 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/hls/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【串流影音】大家一起來當直播主吧…</title>
+      <link>https://William-Weng.github.io/2025/01/%E4%B8%B2%E6%B5%81%E5%BD%B1%E9%9F%B3%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E7%9B%B4%E6%92%AD%E4%B8%BB%E5%90%A7/</link>
+      <pubDate>Wed, 15 Jan 2025 21:53:20 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2025/01/%E4%B8%B2%E6%B5%81%E5%BD%B1%E9%9F%B3%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E7%9B%B4%E6%92%AD%E4%B8%BB%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;p&gt;前幾年直播一直很熱門，一大票的&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E7%9B%B4%E6%92%AD%E4%B8%BB&#34;&gt;直播主&lt;/a&gt;都紛紛的出現，不管是&lt;a href=&#34;https://www.youtube.com/&#34;&gt;YouTube&lt;/a&gt;的，或者是一些&lt;a href=&#34;https://17.live/&#34;&gt;交友APP&lt;/a&gt;，甚至是&lt;a href=&#34;https://live.shopee.tw/share&#34;&gt;網路購物&lt;/a&gt;，之前很有很熱門的&lt;a href=&#34;https://youtu.be/V8bUzP2_yss&#34;&gt;賣魚哥-王雷&lt;/a&gt;也是帶來了直播帶貨的熱潮。
+其實本來是想學學&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/WebRTC&#34;&gt;WebRTC&lt;/a&gt;的，它主是要基於&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E7%94%A8%E6%88%B7%E6%95%B0%E6%8D%AE%E6%8A%A5%E5%8D%8F%E8%AE%AE&#34;&gt;UDP協定&lt;/a&gt;，速度快，但是光&lt;a href=&#34;https://webrtc.googlesource.com/src&#34;&gt;看到它&lt;/a&gt;要自己&lt;a href=&#34;https://github.com/alexpiezo/WebRTC&#34;&gt;編碼&lt;/a&gt;，還要裝一些&lt;a href=&#34;https://blog.csdn.net/iShare_Carlos/article/details/140402224&#34;&gt;有的沒的&lt;/a&gt;，很麻煩，再加上它的Server又不是很容易，最後還是選擇了基於HTTP的&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/HTTP_Live_Streaming&#34;&gt;HLS協定&lt;/a&gt;，也就是大家在一般影音平臺常看到的&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/M3U&#34;&gt;.m3u8檔&lt;/a&gt;，而且&lt;a href=&#34;https://github.com/twtrubiks/nginx-rtmp-tutorial&#34;&gt;nginx&lt;/a&gt;直接就支援，馬上難度就降低了許多了，這裡我們使用&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/Docker&#34;&gt;Docker&lt;/a&gt;來安裝&lt;a href=&#34;https://hub.docker.com/r/tiangolo/nginx-rtmp/&#34;&gt;nginx-rtmp&lt;/a&gt;這個帶有&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E5%AE%9E%E6%97%B6%E6%B6%88%E6%81%AF%E5%8D%8F%E8%AE%AE&#34;&gt;RTMP模組&lt;/a&gt;的image檔，安全又快速…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
