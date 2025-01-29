@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Container on William-Weng</title>
+    <link>https://William-Weng.github.io/tags/container/</link>
+    <description>Recent content in Container on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Sun, 26 Jan 2025 07:57:43 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/container/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Docker容器】大家一起來當鯨魚搬運工吧…</title>
+      <link>https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/</link>
+      <pubDate>Sun, 26 Jan 2025 07:57:43 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;p&gt;Docker是一個&lt;a href=&#34;https://github.com/moby/moby&#34;&gt;開放原始碼&lt;/a&gt;的開放平臺軟體，它基於Google公司&lt;a href=&#34;https://philipzheng.gitbook.io/docker_practice/introduction/what&#34;&gt;推出&lt;/a&gt;的Go語言實作。專案後來加入了 Linux 基金會，遵從了&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/Apache%E8%AE%B8%E5%8F%AF%E8%AF%81&#34;&gt;Apache 2.0&lt;/a&gt;協議。
+Docker容器與&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8&#34;&gt;虛擬機器&lt;/a&gt;類似，但二者在原理上不同。容器是將作業系統層虛擬化，虛擬機器則是虛擬化硬體，因此容器更具有&lt;a href=&#34;https://ithelp.ithome.com.tw/users/20102562/ironman/3746&#34;&gt;可攜式性&lt;/a&gt;、更能高效地利用伺服器，其利用Linux核心中的資源分離機制，例如&lt;a href=&#34;https://medium.com/starbugs/%E7%AC%AC%E4%B8%80%E5%8D%83%E9%9B%B6%E4%B8%80%E7%AF%87%E7%9A%84-cgroups-%E4%BB%8B%E7%B4%B9-a1c5005be88c&#34;&gt;cgroups&lt;/a&gt;，以及Linux核心&lt;a href=&#34;https://hackmd.io/@vax-r/cgroups&#34;&gt;命名&lt;/a&gt;空間，來建立獨立的容器。
+這邊主要還是以macOS做介紹，使用&lt;a href=&#34;https://orbstack.dev/&#34;&gt;OrbStack&lt;/a&gt;來進行處理，個人是覺得它的介面比Docker Desktop好用得多，所以還是選擇它了，但在這裡還是會簡單的介紹一下各系統安裝Docker的過程…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
