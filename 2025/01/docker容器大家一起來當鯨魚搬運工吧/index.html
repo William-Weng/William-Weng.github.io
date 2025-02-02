@@ -168,6 +168,10 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
           <td>Home 24H2</td>
       </tr>
       <tr>
+          <td><a href="https://elementary.io/">elementary OS</a></td>
+          <td>8 Circe</td>
+      </tr>
+      <tr>
           <td><a href="https://orbstack.dev/">Docker Desktop</a></td>
           <td>4.37.2</td>
       </tr>
@@ -182,7 +186,7 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 <ul>
 <li>從官網下載安裝<a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a>這個GUI管理介面，也可以使用homebrew安裝…</li>
 <li>或者使用<a href="https://jimmyswebnote.com/orbstack-tutorial/">OrbStack</a>也是可以的，這裡會以它來做說明…</li>
-<li>該APP安裝完成後，docker命令也會一起安裝上去…</li>
+<li>該APP安裝完成後，<a href="https://developer.apple.com/documentation/virtualization">docker命令</a>也會一起安裝上去…</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>brew install --cask docker
 </span></span><span style="display:flex;"><span>brew install --cask orbstack
@@ -452,8 +456,45 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 </ul>
 <h4 id="linux">Linux</h4>
 <ul>
-<li>我們知道，基本上Docker就是一個跑在Linux環境的軟體，所以不一定要使用實機，所以在模擬器上也沒有什麼問題…</li>
+<li>這裡使用基本Ubuntu 24.04的<a href="https://ithelp.ithome.com.tw/m/articles/10191370">elementary OS</a>，只是正好拿來測試一下而已…</li>
+<li>我們知道，基於上Docker就是一個跑在Linux環境的軟體，所以不一定要使用實機，所以在模擬器上也沒有什麼問題…</li>
+<li>但是，要安裝<a href="https://docs.docker.com/desktop/setup/install/linux/ubuntu/">Docker Desktop</a>的時候，還是要安裝其它的東西…</li>
+<li>基本上就照<a href="https://docs.docker.com/engine/install/ubuntu/">官網上</a>的安裝步驟一步步來就可以了…</li>
+<li>安裝官網上的證書 =&gt; 指定下載的版本 =&gt; 安裝Docker</li>
 </ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get install ca-certificates curl
+</span></span><span style="display:flex;"><span>sudo install -m <span style="color:#ae81ff">0755</span> -d /etc/apt/keyrings
+</span></span><span style="display:flex;"><span>sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+</span></span><span style="display:flex;"><span>sudo chmod a+r /etc/apt/keyrings/docker.asc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;deb [arch=</span><span style="color:#66d9ef">$(</span>dpkg --print-architecture<span style="color:#66d9ef">)</span><span style="color:#e6db74"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu noble stable&#34;</span> | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Linux.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
 <h3 id="orbstack">OrbStack</h3>
 <ul>
 <li>這裡要特別介紹一下它，東西的好壞是比較出來的嘛，<a href="https://docs.orbstack.dev/benchmarks">速度快</a>又省電…</li>
@@ -536,12 +577,6 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 </figure>
 </li>
 </ul>
-<video class="video-shortcode" width="100%" preload="auto" controls>
-    <source src="/images/2025/docker-helloworld/1.mp4" type="video/mp4">
-    There should have been a video here but your browser does not seem
-    to support it.
-</video>
-<h3 id="範例程式碼下載images2025docker-helloworld17z"><a href="/images/2025/docker-helloworld/1.7z">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>未完成</li>
