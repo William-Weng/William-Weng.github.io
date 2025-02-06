@@ -107,7 +107,7 @@ Docker容器與虛擬機器類似，但二者在原理上不同。容器是將�
 </span>
     <span class="post_date">
       Jan 26, 2025</span>
-    <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/docker/' title="docker" class="post_tag button button_translucent">docker
+    <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/docker/' title="docker" class="post_tag button button_translucent">docker
         </a><a href='https://William-Weng.github.io/tags/container/' title="container" class="post_tag button button_translucent">container
         </a><a href='https://William-Weng.github.io/tags/image/' title="image" class="post_tag button button_translucent">image
         </a>
@@ -456,7 +456,7 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 </ul>
 <h4 id="linux">Linux</h4>
 <ul>
-<li>這裡使用基本Ubuntu 24.04的<a href="https://ithelp.ithome.com.tw/m/articles/10191370">elementary OS</a>，只是正好拿來測試一下而已…</li>
+<li>這裡使用基於Ubuntu 24.04的<a href="https://ithelp.ithome.com.tw/m/articles/10191370">elementary OS</a>，只是正好拿來測試一下而已…</li>
 <li>我們知道，基於上Docker就是一個跑在Linux環境的軟體，所以不一定要使用實機，所以在模擬器上也沒有什麼問題…</li>
 <li>但是，要安裝<a href="https://docs.docker.com/desktop/setup/install/linux/ubuntu/">Docker Desktop</a>的時候，還是要安裝其它的東西…</li>
 <li>基本上就照<a href="https://docs.docker.com/engine/install/ubuntu/">官網上</a>的安裝步驟一步步來就可以了…</li>
@@ -577,6 +577,678 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 </figure>
 </li>
 </ul>
+<h3 id="為什麼要用docker">為什麼要用Docker？</h3>
+<h4 id="小朋友齊打交">小朋友齊打交？</h4>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/InstallGame.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<ul>
+<li>相信在以前<a href="https://halfcoke.github.io/2020/42d8e328">單機遊戲</a>的時代，一定有聽過<a href="https://lf2-nostalgia.info/">小朋友齊打交</a>吧？</li>
+<li>如果要同時三人同時連線玩的話，大家會怎麼做呢？</li>
+</ul>
+<blockquote>
+<ol>
+<li>先下載安裝檔…</li>
+<li>一台機器裝一個，使用網路連線，但是就需要三台主機…</li>
+<li>同一台機器裝三次，開三個帳號給三個人用，只需一台機器…</li>
+</ol>
+</blockquote>
+<ul>
+<li>一台機器裝一個，是類似<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%9F%E5%99%A8">虛擬機器(VM - Virtual Machine)</a>的做法…</li>
+<li>同一台機器裝三次，就類似<a href="https://zh.wikipedia.org/zh-tw/Docker">Docker</a>的做法，省機器…</li>
+</ul>
+<h2 id="docker-vs-vm">Docker vs VM</h2>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_VM.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<ul>
+<li>其實<a href="https://halfcoke.github.io/2020/42d8e328">VM跟Docker</a>的區別也是很類似的…</li>
+<li>VM就是一台虛擬機器就一個nginx；而Docker是同一台機器上裝三個nginx…</li>
+<li>所以在Docker上是比較好管理的，要加強機器也比較方便，而且也比較省錢，不用同一個裝置要買三份…</li>
+<li>而下載的安裝檔，就叫「image - 映像檔」；安裝在Docker上的，就叫「container - 容器」…</li>
+<li>當然，Docker也有它的壞處，就是萬一機器當了，上面的全部Container也就不能動了…
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</li>
+</ul>
+<h3 id="啟動--關閉docker">啟動 / 關閉Docker</h3>
+<ul>
+<li>在macOS中，就是把「Docker Desktop」或「OrbStack」打開 / 關閉就可以了…
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Start_End.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</li>
+</ul>
+<h4 id="docker指令">Docker指令</h4>
+<ul>
+<li>查看docker版本</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker --version
+</span></span><span style="display:flex;"><span>docker version
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Version_1.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Version_2.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<h3 id="建立apache-http伺服器">建立Apache HTTP伺服器</h3>
+<ul>
+<li>我們來建立一個Apache的環境，它的Image名稱就叫<a href="https://hub.docker.com/_/httpd">「httpd」</a>…</li>
+<li>這個run指令呢，其實結合了「pull - 下載Image檔」/「create - 建立容器」「start - 啟動容器」，三個<a href="https://www.facebook.com/tpbhktvc/videos/%E9%A6%99%E6%B8%AF%E7%B6%93%E5%85%B8%E5%BB%A3%E5%91%8A1994kinder-%E5%87%BA%E5%A5%87%E8%9B%8B/2192521964130107/">願望</a>，一次滿足…</li>
+<li>在IDE上就可以很清楚的看到Image跟容器都處理完成了，上面操作很直覺化，這裡就不多做說明了…</li>
+<li>最後開啟<a href="http://localhost:8080/">http://localhost:8080/</a>，看看Apache是否正常啟動…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker
+</span></span><span style="display:flex;"><span>	container					<span style="color:#75715e">## 對容器設定 (可省略)</span>
+</span></span><span style="display:flex;"><span>    &lt;command&gt;					<span style="color:#75715e">## 指令</span>
+</span></span><span style="display:flex;"><span>    --name &lt;name&gt;				<span style="color:#75715e">## 容器名稱</span>
+</span></span><span style="display:flex;"><span>    -d						    <span style="color:#75715e">## 在背景設定</span>
+</span></span><span style="display:flex;"><span>    -p &lt;實機的Port&gt;:&lt;容器的Port&gt;  <span style="color:#75715e">## Port的映射</span>
+</span></span><span style="display:flex;"><span>    &lt;image&gt;					    <span style="color:#75715e">## 要安裝的Image名稱</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker container run --name ApacheDemo -d -p 8080:80 httpd
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost:8080/
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Apache_1.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Apache_2.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Apache_Run.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<h3 id="刪除容器">刪除容器</h3>
+<ul>
+<li>這邊我們用指令來處理停止 / 刪除容器的動作，功能試一下就知道了，就不多做說明…</li>
+<li>當然Image是不會被刪掉的，下載了就一直用嘛…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps
+</span></span><span style="display:flex;"><span>docker rm ApacheDemo		<span style="color:#75715e">## 可以用名字 / ID</span>
+</span></span><span style="display:flex;"><span>docker stop ApacheDemo
+</span></span><span style="display:flex;"><span>docker ps -a
+</span></span><span style="display:flex;"><span>docker rm ApacheDemo
+</span></span><span style="display:flex;"><span>docker ps
+</span></span><span style="display:flex;"><span>docker image ls
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Apache_3.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<h3 id="安裝mysql">安裝MySQL</h3>
+<ul>
+<li>這裡我們再試試<a href="https://www.mysql.com/">MySQL v8.0</a>…</li>
+<li>啟動完成後，可以從OrbStack試試可不可以連線，真的是太好用了啊…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run
+</span></span><span style="display:flex;"><span>	--name MySQL_Demo
+</span></span><span style="display:flex;"><span>    -dit							  <span style="color:#75715e">## 背景執行 / 互動模式 / 配置TTY終端機</span>
+</span></span><span style="display:flex;"><span>    -e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span>3939889	  <span style="color:#75715e">## 設定Root密碼</span>
+</span></span><span style="display:flex;"><span>    mysql:8.0						  <span style="color:#75715e">## 使用MySQL 8.0</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --name MySQL_Demo -dit -e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span><span style="color:#ae81ff">3939889</span> mysql:8.0
+</span></span><span style="display:flex;"><span>docker ps -a
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mysql -uroot -p3939889
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_MySQL_1.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_MySQL_2.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<ul>
+<li>然後再把它刪除掉…</li>
+</ul>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_MySQL_3.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps -a
+</span></span><span style="display:flex;"><span>docker stop &lt;Conatainer Id&gt;
+</span></span><span style="display:flex;"><span>docker stop ApacheDemo
+</span></span><span style="display:flex;"><span>docker ps
+</span></span><span style="display:flex;"><span>docker ps -a
+</span></span><span style="display:flex;"><span>docker rm &lt;Conatainer Id&gt;
+</span></span><span style="display:flex;"><span>docker ps -a
+</span></span></code></pre></div><h4 id="移除已下載的映像檔">移除已下載的映像檔</h4>
+<ul>
+<li>指令很直覺…</li>
+</ul>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Image_Remove.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps -a
+</span></span><span style="display:flex;"><span>docker image ls			      <span style="color:#75715e">## 查看已下載的Image檔</span>
+</span></span><span style="display:flex;"><span>docker image rm httpd		  <span style="color:#75715e">## 移除該Image</span>
+</span></span><span style="display:flex;"><span>docker image ls
+</span></span><span style="display:flex;"><span>docker image rm mysql:8.0	  <span style="color:#75715e">## 移除特定版本的Image</span>
+</span></span><span style="display:flex;"><span>docker image ls
+</span></span></code></pre></div><h3 id="wordpress--mysql">WordPress + MySQL</h3>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Wordpress_MySQL.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<ul>
+<li>接下來，我們做一個<a href="https://dev.mysql.com/doc/refman/8.4/en/charset-server.html">實際</a>的例子，讓<a href="https://wordpress.com/zh-tw/">WordPress</a>跟<a href="https://github.com/sysown/proxysql/issues/4301">MySQL</a>相連…</li>
+<li>比較要注意的是<a href="https://ithelp.ithome.com.tw/m/articles/10222814">MySQL</a>的相關設定值，<a href="https://dev.mysql.com/doc/refman/8.4/en/charset-mysql.html">編碼</a> / <a href="https://blog.csdn.net/weixin_44496870/article/details/131072130">身份認證</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker network ls          <span style="color:#75715e">## 查看網路資訊</span>
+</span></span><span style="display:flex;"><span>docker create &lt;網路名稱&gt;    <span style="color:#75715e">## 建立網路</span>
+</span></span><span style="display:flex;"><span>docker rm &lt;網路名稱&gt;        <span style="color:#75715e">## 刪除網路</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull &lt;映像檔名稱&gt;    <span style="color:#75715e">## 下載映像檔</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run
+</span></span><span style="display:flex;"><span>	--net<span style="color:#f92672">=</span>&lt;使用的網路名稱&gt;
+</span></span><span style="display:flex;"><span>	--name &lt;容器名稱&gt;
+</span></span><span style="display:flex;"><span>		-dit
+</span></span><span style="display:flex;"><span>		-e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span>&lt;Root密碼&gt;
+</span></span><span style="display:flex;"><span>		-e MYSQL_USER<span style="color:#f92672">=</span>&lt;使用者名稱&gt;
+</span></span><span style="display:flex;"><span>		-e MYSQL_PASSWORD<span style="color:#f92672">=</span>&lt;使用者密碼&gt;
+</span></span><span style="display:flex;"><span>		-e MYSQL_DATABASE<span style="color:#f92672">=</span>&lt;資料庫名稱&gt;
+</span></span><span style="display:flex;"><span>	arm64v8/mysql
+</span></span><span style="display:flex;"><span>		--character-set-server<span style="color:#f92672">=</span>&lt;字元編碼&gt;
+</span></span><span style="display:flex;"><span>		--collation-server<span style="color:#f92672">=</span>&lt;字符對照表&gt;
+</span></span></code></pre></div><ul>
+<li>這裡我們來實際做看看，首先來建立共用的網路…</li>
+</ul>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Network.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker network ls
+</span></span><span style="display:flex;"><span>docker network create wordpress_mysql
+</span></span></code></pre></div><ul>
+<li>再來<a href="https://hub.docker.com/r/arm64v8/mysql/">下載ARM64版</a>的MySQL映像檔…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull arm64v8/mysql
+</span></span><span style="display:flex;"><span>docker image ls
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker-Download-MySQL.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<ul>
+<li>生成MySQL容器，可以看到它不會再去下載Image了，速度快很多，也可以在OrbStack順道試一下啟動正不正常…</li>
+</ul>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker-Container-MySQL-ARM64.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker-Container-MySQL-ARM64-Test.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --net<span style="color:#f92672">=</span>wordpress_mysql --name MySql_Database -dit -e MYSQL_ROOT_PASSWORD<span style="color:#f92672">=</span><span style="color:#ae81ff">3939889</span> -e MYSQL_USER<span style="color:#f92672">=</span>william -e MYSQL_PASSWORD<span style="color:#f92672">=</span><span style="color:#ae81ff">28825252</span> -e MYSQL_DATABASE<span style="color:#f92672">=</span>WordPress_Demo arm64v8/mysql --character-set-server<span style="color:#f92672">=</span>utf8mb4 --collation-server<span style="color:#f92672">=</span>utf8mb4_0900_ai_ci
+</span></span></code></pre></div><ul>
+<li>再來就是建立WordPress容器，比較要注意的是，接下來要填的都是上一步設定的值…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run
+</span></span><span style="display:flex;"><span>	--net<span style="color:#f92672">=</span>&lt;使用的網路名稱&gt;
+</span></span><span style="display:flex;"><span>	--name &lt;容器名稱&gt;
+</span></span><span style="display:flex;"><span>		-dit
+</span></span><span style="display:flex;"><span>		-p &lt;實機對應的埠&gt;:80
+</span></span><span style="display:flex;"><span>		-e WORDPRESS_DB_HOST<span style="color:#f92672">=</span>&lt;SQL容器名稱&gt;
+</span></span><span style="display:flex;"><span>		-e WORDPRESS_DB_NAME<span style="color:#f92672">=</span>&lt;已建立的資料庫名稱&gt;
+</span></span><span style="display:flex;"><span>		-e WORDPRESS_DB_USER<span style="color:#f92672">=</span>&lt;MySQL使用者名稱&gt;
+</span></span><span style="display:flex;"><span>		-e WORDPRESS_DB_PASSWORD<span style="color:#f92672">=</span>&lt;MySQL使用者密碼&gt;
+</span></span><span style="display:flex;"><span>	wordpress
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker-WordPress.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run --net<span style="color:#f92672">=</span>wordpress_mysql --name Wordpress_demo -dit -p 8085:80 -e WORDPRESS_DB_HOST<span style="color:#f92672">=</span>MySql_Database -e WORDPRESS_DB_NAME<span style="color:#f92672">=</span>WordPress_Demo -e WORDPRESS_DB_USER<span style="color:#f92672">=</span>william -e WORDPRESS_DB_PASSWORD<span style="color:#f92672">=</span><span style="color:#ae81ff">28825252</span> wordpress
+</span></span></code></pre></div><ul>
+<li>最後開啟<a href="http://localhost:8085">http://localhost:8085</a>，就可以看到WordPress的畫面了…</li>
+</ul>
+<p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker-WordPress-Html.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
 <h3 id="後記">後記</h3>
 <ul>
 <li>未完成</li>
