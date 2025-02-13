@@ -1522,16 +1522,16 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 </figure>
 </p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker commit
-</span></span><span style="display:flex;"><span>	-a &lt;作者名稱&gt;		<span style="color:#75715e">## 作者名稱 (選填)</span>
-</span></span><span style="display:flex;"><span>	-m &lt;相關訊息&gt;	<span style="color:#75715e">## 相關訊息 (選填)</span>
-</span></span><span style="display:flex;"><span>	--pause<span style="color:#f92672">=</span>false	<span style="color:#75715e">## 暫停容器 (選填)</span>
+</span></span><span style="display:flex;"><span>	-a &lt;作者名稱&gt;                       <span style="color:#75715e">## 作者名稱 (選填)</span>
+</span></span><span style="display:flex;"><span>	-m &lt;相關訊息&gt;                       <span style="color:#75715e">## 相關訊息 (選填)</span>
+</span></span><span style="display:flex;"><span>	--pause<span style="color:#f92672">=</span>false                      <span style="color:#75715e">## 暫停容器 (選填)</span>
 </span></span><span style="display:flex;"><span>	&lt;已存在的容器名稱&gt; &lt;要備份的容器名稱&gt;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>docker save
-</span></span><span style="display:flex;"><span>	-o &lt;壓縮檔名稱&gt;.tar &lt;已存在的映像檔&gt;	<span style="color:#75715e">## 將映像檔壓縮</span>
+</span></span><span style="display:flex;"><span>	-o &lt;壓縮檔名稱&gt;.tar &lt;已存在的映像檔&gt;  <span style="color:#75715e">## 將映像檔壓縮</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>docker load 
-</span></span><span style="display:flex;"><span>	-i &lt;壓縮檔名稱&gt;.tar				<span style="color:#75715e">## 使用壓縮的映像檔</span>
+</span></span><span style="display:flex;"><span>	-i &lt;壓縮檔名稱&gt;.tar                 <span style="color:#75715e">## 使用壓縮的映像檔</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker ps -a
 </span></span><span style="display:flex;"><span>docker image ls
 </span></span><span style="display:flex;"><span>docker commit -a <span style="color:#e6db74">&#34;William&#34;</span> -m <span style="color:#e6db74">&#34;就是這樣…&#34;</span> --pause<span style="color:#f92672">=</span>false ApacheHtml william_apache
@@ -1711,7 +1711,7 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 <h3 id="後記">後記</h3>
 <ul>
 <li>趕在這週的尾端終於完成了，好累啊…</li>
-<li>最近真的感到<a href="https://www.chickpt.com.tw/social/exprience/VK8m2rAymwop">同酬不同工</a>的哀怨，與<a href="https://www.cheers.com.tw/article/article.action?id=5100284">一口說得好程式</a>的同事，<a href="https://www.books.com.tw/products/0010945065">人善被犬欺</a>啊，不被尊重太久了，在求學過程上的優點，在職場上全是缺點，還是來<a href="https://youtu.be/ygTaeHX3mKk">黑化</a>一下好了？</li>
+<li>最近真的感到<a href="https://www.chickpt.com.tw/social/exprience/VK8m2rAymwop">同酬不同工</a>的哀怨，與<a href="https://www.cheers.com.tw/article/article.action?id=5100284">說得一口好程式</a>的同事，<a href="https://www.books.com.tw/products/0010945065">人善被犬欺</a>啊，不被尊重太久了，在求學過程上的優點，在職場上全是缺點，還是來<a href="https://youtu.be/ygTaeHX3mKk">黑化</a>一下好了？</li>
 <li>最近很熱門的<a href="https://www.deepseek.com/">Deepseek</a>裝在M1上使用，真的是超慢的啊…</li>
 <li>期待新的<a href="https://mrmad.com.tw/iphone-se-4-will-be-released-in-mid-february">iPhone SE4</a>，沒錢人的我心之詩句…</li>
 <li>家裡也真的是亂七八糟的，有責任感不是件好事，<a href="https://youtu.be/ZSWeurc1yMw">心太軟</a>，心太軟…</li>
