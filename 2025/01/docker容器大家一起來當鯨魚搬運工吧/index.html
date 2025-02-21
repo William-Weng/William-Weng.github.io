@@ -1630,8 +1630,8 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">external</span>: <span style="color:#66d9ef">false</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose
 </span></span><span style="display:flex;"><span>	-f &lt;YAML設定檔&gt;		<span style="color:#75715e">## 指定設定檔位置 (可選 / 預設為docker-compose.yml)</span>
-</span></span><span style="display:flex;"><span>	-d					<span style="color:#75715e">## 背景執行</span>
 </span></span><span style="display:flex;"><span>	up					<span style="color:#75715e">## 執行</span>
+</span></span><span style="display:flex;"><span>    -d					<span style="color:#75715e">## 背景執行</span>
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker-compose -f docker-compose.yml up -d
 </span></span></code></pre></div><p><figure>
   <picture>
@@ -1701,6 +1701,66 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
       
         class="image_figure image_internal image_unprocessed"
         src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Compose_Ollama_3.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<ul>
+<li>另外，還可以安裝<a href="https://github.com/lavie/runlike">runlike</a>，一鍵把運行中的容器<a href="https://youtu.be/EMcjfJVDK-s">逆向</a>成可部署的CLI命令列工具…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>pip install runlike
+</span></span><span style="display:flex;"><span>runlike <span style="color:#f92672">&lt;</span>容器名稱<span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>p
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Runlike.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<ul>
+<li>而且還有一個叫<a href="https://github.com/P3GLEG/Whaler">Whaler</a>的工具，可以逆向導出成<a href="https://www.cnblogs.com/zhanghengscnc/p/16898831.html">Dockerfile</a>…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>alias whaler<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;docker run -t --rm -v /var/run/docker.sock:/var/run/docker.sock:ro pegleg/whaler&#34;</span>
+</span></span><span style="display:flex;"><span>whaler -sV<span style="color:#f92672">=</span>1.36 nginx:latest
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/docker-helloworld/Docker_Whaler.png"
       
       
     />
