@@ -293,8 +293,8 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">webSocketSetting</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// WebSocket功能設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webSocketSetting</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// WebSocket功能設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webSocketSetting</span>() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">upgrader</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">webSocketUpgraderMaker</span>(<span style="color:#66d9ef">true</span>)
 </span></span><span style="display:flex;"><span>
@@ -350,8 +350,8 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">ListenAndServe</span>(<span style="color:#a6e22e">url</span>, <span style="color:#66d9ef">nil</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 產生WebSocketUpgrader元件
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webSocketUpgraderMaker</span>(<span style="color:#a6e22e">notCheckCORS</span> <span style="color:#66d9ef">bool</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Upgrader</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 產生WebSocketUpgrader元件</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">webSocketUpgraderMaker</span>(<span style="color:#a6e22e">notCheckCORS</span> <span style="color:#66d9ef">bool</span>) <span style="color:#f92672">*</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Upgrader</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">upgrader</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">websocket</span>.<span style="color:#a6e22e">Upgrader</span>{
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">CheckOrigin</span>: <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">request</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Request</span>) <span style="color:#66d9ef">bool</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">notCheckCORS</span> },
@@ -360,8 +360,8 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">upgrader</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 廣播訊息
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">broadcastMessage</span>(<span style="color:#a6e22e">messageType</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">message</span> <span style="color:#66d9ef">string</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 廣播訊息</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">broadcastMessage</span>(<span style="color:#a6e22e">messageType</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">message</span> <span style="color:#66d9ef">string</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">message</span>)
 </span></span><span style="display:flex;"><span>
@@ -528,7 +528,7 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
 </span></span><span style="display:flex;"><span>        starName.addGestureRecognizer(tapGestureRecognizer)
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h4 id="主核心---wwwebsockethttpsgithubcomwilliam-wengwwwebsocketgit">主核心 - <a href="https://github.com/William-Weng/WWWebSocket.git">WWWebSocket</a></h4>
+</span></span></code></pre></div><h4 id="主核心---wwwebsocket">主核心 - <a href="https://github.com/William-Weng/WWWebSocket.git">WWWebSocket</a></h4>
 <ul>
 <li>是使用URLSession的<a href="https://developer.apple.com/documentation/foundation/urlsession/3181171-websockettask">webSocketTask - iOS 13+</a>來做連線…</li>
 <li><a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/websocket-swift-84c47e90bb49">傳送訊息</a>有兩種模式：<a href="https://www.appcoda.com.tw/swiftui-websocket/">String</a> / <a href="https://creativecoding.in/2020/03/25/%E7%94%A8-socket-io-%E5%81%9A%E4%B8%80%E5%80%8B%E5%8D%B3%E6%99%82%E8%81%8A%E5%A4%A9%E5%AE%A4%E5%90%A7%EF%BC%81%EF%BC%88%E7%9B%B4%E6%92%AD%E7%AD%86%E8%A8%98%EF%BC%89/">Data</a>；收接訊息就比較單純，收到什麼，就回傳什麼…</li>
@@ -954,7 +954,7 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="範例程式碼下載images2023swift-chat-websocketexample7z"><a href="/images/2023/swift-chat-websocket/Example.7z">範例程式碼下載</a></h3>
+</span></span></code></pre></div><h3 id="範例程式碼下載"><a href="/images/2023/swift-chat-websocket/Example.7z">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <p>其實，人說<a href="https://youtu.be/hVXPqOlcAh0">『江湖一點訣，講破無價值』</a>，意思就是他所教的東西沒什麼了不起，都只是些小技巧，但是這些小技巧如果不說破，就是個有價值的大學問。之前看過鎖匠開鎖，只見師父拿出一把像鐵尺一樣的工具往車窗縫插下去，然後手拉了幾下，車子就開門投降了，前後不到三十秒鐘，費用是兩百元，<a href="https://youtu.be/gmq2JwGVFPY">『聞道有先後，術業有專攻』</a>，你不會的就是專業，<a href="https://youtu.be/g9hXajkQryI">各行各業</a>都有它的專業，請互相尊重…</p>
 <p><a href="https://www.buymeacoffee.com/linuxice0609"><figure>
@@ -1005,6 +1005,9 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/" class="nav-link" title="【Wails】一起來做個桌面程式小工具吧…">【Wails】一起來做個桌面程式小工具吧…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/" class="nav-link" title="【Docker容器】大家一起來當鯨魚搬運工吧…">【Docker容器】大家一起來當鯨魚搬運工吧…</a>
       </li>
       <li>
@@ -1024,9 +1027,6 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
       </li>
       <li>
         <a href="https://William-Weng.github.io/2024/02/xcode-15%E8%87%AA%E5%B7%B1%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%81%8A%E5%A4%A9-chatgpt/" class="nav-link" title="【Xcode 15】自己跟自己聊天？ - ChatGPT">【Xcode 15】自己跟自己聊天？ - ChatGPT</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" class="nav-link" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
       </li>
     </ul>
     <div>
@@ -1057,13 +1057,13 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
           <span class="button_tally">11</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
-          GAME
-          <span class="button_tally">9</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
           GOLANG
+          <span class="button_tally">10</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
+          GAME
           <span class="button_tally">9</span>
         </a>
         
@@ -1122,6 +1122,11 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
+          NODEJS
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
           NOSQL
           <span class="button_tally">4</span>
@@ -1164,11 +1169,6 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
         
         <a href='https://William-Weng.github.io/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
-          NODEJS
           <span class="button_tally">3</span>
         </a>
         
@@ -1472,6 +1472,11 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/npm/' class="post_tag button button_translucent" title="npm">
+          NPM
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/photoshop/' class="post_tag button button_translucent" title="photoshop">
           PHOTOSHOP
           <span class="button_tally">1</span>
@@ -1524,11 +1529,6 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
         
         <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
           TINYURL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/tls/' class="post_tag button button_translucent" title="tls">
-          TLS
           <span class="button_tally">1</span>
         </a>
         
@@ -1698,7 +1698,7 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=9 title="golang">GOLANG<span class="button_tally">9</span>
+            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=10 title="golang">GOLANG<span class="button_tally">10</span>
             </a>
             
             
@@ -1830,11 +1830,15 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=3 title="nodejs">NODEJS<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=4 title="nodejs">NODEJS<span class="button_tally">4</span>
             </a>
             
             
             <a href='https://William-Weng.github.io/tags/nosql/' class=" post_tag button button_translucent" data-position=4 title="nosql">NOSQL<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/npm/' class=" post_tag button button_translucent" data-position=1 title="npm">NPM<span class="button_tally">1</span>
             </a>
             
             
@@ -1947,6 +1951,10 @@ Websocket使用ws或wss的<a href="https://zh.wikipedia.org/zh-tw/%E7%BB%9F%E4%B
             
             
             <a href='https://William-Weng.github.io/tags/vue/' class=" post_tag button button_translucent" data-position=7 title="vue">VUE<span class="button_tally">7</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/wails/' class=" post_tag button button_translucent" data-position=1 title="wails">WAILS<span class="button_tally">1</span>
             </a>
             
             

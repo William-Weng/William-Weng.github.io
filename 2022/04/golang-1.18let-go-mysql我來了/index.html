@@ -231,8 +231,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">nextCountTest</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 測試用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">nextCountTest</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 測試用</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">nextCountTest</span>() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">nextInt</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">counter</span>()
 </span></span><span style="display:flex;"><span>
@@ -241,8 +241,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">nextInt</span>())
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 記數器 =&gt; 想留下來以後用
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">counter</span>() <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 記數器 =&gt; 想留下來以後用</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">counter</span>() <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">index</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>
@@ -282,24 +282,24 @@
 <ul>
 <li>現在就來分類吧…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// go.mod
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span> <span style="color:#a6e22e">william</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// go.mod</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">module</span> <span style="color:#a6e22e">william</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">go</span> <span style="color:#ae81ff">1.18</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// main.go
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">util</span> <span style="color:#e6db74">&#34;william/utility&#34;</span> <span style="color:#75715e">// 以go.mod上的module為root的相對位置
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">util</span> <span style="color:#e6db74">&#34;william/utility&#34;</span> <span style="color:#75715e">// 以go.mod上的module為root的相對位置</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">nextCountTest</span>()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 計數器測試
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">nextCountTest</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 計數器測試</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">nextCountTest</span>() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">nextInt</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">util</span>.<span style="color:#a6e22e">Counter</span>()
 </span></span><span style="display:flex;"><span>
@@ -309,8 +309,8 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">utility</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 記數器 (大寫: publilc / 小寫: privete)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Counter</span>() <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 記數器 (大寫: publilc / 小寫: privete)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">Counter</span>() <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">index</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">func</span>() <span style="color:#66d9ef">int</span> {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">index</span><span style="color:#f92672">++</span>
@@ -386,8 +386,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">util</span> <span style="color:#e6db74">&#34;william/utility&#34;</span> <span style="color:#75715e">// 以go.mod上的module為root的相對位置
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">util</span> <span style="color:#e6db74">&#34;william/utility&#34;</span> <span style="color:#75715e">// 以go.mod上的module為root的相對位置</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/go-sql-driver/mysql&#34;</span>
 </span></span><span style="display:flex;"><span>)
@@ -395,15 +395,15 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">// 8 MiB
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">// 8 MiB</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">userName</span>(<span style="color:#a6e22e">router</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#a6e22e">util</span>.<span style="color:#a6e22e">Post</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 簡單的GET測試 =&gt; http://localhost:8080/user/William/Welcome
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">userName</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 簡單的GET測試 =&gt; http://localhost:8080/user/William/Welcome</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">userName</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/user/:name/*action&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;name&#34;</span>)
@@ -443,13 +443,13 @@
 <li>接下來的Code因為比較長一些，所以會整理成<a href="https://mholt.github.io/json-to-go/">小工具</a>使用，會只貼<a href="https://stackoverflow.com/questions/61919830/go-gin-get-request-body-json">重要</a>的部分…</li>
 <li>請愛用好男人<a href="https://medium.com/hobo-engineer/ricky%E7%AD%86%E8%A8%98-postman-%E5%B8%B8%E8%A6%8B%E7%9A%84-content-type-b17a75396668">Postman</a>來進行測試</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// main.go
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// main.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">util</span> <span style="color:#e6db74">&#34;william/utility&#34;</span> <span style="color:#75715e">// 以go.mod上的module為root的相對位置
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">util</span> <span style="color:#e6db74">&#34;william/utility&#34;</span> <span style="color:#75715e">// 以go.mod上的module為root的相對位置</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">_</span> <span style="color:#e6db74">&#34;github.com/go-sql-driver/mysql&#34;</span>
 </span></span><span style="display:flex;"><span>)
@@ -464,14 +464,14 @@
 </span></span><span style="display:flex;"><span>	}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">// 8 MiB
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">// 8 MiB</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">util</span>.<span style="color:#a6e22e">InsertBook</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">db</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// utility/util.go
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">utility</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// utility/util.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">utility</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;database/sql&#34;</span>
@@ -492,8 +492,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">table</span>        = <span style="color:#e6db74">&#34;GoBook&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 資料庫連線 =&gt; root:12345678@tcp(localhost:3306)/eBook?charset=utf8&amp;loc=Asia%2FShanghai&amp;parseTime=true
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ConnentDatabase</span>() (<span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 資料庫連線 =&gt; root:12345678@tcp(localhost:3306)/eBook?charset=utf8&amp;loc=Asia%2FShanghai&amp;parseTime=true</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">ConnentDatabase</span>() (<span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">dataSource</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s:%s@tcp(%s:%d)/%s&#34;</span>, <span style="color:#a6e22e">admin</span>, <span style="color:#a6e22e">password</span>, <span style="color:#a6e22e">address</span>, <span style="color:#a6e22e">port</span>, <span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">dataSource</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;?charset=utf8&amp;loc=Asia%2FShanghai&amp;parseTime=true&#34;</span>
@@ -507,24 +507,24 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增書籍 =&gt; http://localhost:8080/book/9789861079493 + form-data: name = 棋魂完全版20
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">InsertBook</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增書籍 =&gt; http://localhost:8080/book/9789861079493 + form-data: name = 棋魂完全版20</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">InsertBook</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">uri</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;/book/:isbn&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#a6e22e">uri</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">isbn</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stringToInt</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;isbn&#34;</span>))	<span style="color:#75715e">// 取url上的參數 =&gt; context.Param()
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">PostForm</span>(<span style="color:#e6db74">&#34;name&#34;</span>)				<span style="color:#75715e">// 取form上的參數 =&gt; context.PostForm()
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">isbn</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stringToInt</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;isbn&#34;</span>))	<span style="color:#75715e">// 取url上的參數 =&gt; context.Param()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">PostForm</span>(<span style="color:#e6db74">&#34;name&#34;</span>)				<span style="color:#75715e">// 取form上的參數 =&gt; context.PostForm()</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">sql</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;Insert Into GoBook(isbn, name) values(?, ?)&#34;</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">sql</span>, <span style="color:#a6e22e">isbn</span>, <span style="color:#a6e22e">name</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">contextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>)
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// utility/tools.go
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">package</span> <span style="color:#a6e22e">utility</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// utility/tools.go</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">utility</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;strconv&#34;</span>
@@ -532,13 +532,13 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/gin-gonic/gin&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 文字 =&gt; 數字
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">stringToInt</span>(<span style="color:#a6e22e">str</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 文字 =&gt; 數字</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">stringToInt</span>(<span style="color:#a6e22e">str</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">int</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strconv</span>.<span style="color:#a6e22e">Atoi</span>(<span style="color:#a6e22e">str</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 輸出JSON
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">contextJSON</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">httpStatus</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">result</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 輸出JSON</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">contextJSON</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">httpStatus</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">result</span> <span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">JSON</span>(<span style="color:#a6e22e">httpStatus</span>, <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">H</span>{
 </span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;error&#34;</span>:  <span style="color:#66d9ef">error</span>,
@@ -601,16 +601,16 @@
 <li>因為是<a href="https://www.delftstack.com/zh-tw/howto/go/how-to-convert-go-struct-to-json/">GET</a>，所以直接使用<a href="https://www.xuboso.com/blogs/55/golang-mysql-datetime-format">網頁執行</a>也可以…</li>
 <li><a href="https://zhuanlan.zhihu.com/p/137339284">搜尋完</a>記得要<a href="https://learnku.com/articles/23411/the-difference-between-rune-and-byte-of-go">關掉</a>喲…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 建立GoBook的資料結構
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">GoBook</span> <span style="color:#66d9ef">struct</span> {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ID</span>         <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;id&#34;`</span>   <span style="color:#75715e">// &lt;欄位&gt; &lt;類型&gt; &lt;真實在json輸出的欄位名稱&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">ISBN</span>       <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;isbn&#34;`</span> <span style="color:#75715e">// ISBN是數字，在json叫isbn
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">Name</span>       <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;name&#34;`</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 建立GoBook的資料結構</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">GoBook</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ID</span>         <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;id&#34;`</span>   <span style="color:#75715e">// &lt;欄位&gt; &lt;類型&gt; &lt;真實在json輸出的欄位名稱&gt;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ISBN</span>       <span style="color:#66d9ef">int</span>       <span style="color:#e6db74">`json:&#34;isbn&#34;`</span> <span style="color:#75715e">// ISBN是數字，在json叫isbn</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Name</span>       <span style="color:#66d9ef">string</span>    <span style="color:#e6db74">`json:&#34;name&#34;`</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">CreateTime</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Time</span> <span style="color:#e6db74">`json:&#34;date&#34;`</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;Get&gt;搜尋書籍 =&gt; http://localhost:8080/book
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SelectBooks</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;Get&gt;搜尋書籍 =&gt; http://localhost:8080/book</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">SelectBooks</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">uri</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;/book&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -626,8 +626,8 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">rows</span>.<span style="color:#a6e22e">Next</span>() {
 </span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">book</span> <span style="color:#a6e22e">GoBook</span>
-</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">rows</span>.<span style="color:#a6e22e">Scan</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">ID</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">ISBN</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">Name</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">CreateTime</span>) <span style="color:#75715e">// 要注意的是使用指標
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">books</span> = append(<span style="color:#a6e22e">books</span>, <span style="color:#a6e22e">book</span>)
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">rows</span>.<span style="color:#a6e22e">Scan</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">ID</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">ISBN</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">Name</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">book</span>.<span style="color:#a6e22e">CreateTime</span>) <span style="color:#75715e">// 要注意的是使用指標</span>
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">books</span> = append(<span style="color:#a6e22e">books</span>, <span style="color:#a6e22e">book</span>)
 </span></span><span style="display:flex;"><span>		}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">contextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#a6e22e">books</span>, <span style="color:#66d9ef">error</span>)
@@ -687,16 +687,16 @@
 <ul>
 <li><a href="https://stackoverflow.com/questions/61919830/go-gin-get-request-body-json">主要</a>是要取得<a href="https://ithelp.ithome.com.tw/articles/10239854">Body</a>上的值 =&gt; 轉成<a href="https://ithelp.ithome.com.tw/articles/10239854">我們想要</a>的值…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;PUT&gt;修改某一本書籍 =&gt; http://localhost:8080/book/9789861079493
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">UpdateBook</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;PUT&gt;修改某一本書籍 =&gt; http://localhost:8080/book/9789861079493</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">UpdateBook</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">uri</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;/book/:isbn&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">PUT</span>(<span style="color:#a6e22e">uri</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">isbn</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stringToInt</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;isbn&#34;</span>))      <span style="color:#75715e">// 取url上的參數 =&gt; context.Param()
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">rawJSON</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Request</span>.<span style="color:#a6e22e">Body</span>) <span style="color:#75715e">// 讀取RawBody上的值
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">sql</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;Update %s Set name=? Where isbn=?&#34;</span>, <span style="color:#a6e22e">table</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">isbn</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">stringToInt</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Param</span>(<span style="color:#e6db74">&#34;isbn&#34;</span>))      <span style="color:#75715e">// 取url上的參數 =&gt; context.Param()</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">rawJSON</span>, <span style="color:#a6e22e">_</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadAll</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Request</span>.<span style="color:#a6e22e">Body</span>) <span style="color:#75715e">// 讀取RawBody上的值</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">sql</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;Update %s Set name=? Where isbn=?&#34;</span>, <span style="color:#a6e22e">table</span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">dictionary</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">RawJSONToMap</span>(<span style="color:#a6e22e">rawJSON</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">name</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dictionary</span>[<span style="color:#e6db74">&#34;name&#34;</span>]
@@ -734,8 +734,8 @@
 <ul>
 <li><a href="https://zamhuang.medium.com/golang-%E5%A6%82%E4%BD%95%E5%9C%A8-string-%E8%88%87%E5%85%B6%E4%BB%96-type-%E4%BA%92%E8%BD%89-e-g-int-bool-44f6f54570b1">刪除資料</a>就最<a href="http://cngolib.com/database-sql.html">單純</a>了，<a href="https://www.xuboso.com/blogs/55/golang-mysql-datetime-format">感覺</a>對了就<a href="https://stackoverflow.com/questions/51731423/how-to-read-a-row-from-a-table-to-a-map-without-knowing-columns">刪掉</a>…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;Delete&gt;刪除某一本書籍 =&gt; http://localhost:8080/book/9789861079493
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">DeleteBook</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;Delete&gt;刪除某一本書籍 =&gt; http://localhost:8080/book/9789861079493</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">DeleteBook</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">uri</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;/book/:isbn&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -757,8 +757,8 @@
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">db</span>.<span style="color:#a6e22e">Exec</span>(<span style="color:#a6e22e">sql</span>, <span style="color:#a6e22e">isbn</span>)
 </span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">rowsaffected</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">RowsAffected</span>() <span style="color:#75715e">// 很嚴謹的寫法會判斷RowsAffected()是否與處理的資料筆數一致
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">rowsaffected</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">result</span>.<span style="color:#a6e22e">RowsAffected</span>() <span style="color:#75715e">// 很嚴謹的寫法會判斷RowsAffected()是否與處理的資料筆數一致</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">isSuccess</span> = <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">count</span> = <span style="color:#a6e22e">rowsaffected</span>
@@ -793,8 +793,8 @@
 <ul>
 <li>將<a href="https://stackoverflow.com/questions/24809287/how-do-you-get-a-golang-program-to-print-the-line-number-of-the-error-it-just-ca">檔案</a>上傳，這樣子應該<a href="https://github.com/google/uuid">基本的功能</a>都有了吧？</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 檔案上傳 =&gt; multipart/form-data, default is 32 MiB / file=&lt;base64&gt;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">UploadFile</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 檔案上傳 =&gt; multipart/form-data, default is 32 MiB / file=&lt;base64&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">UploadFile</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">db</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sql</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">key</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;file&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">folder</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;/Users/william.weng/Desktop/&#34;</span>
@@ -831,10 +831,10 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">// 8 MiB
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Static</span>(<span style="color:#e6db74">&#34;static&#34;</span>, <span style="color:#e6db74">&#34;./static&#34;</span>)	<span style="color:#75715e">// http://localhost:8080/static &lt;=&gt; ./static
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span> <span style="color:#75715e">// 8 MiB</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Static</span>(<span style="color:#e6db74">&#34;static&#34;</span>, <span style="color:#e6db74">&#34;./static&#34;</span>)	<span style="color:#75715e">// http://localhost:8080/static &lt;=&gt; ./static</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2022/golang-mysql/4.mp4" type="video/mp4">
@@ -846,8 +846,8 @@
 <li>就是所謂的<a href="https://www.appcoda.com.tw/push-notification/">APNS</a> + <a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E6%95%99%E5%AE%A4/%E6%8E%A8%E6%92%AD-p8%E6%86%91%E8%AD%89%E5%8C%AF%E5%87%BA-d195dd6b801b">.p8憑證</a> + <a href="https://github.com/sideshow/apns2">Go的APNS2套件</a></li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go get -u github.com/sideshow/apns2
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// iOS推播功能
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pushNotification</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">deviceToken</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">apns2</span>.<span style="color:#a6e22e">Response</span>, <span style="color:#66d9ef">error</span>) {
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// iOS推播功能</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pushNotification</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>, <span style="color:#a6e22e">deviceToken</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">apns2</span>.<span style="color:#a6e22e">Response</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">authKeyP8</span> = <span style="color:#e6db74">&#34;./&lt;AuthKey&gt;.p8&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">keyId</span> = <span style="color:#e6db74">&#34;&lt;KeyId&gt;&#34;</span>
@@ -914,8 +914,8 @@
 <ul>
 <li>主要是利用<a href="https://firebase.google.com/">firebase</a>去實現，然後加上<a href="https://github.com/appleboy/go-fcm">go-fcm</a>這個套件</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Android推播功能
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">firebaseCloudMessaging</span>(<span style="color:#a6e22e">token</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">fcm</span>.<span style="color:#a6e22e">Response</span>, <span style="color:#66d9ef">error</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// Android推播功能</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">firebaseCloudMessaging</span>(<span style="color:#a6e22e">token</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">fcm</span>.<span style="color:#a6e22e">Response</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">apiKey</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;&lt;YourProductApiKey&gt;&#34;</span>
 </span></span><span style="display:flex;"><span>
@@ -963,7 +963,7 @@
     </picture>
 </figure>
 </p>
-<h3 id="範例程式碼下載images2022golang-mysqlgomysql7z"><a href="/images/2022/golang-mysql/GoMySQL.7z">範例程式碼下載</a></h3>
+<h3 id="範例程式碼下載"><a href="/images/2022/golang-mysql/GoMySQL.7z">範例程式碼下載</a></h3>
 <p><figure>
   <picture>
 
@@ -1043,6 +1043,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/" class="nav-link" title="【Wails】一起來做個桌面程式小工具吧…">【Wails】一起來做個桌面程式小工具吧…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/" class="nav-link" title="【Docker容器】大家一起來當鯨魚搬運工吧…">【Docker容器】大家一起來當鯨魚搬運工吧…</a>
       </li>
       <li>
@@ -1062,9 +1065,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2024/02/xcode-15%E8%87%AA%E5%B7%B1%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%81%8A%E5%A4%A9-chatgpt/" class="nav-link" title="【Xcode 15】自己跟自己聊天？ - ChatGPT">【Xcode 15】自己跟自己聊天？ - ChatGPT</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" class="nav-link" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
       </li>
     </ul>
     <div>
@@ -1095,13 +1095,13 @@
           <span class="button_tally">11</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
-          GAME
-          <span class="button_tally">9</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
           GOLANG
+          <span class="button_tally">10</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
+          GAME
           <span class="button_tally">9</span>
         </a>
         
@@ -1160,6 +1160,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
+          NODEJS
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
           NOSQL
           <span class="button_tally">4</span>
@@ -1202,11 +1207,6 @@
         
         <a href='https://William-Weng.github.io/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
-          NODEJS
           <span class="button_tally">3</span>
         </a>
         
@@ -1510,6 +1510,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/npm/' class="post_tag button button_translucent" title="npm">
+          NPM
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/photoshop/' class="post_tag button button_translucent" title="photoshop">
           PHOTOSHOP
           <span class="button_tally">1</span>
@@ -1562,11 +1567,6 @@
         
         <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
           TINYURL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/tls/' class="post_tag button button_translucent" title="tls">
-          TLS
           <span class="button_tally">1</span>
         </a>
         
@@ -1736,7 +1736,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=9 title="golang">GOLANG<span class="button_tally">9</span>
+            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=10 title="golang">GOLANG<span class="button_tally">10</span>
             </a>
             
             
@@ -1868,11 +1868,15 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=3 title="nodejs">NODEJS<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=4 title="nodejs">NODEJS<span class="button_tally">4</span>
             </a>
             
             
             <a href='https://William-Weng.github.io/tags/nosql/' class=" post_tag button button_translucent" data-position=4 title="nosql">NOSQL<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/npm/' class=" post_tag button button_translucent" data-position=1 title="npm">NPM<span class="button_tally">1</span>
             </a>
             
             
@@ -1985,6 +1989,10 @@
             
             
             <a href='https://William-Weng.github.io/tags/vue/' class=" post_tag button button_translucent" data-position=7 title="vue">VUE<span class="button_tally">7</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/wails/' class=" post_tag button button_translucent" data-position=1 title="wails">WAILS<span class="button_tally">1</span>
             </a>
             
             

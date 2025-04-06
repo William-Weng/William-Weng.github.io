@@ -6,7 +6,26 @@
     <description>Recent content on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 26 Jan 2025 07:57:43 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Apr 2025 10:25:44 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Wails】一起來做個桌面程式小工具吧…</title>
+      <link>https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/</link>
+      <pubDate>Fri, 04 Apr 2025 10:25:44 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;p&gt;以前記得在Windows的&lt;a href=&#34;https://www.johntool.com/batch-open-files-automatically/&#34;&gt;bat小程式&lt;/a&gt;，可以用拉檔案到圖示上去執行，不用輸入路徑，真的很方便，但在macOS上就是不行，所以想自己做一個，不過當時都是用&lt;a href=&#34;https://www.electronjs.org/&#34;&gt;Electron&lt;/a&gt;這個多平台框架去做的，又大又吃資源，做一個小小的工具就上百MB，所以就沒有學下去了；不過到了今日，有許許多多的多平台框架出現，加上對Golang有一點點基本的了解，所以就選&lt;a href=&#34;https://developer.baidu.com/article/details/2994603&#34;&gt;Wails&lt;/a&gt;了，而且它是以作業系統裡的WebView去實現的，雖然有可能長相會有一點點差別，但包裝起來的檔案比Electron小太多了啊…
+說到多平台框架，最流行的就是&lt;a href=&#34;https://flutter.dev/&#34;&gt;Flutter&lt;/a&gt;了，本來它用的&lt;a href=&#34;https://dart.dev/&#34;&gt;Dart&lt;/a&gt;語言，就是要用來取代&lt;a href=&#34;https://developer.mozilla.org/zh-TW/docs/Learn_web_development/Core/Scripting/What_is_JavaScript&#34;&gt;JavaScript&lt;/a&gt;，結果因為手機的流行，加上原生支援，就把它帶起來了，不過呢，個人覺得開發還是網頁歸網頁，手機歸手機才是…
+其實還有一個叫&lt;a href=&#34;https://v2.tauri.app/&#34;&gt;Tauri&lt;/a&gt;的工具，也是滿流行的，新版的也支援手機的開發，但它是以WebView為基礎的，所以在支援上就沒有Flutter來的好了…
+以WebView為主的多平台框架還有&lt;a href=&#34;https://reactnative.dev/&#34;&gt;React Native&lt;/a&gt; / &lt;a href=&#34;https://dioxuslabs.com/&#34;&gt;Dioxus&lt;/a&gt; / &lt;a href=&#34;https://pywebview.flowrl.com/&#34;&gt;PyWebView&lt;/a&gt; / &lt;a href=&#34;https://github.com/tr1ckydev/webview-bun&#34;&gt;WebView-Bun&lt;/a&gt; / &lt;a href=&#34;https://github.com/Winterreisender/webview-nodejs&#34;&gt;WebView-Nodejs&lt;/a&gt; / &lt;a href=&#34;https://github.com/webview/webview_java&#34;&gt;WebView_Java&lt;/a&gt; / &lt;a href=&#34;https://github.com/javalikescript/lua-webview&#34;&gt;Lua-WebView&lt;/a&gt; / &lt;a href=&#34;https://kivy.org/&#34;&gt;Kivy&lt;/a&gt; / &lt;a href=&#34;NW.js&#34;&gt;NW.js&lt;/a&gt;，另外也有像&lt;a href=&#34;https://skip.tools/&#34;&gt;Skip&lt;/a&gt; 跟 &lt;a href=&#34;https://www.qt.io/&#34;&gt;Qt&lt;/a&gt;應該也算是一類吧…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Docker容器】大家一起來當鯨魚搬運工吧…</title>
       <link>https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/</link>

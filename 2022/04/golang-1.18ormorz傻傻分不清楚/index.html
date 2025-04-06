@@ -235,14 +235,14 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sqliteDatabasePath</span> = <span style="color:#e6db74">&#34;./material/sqliteDB.sqlite3&#34;</span> <span style="color:#75715e">// 把資料庫存放在material資料夾下
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">sqliteDatabasePath</span> = <span style="color:#e6db74">&#34;./material/sqliteDB.sqlite3&#34;</span> <span style="color:#75715e">// 把資料庫存放在material資料夾下</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">DatabaseType</span> <span style="color:#66d9ef">int8</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> (
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Sqlite3</span> <span style="color:#a6e22e">DatabaseType</span> = <span style="color:#ae81ff">0</span> <span style="color:#75715e">// 支援Sqlite3
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">MySql</span>   <span style="color:#a6e22e">DatabaseType</span> = <span style="color:#ae81ff">1</span> <span style="color:#75715e">// 支援MySql
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Sqlite3</span> <span style="color:#a6e22e">DatabaseType</span> = <span style="color:#ae81ff">0</span> <span style="color:#75715e">// 支援Sqlite3</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">MySql</span>   <span style="color:#a6e22e">DatabaseType</span> = <span style="color:#ae81ff">1</span> <span style="color:#75715e">// 支援MySql</span>
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">SetFlags</span>(<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Lshortfile</span> | <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">LstdFlags</span>)
@@ -256,8 +256,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立資料庫
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">dbType</span> <span style="color:#a6e22e">DatabaseType</span>) <span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立資料庫</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">dbType</span> <span style="color:#a6e22e">DatabaseType</span>) <span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span>
@@ -281,8 +281,8 @@
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 資料表的長相
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Product</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 資料表的長相</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Product</span> <span style="color:#66d9ef">struct</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Model</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Code</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;code&#34; gorm:&#34;index:idx_name,unique&#34;`</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Price</span> <span style="color:#66d9ef">uint</span>   <span style="color:#e6db74">`json:&#34;price&#34;`</span>
@@ -293,8 +293,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#66d9ef">error</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initSetting</span>() <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initSetting</span>() <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Sqlite3</span>.<span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">sqliteDatabasePath</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">error</span> }
@@ -305,8 +305,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立表格
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createTables</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) <span style="color:#66d9ef">error</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立表格</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createTables</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">AutoMigrate</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">Product</span>{})
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
@@ -315,18 +315,18 @@
     to support it.
 </video>
 <h3 id="crud">CRUD</h3>
-<h4 id="安裝gin-frameorkhttpsgeektutucompostquick-go-ginhtml">安裝<a href="https://geektutu.com/post/quick-go-gin.html">gin frameork</a></h4>
+<h4 id="安裝gin-frameork">安裝<a href="https://geektutu.com/post/quick-go-gin.html">gin frameork</a></h4>
 <ul>
 <li>先安裝<a href="https://ithelp.ithome.com.tw/articles/10244740">gin</a>，等一下要<a href="https://ihower.tw/blog/archives/6483">生成API</a>使用…</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go get -u github.com/gin-gonic/gin  // gin <span style="color:#f92672">=</span>&gt; 打API用
-</span></span></code></pre></div><h4 id="新增---inserthttpsgormiozh_cndocsqueryhtml單一商品"><a href="https://gorm.io/zh_CN/docs/query.html">新增 - insert</a>單一商品</h4>
+</span></span></code></pre></div><h4 id="新增---insert單一商品"><a href="https://gorm.io/zh_CN/docs/query.html">新增 - insert</a>單一商品</h4>
 <ul>
 <li>首先先來<a href="https://www.readfog.com/a/1641273244389576704">新增</a>單一商品</li>
 <li>http://localhost:8080/product + {&ldquo;code&rdquo;:&ldquo;iPhone&rdquo;,&ldquo;price&rdquo;:20000}</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 初始設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initSetting</span>() <span style="color:#66d9ef">error</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 初始設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initSetting</span>() <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">Sqlite3</span>.<span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">sqliteDatabasePath</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">error</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> { <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">error</span> }
@@ -339,8 +339,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始化Router相關設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initRouter</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始化Router相關設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initRouter</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span>
@@ -350,14 +350,14 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">insertProduct</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - WebAPI
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;新增單一商品 =&gt; http://localhost:8080/product + {&#34;code&#34;:&#34;iPhone&#34;,&#34;price&#34;:20000}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">insertProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - WebAPI</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;新增單一商品 =&gt; http://localhost:8080/product + {&#34;code&#34;:&#34;iPhone&#34;,&#34;price&#34;:20000}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">insertProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">emptyProduct</span> <span style="color:#a6e22e">Product</span>
 </span></span><span style="display:flex;"><span>
@@ -370,9 +370,9 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - [Product小工具](https://gorm.io/zh_CN/docs/query.html)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增單一商品 =&gt; [&#34;code&#34;:&#34;iPhone&#34;,&#34;price&#34;:20000]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_Insert</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - [Product小工具](https://gorm.io/zh_CN/docs/query.html)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增單一商品 =&gt; [&#34;code&#34;:&#34;iPhone&#34;,&#34;price&#34;:20000]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_Insert</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">code</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">dictionary</span>[<span style="color:#e6db74">&#34;code&#34;</span>].(<span style="color:#66d9ef">string</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">price</span> <span style="color:#f92672">:=</span> uint(<span style="color:#a6e22e">dictionary</span>[<span style="color:#e6db74">&#34;price&#34;</span>].(<span style="color:#66d9ef">float64</span>))
@@ -437,14 +437,14 @@
     </picture>
 </figure>
 </p>
-<h4 id="搜尋---selecthttpsgormiozh_cndocsqueryhtml單一商品"><a href="https://gorm.io/zh_CN/docs/query.html">搜尋 - select</a>單一商品</h4>
+<h4 id="搜尋---select單一商品"><a href="https://gorm.io/zh_CN/docs/query.html">搜尋 - select</a>單一商品</h4>
 <ul>
 <li>首先先來搜尋單一商品</li>
 <li>http://localhost:8080/product/1</li>
 <li>要注意的是因為gorm.Model的屬性都是大寫，如果要輸出成小寫，記得去改寫SourceCode</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;GET&gt;搜尋單一商品 =&gt; http://localhost:8080/product/87
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;GET&gt;搜尋單一商品 =&gt; http://localhost:8080/product/87</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">emptyProduct</span> <span style="color:#a6e22e">Product</span>
 </span></span><span style="display:flex;"><span>
@@ -462,8 +462,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋單一商品 =&gt; id = 87
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_Select</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">uint</span>) <span style="color:#a6e22e">Product</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋單一商品 =&gt; id = 87</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_Select</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">uint</span>) <span style="color:#a6e22e">Product</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">product</span> <span style="color:#a6e22e">Product</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">Take</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">product</span>, <span style="color:#e6db74">&#34;id=?&#34;</span>, <span style="color:#a6e22e">id</span>)
@@ -524,8 +524,8 @@
 <ul>
 <li>就痛快的把它刪掉吧…</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;DELETE&gt;刪除單一商品 =&gt; http://localhost:8080/product/87
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// &lt;DELETE&gt;刪除單一商品 =&gt; http://localhost:8080/product/87</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">deleteProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">emptyProduct</span> <span style="color:#a6e22e">Product</span>
 </span></span><span style="display:flex;"><span>
@@ -539,8 +539,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 刪除單一商品 =&gt; http://localhost:8080/product/87
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_Delete</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">uint</span>) <span style="color:#66d9ef">bool</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 刪除單一商品 =&gt; http://localhost:8080/product/87</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_Delete</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">uint</span>) <span style="color:#66d9ef">bool</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">product</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">_product</span>.<span style="color:#a6e22e">_Select</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">id</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">Delete</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">product</span>, <span style="color:#a6e22e">id</span>)
@@ -577,8 +577,8 @@
 <li>更新單一商品部分內容…</li>
 <li>http://localhost:8080/product/87 + { &ldquo;code&rdquo;: &ldquo;iPhone 21&rdquo;, &ldquo;price&rdquo;: 99999 }</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// [&lt;PATCH&gt;更新單一商品部分內容](https://ihower.tw/blog/archives/6483) =&gt; http://localhost:8080/product/87
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">partialUpdateProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// [&lt;PATCH&gt;更新單一商品部分內容](https://ihower.tw/blog/archives/6483) =&gt; http://localhost:8080/product/87</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">partialUpdateProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">emptyProduct</span> <span style="color:#a6e22e">Product</span>
 </span></span><span style="display:flex;"><span>
@@ -592,8 +592,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 更新單一商品部分內容 =&gt; http://localhost:8080/product/87 + { &#34;code&#34;: &#34;iPhone 21&#34;, &#34;price&#34;: 99999 }
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_PartialUpdate</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">uint</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{} {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 更新單一商品部分內容 =&gt; http://localhost:8080/product/87 + { &#34;code&#34;: &#34;iPhone 21&#34;, &#34;price&#34;: 99999 }</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_PartialUpdate</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">id</span> <span style="color:#66d9ef">uint</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{} {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">isSuccess</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">product</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">_product</span>.<span style="color:#a6e22e">_Select</span>(<span style="color:#a6e22e">database</span>, <span style="color:#a6e22e">id</span>)
@@ -639,8 +639,8 @@
 <li>名字有含『iPhone』，價格 &gt;= 35000</li>
 <li>http://localhost:8080/product?code=iPhone&amp;price=35000</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// [&lt;GET&gt;搜尋部分商品](https://stackoverflow.com/questions/51534285/how-to-access-gorm-model-id/71865857) =&gt; http://localhost:8080/product?price=1487&amp;code=iPhone
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectAllProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// [&lt;GET&gt;搜尋部分商品](https://stackoverflow.com/questions/51534285/how-to-access-gorm-model-id/71865857) =&gt; http://localhost:8080/product?price=1487&amp;code=iPhone</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectAllProduct</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">emptyProduct</span> <span style="color:#a6e22e">Product</span>
 </span></span><span style="display:flex;"><span>
@@ -661,8 +661,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋部分商品 (過濾條件) =&gt; http://localhost:8080/product?code=iPhone&amp;price=35000
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_SelectAll</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) []<span style="color:#a6e22e">Product</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋部分商品 (過濾條件) =&gt; http://localhost:8080/product?code=iPhone&amp;price=35000</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_product</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">Product</span>) <span style="color:#a6e22e">_SelectAll</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) []<span style="color:#a6e22e">Product</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">products</span> []<span style="color:#a6e22e">Product</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_database</span> = <span style="color:#a6e22e">database</span>
@@ -724,8 +724,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">message</span>  <span style="color:#66d9ef">string</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// [&lt;POST&gt;寄垃圾信](https://gist.github.com/jpillora/cb46d183eca0710d909a) =&gt; http://localhost:8080/mail + {&#34;to&#34;:&#34;linuxice0609@gmail.com&#34;,&#34;title&#34;:&#34;垃垃信測試&#34;,&#34;message&#34;:&#34;2022/4/14 Golang smtp test!!!!&#34;}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mailServer</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [&lt;POST&gt;寄垃圾信](https://gist.github.com/jpillora/cb46d183eca0710d909a) =&gt; http://localhost:8080/mail + {&#34;to&#34;:&#34;linuxice0609@gmail.com&#34;,&#34;title&#34;:&#34;垃垃信測試&#34;,&#34;message&#34;:&#34;2022/4/14 Golang smtp test!!!!&#34;}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mailServer</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/mail&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -746,8 +746,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// [使用Gmail寄信](https://support.google.com/mail/?p=InvalidSecondFactor)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">gmailServer</span>(<span style="color:#a6e22e">info</span> <span style="color:#a6e22e">gmailInformation</span>) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [使用Gmail寄信](https://support.google.com/mail/?p=InvalidSecondFactor)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">gmailServer</span>(<span style="color:#a6e22e">info</span> <span style="color:#a6e22e">gmailInformation</span>) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">isSuccess</span> <span style="color:#66d9ef">bool</span> = <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span> = <span style="color:#66d9ef">nil</span>
@@ -840,14 +840,14 @@
     </picture>
 </figure>
 </p>
-<h4 id="crontabhttpscrontabguru"><a href="https://crontab.guru">Crontab</a></h4>
+<h4 id="crontab"><a href="https://crontab.guru">Crontab</a></h4>
 <ul>
 <li>使用<a href="https://blog.gtwang.org/linux/linux-crontab-cron-job-tutorial-and-examples/">Linux</a>上<a href="https://segmentfault.com/a/1190000023029219">大名鼎鼎</a>的<a href="https://www.readfog.com/a/1637371620314157056">Crontab功能</a>，來做<a href="https://lolikitty.pixnet.net/blog/post/128577969">定時排程任務</a>, 定時發發<a href="https://blog.newsleopard.com/%E9%9B%BB%E5%AD%90%E5%A0%B1%E8%A2%AB%E8%AA%A4%E5%88%A4%E7%82%BA%E5%9E%83%E5%9C%BE%E9%83%B5%E4%BB%B6%E7%9A%84%E4%B8%89%E5%A4%A7%E5%9B%A0%E7%B4%A0/">垃圾信</a>？</li>
 <li>記得在使用時要加個<a href="http://dockone.io/article/10491">Go</a>，產生新的Thread，不然會<a href="https://chai2010.gitbooks.io/advanced-go-programming-book/content/ch1-basic/ch1-06-goroutine.html">卡住</a>的…</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go get -u github.com/robfig/cron/v3
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// [定時排程任務](https://www.readfog.com/a/1637371620314157056)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">cronSchedule</span>() {
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// [定時排程任務](https://www.readfog.com/a/1637371620314157056)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">cronSchedule</span>() {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">schedule</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cron</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">cron</span>.<span style="color:#a6e22e">WithSeconds</span>())
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">index</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>
@@ -858,8 +858,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">schedule</span>.<span style="color:#a6e22e">Start</span>()
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// time.Sleep(time.Minute * 1)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">select</span> {}
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// time.Sleep(time.Minute * 1)</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">select</span> {}
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2022/golang-orm/3.mp4" type="video/mp4">
@@ -871,11 +871,11 @@
 <li>這裡就把連<a href="https://www.readfog.com/a/1641273244389576704">Sqlite -&gt; MySQL</a>，先建立一個叫<a href="/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/">GoGo的資料庫</a>，圖就不附上了…</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go get -u gorm.io/driver/mysql
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 初始設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initSetting</span>() <span style="color:#66d9ef">error</span> {
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">// 初始設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initSetting</span>() <span style="color:#66d9ef">error</span> {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// database, error := Sqlite3.createDatabase(sqliteDatabasePath)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// database, error := Sqlite3.createDatabase(sqliteDatabasePath)</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">info</span> <span style="color:#a6e22e">MySQLInformation</span> = <span style="color:#a6e22e">MySQLInformation</span>{
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">username</span>: <span style="color:#e6db74">&#34;root&#34;</span>,
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">password</span>: <span style="color:#e6db74">&#34;12345678&#34;</span>,
@@ -901,8 +901,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立資料庫
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">dbType</span> <span style="color:#a6e22e">DatabaseType</span>) <span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立資料庫</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">dbType</span> <span style="color:#a6e22e">DatabaseType</span>) <span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#66d9ef">error</span> <span style="color:#66d9ef">error</span>
@@ -921,7 +921,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="範例程式碼下載images2022golang-ormgoorm7z"><a href="/images/2022/golang-orm/GoORM.7z">範例程式碼下載</a></h3>
+</span></span></code></pre></div><h3 id="範例程式碼下載"><a href="/images/2022/golang-orm/GoORM.7z">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li>發現ORM其實還算滿好用的，而且Go的編譯速度真的是快啊，雖然它比較朝簡潔的語法<a href="https://www.wenda.cool/forum/9984575.html">發展</a>，而少了許多現代程式語言有的功能，但是單就資料庫而言，<a href="https://www.raritan.com/assets/ap/resources/White_Papers/TC/RAP-TC-WP-highpower.pdf">流量</a>就是金錢，<a href="https://www.ithome.com.tw/tech/50265">省電快速</a>才是王道…</li>
@@ -974,6 +974,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/" class="nav-link" title="【Wails】一起來做個桌面程式小工具吧…">【Wails】一起來做個桌面程式小工具吧…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/" class="nav-link" title="【Docker容器】大家一起來當鯨魚搬運工吧…">【Docker容器】大家一起來當鯨魚搬運工吧…</a>
       </li>
       <li>
@@ -993,9 +996,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2024/02/xcode-15%E8%87%AA%E5%B7%B1%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%81%8A%E5%A4%A9-chatgpt/" class="nav-link" title="【Xcode 15】自己跟自己聊天？ - ChatGPT">【Xcode 15】自己跟自己聊天？ - ChatGPT</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" class="nav-link" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
       </li>
     </ul>
     <div>
@@ -1026,13 +1026,13 @@
           <span class="button_tally">11</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
-          GAME
-          <span class="button_tally">9</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
           GOLANG
+          <span class="button_tally">10</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
+          GAME
           <span class="button_tally">9</span>
         </a>
         
@@ -1091,6 +1091,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
+          NODEJS
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
           NOSQL
           <span class="button_tally">4</span>
@@ -1133,11 +1138,6 @@
         
         <a href='https://William-Weng.github.io/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
-          NODEJS
           <span class="button_tally">3</span>
         </a>
         
@@ -1441,6 +1441,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/npm/' class="post_tag button button_translucent" title="npm">
+          NPM
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/photoshop/' class="post_tag button button_translucent" title="photoshop">
           PHOTOSHOP
           <span class="button_tally">1</span>
@@ -1493,11 +1498,6 @@
         
         <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
           TINYURL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/tls/' class="post_tag button button_translucent" title="tls">
-          TLS
           <span class="button_tally">1</span>
         </a>
         
@@ -1667,7 +1667,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=9 title="golang">GOLANG<span class="button_tally">9</span>
+            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=10 title="golang">GOLANG<span class="button_tally">10</span>
             </a>
             
             
@@ -1799,11 +1799,15 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=3 title="nodejs">NODEJS<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=4 title="nodejs">NODEJS<span class="button_tally">4</span>
             </a>
             
             
             <a href='https://William-Weng.github.io/tags/nosql/' class=" post_tag button button_translucent" data-position=4 title="nosql">NOSQL<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/npm/' class=" post_tag button button_translucent" data-position=1 title="npm">NPM<span class="button_tally">1</span>
             </a>
             
             
@@ -1916,6 +1920,10 @@
             
             
             <a href='https://William-Weng.github.io/tags/vue/' class=" post_tag button button_translucent" data-position=7 title="vue">VUE<span class="button_tally">7</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/wails/' class=" post_tag button button_translucent" data-position=1 title="wails">WAILS<span class="button_tally">1</span>
             </a>
             
             

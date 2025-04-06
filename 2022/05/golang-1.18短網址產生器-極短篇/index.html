@@ -295,10 +295,10 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;gorm.io/gorm&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DatabasePath</span> = <span style="color:#e6db74">&#34;./material/sqliteDB.sqlite3&#34;</span> <span style="color:#75715e">// 把資料庫存放在material資料夾下
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 短網址的長相
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TinyUrl</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">DatabasePath</span> = <span style="color:#e6db74">&#34;./material/sqliteDB.sqlite3&#34;</span> <span style="color:#75715e">// 把資料庫存放在material資料夾下</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 短網址的長相</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">TinyUrl</span> <span style="color:#66d9ef">struct</span> {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Model</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Url</span>  <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;url&#34; gorm:&#34;index:idx_name,unique&#34;`</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">Code</span> <span style="color:#66d9ef">string</span> <span style="color:#e6db74">`json:&#34;code&#34; gorm:&#34;index:idx_name,unique&#34;`</span>
@@ -316,14 +316,14 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">initRouter</span>(<span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立資料庫
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 建立資料庫</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">createDatabase</span>(<span style="color:#a6e22e">path</span> <span style="color:#66d9ef">string</span>) (<span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">sqlite</span>.<span style="color:#a6e22e">Open</span>(<span style="color:#a6e22e">path</span>), <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">Config</span>{})
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">database</span>, <span style="color:#66d9ef">error</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始化Router相關設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initRouter</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 初始化Router相關設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">initRouter</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span>
@@ -333,15 +333,15 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:8080&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">insertTinyUrl</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">selectTinyUrl</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - WebAPI
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增短網址對照表 =&gt; MD5(URL)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">insertTinyUrl</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - WebAPI</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增短網址對照表 =&gt; MD5(URL)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">insertTinyUrl</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tinyUrl</span> <span style="color:#a6e22e">TinyUrl</span>
 </span></span><span style="display:flex;"><span>
@@ -354,8 +354,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋短網址 =&gt; 轉址
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectTinyUrl</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋短網址 =&gt; 轉址</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectTinyUrl</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tinyUrl</span> <span style="color:#a6e22e">TinyUrl</span>
 </span></span><span style="display:flex;"><span>
@@ -378,8 +378,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增短網址
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">tinyUrl</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TinyUrl</span>) <span style="color:#a6e22e">_Insert</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 新增短網址</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">tinyUrl</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TinyUrl</span>) <span style="color:#a6e22e">_Insert</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">dictionary</span> <span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}) (<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{}, <span style="color:#66d9ef">error</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">isSuccess</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">false</span>
 </span></span><span style="display:flex;"><span>
@@ -397,8 +397,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">result</span>, <span style="color:#66d9ef">error</span>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋短網址
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_tinyUrl</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TinyUrl</span>) <span style="color:#a6e22e">_Select</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">code</span> <span style="color:#66d9ef">string</span>) <span style="color:#a6e22e">TinyUrl</span> {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 搜尋短網址</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">_tinyUrl</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">TinyUrl</span>) <span style="color:#a6e22e">_Select</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>, <span style="color:#a6e22e">code</span> <span style="color:#66d9ef">string</span>) <span style="color:#a6e22e">TinyUrl</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">tinyUrl</span> <span style="color:#a6e22e">TinyUrl</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">database</span>.<span style="color:#a6e22e">Take</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">tinyUrl</span>, <span style="color:#e6db74">&#34;code=?&#34;</span>, <span style="color:#a6e22e">code</span>)
@@ -410,7 +410,7 @@
     There should have been a video here but your browser does not seem
     to support it.
 </video>
-<h3 id="範例程式碼下載images2022golang-tinyurlgotinyurl7z"><a href="/images/2022/golang-tinyurl/GoTinyUrl.7z">範例程式碼下載</a></h3>
+<h3 id="範例程式碼下載"><a href="/images/2022/golang-tinyurl/GoTinyUrl.7z">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
 <ul>
 <li><a href="https://youtu.be/ZzG5E0Bisak">(台)我不會說話 但我很實在</a>…因為以前有過深刻的體驗，有被<a href="https://youtu.be/mL50gqIAQ5c">話術</a>弄過，<a href="https://www.stdans.com/a/202012/76597.html">人前一套人後一套</a>，不過老闆很愛聽<a href="https://kknews.cc/zh-tw/essay/yegj2qj.html">夢想</a>，然後公司就倒了…XD</li>
@@ -465,6 +465,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/" class="nav-link" title="【Wails】一起來做個桌面程式小工具吧…">【Wails】一起來做個桌面程式小工具吧…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/" class="nav-link" title="【Docker容器】大家一起來當鯨魚搬運工吧…">【Docker容器】大家一起來當鯨魚搬運工吧…</a>
       </li>
       <li>
@@ -484,9 +487,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2024/02/xcode-15%E8%87%AA%E5%B7%B1%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%81%8A%E5%A4%A9-chatgpt/" class="nav-link" title="【Xcode 15】自己跟自己聊天？ - ChatGPT">【Xcode 15】自己跟自己聊天？ - ChatGPT</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" class="nav-link" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
       </li>
     </ul>
     <div>
@@ -517,13 +517,13 @@
           <span class="button_tally">11</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
-          GAME
-          <span class="button_tally">9</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
           GOLANG
+          <span class="button_tally">10</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
+          GAME
           <span class="button_tally">9</span>
         </a>
         
@@ -582,6 +582,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
+          NODEJS
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
           NOSQL
           <span class="button_tally">4</span>
@@ -624,11 +629,6 @@
         
         <a href='https://William-Weng.github.io/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
-          NODEJS
           <span class="button_tally">3</span>
         </a>
         
@@ -932,6 +932,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/npm/' class="post_tag button button_translucent" title="npm">
+          NPM
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/photoshop/' class="post_tag button button_translucent" title="photoshop">
           PHOTOSHOP
           <span class="button_tally">1</span>
@@ -984,11 +989,6 @@
         
         <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
           TINYURL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/tls/' class="post_tag button button_translucent" title="tls">
-          TLS
           <span class="button_tally">1</span>
         </a>
         
@@ -1158,7 +1158,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=9 title="golang">GOLANG<span class="button_tally">9</span>
+            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=10 title="golang">GOLANG<span class="button_tally">10</span>
             </a>
             
             
@@ -1290,11 +1290,15 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=3 title="nodejs">NODEJS<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=4 title="nodejs">NODEJS<span class="button_tally">4</span>
             </a>
             
             
             <a href='https://William-Weng.github.io/tags/nosql/' class=" post_tag button button_translucent" data-position=4 title="nosql">NOSQL<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/npm/' class=" post_tag button button_translucent" data-position=1 title="npm">NPM<span class="button_tally">1</span>
             </a>
             
             
@@ -1407,6 +1411,10 @@
             
             
             <a href='https://William-Weng.github.io/tags/vue/' class=" post_tag button button_translucent" data-position=7 title="vue">VUE<span class="button_tally">7</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/wails/' class=" post_tag button button_translucent" data-position=1 title="wails">WAILS<span class="button_tally">1</span>
             </a>
             
             

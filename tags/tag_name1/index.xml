@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tag_name1 on William-Weng</title>
-    <link>https://William-Weng.github.io/tags/tag_name1/</link>
+    <link>http://localhost:1313/tags/tag_name1/</link>
     <description>Recent content in Tag_name1 on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 17 Feb 2024 21:16:58 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/tag_name1/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Apr 2025 10:25:44 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/tag_name1/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Swift Chatgpt Api</title>
-      <link>https://William-Weng.github.io/2024/02/swift-chatgpt-api/</link>
-      <pubDate>Sat, 17 Feb 2024 21:16:58 +0800</pubDate>
+      <title>Wails Helloworld</title>
+      <link>http://localhost:1313/2025/04/wails-helloworld/</link>
+      <pubDate>Fri, 04 Apr 2025 10:25:44 +0800</pubDate>
       
-      <guid>https://William-Weng.github.io/2024/02/swift-chatgpt-api/</guid>
+      <guid>http://localhost:1313/2025/04/wails-helloworld/</guid>
       <description>
         
           
-            Insert Lead paragraph here.
+            &lt;p&gt;&lt;strong&gt;Insert Lead paragraph here.&lt;/strong&gt;&lt;/p&gt;
           
           
         

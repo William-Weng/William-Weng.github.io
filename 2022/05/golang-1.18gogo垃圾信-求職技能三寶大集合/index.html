@@ -275,8 +275,8 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">User</span> <span style="color:#a6e22e">model</span>.<span style="color:#a6e22e">User</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// [程式一開始要初始化的東西](https://blog.csdn.net/wide288/article/details/92808990)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [程式一開始要初始化的東西](https://blog.csdn.net/wide288/article/details/92808990)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">init</span>() {
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
@@ -295,12 +295,12 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">routerSetting</span>(<span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// [初始化Router相關設定](https://blog.csdn.net/fbbqt/article/details/114386445)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">routerSetting</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// [初始化Router相關設定](https://blog.csdn.net/fbbqt/article/details/114386445)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">routerSetting</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">corsConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cors</span>.<span style="color:#a6e22e">DefaultConfig</span>() <span style="color:#75715e">// 防止CORS的設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">corsConfig</span>.<span style="color:#a6e22e">AllowAllOrigins</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e">// 防止CORS的設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">corsConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cors</span>.<span style="color:#a6e22e">DefaultConfig</span>() <span style="color:#75715e">// 防止CORS的設定</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">corsConfig</span>.<span style="color:#a6e22e">AllowAllOrigins</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e">// 防止CORS的設定</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Default</span>()
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">MaxMultipartMemory</span> = <span style="color:#ae81ff">8</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">20</span>
 </span></span><span style="display:flex;"><span>
@@ -309,8 +309,8 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">Run</span>(<span style="color:#e6db74">&#34;:12345&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">selectUser</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">selectAllUser</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">insertUser</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">database</span>)
@@ -319,9 +319,9 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">pushNotificationUser</span>(<span style="color:#a6e22e">router</span>, <span style="color:#a6e22e">database</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - WebAPI
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;GET&gt;搜尋單一使用者 =&gt; http://localhost:12345/user/william
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// MARK: - WebAPI</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;GET&gt;搜尋單一使用者 =&gt; http://localhost:12345/user/william</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/user/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -337,8 +337,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;GET&gt;搜尋使用者列表 =&gt; http://localhost:12345/user
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectAllUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;GET&gt;搜尋使用者列表 =&gt; http://localhost:12345/user</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectAllUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/user&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -348,8 +348,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;新增單一使用者 =&gt; http://localhost:12345/user + {&#34;system&#34;:0,&#34;name&#34;:&#34;William&#34;,&#34;mail&#34;:&#34;linuxice0609@gmail.com&#34;,&#34;phone&#34;:&#34;0912345678&#34;}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">insertUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;新增單一使用者 =&gt; http://localhost:12345/user + {&#34;system&#34;:0,&#34;name&#34;:&#34;William&#34;,&#34;mail&#34;:&#34;linuxice0609@gmail.com&#34;,&#34;phone&#34;:&#34;0912345678&#34;}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">insertUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/user&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -360,8 +360,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;PATCH&gt;更新單一使用者Token =&gt; http://localhost:12345/user/william + {&#34;system&#34;:0,&#34;token&#34;:&#34;72b3ee73e5314cc4c1991dc9377f1f2c1c123dbc492f5c4197ab11f330b7568f&#34;}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;PATCH&gt;更新單一使用者Token =&gt; http://localhost:12345/user/william + {&#34;system&#34;:0,&#34;token&#34;:&#34;72b3ee73e5314cc4c1991dc9377f1f2c1c123dbc492f5c4197ab11f330b7568f&#34;}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">updateUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">PATCH</span>(<span style="color:#e6db74">&#34;/user/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -381,8 +381,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;給單一使用者發垃圾信 =&gt; http://localhost:12345/mail/william + {&#34;title&#34;:&#34;垃圾信&#34;, &#34;message&#34;:&#34;什麼事也沒有&#34;}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mailUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;給單一使用者發垃圾信 =&gt; http://localhost:12345/mail/william + {&#34;title&#34;:&#34;垃圾信&#34;, &#34;message&#34;:&#34;什麼事也沒有&#34;}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">mailUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/mail/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -397,8 +397,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;給單一使用者發垃圾推播 =&gt; http://localhost:12345/push/william + {&#34;title&#34;:&#34;垃圾信&#34;, &#34;message&#34;:&#34;什麼事也沒有&#34;}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pushNotificationUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;給單一使用者發垃圾推播 =&gt; http://localhost:12345/push/william + {&#34;title&#34;:&#34;垃圾信&#34;, &#34;message&#34;:&#34;什麼事也沒有&#34;}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">pushNotificationUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/push/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -410,8 +410,8 @@
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;給單一使用者發垃圾簡訊 =&gt; http://localhost:12345/sms/william + {&#34;message&#34;:&#34;什麼事也沒有&#34;}
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">smsUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// &lt;POST&gt;給單一使用者發垃圾簡訊 =&gt; http://localhost:12345/sms/william + {&#34;message&#34;:&#34;什麼事也沒有&#34;}</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">smsUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;/sms/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -1323,9 +1323,9 @@
 <li>這裡我們使用<a href="https://ithelp.ithome.com.tw/articles/10247883">axios</a>這個套件來<a href="https://segmentfault.com/a/1190000039000404">打API</a>，過程中筆者的碰到<a href="https://vue3js.cn/interview/vue/cors.html">CORS</a>的問題，簡單來說就是不能<a href="https://ithelp.ithome.com.tw/articles/10278637">跨網域</a>去打API，所以要在golang的部分加上設定…</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">routerSetting</span>(<span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
-</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">corsConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cors</span>.<span style="color:#a6e22e">DefaultConfig</span>() <span style="color:#75715e">// 防止CORS的設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">corsConfig</span>.<span style="color:#a6e22e">AllowAllOrigins</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e">// 防止CORS的設定
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">corsConfig</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">cors</span>.<span style="color:#a6e22e">DefaultConfig</span>() <span style="color:#75715e">// 防止CORS的設定</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">corsConfig</span>.<span style="color:#a6e22e">AllowAllOrigins</span> = <span style="color:#66d9ef">true</span>  <span style="color:#75715e">// 防止CORS的設定</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
 <li>取得User列表 =&gt; <a href="http://localhost:12345/user">http://localhost:12345/user</a>
 <figure>
@@ -1964,25 +1964,25 @@
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">ginSwagger</span> <span style="color:#e6db74">&#34;github.com/swaggo/gin-swagger&#34;</span>
 </span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 註冊API</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">registerWebAPI</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">swaggerApiDoc</span>(<span style="color:#a6e22e">router</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">/// MARK: - WebAPI
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// 產生DOC文件UI介面
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">swaggerApiDoc</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/// MARK: - WebAPI</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 產生DOC文件UI介面</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">swaggerApiDoc</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>) {
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">docs</span>.<span style="color:#a6e22e">SwaggerInfo</span>.<span style="color:#a6e22e">BasePath</span> = <span style="color:#e6db74">&#34;/&#34;</span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/swagger/*any&#34;</span>, <span style="color:#a6e22e">ginSwagger</span>.<span style="color:#a6e22e">WrapHandler</span>(<span style="color:#a6e22e">swaggerfiles</span>.<span style="color:#a6e22e">Handler</span>))
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// @BasePath /
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// @schemes http https
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// @Router /user/{name} [get]
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// @param name path string true &#34;使用者名稱&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// @Tags 搜尋單一使用者
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// @summary &lt;GET&gt;搜尋單一使用者 =&gt; http://localhost:12345/user/william
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// @BasePath /</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// @schemes http https</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// @Router /user/{name} [get]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// @param name path string true &#34;使用者名稱&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// @Tags 搜尋單一使用者</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// @summary &lt;GET&gt;搜尋單一使用者 =&gt; http://localhost:12345/user/william</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">selectUser</span>(<span style="color:#a6e22e">router</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Engine</span>, <span style="color:#a6e22e">database</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gorm</span>.<span style="color:#a6e22e">DB</span>) {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">router</span>.<span style="color:#a6e22e">GET</span>(<span style="color:#e6db74">&#34;/user/:name&#34;</span>, <span style="color:#66d9ef">func</span>(<span style="color:#a6e22e">context</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">gin</span>.<span style="color:#a6e22e">Context</span>) {
 </span></span><span style="display:flex;"><span>
@@ -1997,7 +1997,7 @@
 </span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">utility</span>.<span style="color:#a6e22e">ContextJSON</span>(<span style="color:#a6e22e">context</span>, <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">StatusOK</span>, <span style="color:#66d9ef">nil</span>, <span style="color:#66d9ef">error</span>)
 </span></span><span style="display:flex;"><span>	})
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="範例程式碼下載---golangimages2022vue-golang-pushgomailandpush_golang7z--vueimages2022vue-golang-pushgomailandpush_vue7z--iosimages2022vue-golang-pushgomailandpush_ios7z--androidimages2022vue-golang-pushgomailandpush_android7z">範例程式碼下載 - <a href="/images/2022/vue-golang-push/GoMailAndPush_Golang.7z">Golang</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_VUE.7z">Vue</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_iOS.7z">iOS</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_Android.7z">Android</a></h3>
+</span></span></code></pre></div><h3 id="範例程式碼下載---golang--vue--ios--android">範例程式碼下載 - <a href="/images/2022/vue-golang-push/GoMailAndPush_Golang.7z">Golang</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_VUE.7z">Vue</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_iOS.7z">iOS</a> / <a href="/images/2022/vue-golang-push/GoMailAndPush_Android.7z">Android</a></h3>
 <video class="video-shortcode" width="50%" preload="auto" controls>
     <source src="/images/2022/vue-golang-push/Result.mp4" type="video/mp4">
     There should have been a video here but your browser does not seem
@@ -2053,6 +2053,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/" class="nav-link" title="【Wails】一起來做個桌面程式小工具吧…">【Wails】一起來做個桌面程式小工具吧…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/" class="nav-link" title="【Docker容器】大家一起來當鯨魚搬運工吧…">【Docker容器】大家一起來當鯨魚搬運工吧…</a>
       </li>
       <li>
@@ -2072,9 +2075,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2024/02/xcode-15%E8%87%AA%E5%B7%B1%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%81%8A%E5%A4%A9-chatgpt/" class="nav-link" title="【Xcode 15】自己跟自己聊天？ - ChatGPT">【Xcode 15】自己跟自己聊天？ - ChatGPT</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" class="nav-link" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
       </li>
     </ul>
     <div>
@@ -2105,13 +2105,13 @@
           <span class="button_tally">11</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
-          GAME
-          <span class="button_tally">9</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/golang/' class="post_tag button button_translucent" title="golang">
           GOLANG
+          <span class="button_tally">10</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/game/' class="post_tag button button_translucent" title="game">
+          GAME
           <span class="button_tally">9</span>
         </a>
         
@@ -2170,6 +2170,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
+          NODEJS
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
           NOSQL
           <span class="button_tally">4</span>
@@ -2212,11 +2217,6 @@
         
         <a href='https://William-Weng.github.io/tags/linux/' class="post_tag button button_translucent" title="linux">
           LINUX
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
-          NODEJS
           <span class="button_tally">3</span>
         </a>
         
@@ -2520,6 +2520,11 @@
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/npm/' class="post_tag button button_translucent" title="npm">
+          NPM
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/photoshop/' class="post_tag button button_translucent" title="photoshop">
           PHOTOSHOP
           <span class="button_tally">1</span>
@@ -2572,11 +2577,6 @@
         
         <a href='https://William-Weng.github.io/tags/tinyurl/' class="post_tag button button_translucent" title="tinyurl">
           TINYURL
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/tls/' class="post_tag button button_translucent" title="tls">
-          TLS
           <span class="button_tally">1</span>
         </a>
         
@@ -2746,7 +2746,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=9 title="golang">GOLANG<span class="button_tally">9</span>
+            <a href='https://William-Weng.github.io/tags/golang/' class=" post_tag button button_translucent" data-position=10 title="golang">GOLANG<span class="button_tally">10</span>
             </a>
             
             
@@ -2878,11 +2878,15 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=3 title="nodejs">NODEJS<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/nodejs/' class=" post_tag button button_translucent" data-position=4 title="nodejs">NODEJS<span class="button_tally">4</span>
             </a>
             
             
             <a href='https://William-Weng.github.io/tags/nosql/' class=" post_tag button button_translucent" data-position=4 title="nosql">NOSQL<span class="button_tally">4</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/npm/' class=" post_tag button button_translucent" data-position=1 title="npm">NPM<span class="button_tally">1</span>
             </a>
             
             
@@ -2995,6 +2999,10 @@
             
             
             <a href='https://William-Weng.github.io/tags/vue/' class=" post_tag button button_translucent" data-position=7 title="vue">VUE<span class="button_tally">7</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/wails/' class=" post_tag button button_translucent" data-position=1 title="wails">WAILS<span class="button_tally">1</span>
             </a>
             
             
