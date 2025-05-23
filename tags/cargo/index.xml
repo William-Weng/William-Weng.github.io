@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cargo on William-Weng</title>
+    <link>https://William-Weng.github.io/tags/cargo/</link>
+    <description>Recent content in Cargo on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 23 May 2025 20:16:35 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/cargo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Rust】螃蟹一呀爪八個，兩頭尖尖，這麼大的個…</title>
+      <link>https://William-Weng.github.io/2025/05/rust%E8%9E%83%E8%9F%B9%E4%B8%80%E5%91%80%E7%88%AA%E5%85%AB%E5%80%8B%E5%85%A9%E9%A0%AD%E5%B0%96%E5%B0%96%E9%80%99%E9%BA%BC%E5%A4%A7%E7%9A%84%E5%80%8B/</link>
+      <pubDate>Fri, 23 May 2025 20:16:35 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2025/05/rust%E8%9E%83%E8%9F%B9%E4%B8%80%E5%91%80%E7%88%AA%E5%85%AB%E5%80%8B%E5%85%A9%E9%A0%AD%E5%B0%96%E5%B0%96%E9%80%99%E9%BA%BC%E5%A4%A7%E7%9A%84%E5%80%8B/</guid>
+      <description>
+        
+          
+            &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;雖然聽說Rust的&lt;a href=&#34;https://youtu.be/UGlWZcm6yyI&#34;&gt;語法&lt;/a&gt;很難，但是筆者為什麼會想要學呢？主要是看到了這個&lt;a href=&#34;https://github.com/ayangweb/BongoCat&#34;&gt;APP - BongoCat&lt;/a&gt;，是一個滿有趣的鍵盤互動功能，主要是利用&lt;a href=&#34;https://github.com/tauri-apps/tauri&#34;&gt;Tauri - Rust + Web&lt;/a&gt;去改寫這個用C#寫的&lt;a href=&#34;github.com/MMmmmoko/Bongo-Cat-Mver&#34;&gt;Bongo-Cat-Mver&lt;/a&gt;，讓它能跑在windows / linux / macOS上，&lt;a href=&#34;https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=9307&amp;amp;webMd=2&amp;amp;la=0&#34;&gt;事不宜遲&lt;/a&gt;，我們馬上行動…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

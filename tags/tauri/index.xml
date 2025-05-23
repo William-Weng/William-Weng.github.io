@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tauri on William-Weng</title>
+    <link>http://localhost:1313/tags/tauri/</link>
+    <description>Recent content in Tauri on William-Weng</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-TW</language>
+    <lastBuildDate>Fri, 23 May 2025 20:16:35 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/tauri/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【串流影音】大家一起來當直播主吧…</title>
+      <link>http://localhost:1313/2025/05/%E4%B8%B2%E6%B5%81%E5%BD%B1%E9%9F%B3%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E7%9B%B4%E6%92%AD%E4%B8%BB%E5%90%A7/</link>
+      <pubDate>Fri, 23 May 2025 20:16:35 +0800</pubDate>
+      
+      <guid>http://localhost:1313/2025/05/%E4%B8%B2%E6%B5%81%E5%BD%B1%E9%9F%B3%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E7%9B%B4%E6%92%AD%E4%B8%BB%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;聽說Rust的語法很難，但是筆者為什麼會想要學呢？主要是看到了這個&lt;a href=&#34;https://github.com/ayangweb/BongoCat&#34;&gt;APP - BongoCat&lt;/a&gt;，是一個滿有趣的鍵盤互動功能，主要是利用&lt;a href=&#34;https://github.com/tauri-apps/tauri&#34;&gt;Tauri - Rust + Web&lt;/a&gt;去改寫這個用C#寫的&lt;a href=&#34;github.com/MMmmmoko/Bongo-Cat-Mver&#34;&gt;Bongo-Cat-Mver&lt;/a&gt;，讓它能跑在windows / linux / macOS上，&lt;a href=&#34;https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=9307&amp;amp;webMd=2&amp;amp;la=0&#34;&gt;事不宜遲&lt;/a&gt;，我們馬上行動…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
