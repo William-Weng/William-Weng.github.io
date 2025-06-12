@@ -106,6 +106,103 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2025/06/rustbruno%E6%88%91%E4%BE%86%E4%BA%86%E4%B8%80%E8%B5%B7%E4%BE%86%E6%89%93%E7%B6%B2%E8%B7%AFapi/" title="【Rust】Bruno我來了，一起來打網路API…">【Rust】Bruno我來了，一起來打網路API…</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <title>calendar</title>
+  <use xlink:href="#calendar"></use>
+</svg>
+</span>
+    <span class="post_date">
+      Jun 12, 2025</span>
+    <span class="post_time"> · 12 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/rust/' title="rust" class="post_tag button button_translucent">rust
+        </a><a href='https://William-Weng.github.io/tags/cargo/' title="cargo" class="post_tag button button_translucent">cargo
+        </a><a href='https://William-Weng.github.io/tags/csv/' title="csv" class="post_tag button button_translucent">csv
+        </a><a href='https://William-Weng.github.io/tags/api/' title="api" class="post_tag button button_translucent">api
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Rust%e3%80%91Bruno%e6%88%91%e4%be%86%e4%ba%86%ef%bc%8c%e4%b8%80%e8%b5%b7%e4%be%86%e6%89%93%e7%b6%b2%e8%b7%afAPI%e2%80%a6&url=https%3a%2f%2fWilliam-Weng.github.io%2f2025%2f06%2frustbruno%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%25E4%25B8%2580%25E8%25B5%25B7%25E4%25BE%2586%25E6%2589%2593%25E7%25B6%25B2%25E8%25B7%25AFapi%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>twitter</title>
+  <use xlink:href="#twitter"></use>
+</svg>
+
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2025%2f06%2frustbruno%25E6%2588%2591%25E4%25BE%2586%25E4%25BA%2586%25E4%25B8%2580%25E8%25B5%25B7%25E4%25BE%2586%25E6%2589%2593%25E7%25B6%25B2%25E8%25B7%25AFapi%2f&t=%e3%80%90Rust%e3%80%91Bruno%e6%88%91%e4%be%86%e4%ba%86%ef%bc%8c%e4%b8%80%e8%b5%b7%e4%be%86%e6%89%93%e7%b6%b2%e8%b7%afAPI%e2%80%a6" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>facebook</title>
+  <use xlink:href="#facebook"></use>
+</svg>
+
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <title>linkedin</title>
+  <use xlink:href="#linkedin"></use>
+</svg>
+
+    </a>
+    <a href="https://William-Weng.github.io/2025/06/rustbruno%E6%88%91%E4%BE%86%E4%BA%86%E4%B8%80%E8%B5%B7%E4%BE%86%E6%89%93%E7%B6%B2%E8%B7%AFapi/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <title>copy</title>
+  <use xlink:href="#copy"></use>
+</svg>
+
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+      <div class="excerpt_thumbnail"><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt="【Rust】Bruno我來了，一起來打網路API…"
+      
+        class="image_figure image_thumbnail image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/thumbnail/Rust.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+      </div>
+      
+        <div class="pale">
+          
+            <h2 id="前言">前言</h2>
+<p>根據<a href="https://www.104.com.tw/company/a93tesw">尼爾森</a>的不正確調查，<a href="/2025/05/rust%E8%9E%83%E8%9F%B9%E4%B8%80%E5%91%80%E7%88%AA%E5%85%AB%E5%80%8B%E5%85%A9%E9%A0%AD%E5%B0%96%E5%B0%96%E9%80%99%E9%BA%BC%E5%A4%A7%E7%9A%84%E5%80%8B/">上一期</a>文章的<a href="https://youtu.be/SAx3XWXIC-s">收視率</a>高達了<a href="https://pttpedia.fandom.com/zh/wiki/87%E5%88%86%EF%BC%8C%E4%B8%8D%E8%83%BD%E5%86%8D%E9%AB%98%E4%BA%86">87%</a>，因應廣大網友的要求，筆者只好再<a href="https://www.usebruno.com/">緊急加映</a>一集…這集就進階一點，來做做網路API吧，把CSV文件當成簡單的資料來源，讀取文件後，轉成JSON格式輸出，達到<a href="https://youtu.be/QPVZlat7EtU">隔空抓藥</a>的效果…</p>
+          
+          <br>
+          <a href="https://William-Weng.github.io/2025/06/rustbruno%E6%88%91%E4%BE%86%E4%BA%86%E4%B8%80%E8%B5%B7%E4%BE%86%E6%89%93%E7%B6%B2%E8%B7%AFapi/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+        <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2025/05/rust%E8%9E%83%E8%9F%B9%E4%B8%80%E5%91%80%E7%88%AA%E5%85%AB%E5%80%8B%E5%85%A9%E9%A0%AD%E5%B0%96%E5%B0%96%E9%80%99%E9%BA%BC%E5%A4%A7%E7%9A%84%E5%80%8B/" title="【Rust】螃蟹一呀爪八個，兩頭尖尖，這麼大的個…">【Rust】螃蟹一呀爪八個，兩頭尖尖，這麼大的個…</a>
       </h3>
       
@@ -976,103 +1073,6 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
     </div>
   </li>
 
-        <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" title="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine">【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <title>calendar</title>
-  <use xlink:href="#calendar"></use>
-</svg>
-</span>
-    <span class="post_date">
-      Jan 17, 2024</span>
-    <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
-        </a><a href='https://William-Weng.github.io/tags/combine/' title="combine" class="post_tag button button_translucent">combine
-        </a><a href='https://William-Weng.github.io/tags/swiftui/' title="swiftui" class="post_tag button button_translucent">swiftui
-        </a><a href='https://William-Weng.github.io/tags/rx/' title="rx" class="post_tag button button_translucent">rx
-        </a><a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Xcode%2015%e3%80%91%e5%b0%87%e6%88%91%e5%80%91%e7%b6%81%e5%9c%a8%e4%b8%80%e8%b5%b7%e5%90%a7%ef%bc%8c%e4%bc%8a%e8%8e%8e%e8%b2%9d%e7%88%be%20-%20Combine&url=https%3a%2f%2fWilliam-Weng.github.io%2f2024%2f01%2fxcode-15%25E5%25B0%2587%25E6%2588%2591%25E5%2580%2591%25E7%25B6%2581%25E5%259C%25A8%25E4%25B8%2580%25E8%25B5%25B7%25E5%2590%25A7%25E4%25BC%258A%25E8%258E%258E%25E8%25B2%259D%25E7%2588%25BE-combine%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>twitter</title>
-  <use xlink:href="#twitter"></use>
-</svg>
-
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2024%2f01%2fxcode-15%25E5%25B0%2587%25E6%2588%2591%25E5%2580%2591%25E7%25B6%2581%25E5%259C%25A8%25E4%25B8%2580%25E8%25B5%25B7%25E5%2590%25A7%25E4%25BC%258A%25E8%258E%258E%25E8%25B2%259D%25E7%2588%25BE-combine%2f&t=%e3%80%90Xcode%2015%e3%80%91%e5%b0%87%e6%88%91%e5%80%91%e7%b6%81%e5%9c%a8%e4%b8%80%e8%b5%b7%e5%90%a7%ef%bc%8c%e4%bc%8a%e8%8e%8e%e8%b2%9d%e7%88%be%20-%20Combine" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>facebook</title>
-  <use xlink:href="#facebook"></use>
-</svg>
-
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <title>linkedin</title>
-  <use xlink:href="#linkedin"></use>
-</svg>
-
-    </a>
-    <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <title>copy</title>
-  <use xlink:href="#copy"></use>
-</svg>
-
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-    <div class="excerpt_footer partition">
-      <div class="excerpt_thumbnail"><figure>
-  <picture>
-
-    
-      
-        
-        
-        
-        
-        
-        
-    <img
-      loading="lazy"
-      decoding="async"
-      alt="【Xcode 15】將我們綁在一起吧，伊莎貝爾 - Combine"
-      
-        class="image_figure image_thumbnail image_internal image_unprocessed"
-        src="https://William-Weng.github.io/images/thumbnail/Xcode.png"
-      
-      
-    />
-
-    </picture>
-</figure>
-
-      </div>
-      
-        <div class="pale">
-          
-            最近台灣的<a href="https://github.com/William-Weng/StudyCombine">總統大選</a>剛選完，還真的是<a href="https://youtu.be/37CS5TvmLTw">幾家歡樂幾家愁</a>呢，無論結果如何，大家一起<a href="https://developer.apple.com/documentation/combine">Combine</a>，為了未來一起努力吧…話說，雖然<a href="https://tw.dictionary.search.yahoo.com/search?p=combine">Combine</a>從iOS 13.0就開始支援了，但是那時的時空背景是要來取代<a href="https://github.com/ReactiveX/RxSwift">Rx</a>的，但當時的<a href="https://beeth0ven.github.io/RxSwift-Chinese-Documentation/">Rx</a>可謂是<a href="https://www.youtube.com/channel/UC5l1Yto5oOIgRXlI4p4VKbw">如日中天</a>，因為<a href="https://hackmd.io/@canry334/Sk7FHQFdD">函數響應式(Functional Reactive Programming)</a>的流行，加上<a href="https://flutter.dev/monetization">Flutter雙平台開發</a>越來越強大，使得APPLE不得不出個<a href="https://developer.apple.com/xcode/swiftui/">SwiftUI</a>來應戰，在這時候Combine的應用在SwiftUI就非常的方便，當然，因為<a href="https://github.com/CombineCommunity/RxCombine">Rx系列</a>是不能應用在SwiftUI上，所以就漸漸取代了RxSwift，成為<a href="https://www.104.com.tw/jobs/search/?keyword=iOS%E5%B7%A5%E7%A8%8B%E5%B8%AB">面試</a>的主流…
-          
-          <br>
-          <a href="https://William-Weng.github.io/2024/01/xcode-15%E5%B0%87%E6%88%91%E5%80%91%E7%B6%81%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%90%A7%E4%BC%8A%E8%8E%8E%E8%B2%9D%E7%88%BE-combine/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
       <li>
     <ul class="pagination pagination-default">
       <li class="page-item disabled">
@@ -1117,6 +1117,9 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/06/rustbruno%E6%88%91%E4%BE%86%E4%BA%86%E4%B8%80%E8%B5%B7%E4%BE%86%E6%89%93%E7%B6%B2%E8%B7%AFapi/" class="nav-link" title="【Rust】Bruno我來了，一起來打網路API…">【Rust】Bruno我來了，一起來打網路API…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/05/rust%E8%9E%83%E8%9F%B9%E4%B8%80%E5%91%80%E7%88%AA%E5%85%AB%E5%80%8B%E5%85%A9%E9%A0%AD%E5%B0%96%E5%B0%96%E9%80%99%E9%BA%BC%E5%A4%A7%E7%9A%84%E5%80%8B/" class="nav-link" title="【Rust】螃蟹一呀爪八個，兩頭尖尖，這麼大的個…">【Rust】螃蟹一呀爪八個，兩頭尖尖，這麼大的個…</a>
       </li>
       <li>
@@ -1136,9 +1139,6 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
       </li>
       <li>
         <a href="https://William-Weng.github.io/2024/05/godot-4%E4%B8%8D%E5%8F%AF%E8%83%BD%E6%88%913d%E5%A4%A9%E4%B8%8B%E7%84%A1%E6%95%B5-3d%E9%81%8A%E6%88%B2%E6%88%91%E4%BE%86%E4%BA%86/" class="nav-link" title="【Godot 4】不可能，我3D天下無敵 - 3D遊戲我來了">【Godot 4】不可能，我3D天下無敵 - 3D遊戲我來了</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/05/godot-4%E8%B8%8F%E5%87%BA%E6%88%90%E5%8A%9F%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AD%A5-2d%E9%81%8A%E6%88%B2%E5%88%9D%E9%AB%94%E9%A9%97/" class="nav-link" title="【Godot 4】踏出成功的第一步 - 2D遊戲初體驗">【Godot 4】踏出成功的第一步 - 2D遊戲初體驗</a>
       </li>
     </ul>
     <div>
@@ -1234,6 +1234,11 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/api/' class="post_tag button button_translucent" title="api">
+          API
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
           NODEJS
           <span class="button_tally">4</span>
@@ -1256,11 +1261,6 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
         
         <a href='https://William-Weng.github.io/tags/android-studio/' class="post_tag button button_translucent" title="android studio">
           ANDROID STUDIO
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/api/' class="post_tag button button_translucent" title="api">
-          API
           <span class="button_tally">3</span>
         </a>
         
@@ -1287,6 +1287,11 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
         <a href='https://William-Weng.github.io/tags/push/' class="post_tag button button_translucent" title="push">
           PUSH
           <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/cargo/' class="post_tag button button_translucent" title="cargo">
+          CARGO
+          <span class="button_tally">2</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/debug/' class="post_tag button button_translucent" title="debug">
@@ -1371,6 +1376,11 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
         
         <a href='https://William-Weng.github.io/tags/nativescript/' class="post_tag button button_translucent" title="nativescript">
           NATIVESCRIPT
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
+          RUST
           <span class="button_tally">2</span>
         </a>
         
@@ -1459,11 +1469,6 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/cargo/' class="post_tag button button_translucent" title="cargo">
-          CARGO
-          <span class="button_tally">1</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/chat/' class="post_tag button button_translucent" title="chat">
           CHAT
           <span class="button_tally">1</span>
@@ -1491,6 +1496,11 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
         
         <a href='https://William-Weng.github.io/tags/container/' class="post_tag button button_translucent" title="container">
           CONTAINER
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/csv/' class="post_tag button button_translucent" title="csv">
+          CSV
           <span class="button_tally">1</span>
         </a>
         
@@ -1629,18 +1639,8 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
-          RUST
-          <span class="button_tally">1</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/rx/' class="post_tag button button_translucent" title="rx">
           RX
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/script/' class="post_tag button button_translucent" title="script">
-          SCRIPT
           <span class="button_tally">1</span>
         </a>
         
@@ -1674,7 +1674,7 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/api/' class=" post_tag button button_translucent" data-position=3 title="api">API<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/api/' class=" post_tag button button_translucent" data-position=4 title="api">API<span class="button_tally">4</span>
             </a>
             
             
@@ -1718,7 +1718,7 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/cargo/' class=" post_tag button button_translucent" data-position=1 title="cargo">CARGO<span class="button_tally">1</span>
+            <a href='https://William-Weng.github.io/tags/cargo/' class=" post_tag button button_translucent" data-position=2 title="cargo">CARGO<span class="button_tally">2</span>
             </a>
             
             
@@ -1743,6 +1743,10 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
             
             
             <a href='https://William-Weng.github.io/tags/container/' class=" post_tag button button_translucent" data-position=1 title="container">CONTAINER<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/csv/' class=" post_tag button button_translucent" data-position=1 title="csv">CSV<span class="button_tally">1</span>
             </a>
             
             
@@ -1990,7 +1994,7 @@ Docker容器與<a href="https://zh.wikipedia.org/zh-tw/%E8%99%9B%E6%93%AC%E6%A9%
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=1 title="rust">RUST<span class="button_tally">1</span>
+            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=2 title="rust">RUST<span class="button_tally">2</span>
             </a>
             
             
