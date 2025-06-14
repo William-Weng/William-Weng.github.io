@@ -107,7 +107,7 @@
 </span>
     <span class="post_date">
       Jun 12, 2025</span>
-    <span class="post_time"> · 12 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/rust/' title="rust" class="post_tag button button_translucent">rust
+    <span class="post_time"> · 13 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/rust/' title="rust" class="post_tag button button_translucent">rust
         </a><a href='https://William-Weng.github.io/tags/cargo/' title="cargo" class="post_tag button button_translucent">cargo
         </a><a href='https://William-Weng.github.io/tags/csv/' title="csv" class="post_tag button button_translucent">csv
         </a><a href='https://William-Weng.github.io/tags/api/' title="api" class="post_tag button button_translucent">api
@@ -231,6 +231,16 @@
           <td><a href="https://github.com/chronotope/chrono">chrono</a></td>
           <td>0.4</td>
           <td>處理日期 / 時間 / 時區的套件</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/actix/actix-files">actix-files</a></td>
+          <td>0.6.6</td>
+          <td>提供靜態文件服務</td>
+      </tr>
+      <tr>
+          <td><a href="https://github.com/uuid-rs/uuid">uuid</a></td>
+          <td>0.8.2</td>
+          <td>生成和操作UUID的套件</td>
       </tr>
   </tbody>
 </table>
@@ -432,6 +442,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">DEFAULT_PORT</span>: <span style="color:#66d9ef">u16</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">8080</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">LOCALHOST</span>: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">CSV_FOLDER_PATH</span>: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;document&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">UPLOAD_FOLDER_PATH</span>: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;upload&#34;</span>;
 </span></span></code></pre></div><ul>
 <li>model.rs是放參數模型，在rust常常使用模型來處理變數，反而不會直接去添加文字Key值來處理…</li>
 </ul>
@@ -1821,12 +1832,12 @@
 <li>如果是編譯<code>debug</code>版的，檔案會在<code>target/debug</code>目錄下。</li>
 <li>如果是編譯<code>release</code>版的，檔案會在<code>target/release</code>目錄下。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cargo build                                             <span style="color:#75715e">#編譯debug版</span>
-</span></span><span style="display:flex;"><span>cargo run                                               <span style="color:#75715e">#執行debug版</span>
-</span></span><span style="display:flex;"><span>cargo build --release                                   <span style="color:#75715e">#編譯release版</span>
-</span></span><span style="display:flex;"><span>cargo run --release                                     <span style="color:#75715e">#執行release版</span>
-</span></span><span style="display:flex;"><span>cargo build --target aarch64-apple-darwin --release     <span style="color:#75715e">#編譯aarch64-apple-darwin release版</span>
-</span></span><span style="display:flex;"><span>cargo build --target x86_64-apple-darwin --release      <span style="color:#75715e">#編譯x86_64-apple-darwin release版</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cargo build                                             <span style="color:#75715e"># 編譯debug版</span>
+</span></span><span style="display:flex;"><span>cargo run                                               <span style="color:#75715e"># 執行debug版</span>
+</span></span><span style="display:flex;"><span>cargo build --release                                   <span style="color:#75715e"># 編譯release版</span>
+</span></span><span style="display:flex;"><span>cargo run --release                                     <span style="color:#75715e"># 執行release版</span>
+</span></span><span style="display:flex;"><span>cargo build --target aarch64-apple-darwin --release     <span style="color:#75715e"># 編譯aarch64-apple-darwin release版</span>
+</span></span><span style="display:flex;"><span>cargo build --target x86_64-apple-darwin --release      <span style="color:#75715e"># 編譯x86_64-apple-darwin release版</span>
 </span></span></code></pre></div><p><figure>
   <picture>
 
@@ -1852,11 +1863,188 @@
     </picture>
 </figure>
 </p>
+<h2 id="檔案上傳下載">檔案上傳、下載</h2>
+<h3 id="檔案上傳">檔案上傳</h3>
+<ul>
+<li>這裡呢，我們再補上<code>actix-files</code>跟<code>uuid</code>兩個套件…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span>[<span style="color:#a6e22e">dependencies</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">actix-files</span> = <span style="color:#e6db74">&#34;0.6.6&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">uuid</span> = { <span style="color:#a6e22e">version</span> = <span style="color:#e6db74">&#34;1.17.0&#34;</span>, <span style="color:#a6e22e">features</span> = [<span style="color:#e6db74">&#34;v4&#34;</span>] }
+</span></span></code></pre></div><ul>
+<li><code>actix-files</code>就是下載的功能；而<code>uuid</code>主要是防止上傳檔案<a href="https://youtu.be/rAOm--9JK1E">同名同姓</a>被蓋掉…</li>
+<li>在這裡我們把檔案存在<code>upload</code>目錄下，記得在<code>constant.rs</code>加上<code>UPLOAD_FOLDER_PATH</code>變數，跟<code>新增資料夾</code>喲…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">UPLOAD_FOLDER_PATH</span>: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;upload&#34;</span>;
+</span></span></code></pre></div><ul>
+<li>程式碼如下，過程都是大同小異，就是看沒有有檔案，再把<code>uuid</code>.<code>副檔名</code>做為檔案的存取名稱…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">multi_upload_action</span>(request: <span style="color:#a6e22e">HttpRequest</span>, <span style="color:#66d9ef">mut</span> payload: <span style="color:#a6e22e">Multipart</span>) -&gt; <span style="color:#a6e22e">impl</span> Responder {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> status_code <span style="color:#f92672">=</span> Cell::new(StatusCode::<span style="color:#66d9ef">BAD_REQUEST</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> _defer <span style="color:#f92672">=</span> Defer::new(<span style="color:#f92672">||</span> {
+</span></span><span style="display:flex;"><span>        ww_print!(log_message(<span style="color:#f92672">&amp;</span>request, <span style="color:#f92672">&amp;</span>status_code, HttpMethod::Post));
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">let</span> Ok(Some(<span style="color:#66d9ef">mut</span> field)) <span style="color:#f92672">=</span> payload.try_next().<span style="color:#66d9ef">await</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> content_type <span style="color:#f92672">=</span> field.content_disposition();
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> extension_name <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> content_type.get_filename() {
+</span></span><span style="display:flex;"><span>            Some(filename) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> extension <span style="color:#f92672">=</span> Path::new(filename).extension().and_then(<span style="color:#f92672">|</span>ext<span style="color:#f92672">|</span> ext.to_str());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">match</span> extension {
+</span></span><span style="display:flex;"><span>                    Some(ext) <span style="color:#f92672">=&gt;</span> ext.to_string(),
+</span></span><span style="display:flex;"><span>                    None <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> web::Json(json!({<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;無法取得檔案副檔名&#34;</span>})).customize().with_status(status_code.get())
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>            None <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> web::Json(json!({<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;無法取得檔案副檔名&#34;</span>})).customize().with_status(status_code.get())
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> filepath <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;./</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, config::<span style="color:#66d9ef">UPLOAD_FOLDER_PATH</span>, Uuid::new_v4(), extension_name);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ww_print!(format!(<span style="color:#e6db74">&#34;檔案將儲存於: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, filepath));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> file <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> std::fs::File::create(<span style="color:#f92672">&amp;</span>filepath) {
+</span></span><span style="display:flex;"><span>            Ok(file) <span style="color:#f92672">=&gt;</span> file,
+</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>                status_code.set(StatusCode::<span style="color:#66d9ef">INTERNAL_SERVER_ERROR</span>);
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> web::Json(json!({<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">format</span><span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;建立檔案失敗: {}&#34;</span>, error)})).customize().with_status(status_code.get());
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> <span style="color:#66d9ef">let</span> Some(chunk) <span style="color:#f92672">=</span> field.next().<span style="color:#66d9ef">await</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> data <span style="color:#f92672">=</span> chunk.unwrap();
+</span></span><span style="display:flex;"><span>            file.write_all(<span style="color:#f92672">&amp;</span>data).unwrap();
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    status_code.set(StatusCode::<span style="color:#66d9ef">OK</span>);
+</span></span><span style="display:flex;"><span>    web::Json(json!({<span style="color:#e6db74">&#34;message&#34;</span>: <span style="color:#e6db74">&#34;檔案上傳成功&#34;</span>, <span style="color:#e6db74">&#34;timestamp&#34;</span>: <span style="color:#a6e22e">Utc</span>::now().timestamp_millis()})).customize().with_status(status_code.get())
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>要記得在<code>main.rs</code>註冊喲，就是加上<code>.service(upload_action)</code>…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[post(</span><span style="color:#e6db74">&#34;/upload&#34;</span><span style="color:#75715e">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">upload_action</span>(request: <span style="color:#a6e22e">HttpRequest</span>, payload: <span style="color:#a6e22e">Multipart</span>) -&gt; <span style="color:#a6e22e">impl</span> Responder {
+</span></span><span style="display:flex;"><span>    _service_::multi_upload_action(request, payload).<span style="color:#66d9ef">await</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/image/upload.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
+<h3 id="檔案下載">檔案下載</h3>
+<ul>
+<li>當然，能上傳就要能下載啊…</li>
+<li>下載的程式碼就單純多了，就只要把<a href="https://ithelp.ithome.com.tw/articles/10251288">正確的URL</a>傳給瀏覽器，瀏覽器就會去下載檔案了…</li>
+<li>其中有個叫<a href="https://openhome.cc/zh-tw/haskell/algebraic-data-type/maybe-either/"><code>Either</code></a>的enum，用來表示二選一的結果，兩個值都是正解，有點<a href="https://papermine.com/pub/3304"><code>「向左走，向右走」</code></a>的感覺。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">download_file</span>(request: <span style="color:#a6e22e">HttpRequest</span>, path: <span style="color:#a6e22e">web</span>::Path<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">impl</span> Responder {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> status_code <span style="color:#f92672">=</span> Cell::new(StatusCode::<span style="color:#66d9ef">NOT_FOUND</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> _defer <span style="color:#f92672">=</span> Defer::new(<span style="color:#f92672">||</span> {
+</span></span><span style="display:flex;"><span>        ww_print!(log_message(<span style="color:#f92672">&amp;</span>request, <span style="color:#f92672">&amp;</span>status_code, HttpMethod::Get));
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> filename <span style="color:#f92672">=</span> path.into_inner();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> filepath <span style="color:#f92672">=</span> PathBuf::from(format!(<span style="color:#e6db74">&#34;./</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">/</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, config::<span style="color:#66d9ef">UPLOAD_FOLDER_PATH</span>, filename));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>filepath.exists() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> Either::Left(web::Json(json!({<span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#e6db74">&#34;檔案不存在&#34;</span>})).customize().with_status(status_code.get()));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    status_code.set(StatusCode::<span style="color:#66d9ef">OK</span>);
+</span></span><span style="display:flex;"><span>    Either::Right(NamedFile::open(filepath).unwrap())
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>最後也請大家試試看吧，一般API會<a href="https://medium.com/%E7%A8%8B%E5%BC%8F%E7%8C%BF%E5%90%83%E9%A6%99%E8%95%89/%E5%86%8D%E6%8E%A2%E5%90%8C%E6%BA%90%E6%94%BF%E7%AD%96-%E8%AB%87-samesite-%E8%A8%AD%E5%AE%9A%E5%B0%8D-cookie-%E7%9A%84%E5%BD%B1%E9%9F%BF%E8%88%87%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A0%85-6195d10d4441">用到的</a>功能都寫上了，是不是<a href="https://youtu.be/SQdTOJVEQhY">很佛心</a>啊？</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[post(</span><span style="color:#e6db74">&#34;/upload&#34;</span><span style="color:#75715e">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">upload_action</span>(request: <span style="color:#a6e22e">HttpRequest</span>, payload: <span style="color:#a6e22e">Multipart</span>) -&gt; <span style="color:#a6e22e">impl</span> Responder {
+</span></span><span style="display:flex;"><span>    _service_::multi_upload_action(request, payload).<span style="color:#66d9ef">await</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#[get(</span><span style="color:#e6db74">&#34;/download/{filename}&#34;</span><span style="color:#75715e">)]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">download_action</span>(request: <span style="color:#a6e22e">HttpRequest</span>, path: <span style="color:#a6e22e">web</span>::Path<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span>) -&gt; <span style="color:#a6e22e">impl</span> Responder {
+</span></span><span style="display:flex;"><span>    _service_::download_file(request, path).<span style="color:#66d9ef">await</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">register_service</span>() -&gt; Result<span style="color:#f92672">&lt;</span>(), Error<span style="color:#f92672">&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> current_ip <span style="color:#f92672">=</span> local_ip().unwrap_or_else(<span style="color:#f92672">|</span>_<span style="color:#f92672">|</span> <span style="color:#66d9ef">LOCALHOST</span>.parse().unwrap());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ww_print!(format!(<span style="color:#e6db74">&#34;Starting server at </span><span style="color:#e6db74">{localhost}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{port}</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Starting server at </span><span style="color:#e6db74">{ip}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{port}</span><span style="color:#e6db74">&#34;</span>, ip <span style="color:#f92672">=</span> current_ip, port <span style="color:#f92672">=</span> <span style="color:#66d9ef">DEFAULT_PORT</span>, localhost <span style="color:#f92672">=</span> <span style="color:#66d9ef">LOCALHOST</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    HttpServer::new(<span style="color:#f92672">||</span> {
+</span></span><span style="display:flex;"><span>        App::new()
+</span></span><span style="display:flex;"><span>            .service(get_first_action)
+</span></span><span style="display:flex;"><span>            .service(get_query_action)
+</span></span><span style="display:flex;"><span>            .service(post_json_action)
+</span></span><span style="display:flex;"><span>            .service(dynamic_query)
+</span></span><span style="display:flex;"><span>            .service(post_router_action)
+</span></span><span style="display:flex;"><span>            .service(csv_action)
+</span></span><span style="display:flex;"><span>            .service(upload_action)
+</span></span><span style="display:flex;"><span>            .service(download_action)
+</span></span><span style="display:flex;"><span>    })
+</span></span><span style="display:flex;"><span>    .bind(format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, current_ip, <span style="color:#66d9ef">DEFAULT_PORT</span>))<span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span>    .bind(format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#66d9ef">LOCALHOST</span>, <span style="color:#66d9ef">DEFAULT_PORT</span>))<span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span>    .run()
+</span></span><span style="display:flex;"><span>    .<span style="color:#66d9ef">await</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/image/download.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</p>
 <h2 id="範例程式碼下載"><a href="/images/2025/rust-web-api/rust_csv_api.7z">範例程式碼下載</a></h2>
 <h2 id="後記">後記</h2>
 <ul>
 <li>終於打完了，也感謝<a href="https://copilot.microsoft.com/"><code>Copilot</code></a>的幫忙，這篇應該筆者寫過最長的一篇吧？寫完之後，發現Rust還滿愛用<code>巨集</code>的，也許是為了速度吧，在<code>運算符號</code>上也為了分別，怕打錯字，也用了滿多其它語言沒有的，雖然說在Key的時候有點麻煩，但一眼就能看出是什麼意思。</li>
 <li>沒想到Rust還真的是麻煩啊，如果用<a href="https://youtu.be/kcOeMrRll5c">Golang / Java / Python / Node.js</a>，開發速度一定是快得多的多了，不過做為一個下一代的C++，連<a href="https://www.techbang.com/posts/106699-ill-get-it-after-the-rest-of-the-article-today-instead-of-c">Windows 11的核心</a>也用它重寫了，雖然語法很麻煩，但就是…安全，連Google開始以Rust重寫<a href="https://www.ithome.com.tw/news/159204">Android裸機元件</a>，進一步強化記憶體安全性，還有<a href="https://kanru.info/libchewing-rust-rewrite-in-review/">新酷音輸入法</a>也用Rust重寫了，除了<a href="https://youtu.be/ONZZvc_IqQg">Linux群</a>之外，不過要無償的工程師去維護兩套程式碼，也是滿說不過去的啦…</li>
+<li>其實啊，筆者也不是什麼<a href="https://nicechord.com/post/mozart-at-5/">天才</a>、<a href="https://tw.news.yahoo.com/%E7%B6%B2%E5%82%B3%E5%8D%B0%E5%BA%A6%E7%A5%9E%E7%AB%A5%E9%A0%90%E8%A8%80-%E5%8F%B0%E7%81%A3614%E5%87%8C%E6%99%A88-2%E5%9C%B0%E9%9C%87-%E9%98%BF%E5%8D%97%E5%BE%B7%E6%9C%AC%E4%BA%BA%E6%B0%A3%E7%82%B8%E6%8F%AD%E5%AF%A6%E6%83%85-090718793.html">神童</a>，更不是<a href="https://udn.com/news/story/6928/8243118">台清交</a>畢業的，只是個私立大學的小學生，不過經由一些<a href="https://swiftpackageindex.com/William-Weng">經驗的累積</a>，也許生長的很慢，但也是有所成長嘛…</li>
 </ul>
     </div>
 <div class="post_comments">
