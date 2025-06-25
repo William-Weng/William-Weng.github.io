@@ -101,6 +101,101 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2022/06/swift-5.6richpushnotification-%E6%9C%89%E9%8C%A2%E4%BA%BA%E7%9A%84%E6%8E%A8%E6%92%AD%E5%8A%9F%E8%83%BD/" title="【Swift 5.6】RichPushNotification - 有錢人的推播功能？">【Swift 5.6】RichPushNotification - 有錢人的推播功能？</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <title>calendar</title>
+  <use xlink:href="#calendar"></use>
+</svg>
+</span>
+    <span class="post_date">
+      Jun 11, 2022</span>
+    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
+        </a><a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
+        </a><a href='https://William-Weng.github.io/tags/push/' title="push" class="post_tag button button_translucent">push
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Swift%205.6%e3%80%91RichPushNotification%20-%20%e6%9c%89%e9%8c%a2%e4%ba%ba%e7%9a%84%e6%8e%a8%e6%92%ad%e5%8a%9f%e8%83%bd%ef%bc%9f&url=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f06%2fswift-5.6richpushnotification-%25E6%259C%2589%25E9%258C%25A2%25E4%25BA%25BA%25E7%259A%2584%25E6%258E%25A8%25E6%2592%25AD%25E5%258A%259F%25E8%2583%25BD%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>twitter</title>
+  <use xlink:href="#twitter"></use>
+</svg>
+
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2022%2f06%2fswift-5.6richpushnotification-%25E6%259C%2589%25E9%258C%25A2%25E4%25BA%25BA%25E7%259A%2584%25E6%258E%25A8%25E6%2592%25AD%25E5%258A%259F%25E8%2583%25BD%2f&t=%e3%80%90Swift%205.6%e3%80%91RichPushNotification%20-%20%e6%9c%89%e9%8c%a2%e4%ba%ba%e7%9a%84%e6%8e%a8%e6%92%ad%e5%8a%9f%e8%83%bd%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>facebook</title>
+  <use xlink:href="#facebook"></use>
+</svg>
+
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <title>linkedin</title>
+  <use xlink:href="#linkedin"></use>
+</svg>
+
+    </a>
+    <a href="https://William-Weng.github.io/2022/06/swift-5.6richpushnotification-%E6%9C%89%E9%8C%A2%E4%BA%BA%E7%9A%84%E6%8E%A8%E6%92%AD%E5%8A%9F%E8%83%BD/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <title>copy</title>
+  <use xlink:href="#copy"></use>
+</svg>
+
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+      <div class="excerpt_thumbnail"><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt="【Swift 5.6】RichPushNotification - 有錢人的推播功能？"
+      
+        class="image_figure image_thumbnail image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/thumbnail/Xcode.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+      </div>
+      
+        <div class="pale">
+          
+            <a href="https://www.facebook.com/%E5%A6%99%E8%AA%9E%E9%80%A3%E7%8F%A0%E7%AC%91%E4%B8%80%E7%AC%91-969881116389749/videos/%E5%8F%97%E4%BA%BA%E9%BB%9E%E6%BB%B4%E6%81%A9%E5%A0%B1%E4%B9%8B%E4%BB%A5%E6%B9%A7%E6%B3%89%E5%A6%82%E4%BD%95%E7%BF%BB%E8%AD%AF%E6%88%90%E8%8B%B1%E6%96%87/233574811262261/">受人點滴當湧泉以報</a>，這次來介紹<a href="https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification">推播</a>的功能，其實除了<a href="https://ppfocus.com/hk/0/cu0b32b39.html">顯示文字</a>之外，在iOS 12之後加上<a href="https://www.appcoda.com.tw/user-notifications-ios12/">顯示圖片</a>的功能，不過這個功能在<a href="https://stackoverflow.com/questions/31979394/how-to-show-the-image-in-push-notification-gcm-android">Android</a>好像很久以前<a href="https://developer.android.com/training/notify-user/expanded">就有了</a>？而這個功能也是<a href="https://ithelp.ithome.com.tw/articles/10196486">網頁</a>不可取代的<a href="https://youtu.be/4ZGM40Lj5to">必備功能</a>，在此特別感謝<a href="https://github.com/nick6969/SlideShow/blob/master/20170718-remoteNotification.key">Nick大大</a>的簡報，話不多說，就來實作一下吧。
+          
+          <br>
+          <a href="https://William-Weng.github.io/2022/06/swift-5.6richpushnotification-%E6%9C%89%E9%8C%A2%E4%BA%BA%E7%9A%84%E6%8E%A8%E6%92%AD%E5%8A%9F%E8%83%BD/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+        <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2022/05/flutter-3.1flutter-vs-nativescript-%E5%9B%9E%E6%86%B6%E7%AF%87/" title="【Flutter 3.1】Flutter vs NativeScript - 回憶篇">【Flutter 3.1】Flutter vs NativeScript - 回憶篇</a>
       </h3>
       
@@ -973,101 +1068,6 @@
     </div>
   </li>
 
-        <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" title="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎">【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <title>calendar</title>
-  <use xlink:href="#calendar"></use>
-</svg>
-</span>
-    <span class="post_date">
-      Apr 12, 2021</span>
-    <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/game/' title="game" class="post_tag button button_translucent">game
-        </a><a href='https://William-Weng.github.io/tags/lua/' title="lua" class="post_tag button button_translucent">lua
-        </a><a href='https://William-Weng.github.io/tags/love2d/' title="love2d" class="post_tag button button_translucent">love2d
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%e3%80%90L%c3%96VE%2011.3%e3%80%91L%c3%96VE%20-%20%e5%85%8d%e8%b2%bb%e5%a4%9a%e5%b9%b3%e8%87%ba%e7%9a%842D%e9%81%8a%e6%88%b2%e5%bc%95%e6%93%8e&url=https%3a%2f%2fWilliam-Weng.github.io%2f2021%2f04%2fl%25C3%25B6ve-11.3l%25C3%25B6ve-%25E5%2585%258D%25E8%25B2%25BB%25E5%25A4%259A%25E5%25B9%25B3%25E8%2587%25BA%25E7%259A%25842d%25E9%2581%258A%25E6%2588%25B2%25E5%25BC%2595%25E6%2593%258E%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>twitter</title>
-  <use xlink:href="#twitter"></use>
-</svg>
-
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2021%2f04%2fl%25C3%25B6ve-11.3l%25C3%25B6ve-%25E5%2585%258D%25E8%25B2%25BB%25E5%25A4%259A%25E5%25B9%25B3%25E8%2587%25BA%25E7%259A%25842d%25E9%2581%258A%25E6%2588%25B2%25E5%25BC%2595%25E6%2593%258E%2f&t=%e3%80%90L%c3%96VE%2011.3%e3%80%91L%c3%96VE%20-%20%e5%85%8d%e8%b2%bb%e5%a4%9a%e5%b9%b3%e8%87%ba%e7%9a%842D%e9%81%8a%e6%88%b2%e5%bc%95%e6%93%8e" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>facebook</title>
-  <use xlink:href="#facebook"></use>
-</svg>
-
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <title>linkedin</title>
-  <use xlink:href="#linkedin"></use>
-</svg>
-
-    </a>
-    <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <title>copy</title>
-  <use xlink:href="#copy"></use>
-</svg>
-
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-    <div class="excerpt_footer partition">
-      <div class="excerpt_thumbnail"><figure>
-  <picture>
-
-    
-      
-        
-        
-        
-        
-        
-        
-    <img
-      loading="lazy"
-      decoding="async"
-      alt="【LÖVE 11.3】LÖVE - 免費多平臺的2D遊戲引擎"
-      
-        class="image_figure image_thumbnail image_internal image_unprocessed"
-        src="https://William-Weng.github.io/images/thumbnail/LOVE.png"
-      
-      
-    />
-
-    </picture>
-</figure>
-
-      </div>
-      
-        <div class="pale">
-          
-            <a href="https://love2d.org/">LÖVE</a>是一個免費多平臺的<a href="https://zh.wikipedia.org/zh-tw/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E%E5%88%97%E8%A1%A8">2D遊戲引擎</a>，主體是以<a href="https://zh.wikipedia.org/zh-tw/Lua">Lua</a>這種<a href="https://zh.wikipedia.org/zh-tw/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80">手稿語言</a>，它的語法相當<a href="http://www.lua.org/">簡潔</a>，它是以<a href="https://zh.wikipedia.org/zh-tw/C++">C++</a>編寫，支援<a href="https://love2d.org/wiki/Game_Distribution">多平臺輸出</a>，在官網有介紹幾個上架的遊戲 - <a href="http://www.ohmygiraffe.com/">iOS / Android</a> + <a href="http://bluerevolvergame.com/">Windows / macOS / Linux</a>，好像都是可愛的小遊戲…XD，至於為什麼會想<a href="https://www.huaweicloud.com/articles/6991c25bed18e130693ce19458a0fa53.html">學這個</a>呢？因為<a href="https://unity.com/">Unity3D</a>太過強大，而且自己只是想寫一個小品遊戲當成<a href="https://jamesmoneylife.pixnet.net/blog/post/306094688">生日禮物</a>送人，<a href="https://store.line.me/stickershop/product/1428520/zh-Hant">工程師的浪漫</a>嘛…XD，<a href="https://www.bluesbear.tw/11105/%E5%8D%81%E4%BA%8C%E6%98%9F%E5%BA%A7%E7%94%B7%E7%94%9F%E7%9C%8B%E5%88%B0%E5%A5%B3%E7%94%9F%E7%AC%AC%E4%B8%80%E7%9C%BC%E6%9C%83%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9.html">笑容可掬</a>的女生，最高…
-          
-          <br>
-          <a href="https://William-Weng.github.io/2021/04/l%C3%B6ve-11.3l%C3%B6ve-%E5%85%8D%E8%B2%BB%E5%A4%9A%E5%B9%B3%E8%87%BA%E7%9A%842d%E9%81%8A%E6%88%B2%E5%BC%95%E6%93%8E/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
       <li>
     <ul class="pagination pagination-default">
       <li class="page-item">
@@ -1112,6 +1112,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/06/tauri%E7%95%B6rust%E8%B7%9Fweb%E5%90%8C%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7/" class="nav-link" title="【Tauri】當Rust跟Web同在一起，在一起，在一起…">【Tauri】當Rust跟Web同在一起，在一起，在一起…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/06/rustbruno%E6%88%91%E4%BE%86%E4%BA%86%E4%B8%80%E8%B5%B7%E4%BE%86%E6%89%93%E7%B6%B2%E8%B7%AFapi/" class="nav-link" title="【Rust】Bruno我來了，一起來打網路API…">【Rust】Bruno我來了，一起來打網路API…</a>
       </li>
       <li>
@@ -1131,9 +1134,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2024/11/musescore-4%E8%BA%AB%E7%82%BA%E4%B8%80%E5%80%8B%E6%89%93%E5%AD%97%E5%B7%A5%E6%9C%83%E6%89%93%E4%BA%94%E7%B7%9A%E8%AD%9C%E4%B9%9F%E6%98%AF%E6%BB%BF%E6%AD%A3%E5%B8%B8%E7%9A%84%E5%98%9B/" class="nav-link" title="【MuseScore 4】身為一個打字工，會打五線譜也是滿正常的嘛…">【MuseScore 4】身為一個打字工，會打五線譜也是滿正常的嘛…</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/05/godot-4%E4%B8%8D%E5%8F%AF%E8%83%BD%E6%88%913d%E5%A4%A9%E4%B8%8B%E7%84%A1%E6%95%B5-3d%E9%81%8A%E6%88%B2%E6%88%91%E4%BE%86%E4%BA%86/" class="nav-link" title="【Godot 4】不可能，我3D天下無敵 - 3D遊戲我來了">【Godot 4】不可能，我3D天下無敵 - 3D遊戲我來了</a>
       </li>
     </ul>
     <div>
@@ -1209,6 +1209,11 @@
           <span class="button_tally">6</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/api/' class="post_tag button button_translucent" title="api">
+          API
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/c%23/' class="post_tag button button_translucent" title="c#">
           C#
           <span class="button_tally">5</span>
@@ -1227,11 +1232,6 @@
         <a href='https://William-Weng.github.io/tags/web/' class="post_tag button button_translucent" title="web">
           WEB
           <span class="button_tally">5</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/api/' class="post_tag button button_translucent" title="api">
-          API
-          <span class="button_tally">4</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
@@ -1256,6 +1256,11 @@
         
         <a href='https://William-Weng.github.io/tags/android-studio/' class="post_tag button button_translucent" title="android studio">
           ANDROID STUDIO
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/cargo/' class="post_tag button button_translucent" title="cargo">
+          CARGO
           <span class="button_tally">3</span>
         </a>
         
@@ -1284,8 +1289,13 @@
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/cargo/' class="post_tag button button_translucent" title="cargo">
-          CARGO
+        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
+          RUST
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/csv/' class="post_tag button button_translucent" title="csv">
+          CSV
           <span class="button_tally">2</span>
         </a>
         
@@ -1371,11 +1381,6 @@
         
         <a href='https://William-Weng.github.io/tags/nativescript/' class="post_tag button button_translucent" title="nativescript">
           NATIVESCRIPT
-          <span class="button_tally">2</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
-          RUST
           <span class="button_tally">2</span>
         </a>
         
@@ -1491,11 +1496,6 @@
         
         <a href='https://William-Weng.github.io/tags/container/' class="post_tag button button_translucent" title="container">
           CONTAINER
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/csv/' class="post_tag button button_translucent" title="csv">
-          CSV
           <span class="button_tally">1</span>
         </a>
         
@@ -1669,7 +1669,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/api/' class=" post_tag button button_translucent" data-position=4 title="api">API<span class="button_tally">4</span>
+            <a href='https://William-Weng.github.io/tags/api/' class=" post_tag button button_translucent" data-position=5 title="api">API<span class="button_tally">5</span>
             </a>
             
             
@@ -1713,7 +1713,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/cargo/' class=" post_tag button button_translucent" data-position=2 title="cargo">CARGO<span class="button_tally">2</span>
+            <a href='https://William-Weng.github.io/tags/cargo/' class=" post_tag button button_translucent" data-position=3 title="cargo">CARGO<span class="button_tally">3</span>
             </a>
             
             
@@ -1741,7 +1741,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/csv/' class=" post_tag button button_translucent" data-position=1 title="csv">CSV<span class="button_tally">1</span>
+            <a href='https://William-Weng.github.io/tags/csv/' class=" post_tag button button_translucent" data-position=2 title="csv">CSV<span class="button_tally">2</span>
             </a>
             
             
@@ -1989,7 +1989,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=2 title="rust">RUST<span class="button_tally">2</span>
+            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=3 title="rust">RUST<span class="button_tally">3</span>
             </a>
             
             
@@ -2030,6 +2030,10 @@
             
             
             <a href='https://William-Weng.github.io/tags/swiftui/' class=" post_tag button button_translucent" data-position=2 title="swiftui">SWIFTUI<span class="button_tally">2</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/tauri/' class=" post_tag button button_translucent" data-position=1 title="tauri">TAURI<span class="button_tally">1</span>
             </a>
             
             
