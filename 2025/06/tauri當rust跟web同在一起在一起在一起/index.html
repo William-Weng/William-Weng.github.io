@@ -107,7 +107,7 @@
 </span>
     <span class="post_date">
       Jun 25, 2025</span>
-    <span class="post_time"> · 14 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/rust/' title="rust" class="post_tag button button_translucent">rust
+    <span class="post_time"> · 18 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/rust/' title="rust" class="post_tag button button_translucent">rust
         </a><a href='https://William-Weng.github.io/tags/cargo/' title="cargo" class="post_tag button button_translucent">cargo
         </a><a href='https://William-Weng.github.io/tags/tauri/' title="tauri" class="post_tag button button_translucent">tauri
         </a><a href='https://William-Weng.github.io/tags/csv/' title="csv" class="post_tag button button_translucent">csv
@@ -1860,10 +1860,332 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#ae81ff">42</span>,
 </span></span><span style="display:flex;"><span>    width <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
 </span></span><span style="display:flex;"><span>);  <span style="color:#75715e">// &#34;00101010&#34;
-</span></span></span></code></pre></div><h2 id="範例程式碼下載"><a href="/images/2025/rust-tauri-csv/rust-tauri-csv.7z">範例程式碼下載</a></h2>
+</span></span></span></code></pre></div><h2 id="同埸加映文字搜尋highlight功能">《同埸加映》文字搜尋highlight功能</h2>
+<h3 id="加入tag顏色設定檔">加入Tag顏色設定檔</h3>
+<ul>
+<li>首先先加入Tag的顏色<a href="https://youtu.be/4JKb0yTCrkY">JSON設定檔</a>，其實就是把寫在程式內的那段顏色設定值，變成一個<code>外部的檔案</code>來讀取，以前要改顏色，或者是有加入新的Tag，就不用<a href="https://youtu.be/cG5-npAPTXQ">更動主程式</a>了，非常方便…</li>
+<li>過程跟加入CSV檔一樣，我們設定一個<a href="https://5xcampus.com/posts/hello-world-conf-rust-web-scraping.html">config</a>的資料夾放入<code>hashtagColors.json</code>這個設定檔，然後在<code>tauri.conf.json</code>中加入<code>resources</code>，這樣在run的時候，就會把設定檔複製到APP的<code>Resources</code>之中了…
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/rust-tauri-csv/config.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">/// hashtagColors.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Windows&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#1abc9c&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;macOS&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#e67e22&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Linux&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#e74c3c&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Android&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#2980b9&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;iOS&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#8e44ad&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Swift&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#1abc9c&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;SwiftUI&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#e67e22&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Objective-C&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#e74c3c&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Xcode&#34;</span>: { <span style="color:#f92672">&#34;background&#34;</span>: <span style="color:#e6db74">&#34;#2980b9&#34;</span>, <span style="color:#f92672">&#34;text&#34;</span>: <span style="color:#e6db74">&#34;#ffffff&#34;</span> },
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">///
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#75715e">/// tauri.conf.json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;resources&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;document/*&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#e6db74">&#34;config/*&#34;</span>
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">}</span>
+</span></span></code></pre></div><ul>
+<li>然後在<code>src-tauri/lib.rs</code>中如入讀取JSON檔的程式碼…</li>
+<li>其實就跟讀取<code>CSV</code>檔的功能是一樣的，只是它本身就是<a href="https://youtu.be/UXj0ziVNDpw">JSON格式</a>，所以就不用轉換了…</li>
+<li>當然，還是要記得註冊喲…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ts" data-lang="ts"><span style="display:flex;"><span><span style="color:#75715e">/// main.ts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#960050;background-color:#1e0010">#</span>[<span style="color:#a6e22e">tauri</span><span style="color:#f92672">::</span><span style="color:#a6e22e">command</span>]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">fn</span> <span style="color:#a6e22e">read_json_file</span>(<span style="color:#a6e22e">app</span>: <span style="color:#66d9ef">AppHandle</span>, <span style="color:#a6e22e">filename</span>: <span style="color:#66d9ef">String</span>) <span style="color:#f92672">-&gt;</span> <span style="color:#a6e22e">Result</span>&lt;<span style="color:#f92672">String</span>, <span style="color:#a6e22e">String</span>&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">file_path</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">path</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">resolve</span>(<span style="color:#e6db74">&#34;config&#34;</span>, <span style="color:#a6e22e">BaseDirectory</span><span style="color:#f92672">::</span><span style="color:#a6e22e">Resource</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">map_err</span>(<span style="color:#f92672">|</span><span style="color:#a6e22e">e</span><span style="color:#f92672">|</span> <span style="color:#a6e22e">format</span><span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;無法獲取資源目錄: {}&#34;</span>, <span style="color:#a6e22e">e</span>))<span style="color:#f92672">?</span>
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">join</span>(<span style="color:#a6e22e">filename</span>);
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">read_to_string</span>(<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">file_path</span>)
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">map_err</span>(<span style="color:#f92672">|</span><span style="color:#a6e22e">e</span><span style="color:#f92672">|</span> <span style="color:#a6e22e">format</span><span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;無法讀取檔案: {}&#34;</span>, <span style="color:#a6e22e">e</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">#</span>[<span style="color:#a6e22e">cfg_attr</span>(<span style="color:#a6e22e">mobile</span>, <span style="color:#a6e22e">tauri</span><span style="color:#f92672">::</span><span style="color:#a6e22e">mobile_entry_point</span>)]
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pub</span> <span style="color:#a6e22e">fn</span> <span style="color:#a6e22e">run() {</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">tauri</span><span style="color:#f92672">::</span><span style="color:#a6e22e">Builder</span><span style="color:#f92672">::</span><span style="color:#66d9ef">default</span>()
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">setup</span>(<span style="color:#f92672">|</span><span style="color:#a6e22e">app</span><span style="color:#f92672">|</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">Err</span>(<span style="color:#a6e22e">error</span>) <span style="color:#f92672">=</span> <span style="color:#a6e22e">logger_setting</span>(<span style="color:#a6e22e">app</span>) { <span style="color:#a6e22e">eprintln</span><span style="color:#f92672">!</span>(<span style="color:#e6db74">&#34;Failed to setup logging: {}&#34;</span>, <span style="color:#a6e22e">error</span>); }
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">Ok</span>(())
+</span></span><span style="display:flex;"><span>        })
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">plugin</span>(<span style="color:#a6e22e">tauri_plugin_opener</span><span style="color:#f92672">::</span><span style="color:#a6e22e">init</span>())
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">invoke_handler</span>(<span style="color:#a6e22e">tauri</span><span style="color:#f92672">::</span><span style="color:#a6e22e">generate_handler</span><span style="color:#f92672">!</span>[<span style="color:#a6e22e">read_csv</span>, <span style="color:#a6e22e">csv_list</span>, <span style="color:#a6e22e">read_type</span>, <span style="color:#a6e22e">read_json_file</span>])
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">run</span>(<span style="color:#a6e22e">tauri</span><span style="color:#f92672">::</span><span style="color:#a6e22e">generate_context</span><span style="color:#f92672">!</span>())
+</span></span><span style="display:flex;"><span>        .<span style="color:#a6e22e">expect</span>(<span style="color:#e6db74">&#34;error while running tauri application&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="加入搜尋列">加入搜尋列</h3>
+<ul>
+<li>就先來佈置一下搜尋列吧…</li>
+<li>在這裡我們把搜尋列放在最下方，然後加入一張ICON圖，我們就取名叫<code>src/assets/search.png</code>好了…
+<figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt=""
+      
+        class="image_figure image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/2025/rust-tauri-csv/search.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>/// index.html
+</span></span><span style="display:flex;"><span>&lt;<span style="color:#f92672">body</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;<span style="color:#f92672">main</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;container&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-collection-view&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-bar-bottom&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-bar&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search&#34;</span> <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;輸入名稱&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>      &lt;<span style="color:#f92672">button</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;search-btn&#34;</span>&gt;&lt;<span style="color:#f92672">img</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/src/assets/search.png&#34;</span> <span style="color:#a6e22e">alt</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;搜尋&#34;</span>&gt;&lt;/<span style="color:#f92672">button</span>&gt;    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>    &lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>  &lt;/<span style="color:#f92672">main</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">body</span>&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#f92672">///</span> <span style="color:#f92672">style</span>.<span style="color:#a6e22e">css</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* search-bar-bottom 置底樣式 */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">search-bar-bottom</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">fixed</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">left</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">right</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">bottom</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">vw</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: rgba(<span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">color</span><span style="color:#f92672">-</span>background<span style="color:#f92672">-</span>rgb), <span style="color:#ae81ff">0.95</span>);;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">-2</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span> rgba(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0.08</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">z-index</span>: <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">justify-content</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">search-bar-bottom</span> .<span style="color:#a6e22e">search</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">align-items</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">gap</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#search-bar {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">240</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">8</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">color</span><span style="color:#f92672">-</span>placeholder<span style="color:#f92672">-</span><span style="color:#66d9ef">text</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">outline</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">border</span> <span style="color:#ae81ff">0.2</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#search-bar:<span style="color:#a6e22e">focus</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">px</span> <span style="color:#66d9ef">solid</span> <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">color</span><span style="color:#f92672">-</span>selector);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#search-btn {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">height</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>foot<span style="color:#f92672">-</span>height);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">50</span><span style="color:#66d9ef">%</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background-color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">color</span><span style="color:#f92672">-</span>placeholder<span style="color:#f92672">-</span><span style="color:#66d9ef">text</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">color</span><span style="color:#f92672">-</span>card<span style="color:#f92672">-</span>bg);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">cursor</span>: <span style="color:#66d9ef">pointer</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">display</span>: <span style="color:#66d9ef">flex</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">align-items</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">justify-content</span>: <span style="color:#66d9ef">center</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">background-color</span> <span style="color:#ae81ff">0.25</span><span style="color:#66d9ef">s</span>;
+</span></span><span style="display:flex;"><span>  aspect-ratio: <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">box-sizing</span>: <span style="color:#66d9ef">border-box</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>#search-btn:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">background</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">color</span><span style="color:#f92672">-</span>switch<span style="color:#f92672">-</span>border);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="功能實做">功能實做</h3>
+<ul>
+<li>先將<a href="https://youtu.be/ERuUCF-PqSM">tag</a>顏色設定值讀進來，這樣<a href="https://youtu.be/JdhRD4TKh48">後面</a>才可以用到…</li>
+<li>然後再處理<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference/Elements/mark">highlight</a>功能，其中最重要的就是<code>highlightAction(keyword?:)</code>這個function，將過濾到的Keyword以<a href="https://steam.oxxostudio.tw/category/html/tags/mark.html">mark標籤</a>註記，這樣就OK了…</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rs" data-lang="rs"><span style="display:flex;"><span><span style="color:#e6db74">/// main.rs
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74"></span><span style="color:#66d9ef">let</span> hashtagColors: { [key: <span style="color:#a6e22e">string</span>]: { background: <span style="color:#a6e22e">string</span>; text: <span style="color:#a6e22e">string</span> } } <span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> RustFunctions <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;readCsvList&#34;</span>: <span style="color:#e6db74">&#34;csv_list&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;readCsvContent&#34;</span>: <span style="color:#e6db74">&#34;read_csv&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;readColors&#34;</span>: <span style="color:#e6db74">&#34;read_json_file&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> searchButton: <span style="color:#a6e22e">HTMLButtonElement</span> <span style="color:#f92672">|</span> null;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> searchBar: <span style="color:#a6e22e">HTMLInputElement</span> <span style="color:#f92672">|</span> null;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> function displayCsvCard(platform<span style="color:#f92672">?</span>: <span style="color:#a6e22e">string</span>, isReset: <span style="color:#a6e22e">Boolean</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>platformSelect <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>collectionView) { <span style="color:#66d9ef">return</span>; }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (searchBar <span style="color:#f92672">&amp;&amp;</span> isReset) { searchBar.value <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> filename <span style="color:#f92672">=</span> (platform <span style="color:#f92672">||</span> <span style="color:#e6db74">&#34;Linux.csv&#34;</span>);
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  collectionView.innerHTML <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>  displayLoader();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> jsonString <span style="color:#f92672">=</span> new String(<span style="color:#66d9ef">await</span> invoke(RustFunctions[<span style="color:#e6db74">&#34;readCsvContent&#34;</span>], { filename: <span style="color:#a6e22e">filename</span> })).valueOf();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> response <span style="color:#f92672">=</span> <span style="color:#66d9ef">JSON</span>.parse(jsonString) <span style="color:#66d9ef">as</span> Record<span style="color:#f92672">&lt;</span>string, any<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> array <span style="color:#f92672">=</span> response.result <span style="color:#66d9ef">as</span> Array<span style="color:#f92672">&lt;</span>Record<span style="color:#f92672">&lt;</span>string, any<span style="color:#f92672">&gt;&gt;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> keyword <span style="color:#f92672">=</span> searchBar<span style="color:#f92672">?</span>.value<span style="color:#f92672">?</span>.trim();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> action <span style="color:#f92672">=</span> highlightAction(keyword);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> row of array) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (keyword) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> values <span style="color:#f92672">=</span> Object.values(row).flat().join(<span style="color:#e6db74">&#39; &#39;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>values.toLowerCase().includes(keyword.toLowerCase())) <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">const</span> divHtml <span style="color:#f92672">=</span> collectionItemMaker(row, action);
+</span></span><span style="display:flex;"><span>      collectionView.insertAdjacentHTML(<span style="color:#a6e22e">&#39;beforeend&#39;</span>, divHtml);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">await</span> new Promise(resolve <span style="color:#f92672">=&gt;</span> setTimeout(resolve, <span style="color:#ae81ff">1000</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  } catch (error) {
+</span></span><span style="display:flex;"><span>    console.error(<span style="color:#e6db74">&#34;Error reading CSV file:&#34;</span>, error);
+</span></span><span style="display:flex;"><span>  } finally {
+</span></span><span style="display:flex;"><span>    dismissLoader();
+</span></span><span style="display:flex;"><span>    collectionView.style.opacity <span style="color:#f92672">=</span> <span style="color:#a6e22e">&#39;</span><span style="color:#ae81ff">1.0</span><span style="color:#a6e22e">&#39;</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>function collectionItemMaker(row: <span style="color:#a6e22e">Record</span><span style="color:#f92672">&lt;</span>string, any<span style="color:#f92672">&gt;</span>, highlight: (text: <span style="color:#a6e22e">string</span>) <span style="color:#f92672">=&gt;</span> string <span style="color:#f92672">=</span> (<span style="color:#66d9ef">str</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">str</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> stars <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;★&#39;</span>.repeat(Number(row.level) <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;☆&#39;</span>.repeat(<span style="color:#ae81ff">5</span> <span style="color:#f92672">-</span> (Number(row.level) <span style="color:#f92672">||</span> <span style="color:#ae81ff">0</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> divHtml <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;</span>div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;star-rating&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#75715e">$</span>{stars}<span style="color:#f92672">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>h2 class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-link&#34;</span><span style="color:#f92672">&gt;&lt;</span>a href<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;${row.url}&#34;</span> target<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;_blank&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#75715e">$</span>{highlight(row.name)}<span style="color:#f92672">&lt;/</span>a<span style="color:#f92672">&gt;&lt;/</span>h2<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>p class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-notes&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#75715e">$</span>{highlight(row.notes)}<span style="color:#f92672">&lt;/</span>p<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">$</span>{row.example <span style="color:#f92672">?</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">&lt;</span>p class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;card-example&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#75715e">$</span>{highlight(row.example)}<span style="color:#f92672">&lt;/</span>p<span style="color:#f92672">&gt;</span><span style="color:#960050;background-color:#1e0010">`</span> : <span style="color:#a6e22e">&#39;&#39;</span>}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;</span>div class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hashtag-container&#34;</span><span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">$</span>{hashtagHtmlElementMaker(row.platform, highlight)}
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">$</span>{hashtagHtmlElementMaker(row.<span style="color:#66d9ef">type</span>, highlight)}
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;/</span>div<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">`</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> divHtml;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>function hashtagHtmlElementMaker(tags<span style="color:#f92672">?</span>: [string], highlight: (text: <span style="color:#a6e22e">string</span>) <span style="color:#f92672">=&gt;</span> string <span style="color:#f92672">=</span> (<span style="color:#66d9ef">str</span>) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">str</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>tags) { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">&#39;&#39;</span> };
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">let</span> hashtags: <span style="color:#a6e22e">string</span>[] <span style="color:#f92672">=</span> [];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  tags.forEach((tag: <span style="color:#a6e22e">string</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> color <span style="color:#f92672">=</span> hashtagColors[tag] <span style="color:#f92672">||</span> { background: <span style="color:#a6e22e">&#39;</span>#e0e0e0<span style="color:#a6e22e">&#39;</span>, text: <span style="color:#a6e22e">&#39;</span>#<span style="color:#ae81ff">000000</span><span style="color:#a6e22e">&#39;</span> }; <span style="color:#75715e">// 預設顏色
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> html <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">`</span><span style="color:#f92672">&lt;</span>span class<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;hashtag&#34;</span> style<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;background-color: ${color.background}; color: ${color.text}&#34;</span><span style="color:#f92672">&gt;</span><span style="color:#75715e">$</span>{highlight(tag)}<span style="color:#f92672">&lt;/</span>span<span style="color:#f92672">&gt;</span><span style="color:#960050;background-color:#1e0010">`</span>;
+</span></span><span style="display:flex;"><span>    hashtags.push(html);
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> hashtags.join(<span style="color:#a6e22e">&#39;&#39;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>function highlightAction(keyword<span style="color:#f92672">?</span>: <span style="color:#a6e22e">string</span>) {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> action <span style="color:#f92672">=</span> (text: <span style="color:#a6e22e">string</span>) <span style="color:#f92672">=&gt;</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>keyword) <span style="color:#66d9ef">return</span> text;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> text.replace(new RegExp(<span style="color:#960050;background-color:#1e0010">`</span>(<span style="color:#75715e">$</span>{keyword.replace(<span style="color:#f92672">/</span>[.<span style="color:#f92672">*+?^</span><span style="color:#75715e">$</span>{}()<span style="color:#f92672">|</span>[<span style="color:#960050;background-color:#1e0010">\</span>]<span style="color:#960050;background-color:#1e0010">\\</span>]<span style="color:#f92672">/</span>g, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\\</span><span style="color:#e6db74">$&amp;&#34;</span>)})<span style="color:#960050;background-color:#1e0010">`</span>, <span style="color:#a6e22e">&#39;gi&#39;</span>), <span style="color:#a6e22e">&#39;</span><span style="color:#f92672">&lt;</span>mark<span style="color:#f92672">&gt;</span><span style="color:#75715e">$</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&lt;/</span>mark<span style="color:#f92672">&gt;</span><span style="color:#a6e22e">&#39;</span>);
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> action;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> function readHashtagColors() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">try</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> jsonContent <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> invoke(RustFunctions[<span style="color:#e6db74">&#34;readColors&#34;</span>], { 
+</span></span><span style="display:flex;"><span>      filename: <span style="color:#e6db74">&#34;hashtagColors.json&#34;</span> 
+</span></span><span style="display:flex;"><span>    }) <span style="color:#66d9ef">as</span> string;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">JSON</span>.parse(jsonContent);
+</span></span><span style="display:flex;"><span>  } catch (error) {
+</span></span><span style="display:flex;"><span>    console.error(<span style="color:#e6db74">&#34;無法載入 hashtagColors.json:&#34;</span>, error);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> {};
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">async</span> function main() {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  platformSelect <span style="color:#f92672">=</span> document.querySelector(<span style="color:#e6db74">&#34;#platform-select&#34;</span>);
+</span></span><span style="display:flex;"><span>  collectionView <span style="color:#f92672">=</span> document.querySelector(<span style="color:#e6db74">&#34;#card-collection-view&#34;</span>);
+</span></span><span style="display:flex;"><span>  loader <span style="color:#f92672">=</span> document.querySelector(<span style="color:#a6e22e">&#39;</span>#loader<span style="color:#f92672">-</span>container<span style="color:#a6e22e">&#39;</span>);
+</span></span><span style="display:flex;"><span>  searchButton <span style="color:#f92672">=</span> document.querySelector(<span style="color:#e6db74">&#34;#search-btn&#34;</span>);
+</span></span><span style="display:flex;"><span>  searchBar <span style="color:#f92672">=</span> document.querySelector(<span style="color:#e6db74">&#34;#search-bar&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  hashtagColors <span style="color:#f92672">=</span> <span style="color:#66d9ef">await</span> readHashtagColors();
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> initMenuSetting();
+</span></span><span style="display:flex;"><span>  initDarkMode();
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>platformSelect <span style="color:#f92672">||</span> <span style="color:#f92672">!</span>collectionView) { <span style="color:#66d9ef">return</span>; }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (searchButton <span style="color:#f92672">&amp;&amp;</span> searchBar) {
+</span></span><span style="display:flex;"><span>    searchButton.addEventListener(<span style="color:#a6e22e">&#39;click&#39;</span>, () <span style="color:#f92672">=&gt;</span> displayCsvCard(platformSelect<span style="color:#f92672">?</span>.value, <span style="color:#66d9ef">false</span>));
+</span></span><span style="display:flex;"><span>    searchBar.addEventListener(<span style="color:#a6e22e">&#39;keydown&#39;</span>, (e) <span style="color:#f92672">=&gt;</span> { <span style="color:#66d9ef">if</span> (e.key <span style="color:#f92672">===</span> <span style="color:#a6e22e">&#39;Enter&#39;</span>) displayCsvCard(platformSelect<span style="color:#f92672">?</span>.value, <span style="color:#66d9ef">false</span>); });
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  platformSelect<span style="color:#f92672">?</span>.addEventListener(<span style="color:#e6db74">&#34;change&#34;</span>, () <span style="color:#f92672">=&gt;</span> displayCsvCard(platformSelect<span style="color:#f92672">?</span>.value));
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">await</span> displayCsvCard(platformSelect.value);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>main();
+</span></span></code></pre></div><video controls width="50%">
+  <source src="/images/2025/rust-tauri-csv/search.mp4" type="video/mp4" />
+</video>
+<h2 id="範例程式碼下載"><a href="/images/2025/rust-tauri-csv/rust-tauri-csv.7z">範例程式碼下載</a></h2>
 <h2 id="後記">後記</h2>
 <ul>
-<li>其實筆者<a href="https://ithelp.ithome.com.tw/articles/10242031">同一個</a>專案，<a href="https://realnewbie.com/basic-concent/architecture/beginner-guide-understanding-content-security-policy-csp-and-web-security/">前前後後</a>已經做了三次了，雖然中間有<a href="https://youtu.be/PyffiDVd29U">修修改改</a>，主要也是怕出錯，因為筆者不想要是用<a href="https://youtu.be/nSn3n9-ypAY">運氣</a>矇出來的，然後下一次就…做不出來，所以筆者都會把從<a href="https://www.youtube.com/@goldfishbrain">網路上 / GPT</a>得來的程式碼整理成<a href="https://swiftpackageindex.com/William-Weng">小工具</a>，當然…也是因為筆者的<a href="https://youtu.be/WwJ3Hab7SXE">記性差</a>，好不容易做出來的東西，以後要用的時候，還要再想一次，很燒腦啊，而且對<a href="https://willh.gitbook.io/typescript-tutorial">typescript</a>也不熟，直接就<a href="https://youtu.be/5u9SFYg-ytY">複製貼上</a>不是很好嗎？而且…筆者的<a href="https://udn.com/news/story/6812/8684983">智商</a>也不高，也非人人口中的<a href="https://www.storm.mg/lifestyle/4916478">高知識分子</a>，而是靠<a href="https://youtu.be/lEbCgCqDN4g">一點一滴</a>累積出來的，也許有人能讀了文件就會做了，但是筆者還是喜歡從做中學，所以筆者最喜歡的學習方式之一，況且筆者的英文又差，所以只能慢慢的學習…</li>
+<li>其實筆者<a href="https://ithelp.ithome.com.tw/articles/10242031">同一個</a>專案，<a href="https://realnewbie.com/basic-concent/architecture/beginner-guide-understanding-content-security-policy-csp-and-web-security/">前前後後</a>已經做了三次了，雖然中間有<a href="https://youtu.be/PyffiDVd29U">修修改改</a>，主要也是怕出錯，因為筆者不想要是用<a href="https://youtu.be/nSn3n9-ypAY">運氣</a>矇出來的，然後下一次就…做不出來，所以筆者都會把從<a href="https://www.youtube.com/@goldfishbrain">網路上 / GPT</a>得來的程式碼整理成<a href="https://swiftpackageindex.com/William-Weng">小工具</a>，當然…也是因為筆者的<a href="https://youtu.be/WwJ3Hab7SXE">記性差</a>，好不容易做出來的東西，以後要用的時候，還要再想一次，很燒腦啊，而且對<a href="https://willh.gitbook.io/typescript-tutorial">typescript</a>也不熟，直接就<a href="https://youtu.be/5u9SFYg-ytY">複製貼上</a>不是很好嗎？而且…筆者的<a href="https://udn.com/news/story/6812/8684983">智商</a>也不高，也非人人口中的<a href="https://www.storm.mg/lifestyle/4916478">高知識分子</a>，而是靠<a href="https://youtu.be/lEbCgCqDN4g">一點一滴</a>累積出來的，也許有人能讀了文件就會做了，但是筆者還是喜歡<a href="https://youtu.be/apXSDoU0ACk">從做中學</a>，況且筆者的<a href="https://youtu.be/2hllCbaoIG0">英文</a>又差，所以只能慢慢的學習…</li>
 </ul>
 
     </div>
