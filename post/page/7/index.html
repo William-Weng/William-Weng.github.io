@@ -101,6 +101,102 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/" title="【Bash Shell Script】強大的命令提示字元？">【Bash Shell Script】強大的命令提示字元？</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <title>calendar</title>
+  <use xlink:href="#calendar"></use>
+</svg>
+</span>
+    <span class="post_date">
+      May 15, 2019</span>
+    <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/linux/' title="linux" class="post_tag button button_translucent">linux
+        </a><a href='https://William-Weng.github.io/tags/bash/' title="bash" class="post_tag button button_translucent">bash
+        </a><a href='https://William-Weng.github.io/tags/shell/' title="shell" class="post_tag button button_translucent">shell
+        </a><a href='https://William-Weng.github.io/tags/script/' title="script" class="post_tag button button_translucent">script
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Bash%20Shell%20Script%e3%80%91%e5%bc%b7%e5%a4%a7%e7%9a%84%e5%91%bd%e4%bb%a4%e6%8f%90%e7%a4%ba%e5%ad%97%e5%85%83%ef%bc%9f&url=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f05%2fbash-shell-script%25E5%25BC%25B7%25E5%25A4%25A7%25E7%259A%2584%25E5%2591%25BD%25E4%25BB%25A4%25E6%258F%2590%25E7%25A4%25BA%25E5%25AD%2597%25E5%2585%2583%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>twitter</title>
+  <use xlink:href="#twitter"></use>
+</svg>
+
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f05%2fbash-shell-script%25E5%25BC%25B7%25E5%25A4%25A7%25E7%259A%2584%25E5%2591%25BD%25E4%25BB%25A4%25E6%258F%2590%25E7%25A4%25BA%25E5%25AD%2597%25E5%2585%2583%2f&t=%e3%80%90Bash%20Shell%20Script%e3%80%91%e5%bc%b7%e5%a4%a7%e7%9a%84%e5%91%bd%e4%bb%a4%e6%8f%90%e7%a4%ba%e5%ad%97%e5%85%83%ef%bc%9f" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>facebook</title>
+  <use xlink:href="#facebook"></use>
+</svg>
+
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <title>linkedin</title>
+  <use xlink:href="#linkedin"></use>
+</svg>
+
+    </a>
+    <a href="https://William-Weng.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <title>copy</title>
+  <use xlink:href="#copy"></use>
+</svg>
+
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+      <div class="excerpt_thumbnail"><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt="【Bash Shell Script】強大的命令提示字元？"
+      
+        class="image_figure image_thumbnail image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/thumbnail/Bash.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+      </div>
+      
+        <div class="pale">
+          
+            <a href="https://zh.wikipedia.org/wiki/Bash">Bash</a>是<a href="https://zh.wikipedia.org/wiki/Unix_shell">Unix shell</a>的一種，一般來說Bash就是可以接受用戶輸入命令的程式，包括Linux與MacOSX都將它作為預設shell，它有點類似Windows的<a href="https://zh.wikipedia.org/wiki/%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83">命令提示字元</a>，但是功能比較強大，比較像是<a href="https://zh.wikipedia.org/wiki/Windows_PowerShell">Windows PowerShell</a>。說了這麼多，為什麼要學bash呢？使用GUI來做事就好了呀？因為有些日常的鎖碎小事，可以利用系統內建的bash就可以處理了，比方說影音轉檔，就可以使用<a href="https://ffmpeg.org/">ffmpeg</a>指令，加上迴圈就可以了，其實很多影音轉檔的GUI裡面都是包ffmpeg的。說了這麼多，我們就來慢慢瞭解<a href="https://devhints.io/bash">bash</a>的強大，學習一點簡單的Script吧。
+          
+          <br>
+          <a href="https://William-Weng.github.io/2019/05/bash-shell-script%E5%BC%B7%E5%A4%A7%E7%9A%84%E5%91%BD%E4%BB%A4%E6%8F%90%E7%A4%BA%E5%AD%97%E5%85%83/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+        <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2019/05/flutter-1.5%E5%AE%89%E8%A3%9Ddart%E7%AC%AC%E4%B8%89%E6%96%B9%E5%A5%97%E4%BB%B6-dart-packages/" title="【Flutter 1.5】安裝Dart第三方套件 - Dart Packages">【Flutter 1.5】安裝Dart第三方套件 - Dart Packages</a>
       </h3>
       
@@ -964,101 +1060,6 @@
     </div>
   </li>
 
-        <li class="post_item">
-  <div class="excerpt">
-    <div class="excerpt_header">
-      <h3 class="post_link">
-        <a href="https://William-Weng.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/" title="【TypeScript 3.2】強類型的JavaScript - TypeScript">【TypeScript 3.2】強類型的JavaScript - TypeScript</a>
-      </h3>
-      
-  <div class="post_meta">
-    <span><svg class="icon">
-  <title>calendar</title>
-  <use xlink:href="#calendar"></use>
-</svg>
-</span>
-    <span class="post_date">
-      May 6, 2019</span>
-    <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/javascript/' title="javascript" class="post_tag button button_translucent">javascript
-        </a><a href='https://William-Weng.github.io/tags/typescript/' title="typescript" class="post_tag button button_translucent">typescript
-        </a><a href='https://William-Weng.github.io/tags/install/' title="install" class="post_tag button button_translucent">install
-        </a>
-    </span>
-    <span class="page_only">&nbsp;·
-  <div class="post_share">
-    Share on:
-    <a href="https://twitter.com/intent/tweet?text=%e3%80%90TypeScript%203.2%e3%80%91%e5%bc%b7%e9%a1%9e%e5%9e%8b%e7%9a%84JavaScript%20-%20TypeScript&url=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f05%2ftypescript-3.2%25E5%25BC%25B7%25E9%25A1%259E%25E5%259E%258B%25E7%259A%2584javascript-typescript%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>twitter</title>
-  <use xlink:href="#twitter"></use>
-</svg>
-
-    </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f05%2ftypescript-3.2%25E5%25BC%25B7%25E9%25A1%259E%25E5%259E%258B%25E7%259A%2584javascript-typescript%2f&t=%e3%80%90TypeScript%203.2%e3%80%91%e5%bc%b7%e9%a1%9e%e5%9e%8b%e7%9a%84JavaScript%20-%20TypeScript" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
-      <svg class="icon">
-  <title>facebook</title>
-  <use xlink:href="#facebook"></use>
-</svg>
-
-    </a>
-    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
-      <svg class="icon">
-  <title>linkedin</title>
-  <use xlink:href="#linkedin"></use>
-</svg>
-
-    </a>
-    <a href="https://William-Weng.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/" title="Copy Link" class="link link_yank">
-      <svg class="icon">
-  <title>copy</title>
-  <use xlink:href="#copy"></use>
-</svg>
-
-    </a>
-  </div>
-  </span>
-  </div>
-
-    </div>
-    <div class="excerpt_footer partition">
-      <div class="excerpt_thumbnail"><figure>
-  <picture>
-
-    
-      
-        
-        
-        
-        
-        
-        
-    <img
-      loading="lazy"
-      decoding="async"
-      alt="【TypeScript 3.2】強類型的JavaScript - TypeScript"
-      
-        class="image_figure image_thumbnail image_internal image_unprocessed"
-        src="https://William-Weng.github.io/images/thumbnail/TypeScript.png"
-      
-      
-    />
-
-    </picture>
-</figure>
-
-      </div>
-      
-        <div class="pale">
-          
-            記得當時年紀小，一直以為<a href="https://zh.wikipedia.org/wiki/JavaScript">JavaScript</a>跟<a href="https://zh.wikipedia.org/wiki/Java">Java</a>是類似的東西，後來才發現原來JavaScript是在寫網頁的特效啊，雖然簡單易學，但是只有<a href="http://marklin-blog.logdown.com/posts/294468-javascript-single-thread">單線程</a>，一寫不好網頁就當在那裡了，而且當時只是用來寫<a href="https://dotblogs.com.tw/puma/2008/10/06/5597">防滑鼠右鍵跟Ctrl + C</a>的工具，到了後來，JavaScript使用的範圍越來越廣泛，如雨後春筍般的framework一個接一個，已經算是前臺的必備良藥，後來<a href="https://zh.wikipedia.org/wiki/V8_(JavaScript%E5%BC%95%E6%93%8E)">強大的V8引擎</a>，跟能夠寫後臺資料庫的<a href="https://zh.wikipedia.org/wiki/Node.js">Nodejs</a>，JavaScript等於是網頁端前後臺全包，加上也能寫<a href="https://zh.wikipedia.org/wiki/Adobe_PhoneGap">手機APP</a>，將來真的是JavaScript一統天下。但是就因為JavaScript語法簡單，專案一大就顯得難以維護，其中著名的框架<a href="https://www.oschina.net/news/100515/plans-for-the-next-iteration-of-vue-js">VUE 3.0</a>就正在用<a href="https://zh.wikipedia.org/wiki/TypeScript">TypeScript</a>重寫， …
-          
-          <br>
-          <a href="https://William-Weng.github.io/2019/05/typescript-3.2%E5%BC%B7%E9%A1%9E%E5%9E%8B%E7%9A%84javascript-typescript/" title="Read More" class="excerpt_more button">Read More</a>
-        </div>
-      </div>
-    </div>
-  </li>
-
       <li>
     <ul class="pagination pagination-default">
       <li class="page-item">
@@ -1103,6 +1104,9 @@
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2025/07/tauri%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%BD%B1%E7%89%87%E8%BD%89%E6%AA%94%E5%B7%A5%E5%85%B7%E5%90%A7/" class="nav-link" title="【Tauri】大家一起來做一個簡單的影片轉檔工具吧…">【Tauri】大家一起來做一個簡單的影片轉檔工具吧…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/06/tauri%E7%95%B6rust%E8%B7%9Fweb%E5%90%8C%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7/" class="nav-link" title="【Tauri】當Rust跟Web同在一起，在一起，在一起…">【Tauri】當Rust跟Web同在一起，在一起，在一起…</a>
       </li>
       <li>
@@ -1122,9 +1126,6 @@
       </li>
       <li>
         <a href="https://William-Weng.github.io/2025/01/eop%E7%B0%A1%E8%AD%9C%E5%A4%A7%E5%B8%AB%E8%AE%93%E6%88%91%E5%80%91%E4%B8%80%E8%B5%B7%E6%88%90%E7%82%BA%E5%A4%A7%E5%B8%AB%E5%90%A7/" class="nav-link" title="【EOP簡譜大師】讓我們一起成為大師吧…">【EOP簡譜大師】讓我們一起成為大師吧…</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2024/11/musescore-4%E8%BA%AB%E7%82%BA%E4%B8%80%E5%80%8B%E6%89%93%E5%AD%97%E5%B7%A5%E6%9C%83%E6%89%93%E4%BA%94%E7%B7%9A%E8%AD%9C%E4%B9%9F%E6%98%AF%E6%BB%BF%E6%AD%A3%E5%B8%B8%E7%9A%84%E5%98%9B/" class="nav-link" title="【MuseScore 4】身為一個打字工，會打五線譜也是滿正常的嘛…">【MuseScore 4】身為一個打字工，會打五線譜也是滿正常的嘛…</a>
       </li>
     </ul>
     <div>
@@ -1170,6 +1171,11 @@
           <span class="button_tally">8</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/vue/' class="post_tag button button_translucent" title="vue">
+          VUE
+          <span class="button_tally">8</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/backend/' class="post_tag button button_translucent" title="backend">
           BACKEND
           <span class="button_tally">7</span>
@@ -1177,11 +1183,6 @@
         
         <a href='https://William-Weng.github.io/tags/database/' class="post_tag button button_translucent" title="database">
           DATABASE
-          <span class="button_tally">7</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/vue/' class="post_tag button button_translucent" title="vue">
-          VUE
           <span class="button_tally">7</span>
         </a>
         
@@ -1225,6 +1226,11 @@
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/cargo/' class="post_tag button button_translucent" title="cargo">
+          CARGO
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
           NODEJS
           <span class="button_tally">4</span>
@@ -1232,6 +1238,11 @@
         
         <a href='https://William-Weng.github.io/tags/nosql/' class="post_tag button button_translucent" title="nosql">
           NOSQL
+          <span class="button_tally">4</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
+          RUST
           <span class="button_tally">4</span>
         </a>
         
@@ -1250,8 +1261,8 @@
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/cargo/' class="post_tag button button_translucent" title="cargo">
-          CARGO
+        <a href='https://William-Weng.github.io/tags/ffmpeg/' class="post_tag button button_translucent" title="ffmpeg">
+          FFMPEG
           <span class="button_tally">3</span>
         </a>
         
@@ -1280,11 +1291,6 @@
           <span class="button_tally">3</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
-          RUST
-          <span class="button_tally">3</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/csv/' class="post_tag button button_translucent" title="csv">
           CSV
           <span class="button_tally">2</span>
@@ -1302,11 +1308,6 @@
         
         <a href='https://William-Weng.github.io/tags/email/' class="post_tag button button_translucent" title="email">
           EMAIL
-          <span class="button_tally">2</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/ffmpeg/' class="post_tag button button_translucent" title="ffmpeg">
-          FFMPEG
           <span class="button_tally">2</span>
         </a>
         
@@ -1387,6 +1388,11 @@
         
         <a href='https://William-Weng.github.io/tags/swiftui/' class="post_tag button button_translucent" title="swiftui">
           SWIFTUI
+          <span class="button_tally">2</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/tauri/' class="post_tag button button_translucent" title="tauri">
+          TAURI
           <span class="button_tally">2</span>
         </a>
         
@@ -1625,11 +1631,6 @@
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/rx/' class="post_tag button button_translucent" title="rx">
-          RX
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
@@ -1704,7 +1705,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/cargo/' class=" post_tag button button_translucent" data-position=3 title="cargo">CARGO<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/cargo/' class=" post_tag button button_translucent" data-position=4 title="cargo">CARGO<span class="button_tally">4</span>
             </a>
             
             
@@ -1772,7 +1773,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/ffmpeg/' class=" post_tag button button_translucent" data-position=2 title="ffmpeg">FFMPEG<span class="button_tally">2</span>
+            <a href='https://William-Weng.github.io/tags/ffmpeg/' class=" post_tag button button_translucent" data-position=3 title="ffmpeg">FFMPEG<span class="button_tally">3</span>
             </a>
             
             
@@ -1980,7 +1981,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=3 title="rust">RUST<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=4 title="rust">RUST<span class="button_tally">4</span>
             </a>
             
             
@@ -2024,7 +2025,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/tauri/' class=" post_tag button button_translucent" data-position=1 title="tauri">TAURI<span class="button_tally">1</span>
+            <a href='https://William-Weng.github.io/tags/tauri/' class=" post_tag button button_translucent" data-position=2 title="tauri">TAURI<span class="button_tally">2</span>
             </a>
             
             
@@ -2072,7 +2073,7 @@
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/vue/' class=" post_tag button button_translucent" data-position=7 title="vue">VUE<span class="button_tally">7</span>
+            <a href='https://William-Weng.github.io/tags/vue/' class=" post_tag button button_translucent" data-position=8 title="vue">VUE<span class="button_tally">8</span>
             </a>
             
             

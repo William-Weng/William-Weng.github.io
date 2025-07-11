@@ -6,7 +6,24 @@
     <description>Recent content in Cargo on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Wed, 25 Jun 2025 21:58:39 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/cargo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Jul 2025 06:51:04 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/cargo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Tauri】大家一起來做一個簡單的影片轉檔工具吧…</title>
+      <link>https://William-Weng.github.io/2025/07/tauri%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%BD%B1%E7%89%87%E8%BD%89%E6%AA%94%E5%B7%A5%E5%85%B7%E5%90%A7/</link>
+      <pubDate>Fri, 11 Jul 2025 06:51:04 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2025/07/tauri%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%BD%B1%E7%89%87%E8%BD%89%E6%AA%94%E5%B7%A5%E5%85%B7%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;其實在之前，一直很想用&lt;a href=&#34;../../2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/&#34;&gt;Wails&lt;/a&gt;做一個簡單的&lt;code&gt;ffmpeg影片轉換器&lt;/code&gt;，但後來發現網路有關&lt;a href=&#34;https://juejin.cn/post/7206206630933086264&#34;&gt;Tauri&lt;/a&gt;的資源好像滿多的，而且聽說&lt;code&gt;Rust&lt;/code&gt;很安全，用了之後才發現是真的安全，在編譯的時候全都從頭到尾&lt;a href=&#34;https://www.sakura.com.tw/Video/Content/47&#34;&gt;檢查&lt;/a&gt;一遍，導致編譯的速度真的是很慢啊，而且檔案真的是大，動不動就是好幾G的…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Tauri】當Rust跟Web同在一起，在一起，在一起…</title>
       <link>https://William-Weng.github.io/2025/06/tauri%E7%95%B6rust%E8%B7%9Fweb%E5%90%8C%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7/</link>
@@ -18,151 +35,6 @@
           
             &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;記得之前有用&lt;a href=&#34;../../04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/&#34;&gt;Wails = Web + Go&lt;/a&gt;做了一個簡單的切割ts檔的小工具，今天我們用&lt;a href=&#34;https://v2.tauri.app/&#34;&gt;Tauri = Web + Rust&lt;/a&gt;來做一個讀取CSV檔的小APP，因為筆者平常就有在用&lt;a href=&#34;https://airtable.com/&#34;&gt;Airtable&lt;/a&gt;記錄相關軟體、套件的習慣，而它也可以輸出成CSV檔來做進一步的處理，雖然Airtable本身有&lt;a href=&#34;https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%B8%B2%E6%8E%A5-airtable%E7%9A%84-api-%E9%96%8B%E7%99%BC-ios-app-5e5c86c8ca7d&#34;&gt;API&lt;/a&gt;可以使用，但要做成手機APP，或者是Web網頁也是滿麻煩的，除了一定要能連線之外，有個網址框也不好看，所以還是傾向做成&lt;a href=&#34;https://www.explainthis.io/zh-hant/swe/spa&#34;&gt;單頁的APP&lt;/a&gt;，當然…主要也是Rust可以產出&lt;a href=&#34;https://www.ithome.com.tw/news/166256&#34;&gt;WASM&lt;/a&gt;，想來試用看看，結果越走越歪了，不管了，也順便學學吧，都快要變成&lt;a href=&#34;https://tw.alphacamp.co/blog/fullstack-software-developer&#34;&gt;超全端&lt;/a&gt;了，反正有AI的出現，以後的&lt;a href=&#34;https://b23.tv/eSroE2m&#34;&gt;一人軟體公司&lt;/a&gt;也會越來越多了吧？&lt;/p&gt;
-&lt;h2 id=&#34;作業環境&#34;&gt;作業環境&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th&gt;項目&lt;/th&gt;
-          &lt;th&gt;版本&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&#34;https://github.com/ninxsoft/Mist&#34;&gt;macOS&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;Sequoia 15.5&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;Visual Studio Code&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;1.101.1&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&#34;https://nodejs.org/&#34;&gt;nodejs&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;20.19.2&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&#34;https://www.rust-lang.org/&#34;&gt;rust&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;1.87&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&#34;https://v2.tauri.app/&#34;&gt;tauri&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;2.5.1&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id=&#34;做一個長得像這樣的app&#34;&gt;做一個長得像這樣的APP&lt;/h2&gt;
-&lt;video controls width=&#34;50%&#34;&gt;
-  &lt;source src=&#34;https://William-Weng.github.io/images/2025/rust-tauri-csv/result.mp4&#34; type=&#34;video/mp4&#34; /&gt;
-&lt;/video&gt;
-&lt;h2 id=&#34;安裝tauri&#34;&gt;安裝Tauri&lt;/h2&gt;
-&lt;h3 id=&#34;tauri-command&#34;&gt;Tauri Command&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;安裝完了&lt;a href=&#34;../../../tags/rust/&#34;&gt;rust&lt;/a&gt;之後，再來就來裝tauri…&lt;/li&gt;
-&lt;li&gt;因為&lt;a href=&#34;https://ithelp.ithome.com.tw/users/20150947/ironman/6067&#34;&gt;tauri&lt;/a&gt;說穿了，就是個前後端綁在一起的網頁程式，所以&lt;a href=&#34;tags/nodejs/&#34;&gt;nodejs&lt;/a&gt;也要裝喲…
-&lt;figure&gt;
-  &lt;picture&gt;
-
-    
-      
-        
-        
-        
-        
-        
-        
-    &lt;img
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      alt=&#34;&#34;
-      
-        class=&#34;image_figure image_internal image_unprocessed&#34;
-        src=&#34;https://William-Weng.github.io/images/2025/rust-tauri-csv/install.png&#34;
-      
-      
-    /&gt;
-
-    &lt;/picture&gt;
-&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cargo install create-tauri-app
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;再來建立一個&lt;a href=&#34;https://youtu.be/CfndNn8tn0c&#34;&gt;Tauri新專案&lt;/a&gt;來試試…&lt;/li&gt;
-&lt;li&gt;這裡取的專案名稱叫&lt;code&gt;csv-library&lt;/code&gt;，使用的前端框架是&lt;a href=&#34;https://www.ithome.com.tw/voice/106182&#34;&gt;vanilla-ts&lt;/a&gt;…&lt;/li&gt;
-&lt;li&gt;然後就給它&lt;a href=&#34;https://youtu.be/DtoGx30jAns&#34;&gt;跑跑看&lt;/a&gt;的啦…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;video controls width=&#34;50%&#34;&gt;
-  &lt;source src=&#34;https://William-Weng.github.io/images/2025/rust-tauri-csv/create.mp4&#34; type=&#34;video/mp4&#34; /&gt;
-&lt;/video&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cargo create-tauri-app &amp;lt;專案名稱&amp;gt; --template &amp;lt;前端架構&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ~/Desktop
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cargo create-tauri-app csv-library --template vanilla-ts
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd csv-library
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm run tauri dev
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;它的檔案結構是長這個樣子的…&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;src&lt;/code&gt;是寫&lt;code&gt;前端程式 - nodejs&lt;/code&gt;的地方&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;src-tauri&lt;/code&gt;是寫&lt;code&gt;後端程式 - rust&lt;/code&gt;的地方
-&lt;figure&gt;
-  &lt;picture&gt;
-
-    
-      
-        
-        
-        
-        
-        
-        
-    &lt;img
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      alt=&#34;&#34;
-      
-        class=&#34;image_figure image_internal image_unprocessed&#34;
-        src=&#34;https://William-Weng.github.io/images/2025/rust-tauri-csv/struct.png&#34;
-      
-      
-    /&gt;
-
-    &lt;/picture&gt;
-&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;前後端通信&#34;&gt;前後端通信&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;要怎麼要讓前後端通信呢？這就要靠&lt;code&gt;invoke()&lt;/code&gt;來&lt;a href=&#34;https://youtu.be/NaaDnG6MudI&#34;&gt;召喚後端&lt;/a&gt;的程式了…&lt;/li&gt;
-&lt;li&gt;後端程式要先以&lt;code&gt;#[tauri::command]&lt;/code&gt;這個巨集來註解它是可以&lt;code&gt;被前端執行&lt;/code&gt;的程式碼…&lt;/li&gt;
-&lt;li&gt;然後再用&lt;code&gt;invoke_handler()&lt;/code&gt;來註冊在前端之上，這樣就可以讓前端使用了…&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;greetMsgEl&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;textContent&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;await&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;invoke&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;greet&amp;#34;&lt;/span&gt;, {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;greetInputEl&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;value&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure&gt;
-  &lt;picture&gt;
-
-    
-      
-        
-        
-        
-        
-        
-        
-    &lt;img
-      loading=&#34;lazy&#34;
-      decoding=&#34;async&#34;
-      alt=&#34;&#34;
-      
-        class=&#34;image_figure image_internal image_unprocessed&#34;
-        src=&#34;https://William-Weng.github.io/images/2025/rust-tauri-csv/invoke.png&#34;
-      
-      
-    /&gt;
-
-    &lt;/picture&gt;
-&lt;/figure&gt;
-&lt;/p&gt;
           
           
         
