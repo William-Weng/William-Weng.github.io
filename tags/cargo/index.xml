@@ -68,7 +68,7 @@
         
           
             &lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;雖然聽說Rust的&lt;a href=&#34;https://youtu.be/UGlWZcm6yyI&#34;&gt;語法&lt;/a&gt;很難，但是筆者為什麼會想要學呢？主要是看到了這個&lt;a href=&#34;https://github.com/ayangweb/BongoCat&#34;&gt;APP - BongoCat&lt;/a&gt;，是一個滿有趣的鍵盤互動功能，主要是利用&lt;a href=&#34;https://github.com/tauri-apps/tauri&#34;&gt;Tauri - Rust + Web&lt;/a&gt;去改寫這個用C#寫的&lt;a href=&#34;github.com/MMmmmoko/Bongo-Cat-Mver&#34;&gt;Bongo-Cat-Mver&lt;/a&gt;，讓它能跑在windows / linux / macOS上，&lt;a href=&#34;https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=9307&amp;amp;webMd=2&amp;amp;la=0&#34;&gt;事不宜遲&lt;/a&gt;，我們馬上行動…&lt;/p&gt;
+&lt;p&gt;雖然聽說Rust的&lt;a href=&#34;https://youtu.be/UGlWZcm6yyI&#34;&gt;語法&lt;/a&gt;很難，但是筆者為什麼會想要學呢？主要是看到了這個&lt;a href=&#34;https://github.com/ayangweb/BongoCat&#34;&gt;APP - BongoCat&lt;/a&gt;，是一個滿有趣的鍵盤互動功能，主要是利用&lt;a href=&#34;https://github.com/tauri-apps/tauri&#34;&gt;Tauri - Rust + Web&lt;/a&gt;去改寫這個用C#寫的&lt;a href=&#34;https://github.com/MMmmmoko/Bongo-Cat-Mver&#34;&gt;Bongo-Cat-Mver&lt;/a&gt;，讓它能跑在windows / linux / macOS上，&lt;a href=&#34;https://dict.idioms.moe.edu.tw/idiomView.jsp?ID=9307&amp;amp;webMd=2&amp;amp;la=0&#34;&gt;事不宜遲&lt;/a&gt;，我們馬上行動…&lt;/p&gt;
           
           
         
