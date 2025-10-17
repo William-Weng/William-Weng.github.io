@@ -1,0 +1,77 @@
+
+name: Linux x86 Workflow
+
+on:
+  push:
+    branches:
+      - debug
+    tags:
+      - 'v*'
+
+  pull_request:
+    branches:
+      - develop
+
+  workflow_dispatch:
+    inputs:
+      jsName:
+        description: '要執行的 JavaScript 檔案名稱'
+        required: true
+        default: 'app.js'
+
+      nodeVersion:
+        description: 'Node.js 版本'
+        required: true
+        default: '20'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      OS: ubuntu
+
+    steps:
+      - name: 將你的 Git 儲存庫的程式碼下載（checkout）到工作流程執行器（runner）的檔案系統中。
+        uses: actions/checkout@v4
+
+      - name: 取得系統名稱
+        id: get_os
+        run: echo "OS_NAME=$(uname -s)" >> $GITHUB_OUTPUT
+
+      - name: 取得CPU架構
+        id: get_arch
+        run: echo "CPU_ARCH=$(uname -m)" >> $GITHUB_OUTPUT
+
+      - name: 列印系統名稱和CPU架構
+        run: |
+          echo "系統名稱: ${{ steps.get_os.outputs.OS_NAME }}"
+          echo "CPU架構: ${{ steps.get_arch.outputs.CPU_ARCH }}"
+
+      - name: 安裝 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ github.event.inputs.nodeVersion || '20' }}
+
+      - name: 驗證 Node.js 版本
+        run: node -v
+
+      - name: 執行JavaScript檔案
+        run: node ${{ github.event.inputs.jsName || 'app.js' }}
+
+      - name: 設定壓縮檔案名稱
+        run: echo "FILE_NAME=app-${{ env.OS }}.zip" >> $GITHUB_ENV
+
+      - name: 壓縮 app.js 成 app.zip
+        run: zip ${{ env.FILE_NAME }} app.js
+
+      - name: 列印目前目錄內容
+        run: ls -al
+
+      - name: 上傳 app.zip 到 GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ env.FILE_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

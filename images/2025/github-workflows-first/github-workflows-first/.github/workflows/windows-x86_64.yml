@@ -1,0 +1,84 @@
+
+name: Windows x86_64 Workflow
+
+on:
+  push:
+    branches:
+      - debug
+    tags:
+      - 'v*'
+
+  pull_request:
+    branches:
+      - develop
+
+  workflow_dispatch:
+    inputs:
+      jsName:
+        description: '要執行的 JavaScript 檔案名稱'
+        required: true
+        default: 'app.js'
+
+      nodeVersion:
+        description: 'Node.js 版本'
+        required: true
+        default: '20'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    env:
+      OS: windows
+
+    steps:
+      - name: 將你的 Git 儲存庫的程式碼下載（checkout）到工作流程執行器（runner）的檔案系統中。
+        uses: actions/checkout@v4
+
+      - name: 取得系統名稱
+        id: get_os
+        run: |
+          $osName = (systeminfo | Select-String '^OS Name').ToString().Split(':')[1].Trim()
+          echo "OS_NAME=$osName" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: 取得CPU架構
+        id: get_arch
+        run: |
+          $archName = (systeminfo | Select-String '^System Type').ToString().Split(':')[1].Trim()
+          echo "CPU_ARCH=$archName" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: 列印系統名稱和CPU架構
+        run: |
+          echo "系統名稱: ${{ env.OS_NAME }}"
+          echo "CPU架構: ${{ env.CPU_ARCH }}"
+
+      - name: 安裝 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ github.event.inputs.nodeVersion || '20' }}
+
+      - name: 驗證 Node.js 版本
+        run: node -v
+
+      - name: 執行JavaScript檔案
+        run: node ${{ github.event.inputs.jsName || 'app.js' }}
+
+      - name: 設定壓縮檔案名稱
+        run: |
+          $archName = "app-${{ env.OS }}.zip" 
+          echo "FILE_NAME=$archName" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+
+      - name: 壓縮 app.js 成 app.zip
+        run: Compress-Archive -Path app.js -DestinationPath $env:FILE_NAME
+        shell: powershell
+
+      - name: 列印目前目錄內容
+        run: Get-ChildItem
+
+      - name: 上傳 app.zip 到 GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ env.FILE_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

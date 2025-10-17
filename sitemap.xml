@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://William-Weng.github.io/2025/10/workflow%E8%87%AA%E5%8B%95%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%A6%82%E5%88%9D%E8%A6%8B/</loc>
+    <lastmod>2025-10-17T20:53:36+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/actions/</loc>
+    <lastmod>2025-10-17T20:53:36+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/github/</loc>
+    <lastmod>2025-10-17T20:53:36+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/post/</loc>
+    <lastmod>2025-10-17T20:53:36+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/</loc>
+    <lastmod>2025-10-17T20:53:36+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/</loc>
+    <lastmod>2025-10-17T20:53:36+08:00</lastmod>
+  </url><url>
+    <loc>https://William-Weng.github.io/tags/workflow/</loc>
+    <lastmod>2025-10-17T20:53:36+08:00</lastmod>
+  </url><url>
     <loc>https://William-Weng.github.io/2025/07/tauri%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%BD%B1%E7%89%87%E8%BD%89%E6%AA%94%E5%B7%A5%E5%85%B7%E5%90%A7/</loc>
     <lastmod>2025-07-11T06:51:04+08:00</lastmod>
   </url><url>
@@ -11,22 +32,13 @@
     <loc>https://William-Weng.github.io/tags/ffmpeg/</loc>
     <lastmod>2025-07-11T06:51:04+08:00</lastmod>
   </url><url>
-    <loc>https://William-Weng.github.io/post/</loc>
-    <lastmod>2025-07-11T06:51:04+08:00</lastmod>
-  </url><url>
     <loc>https://William-Weng.github.io/tags/rust/</loc>
-    <lastmod>2025-07-11T06:51:04+08:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/tags/</loc>
     <lastmod>2025-07-11T06:51:04+08:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/tags/tauri/</loc>
     <lastmod>2025-07-11T06:51:04+08:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/tags/vue/</loc>
-    <lastmod>2025-07-11T06:51:04+08:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/</loc>
     <lastmod>2025-07-11T06:51:04+08:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/2025/06/tauri%E7%95%B6rust%E8%B7%9Fweb%E5%90%8C%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7/</loc>
@@ -435,9 +447,6 @@
     <lastmod>2019-07-05T13:39:34+00:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/2019/06/heroku%E8%B7%9Fgithub%E7%B5%90%E5%90%88%E7%9A%84%E7%9A%84%E9%9B%B2%E7%AB%AF%E5%B9%B3%E8%87%BA-nodejs%E7%AF%87/</loc>
-    <lastmod>2019-06-24T17:11:40+00:00</lastmod>
-  </url><url>
-    <loc>https://William-Weng.github.io/tags/github/</loc>
     <lastmod>2019-06-24T17:11:40+00:00</lastmod>
   </url><url>
     <loc>https://William-Weng.github.io/tags/koa2/</loc>
