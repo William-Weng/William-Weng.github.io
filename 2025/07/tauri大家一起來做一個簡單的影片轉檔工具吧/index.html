@@ -509,7 +509,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">command_combine</span>(command: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; <span style="color:#a6e22e">Command</span> {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> cfg!(windows) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">cfg!</span>(windows) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> cmd <span style="color:#f92672">=</span> Command::new(<span style="color:#e6db74">&#34;cmd&#34;</span>);
 </span></span><span style="display:flex;"><span>        cmd.arg(<span style="color:#e6db74">&#34;/C&#34;</span>);
 </span></span><span style="display:flex;"><span>        cmd.arg(command);
@@ -536,7 +536,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">ffmpeg_command_maker</span>(path: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; String {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> setting <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, <span style="color:#e6db74">&#34;output.mp4&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, <span style="color:#e6db74">&#34;output.mp4&#34;</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> command <span style="color:#f92672">=</span> command_combine(ffmpeg_cmd.as_str());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> _ <span style="color:#f92672">=</span> command.output().expect(<span style="color:#e6db74">&#34;failed to execute process&#34;</span>);
 </span></span><span style="display:flex;"><span>
@@ -569,7 +569,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">ffmpeg_command_maker</span>(path: <span style="color:#66d9ef">&amp;</span><span style="color:#66d9ef">str</span>) -&gt; String {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> setting <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-c:v libx264 -c:a aac&#34;</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, <span style="color:#e6db74">&#34;output.mp4&#34;</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, <span style="color:#e6db74">&#34;output.mp4&#34;</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> command <span style="color:#f92672">=</span> command_combine(ffmpeg_cmd.as_str());
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#75715e">// let _ = command.output().expect(&#34;failed to execute process&#34;);
@@ -604,7 +604,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> setting <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-c:v libx264 -pix_fmt yuv420p -c:a aac&#34;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> output_path <span style="color:#f92672">=</span> full_path_maker(path, <span style="color:#e6db74">&#34;mp4&#34;</span>)<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, output_path.display());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, output_path.display());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> command <span style="color:#f92672">=</span> command_combine(ffmpeg_cmd.as_str());
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> _ <span style="color:#f92672">=</span> command.spawn();
@@ -632,7 +632,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> now <span style="color:#f92672">=</span> chrono::Local::now();
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> datetime_str <span style="color:#f92672">=</span> now.format(<span style="color:#e6db74">&#34;%Y%m%d_%H%M%S&#34;</span>).to_string();
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">_</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, prefix, datetime_str, format)
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">_</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">.</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, prefix, datetime_str, format)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
 <li>最後就是產生檔名路徑字串…</li>
@@ -661,7 +661,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> dir_path <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> file_parent_dir(path) {
 </span></span><span style="display:flex;"><span>        Some(dir) <span style="color:#f92672">=&gt;</span> dir,
 </span></span><span style="display:flex;"><span>        None <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> error_message <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>format!(<span style="color:#e6db74">&#34;無法取得父目錄: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path);
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">let</span> error_message <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;無法取得父目錄: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path);
 </span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> Err(io_error_maker(ErrorKind::NotFound, error_message));
 </span></span><span style="display:flex;"><span>        },
 </span></span><span style="display:flex;"><span>    };
@@ -709,12 +709,12 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>file_exists(path) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> error <span style="color:#f92672">=</span> io_error_maker(ErrorKind::NotFound, <span style="color:#e6db74">&#34;檔案不存在&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> cmd_str <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> ffmpeg_command_maker(path) {
 </span></span><span style="display:flex;"><span>        Ok(cmd) <span style="color:#f92672">=&gt;</span> cmd,
-</span></span><span style="display:flex;"><span>        Err(err) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, err)),
+</span></span><span style="display:flex;"><span>        Err(err) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, err)),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;finish&#34;</span>, cmd_str);
@@ -870,7 +870,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> setting <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;-c:v libx264 -c:a aac&#34;</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> output_path <span style="color:#f92672">=</span> full_path_maker(path, <span style="color:#e6db74">&#34;mp4&#34;</span>)<span style="color:#f92672">?</span>;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, output_path.display());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;ffmpeg -i </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, path, setting, output_path.display());
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> command <span style="color:#f92672">=</span> command_combine(ffmpeg_cmd.as_str());
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    command.stdout(Stdio::piped());
@@ -932,17 +932,17 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>file_exists(path) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> error <span style="color:#f92672">=</span> io_error_maker(ErrorKind::NotFound, <span style="color:#e6db74">&#34;檔案不存在&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> (<span style="color:#66d9ef">mut</span> cmd, cmd_str) <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> ffmpeg_command_maker(path) {
 </span></span><span style="display:flex;"><span>        Ok(result) <span style="color:#f92672">=&gt;</span> result,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> child <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> cmd.spawn() {
 </span></span><span style="display:flex;"><span>        Ok(child) <span style="color:#f92672">=&gt;</span> child,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    child_log(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> child, <span style="color:#f92672">|</span>line<span style="color:#f92672">|</span> {
@@ -1000,18 +1000,18 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>file_exists(path) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> error <span style="color:#f92672">=</span> io_error_maker(ErrorKind::NotFound, <span style="color:#e6db74">&#34;檔案不存在&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> (<span style="color:#66d9ef">mut</span> cmd, cmd_str) <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> ffmpeg_command_maker(path) {
 </span></span><span style="display:flex;"><span>        Ok(result) <span style="color:#f92672">=&gt;</span> result,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    thread::spawn(<span style="color:#66d9ef">move</span> <span style="color:#f92672">||</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> child <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> cmd.spawn() {
 </span></span><span style="display:flex;"><span>            Ok(child) <span style="color:#f92672">=&gt;</span> child,
-</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
+</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
 </span></span><span style="display:flex;"><span>        };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        child_log(<span style="color:#f92672">&amp;</span><span style="color:#66d9ef">mut</span> child, <span style="color:#f92672">|</span>line<span style="color:#f92672">|</span> {
@@ -1093,18 +1093,18 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>file_exists(path) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> error <span style="color:#f92672">=</span> io_error_maker(ErrorKind::NotFound, <span style="color:#e6db74">&#34;檔案不存在&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error));
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> (<span style="color:#66d9ef">mut</span> cmd, cmd_str) <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> ffmpeg_command_maker(path) {
 </span></span><span style="display:flex;"><span>        Ok(result) <span style="color:#f92672">=&gt;</span> result,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    thread::spawn(<span style="color:#66d9ef">move</span> <span style="color:#f92672">||</span> {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> child <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> cmd.spawn() {
 </span></span><span style="display:flex;"><span>            Ok(child) <span style="color:#f92672">=&gt;</span> child,
-</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
+</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)),
 </span></span><span style="display:flex;"><span>        };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        {
@@ -1119,13 +1119,13 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> output <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> child.wait_with_output() {
 </span></span><span style="display:flex;"><span>            Ok(output) <span style="color:#f92672">=&gt;</span> output,
 </span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>                emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>,error));
+</span></span><span style="display:flex;"><span>                emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>,error));
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> global <span style="color:#f92672">=</span> global_pid_lock();
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> <span style="color:#f92672">*</span>global <span style="color:#f92672">=</span> None;
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Finish.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, output));
+</span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Finish.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, output));
 </span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Finish.as_str(), <span style="color:#f92672">&amp;</span>cmd_str)
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>}
@@ -1140,8 +1140,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">run</span>() {
 </span></span><span style="display:flex;"><span>    tauri::Builder::default()
 </span></span><span style="display:flex;"><span>        .plugin(tauri_plugin_opener::init())
-</span></span><span style="display:flex;"><span>        .invoke_handler(tauri::generate_handler![start_convert, stop_convert])
-</span></span><span style="display:flex;"><span>        .run(tauri::generate_context!())
+</span></span><span style="display:flex;"><span>        .invoke_handler(tauri::<span style="color:#a6e22e">generate_handler!</span>[start_convert, stop_convert])
+</span></span><span style="display:flex;"><span>        .run(tauri::<span style="color:#a6e22e">generate_context!</span>())
 </span></span><span style="display:flex;"><span>        .expect(<span style="color:#e6db74">&#34;error while running tauri application&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
@@ -1594,19 +1594,19 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#f92672">!</span>file_exists(path) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> error <span style="color:#f92672">=</span> io_error_maker(ErrorKind::NotFound, <span style="color:#e6db74">&#34;檔案不存在&#34;</span>);
-</span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)); <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, <span style="color:#e6db74">&#34;error&#34;</span>, <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)); <span style="color:#66d9ef">return</span>;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> (<span style="color:#66d9ef">mut</span> cmd, cmd_str) <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> ffmpeg_command_maker(command, path, start_time, end_time, format, encode, scale) {
 </span></span><span style="display:flex;"><span>        Ok(result) <span style="color:#f92672">=&gt;</span> result,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> { emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)); <span style="color:#66d9ef">return</span>; },
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> { emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)); <span style="color:#66d9ef">return</span>; },
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    thread::spawn(<span style="color:#66d9ef">move</span> <span style="color:#f92672">||</span> {
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> child <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> cmd.spawn() {
 </span></span><span style="display:flex;"><span>            Ok(child) <span style="color:#f92672">=&gt;</span> child,
-</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> { emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)); <span style="color:#66d9ef">return</span>; },
+</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> { emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, error)); <span style="color:#66d9ef">return</span>; },
 </span></span><span style="display:flex;"><span>        };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>        {
@@ -1621,13 +1621,13 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span> output <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> child.wait_with_output() {
 </span></span><span style="display:flex;"><span>            Ok(output) <span style="color:#f92672">=&gt;</span> output,
 </span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>                emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>,error));
+</span></span><span style="display:flex;"><span>                emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Error.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>,error));
 </span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> global <span style="color:#f92672">=</span> global_pid_lock();
 </span></span><span style="display:flex;"><span>                <span style="color:#f92672">*</span>global <span style="color:#f92672">=</span> None; <span style="color:#66d9ef">return</span>;
 </span></span><span style="display:flex;"><span>            }
 </span></span><span style="display:flex;"><span>        };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Finish.as_str(), format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, output));
+</span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Finish.as_str(), <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, output));
 </span></span><span style="display:flex;"><span>        emit_payload(<span style="color:#f92672">&amp;</span>window_clone, FFmpegEvent::Finish.as_str(), <span style="color:#f92672">&amp;</span>cmd_str);
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>}
@@ -1670,10 +1670,10 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> video_scale <span style="color:#f92672">=</span> <span style="color:#66d9ef">if</span> scale.is_empty() {
 </span></span><span style="display:flex;"><span>        String::new()
 </span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
-</span></span><span style="display:flex;"><span>        format!(<span style="color:#e6db74">&#34;-vf scale=&#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;&#34;</span>, scale)
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;-vf scale=&#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;&#34;</span>, scale)
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> -ss </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> -to </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> -i &#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39; </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> &#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;&#34;</span>, command, start_time, end_time, path, codec, video_scale, output_path.display());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> ffmpeg_cmd <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> -ss </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> -to </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> -i &#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39; </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">{}</span><span style="color:#e6db74"> &#39;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#39;&#34;</span>, command, start_time, end_time, path, codec, video_scale, output_path.display());
 </span></span><span style="display:flex;"><span>    Ok(ffmpeg_cmd)
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>

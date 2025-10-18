@@ -146,7 +146,7 @@
   </div>
 
     <div class="post_body"><h2 id="前言">前言</h2>
-<p>話說，筆者為什麼要學Workflows的，絕對不是因為要<a href="https://zx2515296964.medium.com/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E7%B0%A1%E5%96%AE%E4%BA%86%E8%A7%A3-ci-cd-%E6%98%AF%E4%BB%80%E9%BA%BC%E5%90%A7-7adf50a573e6">CI / CD</a>，因為基本上，手機APP都是單人作業的，除非是很大型的專案，不然不太會有使用它的機會 (其實是筆者不會啦)，主要還是在學<a href="tags/tauri/">Tauri</a>製作小桌面APP，想要打包成各平台的執行檔，但是…筆者只有<a href="https://www.apple.com/tw/mac-mini/">mac mini</a>，那要怎麼辦呢？就可以使用<a href="https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows">GitHub Workflows</a>，來<a href="https://github.com/William-Weng/Tauri-FFmpeg-GUI">自動打包</a>成各平台的執行檔，雖然說，還是要實際上到各平台測一下才知道能不能用…</p>
+<p>話說，筆者為什麼要學Workflows的，絕對不是因為要<a href="https://zx2515296964.medium.com/%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E7%B0%A1%E5%96%AE%E4%BA%86%E8%A7%A3-ci-cd-%E6%98%AF%E4%BB%80%E9%BA%BC%E5%90%A7-7adf50a573e6">CI / CD</a>，因為基本上，手機APP都是單人作業的，除非是很大型的專案，不然不太會有使用它的機會 (其實是筆者不會啦)，主要還是在學<a href="/tags/tauri/">Tauri</a>製作小桌面APP，想要打包成各平台的執行檔，但是…筆者只有<a href="https://www.apple.com/tw/mac-mini/">mac mini</a>，那要怎麼辦呢？就可以使用<a href="https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows">GitHub Workflows</a>，來<a href="https://github.com/William-Weng/Tauri-FFmpeg-GUI">自動打包</a>成各平台的執行檔，雖然說，還是要實際上到各平台測一下才知道能不能用…</p>
 <h2 id="想做一個這樣子的功能">想做一個這樣子的功能</h2>
 <video width="50%" controls>
   <source src="/images/2025/github-workflows-first/result.mp4" type="video/mp4">
@@ -256,8 +256,8 @@
     </picture>
 </figure>
 </li>
-<li>VSCode，建立<code>.github/workflows</code>資料夾，上面建立<code>linux-x86.yml</code>檔案…</li>
-<li>這資料夾位置是固定的，當然也可以有多個，如<code>windows-x86_64.yml</code> / <code>macOS-arm64.yml</code>
+<li>我們使用<a href="https://code.visualstudio.com/">VSCode</a>工具，建立<code>.github/workflows</code>資料夾，上面建立<code>linux-x86.yml</code>檔案…</li>
+<li>這資料夾位置是固定的，當然，設定檔也可以有多個，如<code>windows-x86_64.yml</code> / <code>macOS-arm64.yml</code>
 <figure>
   <picture>
 
@@ -483,8 +483,10 @@
 <ol>
 <li>如果我們要執行上傳程式碼的話呢？這是一個一定會用到的功能，所以就有好心人寫好了功能，就是<code>actions/checkout@v4</code>，它可以讓workflow<code>下載</code>已上傳程式碼到我們安裝的系統中…</li>
 <li>先在<code>根目錄</code>下新增<code>app.js</code>，寫個<code>Hello World</code>，然後上傳…</li>
-<li>可以看到設定檔內容，其實就是在執行<code>系統指令</code>，所以也可以自己在實機上先試試…
-<figure>
+<li>可以看到設定檔內容，其實就是在執行<code>系統指令</code>，所以也可以自己在實機上先試試…</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;安安你好嗎 !!!&#39;</span>);
+</span></span></code></pre></div><p><figure>
   <picture>
 
     
@@ -508,10 +510,8 @@
 
     </picture>
 </figure>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;安安你好嗎 !!!&#39;</span>);
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Linux x86 Workflow</span>
+</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Linux x86 Workflow</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
@@ -661,7 +661,7 @@
 <h2 id="執行指令">執行指令</h2>
 <ol>
 <li>接下來我們就來<code>執行指令 - 壓縮檔案 (zip)</code>，就可以說是<code>打包</code>檔案，然後順道查看一下<code>目錄內容</code>…</li>
-<li>檔案更新完成後，可以去看看有沒有壓縮成功，檔案有沒有一樣…</li>
+<li>檔案更新完成後，可以去看看有沒有壓縮成功，檔案名稱有沒有跟我們設定的一樣…</li>
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Linux x86 Workflow</span>
 </span></span><span style="display:flex;"><span>

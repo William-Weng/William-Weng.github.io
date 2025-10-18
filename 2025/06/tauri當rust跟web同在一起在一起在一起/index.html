@@ -23,7 +23,7 @@
 
 <meta property="og:type" content="article">
 <meta name="description" content="前言
-記得之前有用Wails = Web &#43; Go做了一個簡單的切割ts檔的小工具，今天我們用Tauri = Web &#43; Rust來做一個讀取CSV檔的小APP，因為筆者平常就有在用Airtable記錄相關軟體、套件的習慣，而它也可以輸出成CSV檔來做進一步的處理，雖然Airtable本身有API可以使用，但要做成手 …" />
+記得之前有用Wails = Web &#43; Go做了一個簡單的切割ts檔的小工具，今天我們用Tauri = Web &#43; Rust來做一個讀取CSV檔的小APP，因為筆者平常就有在用Airtable記錄相關軟體、套件的習慣，而它也可以輸出成CSV檔來做進一步的處理，雖然Airtable本身有API可以使用，但要做成手機 …" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
 <meta name="twitter:title" content="【Tauri】當Rust跟Web同在一起，在一起，在一起…" />
@@ -31,7 +31,7 @@
 <meta property="og:url" content="https://William-Weng.github.io/2025/06/tauri%E7%95%B6rust%E8%B7%9Fweb%E5%90%8C%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7/" />
 <meta property="og:title" content="【Tauri】當Rust跟Web同在一起，在一起，在一起…" />
 <meta property="og:description" content="前言
-記得之前有用Wails = Web &#43; Go做了一個簡單的切割ts檔的小工具，今天我們用Tauri = Web &#43; Rust來做一個讀取CSV檔的小APP，因為筆者平常就有在用Airtable記錄相關軟體、套件的習慣，而它也可以輸出成CSV檔來做進一步的處理，雖然Airtable本身有API可以使用，但要做成手 …" />
+記得之前有用Wails = Web &#43; Go做了一個簡單的切割ts檔的小工具，今天我們用Tauri = Web &#43; Rust來做一個讀取CSV檔的小APP，因為筆者平常就有在用Airtable記錄相關軟體、套件的習慣，而它也可以輸出成CSV檔來做進一步的處理，雖然Airtable本身有API可以使用，但要做成手機 …" />
 <meta property="og:image" content="https://William-Weng.github.io/images/thumbnail/Tauri.png" />
   <meta name="keywords" content="rust,cargo,tauri,csv,api" />
 
@@ -411,9 +411,9 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#[macro_export]</span>
 </span></span><span style="display:flex;"><span>macro_rules<span style="color:#f92672">!</span> ww_print {
 </span></span><span style="display:flex;"><span>    (<span style="color:#75715e">$message</span>:<span style="color:#a6e22e">expr</span>) <span style="color:#f92672">=&gt;</span> {
-</span></span><span style="display:flex;"><span>        println!(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">[</span><span style="color:#e6db74">{file}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">{line}</span><span style="color:#e6db74">]</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{message}</span><span style="color:#e6db74">&#34;</span>,
-</span></span><span style="display:flex;"><span>            file <span style="color:#f92672">=</span> file!().green().bold(),
-</span></span><span style="display:flex;"><span>            line <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;line.</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, line!().to_string()).yellow().bold(),
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">println!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">[</span><span style="color:#e6db74">{file}</span><span style="color:#e6db74"> - </span><span style="color:#e6db74">{line}</span><span style="color:#e6db74">]</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">{message}</span><span style="color:#e6db74">&#34;</span>,
+</span></span><span style="display:flex;"><span>            file <span style="color:#f92672">=</span> <span style="color:#a6e22e">file!</span>().green().bold(),
+</span></span><span style="display:flex;"><span>            line <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;line.</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#a6e22e">line!</span>().to_string()).yellow().bold(),
 </span></span><span style="display:flex;"><span>            message <span style="color:#f92672">=</span> <span style="color:#75715e">$message</span>
 </span></span><span style="display:flex;"><span>        )
 </span></span><span style="display:flex;"><span>    };
@@ -611,10 +611,10 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> records  <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> read_csv_file(app.clone(), filename) {
 </span></span><span style="display:flex;"><span>        Ok(records) <span style="color:#f92672">=&gt;</span> records,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::json!({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    serde_json::json!({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">records</span> }).to_string()
+</span></span><span style="display:flex;"><span>    serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">records</span> }).to_string()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#[tauri::command]</span>
@@ -622,10 +622,10 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> types  <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> read_type_set(app.clone(), filename) {
 </span></span><span style="display:flex;"><span>        Ok(types) <span style="color:#f92672">=&gt;</span> types,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::json!({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    serde_json::json!({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">types</span> }).to_string()
+</span></span><span style="display:flex;"><span>    serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">types</span> }).to_string()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#[tauri::command]</span>
@@ -634,20 +634,20 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> list <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> app.path().resolve(<span style="color:#e6db74">&#34;document&#34;</span>, BaseDirectory::Resource) {
 </span></span><span style="display:flex;"><span>        Ok(path) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">match</span> folder_files(path) {
 </span></span><span style="display:flex;"><span>            Ok(array) <span style="color:#f92672">=&gt;</span> array,
-</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::json!({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
+</span></span><span style="display:flex;"><span>            Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
 </span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::json!({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    serde_json::json!({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">list</span> }).to_string()
+</span></span><span style="display:flex;"><span>    serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">list</span> }).to_string()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#[cfg_attr(mobile, tauri::mobile_entry_point)]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">run</span>() {
 </span></span><span style="display:flex;"><span>    tauri::Builder::default()
 </span></span><span style="display:flex;"><span>        .plugin(tauri_plugin_opener::init())
-</span></span><span style="display:flex;"><span>        .invoke_handler(tauri::generate_handler![read_csv, csv_list, read_type])
-</span></span><span style="display:flex;"><span>        .run(tauri::generate_context!())
+</span></span><span style="display:flex;"><span>        .invoke_handler(tauri::<span style="color:#a6e22e">generate_handler!</span>[read_csv, csv_list, read_type])
+</span></span><span style="display:flex;"><span>        .run(tauri::<span style="color:#a6e22e">generate_context!</span>())
 </span></span><span style="display:flex;"><span>        .expect(<span style="color:#e6db74">&#34;error while running tauri application&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="處理前端功能">處理前端功能</h2>
@@ -1670,10 +1670,10 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> log_dir <span style="color:#f92672">=</span> app.path().resolve(<span style="color:#e6db74">&#34;logs&#34;</span>, BaseDirectory::Resource)<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>    create_dir_all(<span style="color:#f92672">&amp;</span>log_dir)<span style="color:#f92672">?</span>;
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> log_file_name <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">.log&#34;</span>, Local::now().format(<span style="color:#e6db74">&#34;%Y%m%d&#34;</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> log_file_name <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{}</span><span style="color:#e6db74">.log&#34;</span>, Local::now().format(<span style="color:#e6db74">&#34;%Y%m%d&#34;</span>));
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> log_file_path <span style="color:#f92672">=</span> log_dir.join(log_file_name);
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    ww_print!(format!(<span style="color:#e6db74">&#34;Log file location: </span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, log_file_path));
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">ww_print!</span>(<span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;Log file location: </span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, log_file_path));
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> log_file <span style="color:#f92672">=</span> OpenOptions::new()
 </span></span><span style="display:flex;"><span>        .create(<span style="color:#66d9ef">true</span>)
@@ -1691,7 +1691,7 @@
 </span></span><span style="display:flex;"><span>                log::Level::Trace <span style="color:#f92672">=&gt;</span> Color::Cyan,
 </span></span><span style="display:flex;"><span>            };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>            writeln!(
+</span></span><span style="display:flex;"><span>            <span style="color:#a6e22e">writeln!</span>(
 </span></span><span style="display:flex;"><span>                buffer,
 </span></span><span style="display:flex;"><span>                <span style="color:#e6db74">&#34;{} [{}] {} - {}&#34;</span>,
 </span></span><span style="display:flex;"><span>                Local::now().format(<span style="color:#e6db74">&#34;%Y-%m-%d %H:%M:%S&#34;</span>),
@@ -1768,83 +1768,83 @@
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#[tauri::command]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">read_csv</span>(app: <span style="color:#a6e22e">AppHandle</span>, filename: String) -&gt; String {
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    info!(<span style="color:#e6db74">&#34;Loading CSV file: {}&#34;</span>, filename);
-</span></span><span style="display:flex;"><span>    debug!(<span style="color:#e6db74">&#34;Loading CSV file: {}&#34;</span>, filename);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">info!</span>(<span style="color:#e6db74">&#34;Loading CSV file: {}&#34;</span>, filename);
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">debug!</span>(<span style="color:#e6db74">&#34;Loading CSV file: {}&#34;</span>, filename);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> records  <span style="color:#f92672">=</span> <span style="color:#66d9ef">match</span> read_csv_file(app.clone(), filename) {
 </span></span><span style="display:flex;"><span>        Ok(records) <span style="color:#f92672">=&gt;</span> records,
-</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::json!({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
+</span></span><span style="display:flex;"><span>        Err(error) <span style="color:#f92672">=&gt;</span> <span style="color:#66d9ef">return</span> serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;error&#34;</span>: <span style="color:#a6e22e">error</span>.to_string() }).to_string(),
 </span></span><span style="display:flex;"><span>    };
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    serde_json::json!({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">records</span> }).to_string()
+</span></span><span style="display:flex;"><span>    serde_json::<span style="color:#a6e22e">json!</span>({ <span style="color:#e6db74">&#34;result&#34;</span>: <span style="color:#a6e22e">records</span> }).to_string()
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#f92672">..</span>.
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#[cfg_attr(mobile, tauri::mobile_entry_point)]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">pub</span> <span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">run</span>() {
 </span></span><span style="display:flex;"><span>    tauri::Builder::default()
 </span></span><span style="display:flex;"><span>        .setup(<span style="color:#f92672">|</span>app<span style="color:#f92672">|</span> {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Err(error) <span style="color:#f92672">=</span> logger_setting(app) { eprintln!(<span style="color:#e6db74">&#34;Failed to setup logging: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, error); }
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> Err(error) <span style="color:#f92672">=</span> logger_setting(app) { <span style="color:#a6e22e">eprintln!</span>(<span style="color:#e6db74">&#34;Failed to setup logging: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, error); }
 </span></span><span style="display:flex;"><span>            Ok(())
 </span></span><span style="display:flex;"><span>        })
 </span></span><span style="display:flex;"><span>        .plugin(tauri_plugin_opener::init())
-</span></span><span style="display:flex;"><span>        .invoke_handler(tauri::generate_handler![read_csv, csv_list, read_type])
-</span></span><span style="display:flex;"><span>        .run(tauri::generate_context!())
+</span></span><span style="display:flex;"><span>        .invoke_handler(tauri::<span style="color:#a6e22e">generate_handler!</span>[read_csv, csv_list, read_type])
+</span></span><span style="display:flex;"><span>        .run(tauri::<span style="color:#a6e22e">generate_context!</span>())
 </span></span><span style="display:flex;"><span>        .expect(<span style="color:#e6db74">&#34;error while running tauri application&#34;</span>);
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="補充rust-format-巨集使用指南">《補充》Rust format! 巨集使用指南</h2>
 <h3 id="1-基本字串格式化">1. 基本字串格式化</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Alice&#34;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> age <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> message <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;名字: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">, 年齡: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, name, age);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> message <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;名字: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">, 年齡: </span><span style="color:#e6db74">{}</span><span style="color:#e6db74">&#34;</span>, name, age);
 </span></span></code></pre></div><h3 id="2-命名參數">2. 命名參數</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> message <span style="color:#f92672">=</span> format!(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> message <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;名字: </span><span style="color:#e6db74">{name}</span><span style="color:#e6db74">, 年齡: </span><span style="color:#e6db74">{age}</span><span style="color:#e6db74">&#34;</span>,
 </span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Bob&#34;</span>,
 </span></span><span style="display:flex;"><span>    age <span style="color:#f92672">=</span> <span style="color:#ae81ff">30</span>
 </span></span><span style="display:flex;"><span>);
 </span></span></code></pre></div><h3 id="3-數字格式化">3. 數字格式化</h3>
 <h4 id="二進制">二進制</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> binary <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:b}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>);    <span style="color:#75715e">// &#34;101010&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> binary <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:b}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>);    <span style="color:#75715e">// &#34;101010&#34;
 </span></span></span></code></pre></div><h4 id="十六進制">十六進制</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hex <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:x}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>);       <span style="color:#75715e">// &#34;2a&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> hex_upper <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:X}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>); <span style="color:#75715e">// &#34;2A&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hex <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:x}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>);       <span style="color:#75715e">// &#34;2a&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> hex_upper <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:X}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>); <span style="color:#75715e">// &#34;2A&#34;
 </span></span></span></code></pre></div><h4 id="八進制">八進制</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> octal <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:o}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>);     <span style="color:#75715e">// &#34;52&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> octal <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:o}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">42</span>);     <span style="color:#75715e">// &#34;52&#34;
 </span></span></span></code></pre></div><h4 id="科學記號">科學記號</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> scientific <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:e}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">1234.5678</span>); <span style="color:#75715e">// &#34;1.2345678e3&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> scientific <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:e}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">1234.5678</span>); <span style="color:#75715e">// &#34;1.2345678e3&#34;
 </span></span></span></code></pre></div><h2 id="4-對齊和填充">4. 對齊和填充</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// 靠左對齊，寬度為 5
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> left <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:&lt;5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;hi&#34;</span>);   <span style="color:#75715e">// &#34;hi   &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> left <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:&lt;5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;hi&#34;</span>);   <span style="color:#75715e">// &#34;hi   &#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 靠右對齊，寬度為 5
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> right <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:&gt;5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;hi&#34;</span>);  <span style="color:#75715e">// &#34;   hi&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> right <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:&gt;5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;hi&#34;</span>);  <span style="color:#75715e">// &#34;   hi&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 置中對齊，寬度為 5
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> center <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:^5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;hi&#34;</span>); <span style="color:#75715e">// &#34; hi  &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> center <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:^5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;hi&#34;</span>); <span style="color:#75715e">// &#34; hi  &#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 使用 0 填充
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> zero <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:0&gt;5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;123&#34;</span>); <span style="color:#75715e">// &#34;00123&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> zero <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:0&gt;5}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;123&#34;</span>); <span style="color:#75715e">// &#34;00123&#34;
 </span></span></span></code></pre></div><h3 id="5-精確度控制">5. 精確度控制</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">// 浮點數精確度
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> pi <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:.2}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">3.1415926</span>); <span style="color:#75715e">// &#34;3.14&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> pi <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:.2}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#ae81ff">3.1415926</span>); <span style="color:#75715e">// &#34;3.14&#34;
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 字串截取
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> text <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:.3}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;abcdef&#34;</span>); <span style="color:#75715e">// &#34;abc&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> text <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:.3}</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74">&#34;abcdef&#34;</span>); <span style="color:#75715e">// &#34;abc&#34;
 </span></span></span></code></pre></div><h3 id="6-debug-格式化">6. Debug 格式化</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#75715e">#[derive(Debug)]</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Point</span> { x: <span style="color:#66d9ef">i32</span>, y: <span style="color:#66d9ef">i32</span> }
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> point <span style="color:#f92672">=</span> Point { x: <span style="color:#ae81ff">1</span>, y: <span style="color:#ae81ff">2</span> };
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 一般 debug 輸出
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> debug <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, point);   <span style="color:#75715e">// Point { x: 1, y: 2 }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> debug <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:?}</span><span style="color:#e6db74">&#34;</span>, point);   <span style="color:#75715e">// Point { x: 1, y: 2 }
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// 美化輸出
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> pretty <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:#?}</span><span style="color:#e6db74">&#34;</span>, point);
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> pretty <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:#?}</span><span style="color:#e6db74">&#34;</span>, point);
 </span></span></code></pre></div><h3 id="7-動態寬度和精確度">7. 動態寬度和精確度</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> width <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> precision <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> num <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.1415926</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> formatted <span style="color:#f92672">=</span> format!(
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> formatted <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:width$.precision$}</span><span style="color:#e6db74">&#34;</span>,
 </span></span><span style="display:flex;"><span>    num,
 </span></span><span style="display:flex;"><span>    width<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>,
@@ -1852,10 +1852,10 @@
 </span></span><span style="display:flex;"><span>);
 </span></span></code></pre></div><h3 id="8-指定型別">8. 指定型別</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> num <span style="color:#f92672">=</span> <span style="color:#ae81ff">42</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hex <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{num:x}</span><span style="color:#e6db74">&#34;</span>);     <span style="color:#75715e">// 十六進制
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> binary <span style="color:#f92672">=</span> format!(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{num:b}</span><span style="color:#e6db74">&#34;</span>);  <span style="color:#75715e">// 二進制
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hex <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{num:x}</span><span style="color:#e6db74">&#34;</span>);     <span style="color:#75715e">// 十六進制
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">let</span> binary <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{num:b}</span><span style="color:#e6db74">&#34;</span>);  <span style="color:#75715e">// 二進制
 </span></span></span></code></pre></div><h3 id="組合使用範例">組合使用範例</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> complex <span style="color:#f92672">=</span> format!(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> complex <span style="color:#f92672">=</span> <span style="color:#a6e22e">format!</span>(
 </span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:0&gt;width$b}</span><span style="color:#e6db74">&#34;</span>,  <span style="color:#75715e">// 二進制，靠右對齊，用 0 填充
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#ae81ff">42</span>,
 </span></span><span style="display:flex;"><span>    width <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
@@ -2033,7 +2033,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">justify-content</span>: <span style="color:#66d9ef">center</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">1.2</span><span style="color:#66d9ef">rem</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">background-color</span> <span style="color:#ae81ff">0.25</span><span style="color:#66d9ef">s</span>;
-</span></span><span style="display:flex;"><span>  aspect-ratio: <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">aspect-ratio</span>: <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1</span>;
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">box-sizing</span>: <span style="color:#66d9ef">border-box</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
