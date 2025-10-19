@@ -39,15 +39,15 @@
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity = "sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" as="style" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity = "sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" as="style" crossorigin="anonymous">
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" as="script" integrity=
-"sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" as="script" integrity=
+"sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous">
 
 
-<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity="sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity="sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" crossorigin="anonymous">
 
   </head>
   <body
@@ -111,7 +111,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 25, 2019</span>
+      May 25, 2019	  
+    </span>
     <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
         </a><a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
         </a><a href='https://William-Weng.github.io/tags/firebase/' title="firebase" class="post_tag button button_translucent">firebase
@@ -185,7 +186,8 @@
       
         <div class="pale">
           
-            這篇應該算是『極短篇』吧，個人其實是滿喜歡魔術的(喜歡被騙？)，最近在Youtube上看到一篇<a href="https://www.youtube.com/watch?v=hFdtbbpIAkE">牌穿進手機的魔術揭秘</a>，看起來是很久以前的魔術了(把妹招術？)，身為魔術師(脫魯？)的我，當然也要來練習一下，不過它這篇手機上的牌是固定的，而個人在這裡做一些改良，主要是利用<a href="https://developer.apple.com/documentation/uikit/uidevice/1620046-proximitystatedidchangenotificat">ProximityMonitor</a>的變化，跟<a href="https://en.wikipedia.org/wiki/Firebase">Firebase</a>的RealtimeDatabase來變魔術，讓我們來看看吧。
+            <p>這篇應該算是『極短篇』吧，個人其實是滿喜歡魔術的(喜歡被騙？)，最近在Youtube上看到一篇牌穿進手機的魔術揭秘，看起來是很久以前的魔術了(把妹招術？)，身為魔術師(脫魯？)的我，當然也要來練習一下，不過它這篇手機上的牌是固定的，而個人在這裡做一些改良，主要是利用ProximityMonitor的變化，跟Firebase的RealtimeDatabase來變魔術，讓我們來看看吧。
+準備道具 iPhone手機一支 可連上Firebase Console的手機一支 未使用過的撲克牌一付 想要認識的對象 (心儀的對象？) 你的好朋友們 (幫忙作弊？) 事前準備工作 撲克牌的檔案命名 Firebase 資料庫長相如下，主要是要取得 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/" title="Read More" class="excerpt_more button">Read More</a>
@@ -208,7 +210,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 23, 2019</span>
+      May 23, 2019	  
+    </span>
     <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/flutter/' title="flutter" class="post_tag button button_translucent">flutter
         </a><a href='https://William-Weng.github.io/tags/dart/' title="dart" class="post_tag button button_translucent">dart
         </a><a href='https://William-Weng.github.io/tags/listview/' title="listview" class="post_tag button button_translucent">listview
@@ -282,7 +285,8 @@
       
         <div class="pale">
           
-            主要這一篇文章是要做一個比較<a href="https://www.appcoda.com.tw/flutter-basics/">完整的案例</a>，個人一直覺得『挫折感才是成功的捷徑』，一直做『對的』事情很難成長的，唯有『挫折感』才能讓人記憶深刻，像我的<a href="https://www.cheers.com.tw/article/article.action?id=5068196&amp;eturec=1">好人卡</a>已經打破<a href="https://kknews.cc/zh-tw/comic/5g6eoy2.html">櫻木花道</a>50+的記錄了，真是<a href="https://zh.moegirl.org/zh-tw/%E5%8F%AF%E5%96%9C%E5%8F%AF%E8%B4%BA">めでたしめでたし</a>啊，等我要推出好人撲克牌的時候，再麻煩大家再來<a href="https://tw.dictionary.search.yahoo.com/search?p=donate">抖內</a>，集資一下吧。話不多說，大家一起來從做中學吧，以下只會將部分的Code貼上解說。
+            <p>主要這一篇文章是要做一個比較完整的案例，個人一直覺得『挫折感才是成功的捷徑』，一直做『對的』事情很難成長的，唯有『挫折感』才能讓人記憶深刻，像我的好人卡已經打破櫻木花道50+的記錄了，真是めでたしめでたし啊，等我要推出好人撲克牌的時候，再麻煩大家再來抖內，集資一下吧。話不多說，大家一起來從做中學吧，以下只會將部分的Code貼上解說。
+架構 畫面架構 在圖上可以看到一共有三個畫面，一個是登入的畫面，一個是清單列表，一個是介紹的內容，很符合一般APP的長相。 檔案架構 如圖上所示，畫面放在『libs/widgets』內，有關資料的長相就放在『libs/models』中，而『libs/helpers』則是放一些公用程式，資源檔 (圖片、影 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/flutter-1.5%E8%A3%BD%E4%BD%9C%E4%B8%80%E5%80%8B%E7%B0%A1%E5%96%AE%E7%9A%84%E5%90%8D%E7%89%87%E5%88%97%E8%A1%A8app/" title="Read More" class="excerpt_more button">Read More</a>
@@ -305,7 +309,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 13, 2019</span>
+      May 13, 2019	  
+    </span>
     <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/flutter/' title="flutter" class="post_tag button button_translucent">flutter
         </a><a href='https://William-Weng.github.io/tags/dart/' title="dart" class="post_tag button button_translucent">dart
         </a><a href='https://William-Weng.github.io/tags/layout/' title="layout" class="post_tag button button_translucent">layout
@@ -379,7 +384,8 @@
       
         <div class="pale">
           
-            這次是要說明Flutter的畫面佈局，在Flutter的世界中，萬物皆<a href="https://flutterchina.club/widgets-intro/">Widget</a>，應該在iOS中算是<a href="https://developer.apple.com/documentation/uikit/uiview">UIView</a>吧？UI的根源，一切都是由此而生，話不多說，讓我們踏出成功的第一步。
+            <p>這次是要說明Flutter的畫面佈局，在Flutter的世界中，萬物皆Widget，應該在iOS中算是UIView吧？UI的根源，一切都是由此而生，話不多說，讓我們踏出成功的第一步。
+Container佈局 開始寫Code 首先，flutter的程式碼都是在『lib資料夾』之下 資源管理 在這裡pubspec.yaml可以設定安裝第三方套件、加入影音、圖片…等 assets: - images/book.png - images/time.png 程式碼 // main.dart import 'package:flutter/material.dart'; // 內容主要以iPhone的名稱去做類比 void main() =&gt; …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/flutter-1.2%E6%89%8B%E6%A9%9F%E7%9A%84%E7%95%AB%E9%9D%A2%E4%BD%88%E5%B1%80-container%E7%AF%87/" title="Read More" class="excerpt_more button">Read More</a>
@@ -402,7 +408,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 7, 2019</span>
+      May 7, 2019	  
+    </span>
     <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/flutter/' title="flutter" class="post_tag button button_translucent">flutter
         </a><a href='https://William-Weng.github.io/tags/debug/' title="debug" class="post_tag button button_translucent">debug
         </a><a href='https://William-Weng.github.io/tags/ui/' title="ui" class="post_tag button button_translucent">ui
@@ -476,7 +483,7 @@
       
         <div class="pale">
           
-            一開始還沒有接觸Flutter的時候，覺得寫Code是沒有問題的，但是UI要怎麼Debug呢？Android方面應該沒有什麼問題，因為是Google自家的東西嘛，但是iOS要怎麼做呢？後來就用VSCode它build出來的專案，分別用Android Studio跟Xcode開，個別去看UI，不過真的沒有用到原生的UI，Flutter的畫面都是『畫』出來的。後來想想真的很笨，明明在Android Studio上面就有<a href="https://flutter.dev/docs/development/tools/inspector">Flutter inspector</a>啊，加上Flutter的UI(<a href="https://flutter.dev/docs/development/ui/widgets/material">Material風格</a> / <a href="https://flutter.dev/docs/development/ui/widgets/cupertino">Cupertino風格</a>)都是Google工程師自己做出來的，並沒有用到兩個平臺的原生UI，想想這樣也對，如此一來UI就可以長得一模一 …
+            <p>一開始還沒有接觸Flutter的時候，覺得寫Code是沒有問題的，但是UI要怎麼Debug呢？Android方面應該沒有什麼問題，因為是Google自家的東西嘛，但是iOS要怎麼做呢？後來就用VSCode它build出來的專案，分別用Android Studio跟Xcode開，個別去看UI，不過真的沒有用到原生的UI，Flutter的畫面都是『畫』出來的。後來想想真的很笨，明明在Android Studio上面就有Flutter inspector啊，加上Flutter的UI(Material風格 / Cupertino風格)都是Google工程師自己做出來的，並沒有用到兩個平臺的原生UI，想想這樣也對，如此一來UI就可以長得一模一 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/flutter-1.2flutter-ui-debug%E5%B7%A5%E5%85%B7/" title="Read More" class="excerpt_more button">Read More</a>
@@ -515,7 +522,6 @@
     
 
 
-    
     
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
@@ -1623,6 +1629,11 @@
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 530" id="bluesky" >
     <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z"/>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="ko-fi">
+    <path fill="#ffffff" d="M4.5,9.8527H32.7947a0,0,0,0,1,0,0v19.225a9.07,9.07,0,0,1-9.07,9.07H13.57a9.07,9.07,0,0,1-9.07-9.07V9.8527A0,0,0,0,1,4.5,9.8527Z"/>
+    <path fill="#000000" d="M12.197,25.9493l6.45,6.45,6.45-6.45a8.2,8.2,0,0,0,2.4016-5.798h0a4.5082,4.5082,0,0,0-4.212-4.5459,4.4262,4.4262,0,0,0-4.64,4.4209,4.4261,4.4261,0,0,0-4.64-4.4209,4.5082,4.5082,0,0,0-4.212,4.5459h0A8.2,8.2,0,0,0,12.197,25.9493Z"/>
+    <path fill="#ffffff" d="M32.7947,9.8527H35.73a7.77,7.77,0,0,1,0,15.5394H32.7947"/>
+  </svg>
   </symbol>
 </svg>
 
@@ -1640,6 +1651,6 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" integrity="sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" integrity="sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous"></script>
   </body>
 </html>

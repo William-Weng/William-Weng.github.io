@@ -39,15 +39,15 @@
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity = "sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" as="style" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity = "sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" as="style" crossorigin="anonymous">
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" as="script" integrity=
-"sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" as="script" integrity=
+"sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous">
 
 
-<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity="sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity="sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" crossorigin="anonymous">
 
   </head>
   <body
@@ -111,7 +111,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Jun 25, 2025</span>
+      Jun 25, 2025	  
+    </span>
     <span class="post_time"> · 18 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/rust/' title="rust" class="post_tag button button_translucent">rust
         </a><a href='https://William-Weng.github.io/tags/cargo/' title="cargo" class="post_tag button button_translucent">cargo
         </a><a href='https://William-Weng.github.io/tags/tauri/' title="tauri" class="post_tag button button_translucent">tauri
@@ -185,8 +186,8 @@
       
         <div class="pale">
           
-            <h2 id="前言">前言</h2>
-<p>記得之前有用<a href="../../../04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/">Wails = Web + Go</a>做了一個簡單的切割ts檔的小工具，今天我們用<a href="https://v2.tauri.app/">Tauri = Web + Rust</a>來做一個讀取CSV檔的小APP，因為筆者平常就有在用<a href="https://airtable.com/">Airtable</a>記錄相關軟體、套件的習慣，而它也可以輸出成CSV檔來做進一步的處理，雖然Airtable本身有<a href="https://medium.com/%E5%BD%BC%E5%BE%97%E6%BD%98%E7%9A%84-swift-ios-app-%E9%96%8B%E7%99%BC%E5%95%8F%E9%A1%8C%E8%A7%A3%E7%AD%94%E9%9B%86/%E4%B8%B2%E6%8E%A5-airtable%E7%9A%84-api-%E9%96%8B%E7%99%BC-ios-app-5e5c86c8ca7d">API</a>可以使用，但要做成手機APP，或者是Web網頁也是滿麻煩的，除了一定要能連線之外，有個網址框也不好看，所以還是傾向做成<a href="https://www.explainthis.io/zh-hant/swe/spa">單頁的APP</a>，當然…主要也是Rust可以產出<a href="https://www.ithome.com.tw/news/166256">WASM</a>，想來試用看看，結果越走越歪了，不管了，也順便學學吧，都快要變成<a href="https://tw.alphacamp.co/blog/fullstack-software-developer">超全端</a>了，反正有AI的出現，以後的<a href="https://b23.tv/eSroE2m">一人軟體公司</a>也會越來越多了吧？</p>
+            <p>前言 記得之前有用Wails = Web + Go做了一個簡單的切割ts檔的小工具，今天我們用Tauri = Web + Rust來做一個讀取CSV檔的小APP，因為筆者平常就有在用Airtable記錄相關軟體、套件的習慣，而它也可以輸出成CSV檔來做進一步的處理，雖然Airtable本身有API可以使用，但要做成手機APP，或者是Web網頁也是滿麻煩的，除了一定要能連線之外，有個網址框也不好看，所以還是傾向做成單頁的APP，當然…主要也是Rust可以產出WASM，想來試用看看，結果越走越歪了，不管了，也順便學學吧，都快要變成超全端了，反正有AI的出現，以後的一人軟體公司也會越來越多了吧？
+作業環境 項目 版本 macOS …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2025/06/tauri%E7%95%B6rust%E8%B7%9Fweb%E5%90%8C%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7%E5%9C%A8%E4%B8%80%E8%B5%B7/" title="Read More" class="excerpt_more button">Read More</a>
@@ -209,7 +210,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Jun 12, 2025</span>
+      Jun 12, 2025	  
+    </span>
     <span class="post_time"> · 13 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/rust/' title="rust" class="post_tag button button_translucent">rust
         </a><a href='https://William-Weng.github.io/tags/cargo/' title="cargo" class="post_tag button button_translucent">cargo
         </a><a href='https://William-Weng.github.io/tags/csv/' title="csv" class="post_tag button button_translucent">csv
@@ -282,8 +284,8 @@
       
         <div class="pale">
           
-            <h2 id="前言">前言</h2>
-<p>根據<a href="https://www.104.com.tw/company/a93tesw">尼爾森</a>的不正確調查，<a href="/2025/05/rust%E8%9E%83%E8%9F%B9%E4%B8%80%E5%91%80%E7%88%AA%E5%85%AB%E5%80%8B%E5%85%A9%E9%A0%AD%E5%B0%96%E5%B0%96%E9%80%99%E9%BA%BC%E5%A4%A7%E7%9A%84%E5%80%8B/">上一期</a>文章的<a href="https://youtu.be/SAx3XWXIC-s">收視率</a>高達了<a href="https://pttpedia.fandom.com/zh/wiki/87%E5%88%86%EF%BC%8C%E4%B8%8D%E8%83%BD%E5%86%8D%E9%AB%98%E4%BA%86">87%</a>，因應廣大網友的要求，筆者只好再<a href="https://www.usebruno.com/">緊急加映</a>一集…這集就進階一點，來做做網路API吧，把CSV文件當成簡單的資料來源，讀取文件後，轉成JSON格式輸出，達到<a href="https://youtu.be/QPVZlat7EtU">隔空抓藥</a>的效果…</p>
+            <p>前言 根據尼爾森的不正確調查，上一期文章的收視率高達了87%，因應廣大網友的要求，筆者只好再緊急加映一集…這集就進階一點，來做做網路API吧，把CSV文件當成簡單的資料來源，讀取文件後，轉成JSON格式輸出，達到隔空抓藥的效果…
+作業環境 項目 版本 macOS Sequoia 15.5 Visual Studio Code 1.100.3 Rust 1.87.0 Bruno 2.4.0 Rust套件 套件 版本 功能 actix-web 4.4.0 是一個高效能、非常靈活的 Rust 網頁框架。可以建立網頁伺服器、客戶端 actix-multipart 0.6 actix-web的多檔案下載功能套件 serde 1.0 是Rust …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2025/06/rustbruno%E6%88%91%E4%BE%86%E4%BA%86%E4%B8%80%E8%B5%B7%E4%BE%86%E6%89%93%E7%B6%B2%E8%B7%AFapi/" title="Read More" class="excerpt_more button">Read More</a>
@@ -306,7 +308,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Apr 18, 2022</span>
+      Apr 18, 2022	  
+    </span>
     <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang/' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/sqlite/' title="sqlite" class="post_tag button button_translucent">sqlite
         </a><a href='https://William-Weng.github.io/tags/mysql/' title="mysql" class="post_tag button button_translucent">mysql
@@ -381,7 +384,8 @@
       
         <div class="pale">
           
-            應該有學了三週了吧？今天主要是來介紹<a href="https://ithelp.ithome.com.tw/articles/10207752">ORM - Object Relational Mapping</a>這個東西，簡單來說它就是一個幫助你把<a href="https://gorm.io/">Go語法 =&gt; SQL語法</a>的工具，因為一般有學過<a href="https://ithelp.ithome.com.tw/articles/10241383">SQL語法</a>的人並不是很多，加上基本上需要<a href="https://tecky.io/en/blog/SQL%E4%B8%89%E9%83%A8%E6%9B%B2:%E4%BD%A0%E4%B8%8D%E9%9C%80%E8%A6%81ORM/">高效能</a>的<a href="https://zh.wikipedia.org/wiki/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">CRUD</a>的機會就更少了，在語法上大大的<a href="https://www.itread01.com/content/1550282231.html">降低</a>了前端工程師對於SQL的<a href="https://cinna.tw/%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97/%E4%BD%9C%E8%80%85%E8%B6%85%E5%9B%89%E5%97%A6%EF%BC%8C%E4%BD%86%E4%B8%80%E5%A4%A9%E5%8F%AA%E8%A6%81%E5%8D%81%E5%88%86%E9%90%98%E7%9A%84mysql%E7%9C%9F%EF%BC%8E%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/crud%E5%88%9D%E9%AB%94%E9%A9%97%EF%BC%8C%E6%93%8D%E4%BD%9Cmysql%E8%B3%87%E6%96%99%E5%BA%AB">語法熟悉度</a>，而且<a href="https://ithelp.ithome.com.tw/articles/10238611">轉換資料庫</a>很容易，有助於快速開發。
+            <p>應該有學了三週了吧？今天主要是來介紹ORM - Object Relational Mapping這個東西，簡單來說它就是一個幫助你把Go語法 =&gt; SQL語法的工具，因為一般有學過SQL語法的人並不是很多，加上基本上需要高效能的CRUD的機會就更少了，在語法上大大的降低了前端工程師對於SQL的語法熟悉度，而且轉換資料庫很容易，有助於快速開發。
+作業環境 項目 版本 CPU Apple M1 macOS Big Sur 12.3 arm64 Golang 1.18 arm64 Visual Studio Code 1.66 arm64 Postman 9.0.9 arm64 DB Browser for SQLite 3.12.1 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="Read More" class="excerpt_more button">Read More</a>
@@ -404,7 +408,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Apr 10, 2022</span>
+      Apr 10, 2022	  
+    </span>
     <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang/' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/mysql/' title="mysql" class="post_tag button button_translucent">mysql
         </a><a href='https://William-Weng.github.io/tags/api/' title="api" class="post_tag button button_translucent">api
@@ -479,7 +484,8 @@
       
         <div class="pale">
           
-            同學們<a href="https://youtu.be/63pp-6Z0JYo">上課啦</a>，記得當時<a href="https://youtu.be/RUuhdR1KCEA">年紀小</a>，筆者當時流行的是<a href="https://glints.com/tw/blog/what-is-a-full-stack-engineer/">網頁工程師-前/後端</a>，但是工作非常的<a href="https://tw.linkedin.com/">難找</a>，因為Web技術已經發展<a href="https://zh.wikipedia.org/zh-tw/HTML">20多年</a>了，所以會的人太多了，而薪資也早已進入了<a href="https://zh.wikipedia.org/wiki/%E8%97%8D%E6%B5%B7%E7%AD%96%E7%95%A5">大紅海時代</a>；後來看到<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E5%8B%95%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1">手機系統</a>的出現，一不小心就<a href="https://www.104.com.tw/">轉職</a>到了<a href="https://buzzorange.com/techorange/2015/04/07/how-youll-go-through-while-learning-coding/">iOS打字工</a>的行列之中；但是，工作之後發現，<a href="https://medium.com/itsems-frontend/api-%E6%98%AF%E4%BB%80%E9%BA%BC-restful-api-%E5%8F%88%E6%98%AF%E4%BB%80%E9%BA%BC-a001a85ab638">老舊的API</a>寫法相當的不適合在<a href="https://ithelp.ithome.com.tw/articles/10157431">手機端</a>使用，要改嘛，又不是件容易的事(<a href="https://www.gvm.com.tw/article/73015">~~~資深員工很難溝通？~~~</a>)，<a href="https://www.businessweekly.com.tw/careers/blog/3005293">有問題</a>第一個顯示的也一定是在前端<a href="https://youtu.be/kg0IWsW1-xI">被發現</a>，還是<a href="https://www.books.com.tw/products/0010185056">靠自己</a>最好…
+            <p>同學們上課啦，記得當時年紀小，筆者當時流行的是網頁工程師-前/後端，但是工作非常的難找，因為Web技術已經發展20多年了，所以會的人太多了，而薪資也早已進入了大紅海時代；後來看到手機系統的出現，一不小心就轉職到了iOS打字工的行列之中；但是，工作之後發現，老舊的API寫法相當的不適合在手機端使用，要改嘛，又不是件容易的事(~~~資深員工很難溝通？~~~)，有問題第一個顯示的也一定是在前端被發現，還是靠自己最好…
+作業環境 項目 版本 CPU Apple M1 macOS Big Sur 12.3 arm64 Golang 1.18 arm64 Visual Studio Code 1.66 arm64 Postman 9.0.9 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" title="Read More" class="excerpt_more button">Read More</a>
@@ -502,7 +508,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Sep 15, 2019</span>
+      Sep 15, 2019	  
+    </span>
     <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/firebase/' title="firebase" class="post_tag button button_translucent">firebase
         </a><a href='https://William-Weng.github.io/tags/javascript/' title="javascript" class="post_tag button button_translucent">javascript
         </a><a href='https://William-Weng.github.io/tags/api/' title="api" class="post_tag button button_translucent">api
@@ -574,7 +581,8 @@
       
         <div class="pale">
           
-            相信大家多少都有聽過<a href="https://en.wikipedia.org/wiki/Firebase">Firebase</a>是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個<a href="https://firebase.google.com/docs/functions">Functoins</a>的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的<a href="https://firebase.google.com/docs/functions/callable">Framework - onCall()</a>，但個人是要把它做成<a href="https://firebase.google.com/docs/functions/http-events">HTTP的形式 - onRequest()</a>，為什麼呢？一方面是因為並不是每一個語言都有Firebase的支援，另一方面是比較容易看到輸出的結果。現在我們就來試試看吧。
+            <p>相信大家多少都有聽過Firebase是個JSON格式的資料庫吧？但是其實它還有一些其它的功能，比如說今天要介紹的這個Functoins的功能，就是拿來寫WebAPI用的，可以直接去讀取Firebase資料庫，相當的方便，它有支援iOS / Android / JavaScript / C++ / Unity的Framework - onCall()，但個人是要把它做成HTTP的形式 - onRequest()，為什麼呢？一方面是因為並不是每一個語言都有Firebase的支援，另一方面是比較容易看到輸出的結果。現在我們就來試試看吧。
+安裝過程 Functions在哪裡？ 首先，我們先來看看Functions到底在哪裡呢？登入 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/09/firebase%E5%A5%BD%E5%A5%BD%E7%94%A8%E7%9A%84functions%E5%8A%9F%E8%83%BD%E8%87%AA%E5%B7%B1%E5%81%9Awebapi/" title="Read More" class="excerpt_more button">Read More</a>
@@ -593,7 +601,6 @@
     
 
 
-    
     
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
@@ -1701,6 +1708,11 @@
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 530" id="bluesky" >
     <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z"/>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="ko-fi">
+    <path fill="#ffffff" d="M4.5,9.8527H32.7947a0,0,0,0,1,0,0v19.225a9.07,9.07,0,0,1-9.07,9.07H13.57a9.07,9.07,0,0,1-9.07-9.07V9.8527A0,0,0,0,1,4.5,9.8527Z"/>
+    <path fill="#000000" d="M12.197,25.9493l6.45,6.45,6.45-6.45a8.2,8.2,0,0,0,2.4016-5.798h0a4.5082,4.5082,0,0,0-4.212-4.5459,4.4262,4.4262,0,0,0-4.64,4.4209,4.4261,4.4261,0,0,0-4.64-4.4209,4.5082,4.5082,0,0,0-4.212,4.5459h0A8.2,8.2,0,0,0,12.197,25.9493Z"/>
+    <path fill="#ffffff" d="M32.7947,9.8527H35.73a7.77,7.77,0,0,1,0,15.5394H32.7947"/>
+  </svg>
   </symbol>
 </svg>
 
@@ -1718,6 +1730,6 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" integrity="sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" integrity="sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous"></script>
   </body>
 </html>

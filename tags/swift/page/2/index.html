@@ -39,15 +39,15 @@
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity = "sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" as="style" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity = "sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" as="style" crossorigin="anonymous">
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" as="script" integrity=
-"sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" as="script" integrity=
+"sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous">
 
 
-<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity="sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity="sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" crossorigin="anonymous">
 
   </head>
   <body
@@ -111,7 +111,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Jun 14, 2019</span>
+      Jun 14, 2019	  
+    </span>
     <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/firebase/' title="firebase" class="post_tag button button_translucent">firebase
         </a><a href='https://William-Weng.github.io/tags/nosql/' title="nosql" class="post_tag button button_translucent">nosql
         </a><a href='https://William-Weng.github.io/tags/database/' title="database" class="post_tag button button_translucent">database
@@ -185,7 +186,8 @@
       
         <div class="pale">
           
-            在之前的<a href="../../10/firebase-helloworld">firebase初體驗</a>之後，對於它的<a href="http://jasonchiucc.github.io/2016/07/20/firebase-tutorial-realtime-database/">Realtime功能</a>相當的感興趣，所以想來做一個會<a href="https://www.chinatimes.com/realtimenews/20180919002114-260407?chdtv">發大財</a>的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - <a href="https://www.hackingwithswift.com/articles/161/how-to-use-result-in-swift">Result</a>，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在這裡只會說明firebase的使用，關於畫面的部分就不多做說明了。
+            <p>在之前的firebase初體驗之後，對於它的Realtime功能相當的感興趣，所以想來做一個會發大財的APP來小試一下身手，做一個類似管理庫存的APP，不過這是我第二次使用它來寫東東，相信一定會碰到很多坑才是吧…XD，此外，還使用了Swift5的新功能 - Result，它在非同步的處理上相當好用，雖然之前自己有做了一個類似的功能，不過還是原生的比較有保障嘛，話不多說，讓我們繼續看下去吧。在這裡只會說明firebase的使用，關於畫面的部分就不多做說明了。
+事前準備 資料庫的長相 就一個很簡單的書籍列表，資料都是從博客來Copy來的，主要要注意的地方是，是以ISBN來當唯一的Key值，方便管理。 完成後的長相 主要是利用掃瞄 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/" title="Read More" class="excerpt_more button">Read More</a>
@@ -208,7 +210,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Jun 10, 2019</span>
+      Jun 10, 2019	  
+    </span>
     <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/firebase/' title="firebase" class="post_tag button button_translucent">firebase
         </a><a href='https://William-Weng.github.io/tags/nosql/' title="nosql" class="post_tag button button_translucent">nosql
         </a><a href='https://William-Weng.github.io/tags/database/' title="database" class="post_tag button button_translucent">database
@@ -282,7 +285,8 @@
       
         <div class="pale">
           
-            相信大家都有聽過<a href="https://en.wikipedia.org/wiki/Firebase">firebase</a>的大名吧？它已經是APP開發者最愛的<a href="https://baike.baidu.com/item/BaaS/271609">BaaS - 後端服務平臺</a>之一，自從Google<a href="https://www.ithome.com.tw/news/91771">買下</a>它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的<a href="https://kknews.cc/zh-tw/tech/blrm8n9.html">GCM - Google Cloud Messaging</a>轉成<a href="https://firebase.google.com/docs/cloud-messaging/">FCM - Firebase Cloud Messaging</a>，還有將<a href="https://www.inside.com.tw/article/8296-google-bought-twitters-fabbric">Fabric</a>關閉等…，總總的跡象都表示Google的決心。其實市面上另外還有一套叫<a href="http://parseplatform.org/">Parse.com</a>的資料庫，是由<a href="https://www.ithome.com.tw/voice/95454">Facebook買下</a>，不過由於不賺錢就<a href="https://panx.asia/archives/39160">關閉跟開源了</a>。以下的Code只會寫出比較重要的部分，如果要完整的Code的話，請去github下載，感謝。
+            <p>相信大家都有聽過firebase的大名吧？它已經是APP開發者最愛的BaaS - 後端服務平臺之一，自從Google買下它之後，一直在積極的將本身的一些服務轉到上面，像是最有名的例子就是將推播服務的GCM - Google Cloud Messaging轉成FCM - Firebase Cloud Messaging，還有將Fabric關閉等…，總總的跡象都表示Google的決心。其實市面上另外還有一套叫Parse.com的資料庫，是由Facebook買下，不過由於不賺錢就關閉跟開源了。以下的Code只會寫出比較重要的部分，如果要完整的Code的話，請去github下載，感謝。
+Realtime Database 建立 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/06/firebase%E4%B8%8D%E7%94%A8%E9%8C%A2%E7%9A%84nosql%E8%B3%87%E6%96%99%E5%BA%AB/" title="Read More" class="excerpt_more button">Read More</a>
@@ -305,7 +309,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 25, 2019</span>
+      May 25, 2019	  
+    </span>
     <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
         </a><a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
         </a><a href='https://William-Weng.github.io/tags/firebase/' title="firebase" class="post_tag button button_translucent">firebase
@@ -379,7 +384,8 @@
       
         <div class="pale">
           
-            這篇應該算是『極短篇』吧，個人其實是滿喜歡魔術的(喜歡被騙？)，最近在Youtube上看到一篇<a href="https://www.youtube.com/watch?v=hFdtbbpIAkE">牌穿進手機的魔術揭秘</a>，看起來是很久以前的魔術了(把妹招術？)，身為魔術師(脫魯？)的我，當然也要來練習一下，不過它這篇手機上的牌是固定的，而個人在這裡做一些改良，主要是利用<a href="https://developer.apple.com/documentation/uikit/uidevice/1620046-proximitystatedidchangenotificat">ProximityMonitor</a>的變化，跟<a href="https://en.wikipedia.org/wiki/Firebase">Firebase</a>的RealtimeDatabase來變魔術，讓我們來看看吧。
+            <p>這篇應該算是『極短篇』吧，個人其實是滿喜歡魔術的(喜歡被騙？)，最近在Youtube上看到一篇牌穿進手機的魔術揭秘，看起來是很久以前的魔術了(把妹招術？)，身為魔術師(脫魯？)的我，當然也要來練習一下，不過它這篇手機上的牌是固定的，而個人在這裡做一些改良，主要是利用ProximityMonitor的變化，跟Firebase的RealtimeDatabase來變魔術，讓我們來看看吧。
+準備道具 iPhone手機一支 可連上Firebase Console的手機一支 未使用過的撲克牌一付 想要認識的對象 (心儀的對象？) 你的好朋友們 (幫忙作弊？) 事前準備工作 撲克牌的檔案命名 Firebase 資料庫長相如下，主要是要取得 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/swift-5%E6%89%8B%E6%A9%9F%E4%B9%9F%E8%83%BD%E8%AE%8A%E6%92%B2%E5%85%8B%E7%89%8C%E9%AD%94%E8%A1%93/" title="Read More" class="excerpt_more button">Read More</a>
@@ -402,7 +408,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 6, 2019</span>
+      May 6, 2019	  
+    </span>
     <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
         </a><a href='https://William-Weng.github.io/tags/framework/' title="framework" class="post_tag button button_translucent">framework
         </a><a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
@@ -474,7 +481,8 @@
       
         <div class="pale">
           
-            <a href="../ios-framework-swift/">承上集</a>我們很開心的生出了真機的framework與模擬器的的framework，但是每一次測試都要在真機在模擬器之間切換，人生苦短，難到沒有其它的好辦法嗎？各位的聲音我聽到了，接下來我們就來合併它們，我們走。
+            <p>承上集我們很開心的生出了真機的framework與模擬器的的framework，但是每一次測試都要在真機在模擬器之間切換，人生苦短，難到沒有其它的好辦法嗎？各位的聲音我聽到了，接下來我們就來合併它們，我們走。
+合併framework 真機與模擬器資料夾 根據上集build出來的framework，我們可以看到會有兩個資料夾，分別是真機的framework，跟模擬器的的framework 內容結構 仔細看看，兩者的內容物好像一樣？ 比較一下 接下來我們利用lipo指令來比較看看有什麼不同，我們可以發現模擬器用的是x86_64架構的CPU，而真機用的是ARM架構的CPU，也就是說在手機上是不能用模擬器上的framework lipo …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95%E5%B0%87%E7%9C%9F%E6%A9%9F%E7%9A%84framework%E8%88%87%E6%A8%A1%E6%93%AC%E5%99%A8%E7%9A%84%E7%9A%84framework%E5%90%88%E4%BD%B5%E5%91%A2/" title="Read More" class="excerpt_more button">Read More</a>
@@ -497,7 +505,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 6, 2019</span>
+      May 6, 2019	  
+    </span>
     <span class="post_time"> · 2 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
         </a><a href='https://William-Weng.github.io/tags/framework/' title="framework" class="post_tag button button_translucent">framework
         </a><a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
@@ -569,7 +578,8 @@
       
         <div class="pale">
           
-            話說世上總是有好人奉獻自己的心血的，像在iOS界的<a href="https://zh.wikipedia.org/wiki/CocoaPods">Cocoapods</a>、Android界的<a href="https://zh.wikipedia.org/wiki/Gradle">Gradle</a>、Nodejs界的<a href="https://zh.wikipedia.org/wiki/Npm">NPM</a>…等管理工具，都是能快速取得第三方套件的好地方，在此感謝這些好人們，加一顆星。那我們要如何才能為這個社會盡一份心力呢？從build出私人的framework開始吧。順便工商一下，我自己也有上傳一些簡單的framework在<a href="http://cocoapods.org/owners/18398">Cocoaspod</a>上，大家覺得不錯也多多支持一下，現在就來製作framework的HelloWorld吧。
+            <p>話說世上總是有好人奉獻自己的心血的，像在iOS界的Cocoapods、Android界的Gradle、Nodejs界的NPM…等管理工具，都是能快速取得第三方套件的好地方，在此感謝這些好人們，加一顆星。那我們要如何才能為這個社會盡一份心力呢？從build出私人的framework開始吧。順便工商一下，我自己也有上傳一些簡單的framework在Cocoaspod上，大家覺得不錯也多多支持一下，現在就來製作framework的HelloWorld吧。
+產生過程 新增Framework 利用Xcode新增一個Cocoa Touch Framework 取個好名字 設定最低使用的iOS版本 新增一個class檔案 一樣也取個好名字 寫 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/xcode-10%E5%A6%82%E4%BD%95build%E5%87%BA%E5%8F%AF%E9%87%8D%E8%A4%87%E5%88%A9%E7%94%A8%E7%9A%84framework-%E7%B4%94swift%E7%B7%A8/" title="Read More" class="excerpt_more button">Read More</a>
@@ -608,7 +618,6 @@
     
 
 
-    
     
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
@@ -1716,6 +1725,11 @@
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 530" id="bluesky" >
     <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z"/>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="ko-fi">
+    <path fill="#ffffff" d="M4.5,9.8527H32.7947a0,0,0,0,1,0,0v19.225a9.07,9.07,0,0,1-9.07,9.07H13.57a9.07,9.07,0,0,1-9.07-9.07V9.8527A0,0,0,0,1,4.5,9.8527Z"/>
+    <path fill="#000000" d="M12.197,25.9493l6.45,6.45,6.45-6.45a8.2,8.2,0,0,0,2.4016-5.798h0a4.5082,4.5082,0,0,0-4.212-4.5459,4.4262,4.4262,0,0,0-4.64,4.4209,4.4261,4.4261,0,0,0-4.64-4.4209,4.5082,4.5082,0,0,0-4.212,4.5459h0A8.2,8.2,0,0,0,12.197,25.9493Z"/>
+    <path fill="#ffffff" d="M32.7947,9.8527H35.73a7.77,7.77,0,0,1,0,15.5394H32.7947"/>
+  </svg>
   </symbol>
 </svg>
 
@@ -1733,6 +1747,6 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" integrity="sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" integrity="sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous"></script>
   </body>
 </html>

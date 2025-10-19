@@ -39,15 +39,15 @@
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity = "sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" as="style" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity = "sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" as="style" crossorigin="anonymous">
 
 
 
-<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" as="script" integrity=
-"sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous">
+<link rel="preload" href="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" as="script" integrity=
+"sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous">
 
 
-<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.a556cef0edd8ecd9821e661f7f201d84cc18d0c6435703889db2949aea0eccb84b7ac9a2bb49093b03f5e7d9ce21c23c705efd6dcbd7e8018afae9a9f32ca095.css" integrity="sha512-pVbO8O3Y7NmCHmYffyAdhMwY0MZDVwOInbKUmuoOzLhLesmiu0kJOwP159nOIcI8cF79bcvX6AGK&#43;ump8yyglQ==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://William-Weng.github.io/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity="sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" crossorigin="anonymous">
 
   </head>
   <body
@@ -111,7 +111,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Apr 18, 2022</span>
+      Apr 18, 2022	  
+    </span>
     <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang/' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/sqlite/' title="sqlite" class="post_tag button button_translucent">sqlite
         </a><a href='https://William-Weng.github.io/tags/mysql/' title="mysql" class="post_tag button button_translucent">mysql
@@ -186,7 +187,8 @@
       
         <div class="pale">
           
-            應該有學了三週了吧？今天主要是來介紹<a href="https://ithelp.ithome.com.tw/articles/10207752">ORM - Object Relational Mapping</a>這個東西，簡單來說它就是一個幫助你把<a href="https://gorm.io/">Go語法 =&gt; SQL語法</a>的工具，因為一般有學過<a href="https://ithelp.ithome.com.tw/articles/10241383">SQL語法</a>的人並不是很多，加上基本上需要<a href="https://tecky.io/en/blog/SQL%E4%B8%89%E9%83%A8%E6%9B%B2:%E4%BD%A0%E4%B8%8D%E9%9C%80%E8%A6%81ORM/">高效能</a>的<a href="https://zh.wikipedia.org/wiki/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">CRUD</a>的機會就更少了，在語法上大大的<a href="https://www.itread01.com/content/1550282231.html">降低</a>了前端工程師對於SQL的<a href="https://cinna.tw/%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8%E7%B3%BB%E5%88%97/%E4%BD%9C%E8%80%85%E8%B6%85%E5%9B%89%E5%97%A6%EF%BC%8C%E4%BD%86%E4%B8%80%E5%A4%A9%E5%8F%AA%E8%A6%81%E5%8D%81%E5%88%86%E9%90%98%E7%9A%84mysql%E7%9C%9F%EF%BC%8E%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/crud%E5%88%9D%E9%AB%94%E9%A9%97%EF%BC%8C%E6%93%8D%E4%BD%9Cmysql%E8%B3%87%E6%96%99%E5%BA%AB">語法熟悉度</a>，而且<a href="https://ithelp.ithome.com.tw/articles/10238611">轉換資料庫</a>很容易，有助於快速開發。
+            <p>應該有學了三週了吧？今天主要是來介紹ORM - Object Relational Mapping這個東西，簡單來說它就是一個幫助你把Go語法 =&gt; SQL語法的工具，因為一般有學過SQL語法的人並不是很多，加上基本上需要高效能的CRUD的機會就更少了，在語法上大大的降低了前端工程師對於SQL的語法熟悉度，而且轉換資料庫很容易，有助於快速開發。
+作業環境 項目 版本 CPU Apple M1 macOS Big Sur 12.3 arm64 Golang 1.18 arm64 Visual Studio Code 1.66 arm64 Postman 9.0.9 arm64 DB Browser for SQLite 3.12.1 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2022/04/golang-1.18ormorz%E5%82%BB%E5%82%BB%E5%88%86%E4%B8%8D%E6%B8%85%E6%A5%9A/" title="Read More" class="excerpt_more button">Read More</a>
@@ -209,7 +211,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Apr 10, 2022</span>
+      Apr 10, 2022	  
+    </span>
     <span class="post_time"> · 6 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang/' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/mysql/' title="mysql" class="post_tag button button_translucent">mysql
         </a><a href='https://William-Weng.github.io/tags/api/' title="api" class="post_tag button button_translucent">api
@@ -284,7 +287,8 @@
       
         <div class="pale">
           
-            同學們<a href="https://youtu.be/63pp-6Z0JYo">上課啦</a>，記得當時<a href="https://youtu.be/RUuhdR1KCEA">年紀小</a>，筆者當時流行的是<a href="https://glints.com/tw/blog/what-is-a-full-stack-engineer/">網頁工程師-前/後端</a>，但是工作非常的<a href="https://tw.linkedin.com/">難找</a>，因為Web技術已經發展<a href="https://zh.wikipedia.org/zh-tw/HTML">20多年</a>了，所以會的人太多了，而薪資也早已進入了<a href="https://zh.wikipedia.org/wiki/%E8%97%8D%E6%B5%B7%E7%AD%96%E7%95%A5">大紅海時代</a>；後來看到<a href="https://zh.wikipedia.org/wiki/%E8%A1%8C%E5%8B%95%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1">手機系統</a>的出現，一不小心就<a href="https://www.104.com.tw/">轉職</a>到了<a href="https://buzzorange.com/techorange/2015/04/07/how-youll-go-through-while-learning-coding/">iOS打字工</a>的行列之中；但是，工作之後發現，<a href="https://medium.com/itsems-frontend/api-%E6%98%AF%E4%BB%80%E9%BA%BC-restful-api-%E5%8F%88%E6%98%AF%E4%BB%80%E9%BA%BC-a001a85ab638">老舊的API</a>寫法相當的不適合在<a href="https://ithelp.ithome.com.tw/articles/10157431">手機端</a>使用，要改嘛，又不是件容易的事(<a href="https://www.gvm.com.tw/article/73015">~~~資深員工很難溝通？~~~</a>)，<a href="https://www.businessweekly.com.tw/careers/blog/3005293">有問題</a>第一個顯示的也一定是在前端<a href="https://youtu.be/kg0IWsW1-xI">被發現</a>，還是<a href="https://www.books.com.tw/products/0010185056">靠自己</a>最好…
+            <p>同學們上課啦，記得當時年紀小，筆者當時流行的是網頁工程師-前/後端，但是工作非常的難找，因為Web技術已經發展20多年了，所以會的人太多了，而薪資也早已進入了大紅海時代；後來看到手機系統的出現，一不小心就轉職到了iOS打字工的行列之中；但是，工作之後發現，老舊的API寫法相當的不適合在手機端使用，要改嘛，又不是件容易的事(~~~資深員工很難溝通？~~~)，有問題第一個顯示的也一定是在前端被發現，還是靠自己最好…
+作業環境 項目 版本 CPU Apple M1 macOS Big Sur 12.3 arm64 Golang 1.18 arm64 Visual Studio Code 1.66 arm64 Postman 9.0.9 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2022/04/golang-1.18let-go-mysql%E6%88%91%E4%BE%86%E4%BA%86/" title="Read More" class="excerpt_more button">Read More</a>
@@ -307,7 +311,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Apr 9, 2022</span>
+      Apr 9, 2022	  
+    </span>
     <span class="post_time"> · 4 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/golang/' title="golang" class="post_tag button button_translucent">golang
         </a><a href='https://William-Weng.github.io/tags/web/' title="web" class="post_tag button button_translucent">web
         </a><a href='https://William-Weng.github.io/tags/backend/' title="backend" class="post_tag button button_translucent">backend
@@ -380,8 +385,8 @@
       
         <div class="pale">
           
-            依稀記得<a href="https://go.dev/">Golang</a>剛推出的時候，深深被它的<a href="https://www.google.com.tw/search?q=golang+icon">外表</a>所吸引？不不不，筆者不是<a href="https://www.ettoday.net/news/20210216/1919904.htm">外貌協會</a>的，其實它已經<a href="https://zh.wikipedia.org/wiki/Go">出現在</a>地球上有很長一段時間了，當初Google在設計它的時候，就是想要<a href="https://ithelp.ithome.com.tw/articles/10252829">語法簡潔</a>且<a href="https://min.news/zh-tw/technique/ad6d466d4573300eb56957c9961cbcec.html">高效能</a>，筆者覺得它是取代<a href="https://juejin.cn/post/7048420355743940645">Node.js - modules 無底洞</a> / <a href="https://buzzorange.com/techorange/2021/06/22/python-may-be-replaced/">Python - 執行速度</a> / <a href="https://openhome.cc/Gossip/JavaEssence/WhyJVM.html">Java - JVM跨平臺</a>的利器。
-最近感同深受，原本我的網誌是使用<a href="https://hexo.io/zh-tw/">hexo - Nodejs</a>去製作的，但因為<a href="https://go-echarts.github.io/go-echarts/">佈景主題</a>不合新版，所以就跳來使用<a href="https://gohugo.io/">hugo - Golang</a>，雖然hugo的文章大多都是英文的，比起hexo有強大中文資訊來說，的確是筆者的<a href="http://news.smart7-11.com/news-info.asp?id=672">痛點</a>，但是…Build的速度至少差10倍吧。
+            <p>依稀記得Golang剛推出的時候，深深被它的外表所吸引？不不不，筆者不是外貌協會的，其實它已經出現在地球上有很長一段時間了，當初Google在設計它的時候，就是想要語法簡潔且高效能，筆者覺得它是取代Node.js - modules 無底洞 / Python - 執行速度 / Java - JVM跨平臺的利器。 最近感同深受，原本我的網誌是使用hexo - Nodejs去製作的，但因為佈景主題不合新版，所以就跳來使用hugo - Golang，雖然hugo的文章大多都是英文的，比起hexo有強大中文資訊來說，的確是筆者的痛點，但是…Build的速度至少差10倍吧。
+作業環境 項目 版本 CPU Apple M1 macOS Big …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2022/04/golang-1.18go-go-go-%E5%8F%AF%E6%84%9B%E5%8F%88%E8%BF%B7%E4%BA%BA%E7%9A%84%E5%8F%8D%E6%B4%BE%E8%A7%92%E8%89%B2/" title="Read More" class="excerpt_more button">Read More</a>
@@ -404,7 +409,8 @@
 </svg>
 </span>
     <span class="post_date">
-      Apr 17, 2021</span>
+      Apr 17, 2021	  
+    </span>
     <span class="post_time"> · 5 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/grails/' title="grails" class="post_tag button button_translucent">grails
         </a><a href='https://William-Weng.github.io/tags/java/' title="java" class="post_tag button button_translucent">java
         </a><a href='https://William-Weng.github.io/tags/groovy/' title="groovy" class="post_tag button button_translucent">groovy
@@ -478,7 +484,8 @@
       
         <div class="pale">
           
-            因為最近把換成<a href="https://www.apple.com/tw/shop/buy-mac/mac-mini">M1版的Mac mini</a>了，什麼都沒有裝，所以先來記錄一下，<a href="https://min.news/zh-tw/technique/43eaeb958e2693896f2f6fd200e2fd3e.html">Java類</a>的APP安裝過程，也來記錄一下<a href="https://www.1keydata.com/tw/sql/sql-syntax.html">SQL</a>的相關使用過程，<a href="https://zh.wikipedia.org/zh-tw/%E5%A2%9E%E5%88%AA%E6%9F%A5%E6%94%B9">讀取資料</a>是身為後臺最重要的一環嘛。話說<a href="https://itnext.io/how-to-install-x86-and-arm-jdks-on-the-mac-m1-apple-silicon-using-sdkman-872a5adc050d">SDKMAN 5.10.0</a>跟<a href="https://www.ithome.com.tw/news/142050">IntelliJ IDEA 2020.3.1</a>也開始支援<a href="https://www.mdeditor.tw/pl/gzgi/zh-tw">M1</a>了，真的是<a href="https://www.google.com/search?q=%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86">可喜可賀</a>啊…
+            <p>因為最近把換成M1版的Mac mini了，什麼都沒有裝，所以先來記錄一下，Java類的APP安裝過程，也來記錄一下SQL的相關使用過程，讀取資料是身為後臺最重要的一環嘛。話說SDKMAN 5.10.0跟IntelliJ IDEA 2020.3.1也開始支援M1了，真的是可喜可賀啊…
+作業環境 項目 版本 CPU Apple M1 macOS Big Sur 11.2.3 SDKMAN 5.11 ARM64 Homebrew 3.1.3 ARM64 Java 8.0.282-zulu ARM64 IntelliJ IDEA 2021.1 ARM64 MySQL 8.0.23 x86_64 Grails 4.0.10 環境安裝 查看 …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2021/04/grails-4.0grails-%E4%BD%BF%E7%94%A8mysql%E4%BE%86%E5%AD%98%E5%8F%96%E8%B3%87%E6%96%99%E5%95%A6/" title="Read More" class="excerpt_more button">Read More</a>
@@ -501,7 +508,8 @@
 </svg>
 </span>
     <span class="post_date">
-      May 7, 2019</span>
+      May 7, 2019	  
+    </span>
     <span class="post_time"> · 1 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/mysql/' title="mysql" class="post_tag button button_translucent">mysql
         </a><a href='https://William-Weng.github.io/tags/mariadb/' title="mariadb" class="post_tag button button_translucent">mariadb
         </a><a href='https://William-Weng.github.io/tags/database/' title="database" class="post_tag button button_translucent">database
@@ -575,7 +583,8 @@
       
         <div class="pale">
           
-            依稀記得，<a href="https://zh.wikipedia.org/wiki/MySQL">MySQL</a>這個名詞，一直是窮學生學習<a href="https://zh.wikipedia.org/wiki/SQL">SQL</a>的代表，它是一個<a href="https://zh.wikipedia.org/zh-tw/%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81">開放原始碼</a>的<a href="https://zh.wikipedia.org/wiki/%E9%97%9C%E8%81%AF%E5%BC%8F%E8%B3%87%E6%96%99%E5%BA%AB%E7%AE%A1%E7%90%86%E7%B3%BB%E7%B5%B1">關聯式資料庫管理系統</a>，原開發者為瑞典的<a href="https://zh.wikipedia.org/wiki/MySQL_AB">MySQL AB</a>公司，該公司於2008年被<a href="https://zh.wikipedia.org/wiki/%E6%98%87%E9%99%BD%E9%9B%BB%E8%85%A6">昇陽電腦 - Sun Microsystems</a>收購，這時候還是開放原始碼的。到了2009年，<a href="https://zh.wikipedia.org/wiki/%E7%94%B2%E9%AA%A8%E6%96%87%E5%85%AC%E5%8F%B8">甲骨文公司 - Oracle</a>收購昇陽微系統公司，是的，它就是<a href="https://zh.wikipedia.org/wiki/%E9%87%91%E5%B7%9E%E5%8B%87%E5%A3%AB">NBA金州勇士隊</a>的主場<a href="https://zh.wikipedia.org/wiki/%E7%94%B2%E9%AA%A8%E6%96%87%E9%AB%94%E8%82%B2%E9%A4%A8">甲骨文體育館</a>的那個甲骨文，在MySQL成為Oracle旗下產品之後，一些原始開發者擔心甲骨文公司收購MySQL後會有一些隱患，所以就<a href="https://www.ithome.com.tw/news/86622">復刻</a>一個改良的版本，就是<a href="https://zh.wikipedia.org/wiki/MariaDB">MariaDB</a>的由來，由社群開發，有商業支援，旨在繼續保持在<a href="https://zh.wikipedia.org/wiki/GNU%E9%80%9A%E7%94%A8%E5%85%AC%E5%85%B1%E8%AE%B8%E5%8F%AF%E8%AF%81">GNU GPL</a>下<a href="https://zh.wikipedia.org/wiki/%E8%87%AA%E7%94%B1%E5%8F%8A%E5%BC%80%E6%94%BE%E6%BA%90%E4%BB%A3%E7%A0%81%E8%BD%AF%E4%BB%B6">開源</a>。
+            <p>依稀記得，MySQL這個名詞，一直是窮學生學習SQL的代表，它是一個開放原始碼的關聯式資料庫管理系統，原開發者為瑞典的MySQL AB公司，該公司於2008年被昇陽電腦 - Sun Microsystems收購，這時候還是開放原始碼的。到了2009年，甲骨文公司 - Oracle收購昇陽微系統公司，是的，它就是NBA金州勇士隊的主場甲骨文體育館的那個甲骨文，在MySQL成為Oracle旗下產品之後，一些原始開發者擔心甲骨文公司收購MySQL後會有一些隱患，所以就復刻一個改良的版本，就是MariaDB的由來，由社群開發，有商業支援，旨在繼續保持在GNU GPL下開源。
+安裝過程 安裝MariaDB 使用apt安裝，按圖施工，保證成功， …</p>
           
           <br>
           <a href="https://William-Weng.github.io/2019/05/mariadb-10.4%E5%AE%89%E8%A3%9Dmysql%E7%9A%84%E5%AD%BF%E7%94%9F%E5%85%84%E5%BC%9F-mariadb/" title="Read More" class="excerpt_more button">Read More</a>
@@ -594,7 +603,6 @@
     
 
 
-    
     
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
@@ -1702,6 +1710,11 @@
   </symbol>
   <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 530" id="bluesky" >
     <path d="m135.72 44.03c66.496 49.921 138.02 151.14 164.28 205.46 26.262-54.316 97.782-155.54 164.28-205.46 47.98-36.021 125.72-63.892 125.72 24.795 0 17.712-10.155 148.79-16.111 170.07-20.703 73.984-96.144 92.854-163.25 81.433 117.3 19.964 147.14 86.092 82.697 152.22-122.39 125.59-175.91-31.511-189.63-71.766-2.514-7.3797-3.6904-10.832-3.7077-7.8964-0.0174-2.9357-1.1937 0.51669-3.7077 7.8964-13.714 40.255-67.233 197.36-189.63 71.766-64.444-66.128-34.605-132.26 82.697-152.22-67.108 11.421-142.55-7.4491-163.25-81.433-5.9562-21.282-16.111-152.36-16.111-170.07 0-88.687 77.742-60.816 125.72-24.795z"/>
+  <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" id="ko-fi">
+    <path fill="#ffffff" d="M4.5,9.8527H32.7947a0,0,0,0,1,0,0v19.225a9.07,9.07,0,0,1-9.07,9.07H13.57a9.07,9.07,0,0,1-9.07-9.07V9.8527A0,0,0,0,1,4.5,9.8527Z"/>
+    <path fill="#000000" d="M12.197,25.9493l6.45,6.45,6.45-6.45a8.2,8.2,0,0,0,2.4016-5.798h0a4.5082,4.5082,0,0,0-4.212-4.5459,4.4262,4.4262,0,0,0-4.64,4.4209,4.4261,4.4261,0,0,0-4.64-4.4209,4.5082,4.5082,0,0,0-4.212,4.5459h0A8.2,8.2,0,0,0,12.197,25.9493Z"/>
+    <path fill="#ffffff" d="M32.7947,9.8527H35.73a7.77,7.77,0,0,1,0,15.5394H32.7947"/>
+  </svg>
   </symbol>
 </svg>
 
@@ -1719,6 +1732,6 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.ef18b7cbccbaaff8de21870709eafc196f6f5ffe0a978d7cc1fc489d084755617a79d19dff9f284e00b02ee517b64e64dc02d7ea310d40d485a957333cef7099.js" integrity="sha512-7xi3y8y6r/jeIYcHCer8GW9vX/4Kl418wfxInQhHVWF6edGd/58oTgCwLuUXtk5k3ALX6jENQNSFqVczPO9wmQ==" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://William-Weng.github.io/en/js/bundle.93f8fb0eebbd0106714d88b6b825d9ea166b4966bd29713dc2c3cf5406e6e11cfdbaa80d98d7c598050d31f5e73788c5c8411b34260bd58e20a69ff14a686f0d.js" integrity="sha512-k/j7Duu9AQZxTYi2uCXZ6hZrSWa9KXE9wsPPVAbm4Rz9uqgNmNfFmAUNMfXnN4jFyEEbNCYL1Y4gpp/xSmhvDQ==" crossorigin="anonymous"></script>
   </body>
 </html>
