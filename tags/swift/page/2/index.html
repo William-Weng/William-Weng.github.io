@@ -101,6 +101,105 @@
   <div class="excerpt">
     <div class="excerpt_header">
       <h3 class="post_link">
+        <a href="https://William-Weng.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/" title="【Firebase】它要怎麼排序呢？(補充)">【Firebase】它要怎麼排序呢？(補充)</a>
+      </h3>
+      
+  <div class="post_meta">
+    <span><svg class="icon">
+  <title>calendar</title>
+  <use xlink:href="#calendar"></use>
+</svg>
+</span>
+    <span class="post_date">
+      Jun 20, 2019	  
+    </span>
+    <span class="post_time"> · 3 min read</span><span>&nbsp;· <a href='https://William-Weng.github.io/tags/firebase/' title="firebase" class="post_tag button button_translucent">firebase
+        </a><a href='https://William-Weng.github.io/tags/nosql/' title="nosql" class="post_tag button button_translucent">nosql
+        </a><a href='https://William-Weng.github.io/tags/database/' title="database" class="post_tag button button_translucent">database
+        </a><a href='https://William-Weng.github.io/tags/xcode/' title="xcode" class="post_tag button button_translucent">xcode
+        </a><a href='https://William-Weng.github.io/tags/swift/' title="swift" class="post_tag button button_translucent">swift
+        </a>
+    </span>
+    <span class="page_only">&nbsp;·
+  <div class="post_share">
+    Share on:
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Firebase%e3%80%91%e5%ae%83%e8%a6%81%e6%80%8e%e9%ba%bc%e6%8e%92%e5%ba%8f%e5%91%a2%ef%bc%9f%28%e8%a3%9c%e5%85%85%29&url=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f06%2ffirebase%25E5%25AE%2583%25E8%25A6%2581%25E6%2580%258E%25E9%25BA%25BC%25E6%258E%2592%25E5%25BA%258F%25E5%2591%25A2%25E8%25A3%259C%25E5%2585%2585%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>twitter</title>
+  <use xlink:href="#twitter"></use>
+</svg>
+
+    </a>
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2019%2f06%2ffirebase%25E5%25AE%2583%25E8%25A6%2581%25E6%2580%258E%25E9%25BA%25BC%25E6%258E%2592%25E5%25BA%258F%25E5%2591%25A2%25E8%25A3%259C%25E5%2585%2585%2f&t=%e3%80%90Firebase%e3%80%91%e5%ae%83%e8%a6%81%e6%80%8e%e9%ba%bc%e6%8e%92%e5%ba%8f%e5%91%a2%ef%bc%9f%28%e8%a3%9c%e5%85%85%29" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+      <svg class="icon">
+  <title>facebook</title>
+  <use xlink:href="#facebook"></use>
+</svg>
+
+    </a>
+    <a href="#linkedinshare" id = "linkedinshare" class="linkedin" title="Share on LinkedIn" rel="nofollow">
+      <svg class="icon">
+  <title>linkedin</title>
+  <use xlink:href="#linkedin"></use>
+</svg>
+
+    </a>
+    <a href="https://William-Weng.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/" title="Copy Link" class="link link_yank">
+      <svg class="icon">
+  <title>copy</title>
+  <use xlink:href="#copy"></use>
+</svg>
+
+    </a>
+  </div>
+  </span>
+  </div>
+
+    </div>
+    <div class="excerpt_footer partition">
+      <div class="excerpt_thumbnail"><figure>
+  <picture>
+
+    
+      
+        
+        
+        
+        
+        
+        
+    <img
+      loading="lazy"
+      decoding="async"
+      alt="【Firebase】它要怎麼排序呢？(補充)"
+      
+        class="image_figure image_thumbnail image_internal image_unprocessed"
+        src="https://William-Weng.github.io/images/thumbnail/Firebase.png"
+      
+      
+    />
+
+    </picture>
+</figure>
+
+      </div>
+      
+        <div class="pale">
+          
+            <p>在上集的庫存APP中，雖然把東西做出來了，但熊熊發現我明明就有寫排序的Code呀，卻完全沒有反應，排序在資料庫中是很正常的功能吧？不然要資料庫幹嘛呢？如果利用手機小小的CPU去排序，一下子就沒電了呀，我想我的人品應該沒有問題吧？所以就去問問高高手同事，也查了一下，發現…果然是我的問題呀…XD，現在我們就來排序吧。
+排序 測試資料 就一個很簡單的書籍列表，資料都是從博客來Copy來的，主要要注意的地方是，BarCode是為了測試才使用A~E的值 { &quot;Books&quot;: { &quot;BarCode&quot;: { &quot;E&quot;: { &quot;ISBN&quot;: 9789863843344, &quot;Title&quot;: &quot;世界大局．地圖全解讀&quot;, &quot;URL&quot;: …</p>
+          
+          <br>
+          <a href="https://William-Weng.github.io/2019/06/firebase%E5%AE%83%E8%A6%81%E6%80%8E%E9%BA%BC%E6%8E%92%E5%BA%8F%E5%91%A2%E8%A3%9C%E5%85%85/" title="Read More" class="excerpt_more button">Read More</a>
+        </div>
+      </div>
+    </div>
+  </li>
+
+        <li class="post_item">
+  <div class="excerpt">
+    <div class="excerpt_header">
+      <h3 class="post_link">
         <a href="https://William-Weng.github.io/2019/06/firebase%E5%BA%AB%E5%AD%98app-%E4%B8%8A%E5%82%B3%E4%B8%8B%E8%BC%89%E6%96%87%E5%AD%97-/-%E5%9C%96%E7%89%87/" title="【Firebase】庫存APP (上傳、下載文字 / 圖片)">【Firebase】庫存APP (上傳、下載文字 / 圖片)</a>
       </h3>
       
@@ -622,6 +721,9 @@ Realtime Database 建立 …</p>
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
+        <a href="https://William-Weng.github.io/2026/03/rustrust%E8%88%87swift%E7%9B%B8%E9%81%87/" class="nav-link" title="【Rust】Rust與Swift相遇…">【Rust】Rust與Swift相遇…</a>
+      </li>
+      <li>
         <a href="https://William-Weng.github.io/2025/10/workflow%E8%87%AA%E5%8B%95%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%A6%82%E5%88%9D%E8%A6%8B/" class="nav-link" title="【Workflow】自動化工作流程如初見">【Workflow】自動化工作流程如初見</a>
       </li>
       <li>
@@ -642,16 +744,13 @@ Realtime Database 建立 …</p>
       <li>
         <a href="https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/" class="nav-link" title="【Docker容器】大家一起來當鯨魚搬運工吧…">【Docker容器】大家一起來當鯨魚搬運工吧…</a>
       </li>
-      <li>
-        <a href="https://William-Weng.github.io/2025/01/%E4%B8%B2%E6%B5%81%E5%BD%B1%E9%9F%B3%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E7%9B%B4%E6%92%AD%E4%B8%BB%E5%90%A7/" class="nav-link" title="【串流影音】大家一起來當直播主吧…">【串流影音】大家一起來當直播主吧…</a>
-      </li>
     </ul>
     <div>
       <h2 class="mt-4 taxonomy" id="tags-section">Tags</h2>
       <nav class="tags_nav">
         <a href='https://William-Weng.github.io/tags/swift/' class="post_tag button button_translucent" title="swift">
           SWIFT
-          <span class="button_tally">15</span>
+          <span class="button_tally">16</span>
         </a>
         
         <a href='https://William-Weng.github.io/tags/xcode/' class="post_tag button button_translucent" title="xcode">
@@ -734,6 +833,11 @@ Realtime Database 建立 …</p>
           <span class="button_tally">5</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
+          RUST
+          <span class="button_tally">5</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/unity/' class="post_tag button button_translucent" title="unity">
           UNITY
           <span class="button_tally">5</span>
@@ -759,11 +863,6 @@ Realtime Database 建立 …</p>
           <span class="button_tally">4</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/rust/' class="post_tag button button_translucent" title="rust">
-          RUST
-          <span class="button_tally">4</span>
-        </a>
-        
         <a href='https://William-Weng.github.io/tags/sqlite/' class="post_tag button button_translucent" title="sqlite">
           SQLITE
           <span class="button_tally">4</span>
@@ -781,6 +880,11 @@ Realtime Database 建立 …</p>
         
         <a href='https://William-Weng.github.io/tags/ffmpeg/' class="post_tag button button_translucent" title="ffmpeg">
           FFMPEG
+          <span class="button_tally">3</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/framework/' class="post_tag button button_translucent" title="framework">
+          FRAMEWORK
           <span class="button_tally">3</span>
         </a>
         
@@ -831,11 +935,6 @@ Realtime Database 建立 …</p>
         
         <a href='https://William-Weng.github.io/tags/email/' class="post_tag button button_translucent" title="email">
           EMAIL
-          <span class="button_tally">2</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/framework/' class="post_tag button button_translucent" title="framework">
-          FRAMEWORK
           <span class="button_tally">2</span>
         </a>
         
@@ -981,6 +1080,11 @@ Realtime Database 建立 …</p>
         
         <a href='https://William-Weng.github.io/tags/button/' class="post_tag button button_translucent" title="button">
           BUTTON
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/c/' class="post_tag button button_translucent" title="c">
+          C
           <span class="button_tally">1</span>
         </a>
         
@@ -1144,11 +1248,6 @@ Realtime Database 建立 …</p>
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/regex/' class="post_tag button button_translucent" title="regex">
-          REGEX
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
@@ -1216,6 +1315,10 @@ Realtime Database 建立 …</p>
             
             
             <a href='https://William-Weng.github.io/tags/button/' class=" post_tag button button_translucent" data-position=1 title="button">BUTTON<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/c/' class=" post_tag button button_translucent" data-position=1 title="c">C<span class="button_tally">1</span>
             </a>
             
             
@@ -1311,7 +1414,7 @@ Realtime Database 建立 …</p>
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/framework/' class=" post_tag button button_translucent" data-position=2 title="framework">FRAMEWORK<span class="button_tally">2</span>
+            <a href='https://William-Weng.github.io/tags/framework/' class=" post_tag button button_translucent" data-position=3 title="framework">FRAMEWORK<span class="button_tally">3</span>
             </a>
             
             
@@ -1503,7 +1606,7 @@ Realtime Database 建立 …</p>
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=4 title="rust">RUST<span class="button_tally">4</span>
+            <a href='https://William-Weng.github.io/tags/rust/' class=" post_tag button button_translucent" data-position=5 title="rust">RUST<span class="button_tally">5</span>
             </a>
             
             
@@ -1539,7 +1642,7 @@ Realtime Database 建立 …</p>
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/swift/' class=" post_tag button button_translucent" data-position=15 title="swift">SWIFT<span class="button_tally">15</span>
+            <a href='https://William-Weng.github.io/tags/swift/' class=" post_tag button button_translucent" data-position=16 title="swift">SWIFT<span class="button_tally">16</span>
             </a>
             
             

@@ -6,7 +6,23 @@
     <description>Recent content in Swift on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 17 Feb 2024 21:16:58 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Mar 2026 21:06:12 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Rust】Rust與Swift相遇…</title>
+      <link>https://William-Weng.github.io/2026/03/rustrust%E8%88%87swift%E7%9B%B8%E9%81%87/</link>
+      <pubDate>Fri, 13 Mar 2026 21:06:12 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2026/03/rustrust%E8%88%87swift%E7%9B%B8%E9%81%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;經過了這麼多年，個人算在iOS上算是&lt;a href=&#34;https://swiftpackageindex.com/William-Weng&#34;&gt;小有成就&lt;/a&gt;，能混口飯吃，這篇也算是補上之前&lt;a href=&#34;https://William-Weng.github.io/tags/framework/&#34;&gt;純Swift編成Framework&lt;/a&gt;的一個補充包，只要是能轉成C語言二進制的，通通都可以接在iOS系統上，&lt;a href=&#34;https://www.cool3c.com/article/246977&#34;&gt;iOS生&lt;/a&gt;可謂是功德圓滿啊，不過呢，最近AI是越來越強大了，像我這種還在寫&lt;a href=&#34;https://crates.io/users/William-Weng&#34;&gt;套件&lt;/a&gt; / 文章的人越來越少了，因為只要問一下AI，程式馬上就出來了，但是個人覺得還是自己寫的最香，就算是用AI問出來的，我還是會去了解，改成自己&lt;a href=&#34;https://www.storm.mg/lifestyle/3447079&#34;&gt;喜歡&lt;/a&gt;的樣子，我對寫程式可算是真愛啊…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Xcode 15】自己跟自己聊天？ - ChatGPT</title>
       <link>https://William-Weng.github.io/2024/02/xcode-15%E8%87%AA%E5%B7%B1%E8%B7%9F%E8%87%AA%E5%B7%B1%E8%81%8A%E5%A4%A9-chatgpt/</link>
