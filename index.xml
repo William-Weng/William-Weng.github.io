@@ -6,9 +6,25 @@
     <description>Recent content on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Fri, 13 Mar 2026 21:06:12 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Mar 2026 21:54:59 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>【Rust】Rust與Swift相遇…</title>
+      <title>【Github】網頁跟APP的相連</title>
+      <link>https://William-Weng.github.io/2026/03/github%E7%B6%B2%E9%A0%81%E8%B7%9Fapp%E7%9A%84%E7%9B%B8%E9%80%A3/</link>
+      <pubDate>Mon, 16 Mar 2026 21:54:59 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2026/03/github%E7%B6%B2%E9%A0%81%E8%B7%9Fapp%E7%9A%84%E7%9B%B8%E9%80%A3/</guid>
+      <description>
+        
+          
+            &lt;p&gt;大家應該看過進網頁可以打開APP吧，除了用&lt;a href=&#34;gist.github.com/zhuziyi1989/3f96a73c45a87778b560e44cb551ebd2&#34;&gt;Deep Link&lt;/a&gt;之外，還可以使用&lt;a href=&#34;https://tom8u4286.medium.com/ios-universal-link%E5%AF%A6%E4%BD%9C-51b7ec277f3a&#34;&gt;Universal Link&lt;/a&gt;，其中最重要的設定就是&lt;a href=&#34;https://developer.apple.com/documentation/xcode/supporting-associated-domains&#34;&gt;AASA (apple-app-site-association)&lt;/a&gt;，接下來我們就來做個最簡單的介紹吧…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>【Rust】Rust與Swift相遇</title>
       <link>https://William-Weng.github.io/2026/03/rustrust%E8%88%87swift%E7%9B%B8%E9%81%87/</link>
       <pubDate>Fri, 13 Mar 2026 21:06:12 +0800</pubDate>
       

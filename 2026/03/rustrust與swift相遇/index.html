@@ -9,7 +9,7 @@
   
   >
   <head>
-<title>【Rust】Rust與Swift相遇… | William-Weng</title>
+<title>【Rust】Rust與Swift相遇 | William-Weng</title>
 <meta charset="utf-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -25,10 +25,10 @@
 <meta name="description" content="經過了這麼多年，個人算在iOS上算是小有成就，能混口飯吃，這篇也算是補上之前純Swift編成Framework的一個補充包，只要是能轉成C語言二進制的，通通都可以接在iOS系統上，iOS生可謂是功德圓滿啊，不過呢，最近AI是越來越強大了，像我這種還在寫套件 / 文章的人越來越少了，因為只要問一下AI，程式馬上就出來了， …" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="">
-<meta name="twitter:title" content="【Rust】Rust與Swift相遇…" />
+<meta name="twitter:title" content="【Rust】Rust與Swift相遇" />
 <meta name="twitter:image" content="https://William-Weng.github.io/images/thumbnail/Rust.png"/>
 <meta property="og:url" content="https://William-Weng.github.io/2026/03/rustrust%E8%88%87swift%E7%9B%B8%E9%81%87/" />
-<meta property="og:title" content="【Rust】Rust與Swift相遇…" />
+<meta property="og:title" content="【Rust】Rust與Swift相遇" />
 <meta property="og:description" content="經過了這麼多年，個人算在iOS上算是小有成就，能混口飯吃，這篇也算是補上之前純Swift編成Framework的一個補充包，只要是能轉成C語言二進制的，通通都可以接在iOS系統上，iOS生可謂是功德圓滿啊，不過呢，最近AI是越來越強大了，像我這種還在寫套件 / 文章的人越來越少了，因為只要問一下AI，程式馬上就出來了， …" />
 <meta property="og:image" content="https://William-Weng.github.io/images/thumbnail/Rust.png" />
   <meta name="keywords" content="rust,framework,swift,c" />
@@ -96,7 +96,7 @@
   
 <div class="grid-inverse wrap content">
   <article class="post_content">
-    <h1 class="post_title">【Rust】Rust與Swift相遇…</h1>
+    <h1 class="post_title">【Rust】Rust與Swift相遇</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <title>calendar</title>
@@ -115,14 +115,14 @@
     <span class="page_only">&nbsp;·
   <div class="post_share">
     Share on:
-    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Rust%e3%80%91Rust%e8%88%87Swift%e7%9b%b8%e9%81%87%e2%80%a6&url=https%3a%2f%2fWilliam-Weng.github.io%2f2026%2f03%2frustrust%25E8%2588%2587swift%25E7%259B%25B8%25E9%2581%2587%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
+    <a href="https://twitter.com/intent/tweet?text=%e3%80%90Rust%e3%80%91Rust%e8%88%87Swift%e7%9b%b8%e9%81%87&url=https%3a%2f%2fWilliam-Weng.github.io%2f2026%2f03%2frustrust%25E8%2588%2587swift%25E7%259B%25B8%25E9%2581%2587%2f&tw_p=tweetbutton" class="twitter" title="Share on Twitter" target="_blank" rel="nofollow">
       <svg class="icon">
   <title>twitter</title>
   <use xlink:href="#twitter"></use>
 </svg>
 
     </a>
-    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2026%2f03%2frustrust%25E8%2588%2587swift%25E7%259B%25B8%25E9%2581%2587%2f&t=%e3%80%90Rust%e3%80%91Rust%e8%88%87Swift%e7%9b%b8%e9%81%87%e2%80%a6" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
+    <a href="https://www.facebook.com/sharer.php?u=https%3a%2f%2fWilliam-Weng.github.io%2f2026%2f03%2frustrust%25E8%2588%2587swift%25E7%259B%25B8%25E9%2581%2587%2f&t=%e3%80%90Rust%e3%80%91Rust%e8%88%87Swift%e7%9b%b8%e9%81%87" class="facebook" title="Share on Facebook" target="_blank" rel="nofollow">
       <svg class="icon">
   <title>facebook</title>
   <use xlink:href="#facebook"></use>
@@ -246,7 +246,7 @@
 </span></span><span style="display:flex;"><span>    )
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><ul>
-<li>其中extern &ldquo;C&rdquo;，就是把這支func轉成C語言的形式輸出，畢竟<a href="https://zh.wikipedia.org/zh-tw/Objective-C">Objective-C</a>可以直接接C語言，後面使用起來方便很多…</li>
+<li>其中<code>extern &quot;C&quot;</code>，就是把這支func轉成C語言的形式輸出，畢竟<a href="https://zh.wikipedia.org/zh-tw/Objective-C">Objective-C</a>可以直接接C語言，後面使用起來方便很多…</li>
 <li>再來就是<code>#[unsafe(no_mangle)]</code>了，因為在編成<a href="https://emn178.github.io/online-tools/base64_encode.html">二進制</a>後，func的名稱就會改變，有可能是<code>Y2Flc2FyX2VuY3J5cHQ=()</code>，在程式內部是沒問題的，但在外部用的話，這樣子我們就沒辦法知道func名稱，所以加上這個註記，就是在生成後不要改變func名稱，不然要用就麻煩了…</li>
 </ul>
 <h3 id="編成二進制標準函式庫-a">編成二進制標準函式庫 (.a)</h3>
@@ -492,7 +492,7 @@ lipo -info CaesarRust.xcframework/ios-arm64-simulator/libcaesar_rust.a
 plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
 </code></pre><h3 id="範例程式碼下載"><a href="https://github.com/William-Weng/rust_swift_combine">範例程式碼下載</a></h3>
 <h3 id="後記">後記</h3>
-<p>以前我曾經聽過前輩說，其實程式碼<a href="https://www.haozhexu.me/cn/article/2021/swift-framework-package/">寫得亂</a>的才是大師，因為都是照著他的想法，連續寫下來的，也就是說，程式是有前後關係的；而寫得<a href="https://rickhw.github.io/2023/07/11/Coding/Why-Keep-Old-Code/">乾淨</a>的，基本上都是些<a href="https://www.youtube.com/watch?v=yt9kkzmxx0I">簡單的</a>程式，才有辦法切得那麼開。後來想想好像也對，像我程式碼分得那麼細，還80%以上有註解的程式碼，真的是少見啊，因為也是要花<a href="https://www.youtube.com/watch?v=XEJsJU7OWFY">二倍</a>的時間整理，而在畫面功能上，一點也沒變，真的是浪費時間，但是因為我不是個天才，所以慢工出細活，套件化對我來說，也是減少了再動腦一次的機會，畢竟我不是個<a href="https://www.youtube.com/watch?v=XPtIOUOTZdg">聰明人</a>，要再想一次是很累的啊，直接用不是很好嘛…</p>
+<p>以前我曾經聽過前輩說，其實程式碼<a href="https://www.haozhexu.me/cn/article/2021/swift-framework-package/">寫得亂</a>的才是大師，因為都是照著他的想法，連續寫下來的，也就是說，程式是有前後關係的；而寫得<a href="https://rickhw.github.io/2023/07/11/Coding/Why-Keep-Old-Code/">乾淨</a>的，基本上都是些<a href="https://www.youtube.com/watch?v=yt9kkzmxx0I">簡單的</a>程式，才有辦法切得那麼開。後來想想好像也對，像我程式碼分得那麼細，還80%以上有註解的程式碼，真的是少見啊，因為也是要花<a href="https://www.youtube.com/watch?v=XEJsJU7OWFY">二倍</a>的時間整理，而在畫面功能上，一點也沒變，真的是浪費時間，但是因為我不是個天才，所以慢工出細活，套件化對我來說，也是減少了再動腦一次的機會，畢竟我不是個<a href="https://www.youtube.com/watch?v=XPtIOUOTZdg">聰明人</a>，要再想一次是很累的啊，直接用不是很好嗎？</p>
     </div><div class="post_comments">
   
   
@@ -514,7 +514,10 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
     <h2 class="mt-4">Recent Posts</h2>
     <ul class="flex-column">
       <li>
-        <a href="https://William-Weng.github.io/2026/03/rustrust%E8%88%87swift%E7%9B%B8%E9%81%87/" class="nav-link" title="【Rust】Rust與Swift相遇…">【Rust】Rust與Swift相遇…</a>
+        <a href="https://William-Weng.github.io/2026/03/github%E7%B6%B2%E9%A0%81%E8%B7%9Fapp%E7%9A%84%E7%9B%B8%E9%80%A3/" class="nav-link" title="【Github】網頁跟APP的相連">【Github】網頁跟APP的相連</a>
+      </li>
+      <li>
+        <a href="https://William-Weng.github.io/2026/03/rustrust%E8%88%87swift%E7%9B%B8%E9%81%87/" class="nav-link" title="【Rust】Rust與Swift相遇">【Rust】Rust與Swift相遇</a>
       </li>
       <li>
         <a href="https://William-Weng.github.io/2025/10/workflow%E8%87%AA%E5%8B%95%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%A6%82%E5%88%9D%E8%A6%8B/" class="nav-link" title="【Workflow】自動化工作流程如初見">【Workflow】自動化工作流程如初見</a>
@@ -533,9 +536,6 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
       </li>
       <li>
         <a href="https://William-Weng.github.io/2025/04/wails%E4%B8%80%E8%B5%B7%E4%BE%86%E5%81%9A%E5%80%8B%E6%A1%8C%E9%9D%A2%E7%A8%8B%E5%BC%8F%E5%B0%8F%E5%B7%A5%E5%85%B7%E5%90%A7/" class="nav-link" title="【Wails】一起來做個桌面程式小工具吧…">【Wails】一起來做個桌面程式小工具吧…</a>
-      </li>
-      <li>
-        <a href="https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/" class="nav-link" title="【Docker容器】大家一起來當鯨魚搬運工吧…">【Docker容器】大家一起來當鯨魚搬運工吧…</a>
       </li>
     </ul>
     <div>
@@ -646,6 +646,11 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
           <span class="button_tally">4</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/github/' class="post_tag button button_translucent" title="github">
+          GITHUB
+          <span class="button_tally">4</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/nodejs/' class="post_tag button button_translucent" title="nodejs">
           NODEJS
           <span class="button_tally">4</span>
@@ -678,11 +683,6 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
         
         <a href='https://William-Weng.github.io/tags/framework/' class="post_tag button button_translucent" title="framework">
           FRAMEWORK
-          <span class="button_tally">3</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/github/' class="post_tag button button_translucent" title="github">
-          GITHUB
           <span class="button_tally">3</span>
         </a>
         
@@ -831,6 +831,11 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
           <span class="button_tally">1</span>
         </a>
         
+        <a href='https://William-Weng.github.io/tags/aasa/' class="post_tag button button_translucent" title="aasa">
+          AASA
+          <span class="button_tally">1</span>
+        </a>
+        
         <a href='https://William-Weng.github.io/tags/actions/' class="post_tag button button_translucent" title="actions">
           ACTIONS
           <span class="button_tally">1</span>
@@ -848,6 +853,11 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
         
         <a href='https://William-Weng.github.io/tags/apollo/' class="post_tag button button_translucent" title="apollo">
           APOLLO
+          <span class="button_tally">1</span>
+        </a>
+        
+        <a href='https://William-Weng.github.io/tags/applink/' class="post_tag button button_translucent" title="applink">
+          APPLINK
           <span class="button_tally">1</span>
         </a>
         
@@ -1031,16 +1041,6 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
           <span class="button_tally">1</span>
         </a>
         
-        <a href='https://William-Weng.github.io/tags/raspberry-pi/' class="post_tag button button_translucent" title="raspberry-pi">
-          RASPBERRY-PI
-          <span class="button_tally">1</span>
-        </a>
-        
-        <a href='https://William-Weng.github.io/tags/rdbms/' class="post_tag button button_translucent" title="rdbms">
-          RDBMS
-          <span class="button_tally">1</span>
-        </a>
-        
         
         <br>
         <div class="post_tags_toggle button">All Tags</div>
@@ -1056,6 +1056,10 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
             
             
             <a href='https://William-Weng.github.io/tags/3rd/' class=" post_tag button button_translucent" data-position=1 title="3rd">3RD<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/aasa/' class=" post_tag button button_translucent" data-position=1 title="aasa">AASA<span class="button_tally">1</span>
             </a>
             
             
@@ -1084,6 +1088,10 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
             
             
             <a href='https://William-Weng.github.io/tags/apollo/' class=" post_tag button button_translucent" data-position=1 title="apollo">APOLLO<span class="button_tally">1</span>
+            </a>
+            
+            
+            <a href='https://William-Weng.github.io/tags/applink/' class=" post_tag button button_translucent" data-position=1 title="applink">APPLINK<span class="button_tally">1</span>
             </a>
             
             
@@ -1219,7 +1227,7 @@ plutil -p CaesarRust.xcframework/Info.plist | grep -A10 LibraryIdentifier
             </a>
             
             
-            <a href='https://William-Weng.github.io/tags/github/' class=" post_tag button button_translucent" data-position=3 title="github">GITHUB<span class="button_tally">3</span>
+            <a href='https://William-Weng.github.io/tags/github/' class=" post_tag button button_translucent" data-position=4 title="github">GITHUB<span class="button_tally">4</span>
             </a>
             
             
