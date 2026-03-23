@@ -6,7 +6,23 @@
     <description>Recent content in Image on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sun, 26 Jan 2025 07:57:43 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Mar 2026 21:51:12 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FFMpeg跟iOS終於在一起了</title>
+      <link>https://William-Weng.github.io/2026/03/ffmpeg%E8%B7%9Fios%E7%B5%82%E6%96%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E4%BA%86/</link>
+      <pubDate>Mon, 23 Mar 2026 21:51:12 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2026/03/ffmpeg%E8%B7%9Fios%E7%B5%82%E6%96%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E4%BA%86/</guid>
+      <description>
+        
+          
+            &lt;p&gt;其實在這個&lt;code&gt;AI&lt;/code&gt;的時代，許多的&lt;code&gt;程式碼&lt;/code&gt;越來越容易取得了，你寫的程式碼只要流出來，馬上就被AI學走，這也算是一種&lt;code&gt;眾人的智慧&lt;/code&gt;吧？但本著&lt;code&gt;大愛&lt;/code&gt;的精神，我還是不藏私啊，但在這類跨平台的功能，還是滿&lt;a href=&#34;https://www.youtube.com/watch?v=aJrI_g2qDOQ&#34;&gt;不容易&lt;/a&gt;找到的，因為只有&lt;code&gt;build&lt;/code&gt;而己，要說它是程式，也不算是，但又一定用得到，像一些&lt;code&gt;第三方登入&lt;/code&gt;的SDK，為了安全，還是會包成&lt;code&gt;二進制&lt;/code&gt;檔案，但是呢，通常不是只包成&lt;code&gt;.a&lt;/code&gt;檔，細節要自己處理，就是只有&lt;code&gt;.framework&lt;/code&gt;檔，只能在&lt;code&gt;實機&lt;/code&gt;上使用，所以呢，想自己包個能在模擬器上用的&lt;code&gt;ffmpeg&lt;/code&gt;的念頭就產生了…&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Docker容器】大家一起來當鯨魚搬運工吧…</title>
       <link>https://William-Weng.github.io/2025/01/docker%E5%AE%B9%E5%99%A8%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E7%95%B6%E9%AF%A8%E9%AD%9A%E6%90%AC%E9%81%8B%E5%B7%A5%E5%90%A7/</link>
