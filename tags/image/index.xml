@@ -48,7 +48,7 @@
 &lt;h2 id=&#34;說明&#34;&gt;說明&lt;/h2&gt;
 &lt;h3 id=&#34;圖片大小&#34;&gt;圖片大小&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;我們大家都知道，顏色就是由&lt;a href=&#34;https://www.mindscmyk.com/2025/01/08/cmyk-color-model/&#34;&gt;三原色&lt;/a&gt; + 透明度組成的，也就是網頁上常看到的&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/RGBA&#34;&gt;RGBA&lt;/a&gt;，所以1張&lt;code&gt;800 x 600&lt;/code&gt;的彩色圖片，它的大小就是：&lt;/li&gt;
+&lt;li&gt;我們大家都知道，顏色就是由&lt;a href=&#34;https://www.mindscmyk.com/2025/01/08/cmyk-color-model/&#34;&gt;三原色&lt;/a&gt; + &lt;code&gt;透明度&lt;/code&gt;組成的，也就是網頁上常看到的&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/RGBA&#34;&gt;RGBA&lt;/a&gt;，所以1張&lt;code&gt;800 x 600&lt;/code&gt;的彩色圖片，它的大小就是：&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;figure&gt;
   &lt;picture&gt;
@@ -78,6 +78,7 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;800&lt;/span&gt; x &lt;span style=&#34;color:#ae81ff&#34;&gt;600&lt;/span&gt; x 4 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1,920,000 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1.87 MB
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;也就是說，不管圖片是怎麼&lt;code&gt;壓縮&lt;/code&gt;的，顯示在畫面上，都是&lt;code&gt;一個點一個點&lt;/code&gt;去顯示的，最後都會解回&lt;code&gt;RAW&lt;/code&gt;的格式，都要用到&lt;code&gt;1.87 MB&lt;/code&gt;的記憶體…&lt;/li&gt;
+&lt;li&gt;像&lt;code&gt;zip&lt;/code&gt;文件也是一樣，最後一定是&lt;code&gt;解壓縮&lt;/code&gt;出來，才能處理裡面的檔案嘛…&lt;/li&gt;
 &lt;li&gt;而所謂的圖片壓縮，就是把&lt;code&gt;相同&lt;/code&gt; / &lt;code&gt;相近&lt;/code&gt;顏色變成一個可重複使用的編碼，有點像&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81&#34;&gt;霍夫曼編碼&lt;/a&gt;那樣子，也有點像&lt;code&gt;麥當勞&lt;/code&gt;的1號餐、2號餐那樣子簡化，我就以訂便當做例子…&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;情境一&#34;&gt;情境一&lt;/h3&gt;
@@ -101,7 +102,7 @@
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; colors&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;87&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; // RGB&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;123, 234, 128&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;我們先來看看QOI的檔案&lt;a href=&#34;https://qoiformat.org/qoi-specification.pdf&#34;&gt;標頭&lt;/a&gt;長什麼樣子？這裡用C說明，所以可以知道header有14個bytes…。&lt;/li&gt;
+&lt;li&gt;我們先來看看QOI的檔案&lt;a href=&#34;https://qoiformat.org/qoi-specification.pdf&#34;&gt;標頭&lt;/a&gt;長什麼樣子？這裡用C說明，所以可以知道&lt;code&gt;header&lt;/code&gt;有14個bytes…。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;figure&gt;
   &lt;picture&gt;
