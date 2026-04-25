@@ -207,7 +207,7 @@
     </picture>
 </figure>
 </p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ae81ff">800</span> x <span style="color:#ae81ff">600</span> x 4 <span style="color:#f92672">=</span>1,920,000 <span style="color:#f92672">=</span> 1.87 MB
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ae81ff">800</span> x <span style="color:#ae81ff">600</span> x 4 <span style="color:#f92672">=</span> 1,920,000 <span style="color:#f92672">=</span> 1.87 MB
 </span></span></code></pre></div><ul>
 <li>也就是說，不管圖片是怎麼<code>壓縮</code>的，顯示在畫面上，都是<code>一個點一個點</code>去顯示的，最後都會解回<code>RAW</code>的格式，都要用到<code>1.87 MB</code>的記憶體…</li>
 <li>像<code>zip</code>文件也是一樣，最後一定是<code>解壓縮</code>出來，才能處理裡面的檔案嘛…</li>
@@ -230,7 +230,7 @@
 </span></span><span style="display:flex;"><span>排骨飯 x <span style="color:#ae81ff">1</span>
 </span></span><span style="display:flex;"><span>+ <span style="color:#ae81ff">2</span>
 </span></span></code></pre></div><ul>
-<li>結果都是<code>排骨飯 x 10</code>、<code>爌肉飯 x 4</code>，很明顯<code>情境二</code>的字數少很多，而且<code>+1 / +2</code>也都知道加的是上一個便當，其實<code>QOI</code>也是用類似的演算法，它使用<code>64格空間</code>來存<code>有限的</code>顏色色碼，然後用<code>Index</code>去取色碼就好了，不然就<code>跟上一個顏色一樣</code>，是不是類似啊？</li>
+<li>結果都是<code>排骨飯 x 10</code>、<code>爌肉飯 x 4</code>，但很明顯<code>情境二</code>的字數少很多，而且<code>+1 / +2</code>也都知道加的是上一個便當，其實<code>QOI</code>也是用類似的演算法，它使用<code>64格空間</code>來存<code>有限的</code>顏色色碼，然後用<code>Index</code>去取色碼就好了，不然就<code>跟上一個顏色一樣</code>，是不是類似啊？</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>color <span style="color:#f92672">=</span> colors<span style="color:#f92672">[</span>87<span style="color:#f92672">]</span> // RGB<span style="color:#f92672">(</span>123, 234, 128<span style="color:#f92672">)</span>
 </span></span></code></pre></div><ul>
@@ -327,7 +327,7 @@
 </figure>
 </li>
 </ul>
-<h3 id="-rgb--rgba功能">✨ <code>RGB</code> + <code>RGBA</code>功能</h3>
+<h3 id="-rgb--rgba功能">✨ <code>RGB</code> / <code>RGBA</code>功能</h3>
 <p><figure>
   <picture>
 
@@ -372,7 +372,7 @@
 </span></span></code></pre></div><h3 id="-index功能">✨ <code>index</code>功能</h3>
 <ul>
 <li>就是前二個是<code>00</code>的值，數值範圍在 <code>0 ~ 63</code>之間…</li>
-<li>它就是要去64格的<code>顏色快速表</code>去取顏色…</li>
+<li>它就是要去64格的<code>顏色快取表</code>去取顏色…</li>
 </ul>
 <p><figure>
   <picture>
