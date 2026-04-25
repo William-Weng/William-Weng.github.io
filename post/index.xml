@@ -6,7 +6,134 @@
     <description>Recent content in Posts on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Mon, 23 Mar 2026 21:51:12 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Apr 2026 11:27:55 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Swift】什麼是QOI？相當OK的圖片？</title>
+      <link>https://William-Weng.github.io/2026/04/swift%E4%BB%80%E9%BA%BC%E6%98%AFqoi%E7%9B%B8%E7%95%B6ok%E7%9A%84%E5%9C%96%E7%89%87/</link>
+      <pubDate>Sat, 25 Apr 2026 11:27:55 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2026/04/swift%E4%BB%80%E9%BA%BC%E6%98%AFqoi%E7%9B%B8%E7%95%B6ok%E7%9A%84%E5%9C%96%E7%89%87/</guid>
+      <description>
+        
+          
+            &lt;p&gt;最近正好看到一個&lt;a href=&#34;https://godotengine.org/&#34;&gt;Godot&lt;/a&gt;支援的圖片新格式&lt;a href=&#34;https://qoiformat.org/&#34;&gt;QOI - Quite OK Image&lt;/a&gt;，是&lt;code&gt;無損&lt;/code&gt;圖片壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/PNG&#34;&gt;PNG - Portable Network Graphics&lt;/a&gt;一樣，但是是使用很簡單方式來壓縮，是不是聽起來很厲害啊？其實還有一個叫&lt;a href=&#34;https://qoaformat.org/&#34;&gt;QOA - Quite OK Audio&lt;/a&gt;，它是&lt;code&gt;有損&lt;/code&gt;音頻壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/MP3&#34;&gt;MP3 - MPEG-2 Audio Layer III&lt;/a&gt;類似，不過影音不太會用無損壓縮的，傳輸太慢了，檔案又大，接下來我們來一起了解QOI的壓縮&lt;code&gt;演算法&lt;/code&gt;…&lt;/p&gt;
+&lt;h2 id=&#34;做一個長得像這樣的東西&#34;&gt;做一個長得像這樣的東西&lt;/h2&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_external image_processed&#34;
+        width=&#34;293&#34;
+        height=&#34;600&#34;
+        src=&#34;https://William-Weng.github.io/bc6f2305-55fb-41e0-bedd-782063a98b9c_8033270357948399214.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;說明&#34;&gt;說明&lt;/h2&gt;
+&lt;h3 id=&#34;圖片大小&#34;&gt;圖片大小&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;我們大家都知道，顏色就是由&lt;a href=&#34;https://www.mindscmyk.com/2025/01/08/cmyk-color-model/&#34;&gt;三原色&lt;/a&gt; + 透明度組成的，也就是網頁上常看到的&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/RGBA&#34;&gt;RGBA&lt;/a&gt;，所以1張&lt;code&gt;800 x 600&lt;/code&gt;的彩色圖片，它的大小就是：&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/qoi-swift-binary/size.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;800&lt;/span&gt; x &lt;span style=&#34;color:#ae81ff&#34;&gt;600&lt;/span&gt; x 4 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1,920,000 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 1.87 MB
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;也就是說，不管圖片是怎麼&lt;code&gt;壓縮&lt;/code&gt;的，顯示在畫面上，都是&lt;code&gt;一個點一個點&lt;/code&gt;去顯示的，最後都會解回&lt;code&gt;RAW&lt;/code&gt;的格式，都要用到&lt;code&gt;1.87 MB&lt;/code&gt;的記憶體…&lt;/li&gt;
+&lt;li&gt;而所謂的圖片壓縮，就是把&lt;code&gt;相同&lt;/code&gt; / &lt;code&gt;相近&lt;/code&gt;顏色變成一個可重複使用的編碼，有點像&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/%E9%9C%8D%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81&#34;&gt;霍夫曼編碼&lt;/a&gt;那樣子，也有點像&lt;code&gt;麥當勞&lt;/code&gt;的1號餐、2號餐那樣子簡化，我就以訂便當做例子…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;情境一&#34;&gt;情境一&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;爌肉飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;爌肉飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;情境二&#34;&gt;情境二&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+ &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+ &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;爌肉飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+ &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+ &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;結果都是&lt;code&gt;排骨飯 x 10&lt;/code&gt;、&lt;code&gt;爌肉飯 x 4&lt;/code&gt;，很明顯&lt;code&gt;情境二&lt;/code&gt;的字數少很多，而且&lt;code&gt;+1 / +2&lt;/code&gt;也都知道加的是上一個便當，其實&lt;code&gt;QOI&lt;/code&gt;也是用類似的演算法，它使用&lt;code&gt;64格空間&lt;/code&gt;來存&lt;code&gt;有限的&lt;/code&gt;顏色色碼，然後用&lt;code&gt;Index&lt;/code&gt;去取色碼就好了，不然就&lt;code&gt;跟上一個顏色一樣&lt;/code&gt;，是不是類似啊？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; colors&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;87&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; // RGB&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;123, 234, 128&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;我們先來看看QOI的檔案&lt;a href=&#34;https://qoiformat.org/qoi-specification.pdf&#34;&gt;標頭&lt;/a&gt;長什麼樣子？這裡用C說明，所以可以知道header有14個bytes…。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/qoi-swift-binary/header.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>FFMpeg跟iOS終於在一起了</title>
       <link>https://William-Weng.github.io/2026/03/ffmpeg%E8%B7%9Fios%E7%B5%82%E6%96%BC%E5%9C%A8%E4%B8%80%E8%B5%B7%E4%BA%86/</link>
