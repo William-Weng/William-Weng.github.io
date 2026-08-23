@@ -16,7 +16,7 @@
       <description>
         
           
-            &lt;p&gt;最近正好看到一個&lt;a href=&#34;https://godotengine.org/&#34;&gt;Godot&lt;/a&gt;支援的圖片新格式&lt;a href=&#34;https://qoiformat.org/&#34;&gt;QOI - Quite OK Image&lt;/a&gt;，是&lt;code&gt;無損&lt;/code&gt;圖片壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/PNG&#34;&gt;PNG - Portable Network Graphics&lt;/a&gt;一樣，但是是使用很簡單方式來壓縮，是不是聽起來很厲害啊？其實還有一個叫&lt;a href=&#34;https://qoaformat.org/&#34;&gt;QOA - Quite OK Audio&lt;/a&gt;，它是&lt;code&gt;有損&lt;/code&gt;音頻壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/MP3&#34;&gt;MP3 - MPEG-2 Audio Layer III&lt;/a&gt;類似，不過影音不太會用無損壓縮的，傳輸太慢了，檔案又大，接下來我們來一起了解QOI的壓縮&lt;code&gt;演算法&lt;/code&gt;…&lt;/p&gt;
+            &lt;p&gt;最近正好看到一個&lt;a href=&#34;https://godotengine.org/&#34;&gt;Godot&lt;/a&gt;支援的圖片新格式&lt;a href=&#34;https://qoiformat.org/&#34;&gt;QOI (Quite OK Image)&lt;/a&gt;，是&lt;code&gt;無損&lt;/code&gt;圖片壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/PNG&#34;&gt;PNG (Portable Network Graphics)&lt;/a&gt;一樣，但是是使用很簡單方式來壓縮，是不是聽起來很厲害啊？其實還有一個叫&lt;a href=&#34;https://qoaformat.org/&#34;&gt;QOA (Quite OK Audio)&lt;/a&gt;，它是&lt;code&gt;有損&lt;/code&gt;音頻壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/MP3&#34;&gt;MP3 - MPEG-2 Audio Layer III&lt;/a&gt;類似，不過影音不太會用&lt;a href=&#34;https://www.youtube.com/watch?v=Os2bF7QNaJg&#34;&gt;壓縮&lt;/a&gt;的，傳輸太慢了，檔案又大，接下來我們來一起了解QOI的壓縮&lt;code&gt;演算法&lt;/code&gt;…&lt;/p&gt;
 &lt;h2 id=&#34;做一個長得像這樣的東西&#34;&gt;做一個長得像這樣的東西&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;
   &lt;picture&gt;
@@ -98,7 +98,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+ &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;結果都是&lt;code&gt;排骨飯 x 10&lt;/code&gt;、&lt;code&gt;爌肉飯 x 4&lt;/code&gt;，但很明顯&lt;code&gt;情境二&lt;/code&gt;的字數少很多，而且&lt;code&gt;+1 / +2&lt;/code&gt;也都知道加的是上一個便當，其實&lt;code&gt;QOI&lt;/code&gt;也是用類似的演算法，它使用&lt;code&gt;64格空間&lt;/code&gt;來存&lt;code&gt;有限的&lt;/code&gt;顏色色碼，然後用&lt;code&gt;Index&lt;/code&gt;去取色碼就好了，不然就&lt;code&gt;跟上一個顏色一樣&lt;/code&gt;，是不是類似啊？&lt;/li&gt;
+&lt;li&gt;結果都是&lt;code&gt;排骨飯 x 10&lt;/code&gt;、&lt;code&gt;爌肉飯 x 4&lt;/code&gt;，但很明顯&lt;code&gt;情境二&lt;/code&gt;的字數少很多，而且&lt;code&gt;+1/+2&lt;/code&gt;也都知道加的是上一個便當，其實&lt;code&gt;QOI&lt;/code&gt;也是用類似的演算法，它使用&lt;code&gt;64格空間&lt;/code&gt;來存&lt;code&gt;有限的&lt;/code&gt;顏色色碼，然後用&lt;code&gt;Index&lt;/code&gt;去取色碼就好了，不然就&lt;code&gt;跟上一個顏色一樣&lt;/code&gt;，是不是類似啊？&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; colors&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;87&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; // RGB&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;123, 234, 128&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;

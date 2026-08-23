@@ -6,7 +6,261 @@
     <description>Recent content in Posts on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Sat, 25 Apr 2026 11:27:55 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Aug 2026 13:05:42 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【Aseprite】想做2D像素遊戲嗎？一起來編譯好工具吧，不用錢…</title>
+      <link>https://William-Weng.github.io/2026/08/aseprite%E6%83%B3%E5%81%9A2d%E5%83%8F%E7%B4%A0%E9%81%8A%E6%88%B2%E5%97%8E%E4%B8%80%E8%B5%B7%E4%BE%86%E7%B7%A8%E8%AD%AF%E5%A5%BD%E5%B7%A5%E5%85%B7%E5%90%A7%E4%B8%8D%E7%94%A8%E9%8C%A2/</link>
+      <pubDate>Sun, 23 Aug 2026 13:05:42 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2026/08/aseprite%E6%83%B3%E5%81%9A2d%E5%83%8F%E7%B4%A0%E9%81%8A%E6%88%B2%E5%97%8E%E4%B8%80%E8%B5%B7%E4%BE%86%E7%B7%A8%E8%AD%AF%E5%A5%BD%E5%B7%A5%E5%85%B7%E5%90%A7%E4%B8%8D%E7%94%A8%E9%8C%A2/</guid>
+      <description>
+        
+          
+            &lt;p&gt;&lt;a href=&#34;https://www.aseprite.org/&#34;&gt;&lt;code&gt;Aseprite&lt;/code&gt;&lt;/a&gt; 是一款專門用來創作像素藝術 (Pixel Art) 與 2D 像素動畫的知名繪圖軟體。許多獨立遊戲開發者與像素畫家都會用它來繪製遊戲角色、場景和動態影格。所以您可以到&lt;a href=&#34;https://www.aseprite.org/buy/&#34;&gt;官網&lt;/a&gt;購買，大約NT.400元左右，工欲善其事，必先利其器其器嘛；不過呢，它可是有開放原始碼的，所以…可以自己編譯喲，但…不可以拿去賣…&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/demo.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;作業環境&#34;&gt;作業環境&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;項目&lt;/th&gt;
+          &lt;th&gt;版本&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.apple.com/tw/os/macos/&#34;&gt;macOS&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;Tahoe 26.5.2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://developer.apple.com/xcode/&#34;&gt;Xcode&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;26.6&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://sites.google.com/view/brew-macos-install&#34;&gt;Homebrew&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;6.0.18&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://cmake.org/&#34;&gt;cmake&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;4.4.2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://cmake.org/cmake/help/latest/generator/Ninja.html&#34;&gt;ninja&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;1.13.2&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;官網購買&#34;&gt;官網購買&lt;/h2&gt;
+&lt;p&gt;您可以支持一下好軟體，到&lt;a href=&#34;https://www.aseprite.org/buy/&#34;&gt;官網&lt;/a&gt;用 NT.400 購買，下載就可以了，方便快速…&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/buy.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;github下載&#34;&gt;Github下載&lt;/h2&gt;
+&lt;p&gt;當然，這篇文的&lt;a href=&#34;https://natsucamellia.net/compiling-aseprite-on-arm64-mac/&#34;&gt;目的&lt;/a&gt;，就是要自己編譯…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先到該&lt;a href=&#34;https://github.com/aseprite/aseprite&#34;&gt;倉庫&lt;/a&gt;下載原始碼，筆者這裡下載的是&lt;a href=&#34;https://github.com/aseprite/aseprite/releases/download/v1.3.18.2/Aseprite-v1.3.18.2-Source.zip&#34;&gt;v1.3.18.2版&lt;/a&gt;，然後解壓縮…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://github.com/aseprite/aseprite/releases
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/source.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;然後到App Store下載安裝Xcode，它就是一個免費程式碼的編譯工具…
+&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/xcode.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接下來用&lt;a href=&#34;https://iterm2.com/&#34;&gt;終端機&lt;/a&gt;輸入命令，進入到Aseprite目錄後，使用homebrew安裝&lt;code&gt;cmake&lt;/code&gt; + &lt;code&gt;ninja&lt;/code&gt;…&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd Aseprite-v1.3.18.2-Source
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install cmake ninja
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/cmake.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;再來就是編譯了，中間它還會下載一個叫&lt;a href=&#34;https://github.com/aseprite/skia&#34;&gt;&lt;code&gt;skia&lt;/code&gt;&lt;/a&gt;的工具，建立好&lt;code&gt;build&lt;/code&gt;資料夾，執行命令吧…&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir build
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;./build.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;video width=&#34;50%&#34; controls&gt;
+  &lt;source src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/build.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;編譯好之後，在&lt;code&gt;build/bin&lt;/code&gt;資料夾下就可以看到執行檔了…
+&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/build.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;趕快來試試看能不能啟動吧…
+&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/aseprite-build/aseprite.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>【Swift】什麼是QOI？相當OK的圖片？</title>
       <link>https://William-Weng.github.io/2026/04/swift%E4%BB%80%E9%BA%BC%E6%98%AFqoi%E7%9B%B8%E7%95%B6ok%E7%9A%84%E5%9C%96%E7%89%87/</link>
@@ -16,7 +270,7 @@
       <description>
         
           
-            &lt;p&gt;最近正好看到一個&lt;a href=&#34;https://godotengine.org/&#34;&gt;Godot&lt;/a&gt;支援的圖片新格式&lt;a href=&#34;https://qoiformat.org/&#34;&gt;QOI - Quite OK Image&lt;/a&gt;，是&lt;code&gt;無損&lt;/code&gt;圖片壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/PNG&#34;&gt;PNG - Portable Network Graphics&lt;/a&gt;一樣，但是是使用很簡單方式來壓縮，是不是聽起來很厲害啊？其實還有一個叫&lt;a href=&#34;https://qoaformat.org/&#34;&gt;QOA - Quite OK Audio&lt;/a&gt;，它是&lt;code&gt;有損&lt;/code&gt;音頻壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/MP3&#34;&gt;MP3 - MPEG-2 Audio Layer III&lt;/a&gt;類似，不過影音不太會用無損壓縮的，傳輸太慢了，檔案又大，接下來我們來一起了解QOI的壓縮&lt;code&gt;演算法&lt;/code&gt;…&lt;/p&gt;
+            &lt;p&gt;最近正好看到一個&lt;a href=&#34;https://godotengine.org/&#34;&gt;Godot&lt;/a&gt;支援的圖片新格式&lt;a href=&#34;https://qoiformat.org/&#34;&gt;QOI (Quite OK Image)&lt;/a&gt;，是&lt;code&gt;無損&lt;/code&gt;圖片壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/PNG&#34;&gt;PNG (Portable Network Graphics)&lt;/a&gt;一樣，但是是使用很簡單方式來壓縮，是不是聽起來很厲害啊？其實還有一個叫&lt;a href=&#34;https://qoaformat.org/&#34;&gt;QOA (Quite OK Audio)&lt;/a&gt;，它是&lt;code&gt;有損&lt;/code&gt;音頻壓縮格式，跟&lt;a href=&#34;https://zh.wikipedia.org/zh-tw/MP3&#34;&gt;MP3 - MPEG-2 Audio Layer III&lt;/a&gt;類似，不過影音不太會用&lt;a href=&#34;https://www.youtube.com/watch?v=Os2bF7QNaJg&#34;&gt;壓縮&lt;/a&gt;的，傳輸太慢了，檔案又大，接下來我們來一起了解QOI的壓縮&lt;code&gt;演算法&lt;/code&gt;…&lt;/p&gt;
 &lt;h2 id=&#34;做一個長得像這樣的東西&#34;&gt;做一個長得像這樣的東西&lt;/h2&gt;
 &lt;p&gt;&lt;figure&gt;
   &lt;picture&gt;
@@ -98,7 +352,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;排骨飯 x &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;+ &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;結果都是&lt;code&gt;排骨飯 x 10&lt;/code&gt;、&lt;code&gt;爌肉飯 x 4&lt;/code&gt;，但很明顯&lt;code&gt;情境二&lt;/code&gt;的字數少很多，而且&lt;code&gt;+1 / +2&lt;/code&gt;也都知道加的是上一個便當，其實&lt;code&gt;QOI&lt;/code&gt;也是用類似的演算法，它使用&lt;code&gt;64格空間&lt;/code&gt;來存&lt;code&gt;有限的&lt;/code&gt;顏色色碼，然後用&lt;code&gt;Index&lt;/code&gt;去取色碼就好了，不然就&lt;code&gt;跟上一個顏色一樣&lt;/code&gt;，是不是類似啊？&lt;/li&gt;
+&lt;li&gt;結果都是&lt;code&gt;排骨飯 x 10&lt;/code&gt;、&lt;code&gt;爌肉飯 x 4&lt;/code&gt;，但很明顯&lt;code&gt;情境二&lt;/code&gt;的字數少很多，而且&lt;code&gt;+1/+2&lt;/code&gt;也都知道加的是上一個便當，其實&lt;code&gt;QOI&lt;/code&gt;也是用類似的演算法，它使用&lt;code&gt;64格空間&lt;/code&gt;來存&lt;code&gt;有限的&lt;/code&gt;顏色色碼，然後用&lt;code&gt;Index&lt;/code&gt;去取色碼就好了，不然就&lt;code&gt;跟上一個顏色一樣&lt;/code&gt;，是不是類似啊？&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;color &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; colors&lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;87&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; // RGB&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;123, 234, 128&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
