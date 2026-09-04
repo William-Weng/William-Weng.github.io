@@ -6,7 +6,120 @@
     <description>Recent content in Lua on William-Weng</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-TW</language>
-    <lastBuildDate>Thu, 27 Aug 2026 19:58:10 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Sep 2026 19:52:50 +0800</lastBuildDate><atom:link href="https://William-Weng.github.io/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用Defold做遊戲, 大家一起來推箱子吧…</title>
+      <link>https://William-Weng.github.io/2026/09/%E7%94%A8defold%E5%81%9A%E9%81%8A%E6%88%B2-%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%90%A7/</link>
+      <pubDate>Fri, 04 Sep 2026 19:52:50 +0800</pubDate>
+      
+      <guid>https://William-Weng.github.io/2026/09/%E7%94%A8defold%E5%81%9A%E9%81%8A%E6%88%B2-%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E6%8E%A8%E7%AE%B1%E5%AD%90%E5%90%A7/</guid>
+      <description>
+        
+          
+            &lt;h1 id=&#34;序言&#34;&gt;序言&lt;/h1&gt;
+&lt;p&gt;繼上次 &lt;strong&gt;Defold&lt;/strong&gt; 初體驗之後，相信大家已經掌握了基礎操作——新增物件、製作動畫、加入音樂、處理輸入等核心功能應該都難不倒你了。&lt;/p&gt;
+&lt;p&gt;本專案將帶領你使用 &lt;strong&gt;Defold&lt;/strong&gt; 引擎，從零開始打造一款經典的 &lt;strong&gt;倉庫番（Sokoban）&lt;/strong&gt; 遊戲。我們將從專案建立、基礎設定與素材匯入一步步實作，讓你在完整遊戲開發流程中，進一步鞏固並深化 &lt;strong&gt;Defold&lt;/strong&gt; 的應用能力。&lt;/p&gt;
+&lt;video width=&#34;50%&#34; controls&gt;
+  &lt;source src=&#34;https://William-Weng.github.io/images/2026/defold-sokoban/result.mp4&#34; type=&#34;video/mp4&#34;&gt;
+&lt;/video&gt;
+&lt;h2 id=&#34;作業環境&#34;&gt;作業環境&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;項目&lt;/th&gt;
+          &lt;th&gt;版本&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://www.apple.com/tw/os/macos/&#34;&gt;macOS&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;Tahoe 26.5.2&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&#34;https://github.com/defold/defold&#34;&gt;Defold&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;1.13.1&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;相關素材&#34;&gt;相關素材&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;名稱&lt;/th&gt;
+          &lt;th&gt;下載&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;圖片素材&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://kenney.nl/assets/sokoban&#34;&gt;kenney.nl&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;中文字型&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://justfont.com/huninn/&#34;&gt;jf open 粉圓體&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;背景音樂&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://archive.org/details/JuhaniJunkala-JRPGpack2Town/Town4+-+Bazaar.ogg&#34;&gt;Internet Archive&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;過關音效&lt;/td&gt;
+          &lt;td&gt;&lt;a href=&#34;https://opengameart.org/content/victory&#34;&gt;OpenGameArt.org&lt;/a&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id=&#34;倉庫番sokoban&#34;&gt;倉庫番（Sokoban）&lt;/h1&gt;
+&lt;h2 id=&#34;專案設定&#34;&gt;專案設定&lt;/h2&gt;
+&lt;h3 id=&#34;建立新專案&#34;&gt;建立新專案&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;開啟 &lt;strong&gt;Defold IDE&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;選擇空白專案模板（Empty Project）。&lt;/li&gt;
+&lt;li&gt;建立一個名為 &lt;code&gt;defold-sokoban&lt;/code&gt; 的新專案。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Defold IDE 提供簡體中文介面選項；不過為了讓後續教學中的選單名稱、設定欄位與官方文件一致，本教學將以英文介面為主。&lt;/p&gt;
+&lt;p&gt;&lt;figure&gt;
+  &lt;picture&gt;
+
+    
+      
+        
+        
+        
+        
+        
+        
+    &lt;img
+      loading=&#34;lazy&#34;
+      decoding=&#34;async&#34;
+      alt=&#34;&#34;
+      
+        class=&#34;image_figure image_internal image_unprocessed&#34;
+        src=&#34;https://William-Weng.github.io/images/2026/defold-sokoban/01-create.png&#34;
+      
+      
+    /&gt;
+
+    &lt;/picture&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h3 id=&#34;設定-gameproject&#34;&gt;設定 &lt;code&gt;game.project&lt;/code&gt;&lt;/h3&gt;
+&lt;p&gt;建立專案後，開啟根目錄中的 &lt;code&gt;game.project&lt;/code&gt;。這個檔案集中管理專案的重要設定，例如專案名稱、版本、相依套件、顯示解析度與輸入設定等。&lt;/p&gt;
+&lt;p&gt;首先，在 &lt;strong&gt;Project&lt;/strong&gt; 區段設定下列欄位：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Title&lt;/code&gt;：遊戲顯示名稱&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Version&lt;/code&gt;：專案版本&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Dependencies&lt;/code&gt;：外部套件與函式庫&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中，&lt;code&gt;Dependencies&lt;/code&gt; 用於安裝 Defold 的外部依賴套件。本專案會先加入筆者製作的工具集 &lt;code&gt;defold-utils&lt;/code&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;https://github.com/William-Weng/defold-utils/archive/refs/tags/0.1.0.zip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;也可以直接使用以下連結：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/William-Weng/defold-utils/archive/refs/tags/0.1.0.zip&#34;&gt;defold-utils 0.1.0&lt;/a&gt;&lt;/p&gt;
+          
+          
+        
+      </description>
+    </item>
+    
     <item>
       <title>用Defold做遊戲, 大家一起來吃生魚片吧…</title>
       <link>https://William-Weng.github.io/2026/08/%E7%94%A8defold%E5%81%9A%E9%81%8A%E6%88%B2-%E5%A4%A7%E5%AE%B6%E4%B8%80%E8%B5%B7%E4%BE%86%E5%90%83%E7%94%9F%E9%AD%9A%E7%89%87%E5%90%A7/</link>
